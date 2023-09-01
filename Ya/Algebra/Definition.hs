@@ -70,6 +70,10 @@ type Natural t = Compositional t Flat Functor Functor
 
 type Infranatural t = Compositional t Dual Functor Functor
 
+type Covariant f = f Flat
+
+type Contravariant f = f Dual
+
 type Kleisli = U_I_T_II
 
 instance Transformation Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)

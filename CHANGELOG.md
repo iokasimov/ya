@@ -36,3 +36,14 @@
 * Define `Compositional` type class
 * Define `Natural` type alias
 * Define `Infranatural` type alias
+* Define `Covariant` type alias
+* Define `Contravariant` type alias
+* Define `fi` operator
+* Define `fi'fi` operator
+* Define `fi'fi'fi` operator
+* Define `fi'fi'fi'fi` operator
+* Define `fi'fi'fi'fi'fi` operator
+* Define `fo` operator
+* Define `fa` operator
+* Define `fo'fi` operator
+* Define `fa'fi` operator
