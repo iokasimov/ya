@@ -17,6 +17,7 @@ library
     Ya
   other-modules:
   	 Ya.Algebra
+    Ya.Algebra.Abstract
   default-extensions:
     DataKinds
     DeriveAnyClass
