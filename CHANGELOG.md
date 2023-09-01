@@ -15,3 +15,6 @@
 * Define `U_I_T_II` data type
 * Define `U_T_I_II` data type
 * Define `Kleisli` type alias
+* Define `Recursive` data type
+* Define `U_UU_UUU_UUUU_T_TT_I_II_III` data type
+* Define `R_U_I_T_I` data type
