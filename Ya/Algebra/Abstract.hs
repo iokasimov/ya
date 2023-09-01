@@ -114,3 +114,9 @@ instance Castable Flat Arrow (R_U_I_T_I u t i)
 
 instance Castable Dual Arrow (R_U_I_T_I u t i)
 	where cast = U_II_I R_U_I_T_I
+
+unwrap :: Castable Flat into i => into i (Supertype i)
+unwrap = let U_I_II x = cast in x
+
+wrap :: Castable Dual into i => into (Supertype i) i
+wrap = let U_II_I x = cast in x
