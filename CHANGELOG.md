@@ -10,3 +10,8 @@
 * Define `Dual` type alias
 * Define `Mono` type alias
 * Define `Wrapper` type class
+* Define `T_TT_I` data type
+* Define `T_TT_TTT_I` data type
+* Define `U_I_T_II` data type
+* Define `U_T_I_II` data type
+* Define `Kleisli` type alias
