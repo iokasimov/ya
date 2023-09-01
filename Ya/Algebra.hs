@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 module Ya.Algebra (module Exports) where
 
 import Ya.Algebra.Abstract as Exports
