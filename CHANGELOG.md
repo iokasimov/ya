@@ -22,3 +22,4 @@
 * Define `unwrap` expression
 * Define `wrap` expression
 * Define `transform` expression
+* Define `Semigroupoid` type class
