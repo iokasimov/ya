@@ -23,3 +23,7 @@
 * Define `wrap` expression
 * Define `transform` expression
 * Define `Semigroupoid` type class
+* Define `Category` type class
+* Define `i` operator
+* Define `ii` operator
+* Define `iii` operator

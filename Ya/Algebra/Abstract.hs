@@ -33,8 +33,6 @@ type Flat = U_I_II
 
 type Dual = U_II_I
 
-type Kleisli = U_I_T_II
-
 type family Supertype e where
 	Supertype (Identity i) = i
 	Supertype (Recursive f) = f (Recursive f)

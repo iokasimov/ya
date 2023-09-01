@@ -14,7 +14,7 @@ cabal-version:       >= 1.10
 
 library
   exposed-modules: Ya
-  other-modules: Ya.Algebra, Ya.Algebra.Abstract, Ya.Algebra.Definition
+  other-modules: Ya.Algebra, Ya.Algebra.Abstract, Ya.Algebra.Definition, Ya.Algebra.Operators
   default-extensions:
     DataKinds
     DeriveAnyClass
