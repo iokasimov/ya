@@ -1,5 +1,6 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE UndecidableSuperClasses #-}
 module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
@@ -12,6 +13,14 @@ transform :: forall v from into f g s t .
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (g t)
 transform from = transformation @v @from @into @f @g @s @t (wrap @Arrow from)
+
+component :: forall v from into f g t .
+	Category from =>
+	(Supertype (v from t t) ~ from t t) =>
+	Castable Dual Arrow (v from t t) =>
+	Transformation v from into f g =>
+	into (f t) (g t)
+component = transformation @v @from @into @f @g @_ @t (wrap @Arrow identity)
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -31,6 +40,38 @@ deriving instance
 class Semigroupoid from => Category from where
 	identity :: from s s
 
+class (m from, mm into, Transformation v from into f f) => Mapping m mm v f from into where
+deriving instance (m from, mm into, Transformation v from into f f) => Mapping m mm v f from into
+
+{- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
+type Semifunctor = Mapping Semigroupoid Semigroupoid
+
+semifunctor :: forall v from into f s t .
+	Semifunctor v f from into =>
+	Castable Dual Arrow (v from s t) =>
+	Supertype (v from s t) -> into (f s) (f t)
+semifunctor = transform @v @from @into @f @f @s @t
+
+{- [LAW] Identity preserving: transformation identity ≡ identity -}
+{- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
+type Functor = Mapping Category Category
+
+functor :: forall v from into f s t .
+	Functor v f from into =>
+	Castable Dual Arrow (v from s t) =>
+	Supertype (v from s t) -> into (f s) (f t)
+functor = transform @v @from @into @f @f @s @t
+
+class (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into where
+deriving instance (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into
+
+{- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
+type Natural t = Compositional t Flat Functor Functor
+
+type Infranatural t = Compositional t Dual Functor Functor
+
+type Kleisli = U_I_T_II
+
 instance Transformation Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where transformation (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
 
@@ -39,5 +80,3 @@ instance Transformation Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 
 instance Category Arrow where
 	identity = \x -> x
-
-type Kleisli = U_I_T_II

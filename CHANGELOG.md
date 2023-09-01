@@ -27,3 +27,12 @@
 * Define `i` operator
 * Define `ii` operator
 * Define `iii` operator
+* Define `component` expression
+* Define `Mapping` type class
+* Define `Semifunctor` type alias
+* Define `semifunctor` expression
+* Define `Functor` type alias
+* Define `functor` expression
+* Define `Compositional` type class
+* Define `Natural` type alias
+* Define `Infranatural` type alias
