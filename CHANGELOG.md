@@ -56,3 +56,6 @@
 * Define `_fo'fi` operator
 * Define `_fo'fi'fi` operator
 * Define `_fo'fo` operator
+* Define `And` data type
+* Define `Or` data type
+* Define `U_I_UU_I_II` data type
