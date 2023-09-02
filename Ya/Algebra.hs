@@ -5,6 +5,18 @@ import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Operators as Exports
 
+instance Transformation Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
+	where transformation (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
+
+instance Transformation Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t) where
+	transformation _ (U_II_I (Constant x)) = U_II_I (Constant x)
+
+instance Covariant Semifunctor f Arrow Arrow => Transformation Flat Constant Arrow f f where
+	transformation (U_I_II (Constant new)) = fo `i` \_ -> new
+
+instance Contravariant Semifunctor f Arrow Arrow => Transformation Dual Constant Arrow f f where
+	transformation (U_II_I (Constant new)) = fa `i` \_ -> new
+
 instance (Covariant Semifunctor f Arrow Arrow, Covariant Semifunctor g Arrow Arrow)
 	=> Transformation Flat Arrow Arrow (f `T_TT_I` g) (f `T_TT_I` g)
 	where transformation (U_I_II from) (T_TT_I x) = T_TT_I (from `fo'fo` x)

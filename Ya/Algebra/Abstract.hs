@@ -4,6 +4,8 @@ module Ya.Algebra.Abstract where
 
 newtype Identity i = Identity i
 
+newtype Constant s t = Constant t
+
 newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T_TT_I t tt i = T_TT_I (t (tt i))
@@ -37,6 +39,7 @@ type Dual = U_II_I
 
 type family Supertype e where
 	Supertype (Identity i) = i
+	Supertype (Constant i ii) = ii
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
@@ -61,6 +64,12 @@ instance Castable Flat Arrow (Identity i)
 
 instance Castable Dual Arrow (Identity i)
 	where cast = U_II_I Identity
+
+instance Castable Flat Arrow (Constant s t)
+	where cast = U_I_II (\(Constant x) -> x)
+
+instance Castable Dual Arrow (Constant s t)
+	where cast = U_II_I Constant
 
 instance Castable Flat Arrow (U_I_I u i)
 	where cast = U_I_II (\(U_I_I x) -> x)

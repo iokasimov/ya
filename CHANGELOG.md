@@ -59,3 +59,4 @@
 * Define `And` data type
 * Define `Or` data type
 * Define `U_I_UU_I_II` data type
+* Define `Constant` data type
