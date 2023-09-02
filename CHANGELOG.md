@@ -52,3 +52,7 @@
 * Define `fi_'fi'fi` operator
 * Define `fokl` operator
 * Define `fo'fo` operator
+* Define `_fo` operator
+* Define `_fo'fi` operator
+* Define `_fo'fi'fi` operator
+* Define `_fo'fo` operator
