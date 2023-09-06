@@ -5,34 +5,34 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-class Transformation v from into f g where
+class Transformation v f g from into where
 	transformation :: v from s t -> into (f s) (g t)
 
 transform :: forall v from into f g s t .
-	Transformation v from into f g =>
+	Transformation v f g from into =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (g t)
-transform from = transformation @v @from @into @f @g @s @t (wrap @Arrow from)
+transform from = transformation @v @f @g @from @into @s @t (wrap @Arrow from)
 
 component :: forall v from into f g t .
 	Category from =>
 	(Supertype (v from t t) ~ from t t) =>
 	Castable Dual Arrow (v from t t) =>
-	Transformation v from into f g =>
+	Transformation v f g from into =>
 	into (f t) (g t)
-component = transformation @v @from @into @f @g @_ @t (wrap @Arrow identity)
+component = transformation @v @f @g @from @into @_ @t (wrap @Arrow identity)
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
-	( forall i . Transformation Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Transformation Dual from Arrow (U_II_I from i) (U_II_I from i)
+	( forall i . Transformation Flat (U_I_II from i) (U_I_II from i) from Arrow
+	, forall i . Transformation Dual (U_II_I from i) (U_II_I from i) from Arrow
 	) => Semigroupoid from where
 	compose :: from s t -> from i s -> from i t
 	compose post pre = let U_I_II y = transform @Flat post (U_I_II pre) in y
 
 deriving instance
-	( forall i . Transformation Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Transformation Dual from Arrow (U_II_I from i) (U_II_I from i)
+	( forall i . Transformation Flat (U_I_II from i) (U_I_II from i) from Arrow
+	, forall i . Transformation Dual (U_II_I from i) (U_II_I from i) from Arrow
 	) => Semigroupoid from
 
 {- [LAW] Left identity: identity . f ≡ f -}
@@ -40,8 +40,8 @@ deriving instance
 class Semigroupoid from => Category from where
 	identity :: from s s
 
-class (m from, mm into, Transformation v from into f f) => Mapping m mm v f from into where
-deriving instance (m from, mm into, Transformation v from into f f) => Mapping m mm v f from into
+class (m from, mm into, Transformation v f f from into) => Mapping m mm v f from into where
+deriving instance (m from, mm into, Transformation v f f from into) => Mapping m mm v f from into
 
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
 type Semifunctor = Mapping Semigroupoid Semigroupoid
@@ -65,6 +65,7 @@ functor = transform @v @from @into @f @f @s @t
 class (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into where
 deriving instance (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into
 
+-- TODO: this is wrong, natural transformations could consists of 2 contravariant functors
 {- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
 type Natural t = Compositional t Flat Functor Functor
 
@@ -76,10 +77,10 @@ type Contravariant f = f Dual
 
 type Kleisli = U_I_T_II
 
-instance Transformation Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
+instance Transformation Flat (U_I_II Arrow s) (U_I_II Arrow s) Arrow Arrow
 	where transformation (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
 
-instance Transformation Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
+instance Transformation Dual (U_II_I Arrow t) (U_II_I Arrow t) Arrow Arrow
 	where transformation (U_II_I from) (U_II_I between) = U_II_I (\x -> between (from x))
 
 instance Category Arrow where
@@ -99,8 +100,8 @@ type family Representation t where
 	Representation (U_I_I And) = Unit `Or` Unit
 
 -- TODO: there is no proof of natural isomorphism
-type Representable v f t hom into =
+type Representing v f t hom into =
 	( f v t into into
-	, Transformation v into into t (v hom (Representation t))
-	, Transformation v into into (v hom (Representation t)) t
+	, Transformation v t (v hom (Representation t)) into into
+	, Transformation v (v hom (Representation t)) t into into
 	)
