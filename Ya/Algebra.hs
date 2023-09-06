@@ -14,6 +14,10 @@ instance Transformation Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
 instance Covariant Semifunctor f Arrow Arrow => Transformation Flat Constant Arrow f f where
 	transformation (U_I_II (Constant new)) = fo `i` \_ -> new
 
+instance Covariant Semifunctor f (Kleisli g Arrow) Arrow
+	=> Transformation Flat (Kleisli g Constant) Arrow f f where
+	transformation (U_I_II (U_I_T_II (Constant new))) = fokl `i` \_ -> new
+
 instance Contravariant Semifunctor f Arrow Arrow => Transformation Dual Constant Arrow f f where
 	transformation (U_II_I (Constant new)) = fa `i` \_ -> new
 

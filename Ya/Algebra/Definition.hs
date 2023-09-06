@@ -84,3 +84,23 @@ instance Transformation Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 
 instance Category Arrow where
 	identity = \x -> x
+
+data Void
+
+data Unit = Unit
+
+type family Representation t where
+	Representation Identity = Unit
+	Representation (U_I_II Arrow i) = i
+	Representation (T_TT_I t tt) =
+		Representation t `And` Representation tt
+	Representation (T_TT_TTT_I t tt ttt) =
+		Representation t `And` Representation tt `And` Representation ttt
+	Representation (U_I_I And) = Unit `Or` Unit
+
+-- TODO: there is no proof of natural isomorphism
+type Representable v f t hom into =
+	( f v t into into
+	, Transformation v into into t (v hom (Representation t))
+	, Transformation v into into (v hom (Representation t)) t
+	)
