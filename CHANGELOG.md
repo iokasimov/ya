@@ -35,7 +35,6 @@
 * Define `functor` expression
 * Define `Compositional` type class
 * Define `Natural` type alias
-* Define `Infranatural` type alias
 * Define `Covariant` type alias
 * Define `Contravariant` type alias
 * Define `fi` operator
@@ -63,4 +62,6 @@
 * Define `Void` data type
 * Define `Unit` data type
 * Define `Representation` type family
-* Define `Representable` type alias
+* Define `Representable` type class
+* Define `ro` operator
+* Define `ra` operator

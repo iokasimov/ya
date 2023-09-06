@@ -62,14 +62,11 @@ functor :: forall v from into f s t .
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
 
-class (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into where
-deriving instance (t v from into f g, f' v f from into, g' v g from into) => Compositional t v f' g' f g from into
+class (t v f g from into, f' v f from into, g' v g from into) => Compositional f' g' t v f g from into where
+deriving instance (t v f g from into, f' v f from into, g' v g from into) => Compositional f' g' t v f g from into
 
--- TODO: this is wrong, natural transformations could consists of 2 contravariant functors
 {- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
-type Natural t = Compositional t Flat Functor Functor
-
-type Infranatural t = Compositional t Dual Functor Functor
+type Natural = Compositional Functor Functor
 
 type Covariant f = f Flat
 
@@ -99,9 +96,12 @@ type family Representation t where
 		Representation t `And` Representation tt `And` Representation ttt
 	Representation (U_I_I And) = Unit `Or` Unit
 
--- TODO: there is no proof of natural isomorphism
-type Representing v f t hom into =
-	( f v t into into
-	, Transformation v t (v hom (Representation t)) into into
-	, Transformation v (v hom (Representation t)) t into into
-	)
+class
+	 ( Compositional f f Transformation v t (v hom (Representation t)) from into
+	 , Compositional f f Transformation v (v hom (Representation t)) t from into
+	 ) => Representable hom v f t from into where
+
+deriving instance
+	( Compositional f f Transformation v t (v hom (Representation t)) from into
+	, Compositional f f Transformation v (v hom (Representation t)) t from into
+	) => Representable hom v f t from into

@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `ro`, `ra`
 infixl 7 `iii`, `fi_`, `_fo`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
@@ -69,3 +69,15 @@ _fo'fo :: forall from into f g o s t .
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo = _fo @into @into `compose` fo @from @into
+
+ro :: forall from into hom f t .
+	Covariant (Representable hom) Functor f from into =>
+	Castable Flat into (Flat hom (Representation f) t) =>
+	into (f t) (hom (Representation f) t)
+ro = unwrap `compose` component @Flat @from @into @f @(Flat hom (Representation f))
+
+ra :: forall from into hom f t .
+	Contravariant (Representable hom) Functor f from into =>
+	Castable Flat into (Dual hom (Representation f) t) =>
+	into (f t) (hom t (Representation f))
+ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
