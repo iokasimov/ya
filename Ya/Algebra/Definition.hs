@@ -83,6 +83,8 @@ instance Transformation Dual (U_II_I Arrow t) (U_II_I Arrow t) Arrow Arrow
 instance Category Arrow where
 	identity = \x -> x
 
+type Semi v functor = Mapping Semigroupoid Semigroupoid v
+
 data Void
 
 data Unit = Unit
@@ -97,10 +99,11 @@ type family Representation t where
 	Representation (U_I_I And) = Unit `Or` Unit
 
 class
-	 ( Compositional f f Transformation v t (v hom (Representation t)) from into
-	 , Compositional f f Transformation v (v hom (Representation t)) t from into
-	 ) => Representable hom v f t from into where
+	 ( Compositional functor functor Transformation v t (v hom (Representation t)) from into
+	 , Compositional functor functor Transformation v (v hom (Representation t)) t from into
+	 ) => Representable hom v functor t from into where
 
+-- TODO: define these instances in Algebra module
 deriving instance
 	( Compositional f f Transformation v t (v hom (Representation t)) from into
 	, Compositional f f Transformation v (v hom (Representation t)) t from into

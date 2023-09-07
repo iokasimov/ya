@@ -65,3 +65,4 @@
 * Define `Representable` type class
 * Define `ro` operator
 * Define `ra` operator
+* Define `Semi` type alias
