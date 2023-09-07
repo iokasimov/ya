@@ -40,14 +40,14 @@ deriving instance
 class Semigroupoid from => Category from where
 	identity :: from s s
 
-class (m from, mm into, Transformation v f f from into) => Mapping m mm v f from into where
-deriving instance (m from, mm into, Transformation v f f from into) => Mapping m mm v f from into
+class (m from, mm into, Transformation v f f from into) => Mapping m mm v from into f where
+deriving instance (m from, mm into, Transformation v f f from into) => Mapping m mm v from into f
 
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
 type Semifunctor = Mapping Semigroupoid Semigroupoid
 
 semifunctor :: forall v from into f s t .
-	Semifunctor v f from into =>
+	Semifunctor v from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 semifunctor = transform @v @from @into @f @f @s @t
@@ -57,13 +57,13 @@ semifunctor = transform @v @from @into @f @f @s @t
 type Functor = Mapping Category Category
 
 functor :: forall v from into f s t .
-	Functor v f from into =>
+	Functor v from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
 
-class (t v f g from into, f' v f from into, g' v g from into) => Compositional f' g' t v f g from into where
-deriving instance (t v f g from into, f' v f from into, g' v g from into) => Compositional f' g' t v f g from into
+class (t v f g from into, f' v from into f, g' v from into g) => Compositional f' g' t v f g from into where
+deriving instance (t v f g from into, f' v from into f, g' v from into g) => Compositional f' g' t v f g from into
 
 {- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
 type Natural = Compositional Functor Functor
@@ -101,10 +101,10 @@ type family Representation t where
 class
 	 ( Compositional functor functor Transformation v t (v hom (Representation t)) from into
 	 , Compositional functor functor Transformation v (v hom (Representation t)) t from into
-	 ) => Representable hom v functor t from into where
+	 ) => Representable hom v functor from into t where
 
 -- TODO: define these instances in Algebra module
 deriving instance
-	( Compositional f f Transformation v t (v hom (Representation t)) from into
-	, Compositional f f Transformation v (v hom (Representation t)) t from into
-	) => Representable hom v f t from into
+	( Compositional functor functor Transformation v t (v hom (Representation t)) from into
+	, Compositional functor functor Transformation v (v hom (Representation t)) t from into
+	) => Representable hom v functor from into t

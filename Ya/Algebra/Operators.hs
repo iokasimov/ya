@@ -32,30 +32,30 @@ fi_'fi = identity
 fi_'fi'fi = identity
 
 fo, fo'fi :: forall from into f s t .
-	Covariant Semi Functor f from into =>
+	Covariant Semi Functor from into f =>
 	from s t -> into (f s) (f t)
 fo'fi = semifunctor @Flat
 fo = semifunctor @Flat
 
 fa, fa'fi :: forall from into f s t .
-	Contravariant Semi Functor f from into =>
+	Contravariant Semi Functor from into f =>
 	from s t -> into (f t) (f s)
 fa'fi = semifunctor @Dual
 fa = semifunctor @Dual
 
 fokl :: forall from into f g s t .
-	Covariant Semi Functor f (Kleisli g from) into =>
+	Covariant Semi Functor (Kleisli g from) into f =>
 	from s (g t) -> into (f s) (f t)
 fokl = semifunctor @Flat `compose` U_I_T_II
 
 fo'fo :: forall from into f g s t .
-	Covariant Semi Functor g from into =>
-	Covariant Semi Functor f into into =>
+	Covariant Semi Functor from into g =>
+	Covariant Semi Functor into into f =>
 	from s t -> into (f (g s)) (f (g t))
 fo'fo = fo @into @into `compose` fo @from @into
 
 _fo, _fo'fi, _fo'fi'fi :: forall from into f s t i .
-	Covariant Semi Functor (U_I_II f i) from into =>
+	Covariant Semi Functor from into (U_I_II f i) =>
 	Wrapper into (U_I_II f i s) =>
 	Wrapper into (U_I_II f i t) =>
 	from s t -> into (f i s) (f i t)
@@ -64,20 +64,20 @@ _fo'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
 _fo'fo :: forall from into f g o s t .
-	Covariant Semi Functor (U_I_II f o) into into =>
-	Covariant Semi Functor g from into =>
+	Covariant Semi Functor into into (U_I_II f o) =>
+	Covariant Semi Functor from into g =>
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo = _fo @into @into `compose` fo @from @into
 
 ro :: forall from into hom f i .
-	Covariant (Representable hom) Functor f from into =>
+	Covariant (Representable hom) Functor from into f =>
 	Castable Flat into (Flat hom (Representation f) i) =>
 	into (f i) (hom (Representation f) i)
 ro = unwrap `compose` component @Flat @from @into @f @(Flat hom (Representation f))
 
 ra :: forall from into hom f i .
-	Contravariant (Representable hom) Functor f from into =>
+	Contravariant (Representable hom) Functor from into f =>
 	Castable Flat into (Dual hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
