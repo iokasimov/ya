@@ -85,6 +85,8 @@ instance Category Arrow where
 
 type Semi v functor = Mapping Semigroupoid Semigroupoid v
 
+type Endo v functor into = v functor into into
+
 data Void
 
 data Unit = Unit
