@@ -19,14 +19,16 @@ iii = identity
 ii = identity
 i = identity
 
-fi'fi'fi'fi'fi, fi'fi'fi'fi, fi'fi'fi, fi'fi, fi :: Category into => into t t
+fi'fi'fi'fi'fi, fi'fi'fi'fi, fi'fi'fi, fi'fi, fi
+	:: Category into => into t t
 fi'fi'fi'fi'fi = identity
 fi'fi'fi'fi = identity
 fi'fi'fi = identity
 fi'fi = identity
 fi = identity
 
-fi_, fi_'fi, fi_'fi'fi :: Category into => into (into s t) (into s t)
+fi_, fi_'fi, fi_'fi'fi
+	:: Category into => into (into s t) (into s t)
 fi_ = identity
 fi_'fi = identity
 fi_'fi'fi = identity
@@ -64,7 +66,7 @@ _fo'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
 _fo'fo :: forall from into f g o s t .
-	Covariant Semi Functor into into (U_I_II f o) =>
+	Covariant Semi Endo Functor into (U_I_II f o) =>
 	Covariant Semi Functor from into g =>
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))

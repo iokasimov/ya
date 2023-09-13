@@ -40,8 +40,10 @@ deriving instance
 class Semigroupoid from => Category from where
 	identity :: from s s
 
-class (m from, mm into, Transformation v f f from into) => Mapping m mm v from into f where
-deriving instance (m from, mm into, Transformation v f f from into) => Mapping m mm v from into f
+class (m from, mm into, Transformation v f f from into)
+	=> Mapping m mm v from into f where
+deriving instance (m from, mm into, Transformation v f f from into)
+	=> Mapping m mm v from into f
 
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
 type Semifunctor = Mapping Semigroupoid Semigroupoid
@@ -62,8 +64,15 @@ functor :: forall v from into f s t .
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
 
-class (t v f g from into, f' v from into f, g' v from into g) => Compositional f' g' t v f g from into where
-deriving instance (t v f g from into, f' v from into f, g' v from into g) => Compositional f' g' t v f g from into
+type Semi v functor = Mapping Semigroupoid Semigroupoid v
+
+-- Doesn't work with Semi Functor declarations 
+type Endo functor f into = functor f into into
+
+class (t v f g from into, f' v from into f, g' v from into g)
+	=> Compositional f' g' t v f g from into where
+deriving instance (t v f g from into, f' v from into f, g' v from into g) 
+	=> Compositional f' g' t v f g from into
 
 {- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
 type Natural = Compositional Functor Functor
@@ -82,10 +91,6 @@ instance Transformation Dual (U_II_I Arrow t) (U_II_I Arrow t) Arrow Arrow
 
 instance Category Arrow where
 	identity = \x -> x
-
-type Semi v functor = Mapping Semigroupoid Semigroupoid v
-
-type Endo v functor into = v functor into into
 
 data Void
 
