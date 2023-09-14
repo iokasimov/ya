@@ -2,7 +2,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
-newtype Identity i = Identity i
+newtype I i = I i
 
 newtype Constant s t = Constant t
 
@@ -38,7 +38,7 @@ type Flat = U_I_II
 type Dual = U_II_I
 
 type family Supertype e where
-	Supertype (Identity i) = i
+	Supertype (I i) = i
 	Supertype (Constant i ii) = ii
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
@@ -59,11 +59,11 @@ class Castable direction morphism e where
 class (Castable Dual to f, Castable Flat to f) => Wrapper to f where
 deriving instance (Castable Dual to f, Castable Flat to f) => Wrapper to f
 
-instance Castable Flat Arrow (Identity i)
-	where cast = U_I_II (\(Identity x) -> x)
+instance Castable Flat Arrow (I i)
+	where cast = U_I_II (\(I x) -> x)
 
-instance Castable Dual Arrow (Identity i)
-	where cast = U_II_I Identity
+instance Castable Dual Arrow (I i)
+	where cast = U_II_I I
 
 instance Castable Flat Arrow (Constant s t)
 	where cast = U_I_II (\(Constant x) -> x)

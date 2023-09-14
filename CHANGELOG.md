@@ -1,6 +1,6 @@
 # 0.0.1
 * Define `Castable` type class
-* Define `Identity` data type
+* Define `I` data type
 * Define `Supertype` type family
 * Define `U_I_I` data type
 * Define `U_I_II` data type

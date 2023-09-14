@@ -98,7 +98,7 @@ data Void
 data Unit = Unit
 
 type family Representation t where
-	Representation Identity = Unit
+	Representation I = Unit
 	Representation (U_I_II Arrow i) = i
 	Representation (T_TT_I t tt) =
 		Representation t `And` Representation tt
