@@ -66,3 +66,4 @@
 * Define `ro` operator
 * Define `ra` operator
 * Define `Semi` type alias
+* Define `Endo` type alias

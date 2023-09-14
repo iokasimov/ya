@@ -142,3 +142,5 @@ data And this that = These this that
 
 -- Category: sum | Set: disjoint union | Logic: or
 data Or this that = This this | That that
+
+type ZZ this that = (this, that)

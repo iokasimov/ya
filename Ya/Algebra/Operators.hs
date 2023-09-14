@@ -66,7 +66,7 @@ _fo'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
 _fo'fo :: forall from into f g o s t .
-	Covariant Semi Endo Functor into (U_I_II f o) =>
+	Covariant Semi Functor into into (U_I_II f o) =>
 	Covariant Semi Functor from into g =>
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))

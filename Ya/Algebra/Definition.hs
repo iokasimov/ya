@@ -64,10 +64,11 @@ functor :: forall v from into f s t .
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
 
+-- TODO: turn into a type family so it should work with Monoidal Functor as well
 type Semi v functor = Mapping Semigroupoid Semigroupoid v
 
 -- Doesn't work with Semi Functor declarations 
-type Endo functor f into = functor f into into
+type Endo v functor into = functor v into into
 
 class (t v f g from into, f' v from into f, g' v from into g)
 	=> Compositional f' g' t v f g from into where
