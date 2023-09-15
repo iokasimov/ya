@@ -138,9 +138,13 @@ wrap :: Castable Dual into i => into (Supertype i) i
 wrap = let U_II_I x = cast in x
 
 -- Category: product | Set: cartesian product | Logic: and
-data And this that = These this that
+data (/\) this that = These this that
 
 -- Category: sum | Set: disjoint union | Logic: or
-data Or this that = This this | That that
+data (\/) this that = This this | That that
 
-type ZZ this that = (this, that)
+-- Category: initial object
+data Void
+
+-- Category: terminal object
+data Unit = Unit

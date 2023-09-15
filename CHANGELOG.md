@@ -55,8 +55,8 @@
 * Define `_fo'fi` operator
 * Define `_fo'fi'fi` operator
 * Define `_fo'fo` operator
-* Define `And` data type
-* Define `Or` data type
+* Define `/\` data type
+* Define `\/` data type
 * Define `U_I_UU_I_II` data type
 * Define `Constant` data type
 * Define `Void` data type

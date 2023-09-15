@@ -93,18 +93,14 @@ instance Transformation Dual (U_II_I Arrow t) (U_II_I Arrow t) Arrow Arrow
 instance Category Arrow where
 	identity = \x -> x
 
-data Void
-
-data Unit = Unit
-
 type family Representation t where
 	Representation I = Unit
 	Representation (U_I_II Arrow i) = i
 	Representation (T_TT_I t tt) =
-		Representation t `And` Representation tt
+		Representation t /\ Representation tt
 	Representation (T_TT_TTT_I t tt ttt) =
-		Representation t `And` Representation tt `And` Representation ttt
-	Representation (U_I_I And) = Unit `Or` Unit
+		Representation t /\ Representation tt /\ Representation ttt
+	Representation (U_I_I (/\)) = Unit \/ Unit
 
 class
 	 ( Compositional functor functor Transformation v t (v hom (Representation t)) from into
@@ -118,5 +114,5 @@ deriving instance
 	) => Representable hom v functor from into t
 
 type family Neutral p where
-	Neutral And = Unit
-	Neutral Or = Void
+	Neutral (/\) = Unit
+	Neutral (\/) = Void
