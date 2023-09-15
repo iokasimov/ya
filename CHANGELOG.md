@@ -67,3 +67,4 @@
 * Define `ra` operator
 * Define `Semi` type alias
 * Define `Endo` type alias
+* Define `Neutral` type family

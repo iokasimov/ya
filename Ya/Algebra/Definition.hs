@@ -116,3 +116,7 @@ deriving instance
 	( Compositional functor functor Transformation v t (v hom (Representation t)) from into
 	, Compositional functor functor Transformation v (v hom (Representation t)) t from into
 	) => Representable hom v functor from into t
+
+type family Neutral p where
+	Neutral And = Unit
+	Neutral Or = Void
