@@ -37,11 +37,11 @@ deriving instance
 
 {- [LAW] Left identity: identity . f ≡ f -}
 {- [LAW] Right identity: f . identity ≡ f -}
-class Semigroupoid from => Category from where
-	identity :: from s s
+class Semigroupoid from => Category from
+	where identity :: from s s
 
 class (m from, mm into, Transformation v f f from into)
-	=> Mapping m mm v from into f where
+	=> Mapping m mm v from into f
 deriving instance (m from, mm into, Transformation v f f from into)
 	=> Mapping m mm v from into f
 
@@ -71,7 +71,7 @@ type Semi v functor = Mapping Semigroupoid Semigroupoid v
 type Endo v functor into = functor v into into
 
 class (t v f g from into, f' v from into f, g' v from into g)
-	=> Compositional f' g' t v f g from into where
+	=> Compositional f' g' t v f g from into
 deriving instance (t v f g from into, f' v from into f, g' v from into g) 
 	=> Compositional f' g' t v f g from into
 
@@ -103,16 +103,25 @@ type family Representation t where
 	Representation (U_I_I (/\)) = Unit \/ Unit
 
 class
-	 ( Compositional functor functor Transformation v t (v hom (Representation t)) from into
-	 , Compositional functor functor Transformation v (v hom (Representation t)) t from into
-	 ) => Representable hom v functor from into t where
+	 ( Compositional x x Transformation v t (v hom (Representation t)) from into
+	 , Compositional x x Transformation v (v hom (Representation t)) t from into
+	 ) => Representable hom v x from into t
 
 -- TODO: define these instances in Algebra module
 deriving instance
-	( Compositional functor functor Transformation v t (v hom (Representation t)) from into
-	, Compositional functor functor Transformation v (v hom (Representation t)) t from into
-	) => Representable hom v functor from into t
+	( Compositional x x Transformation v t (v hom (Representation t)) from into
+	, Compositional x x Transformation v (v hom (Representation t)) t from into
+	) => Representable hom v x from into t
 
 type family Neutral p where
 	Neutral (/\) = Unit
 	Neutral (\/) = Void
+
+type Day = U_UU_UUU_UUUU_T_TT_I_II_III (/\)
+
+class
+	( Transformation v (Day (v from) p pp f f i ii) f from into
+	, Transformation v (Day (v from) p pp I f i ii) f from into
+	, Transformation v (Day (v from) p pp f I i ii) f from into
+	, Transformation v (v from (Neutral p)) f from into
+	) => Monoidal v f p pp from into i ii  

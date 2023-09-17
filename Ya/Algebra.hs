@@ -50,3 +50,49 @@ instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat (g `T_TT_I` 
 	Transformation Dual (Dual (Kleisli f Arrow) i) (Dual (Kleisli f Arrow) i) (Kleisli g Arrow) Arrow
 	where transformation (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
 		U_II_I (U_I_T_II (component @Flat @Arrow @Arrow @(g `T_TT_I` f) @f `compose` T_TT_I `compose` fo between `compose` from))
+
+instance Transformation Flat (Day (Flat Arrow) (/\) (/\) I I i ii) I Arrow Arrow
+	where transformation (U_I_II from) = \case
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (I i) (I ii)) (U_I_II f))
+			-> I (from (f (These i ii)))
+
+instance Transformation Flat (Flat Arrow Unit) I Arrow Arrow
+	where transformation (U_I_II from) (U_I_II f) = I (from (f Unit))
+
+instance Transformation Flat (Day (Flat Arrow) (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e) Arrow Arrow
+	where transformation (U_I_II from) = \case
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f))
+			-> U_I_II (That (from (f (These i ii))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (This e)) _) (U_I_II f))
+			-> U_I_II (This e)
+
+instance Transformation Flat (Day (Flat Arrow) (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e) Arrow Arrow
+	where transformation (U_I_II from) = \case
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (That i)) _) (U_I_II f))
+			-> U_I_II (That (from (f (This i))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_I_II (That ii))) (U_I_II f))
+			-> U_I_II (That (from (f (That ii))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_I_II (This ii))) (U_I_II f))
+			-> U_I_II (This ii)
+
+instance Transformation Flat (Flat Arrow Unit) (U_I_II (\/) e) Arrow Arrow
+	where transformation (U_I_II from) (U_I_II f) = U_I_II (That (from (f Unit)))
+
+instance Transformation Flat (Day (Flat Arrow) (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e) Arrow Arrow
+	where transformation (U_I_II from) = \case
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f))
+			-> U_II_I (This (from (f (These i ii))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (That e)) _) (U_I_II f))
+			-> U_II_I (That e)
+
+instance Transformation Flat (Day (Flat Arrow) (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e) Arrow Arrow
+	where transformation (U_I_II from) = \case
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (This i)) _) (U_I_II f))
+			-> U_II_I (This (from (f (This i))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_II_I (This ii))) (U_I_II f))
+			-> U_II_I (This (from (f (That ii))))
+		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_II_I (That ii))) (U_I_II f))
+			-> U_II_I (That ii)
+
+instance Transformation Flat (Flat Arrow Unit) (U_II_I (\/) e) Arrow Arrow
+	where transformation (U_I_II from) (U_I_II f) = U_II_I (This (from (f Unit)))

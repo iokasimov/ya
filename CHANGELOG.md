@@ -68,3 +68,5 @@
 * Define `Semi` type alias
 * Define `Endo` type alias
 * Define `Neutral` type family
+* Define `Day` type alias
+* Define `Monoidal` type class
