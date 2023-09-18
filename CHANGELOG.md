@@ -22,7 +22,7 @@
 * Define `unwrap` expression
 * Define `wrap` expression
 * Define `transform` expression
-* Define `Semigroupoid` type class
+* Define `Precategory` type class
 * Define `Category` type class
 * Define `i` operator
 * Define `ii` operator

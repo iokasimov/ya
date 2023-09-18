@@ -45,7 +45,7 @@ instance Transformation Dual Arrow Arrow (Dual (Kleisli g Arrow) i) (Dual (Kleis
 	where transformation (U_II_I from) (U_II_I (U_I_T_II x)) =
 		U_II_I (U_I_T_II (unwrap (from `fa` U_II_I x)))
 
--- We need this instance to complete Semigroupoid instance for `Kleisli f Arrow`
+-- We need this instance to complete Precategory instance for `Kleisli f Arrow`
 instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat Arrow Arrow (g `T_TT_I` f) f) =>
 	Transformation Dual (Kleisli g Arrow) Arrow (Dual (Kleisli f Arrow) i) (Dual (Kleisli f Arrow) i)
 	where transformation (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
