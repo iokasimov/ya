@@ -40,32 +40,30 @@ deriving instance
 class Semigroupoid from => Category from
 	where identity :: from s s
 
-class (m from, mm into, Transformation v from into f f)
-	=> Mapping m mm v from into f
-deriving instance (m from, mm into, Transformation v from into f f)
-	=> Mapping m mm v from into f
+class (m from, m into, Transformation v from into f f)
+	=> Mapping m v from into f
+deriving instance (m from, m into, Transformation v from into f f)
+	=> Mapping m v from into f
 
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
-type Semifunctor = Mapping Semigroupoid Semigroupoid
+-- TODO: turn into a type family so it should work with Monoidal Functor as well
+type Semi v functor = Mapping Semigroupoid v
 
 semifunctor :: forall v from into f s t .
-	Semifunctor v from into f =>
+	Semi v Functor from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 semifunctor = transform @v @from @into @f @f @s @t
 
 {- [LAW] Identity preserving: transformation identity ≡ identity -}
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
-type Functor = Mapping Category Category
+type Functor = Mapping Category
 
 functor :: forall v from into f s t .
 	Functor v from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
-
--- TODO: turn into a type family so it should work with Monoidal Functor as well
-type Semi v functor = Mapping Semigroupoid Semigroupoid v
 
 -- Doesn't work with Semi Functor declarations 
 type Endo v functor into = functor v into into
@@ -121,7 +119,5 @@ type Day = U_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
 class
 	( Transformation v from into (Day (v from) p pp f f i ii) f
-	, Transformation v from into (Day (v from) p pp I f i ii) f
-	, Transformation v from into (Day (v from) p pp f I i ii) f
 	, Transformation v from into (v from (Neutral p)) f
 	) => Monoidal v f p pp from into i ii  

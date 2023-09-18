@@ -54,7 +54,7 @@ type family Supertype e where
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 
 class Castable direction morphism e where
-	cast :: (direction morphism e) (Supertype e)
+	cast :: direction morphism e (Supertype e)
 
 class (Castable Dual to f, Castable Flat to f) => Wrapper to f where
 deriving instance (Castable Dual to f, Castable Flat to f) => Wrapper to f

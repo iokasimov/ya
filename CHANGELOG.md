@@ -29,7 +29,6 @@
 * Define `iii` operator
 * Define `component` expression
 * Define `Mapping` type class
-* Define `Semifunctor` type alias
 * Define `semifunctor` expression
 * Define `Functor` type alias
 * Define `functor` expression
@@ -70,3 +69,4 @@
 * Define `Neutral` type family
 * Define `Day` type alias
 * Define `Monoidal` type class
+* Define `Groupoid` type class
