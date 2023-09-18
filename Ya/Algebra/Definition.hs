@@ -40,12 +40,12 @@ deriving instance
 class Precategory from => Category from
 	where identity :: from s s
 
-class (m from, m into, Transformation v from into f f) => Mapping m v from into f
-deriving instance (m from, m into, Transformation v from into f f) => Mapping m v from into f
+class (m from, m into, Transformation v from into f f) => Functor v m from into f
+deriving instance (m from, m into, Transformation v from into f f) => Functor v m from into f
 
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
--- TODO: turn into a type family so it should work with Monoidal Functor as well
-type Semi v functor = Mapping Precategory v
+
+type Semi v x = x v Precategory
 
 semifunctor :: forall v from into f s t .
 	Semi v Functor from into f =>
@@ -55,22 +55,24 @@ semifunctor = transform @v @from @into @f @f @s @t
 
 {- [LAW] Identity preserving: transformation identity ≡ identity -}
 {- [LAW] Composition preserving: transformation (f . g) ≡ transformation f . transformation g -}
-type Functor = Mapping Category
-
 functor :: forall v from into f s t .
-	Functor v from into f =>
+	Functor v Category from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 functor = transform @v @from @into @f @f @s @t
 
--- Doesn't work with Semi Functor declarations 
-type Endo v functor into = functor v into into
+type Endo v x c into = x v c into into
 
-class (t v from into f g, x v from into f, x v from into g) => Compositional v x t from into f g
-deriving instance (t v from into f g, x v from into f, x v from into g) => Compositional v x t from into f g
+class
+	(m from, m into, Transformation v from into f g, Transformation v from into f f, Transformation v from into g g)
+		=> Compositional v m from into f g
+
+deriving instance
+	(m from, m into, Transformation v from into f g, Transformation v from into f f, Transformation v from into g g)
+		=> Compositional v m from into f g
 
 {- LAW: transformation @g @g morphism . component @f @g = component @f @g . transformation morphism @f @f -}
-type Natural = Compositional Flat Functor
+type Natural f = f Flat
 
 type Covariant f = f Flat
 
@@ -78,6 +80,7 @@ type Contravariant f = f Dual
 
 type Kleisli = U_I_T_II
 
+-- TODO: define these instances in another module
 instance Transformation Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where transformation (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
 
@@ -97,14 +100,13 @@ type family Representation t where
 	Representation (U_I_I (/\)) = Unit \/ Unit
 
 class
-	 ( Compositional v x Transformation from into t (v hom (Representation t))
-	 , Compositional v x Transformation from into (v hom (Representation t)) t
+	 ( Compositional v x from into t (v hom (Representation t))
+	 , Compositional v x from into (v hom (Representation t)) t
 	 ) => Representable hom v x from into t
 
--- TODO: define these instances in Algebra module
 deriving instance
-	( Compositional v x Transformation from into t (v hom (Representation t))
-	, Compositional v x Transformation from into (v hom (Representation t)) t
+	( Compositional v x from into t (v hom (Representation t))
+	, Compositional v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
 type family Neutral p where

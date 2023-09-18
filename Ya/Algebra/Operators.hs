@@ -52,7 +52,7 @@ fokl = semifunctor @Flat `compose` U_I_T_II
 
 fo'fo :: forall from into f g s t .
 	Covariant Semi Functor from into g =>
-	Covariant Semi Functor into into f =>
+	Covariant Endo Semi Functor into f =>
 	from s t -> into (f (g s)) (f (g t))
 fo'fo = fo @into @into `compose` fo @from @into
 
@@ -73,13 +73,13 @@ _fo'fo :: forall from into f g o s t .
 _fo'fo = _fo @into @into `compose` fo @from @into
 
 ro :: forall from into hom f i .
-	Covariant (Representable hom) Functor from into f =>
+	Covariant (Representable hom) Category from into f =>
 	Castable Flat into (Flat hom (Representation f) i) =>
 	into (f i) (hom (Representation f) i)
 ro = unwrap `compose` component @Flat @from @into @f @(Flat hom (Representation f))
 
 ra :: forall from into hom f i .
-	Contravariant (Representable hom) Functor from into f =>
+	Contravariant (Representable hom) Category from into f =>
 	Castable Flat into (Dual hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
