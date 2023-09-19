@@ -71,4 +71,5 @@
 * Define `Groupoid` type class
 * Define `Transformation` type class
 * Define `Component` type alias
-* Define `W_U_WW_UU_I_II_T_II` data type
+* Define `W_U_UU_I_II_T_II` data type
+* Define `Yoneda` type class

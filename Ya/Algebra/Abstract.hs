@@ -27,8 +27,8 @@ newtype U_I_UU_I_II u uu i ii = U_I_UU_I_II (u i (uu i ii))
 newtype U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii =
 	U_UU_UUU_UUUU_T_TT_I_II_III (u (uuu (t i) (tt ii)) (uu (uuuu i ii) iii))
 
-newtype W_U_WW_UU_I_II_T_II w ww u uu t i ii = 
-	W_U_WW_UU_I_II_T_II (w u (ww uu ii i) (t i))
+newtype U_V_UU_I_II_T_II v u uu t i ii = 
+	U_V_UU_I_II_T_II (u (v uu ii i) (t i))
 
 newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (U_I_T_II t u i))
 
@@ -54,7 +54,7 @@ type family Supertype e where
 	Supertype (U_I_UU_I_II u uu i ii) = u i (uu i ii)
 	Supertype (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii) =
 		u (uuu (t i) (tt ii)) (uu (uuuu i ii) iii)
-	Supertype (W_U_WW_UU_I_II_T_II w ww u uu t i ii) = w u (ww uu ii i) (t i)
+	Supertype (U_V_UU_I_II_T_II v u uu t i ii) = u (v uu ii i) (t i)
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 
 class Castable direction morphism e where
@@ -123,11 +123,11 @@ instance Castable Flat Arrow (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i i
 instance Castable Dual Arrow (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii_)
 	where cast = U_II_I U_UU_UUU_UUUU_T_TT_I_II_III
 
-instance Castable Flat Arrow (W_U_WW_UU_I_II_T_II w ww u uu t i ii)
-	where cast = U_I_II (\(W_U_WW_UU_I_II_T_II x) -> x)
+instance Castable Flat Arrow (U_V_UU_I_II_T_II v u uu t i ii)
+	where cast = U_I_II (\(U_V_UU_I_II_T_II x) -> x)
 
-instance Castable Dual Arrow (W_U_WW_UU_I_II_T_II w ww u uu t i ii)
-	where cast = U_II_I W_U_WW_UU_I_II_T_II
+instance Castable Dual Arrow (U_V_UU_I_II_T_II v u uu t i ii)
+	where cast = U_II_I U_V_UU_I_II_T_II
 
 instance Castable Flat Arrow (Recursive f)
 	where cast = U_I_II (\(Recursive x) -> x)
