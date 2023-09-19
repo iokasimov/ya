@@ -18,10 +18,10 @@
 * Define `Recursive` data type
 * Define `U_UU_UUU_UUUU_T_TT_I_II_III` data type
 * Define `R_U_I_T_I` data type
-* Define `Transformation` type class
+* Define `Mapping` type class
 * Define `unwrap` expression
 * Define `wrap` expression
-* Define `transform` expression
+* Define `mapping` expression
 * Define `Precategory` type class
 * Define `Category` type class
 * Define `i` operator
