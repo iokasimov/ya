@@ -125,4 +125,9 @@ type Day = U_UU_UUU_UUUU_T_TT_I_II_III (/\)
 class
 	( Mapping v from into (Day (v from) p pp f f i ii) f
 	, Mapping v from into (v from (Neutral p)) f
-	) => Monoidal v p pp from into i ii f
+	) => Monoidal x v p pp from into i ii f
+
+deriving instance
+	( Mapping v from into (Day (v from) p pp f f i ii) f
+	, Mapping v from into (v from (Neutral p)) f
+	) => Monoidal Functor v p pp from into i ii f
