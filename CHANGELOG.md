@@ -21,7 +21,6 @@
 * Define `Mapping` type class
 * Define `unwrap` expression
 * Define `wrap` expression
-* Define `mapping` expression
 * Define `Precategory` type class
 * Define `Category` type class
 * Define `i` operator
@@ -70,3 +69,5 @@
 * Define `Day` type alias
 * Define `Monoidal` type class
 * Define `Groupoid` type class
+* Define `Transformation` type class
+* Define `Component` type alias
