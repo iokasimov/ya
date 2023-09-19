@@ -73,3 +73,5 @@
 * Define `Component` type alias
 * Define `W_U_UU_I_II_T_II` data type
 * Define `Yoneda` type class
+* Define `fa_` operator
+* Define `yo` operator

@@ -5,8 +5,8 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `ro`, `ra`
-infixl 7 `iii`, `fi_`, `_fo`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`
+infixl 7 `iii`, `fi_`, `_fo`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
 infixl 4 `fi'fi'fi`
@@ -65,12 +65,27 @@ _fo from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
+fa_ :: forall from into f s t i .
+	Contravariant Semi Functor from into (U_II_I f i) =>
+	Wrapper into (U_II_I f i s) =>
+	Wrapper into (U_II_I f i t) =>
+	from s t -> into (f t i) (f s i)
+fa_ from = unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
+
 _fo'fo :: forall from into f g o s t .
 	Covariant Semi Functor into into (U_I_II f o) =>
 	Covariant Semi Functor from into g =>
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo = _fo @into @into `compose` fo @from @into
+
+yo :: forall from into f s t .
+	Yoneda Category Flat from Arrow into f t =>
+	Covariant Functor Category from Arrow f =>
+	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
+	Castable Dual from (U_I_II from s t) =>
+	f s -> into (from s t) (f t)
+yo = fa_ @from wrap `compose` yoneda @Category @Flat identity
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
