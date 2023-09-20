@@ -1,56 +1,62 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra (module Exports) where
 
 import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Operators as Exports
 
-instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
-	where mapping (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
-
-instance Mapping Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
-	where mapping _ (U_II_I (Constant x)) = U_II_I (Constant x)
-
-instance Covariant Semi Functor Arrow Arrow f => Mapping Flat Constant Arrow f f
-	where mapping (U_I_II (Constant new)) = fo `i` \_ -> new
-
-instance Covariant Semi Functor (Kleisli g Arrow) Arrow f
-	=> Mapping Flat (Kleisli g Constant) Arrow f f
-	where mapping (U_I_II (U_I_T_II (Constant new))) = fokl `i` \_ -> new
-
-instance Contravariant Semi Functor Arrow Arrow f => Mapping Dual Constant Arrow f f
-	where mapping (U_II_I (Constant new)) = fa `i` \_ -> new
-
 instance (Covariant Semi Functor Arrow Arrow f, Covariant Semi Functor Arrow Arrow g)
 	=> Mapping Flat Arrow Arrow (f `T_TT_I` g) (f `T_TT_I` g)
 	where mapping (U_I_II from) (T_TT_I x) = T_TT_I (from `fo'fo` x)
 
-instance (Covariant Semi Functor Arrow Arrow f, Component Natural Arrow Arrow (f `T_TT_I` g) f)
-	=> Mapping Flat (Kleisli g Arrow) Arrow f f
-	where mapping (U_I_II (U_I_T_II from)) =
-		component @Flat @Arrow @Arrow @(f `T_TT_I` g) @f `compose` wrap `compose` fo from
+-- instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
+	-- where mapping (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
+
+-- instance Mapping Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
+	-- where mapping _ (U_II_I (Constant x)) = U_II_I (Constant x)
+
+-- instance Covariant Semi Functor Arrow Arrow f => Mapping Flat Constant Arrow f f
+	-- where mapping (U_I_II (Constant new)) = fo `i` \_ -> new
+
+-- instance Covariant Semi Functor (Kleisli g Arrow) Arrow f
+	-- => Mapping Flat (Kleisli g Constant) Arrow f f
+	-- where mapping (U_I_II (U_I_T_II (Constant new))) = fokl `i` \_ -> new
+
+-- instance Contravariant Semi Functor Arrow Arrow f => Mapping Dual Constant Arrow f f
+	-- where mapping (U_II_I (Constant new)) = fa `i` \_ -> new
+
+-- instance (Covariant Semi Functor Arrow Arrow f, Component Natural Arrow Arrow (f `T_TT_I` g) f)
+	-- => Mapping Flat (Kleisli g Arrow) Arrow f f
+	-- where mapping (U_I_II (U_I_T_II from)) =
+		-- component @Flat @Arrow @Arrow @(f `T_TT_I` g) @f `compose` wrap `compose` fo from
 
 -- Required by `Mapping Flat (Kleisli g Arrow) Arrow f f`
-instance Mapping Flat Arrow Arrow (f `T_TT_I` g) f =>
-	Mapping Flat Arrow Arrow (Flat (Kleisli f Arrow) i `T_TT_I` g) (Flat (Kleisli f Arrow) i)
-	where mapping (U_I_II from) (T_TT_I (U_I_II (U_I_T_II x))) =
-		U_I_II (U_I_T_II (\e -> map @Flat @Arrow @Arrow @(f `T_TT_I` g) @f from (T_TT_I (x e))))
+-- instance Mapping Flat Arrow Arrow (f `T_TT_I` g) f =>
+	-- Mapping Flat Arrow Arrow (Flat (Kleisli f Arrow) i `T_TT_I` g) (Flat (Kleisli f Arrow) i)
+	-- where mapping (U_I_II from) (T_TT_I (U_I_II (U_I_T_II x))) =
+		-- U_I_II (U_I_T_II (\e -> map @Flat @Arrow @Arrow @(f `T_TT_I` g) @f from (T_TT_I (x e))))
 
-instance Covariant Semi Functor Arrow Arrow g
-	=> Mapping Flat Arrow Arrow (Flat (Kleisli g Arrow) i) (Flat (Kleisli g Arrow) i)
-	where mapping (U_I_II from) (U_I_II (U_I_T_II x)) =
-		U_I_II (U_I_T_II (from `_fo'fo` x))
+-- instance Covariant Semi Functor Arrow Arrow g
+	-- => Mapping Flat Arrow Arrow (Flat (Kleisli g Arrow) i) (Flat (Kleisli g Arrow) i)
+	-- where mapping (U_I_II from) (U_I_II (U_I_T_II x)) =
+		-- U_I_II (U_I_T_II (from `_fo'fo` x))
 
-instance Mapping Dual Arrow Arrow (Dual (Kleisli g Arrow) i) (Dual (Kleisli g Arrow) i)
-	where mapping (U_II_I from) (U_II_I (U_I_T_II x)) =
-		U_II_I (U_I_T_II (unwrap (from `fa` U_II_I x)))
+-- instance Mapping Dual Arrow Arrow (Dual (Kleisli g Arrow) i) (Dual (Kleisli g Arrow) i)
+	-- where mapping (U_II_I from) (U_II_I (U_I_T_II x)) =
+		-- U_II_I (U_I_T_II (unwrap (from `fa` U_II_I x)))
 
 -- We need this instance to complete Precategory instance for `Kleisli f Arrow`
 -- instance (Covariant Semi Functor Arrow Arrow g, Semi Natural Transformation Arrow Arrow (g `T_TT_I` f) f) =>
-instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat Precategory Arrow Arrow (g `T_TT_I` f) f) =>
-	Mapping Dual (Kleisli g Arrow) Arrow (Dual (Kleisli f Arrow) i) (Dual (Kleisli f Arrow) i)
-	where mapping (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
-		U_II_I (U_I_T_II (component @Flat @Arrow @Arrow @(g `T_TT_I` f) @f `compose` T_TT_I `compose` fo between `compose` from))
+-- instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat Precategory Arrow Arrow (g `T_TT_I` f) f) =>
+	-- Mapping Dual (Kleisli g Arrow) Arrow (Dual (Kleisli f Arrow) i) (Dual (Kleisli f Arrow) i)
+	-- where mapping (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
+		-- U_II_I (U_I_T_II (component @Flat @Arrow @Arrow @(g `T_TT_I` f) @f `compose` T_TT_I `compose` fo between `compose` from))
+
+-- instance 
+	-- ( Covariant Semi Functor Arrow Arrow g 
+	-- , Mapping Flat Arrow Arrow (g `T_TT_I` g) g
+	-- ) => Category (Kleisli g Arrow) where -- TODO
 
 instance
 	( forall e . Wrapper from (U_I_II from e i)
