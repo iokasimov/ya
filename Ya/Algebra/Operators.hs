@@ -80,12 +80,20 @@ _fo'fo :: forall from into f g o s t .
 _fo'fo = _fo @into @into `compose` fo @from @into
 
 yo :: forall from into f s t .
-	Yoneda Category Flat from Arrow into f t =>
+	Yoneda Category Flat from into f t =>
 	Covariant Functor from Arrow f =>
 	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
 	Castable Dual from (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
 yo = fa_ @from wrap `compose` yoneda @Category @Flat identity
+
+ya :: forall from into f s t .
+	Yoneda Category Dual from into f t =>
+	Covariant Functor from Arrow f =>
+	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
+	Castable Dual from (U_II_I from s t) =>
+	f s -> into (from t s) (f t)
+ya = fa_ @from wrap `compose` yoneda @Category @Dual identity
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>

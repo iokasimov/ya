@@ -112,19 +112,18 @@ instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
-class Transformation v m from amid
+class Transformation v m from Arrow
 	f (U_V_UU_I_II_T_II v into from f t)
-	=> Yoneda m v from amid into f t where
+	=> Yoneda m v from into f t where
 		yoneda :: forall p s .
-			Precategory amid =>
 			Castable Dual Arrow (v from s p) =>
-			Castable Flat amid (U_V_UU_I_II_T_II v into from f t p) =>
-			Supertype (v from s p) -> amid (f s) (into (v from p t) (f t))
-		yoneda from = unwrap `compose` map @v @from @amid @f @(U_V_UU_I_II_T_II v into from f t) from
+			Supertype (v from s p) -> f s -> into (v from p t) (f t)
+		yoneda from = unwrap `compose` map @v @from @Arrow
+			@f @(U_V_UU_I_II_T_II v into from f t) from
 
-deriving instance Transformation v m from amid
+deriving instance Transformation v m from Arrow
 	f (U_V_UU_I_II_T_II v into from f t)
-	=> Yoneda m v from amid into f t
+	=> Yoneda m v from into f t
 
 type family Representation t where
 	Representation I = Unit

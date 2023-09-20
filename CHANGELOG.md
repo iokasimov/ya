@@ -76,3 +76,4 @@
 * Define `fa_` operator
 * Define `yo` operator
 * Define `Dumb` type class
+* Define `ya` operator
