@@ -5,6 +5,9 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
+class Dumb x
+instance Dumb x
+
 class Mapping v from into f g where
 	mapping :: v from s t -> into (f s) (g t)
 
@@ -41,17 +44,28 @@ class Precategory from => Category from
 
 {- [LAW] Identity preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-class (m from, m into, Mapping v from into f f) => Functor v m from into f
-deriving instance (m from, m into, Mapping v from into f f) => Functor v m from into f
+class (Category from, Category into, Mapping v from into f f) => Functor v from into f
+deriving instance (Category from, Category into, Mapping v from into f f) => Functor v from into f
 
 functor :: forall v from into f s t .
-	Functor v Category from into f =>
+	Functor v from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
 functor = map @v @from @into @f @f @s @t
 
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-type Semi v x = x v Precategory
+
+class
+	( Precategory from, Precategory into
+	, Mapping v from into f f
+	, Dumb (x v from into f)
+	) => Semi v x from into f
+
+deriving instance
+	( Precategory from, Precategory into
+	, Mapping v from into f f
+	, Dumb (Functor v from into f)
+	) => Semi v Functor from into f
 
 semifunctor :: forall v from into f s t .
 	Semi v Functor from into f =>
@@ -70,6 +84,7 @@ class
 	, Mapping v from into g g
 	) => Transformation v m from into f g
 
+-- TODO: actually, this is wrong, we cannot define Dinatural transformations this way
 deriving instance
 	( m from, m into
 	, Mapping v from into f g

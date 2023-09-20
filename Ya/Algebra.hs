@@ -46,7 +46,8 @@ instance Mapping Dual Arrow Arrow (Dual (Kleisli g Arrow) i) (Dual (Kleisli g Ar
 		U_II_I (U_I_T_II (unwrap (from `fa` U_II_I x)))
 
 -- We need this instance to complete Precategory instance for `Kleisli f Arrow`
-instance (Covariant Semi Functor Arrow Arrow g, Semi Natural Transformation Arrow Arrow (g `T_TT_I` f) f) =>
+-- instance (Covariant Semi Functor Arrow Arrow g, Semi Natural Transformation Arrow Arrow (g `T_TT_I` f) f) =>
+instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat Precategory Arrow Arrow (g `T_TT_I` f) f) =>
 	Mapping Dual (Kleisli g Arrow) Arrow (Dual (Kleisli f Arrow) i) (Dual (Kleisli f Arrow) i)
 	where mapping (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
 		U_II_I (U_I_T_II (component @Flat @Arrow @Arrow @(g `T_TT_I` f) @f `compose` T_TT_I `compose` fo between `compose` from))

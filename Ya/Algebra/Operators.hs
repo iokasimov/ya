@@ -81,7 +81,7 @@ _fo'fo = _fo @into @into `compose` fo @from @into
 
 yo :: forall from into f s t .
 	Yoneda Category Flat from Arrow into f t =>
-	Covariant Functor Category from Arrow f =>
+	Covariant Functor from Arrow f =>
 	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
 	Castable Dual from (U_I_II from s t) =>
 	f s -> into (from s t) (f t)

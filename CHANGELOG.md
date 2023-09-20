@@ -75,3 +75,4 @@
 * Define `Yoneda` type class
 * Define `fa_` operator
 * Define `yo` operator
+* Define `Dumb` type class
