@@ -6,10 +6,40 @@ import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Operators as Exports
 
-instance (Covariant Semi Functor Arrow Arrow f, Covariant Semi Functor Arrow Arrow g)
-	=> Mapping Flat Arrow Arrow (f `T_TT_I` g) (f `T_TT_I` g)
-	where mapping (U_I_II from) (T_TT_I x) = T_TT_I (from `fo'fo` x)
+instance
+	( Precategory into
+	, forall e . Wrapper into (I e)
+	) => Mapping Flat into into I I
+	where mapping (U_I_II from) = w'u from
 
+instance
+	( Covariant Semi Functor from into g
+	, Covariant Endo Semi Functor into f
+	, forall e . Wrapper into (T_TT_I f g e)
+	) => Mapping Flat from into (T_TT_I f g) (T_TT_I f g)
+	where mapping (U_I_II from) = w'u `i` fo'fo from
+
+instance
+	( Covariant Semi Functor from into h
+	, Covariant Endo Semi Functor into g
+	, Covariant Endo Semi Functor into f
+	, forall e . Wrapper into (T_TT_TTT_I f g h e)
+	) => Mapping Flat from into (T_TT_TTT_I f g h) (T_TT_TTT_I f g h)
+	where mapping (U_I_II from) = w'u `i` fo'fo'fo from
+
+instance
+	( forall e . Wrapper from (U_I_II from e i)
+	, forall e . Wrapper from (U_II_I from i e)
+	, forall e . Wrapper into (U_II_I into (f i) (Flat from e i))
+	, forall e . Wrapper into (UU_V_U_I_II_T_II Flat from into f i e)
+	, Contravariant Endo Semi Functor from (U_II_I from i)
+	, Contravariant Semi Functor from into (U_II_I into (f i))
+	) => Mapping Flat from into
+		(UU_V_U_I_II_T_II Flat from into f i)
+		(UU_V_U_I_II_T_II Flat from into f i)
+	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
+
+-- instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
 -- instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
 	-- where mapping (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
 
@@ -57,18 +87,6 @@ instance (Covariant Semi Functor Arrow Arrow f, Covariant Semi Functor Arrow Arr
 	-- ( Covariant Semi Functor Arrow Arrow g 
 	-- , Mapping Flat Arrow Arrow (g `T_TT_I` g) g
 	-- ) => Category (Kleisli g Arrow) where -- TODO
-
-instance
-	( forall e . Wrapper from (U_I_II from e i)
-	, forall e . Wrapper from (U_II_I from i e)
-	, forall e . Wrapper into (U_II_I into (f i) (Flat from e i))
-	, forall e . Wrapper into (UU_V_U_I_II_T_II Flat from into f i e)
-	, Contravariant Endo Semi Functor from (U_II_I from i)
-	, Contravariant Semi Functor from into (U_II_I into (f i))
-	) => Mapping Flat from into
-		(UU_V_U_I_II_T_II Flat from into f i)
-		(UU_V_U_I_II_T_II Flat from into f i)
-	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
 
 instance
 	( Covariant Semi Functor from Arrow f
