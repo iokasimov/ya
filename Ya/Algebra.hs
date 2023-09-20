@@ -64,6 +64,12 @@ instance
 		(UU_V_U_I_II_T_II Flat from into f i)
 	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
 
+instance
+	( Covariant Semi Functor from Arrow f
+	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)
+	) => Mapping Flat from Arrow f (UU_V_U_I_II_T_II Flat into Arrow f r)
+	where mapping (U_I_II from) x = UU_V_U_I_II_T_II (\(U_I_II e) -> e `_fo` from `fo'fi` x)
+
 instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = \case
 		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (I i) (I ii)) (U_I_II f))

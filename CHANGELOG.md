@@ -77,3 +77,4 @@
 * Define `yo` operator
 * Define `Dumb` type class
 * Define `ya` operator
+* Define `yokl` operator

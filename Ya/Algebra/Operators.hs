@@ -7,7 +7,7 @@ import Ya.Algebra.Definition
 infixl 9 `i`
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`, `w'u`, `u'w`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
 infixl 4 `fi'fi'fi`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -101,6 +101,16 @@ ya :: forall from into f s t .
 	Castable Dual from (U_II_I from s t) =>
 	f s -> into (from t s) (f t)
 ya = fa_ @from wrap `compose` yoneda @Category @Dual identity
+
+yokl :: forall from into g f s t .
+	Yoneda Category Flat (Kleisli g from) into f t =>
+	Covariant Semi Functor (Kleisli g from) Arrow f =>
+	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
+	Castable Dual from (U_I_II (U_I_T_II g from) s t) =>
+	Castable Dual from (U_I_T_II g from s t) =>
+	f s -> into (from s (g t)) (f t)
+yokl = fa_ @from (wrap `compose` wrap)
+	`compose` yoneda @Category @Flat @(Kleisli g from) identity
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
