@@ -9,7 +9,7 @@ infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`, `w'u`, `u'w`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
-infixl 4 `fi'fi'fi`
+infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `fi'fi'fi'fi`
 infixl 0 `fi'fi'fi'fi'fi`
@@ -55,6 +55,13 @@ fo'fo :: forall from into f g s t .
 	Covariant Endo Semi Functor into f =>
 	from s t -> into (f (g s)) (f (g t))
 fo'fo = fo @into @into `compose` fo @from @into
+
+fo'fo'fo :: forall from into f g h s t .
+	Covariant Semi Functor from into h =>
+	Covariant Endo Semi Functor into g =>
+	Covariant Endo Semi Functor into f =>
+	from s t -> into (f (g (h s))) (f (g (h t)))
+fo'fo'fo = fo @into @into `compose` fo @into @into `compose` fo @from @into
 
 _fo, _fo'fi, _fo'fi'fi :: forall from into f s t i .
 	Covariant Semi Functor from into (U_I_II f i) =>

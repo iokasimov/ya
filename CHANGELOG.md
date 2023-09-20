@@ -78,3 +78,4 @@
 * Define `Dumb` type class
 * Define `ya` operator
 * Define `yokl` operator
+* Define `fo'fo'fo` operator
