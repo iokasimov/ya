@@ -5,8 +5,8 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`
-infixl 7 `iii`, `fi_`, `_fo`, `fa_`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`, `w'u`, `u'w`
+infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
 infixl 4 `fi'fi'fi`
@@ -65,6 +65,13 @@ _fo from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 _fo'fi'fi from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
+fo_ :: forall from into f s t i .
+	Covariant Semi Functor from into (U_II_I f i) =>
+	Wrapper into (U_II_I f i s) =>
+	Wrapper into (U_II_I f i t) =>
+	from s t -> into (f s i) (f t i)
+fo_ from = unwrap `compose` fo @_ @_ @(U_II_I _ _) from `compose` wrap
+
 fa_ :: forall from into f s t i .
 	Contravariant Semi Functor from into (U_II_I f i) =>
 	Wrapper into (U_II_I f i s) =>
@@ -106,3 +113,17 @@ ra :: forall from into hom f i .
 	Castable Flat into (Dual hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
+
+w'u :: forall into s t .
+	Precategory into =>
+	Castable Dual into t =>
+	Castable Flat into s =>
+	into (Supertype s) (Supertype t) -> into s t
+w'u into = wrap @into `compose` into `compose` unwrap @into
+
+u'w :: forall into s t .
+	Precategory into =>
+	Castable Dual into s =>
+	Castable Flat into t =>
+	into s t -> into (Supertype s) (Supertype t)
+u'w into = unwrap @into `compose` into `compose` wrap @into

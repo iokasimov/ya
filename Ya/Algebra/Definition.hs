@@ -113,16 +113,16 @@ instance Category Arrow where
 	identity = \x -> x
 
 class Transformation v m from Arrow
-	f (U_V_UU_I_II_T_II v into from f t)
+	f (UU_V_U_I_II_T_II v from into f t)
 	=> Yoneda m v from into f t where
 		yoneda :: forall p s .
 			Castable Dual Arrow (v from s p) =>
 			Supertype (v from s p) -> f s -> into (v from p t) (f t)
 		yoneda from = unwrap `compose` map @v @from @Arrow
-			@f @(U_V_UU_I_II_T_II v into from f t) from
+			@f @(UU_V_U_I_II_T_II v from into f t) from
 
 deriving instance Transformation v m from Arrow
-	f (U_V_UU_I_II_T_II v into from f t)
+	f (UU_V_U_I_II_T_II v from into f t)
 	=> Yoneda m v from into f t
 
 type family Representation t where

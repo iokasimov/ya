@@ -52,6 +52,18 @@ instance (Covariant Semi Functor Arrow Arrow g, Transformation Flat Precategory 
 	where mapping (U_II_I (U_I_T_II from)) (U_II_I (U_I_T_II between)) =
 		U_II_I (U_I_T_II (component @Flat @Arrow @Arrow @(g `T_TT_I` f) @f `compose` T_TT_I `compose` fo between `compose` from))
 
+instance
+	( forall e . Wrapper from (U_I_II from e i)
+	, forall e . Wrapper from (U_II_I from i e)
+	, forall e . Wrapper into (U_II_I into (f i) (Flat from e i))
+	, forall e . Wrapper into (UU_V_U_I_II_T_II Flat from into f i e)
+	, Contravariant Endo Semi Functor from (U_II_I from i)
+	, Contravariant Semi Functor from into (U_II_I into (f i))
+	) => Mapping Flat from into
+		(UU_V_U_I_II_T_II Flat from into f i)
+		(UU_V_U_I_II_T_II Flat from into f i)
+	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
+
 instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = \case
 		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (I i) (I ii)) (U_I_II f))
