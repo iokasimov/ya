@@ -79,3 +79,9 @@
 * Define `ya` operator
 * Define `yokl` operator
 * Define `fo'fo'fo` operator
+* Define `Boolean` type alias
+* Define `False` pattern synonym
+* Define `True` pattern synonym
+* Define `Optional` type alias
+* Define `Some` pattern synonym
+* Define `None` pattern synonym
