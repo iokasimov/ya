@@ -34,6 +34,9 @@ newtype UU_V_U_I_II_T_II v u uu t i ii =
 
 newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (U_I_T_II t u i))
 
+newtype U_I_UU_III_U_II_I u uu i ii iii =
+	U_I_UU_III_U_II_I (u i (uu iii (u ii i)))
+
 type Arrow = (->)
 
 type Mono = U_I_I
@@ -58,6 +61,7 @@ type family Supertype e where
 		u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
 	Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
+	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -142,6 +146,12 @@ instance Castable Flat Arrow (R_U_I_T_I u t i)
 
 instance Castable Dual Arrow (R_U_I_T_I u t i)
 	where cast = U_II_I R_U_I_T_I
+
+instance Castable Flat Arrow (U_I_UU_III_U_II_I u uu i ii iii)
+	where cast = U_I_II (\(U_I_UU_III_U_II_I x) -> x)
+
+instance Castable Dual Arrow (U_I_UU_III_U_II_I u uu i ii iii)
+	where cast = U_II_I U_I_UU_III_U_II_I
 
 unwrap :: Castable Flat into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x

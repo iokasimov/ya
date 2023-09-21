@@ -20,3 +20,5 @@ pattern Some e <- U_I_II (That e)
 
 pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
+
+type Reference = U_I_UU_III_U_II_I (->) (/\)
