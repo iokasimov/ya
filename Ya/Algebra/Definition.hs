@@ -102,16 +102,6 @@ type Contravariant f = f Dual
 
 type Kleisli = U_I_T_II
 
--- TODO: define these instances in another module
-instance Mapping Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
-	where mapping (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
-
-instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
-	where mapping (U_II_I from) (U_II_I between) = U_II_I (\x -> between (from x))
-
-instance Category Arrow where
-	identity = \x -> x
-
 class
 	( Dumb (x v from Arrow f)
 	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
@@ -119,8 +109,8 @@ class
 		yoneda :: forall p s .
 			Castable Dual Arrow (v from s p) =>
 			Supertype (v from s p) -> f s -> into (v from p t) (f t)
-		yoneda from = unwrap `compose` map @v @from @Arrow
-			@f @(UU_V_U_I_II_T_II v from into f t) from
+		yoneda from x = unwrap (map @v @from @Arrow
+			@f @(UU_V_U_I_II_T_II v from into f t) from x)
 
 deriving instance
 	( Dumb (x v from Arrow f)

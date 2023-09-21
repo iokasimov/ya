@@ -39,6 +39,16 @@ instance
 		(UU_V_U_I_II_T_II Flat from into f i)
 	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
 
+-- TODO: define these instances in another module
+instance Mapping Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
+	where mapping (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
+
+instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
+	where mapping (U_II_I from) (U_II_I between) = U_II_I (\x -> between (from x))
+
+instance Category Arrow where
+	identity = \x -> x
+
 instance
 	( Covariant Semi Functor from Arrow f
 	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)

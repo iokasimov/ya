@@ -75,14 +75,14 @@ fo'fo :: forall from into f g s t .
 	Covariant Semi Functor from into g =>
 	Covariant Endo Semi Functor into f =>
 	from s t -> into (f (g s)) (f (g t))
-fo'fo = fo @into @into `compose` fo @from @into
+fo'fo from = fo @into @into (fo @from @into from)
 
 fo'fo'fo :: forall from into f g h s t .
 	Covariant Semi Functor from into h =>
 	Covariant Endo Semi Functor into g =>
 	Covariant Endo Semi Functor into f =>
 	from s t -> into (f (g (h s))) (f (g (h t)))
-fo'fo'fo = fo @into @into `compose` fo @into @into `compose` fo @from @into
+fo'fo'fo from = fo @into @into (fo @into @into (fo @from @into from))
 
 _fo, _fo'fi, _fo'fi'fi :: forall from into f s t i .
 	Covariant Semi Functor from into (U_I_II f i) =>
@@ -112,7 +112,7 @@ _fo'fo :: forall from into f g o s t .
 	Covariant Semi Functor from into g =>
 	(forall i . Wrapper into (U_I_II f o i)) =>
 	from s t -> into (f o (g s)) (f o (g t))
-_fo'fo = _fo @into @into `compose` fo @from @into
+_fo'fo from = _fo @into @into (fo @from @into from)
 
 ya :: forall from into f s t .
 	Contravariant Yoneda Functor from into f t =>

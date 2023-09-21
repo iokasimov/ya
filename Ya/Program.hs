@@ -22,3 +22,5 @@ pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
 
 type Reference = U_I_UU_III_U_II_I (->) (/\)
+
+type Attribute = W_I_II_II Reference

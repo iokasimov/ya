@@ -4,8 +4,6 @@ module Ya.Algebra.Abstract where
 
 newtype I i = I i
 
--- newtype Constant s t = Constant t
-
 newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T_TT_I t tt i = T_TT_I (t (tt i))
@@ -37,6 +35,8 @@ newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (U_I_T_II t u i))
 newtype U_I_UU_III_U_II_I u uu i ii iii =
 	U_I_UU_III_U_II_I (u i (uu iii (u ii i)))
 
+newtype W_I_II_II w i ii = W_I_II_II (w i ii ii)
+
 type Arrow = (->)
 
 type Mono = U_I_I
@@ -62,6 +62,7 @@ type family Supertype e where
 	Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
+	Supertype (W_I_II_II w i ii) = w i ii ii
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -152,6 +153,12 @@ instance Castable Flat Arrow (U_I_UU_III_U_II_I u uu i ii iii)
 
 instance Castable Dual Arrow (U_I_UU_III_U_II_I u uu i ii iii)
 	where cast = U_II_I U_I_UU_III_U_II_I
+
+instance Castable Flat Arrow (W_I_II_II u i ii)
+	where cast = U_I_II (\(W_I_II_II x) -> x)
+
+instance Castable Dual Arrow (W_I_II_II u i ii)
+	where cast = U_II_I W_I_II_II
 
 unwrap :: Castable Flat into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
