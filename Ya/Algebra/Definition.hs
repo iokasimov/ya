@@ -112,18 +112,20 @@ instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
-class Transformation v m from Arrow
-	f (UU_V_U_I_II_T_II v from into f t)
-	=> Yoneda m v from into f t where
+class
+	( Dumb (x v from Arrow f)
+	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
+	) => Yoneda v x from into f t where
 		yoneda :: forall p s .
 			Castable Dual Arrow (v from s p) =>
 			Supertype (v from s p) -> f s -> into (v from p t) (f t)
 		yoneda from = unwrap `compose` map @v @from @Arrow
 			@f @(UU_V_U_I_II_T_II v from into f t) from
 
-deriving instance Transformation v m from Arrow
-	f (UU_V_U_I_II_T_II v from into f t)
-	=> Yoneda m v from into f t
+deriving instance
+	( Dumb (x v from Arrow f)
+	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
+	) => Yoneda v x from into f t
 
 type family Representation t where
 	Representation I = Unit
@@ -154,10 +156,10 @@ class
 	( Mapping v from into (Day v from p pp f f i ii) f
 	, Mapping v from into (v from (Neutral p)) f
 	, Dumb (x v from into f)
-	) => Monoidal x v p pp from into i ii f
+	) => Monoidal v x p pp from into i ii f
 
 deriving instance
 	( Mapping v from into (Day v from p pp f f i ii) f
 	, Mapping v from into (v from (Neutral p)) f
 	, Dumb (x v from into f)
-	) => Monoidal Functor v p pp from into i ii f
+	) => Monoidal v Functor p pp from into i ii f

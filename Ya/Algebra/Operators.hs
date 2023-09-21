@@ -40,12 +40,12 @@ fo'fi = semifunctor @Flat
 fo = semifunctor @Flat
 
 yo :: forall from into f s t .
-	Yoneda Category Flat from into f t =>
+	Covariant Yoneda Functor from into f t =>
 	Covariant Functor from Arrow f =>
 	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
 	Castable Dual from (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
-yo = fa_ @from wrap `compose` yoneda @Category @Flat identity
+yo = fa_ @from wrap `compose` yoneda @Flat @Functor identity
 
 fa, fa'fi :: forall from into f s t .
 	Contravariant Semi Functor from into f =>
@@ -62,13 +62,13 @@ fokl from = component @Flat @from @into @(f `T_TT_I` g) @f
 
 yokl :: forall from into g f s t .
 	Component Natural from into (T_TT_I f g) f =>
-	Yoneda Category Flat from into f (g t) =>
+	Covariant Yoneda Functor from into f (g t) =>
 	Castable Dual into (Flat from s (g t)) =>
 	Castable Dual into (T_TT_I f g t) =>
 	f s -> into (from s (g t)) (f t)
 yokl x = component @Flat @from @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
-	`compose` yoneda @Category @Flat @from identity x
+	`compose` yoneda @Flat @Functor @from identity x
 	`compose` wrap
 
 fo'fo :: forall from into f g s t .
@@ -115,12 +115,12 @@ _fo'fo :: forall from into f g o s t .
 _fo'fo = _fo @into @into `compose` fo @from @into
 
 ya :: forall from into f s t .
-	Yoneda Category Dual from into f t =>
+	Contravariant Yoneda Functor from into f t =>
 	Covariant Functor from Arrow f =>
 	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
 	Castable Dual from (U_II_I from s t) =>
 	f s -> into (from t s) (f t)
-ya = fa_ @from wrap `compose` yoneda @Category @Dual identity
+ya = fa_ @from wrap `compose` yoneda @Dual @Functor identity
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
