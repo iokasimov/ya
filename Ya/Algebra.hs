@@ -45,48 +45,37 @@ instance
 	) => Mapping Flat from Arrow f (UU_V_U_I_II_T_II Flat into Arrow f r)
 	where mapping (U_I_II from) x = UU_V_U_I_II_T_II (\(U_I_II e) -> e `_fo` from `fo'fi` x)
 
-instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (/\) I I i ii) I
-	where mapping (U_I_II from) = \case
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (I i) (I ii)) (U_I_II f))
-			-> I (from (f (These i ii)))
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
+	where mapping (U_I_II from) = w'u `i` \case
+		These (These (I i) (I ii)) (U_I_II f) -> from (f (These i ii))
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Unit) I
 	where mapping (U_I_II from) (U_I_II f) = I (from (f Unit))
 
-instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
-	where mapping (U_I_II from) = \case
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f))
-			-> U_I_II (That (from (f (These i ii))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (This e)) _) (U_I_II f))
-			-> U_I_II (This e)
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
+	where mapping (U_I_II from) = w'u `i` \case
+		These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f) -> That (from (f (These i ii)))
+		These (These (U_I_II (This e)) _) (U_I_II f) -> This e
 
-instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
-	where mapping (U_I_II from) = \case
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_I_II (That i)) _) (U_I_II f))
-			-> U_I_II (That (from (f (This i))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_I_II (That ii))) (U_I_II f))
-			-> U_I_II (That (from (f (That ii))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_I_II (This ii))) (U_I_II f))
-			-> U_I_II (This ii)
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
+	where mapping (U_I_II from) = w'u `i` \case
+		These (These (U_I_II (That i)) _) (U_I_II f) -> That (from (f (This i)))
+		These (These _ (U_I_II (That ii))) (U_I_II f) -> That (from (f (That ii)))
+		These (These _ (U_I_II (This ii))) (U_I_II f) -> This ii
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Unit) (U_I_II (\/) e)
 	where mapping (U_I_II from) (U_I_II f) = U_I_II (That (from (f Unit)))
 
-instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
-	where mapping (U_I_II from) = \case
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f))
-			-> U_II_I (This (from (f (These i ii))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (That e)) _) (U_I_II f))
-			-> U_II_I (That e)
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
+	where mapping (U_I_II from) = w'u `i` \case
+		These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f) -> This (from (f (These i ii)))
+		These (These (U_II_I (That e)) _) (U_I_II f) -> That e
 
-instance Mapping Flat Arrow Arrow (Day (Flat Arrow) (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
-	where mapping (U_I_II from) = \case
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These (U_II_I (This i)) _) (U_I_II f))
-			-> U_II_I (This (from (f (This i))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_II_I (This ii))) (U_I_II f))
-			-> U_II_I (This (from (f (That ii))))
-		U_UU_UUU_UUUU_T_TT_I_II_III (These (These _ (U_II_I (That ii))) (U_I_II f))
-			-> U_II_I (That ii)
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
+	where mapping (U_I_II from) = w'u `i` \case
+		These (These (U_II_I (This i)) _) (U_I_II f) -> This (from (f (This i)))
+		These (These _ (U_II_I (This ii))) (U_I_II f) -> This (from (f (That ii)))
+		These (These _ (U_II_I (That ii))) (U_I_II f) -> That ii
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Unit) (U_II_I (\/) e)
 	where mapping (U_I_II from) (U_I_II f) = U_II_I (This (from (f Unit)))

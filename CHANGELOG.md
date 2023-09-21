@@ -16,7 +16,7 @@
 * Define `U_T_I_II` data type
 * Define `Kleisli` type alias
 * Define `Recursive` data type
-* Define `U_UU_UUU_UUUU_T_TT_I_II_III` data type
+* Define `U_V_UU_UUU_UUUU_T_TT_I_II_III` data type
 * Define `R_U_I_T_I` data type
 * Define `Mapping` type class
 * Define `unwrap` expression
@@ -56,7 +56,6 @@
 * Define `/\` data type
 * Define `\/` data type
 * Define `U_I_UU_I_II` data type
-* Define `Constant` data type
 * Define `Void` data type
 * Define `Unit` data type
 * Define `Representation` type family
@@ -71,7 +70,7 @@
 * Define `Groupoid` type class
 * Define `Transformation` type class
 * Define `Component` type alias
-* Define `W_U_UU_I_II_T_II` data type
+* Define `UU_V_U_I_II_T_II` data type
 * Define `Yoneda` type class
 * Define `fa_` operator
 * Define `yo` operator
@@ -85,3 +84,4 @@
 * Define `Optional` type alias
 * Define `Some` pattern synonym
 * Define `None` pattern synonym
+* Define `U_1_II` data type

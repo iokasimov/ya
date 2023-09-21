@@ -4,7 +4,7 @@ module Ya.Algebra.Abstract where
 
 newtype I i = I i
 
-newtype Constant s t = Constant t
+-- newtype Constant s t = Constant t
 
 newtype Recursive f = Recursive (f (Recursive f))
 
@@ -18,14 +18,16 @@ newtype U_I_II u i ii = U_I_II (u i ii)
 
 newtype U_II_I u i ii = U_II_I (u ii i)
 
+newtype U_1_II u i ii = U_1_II (u Unit ii)
+
 newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
 newtype U_T_I_II t u i ii = U_T_I_II (u (t i) ii)
 
 newtype U_I_UU_I_II u uu i ii = U_I_UU_I_II (u i (uu i ii))
 
-newtype U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii =
-	U_UU_UUU_UUUU_T_TT_I_II_III (u (uuu (t i) (tt ii)) (uu (uuuu i ii) iii))
+newtype U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii =
+	U_V_UU_UUU_UUUU_T_TT_I_II_III (u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii))
 
 newtype UU_V_U_I_II_T_II v u uu t i ii =
 	UU_V_U_I_II_T_II (uu (v u ii i) (t i))
@@ -42,7 +44,7 @@ type Dual = U_II_I
 
 type family Supertype e where
 	Supertype (I i) = i
-	Supertype (Constant i ii) = ii
+	Supertype (U_1_II u i ii) = u Unit ii
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
@@ -52,8 +54,8 @@ type family Supertype e where
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
 	Supertype (U_T_I_II t u i ii) = u (t i) ii
 	Supertype (U_I_UU_I_II u uu i ii) = u i (uu i ii)
-	Supertype (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii) =
-		u (uuu (t i) (tt ii)) (uu (uuuu i ii) iii)
+	Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
+		u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
 	Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 
@@ -69,11 +71,11 @@ instance Castable Flat Arrow (I i)
 instance Castable Dual Arrow (I i)
 	where cast = U_II_I I
 
-instance Castable Flat Arrow (Constant s t)
-	where cast = U_I_II (\(Constant x) -> x)
+instance Castable Flat Arrow (U_1_II u i ii)
+	where cast = U_I_II (\(U_1_II x) -> x)
 
-instance Castable Dual Arrow (Constant s t)
-	where cast = U_II_I Constant
+instance Castable Dual Arrow (U_1_II u i ii)
+	where cast = U_II_I U_1_II
 
 instance Castable Flat Arrow (U_I_I u i)
 	where cast = U_I_II (\(U_I_I x) -> x)
@@ -117,11 +119,11 @@ instance Castable Dual Arrow (U_I_UU_I_II u uu i ii)
 instance Castable Flat Arrow (U_I_UU_I_II u uu i ii)
 	where cast = U_I_II (\(U_I_UU_I_II x) -> x)
 
-instance Castable Flat Arrow (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii_)
-	where cast = U_I_II (\(U_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
+instance Castable Flat Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
+	where cast = U_I_II (\(U_V_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
 
-instance Castable Dual Arrow (U_UU_UUU_UUUU_T_TT_I_II_III u uu uuu uuuu t tt i ii iii_)
-	where cast = U_II_I U_UU_UUU_UUUU_T_TT_I_II_III
+instance Castable Dual Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
+	where cast = U_II_I U_V_UU_UUU_UUUU_T_TT_I_II_III
 
 instance Castable Flat Arrow (UU_V_U_I_II_T_II v u uu t i ii)
 	where cast = U_I_II (\(UU_V_U_I_II_T_II x) -> x)
