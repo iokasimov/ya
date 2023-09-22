@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ho`, `ro`, `ra`, `w'u`, `u'w`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
@@ -52,6 +52,14 @@ fa, fa'fi :: forall from into f s t .
 	from s t -> into (f t) (f s)
 fa'fi = semifunctor @Dual
 fa = semifunctor @Dual
+
+ya :: forall from into f s t .
+	Contravariant Yoneda Functor from into f t =>
+	Contravariant Functor from Arrow f =>
+	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
+	Castable Dual from (U_II_I from s t) =>
+	f s -> into (from t s) (f t)
+ya = fa_ @from wrap `compose` yoneda @Dual @Functor identity
 
 fokl :: forall from into f g s t .
 	Component Natural from into (T_TT_I f g) f =>
@@ -114,14 +122,6 @@ _fo'fo :: forall from into f g o s t .
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-ya :: forall from into f s t .
-	Contravariant Yoneda Functor from into f t =>
-	Covariant Functor from Arrow f =>
-	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
-	Castable Dual from (U_II_I from s t) =>
-	f s -> into (from t s) (f t)
-ya = fa_ @from wrap `compose` yoneda @Dual @Functor identity
-
 ho :: forall f from into i s t .
 	(forall e . Covariant Endo Semi Functor Arrow (U_I_II into e)) =>
 	(forall e . Contravariant Semi Functor from Arrow (U_II_I into e)) =>
@@ -130,6 +130,15 @@ ho :: forall f from into i s t .
 	Castable Dual from (U_I_II from s t) =>
 	f i s -> into (from s t) (f i t)
 ho = _fo (unwrap @Arrow) `compose` yo @from @into @(U_I_II f _) `compose` U_I_II
+
+ha :: forall into from f i s t .
+	Contravariant Semi Functor from Arrow (U_II_I f i) =>
+	(forall e . Covariant Endo Semi Functor Arrow (U_I_II into e)) =>
+	(forall e . Contravariant Functor from Arrow (U_II_I into e)) =>
+	Contravariant Yoneda Functor from into (U_II_I f i) t =>
+	Castable Dual from (U_II_I from s t) =>
+	f s i -> into (from t s) (f t i)
+ha x = _fo (unwrap @Arrow) (ya @from @into @(U_II_I f _) (U_II_I x))
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
