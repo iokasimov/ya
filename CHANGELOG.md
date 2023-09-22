@@ -101,3 +101,4 @@
 * Define `current` expression
 * Define `replace` expression
 * Define `transit` expression
+* Define `Field` type class

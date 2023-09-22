@@ -1,3 +1,4 @@
+{-# LANGUAGE AllowAmbiguousTypes #-}
 module Ya.Program where
 
 import Ya.Algebra
@@ -49,3 +50,18 @@ replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
 
 transit :: (state -> state) -> Stateful state state
 transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
+
+class Field x record where
+	field :: Attribute record x
+
+instance Field x x
+	where field = identity
+
+instance Field x (x /\ xs)
+	where field = W_I_II_II `ii` U_I_UU_III_U_II_I
+		`i` (\(These f fs) -> These `i` f `i` (\f' -> These f' fs))
+
+instance {-# OVERLAPS #-} Field x xs => Field x (y /\ xs) where
+	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
+		`i` view (field @x @xs) fs
+		`i` \new -> These old `i`change (field @x @xs) (\_ -> new) fs
