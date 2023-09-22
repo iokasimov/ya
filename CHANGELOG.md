@@ -91,3 +91,7 @@
 * Define `Attribute` type alias
 * Define `ho` operator
 * Define `ha` operator
+* Define `W_I_I_II` data type
+* Define `Transition` type alias
+* Define `Stateful` type alias
+* Define `U_I_UU_II_III` data type

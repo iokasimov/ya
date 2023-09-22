@@ -24,3 +24,7 @@ pattern None <- U_I_II (This Unit)
 type Reference = U_I_UU_III_U_II_I (->) (/\)
 
 type Attribute = W_I_II_II Reference
+
+type Transition = U_I_UU_II_III (->) (/\)
+
+type Stateful = W_I_I_II Transition

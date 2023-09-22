@@ -22,7 +22,7 @@ newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
 newtype U_T_I_II t u i ii = U_T_I_II (u (t i) ii)
 
-newtype U_I_UU_I_II u uu i ii = U_I_UU_I_II (u i (uu i ii))
+newtype U_I_UU_II_III u uu i ii iii = U_I_UU_II_III (u i (uu ii iii))
 
 newtype U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii =
 	U_V_UU_UUU_UUUU_T_TT_I_II_III (u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii))
@@ -36,6 +36,8 @@ newtype U_I_UU_III_U_II_I u uu i ii iii =
 	U_I_UU_III_U_II_I (u i (uu iii (u ii i)))
 
 newtype W_I_II_II w i ii = W_I_II_II (w i ii ii)
+
+newtype W_I_I_II w i ii = W_I_I_II (w i i ii)
 
 type Arrow = (->)
 
@@ -56,13 +58,14 @@ type family Supertype e where
 	Supertype (U_II_I u ii i) = u i ii
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
 	Supertype (U_T_I_II t u i ii) = u (t i) ii
-	Supertype (U_I_UU_I_II u uu i ii) = u i (uu i ii)
+	Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
 	Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
 		u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
 	Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 	Supertype (W_I_II_II w i ii) = w i ii ii
+	Supertype (W_I_I_II w i ii) = w i i ii
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -118,11 +121,11 @@ instance Castable Flat Arrow (U_I_T_II u t i ii)
 instance Castable Dual Arrow (U_I_T_II u f i ii)
 	where cast = U_II_I U_I_T_II
 
-instance Castable Dual Arrow (U_I_UU_I_II u uu i ii)
-	where cast = U_II_I U_I_UU_I_II
+instance Castable Dual Arrow (U_I_UU_II_III u uu i ii iii)
+	where cast = U_II_I U_I_UU_II_III
 
-instance Castable Flat Arrow (U_I_UU_I_II u uu i ii)
-	where cast = U_I_II (\(U_I_UU_I_II x) -> x)
+instance Castable Flat Arrow (U_I_UU_II_III u uu i ii iii)
+	where cast = U_I_II (\(U_I_UU_II_III x) -> x)
 
 instance Castable Flat Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
 	where cast = U_I_II (\(U_V_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
@@ -159,6 +162,12 @@ instance Castable Flat Arrow (W_I_II_II u i ii)
 
 instance Castable Dual Arrow (W_I_II_II u i ii)
 	where cast = U_II_I W_I_II_II
+
+instance Castable Flat Arrow (W_I_I_II u i ii)
+	where cast = U_I_II (\(W_I_I_II x) -> x)
+
+instance Castable Dual Arrow (W_I_I_II u i ii)
+	where cast = U_II_I W_I_I_II
 
 instance Wrapper Arrow x
 	=> Castable Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
