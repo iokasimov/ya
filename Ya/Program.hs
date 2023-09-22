@@ -25,6 +25,18 @@ type Reference = U_I_UU_III_U_II_I (->) (/\)
 
 type Attribute = W_I_II_II Reference
 
+view ::
+	Castable Flat Arrow (Reference origin target target) =>
+	Castable Flat Arrow (Attribute origin target) =>
+	Attribute origin target -> (origin -> target)
+view r s = let (These qt _) = r `u'u` s in qt
+
+change ::
+	Castable Flat Arrow (Reference origin target target) =>
+	Castable Flat Arrow (Attribute origin target) =>
+	Attribute origin target -> (target -> target) -> (origin -> origin)
+change attr f s = let (These h x) = attr `u'u` s in x `i`f h
+
 type Transition = U_I_UU_II_III (->) (/\)
 
 type Stateful = W_I_I_II Transition

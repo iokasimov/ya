@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
@@ -165,3 +165,10 @@ u'w :: forall into s t .
 	Castable Flat into t =>
 	into s t -> into (Supertype s) (Supertype t)
 u'w into = unwrap @into `compose` into `compose` wrap @into
+
+u'u :: forall into s t .
+	Precategory into =>
+	Castable Flat into s =>
+	Castable Flat into (Supertype s) =>
+	into s (Supertype (Supertype s))
+u'u = unwrap @into `compose` unwrap @into
