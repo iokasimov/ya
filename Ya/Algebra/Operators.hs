@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ro`, `ra`, `w'u`, `u'w`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ho`, `ro`, `ra`, `w'u`, `u'w`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
@@ -121,6 +121,15 @@ ya :: forall from into f s t .
 	Castable Dual from (U_II_I from s t) =>
 	f s -> into (from t s) (f t)
 ya = fa_ @from wrap `compose` yoneda @Dual @Functor identity
+
+ho :: forall f from into i s t .
+	(forall e . Covariant Endo Semi Functor Arrow (U_I_II into e)) =>
+	(forall e . Contravariant Semi Functor from Arrow (U_II_I into e)) =>
+	Covariant Functor from Arrow (U_I_II f i) =>
+	Covariant Yoneda Functor from into (U_I_II f i) t =>
+	Castable Dual from (U_I_II from s t) =>
+	f i s -> into (from s t) (f i t)
+ho = _fo (unwrap @Arrow) `compose` yo @from @into @(U_I_II f _) `compose` U_I_II
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
