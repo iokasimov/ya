@@ -49,6 +49,26 @@ instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
+instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
+	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
+	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
+	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
+		let These source source_origin = from origin in
+		let These target target_source = into `u'u` source in
+		These `iii` target `iii` target_source `ho` source_origin
+
+instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
+	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
+	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
+	where mapping (U_II_I from) = w'u `iii` w'u `ii` w'u `i` \into origin ->
+		let These source source_origin = from `u'u` origin in
+		let These target target_source = into source in
+		These `iii` target `iii` target_source `ho` source_origin
+
+instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
+	identity = W_I_II_II `i` U_I_UU_III_U_II_I
+		(\x -> These `i` x `i` identity)
+
 instance
 	( Covariant Semi Functor from Arrow f
 	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)
