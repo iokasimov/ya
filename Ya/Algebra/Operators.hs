@@ -40,12 +40,12 @@ fo'fi = semifunctor @Flat
 fo = semifunctor @Flat
 
 yo :: forall from into f s t .
+	Category from =>
+	Precategory into =>
 	Covariant Yoneda Functor from into f t =>
-	Covariant Functor from Arrow f =>
-	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
-	Castable Dual from (U_I_II from s t) =>
+	Castable Dual into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
-yo = fa_ @from wrap `compose` yoneda @Flat @Functor identity
+yo x = yoneda @Flat @Functor identity x `compose` wrap
 
 fa, fa'fi :: forall from into f s t .
 	Contravariant Semi Functor from into f =>
@@ -54,12 +54,12 @@ fa'fi = semifunctor @Dual
 fa = semifunctor @Dual
 
 ya :: forall from into f s t .
+	Category from =>
+	Precategory into =>
 	Contravariant Yoneda Functor from into f t =>
-	Contravariant Functor from Arrow f =>
-	Contravariant Semi Functor from Arrow (U_II_I into (f t)) =>
-	Castable Dual from (U_II_I from s t) =>
+	Castable Dual into (Dual from s t) =>
 	f s -> into (from t s) (f t)
-ya = fa_ @from wrap `compose` yoneda @Dual @Functor identity
+ya x = yoneda @Dual @Functor identity x `compose` wrap 
 
 fokl :: forall from into f g s t .
 	Component Natural from into (T_TT_I f g) f =>
@@ -123,22 +123,22 @@ _fo'fo :: forall from into f g o s t .
 _fo'fo from = _fo @into @into (fo @from @into from)
 
 ho :: forall f from into i s t .
-	(forall e . Covariant Endo Semi Functor Arrow (U_I_II into e)) =>
-	(forall e . Contravariant Semi Functor from Arrow (U_II_I into e)) =>
-	Covariant Functor from Arrow (U_I_II f i) =>
+	Category from =>
+	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II f i) t =>
-	Castable Dual from (U_I_II from s t) =>
+	Castable Dual into (U_I_II from s t) =>
+	Castable Flat into (U_I_II f i t) =>
 	f i s -> into (from s t) (f i t)
-ho = _fo (unwrap @Arrow) `compose` yo @from @into @(U_I_II f _) `compose` U_I_II
+ho x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
 
 ha :: forall into from f i s t .
-	Contravariant Semi Functor from Arrow (U_II_I f i) =>
-	(forall e . Covariant Endo Semi Functor Arrow (U_I_II into e)) =>
-	(forall e . Contravariant Functor from Arrow (U_II_I into e)) =>
+	Category from =>
+	Precategory into =>
 	Contravariant Yoneda Functor from into (U_II_I f i) t =>
-	Castable Dual from (U_II_I from s t) =>
+	Castable Dual into (Dual from s t) =>
+	Castable Flat into (Dual f i t) =>
 	f s i -> into (from t s) (f t i)
-ha x = _fo (unwrap @Arrow) (ya @from @into @(U_II_I f _) (U_II_I x))
+ha x = unwrap `compose` ya @from @into @(U_II_I f _) (U_II_I x)
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Category from into f =>
