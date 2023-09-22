@@ -98,3 +98,6 @@
 * Define `view` expression
 * Define `change` expression
 * Define `u'u` operator
+* Define `current` expression
+* Define `replace` expression
+* Define `transit` expression

@@ -40,3 +40,12 @@ change attr f s = let (These h x) = attr `u'u` s in x `i`f h
 type Transition = U_I_UU_II_III (->) (/\)
 
 type Stateful = W_I_I_II Transition
+
+current :: Stateful state state
+current = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `i` old
+
+replace :: state -> Stateful state state
+replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
+
+transit :: (state -> state) -> Stateful state state
+transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
