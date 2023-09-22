@@ -160,6 +160,14 @@ instance Castable Flat Arrow (W_I_II_II u i ii)
 instance Castable Dual Arrow (W_I_II_II u i ii)
 	where cast = U_II_I W_I_II_II
 
+instance Wrapper Arrow x
+	=> Castable Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
+
+instance Wrapper Arrow x
+	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+
 unwrap :: Castable Flat into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
 
