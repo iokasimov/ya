@@ -69,6 +69,28 @@ instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I
 		(\x -> These `i` x `i` identity)
 
+-- TODO: gereralize this instance
+instance Mapping Flat Arrow Arrow
+	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	where mapping (U_I_II from) = w'u `iii` w'u `ii`  w'u `i`
+		((_fo @Arrow `compose` _fo @Arrow) from)
+
+instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
+	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	where mapping (U_II_I from) = w'u `iii` w'u `ii`  w'u `i` \state old ->
+		let (These new f) = from `u'u` old in f `fo_` state new
+
+instance Mapping Flat Arrow Arrow
+	(T_TT_I
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	)
+	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	where mapping (U_I_II from) = w'u `iii` w'u `ii`  w'u `i` \(U_I_UU_II_III state) old ->
+		(\(These s (U_I_II f)) -> from `_fo` f `u'u` s) (state old)
+
 instance
 	( Covariant Semi Functor from Arrow f
 	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)

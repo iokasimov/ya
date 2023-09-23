@@ -51,6 +51,9 @@ replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
 transit :: (state -> state) -> Stateful state state
 transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
 
+start :: state -> Stateful state result -> state /\ result
+start state stateful = stateful `u'u` state
+
 class Field x record where
 	field :: Attribute record x
 
