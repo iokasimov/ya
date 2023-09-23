@@ -95,8 +95,8 @@
 * Define `Transition` type alias
 * Define `Stateful` type alias
 * Define `U_I_UU_II_III` data type
-* Define `view` expression
-* Define `change` expression
+* Define `inspect` expression
+* Define `adjust` expression
 * Define `u'u` operator
 * Define `current` expression
 * Define `replace` expression

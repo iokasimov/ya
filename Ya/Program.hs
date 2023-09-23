@@ -26,17 +26,17 @@ type Reference = U_I_UU_III_U_II_I (->) (/\)
 
 type Attribute = W_I_II_II Reference
 
-view ::
+inspect ::
 	Castable Flat Arrow (Reference origin target target) =>
 	Castable Flat Arrow (Attribute origin target) =>
 	Attribute origin target -> (origin -> target)
-view r s = let (These qt _) = r `u'u` s in qt
+inspect r s = let (These qt _) = r `u'u` s in qt
 
-change ::
+adjust ::
 	Castable Flat Arrow (Reference origin target target) =>
 	Castable Flat Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-change attr f s = let (These h x) = attr `u'u` s in x `i`f h
+adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
 type Transition = U_I_UU_II_III (->) (/\)
 
@@ -66,5 +66,5 @@ instance Field x (x /\ xs)
 
 instance {-# OVERLAPS #-} Field x xs => Field x (y /\ xs) where
 	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-		`i` view (field @x @xs) fs
-		`i` \new -> These old `i`change (field @x @xs) (\_ -> new) fs
+		`i` inspect (field @x @xs) fs
+		`i` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
