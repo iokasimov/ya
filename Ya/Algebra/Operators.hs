@@ -7,7 +7,7 @@ import Ya.Algebra.Definition
 infixl 9 `i`
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -143,6 +143,23 @@ ho :: forall f from into i s t .
 	Castable Flat into (U_I_II f i t) =>
 	f i s -> into (from s t) (f i t)
 ho x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
+
+hokl :: forall f from into (i :: *) s t .
+	Category from =>
+	Component Natural from into (T_TT_I (U_I_II f i) (U_I_II f i)) (U_I_II f i) =>
+	Covariant Functor into into (U_I_II f i) =>
+	Covariant Yoneda Functor from into (U_I_II f i) (f i t) =>
+	Castable Dual into (U_I_II from s (f i t)) =>
+	Castable Dual into (U_I_II from s t) =>
+	Castable Dual into (T_TT_I (U_I_II f i) (U_I_II f i) t) =>
+	Castable Flat into (U_I_II f i t) =>
+	Castable Dual into (U_I_II f i t) =>
+	f i s -> into (from s (f i t)) (f i t)
+hokl x = unwrap @into @(U_I_II f i t)
+	`compose` component @Flat @from @into @(T_TT_I (U_I_II f i) (U_I_II f i))
+	`compose` wrap @into @(T_TT_I (U_I_II f i) (U_I_II f i) _)
+	`compose` fo (wrap @into @(U_I_II f i _))
+	`compose` yo @from @into @(U_I_II f _) (U_I_II x) 
 
 ha :: forall into from f i s t .
 	Category from =>
