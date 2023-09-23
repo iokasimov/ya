@@ -8,7 +8,7 @@ infixl 9 `i`
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`
-infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`
+infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `fi'fi'fi'fi`
@@ -77,6 +77,19 @@ yokl :: forall from into g f s t .
 yokl x = component @Flat @from @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Flat @Functor @from identity x
+	`compose` wrap
+
+_yokl :: forall from into g f i s t .
+	Component Natural from into (T_TT_I (U_I_II f i) g) (U_I_II f i) =>
+	Covariant Yoneda Functor from into (U_I_II f i) (g t) =>
+	Castable Dual into (U_I_II from s (g t)) =>
+	Castable Flat into (U_I_II f i t) =>
+	Castable Dual into (T_TT_I (U_I_II f i) g t) =>
+	f i s -> into (from s (g t)) (f i t)
+_yokl x = unwrap @into @(U_I_II f i t)
+	`compose` component @Flat @from @into @(T_TT_I (U_I_II f i) g)
+	`compose` wrap @into @(T_TT_I (U_I_II f i) g _)
+	`compose` yoneda @Flat @Functor @from identity (U_I_II x)
 	`compose` wrap
 
 fo'fo :: forall from into f g s t .
