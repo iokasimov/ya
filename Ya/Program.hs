@@ -1,4 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Program where
 
 import Ya.Algebra
@@ -68,3 +69,7 @@ instance {-# OVERLAPS #-} Field x xs => Field x (y /\ xs) where
 	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
 		`i` inspect (field @x @xs) fs
 		`i` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
+
+type family Record r where
+	Record (x /\ xs) = (Different x xs, Field x (x /\ xs), Record xs)
+	Record x = Field x x 

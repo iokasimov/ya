@@ -109,3 +109,4 @@
 * Define `Same` type family
 * Define `Different` type alias
 * Define `Matching` type alias
+* Define `Record` type family
