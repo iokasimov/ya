@@ -74,6 +74,10 @@ type family Record r where
 	Record (x /\ xs) = (Different x xs, Field x (x /\ xs), Record xs)
 	Record x = Field x x 
 
+type family Vector x xs where
+	Vector x (y /\ xs) = (Matching x y, Vector x xs)
+	Vector x y = Matching x y
+
 type Construction = R_U_I_T_I (/\)
 
 pattern Construct :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Construction t i
