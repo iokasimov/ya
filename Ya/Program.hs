@@ -73,3 +73,18 @@ instance {-# OVERLAPS #-} Field x xs => Field x (y /\ xs) where
 type family Record r where
 	Record (x /\ xs) = (Different x xs, Field x (x /\ xs), Record xs)
 	Record x = Field x x 
+
+type Construction = R_U_I_T_I (/\)
+
+pattern Construct :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Construction t i
+pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+	where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+
+type Instruction = R_U_I_T_I (\/)
+
+pattern Instruct :: t (Recursive (U_I_T_II t (\/) i)) -> Instruction t i
+pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs)))
+	where Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
+
+pattern Load :: item -> Instruction f item
+pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
