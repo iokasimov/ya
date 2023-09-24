@@ -17,6 +17,8 @@ map :: forall v from into f g s t .
 	Supertype (v from s t) -> into (f s) (g t)
 map from = mapping @v @from @into @f @g @s @t (wrap @Arrow from)
 
+type Component v = Transformation v Category
+
 component :: forall v from into f g t .
 	Component v from into f g =>
 	(Supertype (v from t t) ~ from t t) =>
@@ -94,8 +96,6 @@ deriving instance
 
 type Natural = Flat
 
-type Component v = Transformation v Category
-
 type Covariant f = f Flat
 
 type Contravariant f = f Dual
@@ -116,6 +116,13 @@ deriving instance
 	( Dumb (x v from Arrow f)
 	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
 	) => Yoneda v x from into f t
+
+type Adjoint v x f g from into =
+	( Dumb (x v into from f)
+	, Dumb (x v from into g)
+	, Mapping Flat into from (T_TT_I f g) I
+	, Mapping Flat from into I (T_TT_I g f)
+	)
 
 type family Representation t where
 	Representation I = Unit

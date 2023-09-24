@@ -56,6 +56,14 @@ instance
 	where mapping (U_I_II from) = w'u `iii` w'u `ii`
 		_fo (u'w @from @(R_U_I_T_I u t _) (fo @from from)) `compose` fo_ @from from
 
+-- TODO: Mapping Flat from into
+-- 	(T_TT_I (T_TT_I f Construction f) g)
+-- 	(T_TT_I g (T_TT_I f Construction f))
+
+-- TODO: Mapping Flat from into
+--		(T_TT_I (U_T_I_T_I And f) g)
+--		(T_TT_I g (U_T_I_T_I And f))
+
 instance Mapping Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where mapping (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
 
@@ -84,6 +92,12 @@ instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I
 		(\x -> These `i` x `i` identity)
+
+instance Mapping Flat Arrow Arrow (T_TT_I (U_I_II (/\) e) (U_I_II (->) e)) I
+	where mapping (U_I_II from) = w'u `i` \(U_I_II (These e (U_I_II f))) -> from `i` f e
+
+instance Mapping Flat Arrow Arrow I (T_TT_I (U_I_II (->) e) (U_I_II (/\) e))
+	where mapping (U_I_II from) = w'u `i` \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
 
 -- TODO: gereralize this instance
 instance Mapping Flat Arrow Arrow

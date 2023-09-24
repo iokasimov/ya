@@ -115,3 +115,4 @@
 * Define `Instruct` patter synonym
 * Define `Load` patter synonym
 * Define `Vector` type family
+* Define `Adjoint` type alias
