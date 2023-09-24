@@ -39,7 +39,23 @@ instance
 		(UU_V_U_I_II_T_II Flat from into f i)
 	where mapping (U_I_II from) = w'u (fa_ @from @into (w'u (fa_ @from @from from)))
 
--- TODO: define these instances in another module
+instance
+	( forall e . Covariant Semi Functor from into (U_I_II (U_I_T_II t u) e)
+	, forall e . Covariant Semi Functor from into (U_II_I (U_I_T_II t u) e)
+	, forall e . Covariant Endo Semi Functor from (U_I_II (U_I_T_II t u) e)
+	, forall e . Covariant Endo Semi Functor from (U_II_I (U_I_T_II t u) e)
+	, forall e . Wrapper from (R_U_I_T_I u t e)
+	, forall e . Wrapper into (R_U_I_T_I u t e)
+	, forall e . Wrapper from (Recursive (U_I_T_II t u e))
+	, forall e . Wrapper into (Recursive (U_I_T_II t u e))
+	, forall e e' . Wrapper from (U_II_I (U_I_T_II t u) e e')
+	, forall e e' . Wrapper into (U_II_I (U_I_T_II t u) e e')
+	, forall e e' . Wrapper from (U_I_II (U_I_T_II t u) e e')
+	, forall e e' . Wrapper into (U_I_II (U_I_T_II t u) e e')
+	) => Mapping Flat from into (R_U_I_T_I u t) (R_U_I_T_I u t)
+	where mapping (U_I_II from) = w'u `iii` w'u `ii`
+		_fo (u'w @from @(R_U_I_T_I u t _) (fo @from from)) `compose` fo_ @from from
+
 instance Mapping Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where mapping (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
 
