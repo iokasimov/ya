@@ -116,3 +116,5 @@
 * Define `Load` patter synonym
 * Define `Vector` type family
 * Define `Adjoint` type alias
+* Define `ljo` operator
+* Define `rjo` operator

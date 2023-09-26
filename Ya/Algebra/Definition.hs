@@ -118,8 +118,12 @@ deriving instance
 	) => Yoneda v x from into f t
 
 type Adjoint v x f g from into =
-	( Dumb (x v into from f)
-	, Dumb (x v from into g)
+	( x v into from f
+	, x v from into g
+	, x v from into I
+	, x v into from I
+	, x v into from (T_TT_I f g)
+	, x v from into (T_TT_I g f)
 	, Mapping Flat into from (T_TT_I f g) I
 	, Mapping Flat from into I (T_TT_I g f)
 	)

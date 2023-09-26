@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 
 infixl 9 `i`
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
-infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
+infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
@@ -181,6 +181,26 @@ ra :: forall from into hom f i .
 	Castable Flat into (Dual hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
+
+ljo :: forall from into f g s t .
+	Covariant Adjoint Functor f g from into =>
+	Castable Flat into ((T_TT_I g f) s) =>
+	Castable Dual into (I s) =>
+	from (f s) t -> into s (g t)
+ljo from = semifunctor @Flat from
+	`compose` unwrap @into
+	`compose` component @Flat @from @into @I @(g `T_TT_I` f)
+	`compose` wrap @into
+
+rjo :: forall from into f g s t .
+	Covariant Adjoint Functor f g from into =>
+	Castable Dual from ((T_TT_I f g) t) =>
+	Castable Flat from (I t) =>
+	into s (g t) -> from (f s) t
+rjo from =  unwrap @from
+	`compose` component @Flat @into @from @(f `T_TT_I` g) @I
+	`compose` wrap @from
+	`compose` semifunctor @Flat from
 
 w'u :: forall into s t .
 	Precategory into =>
