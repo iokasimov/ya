@@ -154,13 +154,41 @@ type family Neutral p where
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
 class
-	( Mapping v from into (Day v from p pp f f i ii) f
-	, Mapping v from into (v from (Neutral p)) f
+	( Mapping v from into (Day v from u uu f f i ii) f
+	, Mapping v from into (v from (Neutral u)) f
 	, Dumb (x v from into f)
-	) => Monoidal v x p pp from into i ii f
+	) => Monoidal v x u uu from into i ii f where
 
 deriving instance
 	( Mapping v from into (Day v from p pp f f i ii) f
 	, Mapping v from into (v from (Neutral p)) f
 	, Dumb (x v from into f)
 	) => Monoidal v Functor p pp from into i ii f
+
+monoidal :: forall v from between into f u uu s t i ii .
+	Monoidal v Functor u uu from into i ii f =>
+	Covariant Functor between into (U_I_II (/\) (u (f i) (f ii))) =>
+	Covariant Adjoint Functor
+		(U_I_II (/\) (u (f i) (f ii)))
+		(U_I_II into (u (f i) (f ii))) into between =>
+	Castable Dual Arrow (v from s t) =>
+	Castable Flat between (T_TT_I
+		(U_I_II into (u (f i) (f ii)))
+		(U_I_II (/\) (u (f i) (f ii)))
+		(v from (uu i ii) s)) =>
+	Castable Dual between (v from (uu i ii) s) =>
+	Castable Dual between (I (v from (uu i ii) s)) =>
+	Castable Flat between (U_I_II into (u (f i) (f ii)) (f t)) =>
+	Castable Dual into (Day v from u uu f f i ii s) =>
+	Castable Flat into (U_I_II (/\) (u (f i) (f ii)) (v from (uu i ii) s)) =>
+	Supertype (v from s t) -> between
+		(Supertype (v from (uu i ii) s))
+		(into (u (f i) (f ii)) (f t))
+monoidal from = unwrap @between @(U_I_II _ _ _)
+	`compose` semifunctor @Flat 
+		(map @v @from @into @(Day v from u uu f f i ii) @f from
+			`compose` wrap @into `compose` unwrap @into @(U_I_II (/\) _ _))
+	`compose` unwrap @between
+	`compose` component @Flat @into @between @I @(_ `T_TT_I` _)
+	`compose` wrap @between
+	`compose` wrap @between @(v from (uu i ii) s)
