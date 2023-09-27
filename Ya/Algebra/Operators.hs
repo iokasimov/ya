@@ -7,7 +7,7 @@ import Ya.Algebra.Definition
 infixl 9 `i`
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`, `yo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -46,6 +46,17 @@ yo :: forall from into f s t .
 	Castable Dual into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor identity x `compose` wrap
+
+yo'fo :: forall from into f g s t .
+	Precategory into =>
+	Covariant Functor from from g =>
+	Covariant Yoneda Functor from into f (g t) =>
+	Contravariant Endo Semi Functor Arrow (U_II_I into (f (g t))) =>
+	Castable Dual into (U_I_II from (g s) (g t)) =>
+	f (g s) -> into (from s t) (f (g t))
+yo'fo x = fa_ fo (yo @from @into x)
+
+-- TODO: yo'yo : f (g s) -> into (from s b) (g s -> into (from b t) (f (g t)))
 
 fa, fa'fi :: forall from into f s t .
 	Contravariant Semi Functor from into f =>

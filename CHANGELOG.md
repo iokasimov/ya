@@ -118,3 +118,4 @@
 * Define `Adjoint` type alias
 * Define `ljo` operator
 * Define `rjo` operator
+* Define `yo'fo` operator
