@@ -120,3 +120,4 @@
 * Define `rjo` operator
 * Define `yo'fo` operator
 * Define `monoidal` expression
+* Define `pp'fo` operator

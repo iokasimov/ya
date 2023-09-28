@@ -117,28 +117,6 @@ deriving instance
 	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
 	) => Yoneda v x from into f t
 
-class 
-	( x v into from f
-	, x v from into g
-	, x v from into I
-	, x v into from I
-	, x v into from (T_TT_I f g)
-	, x v from into (T_TT_I g f)
-	, Mapping Flat into from (T_TT_I f g) I
-	, Mapping Flat from into I (T_TT_I g f)
-	) => Adjoint v x f g from into
-
-deriving instance
-	( x v into from f
-	, x v from into g
-	, x v from into I
-	, x v into from I
-	, x v into from (T_TT_I f g)
-	, x v from into (T_TT_I g f)
-	, Mapping Flat into from (T_TT_I f g) I
-	, Mapping Flat from into I (T_TT_I g f)
-	) => Adjoint v x f g from into
-
 type family Representation t where
 	Representation I = Unit
 	Representation (U_I_II Arrow i) = i
@@ -164,6 +142,28 @@ type family Neutral p where
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
+class 
+	( x v into from f
+	, x v from into g
+	, x v from into I
+	, x v into from I
+	, x v into from (T_TT_I f g)
+	, x v from into (T_TT_I g f)
+	, Mapping Flat into from (T_TT_I f g) I
+	, Mapping Flat from into I (T_TT_I g f)
+	) => Adjoint v x f g from into
+
+deriving instance
+	( x v into from f
+	, x v from into g
+	, x v from into I
+	, x v into from I
+	, x v into from (T_TT_I f g)
+	, x v from into (T_TT_I g f)
+	, Mapping Flat into from (T_TT_I f g) I
+	, Mapping Flat from into I (T_TT_I g f)
+	) => Adjoint v x f g from into
+
 class
 	( Mapping v from Arrow (Day v from u uu f f i ii) f
 	, Mapping v from Arrow (v from (Neutral u)) f
@@ -178,7 +178,11 @@ deriving instance
 
 monoidal :: forall v from into f u uu s t i ii .
 	Monoidal v Functor u uu from i ii f =>
-	(forall e . Covariant Adjoint Functor (U_I_II (/\) e) (U_I_II (->) e) (->) into) =>
+	Covariant Functor into (->) (U_I_II (/\) (f i /\ f ii)) =>
+	Covariant Adjoint Functor
+		(U_I_II (/\) (u (f i) (f ii)))
+		(U_I_II (->) (u (f i) (f ii)))
+		(->) into =>
 	Castable Dual Arrow (v from s t) =>
 	Castable Flat into (T_TT_I
 		(U_I_II (->) (u (f i) (f ii)))
