@@ -182,13 +182,13 @@ ha :: forall into from f i s t .
 ha x = unwrap `compose` ya @from @into @(U_II_I f _) (U_II_I x)
 
 ro :: forall from into hom f i .
-	Covariant (Representable hom) Category from into f =>
+	Covariant (Representable hom) Functor from into f =>
 	Castable Flat into (Flat hom (Representation f) i) =>
 	into (f i) (hom (Representation f) i)
 ro = unwrap `compose` component @Flat @from @into @f @(Flat hom (Representation f))
 
 ra :: forall from into hom f i .
-	Contravariant (Representable hom) Category from into f =>
+	Contravariant (Representable hom) Functor from into f =>
 	Castable Flat into (Dual hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))

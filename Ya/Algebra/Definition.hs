@@ -17,7 +17,7 @@ map :: forall v from into f g s t .
 	Supertype (v from s t) -> into (f s) (g t)
 map from = mapping @v @from @into @f @g @s @t (wrap @Arrow from)
 
-type Component v = Transformation v Category
+type Component v = Transformation v Functor
 
 component :: forall v from into f g t .
 	Component v from into f g =>
@@ -80,19 +80,23 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 class
-	( m from, m into
-	, Mapping v from into f g
-	, Mapping v from into f f
-	, Mapping v from into g g
-	) => Transformation v m from into f g
+	( Mapping v from into f g
+	, x v from into f
+	, x v from into g
+	-- , Mapping v from into f f
+	-- , Mapping v from into g g
+	) => Transformation v x from into f g
 
 -- TODO: actually, this is wrong, we cannot define Dinatural transformations this way
 deriving instance
-	( m from, m into
-	, Mapping v from into f g
-	, Mapping v from into f f
-	, Mapping v from into g g
-	) => Transformation v m from into f g
+	( Mapping v from into f g
+	, x v from into f
+	, x v from into g
+	-- ( m from, m into
+	-- , Mapping v from into f g
+	-- , Mapping v from into f f
+	-- , Mapping v from into g g
+	) => Transformation v x from into f g
 
 type Natural = Flat
 
