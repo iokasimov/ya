@@ -117,7 +117,7 @@ deriving instance
 	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
 	) => Yoneda v x from into f t
 
-type Adjoint v x f g from into =
+class 
 	( x v into from f
 	, x v from into g
 	, x v from into I
@@ -126,7 +126,18 @@ type Adjoint v x f g from into =
 	, x v from into (T_TT_I g f)
 	, Mapping Flat into from (T_TT_I f g) I
 	, Mapping Flat from into I (T_TT_I g f)
-	)
+	) => Adjoint v x f g from into
+
+deriving instance
+	( x v into from f
+	, x v from into g
+	, x v from into I
+	, x v into from I
+	, x v into from (T_TT_I f g)
+	, x v from into (T_TT_I g f)
+	, Mapping Flat into from (T_TT_I f g) I
+	, Mapping Flat from into I (T_TT_I g f)
+	) => Adjoint v x f g from into
 
 type family Representation t where
 	Representation I = Unit
@@ -154,41 +165,38 @@ type family Neutral p where
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
 class
-	( Mapping v from into (Day v from u uu f f i ii) f
-	, Mapping v from into (v from (Neutral u)) f
-	, Dumb (x v from into f)
-	) => Monoidal v x u uu from into i ii f where
+	( Mapping v from Arrow (Day v from u uu f f i ii) f
+	, Mapping v from Arrow (v from (Neutral u)) f
+	, Dumb (x v from Arrow f)
+	) => Monoidal v x u uu from i ii f where
 
 deriving instance
-	( Mapping v from into (Day v from p pp f f i ii) f
-	, Mapping v from into (v from (Neutral p)) f
-	, Dumb (x v from into f)
-	) => Monoidal v Functor p pp from into i ii f
+	( Mapping v from Arrow (Day v from p pp f f i ii) f
+	, Mapping v from Arrow (v from (Neutral p)) f
+	, Dumb (x v from Arrow f)
+	) => Monoidal v Functor p pp from i ii f
 
-monoidal :: forall v from between into f u uu s t i ii .
-	Monoidal v Functor u uu from into i ii f =>
-	Covariant Functor between into (U_I_II (/\) (u (f i) (f ii))) =>
-	Covariant Adjoint Functor
-		(U_I_II (/\) (u (f i) (f ii)))
-		(U_I_II into (u (f i) (f ii))) into between =>
+monoidal :: forall v from into f u uu s t i ii .
+	Monoidal v Functor u uu from i ii f =>
+	(forall e . Covariant Adjoint Functor (U_I_II (/\) e) (U_I_II (->) e) (->) into) =>
 	Castable Dual Arrow (v from s t) =>
-	Castable Flat between (T_TT_I
-		(U_I_II into (u (f i) (f ii)))
+	Castable Flat into (T_TT_I
+		(U_I_II (->) (u (f i) (f ii)))
 		(U_I_II (/\) (u (f i) (f ii)))
 		(v from (uu i ii) s)) =>
-	Castable Dual between (v from (uu i ii) s) =>
-	Castable Dual between (I (v from (uu i ii) s)) =>
-	Castable Flat between (U_I_II into (u (f i) (f ii)) (f t)) =>
-	Castable Dual into (Day v from u uu f f i ii s) =>
-	Castable Flat into (U_I_II (/\) (u (f i) (f ii)) (v from (uu i ii) s)) =>
-	Supertype (v from s t) -> between
+	Castable Dual into (v from (uu i ii) s) =>
+	Castable Dual into (I (v from (uu i ii) s)) =>
+	Castable Flat into (U_I_II (->) (u (f i) (f ii)) (f t)) =>
+	Castable Dual (->) (Day v from u uu f f i ii s) =>
+	Castable Flat (->) (U_I_II (/\) (u (f i) (f ii)) (v from (uu i ii) s)) =>
+	Supertype (v from s t) -> into
 		(Supertype (v from (uu i ii) s))
-		(into (u (f i) (f ii)) (f t))
-monoidal from = unwrap @between @(U_I_II _ _ _)
+		(u (f i) (f ii) -> f t)
+monoidal from = unwrap @into @(U_I_II _ _ _)
 	`compose` semifunctor @Flat 
-		(map @v @from @into @(Day v from u uu f f i ii) @f from
-			`compose` wrap @into `compose` unwrap @into @(U_I_II (/\) _ _))
-	`compose` unwrap @between
-	`compose` component @Flat @into @between @I @(_ `T_TT_I` _)
-	`compose` wrap @between
-	`compose` wrap @between @(v from (uu i ii) s)
+		(map @v @from @(->) @(Day v from u uu f f i ii) @f from
+			`compose` wrap @(->) `compose` unwrap @(->) @(U_I_II (/\) _ _))
+	`compose` unwrap @into
+	`compose` component @Flat @(->) @into @I @(_ `T_TT_I` _)
+	`compose` wrap @into
+	`compose` wrap @into @(v from (uu i ii) s)
