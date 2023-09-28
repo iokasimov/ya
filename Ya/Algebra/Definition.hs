@@ -145,40 +145,31 @@ type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 class 
 	( x v into from f
 	, x v from into g
-	, x v from into I
-	, x v into from I
-	, x v into from (T_TT_I f g)
-	, x v from into (T_TT_I g f)
-	, Mapping Flat into from (T_TT_I f g) I
-	, Mapping Flat from into I (T_TT_I g f)
+	, Transformation v x into from (T_TT_I f g) I
+	, Transformation v x from into I (T_TT_I g f)
 	) => Adjoint v x f g from into
 
 deriving instance
 	( x v into from f
 	, x v from into g
-	, x v from into I
-	, x v into from I
-	, x v into from (T_TT_I f g)
-	, x v from into (T_TT_I g f)
-	, Mapping Flat into from (T_TT_I f g) I
-	, Mapping Flat from into I (T_TT_I g f)
+	, Transformation v x into from (T_TT_I f g) I
+	, Transformation v x from into I (T_TT_I g f)
 	) => Adjoint v x f g from into
 
 class
 	( Mapping v from Arrow (Day v from u uu f f i ii) f
 	, Mapping v from Arrow (v from (Neutral u)) f
-	, Dumb (x v from Arrow f)
+	, x v from Arrow f
 	) => Monoidal v x u uu from i ii f where
 
 deriving instance
 	( Mapping v from Arrow (Day v from p pp f f i ii) f
 	, Mapping v from Arrow (v from (Neutral p)) f
-	, Dumb (x v from Arrow f)
-	) => Monoidal v Functor p pp from i ii f
+	, x v from Arrow f
+	) => Monoidal v x p pp from i ii f
 
 monoidal :: forall v from into f u uu s t i ii .
 	Monoidal v Functor u uu from i ii f =>
-	Covariant Functor into (->) (U_I_II (/\) (f i /\ f ii)) =>
 	Covariant Adjoint Functor
 		(U_I_II (/\) (u (f i) (f ii)))
 		(U_I_II (->) (u (f i) (f ii)))
