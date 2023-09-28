@@ -115,9 +115,10 @@
 * Define `Instruct` patter synonym
 * Define `Load` patter synonym
 * Define `Vector` type family
-* Define `Adjoint` type alias
+* Define `Adjoint` type class
 * Define `ljo` operator
 * Define `rjo` operator
 * Define `yo'fo` operator
 * Define `monoidal` expression
 * Define `pp'fo` operator
+* Define `Dinatural` type alias

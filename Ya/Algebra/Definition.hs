@@ -24,7 +24,7 @@ component :: forall v from into f g t .
 	(Supertype (v from t t) ~ from t t) =>
 	Castable Dual Arrow (v from t t) =>
 	into (f t) (g t)
-component = mapping @v @from @into @f @g @_ @t (wrap @Arrow identity)
+component = mapping @Flat @from @into @f @g @_ @t (wrap @Arrow identity)
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -80,25 +80,21 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 class
-	( Mapping v from into f g
+	( Mapping Flat from into f g
 	, x v from into f
 	, x v from into g
-	-- , Mapping v from into f f
-	-- , Mapping v from into g g
 	) => Transformation v x from into f g
 
 -- TODO: actually, this is wrong, we cannot define Dinatural transformations this way
 deriving instance
-	( Mapping v from into f g
+	( Mapping Flat from into f g
 	, x v from into f
 	, x v from into g
-	-- ( m from, m into
-	-- , Mapping v from into f g
-	-- , Mapping v from into f f
-	-- , Mapping v from into g g
 	) => Transformation v x from into f g
 
 type Natural = Flat
+
+type Dinatural = Dual
 
 type Covariant f = f Flat
 
