@@ -5,9 +5,9 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `o`, `a`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `o`, `a`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`, `yo'fo`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `okl`, `yo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -26,6 +26,9 @@ fi'fi'fi'fi = identity
 fi'fi'fi = identity
 fi'fi = identity
 fi = identity
+
+yi :: Category into => into t t
+yi = identity
 
 fi_, fi_'fi, fi_'fi'fi
 	:: Category into => into (into s t) (into s t)
@@ -155,7 +158,7 @@ o :: forall f from into i s t .
 	f i s -> into (from s t) (f i t)
 o x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
 
-hokl :: forall f from into (i :: *) s t .
+okl :: forall f from into (i :: *) s t .
 	Category from =>
 	Component Natural from into (T_TT_I (U_I_II f i) (U_I_II f i)) (U_I_II f i) =>
 	Covariant Functor into into (U_I_II f i) =>
@@ -166,7 +169,7 @@ hokl :: forall f from into (i :: *) s t .
 	Castable Flat into (U_I_II f i t) =>
 	Castable Dual into (U_I_II f i t) =>
 	f i s -> into (from s (f i t)) (f i t)
-hokl x = unwrap @into @(U_I_II f i t)
+okl x = unwrap @into @(U_I_II f i t)
 	`compose` component @Flat @from @into @(T_TT_I (U_I_II f i) (U_I_II f i))
 	`compose` wrap @into @(T_TT_I (U_I_II f i) (U_I_II f i) _)
 	`compose` fo (wrap @into @(U_I_II f i _))
