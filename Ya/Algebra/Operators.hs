@@ -4,8 +4,8 @@ module Ya.Algebra.Operators where
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
-infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `o`, `a`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
+infixl 9 `i`, `o`, `a` 
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `okl`, `yo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`

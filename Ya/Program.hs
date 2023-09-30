@@ -89,6 +89,10 @@ pattern Construct :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Construction t i
 pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 	where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
+pattern Yet :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Recursive (U_I_T_II t (/\) i)
+pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
+	where Yet x xs = Recursive (U_I_T_II (These x xs))
+
 type Instruction = R_U_I_T_I (\/)
 
 pattern Instruct :: t (Recursive (U_I_T_II t (\/) i)) -> Instruction t i
@@ -99,3 +103,15 @@ pattern Load :: item -> Instruction f item
 pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
 type List = T_TT_I Optional (Construction Optional)
+
+pattern List :: Recursive (U_I_T_II Optional (/\) i) -> List i
+pattern List xs <- T_TT_I (Some (R_U_I_T_I xs))
+	where List xs = T_TT_I (Some (R_U_I_T_I xs))
+
+pattern Next :: i -> Recursive (U_I_T_II Optional (/\) i) -> Recursive (U_I_T_II Optional (/\) i)
+pattern Next x xs <- Yet x (Some xs)
+	where Next x xs = Yet x (Some xs)
+
+pattern Last :: i -> Recursive (U_I_T_II Optional (/\) i)
+pattern Last x <- Yet x None
+	where Last x = Yet x None

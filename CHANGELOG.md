@@ -122,3 +122,8 @@
 * Define `monoidal` expression
 * Define `pp'fo` operator
 * Define `Dinatural` type alias
+* Define `Yet` patter synonym
+* Define `List` type alias
+* Define `List` patter synonym
+* Define `Next` patter synonym
+* Define `Last` patter synonym
