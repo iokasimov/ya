@@ -1,5 +1,6 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE UndecidableSuperClasses #-}
 module Ya.Program where
 
 import Ya.Algebra
@@ -55,24 +56,27 @@ transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
 start :: state -> Stateful state result -> state /\ result
 start state stateful = stateful `u'u` state
 
-class Field x record where
-	field :: Attribute record x
+type family Record record where
+	Record (x /\ (xx /\ (xxx /\ (xxxx /\ xs)))) = (Different x xx, Different x xxx, Different x xxxx, Different xx xxx, Different xx xxxx, Different xxx xxxx, Different x xs, Different xx xs, Different xxx xs, Different xxxx xs, Record xs)
+	Record (x /\ (xx /\ (xxx /\ xs))) = (Different x xx, Different x xxx, Different xx xxx, Different x xs, Different xx xs, Different xxx xs, Record xs)
+	Record (x /\ (xx /\ xs)) = (Different x xx, Different x xs, Different xx xs, Record xs)
+	Record (x /\ xs) = (Different x xs, Record xs)
+	Record x = ()
 
-instance Field x x
+class Record r => Field x r where
+	field :: Attribute r x
+
+instance Record x => Field x x
 	where field = identity
 
-instance Field x (x /\ xs)
+instance Record (x /\ xs) => Field x (x /\ xs)
 	where field = W_I_II_II `ii` U_I_UU_III_U_II_I
 		`i` (\(These f fs) -> These `i` f `i` (\f' -> These f' fs))
 
-instance {-# OVERLAPS #-} Field x xs => Field x (y /\ xs) where
+instance {-# OVERLAPS #-} (Record (y /\ xs), Field x xs) => Field x (y /\ xs) where
 	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
 		`i` inspect (field @x @xs) fs
 		`i` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
-
-type family Record r where
-	Record (x /\ xs) = (Different x xs, Field x (x /\ xs), Record xs)
-	Record x = Field x x 
 
 type family Vector x xs where
 	Vector x (y /\ xs) = (Matching x y, Vector x xs)
