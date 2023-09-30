@@ -79,7 +79,7 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
-		These `iii` target `iii` target_source `ho` source_origin
+		These `iii` target `iii` target_source `o` source_origin
 
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -87,7 +87,7 @@ instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_II_I from) = w'u `iii` w'u `ii` w'u `i` \into origin ->
 		let These source source_origin = from `u'u` origin in
 		let These target target_source = into source in
-		These `iii` target `iii` target_source `ho` source_origin
+		These `iii` target `iii` target_source `o` source_origin
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I

@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
 infixl 9 `i`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `ho`, `ha`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yo`, `ya`, `o`, `a`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `hokl`, `yo'fo`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -146,14 +146,14 @@ _fo'fo :: forall from into f g o s t .
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-ho :: forall f from into i s t .
+o :: forall f from into i s t .
 	Category from =>
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II f i) t =>
 	Castable Dual into (U_I_II from s t) =>
 	Castable Flat into (U_I_II f i t) =>
 	f i s -> into (from s t) (f i t)
-ho x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
+o x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
 
 hokl :: forall f from into (i :: *) s t .
 	Category from =>
@@ -172,14 +172,14 @@ hokl x = unwrap @into @(U_I_II f i t)
 	`compose` fo (wrap @into @(U_I_II f i _))
 	`compose` yo @from @into @(U_I_II f _) (U_I_II x) 
 
-ha :: forall into from f i s t .
+a :: forall into from f i s t .
 	Category from =>
 	Precategory into =>
 	Contravariant Yoneda Functor from into (U_II_I f i) t =>
 	Castable Dual into (Dual from s t) =>
 	Castable Flat into (Dual f i t) =>
 	f s i -> into (from t s) (f t i)
-ha x = unwrap `compose` ya @from @into @(U_II_I f _) (U_II_I x)
+a x = unwrap `compose` ya @from @into @(U_II_I f _) (U_II_I x)
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Functor from into f =>

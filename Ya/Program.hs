@@ -23,6 +23,7 @@ pattern Some e <- U_I_II (That e)
 
 pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
+	where None = U_I_II (This Unit)
 
 type Reference = U_I_UU_III_U_II_I (->) (/\)
 
@@ -96,3 +97,5 @@ pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
 pattern Load :: item -> Instruction f item
 pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
+
+type List = T_TT_I Optional (Construction Optional)
