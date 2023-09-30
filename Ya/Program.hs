@@ -115,3 +115,13 @@ pattern Next x xs <- Yet x (Some xs)
 pattern Last :: i -> Recursive (U_I_T_II Optional (/\) i)
 pattern Last x <- Yet x None
 	where Last x = Yet x None
+
+type family Brancher datastructure where
+	Brancher (T_TT_I t (Construction t)) = t
+
+type family Nonempty datastructure where
+	Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
+
+pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) (/\) i) -> Construction (Brancher t) i
+pattern Nonempty xs <- R_U_I_T_I xs
+	where Nonempty xs = R_U_I_T_I xs

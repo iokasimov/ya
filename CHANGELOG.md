@@ -126,4 +126,6 @@
 * Define `List` type alias
 * Define `List` patter synonym
 * Define `Next` patter synonym
-* Define `Last` patter synonym
+* Define `Nonempty` type family
+* Define `Nonempty` patter synonym
+* Define `Brancher` type family
