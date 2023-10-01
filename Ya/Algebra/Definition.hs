@@ -147,33 +147,32 @@ class
 	, x v from into g
 	, Transformation v x into from (T_TT_I f g) I
 	, Transformation v x from into I (T_TT_I g f)
-	) => Adjoint v x f g from into
+	) => Adjoint v x from into f g
 
 deriving instance
 	( x v into from f
 	, x v from into g
 	, Transformation v x into from (T_TT_I f g) I
 	, Transformation v x from into I (T_TT_I g f)
-	) => Adjoint v x f g from into
+	) => Adjoint v x from into f g
 
 class
 	( Mapping v from Arrow (Day v from u uu f f i ii) f
 	, Mapping v from Arrow (v from (Neutral u)) f
 	, x v from Arrow f
-	) => Monoidal v x u uu from i ii f where
+	) => Monoidal v x from u uu i ii f where
 
 deriving instance
 	( Mapping v from Arrow (Day v from p pp f f i ii) f
 	, Mapping v from Arrow (v from (Neutral p)) f
 	, x v from Arrow f
-	) => Monoidal v x p pp from i ii f
+	) => Monoidal v x from p pp i ii f
 
 monoidal :: forall v from into f u uu s t i ii .
-	Monoidal v Functor u uu from i ii f =>
-	Covariant Adjoint Functor
+	Monoidal v Functor from u uu i ii f =>
+	Covariant Adjoint Functor (->) into
 		(U_I_II (/\) (u (f i) (f ii)))
-		(U_I_II (->) (u (f i) (f ii)))
-		(->) into =>
+		(U_I_II (->) (u (f i) (f ii))) =>
 	Castable Dual Arrow (v from s t) =>
 	Castable Flat into (T_TT_I
 		(U_I_II (->) (u (f i) (f ii)))

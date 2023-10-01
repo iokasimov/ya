@@ -197,7 +197,7 @@ ra :: forall from into hom f i .
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
 
 ljo :: forall from into f g s t .
-	Covariant Adjoint Functor f g from into =>
+	Covariant Adjoint Functor from into f g =>
 	Castable Flat into ((T_TT_I g f) s) =>
 	Castable Dual into (I s) =>
 	from (f s) t -> into s (g t)
@@ -207,7 +207,7 @@ ljo from = semifunctor @Flat from
 	`compose` wrap @into
 
 rjo :: forall from into f g s t .
-	Covariant Adjoint Functor f g from into =>
+	Covariant Adjoint Functor from into f g =>
 	Castable Dual from ((T_TT_I f g) t) =>
 	Castable Flat from (I t) =>
 	into s (g t) -> from (f s) t
@@ -220,12 +220,11 @@ pp'fo :: forall from into i ii r f .
 	Category from =>
 	-- TODO: these constraints shouldn't be here
 	Covariant Functor into Arrow (T_TT_I (U_I_II (/\) (f i /\ f ii)) (U_I_II (->) (f i /\ f ii))) =>
-	Covariant Functor Arrow into (T_TT_I (U_I_II (->) (f i /\ f ii)) (U_I_II (/\) (f i /\ f ii))) =>
-	Mapping Flat Arrow into I (T_TT_I (U_I_II (->) (f i /\ f ii)) (U_I_II (/\) (f i /\ f ii))) =>
-	Mapping Flat into Arrow (T_TT_I (U_I_II (/\) (f i /\ f ii)) (U_I_II (->) (f i /\ f ii))) I =>
 	Covariant Functor into Arrow (U_I_II (/\) (f i /\ f ii)) =>
-	Covariant Adjoint Functor (U_I_II (/\) (f i /\ ii)) (U_I_II (->) (f i /\ f ii)) (->) into =>
-	Covariant Monoidal Functor (/\) (/\) from i ii f =>
+	Covariant Adjoint Functor (->) into (U_I_II (/\) (f i /\ ii)) (U_I_II (->) (f i /\ f ii)) =>
+	Transformation Flat Functor Arrow into I (T_TT_I (U_I_II (->) (f i /\ f ii)) (U_I_II (/\) (f i /\ f ii))) =>
+	Transformation Flat Functor into Arrow (T_TT_I (U_I_II (/\) (f i /\ f ii)) (U_I_II (->) (f i /\ f ii))) I =>
+	Covariant Monoidal Functor from (/\) (/\) i ii f =>
 	Castable Dual into (Flat from (i /\ ii) r) =>
 	Castable Dual into (I (Flat from (i /\ ii) r)) =>
 	Castable Flat into (Flat (->) (f i /\ f ii) (f r)) =>
