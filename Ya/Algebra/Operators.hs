@@ -94,6 +94,19 @@ yokl x = component @Flat @from @into @(T_TT_I f g)
 	`compose` yoneda @Flat @Functor @from identity x
 	`compose` wrap
 
+yoklKL :: forall from into g f s t .
+	Component Natural from into (T_TT_I f g) (T_TT_I g f) =>
+	Covariant Yoneda Functor from into f (g t) =>
+	Castable Dual into (Flat from s (g t)) =>
+	Castable Flat into (T_TT_I g f t) =>
+	Castable Dual into (T_TT_I f g t) =>
+	f s -> into (from s (g t)) (g (f t))
+yoklKL x = unwrap @into @(T_TT_I g f _)
+	`compose` component @Flat @from @into @(T_TT_I f g) @(T_TT_I g f)
+	`compose` wrap @into @(T_TT_I f g _)
+	`compose` yoneda @Flat @Functor @from identity x
+	`compose` wrap
+
 _yokl :: forall from into g f i s t .
 	Component Natural from into (T_TT_I (U_I_II f i) g) (U_I_II f i) =>
 	Covariant Yoneda Functor from into (U_I_II f i) (g t) =>
