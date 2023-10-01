@@ -7,13 +7,31 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports
 import Ya.Algebra.Operators as Exports
 
--- TODO: Mapping Flat from into
--- 	(T_TT_I (T_TT_I f Construction f) g)
--- 	(T_TT_I g (T_TT_I f Construction f))
+-- instance Mapping Flat from into
+	-- (T_TT_I (T_TT_I f Construction f) g)
+	-- (T_TT_I g (T_TT_I f Construction f))
+	-- where mapping (U_I_II from) = w'u `iii` \(T_TT_I x) -> Unit
 
--- TODO: Mapping Flat from into
---		(T_TT_I (U_T_I_T_I And f) g)
---		(T_TT_I g (U_T_I_T_I And f))
+-- TODO: refactor, the code was copied from previous library iteration
+instance
+	( Covariant Endo Semi Functor Arrow f
+	, Transformation Flat Functor Arrow Arrow (T_TT_I g g) g
+	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (T_TT_I g f)
+	) => Mapping Flat Arrow Arrow (R_U_I_T_I (/\) f `T_TT_I` g) (g `T_TT_I` R_U_I_T_I (/\) f)
+	where mapping (U_I_II from) = w'u `i` \(R_U_I_T_I x) ->
+		let U_I_T_II (These gs fs) = unwrap x in
+		(\s -> R_U_I_T_I `a` Recursive `a` U_I_T_II `a` These (from s)
+			`fo` (unwrap @Arrow
+				`fo'fo`
+				((unwrap `compose` component @Flat @Arrow @Arrow @(f `T_TT_I` g) @(g `T_TT_I` f))
+					`i` T_TT_I
+						(unwrap `compose` map @Flat @Arrow @Arrow
+							@(R_U_I_T_I (/\) f `T_TT_I` g)
+							@(g `T_TT_I` R_U_I_T_I (/\) f) from
+						`compose` T_TT_I `compose` R_U_I_T_I
+						`fo` fs)
+					)
+			)) `fokl` gs
 
 instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)

@@ -172,7 +172,9 @@ monoidal :: forall v from f u uu s t i ii .
 	Monoidal v Functor from u uu i ii f =>
 	Castable Dual Arrow (v from s t) =>
 	Castable Dual Arrow (v from (uu i ii) s) =>
-	Supertype (v from s t) -> Supertype (v from (uu i ii) s) -> u (f i) (f ii) -> f t
+	Supertype (v from s t)
+		-> Supertype (v from (uu i ii) s)
+		-> u (f i) (f ii) -> f t
 monoidal from f x = map @v @from @(->)
 	@(Day v from u uu f f i ii) @f from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
