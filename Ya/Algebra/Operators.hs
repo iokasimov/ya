@@ -6,9 +6,9 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances
 
 infixl 9 `i`, `o`, `a` 
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `okl`, `yo'o`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -221,6 +221,11 @@ pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) i ii f =>
 	from (i /\ ii) r -> f i /\ f ii -> f r
 pp'fo = monoidal @Flat @from @f @(/\) @(/\) identity
+
+pp :: forall i ii r f .
+	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
+	f i -> f ii -> f (i /\ ii)
+pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
 
 -- TODO: define pp'yo instead of pp'fo
 

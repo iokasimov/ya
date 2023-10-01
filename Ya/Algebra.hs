@@ -85,7 +85,8 @@ instance Mapping Flat Arrow Arrow (Flat Arrow Unit) I
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case
 		These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f) -> That (from (f (These i ii)))
-		These (These (U_I_II (This e)) _) (U_I_II f) -> This e
+		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
+		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case
