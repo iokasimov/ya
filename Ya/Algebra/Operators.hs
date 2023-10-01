@@ -3,6 +3,7 @@ module Ya.Algebra.Operators where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
+import Ya.Algebra.Instances
 
 infixl 9 `i`, `o`, `a` 
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `w'u`, `u'w`, `u'u`
