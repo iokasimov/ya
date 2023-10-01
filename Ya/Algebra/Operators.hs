@@ -217,24 +217,10 @@ rjo from =  unwrap @from
 	`compose` wrap @from
 	`compose` semifunctor @Flat from
 
-pp'fo :: forall from into i ii r f .
-	Category from =>
-	-- TODO: these constraints shouldn't be here
-	Covariant Functor into Arrow (T_TT_I (U_I_II (/\) (f i /\ f ii)) (U_I_II (->) (f i /\ f ii))) =>
-	Covariant Functor into Arrow (U_I_II (/\) (f i /\ f ii)) =>
-	Covariant Adjoint Functor (->) into (U_I_II (/\) (f i /\ ii)) (U_I_II (->) (f i /\ f ii)) =>
-	Transformation Flat Functor Arrow into I (T_TT_I (U_I_II (->) (f i /\ f ii)) (U_I_II (/\) (f i /\ f ii))) =>
-	Transformation Flat Functor into Arrow (T_TT_I (U_I_II (/\) (f i /\ f ii)) (U_I_II (->) (f i /\ f ii))) I =>
+pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) i ii f =>
-	Castable Dual into (Flat from (i /\ ii) r) =>
-	Castable Dual into (I (Flat from (i /\ ii) r)) =>
-	Castable Flat into (Flat (->) (f i /\ f ii) (f r)) =>
-	Castable Flat into (T_TT_I
-		(U_I_II (->) (f i /\ f ii))
-		(U_I_II (/\) (f i /\ f ii))
-		(Flat from (i /\ ii) r)) =>
-	into (from (i /\ ii) r) (f i /\ f ii -> f r)
-pp'fo = monoidal @Flat @from @into @f @(/\) @(/\) identity
+	from (i /\ ii) r -> f i /\ f ii -> f r
+pp'fo = monoidal @Flat @from @f @(/\) @(/\) identity
 
 -- TODO: define pp'yo instead of pp'fo
 

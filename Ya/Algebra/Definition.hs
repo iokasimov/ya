@@ -168,29 +168,11 @@ deriving instance
 	, x v from Arrow f
 	) => Monoidal v x from p pp i ii f
 
-monoidal :: forall v from into f u uu s t i ii .
+monoidal :: forall v from f u uu s t i ii .
 	Monoidal v Functor from u uu i ii f =>
-	Covariant Adjoint Functor (->) into
-		(U_I_II (/\) (u (f i) (f ii)))
-		(U_I_II (->) (u (f i) (f ii))) =>
 	Castable Dual Arrow (v from s t) =>
-	Castable Flat into (T_TT_I
-		(U_I_II (->) (u (f i) (f ii)))
-		(U_I_II (/\) (u (f i) (f ii)))
-		(v from (uu i ii) s)) =>
-	Castable Dual into (v from (uu i ii) s) =>
-	Castable Dual into (I (v from (uu i ii) s)) =>
-	Castable Flat into (U_I_II (->) (u (f i) (f ii)) (f t)) =>
-	Castable Dual (->) (Day v from u uu f f i ii s) =>
-	Castable Flat (->) (U_I_II (/\) (u (f i) (f ii)) (v from (uu i ii) s)) =>
-	Supertype (v from s t) -> into
-		(Supertype (v from (uu i ii) s))
-		(u (f i) (f ii) -> f t)
-monoidal from = unwrap @into @(U_I_II _ _ _)
-	`compose` semifunctor @Flat 
-		(map @v @from @(->) @(Day v from u uu f f i ii) @f from
-			`compose` wrap @(->) `compose` unwrap @(->) @(U_I_II (/\) _ _))
-	`compose` unwrap @into
-	`compose` component @Flat @(->) @into @I @(_ `T_TT_I` _)
-	`compose` wrap @into
-	`compose` wrap @into @(v from (uu i ii) s)
+	Castable Dual Arrow (v from (uu i ii) s) =>
+	Supertype (v from s t) -> Supertype (v from (uu i ii) s) -> u (f i) (f ii) -> f t
+monoidal from f x = map @v @from @(->)
+	@(Day v from u uu f f i ii) @f from
+	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
