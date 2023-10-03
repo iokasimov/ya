@@ -106,6 +106,12 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
+instance (forall i ii . Covariant Monoidal Functor Arrow (/\) (/\) i ii f) =>
+	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
+	where mapping (U_I_II from) = w'u `i` \case
+		U_I_II (This e) -> kl (U_I_II `i` This e)
+		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
+
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case
 		These (These (U_I_II (That i)) _) (U_I_II f) -> That (from (f (This i)))
