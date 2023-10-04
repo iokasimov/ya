@@ -130,3 +130,9 @@ pattern Empty :: forall t i . (Brancher t ~ Optional)
 	=> T_TT_I Optional (Construction Optional) i
 pattern Empty <- T_TT_I None
 	where Empty = T_TT_I None
+
+type family Layered known unknown where
+	Layered (U_I_II Arrow input) unknown =
+		T_TT_I (U_I_II Arrow input) unknown
+	Layered (U_I_II Stateful state) unknown =
+		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)
