@@ -12,27 +12,37 @@ import Ya.Algebra.Operators as Exports
 	-- (T_TT_I g (T_TT_I f Construction f))
 	-- where mapping (U_I_II from) = w'u `iii` \(T_TT_I x) -> Unit
 
--- TODO: refactor, the code was copied from previous library iteration
+-- TODO: I need to reduce transformations here
 instance
 	( Covariant Endo Semi Functor Arrow f
 	, Transformation Flat Functor Arrow Arrow (T_TT_I g g) g
 	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (T_TT_I g f)
 	) => Mapping Flat Arrow Arrow (R_U_I_T_I (/\) f `T_TT_I` g) (g `T_TT_I` R_U_I_T_I (/\) f)
-	where mapping (U_I_II from) = w'u `i` \(R_U_I_T_I x) ->
-		let U_I_T_II (These gs fs) = unwrap x in
-		(\s -> R_U_I_T_I `a` Recursive `a` U_I_T_II `a` These (from s)
-			`fo` (unwrap @Arrow
-				`fo'fo`
-				((unwrap `compose` component @Flat @Arrow @Arrow @(f `T_TT_I` g) @(g `T_TT_I` f))
-					`i` T_TT_I
-						(unwrap `compose` map @Flat @Arrow @Arrow
-							@(R_U_I_T_I (/\) f `T_TT_I` g)
-							@(g `T_TT_I` R_U_I_T_I (/\) f) from
-						`compose` T_TT_I `compose` R_U_I_T_I
-						`fo` fs)
-					)
-			)) `fokl` gs
-
+	where mapping (U_I_II from) = w'u `i`
+		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
+			component @Flat @Arrow @Arrow @(T_TT_I _ _)
+			`compose` wrap @Arrow @(T_TT_I _ _ _)
+			`compose` yoneda @Flat @Functor @Arrow identity x
+			`compose` wrap @Arrow @(U_I_II _ _ _)
+			`i` \s ->
+				wrap @Arrow @(R_U_I_T_I _ _ _)
+				`compose` wrap @Arrow @(Recursive _)
+				`compose` U_I_T_II
+				`compose` These (from s)
+				`fo` (unwrap @Arrow
+					`fo'fo` unwrap @Arrow
+						`compose` component @Flat @Arrow @Arrow
+							@(f `T_TT_I` g) @(g `T_TT_I` f)
+						`compose` wrap @Arrow @(T_TT_I _ _ _)
+						`iii` unwrap @Arrow @(T_TT_I _ _ _)
+							`compose` map @Flat @Arrow @Arrow
+								@(R_U_I_T_I (/\) f `T_TT_I` g)
+								@(g `T_TT_I` R_U_I_T_I (/\) f) from
+							`compose` wrap @Arrow @(T_TT_I _ _ _)
+							`compose` wrap @Arrow @(R_U_I_T_I _ _ _) 
+						`fo` xs
+				)
+ 
 instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
