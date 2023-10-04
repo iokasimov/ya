@@ -125,3 +125,8 @@ type family Nonempty datastructure where
 pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) (/\) i) -> Construction (Brancher t) i
 pattern Nonempty xs <- R_U_I_T_I xs
 	where Nonempty xs = R_U_I_T_I xs
+
+pattern Empty :: forall t i . (Brancher t ~ Optional)
+	=> T_TT_I Optional (Construction Optional) i
+pattern Empty <- T_TT_I None
+	where Empty = T_TT_I None

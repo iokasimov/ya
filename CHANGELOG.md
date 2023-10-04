@@ -132,3 +132,4 @@
 * Define `pp` operator
 * Define `yoklKL` operator
 * Define `kl` operator
+* Define `Empty` patter synonym
