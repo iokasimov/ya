@@ -68,6 +68,31 @@ instance
 		`compose` unwrap @into
 
 instance
+	( Covariant Semi Functor into into (U_I_II u e)
+	, Covariant Semi Functor from into (U_I_II uu e)
+	, forall ee . Wrapper into (U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e ee)
+	, forall ee . Wrapper into (W_I_I_II (U_I_UU_II_III u uu) e ee)
+	, forall ee . Wrapper into (U_I_UU_II_III u uu e e ee)
+	, forall ee . Wrapper into (U_I_II u e ee)
+	, forall ee . Wrapper into (U_I_II uu e ee)
+	) => Mapping Flat from into
+	(U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e)
+	(U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e)
+	where mapping (U_I_II from) =
+		wrap @into @(U_I_II _ _ _)
+		`compose` wrap @into @(W_I_I_II _ _ _)
+		`compose` wrap @into @(U_I_UU_II_III _ _ _ _ _)
+		`compose` unwrap @into @(U_I_II u _ _)
+		`compose` semifunctor @Flat @into @into
+			(unwrap @into @(U_I_II uu _ _)
+			`compose` semifunctor @Flat @from @into from
+			`compose` wrap @into @(U_I_II uu _ _))
+		`compose` wrap @into @(U_I_II u _ _)
+		`compose` unwrap @into @(U_I_UU_II_III _ _ _ _ _)
+		`compose` unwrap @into @(W_I_I_II _ _ _)
+		`compose` unwrap @into @(U_I_II _ _ _)
+
+instance
 	( forall e . Wrapper from (U_I_II from e i)
 	, forall e . Wrapper from (U_II_I from i e)
 	, forall e . Wrapper into (U_II_I into (f i) (Flat from e i))

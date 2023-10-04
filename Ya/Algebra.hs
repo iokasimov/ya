@@ -69,18 +69,18 @@ instance Mapping Flat Arrow Arrow (T_TT_I (U_I_II (/\) e) (U_I_II (->) e)) I
 instance Mapping Flat Arrow Arrow I (T_TT_I (U_I_II (->) e) (U_I_II (/\) e))
 	where mapping (U_I_II from) = w'u `i` \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
 
--- TODO: gereralize this instance
-instance Mapping Flat Arrow Arrow
-	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
-	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
-	where mapping (U_I_II from) = w'u `iii` w'u `ii`  w'u `i`
-		((_fo @Arrow `compose` _fo @Arrow) from)
-
+-- TODO: generalize this instance
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
-	where mapping (U_II_I from) = w'u `iii` w'u `ii`  w'u `i` \state old ->
-		let (These new f) = from `u'u` old in f `fo_` state new
+	where mapping (U_II_I (W_I_II_II (U_I_UU_III_U_II_I from))) =
+		wrap @Arrow @(U_II_I _ _ _)
+		`compose` wrap @Arrow @(W_I_I_II _ _ _)
+		`compose` wrap @Arrow @(U_I_UU_II_III (->) _ _ _ _)
+		`compose` (\state old -> let (These new f) = from old in f `fo_` state new)
+		`compose` unwrap @Arrow @(U_I_UU_II_III (->) _ _ _ _)
+		`compose` unwrap @Arrow @(W_I_I_II _ _ _) 
+		`compose` unwrap @Arrow @(U_II_I _ _ _)
 
 instance Mapping Flat Arrow Arrow
 	(T_TT_I
