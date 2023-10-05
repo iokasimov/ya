@@ -142,3 +142,4 @@
 * Define `Stateful` pattern synonym
 * Define `Scenario` pattern synonym
 * Define `rewrap` expression
+* Define `/` operator

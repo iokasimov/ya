@@ -2,6 +2,8 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
+infixr 0 /
+
 newtype I i = I i
 
 newtype Recursive f = Recursive (f (Recursive f))
@@ -203,3 +205,6 @@ type family Same a b where
 
 type Different a b = Same a b ~ 'No
 type Matching a b = Same a b ~ 'Yes
+
+(/) :: (i -> o) -> i -> o
+(/) f x = f x
