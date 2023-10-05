@@ -143,3 +143,5 @@
 * Define `Scenario` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator
+* Define `layer` expression
+* Define `embed` expression

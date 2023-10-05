@@ -130,3 +130,13 @@ type family Layered known unknown where
 		T_TT_I (U_I_II Arrow input) unknown
 	Layered (U_I_II State state) unknown =
 		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)
+
+layer :: forall g f into e .
+	Component Natural Arrow into f (Layered f g) =>
+	into (f e) (Layered f g e)
+layer = component @Flat @Arrow @into @f @(Layered f g) @e
+
+embed :: forall f g into e .
+	Component Natural Arrow into g (Layered f g) =>
+	into (g e) (Layered f g e)
+embed = component @Flat @Arrow @into @g @(Layered f g) @e
