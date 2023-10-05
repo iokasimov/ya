@@ -180,9 +180,8 @@ monoidal from f x = map @v @from @(->)
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
 
 rewrap :: forall into i ii .
-	(Supertype i ~ Supertype ii) =>
 	Precategory into =>
 	Castable Dual into ii => 
 	Castable Flat into i =>
-	into i ii
-rewrap = wrap `compose` unwrap
+	into (Supertype i) (Supertype ii) -> into i ii
+rewrap f = wrap `compose` f `compose` unwrap
