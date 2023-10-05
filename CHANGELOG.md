@@ -141,3 +141,4 @@
 * Define `Scenario` type alias
 * Define `Stateful` pattern synonym
 * Define `Scenario` pattern synonym
+* Define `rewrap` expression
