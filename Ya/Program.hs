@@ -25,6 +25,16 @@ pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
 	where None = U_I_II (This Unit)
 
+type Progress = U_I_II (\/)
+
+pattern Interrupt :: e -> Progress e ee
+pattern Interrupt e <- U_I_II (This e)
+	where Interrupt e = U_I_II (This e)
+
+pattern Continue :: ee -> Progress e ee
+pattern Continue ee <- U_I_II (That ee)
+	where Continue ee = U_I_II (That ee)
+
 type Reference = U_I_UU_III_U_II_I (->) (/\)
 
 type Attribute = W_I_II_II Reference
