@@ -69,7 +69,15 @@ start state stateful = stateful `u'u` state
 
 type Stateful = U_I_II State
 
+pattern Stateful :: State state result -> Stateful state result
+pattern Stateful x <- U_I_II x
+	where Stateful x = U_I_II x
+
 type Scenario = U_II_I State
+
+pattern Scenario :: State state result -> Scenario result state
+pattern Scenario x <- U_II_I x
+	where Scenario x = U_II_I x
 
 type family Record record where
 	Record (x /\ (xx /\ (xxx /\ (xxxx /\ xs)))) = (Different x xx, Different x xxx, Different x xxxx, Different xx xxx, Different xx xxxx, Different xxx xxxx, Different x xs, Different xx xs, Different xxx xs, Different xxxx xs, Record xs)

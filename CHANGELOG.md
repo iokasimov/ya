@@ -139,3 +139,5 @@
 * Define `State` type alias
 * Define `Stateful` type alias
 * Define `Scenario` type alias
+* Define `Stateful` pattern synonym
+* Define `Scenario` pattern synonym
