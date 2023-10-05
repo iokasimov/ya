@@ -53,19 +53,23 @@ adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
 type Transition = U_I_UU_II_III (->) (/\)
 
-type Stateful = W_I_I_II Transition
+type State = W_I_I_II Transition
 
-current :: Stateful state state
+current :: State state state
 current = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
-replace :: state -> Stateful state state
+replace :: state -> State state state
 replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
 
-transit :: (state -> state) -> Stateful state state
+transit :: (state -> state) -> State state state
 transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
 
-start :: state -> Stateful state result -> state /\ result
+start :: state -> State state result -> state /\ result
 start state stateful = stateful `u'u` state
+
+type Stateful = U_I_II State
+
+type Scenario = U_II_I State
 
 type family Record record where
 	Record (x /\ (xx /\ (xxx /\ (xxxx /\ xs)))) = (Different x xx, Different x xxx, Different x xxxx, Different xx xxx, Different xx xxxx, Different xxx xxxx, Different x xs, Different xx xs, Different xxx xs, Different xxxx xs, Record xs)
@@ -144,5 +148,5 @@ pattern Empty <- T_TT_I None
 type family Layered known unknown where
 	Layered (U_I_II Arrow input) unknown =
 		T_TT_I (U_I_II Arrow input) unknown
-	Layered (U_I_II Stateful state) unknown =
+	Layered (U_I_II State state) unknown =
 		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)

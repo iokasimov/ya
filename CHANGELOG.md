@@ -93,7 +93,6 @@
 * Define `a` operator
 * Define `W_I_I_II` data type
 * Define `Transition` type alias
-* Define `Stateful` type alias
 * Define `U_I_UU_II_III` data type
 * Define `inspect` expression
 * Define `adjust` expression
@@ -137,3 +136,6 @@
 * Define `Progress` type alias
 * Define `Continue` patter synonym
 * Define `Interrupt` patter synonym
+* Define `State` type alias
+* Define `Stateful` type alias
+* Define `Scenario` type alias
