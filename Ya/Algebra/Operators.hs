@@ -49,7 +49,7 @@ yo :: forall from into f s t .
 	Covariant Yoneda Functor from into f t =>
 	Castable Dual into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
-yo x = yoneda @Flat @Functor identity x `compose` wrap
+yo x = yoneda @Flat @Functor x
 
 yo'o :: forall from into f g s t .
 	Precategory into =>
@@ -74,7 +74,7 @@ ya :: forall from into f s t .
 	Contravariant Yoneda Functor from into f t =>
 	Castable Dual into (Dual from s t) =>
 	f s -> into (from t s) (f t)
-ya x = yoneda @Dual @Functor identity x `compose` wrap 
+ya x = yoneda @Dual @Functor x
 
 fokl :: forall from into f g s t .
 	Component Natural from into (T_TT_I f g) f =>
@@ -91,8 +91,7 @@ yokl :: forall from into g f s t .
 	f s -> into (from s (g t)) (f t)
 yokl x = component @Flat @from @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
-	`compose` yoneda @Flat @Functor @from identity x
-	`compose` wrap
+	`compose` yoneda @Flat @Functor @from x
 
 yoklKL :: forall from into g f s t .
 	Component Natural from into (T_TT_I f g) (T_TT_I g f) =>
@@ -104,8 +103,7 @@ yoklKL :: forall from into g f s t .
 yoklKL x = unwrap @into @(T_TT_I g f _)
 	`compose` component @Flat @from @into @(T_TT_I f g) @(T_TT_I g f)
 	`compose` wrap @into @(T_TT_I f g _)
-	`compose` yoneda @Flat @Functor @from identity x
-	`compose` wrap
+	`compose` yoneda @Flat @Functor @from x
 
 _yokl :: forall from into g f i s t .
 	Component Natural from into (T_TT_I (U_I_II f i) g) (U_I_II f i) =>
@@ -117,8 +115,7 @@ _yokl :: forall from into g f i s t .
 _yokl x = unwrap @into @(U_I_II f i t)
 	`compose` component @Flat @from @into @(T_TT_I (U_I_II f i) g)
 	`compose` wrap @into @(T_TT_I (U_I_II f i) g _)
-	`compose` yoneda @Flat @Functor @from identity (U_I_II x)
-	`compose` wrap
+	`compose` yoneda @Flat @Functor @from (U_I_II x)
 
 fo'fo :: forall from into f g s t .
 	Covariant Semi Functor from into g =>
@@ -243,8 +240,7 @@ pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
 kl :: forall i ii r f .
 	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
 	i -> f i
-kl x = map @Flat @(->) @(->) @(Flat (->) Unit) @f
-	identity (U_I_II `i` \_ -> x)
+kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f `compose` U_I_II `i` \_ -> x
 
 -- TODO: define pp'yo instead of pp'fo
 

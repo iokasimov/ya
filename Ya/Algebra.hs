@@ -22,8 +22,7 @@ instance
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 			component @Flat @Arrow @Arrow @(T_TT_I _ _)
 			`compose` wrap @Arrow @(T_TT_I _ _ _)
-			`compose` yoneda @Flat @Functor @Arrow identity x
-			`compose` wrap @Arrow @(U_I_II _ _ _)
+			`compose` yoneda @Flat @Functor @Arrow x
 			`i` \s ->
 				wrap @Arrow @(R_U_I_T_I _ _ _)
 				`compose` wrap @Arrow @(Recursive _)

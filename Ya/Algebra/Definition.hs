@@ -85,7 +85,6 @@ class
 	, x v from into g
 	) => Transformation v x from into f g
 
--- TODO: actually, this is wrong, we cannot define Dinatural transformations this way
 deriving instance
 	( Mapping Flat from into f g
 	, x v from into f
@@ -102,20 +101,23 @@ type Contravariant f = f Dual
 
 type Kleisli = U_I_T_II
 
-class
-	( Dumb (x v from Arrow f)
-	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
-	) => Yoneda v x from into f t where
-		yoneda :: forall p s .
-			Castable Dual Arrow (v from s p) =>
-			Supertype (v from s p) -> f s -> into (v from p t) (f t)
-		yoneda from x = unwrap (map @v @from @Arrow
-			@f @(UU_V_U_I_II_T_II v from into f t) from x)
+class Transformation v x Arrow Arrow f
+		(UU_V_U_I_II_T_II v from into f t) =>
+	Yoneda v x from into f t where
+	yoneda :: forall s .
+		Category Arrow =>
+		Precategory into =>
+		(Supertype (v Arrow s s) ~ Arrow s s) =>
+		Castable Dual into (v from s t) =>
+		f s -> into (Supertype (v from s t)) (f t)
+	yoneda x = unwrap
+		(map @Flat @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
+		`compose` wrap @into @(v from s t)
 
 deriving instance
-	( Dumb (x v from Arrow f)
-	, Mapping v from Arrow f (UU_V_U_I_II_T_II v from into f t)
-	) => Yoneda v x from into f t
+	Transformation v x Arrow Arrow f
+		(UU_V_U_I_II_T_II v from into f t) =>
+	Yoneda v x from into f t
 
 type family Representation t where
 	Representation I = Unit
