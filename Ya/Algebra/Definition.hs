@@ -158,19 +158,19 @@ deriving instance
 	) => Adjoint v x from into f g
 
 class
-	( Mapping v from Arrow (Day v from u uu f f i ii) f
+	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
 	, Mapping v from Arrow (v from (Neutral u)) f
 	, x v from Arrow f
-	) => Monoidal v x from u uu i ii f where
+	) => Monoidal v x from u uu f where
 
 deriving instance
-	( Mapping v from Arrow (Day v from p pp f f i ii) f
+	( forall i ii . Mapping v from Arrow (Day v from p pp f f i ii) f
 	, Mapping v from Arrow (v from (Neutral p)) f
 	, x v from Arrow f
-	) => Monoidal v x from p pp i ii f
+	) => Monoidal v x from p pp f
 
 monoidal :: forall v from f u uu s t i ii .
-	Monoidal v Functor from u uu i ii f =>
+	Monoidal v Functor from u uu f =>
 	Castable Dual Arrow (v from s t) =>
 	Castable Dual Arrow (v from (uu i ii) s) =>
 	Supertype (v from s t)

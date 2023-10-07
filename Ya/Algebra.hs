@@ -95,7 +95,7 @@ instance Covariant Endo Semi Functor Arrow u
 	where mapping (U_I_II from) x = T_TT_TTT_I `compose` U_I_II `yi` \state ->
 		x `yo` from `o` These state `o` U_I_II
 
-instance (forall i ii . Covariant Monoidal Functor Arrow (/\) (/\) i ii u)
+instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
 	=> Mapping Flat Arrow Arrow
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 		(T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
@@ -151,7 +151,7 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
-instance (forall i ii . Covariant Monoidal Functor Arrow (/\) (/\) i ii f) =>
+instance (Covariant Monoidal Functor Arrow (/\) (/\) f) =>
 	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
 	where mapping (U_I_II from) = w'u `i` \case
 		U_I_II (This e) -> kl (U_I_II `i` This e)

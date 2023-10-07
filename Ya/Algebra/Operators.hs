@@ -228,17 +228,17 @@ rjo from =  unwrap @from
 	`compose` semifunctor @Flat from
 
 pp'fo :: forall from i ii r f .
-	Covariant Monoidal Functor from (/\) (/\) i ii f =>
+	Covariant Monoidal Functor from (/\) (/\) f =>
 	from (i /\ ii) r -> f i /\ f ii -> f r
 pp'fo = monoidal @Flat @from @f @(/\) @(/\) identity
 
 pp :: forall i ii f .
-	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
+	Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	f i -> f ii -> f (i /\ ii)
 pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
 
 kl :: forall i ii f .
-	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
+	Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	i -> f i
 kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f `compose` U_I_II `i` \_ -> x
 
