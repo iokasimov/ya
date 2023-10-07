@@ -101,10 +101,9 @@ type Contravariant f = f Dual
 
 type Kleisli = U_I_T_II
 
-class Transformation v x Arrow Arrow f
-		(UU_V_U_I_II_T_II v from into f t) =>
-	Yoneda v x from into f t where
-	yoneda :: forall s .
+class (forall t . Transformation v x Arrow Arrow f (UU_V_U_I_II_T_II v from into f t)) =>
+	Yoneda v x from into f where
+	yoneda :: forall s t .
 		Category Arrow =>
 		Precategory into =>
 		(Supertype (v Arrow s s) ~ Arrow s s) =>
@@ -115,9 +114,9 @@ class Transformation v x Arrow Arrow f
 		`compose` wrap @into @(v from s t)
 
 deriving instance
-	Transformation v x Arrow Arrow f
-		(UU_V_U_I_II_T_II v from into f t) =>
-	Yoneda v x from into f t
+	(forall t . Transformation v x Arrow Arrow f
+		(UU_V_U_I_II_T_II v from into f t)) =>
+	Yoneda v x from into f 
 
 type family Representation t where
 	Representation I = Unit

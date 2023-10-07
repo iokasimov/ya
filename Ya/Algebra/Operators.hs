@@ -3,7 +3,7 @@ module Ya.Algebra.Operators where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
-import Ya.Algebra.Instances
+import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `o`, `a` 
 infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `kl`, `w'u`, `u'w`, `u'u`
@@ -46,7 +46,7 @@ fo = semifunctor @Flat
 yo :: forall from into f s t .
 	Category from =>
 	Precategory into =>
-	Covariant Yoneda Functor from into f t =>
+	Covariant Yoneda Functor from into f =>
 	Castable Dual into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor x
@@ -54,7 +54,7 @@ yo x = yoneda @Flat @Functor x
 yo'o :: forall from into f g s t .
 	Precategory into =>
 	Covariant Functor from from g =>
-	Covariant Yoneda Functor from into f (g t) =>
+	Covariant Yoneda Functor from into f =>
 	Contravariant Endo Semi Functor Arrow (U_II_I into (f (g t))) =>
 	Castable Dual into (U_I_II from (g s) (g t)) =>
 	f (g s) -> into (from s t) (f (g t))
@@ -71,7 +71,7 @@ fa = semifunctor @Dual
 ya :: forall from into f s t .
 	Category from =>
 	Precategory into =>
-	Contravariant Yoneda Functor from into f t =>
+	Contravariant Yoneda Functor from into f =>
 	Castable Dual into (Dual from s t) =>
 	f s -> into (from t s) (f t)
 ya x = yoneda @Dual @Functor x
@@ -84,18 +84,18 @@ fokl from = component @Flat @from @into @(f `T_TT_I` g) @f
 	`compose` wrap `compose` fo from
 
 yokl :: forall from into g f s t .
-	Component Natural from into (T_TT_I f g) f =>
-	Covariant Yoneda Functor from into f (g t) =>
+	Component Natural Arrow into (T_TT_I f g) f =>
+	Covariant Yoneda Functor from into f =>
 	Castable Dual into (Flat from s (g t)) =>
 	Castable Dual into (T_TT_I f g t) =>
 	f s -> into (from s (g t)) (f t)
-yokl x = component @Flat @from @into @(T_TT_I f g)
+yokl x = component @Flat @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Flat @Functor @from x
 
 yoklKL :: forall from into g f s t .
 	Component Natural from into (T_TT_I f g) (T_TT_I g f) =>
-	Covariant Yoneda Functor from into f (g t) =>
+	Covariant Yoneda Functor from into f =>
 	Castable Dual into (Flat from s (g t)) =>
 	Castable Flat into (T_TT_I g f t) =>
 	Castable Dual into (T_TT_I f g t) =>
@@ -107,7 +107,7 @@ yoklKL x = unwrap @into @(T_TT_I g f _)
 
 _yokl :: forall from into g f i s t .
 	Component Natural from into (T_TT_I (U_I_II f i) g) (U_I_II f i) =>
-	Covariant Yoneda Functor from into (U_I_II f i) (g t) =>
+	Covariant Yoneda Functor from into (U_I_II f i) =>
 	Castable Dual into (U_I_II from s (g t)) =>
 	Castable Flat into (U_I_II f i t) =>
 	Castable Dual into (T_TT_I (U_I_II f i) g t) =>
@@ -163,17 +163,17 @@ _fo'fo from = _fo @into @into (fo @from @into from)
 o :: forall f from into i s t .
 	Category from =>
 	Precategory into =>
-	Covariant Yoneda Functor from into (U_I_II f i) t =>
+	Covariant Yoneda Functor from into (U_I_II f i) =>
 	Castable Dual into (U_I_II from s t) =>
 	Castable Flat into (U_I_II f i t) =>
 	f i s -> into (from s t) (f i t)
 o x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
 
-okl :: forall f from into (i :: *) s t .
+okl :: forall f from into i s t .
 	Category from =>
 	Component Natural from into (T_TT_I (U_I_II f i) (U_I_II f i)) (U_I_II f i) =>
 	Covariant Functor into into (U_I_II f i) =>
-	Covariant Yoneda Functor from into (U_I_II f i) (f i t) =>
+	Covariant Yoneda Functor from into (U_I_II f i) =>
 	Castable Dual into (U_I_II from s (f i t)) =>
 	Castable Dual into (U_I_II from s t) =>
 	Castable Dual into (T_TT_I (U_I_II f i) (U_I_II f i) t) =>
@@ -189,7 +189,7 @@ okl x = unwrap @into @(U_I_II f i t)
 a :: forall into from f i s t .
 	Category from =>
 	Precategory into =>
-	Contravariant Yoneda Functor from into (U_II_I f i) t =>
+	Contravariant Yoneda Functor from into (U_II_I f i) =>
 	Castable Dual into (Dual from s t) =>
 	Castable Flat into (Dual f i t) =>
 	f s i -> into (from t s) (f t i)
@@ -232,12 +232,12 @@ pp'fo :: forall from i ii r f .
 	from (i /\ ii) r -> f i /\ f ii -> f r
 pp'fo = monoidal @Flat @from @f @(/\) @(/\) identity
 
-pp :: forall i ii r f .
+pp :: forall i ii f .
 	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
 	f i -> f ii -> f (i /\ ii)
 pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
 
-kl :: forall i ii r f .
+kl :: forall i ii f .
 	Covariant Monoidal Functor Arrow (/\) (/\) i ii f =>
 	i -> f i
 kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f `compose` U_I_II `i` \_ -> x
@@ -258,7 +258,7 @@ u'w :: forall into s t .
 	into s t -> into (Supertype s) (Supertype t)
 u'w into = unwrap @into `compose` into `compose` wrap @into
 
-u'u :: forall into s t .
+u'u :: forall into s .
 	Precategory into =>
 	Castable Flat into s =>
 	Castable Flat into (Supertype s) =>
