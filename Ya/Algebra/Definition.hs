@@ -99,7 +99,7 @@ type Covariant f = f Flat
 
 type Contravariant f = f Dual
 
-type Kleisli = U_I_T_II
+type Kleisli u t = U_I_T_II t u
 
 class (forall t . Transformation v x Arrow Arrow f (UU_V_U_I_II_T_II v from into f t)) =>
 	Yoneda v x from into f where
@@ -141,6 +141,19 @@ deriving instance
 type family Neutral p where
 	Neutral (/\) = Unit
 	Neutral (\/) = Void
+
+class Factor v into (diagram :: (* -> * -> *) -> * -> *) where
+	data Object v into diagram i ii
+	factor :: Supertype (v into any i) -> Supertype (v into any ii) -> Supertype (v into any (Object v into diagram i ii))
+
+type Limit = Factor Flat
+
+type Product into = Object Flat into U_I_I
+
+type Sum into = Object Dual into U_I_I
+
+type family Co x where
+	Co (x Flat) = x Dual
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 

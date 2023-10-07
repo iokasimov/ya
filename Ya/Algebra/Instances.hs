@@ -142,3 +142,15 @@ instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 
 instance Category Arrow where
 	identity = \x -> x
+
+-- TODO: move this instance to Instances module
+instance Factor Flat Arrow U_I_I where
+	data Object Flat Arrow U_I_I i ii = These' i ii
+	factor this that x = These' (this x) (that x)
+
+-- TODO: move this instance to Instances module
+instance Factor Dual Arrow U_I_I where
+	data Object Dual Arrow U_I_I i ii = This' i | That' ii
+	factor this that x = case x of
+		This' i -> this i
+		That' ii -> that ii

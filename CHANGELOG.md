@@ -146,3 +146,9 @@
 * Define `layer` expression
 * Define `embed` expression
 * Define `Stack` type class
+* Define `Factor` type class
+* Define `Object` data family
+* Define `Co` type family
+* Define `Limit` type alias
+* Define `Product` type alias
+* Define `Sum` type alias

@@ -41,6 +41,8 @@ newtype W_I_II_II w i ii = W_I_II_II (w i ii ii)
 
 newtype W_I_I_II w i ii = W_I_I_II (w i i ii)
 
+data U_ u i
+
 type Arrow = (->)
 
 type Mono = U_I_I
