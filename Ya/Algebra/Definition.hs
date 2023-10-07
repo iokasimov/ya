@@ -24,7 +24,7 @@ component :: forall v from into f g t .
 	(Supertype (v from t t) ~ from t t) =>
 	Castable Dual Arrow (v from t t) =>
 	into (f t) (g t)
-component = mapping @Flat @from @into @f @g @_ @t (wrap @Arrow identity)
+component = mapping @v @from @into @f @g @_ @t (wrap @Arrow identity)
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -80,13 +80,13 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 class
-	( Mapping Flat from into f g
+	( Mapping v from into f g
 	, x v from into f
 	, x v from into g
 	) => Transformation v x from into f g
 
 deriving instance
-	( Mapping Flat from into f g
+	( Mapping v from into f g
 	, x v from into f
 	, x v from into g
 	) => Transformation v x from into f g
@@ -108,9 +108,10 @@ class (forall t . Transformation v x Arrow Arrow f (UU_V_U_I_II_T_II v from into
 		Precategory into =>
 		(Supertype (v Arrow s s) ~ Arrow s s) =>
 		Castable Dual into (v from s t) =>
+		Castable Dual Arrow (v Arrow s s) =>
 		f s -> into (Supertype (v from s t)) (f t)
 	yoneda x = unwrap
-		(map @Flat @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
+		(map @v @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
 		`compose` wrap @into @(v from s t)
 
 deriving instance
