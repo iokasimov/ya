@@ -90,6 +90,39 @@ instance Mapping Flat Arrow Arrow
 	where mapping (U_I_II from) = w'u `iii` w'u `ii`  w'u `i` \(U_I_UU_II_III state) old ->
 		(\(These s (U_I_II f)) -> from `_fo` f `u'u` s) (state old)
 
+instance Covariant Endo Semi Functor Arrow u
+	=> Mapping Flat Arrow Arrow u (T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
+	where mapping (U_I_II from) x = T_TT_TTT_I `compose` U_I_II `yi` \state ->
+		x `yo` from `o` These state `o` U_I_II
+
+instance (forall i ii . Covariant Monoidal Functor Arrow (/\) (/\) i ii u)
+	=> Mapping Flat Arrow Arrow
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+		(T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
+	where mapping (U_I_II from) (U_I_II (W_I_I_II (U_I_UU_II_III x))) =
+		wrap @Arrow @(T_TT_TTT_I _ _ _ _)
+		`compose` wrap @Arrow @(U_I_II _ _ _)
+		`identity` (kl
+			`compose` semifunctor @Flat from
+			`compose` wrap @Arrow @(U_I_II _ _ _)
+			`compose` x)
+
+-- TODO: use adjunctions here
+instance
+	( Covariant Endo Semi Functor Arrow g
+	, Transformation Natural Functor Arrow Arrow (T_TT_I g g) g
+	) => Mapping Flat Arrow Arrow
+	(T_TT_I
+		(T_TT_TTT_I (U_I_II (->) old) g (U_I_II (/\) btw))
+		(T_TT_TTT_I (U_I_II (->) btw) g (U_I_II (/\) new))
+	)
+	(T_TT_TTT_I (U_I_II (->) old) g (U_I_II (/\) new))
+	where mapping (U_I_II from) (T_TT_I (T_TT_TTT_I (U_I_II x))) =
+		wrap @Arrow @(T_TT_TTT_I _ _ _ _)
+		`compose` wrap @Arrow @(U_I_II _ _ _)
+		`yi` \old -> x old `yokl` \(U_I_II (These btw (T_TT_TTT_I (U_I_II f))))
+			-> f btw `yo'o` from
+ 
 instance
 	( Covariant Semi Functor from Arrow f
 	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)
@@ -101,6 +134,9 @@ instance
 	, forall e . Contravariant Semi Functor into Arrow (U_II_I from e)
 	) => Mapping Dual from Arrow f (UU_V_U_I_II_T_II Dual into Arrow f r)
 	where mapping (U_II_I from) x = UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
+
+-- TODO: implement `mapping` method
+instance Mapping Flat from into (T_TT_I (U_I_II (\/) e) (U_I_II (\/) e)) (U_I_II (\/) e)
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = w'u `i` \case
