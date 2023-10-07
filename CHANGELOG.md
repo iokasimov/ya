@@ -145,3 +145,4 @@
 * Define `/` operator
 * Define `layer` expression
 * Define `embed` expression
+* Define `Stack` type class

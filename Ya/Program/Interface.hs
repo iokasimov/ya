@@ -31,3 +31,15 @@ instance {-# OVERLAPS #-} (Record (y /\ xs), Field x xs) => Field x (y /\ xs) wh
 type family Vector x xs where
 	Vector x (y /\ xs) = (Matching x y, Vector x xs)
 	Vector x y = Matching x y
+
+-- TODO: generalize `Optional`
+class Stack datastructure where
+	pop :: Stateful (List item) (Optional item)
+	push :: item -> Stateful (List item) item
+
+instance Stack List where
+	-- TODO: use `transit`, try to use `yoklKL`operator
+	pop = Stateful `i`current `yokl`\case
+		Empty @List -> Stateful `i`current `yo`(\_ -> None)
+		List (Yet x xs) -> Stateful `i`replace (T_TT_I (xs `yo`R_U_I_T_I)) `yo`(\_ -> Some x)
+	push x = wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x) `yo`\_ -> x
