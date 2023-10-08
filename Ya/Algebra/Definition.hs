@@ -138,10 +138,6 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
-type family Neutral p where
-	Neutral (/\) = Unit
-	Neutral (\/) = Void
-
 class Factor v into (diagram :: (* -> * -> *) -> * -> *) where
 	data Object v into diagram i ii
 	factor :: Supertype (v into any i) -> Supertype (v into any ii) -> Supertype (v into any (Object v into diagram i ii))
@@ -151,6 +147,24 @@ type Limit = Factor Flat
 type Product into = Object Flat into U_I_I
 
 type Sum into = Object Dual into U_I_I
+
+type (/\) = Product Arrow
+
+instance Factor Flat Arrow U_I_I where
+	data Object Flat Arrow U_I_I i ii = These i ii
+	factor this that x = These (this x) (that x)
+
+type (\/) = Sum Arrow
+
+instance Factor Dual Arrow U_I_I where
+	data Object Dual Arrow U_I_I i ii = This i | That ii
+	factor this that x = case x of
+		This i -> this i
+		That ii -> that ii
+
+type family Neutral p where
+	Neutral (/\) = Unit
+	Neutral (\/) = Void
 
 type family Co x where
 	Co (x Flat) = x Dual

@@ -143,14 +143,10 @@ instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
--- TODO: move this instance to Instances module
-instance Factor Flat Arrow U_I_I where
-	data Object Flat Arrow U_I_I i ii = These' i ii
-	factor this that x = These' (this x) (that x)
+instance Wrapper Arrow x
+	=> Castable Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
 
--- TODO: move this instance to Instances module
-instance Factor Dual Arrow U_I_I where
-	data Object Dual Arrow U_I_I i ii = This' i | That' ii
-	factor this that x = case x of
-		This' i -> this i
-		That' ii -> that ii
+instance Wrapper Arrow x
+	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
