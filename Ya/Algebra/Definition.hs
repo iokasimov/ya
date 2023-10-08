@@ -214,3 +214,10 @@ rewrap :: forall into i ii .
 	Castable Flat into i =>
 	into (Supertype i) (Supertype ii) -> into i ii
 rewrap f = wrap `compose` f `compose` unwrap
+
+wrapped :: forall into i ii .
+	Precategory into =>
+	Castable Flat into ii =>
+	Castable Dual into i =>
+	into i ii -> into (Supertype i) (Supertype ii)
+wrapped f = unwrap `compose` f `compose` wrap

@@ -152,3 +152,4 @@
 * Define `Limit` type alias
 * Define `Product` type alias
 * Define `Sum` type alias
+* Define `wrapped` expression
