@@ -155,3 +155,5 @@
 * Define `wrapped` expression
 * Define `project` expression
 * Define `inject` expression
+* Define `/\` operator
+* Define `\/` operator

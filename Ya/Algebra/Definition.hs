@@ -5,6 +5,8 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
+infixr 8 /\, \/
+
 class Dumb x
 instance Dumb x
 
@@ -146,15 +148,43 @@ type Limit = Factor Flat
 
 type Product into = Object Flat into U_I_I
 
+type (/\) = Product Arrow
+
+project :: forall p from into e s t .
+	Limit into U_I_I =>
+	Transformation Natural Functor from into (p (Product into) e) I =>
+	Castable Dual into (p (Product into) e s) =>
+	Castable Flat into (I t) =>
+	from s t -> into (Supertype (p (Product into) e s)) t
+project from = wrapped @into (map @Flat @from @into @(p (Product into) e) @I from)
+
+(/\) :: Limit into U_I_I =>
+	Supertype (Flat into any i) ->
+	Supertype (Flat into any ii) ->
+	Supertype (Flat into any (Object Flat into U_I_I i ii))
+(/\) = factor @Flat
+
 type Sum into = Object Dual into U_I_I
 
-type (/\) = Product Arrow
+type (\/) = Sum Arrow
+
+inject :: forall p from into e s t .
+	Co Limit into U_I_I =>
+	Transformation Natural Functor from into I (p (Sum into) e) =>
+	Castable Flat into (p (Sum into) e t) =>
+	Castable Dual into (I s) =>
+	from s t -> into s (Supertype (p (Sum into) e t))
+inject from = wrapped @into (map @Flat @from @into @I @(p (Sum into) e) from)
+
+(\/) :: Co Limit into U_I_I =>
+	Supertype (Dual into any i) ->
+	Supertype (Dual into any ii) ->
+	Supertype (Dual into any (Object Dual into U_I_I i ii))
+(\/) = factor @Dual
 
 instance Factor Flat Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii
 	factor this that x = These (this x) (that x)
-
-type (\/) = Sum Arrow
 
 instance Factor Dual Arrow U_I_I where
 	data Object Dual Arrow U_I_I i ii = This i | That ii
@@ -221,19 +251,3 @@ wrapped :: forall into i ii .
 	Castable Dual into i =>
 	into i ii -> into (Supertype i) (Supertype ii)
 wrapped f = unwrap `compose` f `compose` wrap
-
-project :: forall p from into e s t .
-	Limit into U_I_I =>
-	Transformation Natural Functor from into (p (Product into) e) I =>
-	Castable Dual into (p (Product into) e s) =>
-	Castable Flat into (I t) =>
-	from s t -> into (Supertype (p (Product into) e s)) t
-project from = wrapped @into (map @Flat @from @into @(p (Product into) e) @I from)
-
-inject :: forall p from into e s t .
-	Co Limit into U_I_I =>
-	Transformation Natural Functor from into I (p (Sum into) e) =>
-	Castable Flat into (p (Sum into) e t) =>
-	Castable Dual into (I s) =>
-	from s t -> into s (Supertype (p (Sum into) e t))
-inject from = wrapped @into (map @Flat @from @into @I @(p (Sum into) e) from)
