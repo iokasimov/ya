@@ -153,3 +153,5 @@
 * Define `Product` type alias
 * Define `Sum` type alias
 * Define `wrapped` expression
+* Define `project` expression
+* Define `inject` expression
