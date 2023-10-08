@@ -135,8 +135,20 @@ instance
 	) => Mapping Dual from Arrow f (UU_V_U_I_II_T_II Dual into Arrow f r)
 	where mapping (U_II_I from) x = UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
--- TODO: implement `mapping` method
-instance Mapping Flat from into (T_TT_I (U_I_II (\/) e) (U_I_II (\/) e)) (U_I_II (\/) e)
+instance
+	( Co Limit into U_I_I
+	, forall ee . Transformation Natural Functor from into I (U_I_II (Sum into) ee)
+	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum into) ee)
+	, forall ee . Wrapper into (I ee)
+	, forall ee . Wrapper into (U_II_I (Sum into) ee e)
+	, forall ee . Wrapper into (U_I_II (Sum into) e ee)
+	, forall ee . Wrapper into (T_TT_I (U_I_II (Sum into) e) (U_I_II (Sum into) e) ee)
+	) => Mapping Flat from into (U_I_II (Sum into) e `T_TT_I` U_I_II (Sum into) e) (U_I_II (Sum into) e)
+	where mapping (U_I_II from) = rewrap @into
+		(inject @U_II_I @from @into identity
+			\/ (inject @U_II_I @from @into identity \/ inject @U_I_II @from @into from)
+				`compose` unwrap @into @(U_I_II _ _ _)
+		) `compose` unwrap @into @(T_TT_I _ _ _)
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = w'u `i` \case
@@ -151,11 +163,15 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
-instance (Covariant Monoidal Functor Arrow (/\) (/\) f) =>
+instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
 	where mapping (U_I_II from) = w'u `i` \case
 		U_I_II (This e) -> kl (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
+
+-- instance Covariant Monoidal Functor into (/\) (/\) f =>
+	-- Mapping Flat from into (U_I_II (Sum into) e `T_TT_I` f) (f `T_TT_I` U_I_II (Sum into) e)
+	-- where mapping (U_I_II from) = rewrap @into
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case

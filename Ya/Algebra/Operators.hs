@@ -240,7 +240,8 @@ pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
 kl :: forall i ii f .
 	Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	i -> f i
-kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f `compose` U_I_II `i` \_ -> x
+kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f
+	`compose` U_I_II `i` \_ -> x
 
 -- TODO: define pp'yo instead of pp'fo
 
