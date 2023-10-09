@@ -157,3 +157,4 @@
 * Define `inject` expression
 * Define `/\` operator
 * Define `\/` operator
+* Define `constant` expression

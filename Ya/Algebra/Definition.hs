@@ -182,6 +182,20 @@ inject from = wrapped @into (map @Flat @from @into @I @(p (Sum into) e) from)
 	Supertype (Dual into any (Object Dual into U_I_I i ii))
 (\/) = factor @Dual
 
+type Terminal into = forall i ii . Object Flat into U_ i ii
+
+type Unit' = Terminal Arrow
+
+constant :: forall into i r .
+	Category into =>
+	Limit into U_ =>
+	into (Object Flat into U_ i i) r -> into i r
+constant f = f `compose` factor @Flat @into @U_ identity identity
+
+type Initial into = forall i ii . Object Dual into U_ i ii
+
+type Void' = Initial Arrow
+
 instance Factor Flat Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii
 	factor this that x = These (this x) (that x)
@@ -191,6 +205,13 @@ instance Factor Dual Arrow U_I_I where
 	factor this that x = case x of
 		This i -> this i
 		That ii -> that ii
+
+instance Factor Flat Arrow U_ where
+	data Object Flat Arrow U_ i ii = Unit'
+	factor _ _ _ = Unit'
+
+instance Factor Dual Arrow U_ where
+	data Object Dual Arrow U_ i ii
 
 type family Neutral p where
 	Neutral (/\) = Unit
