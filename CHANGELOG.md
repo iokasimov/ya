@@ -160,3 +160,4 @@
 * Define `constant` expression
 * Define `Terminal` type alias
 * Define `Initial` type alias
+* Define `Constant` data type

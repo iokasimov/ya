@@ -150,3 +150,15 @@ instance Wrapper Arrow x
 instance Wrapper Arrow x
 	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+
+instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
+	where mapping (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
+
+instance Mapping Dual Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
+	where mapping _ (U_II_I (Constant x)) = U_II_I (Constant (x))
+
+instance Mapping Flat Arrow into f g => Mapping Flat Constant into f g
+	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
+
+instance Mapping Dual Arrow into f g => Mapping Dual Constant into f g
+	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
