@@ -146,17 +146,17 @@ class Factor v into (diagram :: (* -> * -> *) -> * -> *) where
 
 type Limit = Factor Flat
 
-type Product into = Object Flat into U_I_I
+type Product o into = o Flat into U_I_I
 
-type (/\) = Product Arrow
+type (/\) = Product Object Arrow
 
 project :: forall p from into e s t .
 	Limit into U_I_I =>
-	Transformation Natural Functor from into (p (Product into) e) I =>
-	Castable Dual into (p (Product into) e s) =>
+	Transformation Natural Functor from into (p (Product Object into) e) I =>
+	Castable Dual into (p (Product Object into) e s) =>
 	Castable Flat into (I t) =>
-	from s t -> into (Supertype (p (Product into) e s)) t
-project from = wrapped @into (map @Flat @from @into @(p (Product into) e) @I from)
+	from s t -> into (Supertype (p (Product Object into) e s)) t
+project from = wrapped @into (map @Flat @from @into @(p (Product Object into) e) @I from)
 
 (/\) :: Limit into U_I_I =>
 	Supertype (Flat into any i) ->
@@ -164,17 +164,17 @@ project from = wrapped @into (map @Flat @from @into @(p (Product into) e) @I fro
 	Supertype (Flat into any (Object Flat into U_I_I i ii))
 (/\) = factor @Flat
 
-type Sum into = Object Dual into U_I_I
+type Sum o into = o Dual into U_I_I
 
-type (\/) = Sum Arrow
+type (\/) = Sum Object Arrow
 
 inject :: forall p from into e s t .
 	Co Limit into U_I_I =>
-	Transformation Natural Functor from into I (p (Sum into) e) =>
-	Castable Flat into (p (Sum into) e t) =>
+	Transformation Natural Functor from into I (p (Sum Object into) e) =>
+	Castable Flat into (p (Sum Object into) e t) =>
 	Castable Dual into (I s) =>
-	from s t -> into s (Supertype (p (Sum into) e t))
-inject from = wrapped @into (map @Flat @from @into @I @(p (Sum into) e) from)
+	from s t -> into s (Supertype (p (Sum Object into) e t))
+inject from = wrapped @into (map @Flat @from @into @I @(p (Sum Object into) e) from)
 
 (\/) :: Co Limit into U_I_I =>
 	Supertype (Dual into any i) ->
@@ -182,19 +182,15 @@ inject from = wrapped @into (map @Flat @from @into @I @(p (Sum into) e) from)
 	Supertype (Dual into any (Object Dual into U_I_I i ii))
 (\/) = factor @Dual
 
-type Terminal into = forall i ii . Object Flat into U_ i ii
-
-type Unit' = Terminal Arrow
+type Terminal o into i = o Flat into U_ i i
 
 constant :: forall into i r .
 	Category into =>
 	Limit into U_ =>
-	into (Object Flat into U_ i i) r -> into i r
+	into (Terminal Object into i) r -> into i r
 constant f = f `compose` factor @Flat @into @U_ identity identity
 
-type Initial into = forall i ii . Object Dual into U_ i ii
-
-type Void' = Initial Arrow
+type Initial o into i = o Dual into U_ i i
 
 instance Factor Flat Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii
