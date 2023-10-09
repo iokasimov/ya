@@ -158,3 +158,5 @@
 * Define `/\` operator
 * Define `\/` operator
 * Define `constant` expression
+* Define `Terminal` type alias
+* Define `Initial` type alias

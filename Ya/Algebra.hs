@@ -137,13 +137,13 @@ instance
 
 instance
 	( Co Limit into U_I_I
-	, forall ee . Transformation Natural Functor from into I (U_I_II (Sum into) ee)
-	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum into) ee)
+	, forall ee . Transformation Natural Functor from into I (U_I_II (Sum Object into) ee)
+	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum Object into) ee)
 	, forall ee . Wrapper into (I ee)
-	, forall ee . Wrapper into (U_II_I (Sum into) ee e)
-	, forall ee . Wrapper into (U_I_II (Sum into) e ee)
-	, forall ee . Wrapper into (T_TT_I (U_I_II (Sum into) e) (U_I_II (Sum into) e) ee)
-	) => Mapping Flat from into (U_I_II (Sum into) e `T_TT_I` U_I_II (Sum into) e) (U_I_II (Sum into) e)
+	, forall ee . Wrapper into (U_II_I (Sum Object into) ee e)
+	, forall ee . Wrapper into (U_I_II (Sum Object into) e ee)
+	, forall ee . Wrapper into (T_TT_I (U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e) ee)
+	) => Mapping Flat from into (U_I_II (Sum Object into) e `T_TT_I` U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e)
 	where mapping (U_I_II from) = rewrap @into
 		(inject @U_II_I @from @into identity
 			\/ (inject @U_II_I @from @into identity \/ inject @U_I_II @from @into from)
