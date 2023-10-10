@@ -53,8 +53,8 @@ type Transition = U_I_UU_II_III (->) (/\)
 
 type State = W_I_I_II Transition
 
-current :: State state state
-current = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `i` old
+observe :: State state state
+observe = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
 replace :: state -> State state state
 replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old

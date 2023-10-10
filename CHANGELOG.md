@@ -97,7 +97,7 @@
 * Define `inspect` expression
 * Define `adjust` expression
 * Define `u'u` operator
-* Define `current` expression
+* Define `observe` expression
 * Define `replace` expression
 * Define `transit` expression
 * Define `Field` type class
