@@ -130,7 +130,6 @@
 * Define `Brancher` type family
 * Define `pp` operator
 * Define `yoklKL` operator
-* Define `kl` operator
 * Define `Empty` patter synonym
 * Define `Layered` type family
 * Define `Progress` type alias
@@ -161,3 +160,4 @@
 * Define `Terminal` type alias
 * Define `Initial` type alias
 * Define `Constant` data type
+* Define `point` expression

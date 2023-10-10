@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `o`, `a` 
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `kl`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -236,12 +236,6 @@ pp :: forall i ii f .
 	Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	f i -> f ii -> f (i /\ ii)
 pp x y = monoidal @Flat @Arrow @f @(/\) @(/\) identity identity (These x y)
-
-kl :: forall i ii f .
-	Covariant Monoidal Functor Arrow (/\) (/\) f =>
-	i -> f i
-kl x = component @Flat @(->) @(->) @(Flat (->) Unit) @f
-	`compose` U_I_II `i` \_ -> x
 
 -- TODO: define pp'yo instead of pp'fo
 

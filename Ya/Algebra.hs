@@ -102,7 +102,7 @@ instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
 	where mapping (U_I_II from) (U_I_II (W_I_I_II (U_I_UU_II_III x))) =
 		wrap @Arrow @(T_TT_TTT_I _ _ _ _)
 		`compose` wrap @Arrow @(U_I_II _ _ _)
-		`identity` (kl
+		`identity` (point
 			`compose` semifunctor @Flat from
 			`compose` wrap @Arrow @(U_I_II _ _ _)
 			`compose` x)
@@ -166,7 +166,7 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
 	where mapping (U_I_II from) = w'u `i` \case
-		U_I_II (This e) -> kl (U_I_II `i` This e)
+		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
 
 -- instance Covariant Monoidal Functor into (/\) (/\) f =>

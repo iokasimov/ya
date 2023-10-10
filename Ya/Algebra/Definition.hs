@@ -234,13 +234,13 @@ deriving instance
 
 class
 	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
-	, Mapping v from Arrow (v from (Neutral u)) f
+	, Mapping v from Arrow (v Arrow (Neutral u)) f
 	, x v from Arrow f
 	) => Monoidal v x from u uu f where
 
 deriving instance
 	( forall i ii . Mapping v from Arrow (Day v from p pp f f i ii) f
-	, Mapping v from Arrow (v from (Neutral p)) f
+	, Mapping v from Arrow (v Arrow (Neutral p)) f
 	, x v from Arrow f
 	) => Monoidal v x from p pp f
 
@@ -254,6 +254,11 @@ monoidal :: forall v from f u uu s t i ii .
 monoidal from f x = map @v @from @(->)
 	@(Day v from u uu f f i ii) @f from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
+
+point :: forall v from f t .
+	Monoidal Flat Functor Arrow (/\) (/\) f =>
+	t -> f t
+point x = component @Flat @Arrow @(->) @(Flat (->) Unit) @f (U_I_II (\_ -> x))
 
 rewrap :: forall into i ii .
 	Precategory into =>
