@@ -16,8 +16,8 @@ import Ya.Algebra.Operators as Exports
 instance
 	( Covariant Endo Semi Functor Arrow f
 	, Transformation Flat Functor Arrow Arrow (T_TT_I g g) g
-	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (T_TT_I g f)
-	) => Mapping Flat Arrow Arrow (R_U_I_T_I (/\) f `T_TT_I` g) (g `T_TT_I` R_U_I_T_I (/\) f)
+	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (TT_T_I f g)
+	) => Mapping Flat Arrow Arrow (R_U_I_T_I (/\) f `T_TT_I` g) (R_U_I_T_I (/\) f `TT_T_I` g) 
 	where mapping (U_I_II from) = w'u `i`
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 			component @Flat @Arrow @Arrow @(T_TT_I _ _)
@@ -31,12 +31,12 @@ instance
 				`fo` (unwrap @Arrow
 					`fo'fo` unwrap @Arrow
 						`compose` component @Flat @Arrow @Arrow
-							@(f `T_TT_I` g) @(g `T_TT_I` f)
+							@(f `T_TT_I` g) @(f `TT_T_I` g)
 						`compose` wrap @Arrow @(T_TT_I _ _ _)
-						`iii` unwrap @Arrow @(T_TT_I _ _ _)
+						`iii` unwrap @Arrow @(TT_T_I _ _ _)
 							`compose` map @Flat @Arrow @Arrow
 								@(R_U_I_T_I (/\) f `T_TT_I` g)
-								@(g `T_TT_I` R_U_I_T_I (/\) f) from
+								@(R_U_I_T_I (/\) f `TT_T_I` g) from
 							`compose` wrap @Arrow @(T_TT_I _ _ _)
 							`compose` wrap @Arrow @(R_U_I_T_I _ _ _) 
 						`fo` xs
@@ -151,7 +151,7 @@ instance
 		) `compose` unwrap @into @(T_TT_I _ _ _)
 
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
-	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
+	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (TT_T_I (U_I_II (\/) e) f)
 	where mapping (U_I_II from) = w'u `i` \case
 		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II

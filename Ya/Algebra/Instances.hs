@@ -24,6 +24,17 @@ instance
 		`compose` unwrap @into
 
 instance
+	( Covariant Semi Functor from into f
+	, Covariant Endo Semi Functor into g
+	, forall e . Wrapper into (TT_T_I f g e)
+	) => Mapping Flat from into (TT_T_I f g) (TT_T_I f g)
+	where mapping (U_I_II from) = wrap @into
+		`compose` (semifunctor @Flat @into @into
+			`compose` semifunctor @Flat @from @into
+			) from
+		`compose` unwrap @into
+
+instance
 	( Covariant Semi Functor from into t
 	, forall ee . Covariant Endo Semi Functor into (U_I_II u ee)
 	, forall ee . Wrapper into (U_I_II (U_I_T_II t u) e ee)
