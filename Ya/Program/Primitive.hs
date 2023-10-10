@@ -67,9 +67,9 @@ start state stateful = stateful `u'u` state
 
 type Stateful = U_I_II State
 
-pattern Stateful :: State state result -> Stateful state result
-pattern Stateful x <- U_I_II x
-	where Stateful x = U_I_II x
+pattern Statefully :: State state result -> Stateful state result
+pattern Statefully x <- U_I_II x
+	where Statefully x = U_I_II x
 
 type Scenario = U_II_I State
 
