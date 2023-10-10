@@ -150,6 +150,18 @@ instance
 				`compose` unwrap @into @(U_I_II _ _ _)
 		) `compose` unwrap @into @(T_TT_I _ _ _)
 
+instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
+	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
+	where mapping (U_I_II from) = w'u `i` \case
+		U_I_II (This e) -> point (U_I_II `i` This e)
+		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
+
+-- instance Covariant Monoidal Functor into (/\) (/\) f =>
+-- 	Mapping Flat from into
+-- 		(U_I_II (Sum Object into) e `T_TT_I` f)
+-- 		(f `T_TT_I` U_I_II (Sum Object into) e)
+	-- where mapping (U_I_II from) = rewrap @into
+
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = w'u `i` \case
 		These (These (I i) (I ii)) (U_I_II f) -> from (f (These i ii))
@@ -162,16 +174,6 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I
 		These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f) -> That (from (f (These i ii)))
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
-
-instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
-	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (T_TT_I f (U_I_II (\/) e))
-	where mapping (U_I_II from) = w'u `i` \case
-		U_I_II (This e) -> point (U_I_II `i` This e)
-		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
-
--- instance Covariant Monoidal Functor into (/\) (/\) f =>
-	-- Mapping Flat from into (U_I_II (Sum into) e `T_TT_I` f) (f `T_TT_I` U_I_II (Sum into) e)
-	-- where mapping (U_I_II from) = rewrap @into
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case

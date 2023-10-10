@@ -12,6 +12,8 @@ newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T_TT_I t tt i = T_TT_I (t (tt i))
 
+newtype TT_T_I t tt i = TT_T_I (tt (t i))
+
 newtype T_TT_TTT_I t tt ttt i = T_TT_TTT_I (t (tt (ttt i)))
 
 newtype U_I_I u i = U_I_I (u i i)
@@ -58,8 +60,8 @@ type family Supertype e where
 	Supertype (U_1_II u i ii) = u Unit ii
 	Supertype (Constant i ii) = ii
 	Supertype (Recursive f) = f (Recursive f)
-	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
+	Supertype (TT_T_I t tt i) = tt (t i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
 	Supertype (U_I_II u i ii) = u i ii
@@ -122,6 +124,12 @@ instance Castable Flat Arrow (T_TT_I f g i)
 
 instance Castable Dual Arrow (T_TT_I f g i)
 	where cast = U_II_I T_TT_I
+
+instance Castable Flat Arrow (TT_T_I f g i)
+	where cast = U_I_II (\(TT_T_I x) -> x)
+
+instance Castable Dual Arrow (TT_T_I f g i)
+	where cast = U_II_I TT_T_I
 
 instance Castable Flat Arrow (T_TT_TTT_I f g h i)
 	where cast = U_I_II (\(T_TT_TTT_I x) -> x)

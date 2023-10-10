@@ -161,3 +161,4 @@
 * Define `Initial` type alias
 * Define `Constant` data type
 * Define `point` expression
+* Define `TT_T_I` data type
