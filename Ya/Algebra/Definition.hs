@@ -255,7 +255,7 @@ monoidal from f x = map @v @from @(->)
 	@(Day v from u uu f f i ii) @f from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
 
-point :: forall v from f t .
+point :: forall f t .
 	Monoidal Flat Functor Arrow (/\) (/\) f =>
 	t -> f t
 point x = component @Flat @Arrow @(->) @(Flat (->) Unit) @f (U_I_II (\_ -> x))

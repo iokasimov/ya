@@ -107,7 +107,7 @@ instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
 			`compose` wrap @Arrow @(U_I_II _ _ _)
 			`compose` x)
 
--- TODO: use adjunctions here
+-- TODO: try to use adjunctions here
 instance
 	( Covariant Endo Semi Functor Arrow g
 	, Transformation Natural Functor Arrow Arrow (T_TT_I g g) g
@@ -118,11 +118,32 @@ instance
 	)
 	(T_TT_TTT_I (U_I_II (->) old) g (U_I_II (/\) new))
 	where mapping (U_I_II from) (T_TT_I (T_TT_TTT_I (U_I_II x))) =
-		wrap @Arrow @(T_TT_TTT_I _ _ _ _)
-		`compose` wrap @Arrow @(U_I_II _ _ _)
+		wrap @Arrow @(T_TT_TTT_I _ _ _ _) `compose` wrap @Arrow @(U_I_II _ _ _)
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (T_TT_TTT_I (U_I_II f))))
 			-> f btw `yo'o` from
- 
+
+-- TODO: try to use adjunctions here
+instance
+	( Covariant Monoidal Functor Arrow (/\) (/\) g
+	, Transformation Natural Functor Arrow Arrow (T_TT_I g g) g
+	) => Mapping Flat Arrow Arrow
+	(T_TT_I
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
+	)
+	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	where mapping (U_I_II from) (T_TT_I (T_TT_TTT_I (U_I_II x))) =
+		wrap @Arrow @(T_TT_TTT_I _ _ _ _) `compose` wrap @Arrow @(U_I_II _ _ _)
+		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
+			-> point @g / U_I_II (f btw) `yo`from
+
+-- TODO: implement `mapping`
+instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\)
+	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	i ii) 
+	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+
 instance
 	( Covariant Semi Functor from Arrow f
 	, forall e . Covariant Semi Functor into Arrow (U_I_II from e)
