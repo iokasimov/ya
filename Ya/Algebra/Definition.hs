@@ -140,9 +140,18 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
-class Factor v into (diagram :: (* -> * -> *) -> * -> *) where
+type family Order v u i ii where
+	Order Flat u i ii = u i ii
+	Order Dual u i ii = u ii i
+
+class
+	( Order v (Mapping Flat into into) I (diagram (Object v into diagram))
+	, Order v (Mapping Flat into into) (U_I_II (Object v into diagram) Unit) I
+	, Order v (Mapping Flat into into) (U_II_I (Object v into diagram) Unit) I
+	) => Factor v into diagram where
 	data Object v into diagram i ii
-	factor :: Supertype (v into any i) -> Supertype (v into any ii) -> Supertype (v into any (Object v into diagram i ii))
+	factor :: Supertype (v into any i) -> Supertype (v into any ii)
+		-> Supertype (v into any (Object v into diagram i ii))
 
 type Limit = Factor Flat
 
@@ -192,9 +201,29 @@ constant f = f `compose` factor @Flat @into @U_ identity identity
 
 type Initial o into i = o Dual into U_ i i
 
+instance Mapping Flat Arrow Arrow I (U_I_I (/\))
+	where mapping (U_I_II from) (I x) = U_I_I (These (from x) (from x))
+
+instance Mapping Flat Arrow Arrow (U_I_II (/\) e) I
+	where mapping (U_I_II from) (U_I_II (These e x)) = I (from x)
+
+instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
+	where mapping (U_I_II from) (U_II_I (These x e)) = I (from x)
+
 instance Factor Flat Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii
 	factor this that x = These (this x) (that x)
+
+instance Mapping Flat Arrow Arrow (U_I_I (\/)) I
+	where mapping (U_I_II from) = \case
+		U_I_I (This x) -> I (from x)
+		U_I_I (That x) -> I (from x)
+
+instance Mapping Flat Arrow Arrow I (U_I_II (\/) e)
+	where mapping (U_I_II from) (I x) = U_I_II (That (from x))
+
+instance Mapping Flat Arrow Arrow I (U_II_I (\/) e)
+	where mapping (U_I_II from) (I x) = U_II_I (This (from x))
 
 instance Factor Dual Arrow U_I_I where
 	data Object Dual Arrow U_I_I i ii = This i | That ii
@@ -202,12 +231,12 @@ instance Factor Dual Arrow U_I_I where
 		This i -> this i
 		That ii -> that ii
 
-instance Factor Flat Arrow U_ where
-	data Object Flat Arrow U_ i ii = Unit'
-	factor _ _ _ = Unit'
+-- instance Factor Flat Arrow U_ where
+	-- data Object Flat Arrow U_ i ii = Unit'
+	-- factor _ _ _ = Unit'
 
-instance Factor Dual Arrow U_ where
-	data Object Dual Arrow U_ i ii
+-- instance Factor Dual Arrow U_ where
+	-- data Object Dual Arrow U_ i ii
 
 type family Neutral p where
 	Neutral (/\) = Unit

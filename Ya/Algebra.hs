@@ -234,15 +234,3 @@ instance Mapping Flat Arrow Arrow (U_II_I (\/) e) (U_II_I (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case
 		This x -> This (from x)
 		That e -> That e
-
-instance Mapping Flat Arrow Arrow (U_I_II (/\) e) I
-	where mapping (U_I_II from) (U_I_II (These e x)) = I (from x)
-
-instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
-	where mapping (U_I_II from) (U_II_I (These x e)) = I (from x)
-
-instance Mapping Flat Arrow Arrow I (U_I_II (\/) e)
-	where mapping (U_I_II from) (I x) = U_I_II (That (from x))
-
-instance Mapping Flat Arrow Arrow I (U_II_I (\/) e)
-	where mapping (U_I_II from) (I x) = U_II_I (This (from x))
