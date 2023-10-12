@@ -140,14 +140,18 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
-type family Order v u i ii where
-	Order Flat u i ii = u i ii
-	Order Dual u i ii = u ii i
+class Ordered v (vv :: (* -> * -> *) -> * -> * -> *) from into t tt
+
+deriving instance Mapping vv from into t tt
+	=> Ordered Flat vv from into t tt
+
+deriving instance Mapping vv from into tt t
+	=> Ordered Dual vv from into t tt
 
 class
-	( Order v (Mapping Flat from into) I (diagram (Object v into diagram))
-	, Order v (Mapping Flat from into) (U_I_II (Object v into diagram) Unit) I
-	, Order v (Mapping Flat from into) (U_II_I (Object v into diagram) Unit) I
+	( Ordered v Flat from into I (diagram (Object v into diagram))
+	, forall e . Ordered v Flat from into (U_I_II (Object v into diagram) e) I
+	, forall e . Ordered v Flat from into (U_II_I (Object v into diagram) e) I
 	) => Factor v from into diagram where
 	data Object v into diagram i ii
 	factor :: Supertype (v from any i) -> Supertype (v from any ii)
@@ -192,12 +196,6 @@ inject from = wrapped @into (map @Flat @from @into @I @(p (Sum Object into) e) f
 (\/) = factor @Dual
 
 type Terminal o into i = o Flat into U_ i i
-
-constant :: forall into i r .
-	Category into =>
-	Limit into into U_ =>
-	into (Terminal Object into i) r -> into i r
-constant f = f `compose` factor @Flat @into @into @U_ identity identity
 
 type Initial o into i = o Dual into U_ i i
 

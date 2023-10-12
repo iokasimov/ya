@@ -158,7 +158,7 @@ instance
 
 instance
 	( Co Limit into into U_I_I
-	, forall ee . Transformation Natural Functor from into I (U_I_II (Sum Object into) ee)
+	, Transformation Natural Functor from into I (U_I_II (Sum Object into) e)
 	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum Object into) ee)
 	, forall ee . Wrapper into (I ee)
 	, forall ee . Wrapper into (U_II_I (Sum Object into) ee e)
