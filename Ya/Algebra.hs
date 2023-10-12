@@ -48,7 +48,7 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
-		These `ii` target `iii` target_source `o` source_origin
+		These / target / target_source `o` source_origin
 
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -137,12 +137,26 @@ instance
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
 			-> point @g / U_I_II (f btw) `yo`from
 
--- TODO: implement `mapping`
-instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\)
-	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-	i ii) 
-	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+instance 
+	( Component Natural Arrow Arrow (T_TT_I g g) g
+	, Covariant Yoneda Functor Arrow Arrow g
+	) => Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\)
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		i ii)
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	where mapping (U_I_II from) = w'u / \case
+		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
+			U_I_II / \old ->
+				x old `yokl` \(U_I_II (These btw i)) ->
+					from `a`f `a`These i `fo'fo`y btw
+
+instance
+	Monoidal Flat Functor Arrow (/\) (/\) g =>
+	Mapping Flat Arrow Arrow (U_I_II Arrow Unit)
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	where mapping (U_I_II from) (U_I_II f) = T_TT_TTT_I `compose` U_I_II
+		/ \old -> point `compose` U_I_II `compose` These old `compose` from `ii`f Unit
 
 instance
 	( Covariant Semi Functor from Arrow f

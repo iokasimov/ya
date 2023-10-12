@@ -2,7 +2,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
-infixr 0 /
+infixl 0 /
 
 newtype I i = I i
 

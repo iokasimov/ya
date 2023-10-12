@@ -25,8 +25,8 @@ instance Record (x /\ xs) => Field x (x /\ xs)
 
 instance {-# OVERLAPS #-} (Record (y /\ xs), Field x xs) => Field x (y /\ xs) where
 	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-		`i` inspect (field @x @xs) fs
-		`ii` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
+		/ inspect (field @x @xs) fs
+		/ \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
 
 type family Vector x xs where
 	Vector x (y /\ xs) = (Matching x y, Vector x xs)
