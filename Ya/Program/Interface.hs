@@ -21,12 +21,12 @@ instance Record x => Field x x
 
 instance Record (x /\ xs) => Field x (x /\ xs)
 	where field = W_I_II_II `ii` U_I_UU_III_U_II_I
-		`i` (\(These f fs) -> These `i` f `i` (\f' -> These f' fs))
+		`i` (\(These f fs) -> These `i` f `ii` (\f' -> These f' fs))
 
 instance {-# OVERLAPS #-} (Record (y /\ xs), Field x xs) => Field x (y /\ xs) where
 	field = W_I_II_II `ii` U_I_UU_III_U_II_I `i` \(These old fs) -> These
 		`i` inspect (field @x @xs) fs
-		`i` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
+		`ii` \new -> These old `i`adjust (field @x @xs) (\_ -> new) fs
 
 type family Vector x xs where
 	Vector x (y /\ xs) = (Matching x y, Vector x xs)
@@ -42,4 +42,4 @@ instance Stack List where
 	pop = Statefully observe `yokl`\case
 		Empty @List -> Statefully observe `yo`(\_ -> None)
 		List (Yet x xs) -> Statefully `i`replace (T_TT_I (xs `yo`R_U_I_T_I)) `yo`(\_ -> Some x)
-	push x = wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x) `yo`\_ -> x
+	push x = (wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x)) `yo`\_ -> x

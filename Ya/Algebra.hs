@@ -23,7 +23,7 @@ instance
 			component @Flat @Arrow @Arrow @(T_TT_I _ _)
 			`compose` wrap @Arrow @(T_TT_I _ _ _)
 			`compose` yoneda @Flat @Functor @Arrow x
-			`i` \s ->
+			`ii` \s ->
 				wrap @Arrow @(R_U_I_T_I _ _ _)
 				`compose` wrap @Arrow @(Recursive _)
 				`compose` U_I_T_II
@@ -48,7 +48,7 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
-		These `iii` target `iii` target_source `o` source_origin
+		These `ii` target `iii` target_source `o` source_origin
 
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -56,11 +56,11 @@ instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_II_I from) = w'u `iii` w'u `ii` w'u `i` \into origin ->
 		let These source source_origin = from `u'u` origin in
 		let These target target_source = into source in
-		These `iii` target `iii` target_source `o` source_origin
+		These `ii` target `iii` target_source `o` source_origin
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I
-		(\x -> These `i` x `i` identity)
+		(\x -> These `i` x `ii` identity)
 
 instance Mapping Flat Arrow Arrow (T_TT_I (U_I_II (/\) e) (U_I_II (->) e)) I
 	where mapping (U_I_II from) = w'u `i` \(U_I_II (These e (U_I_II f))) -> from `i` f e

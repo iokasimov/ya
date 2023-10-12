@@ -5,15 +5,15 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `o`, `a` 
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
-infixl 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
-infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
-infixl 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
-infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
-infixl 2 `fi'fi'fi'fi`
-infixl 0 `fi'fi'fi'fi'fi`
+infixr 9 `i`, `o`, `a` 
+infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixr 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
+infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
+infixr 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
+infixr 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
+infixr 3 `fi_'fi'fi`, `_fo'fi'fi`
+infixr 2 `fi'fi'fi'fi`
+infixr 0 `fi'fi'fi'fi'fi`
 
 i, ii, iii :: Category into => into t t
 iii = identity

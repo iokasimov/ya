@@ -54,13 +54,13 @@ type Transition = U_I_UU_II_III (->) (/\)
 type State = W_I_I_II Transition
 
 observe :: State state state
-observe = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `i` old
+observe = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `ii` old
 
 replace :: state -> State state state
 replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
 
 transit :: (state -> state) -> State state state
-transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `i` s
+transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `ii` s
 
 start :: state -> State state result -> state /\ result
 start state stateful = stateful `u'u` state
