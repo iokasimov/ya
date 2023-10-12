@@ -157,7 +157,7 @@ instance
 	where mapping (U_II_I from) x = UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
 instance
-	( Co Limit into U_I_I
+	( Co Limit into into U_I_I
 	, forall ee . Transformation Natural Functor from into I (U_I_II (Sum Object into) ee)
 	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum Object into) ee)
 	, forall ee . Wrapper into (I ee)

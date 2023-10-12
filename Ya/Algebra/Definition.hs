@@ -145,12 +145,12 @@ type family Order v u i ii where
 	Order Dual u i ii = u ii i
 
 class
-	( Order v (Mapping Flat into into) I (diagram (Object v into diagram))
-	, Order v (Mapping Flat into into) (U_I_II (Object v into diagram) Unit) I
-	, Order v (Mapping Flat into into) (U_II_I (Object v into diagram) Unit) I
-	) => Factor v into diagram where
+	( Order v (Mapping Flat from into) I (diagram (Object v into diagram))
+	, Order v (Mapping Flat from into) (U_I_II (Object v into diagram) Unit) I
+	, Order v (Mapping Flat from into) (U_II_I (Object v into diagram) Unit) I
+	) => Factor v from into diagram where
 	data Object v into diagram i ii
-	factor :: Supertype (v into any i) -> Supertype (v into any ii)
+	factor :: Supertype (v from any i) -> Supertype (v from any ii)
 		-> Supertype (v into any (Object v into diagram i ii))
 
 type Limit = Factor Flat
@@ -160,16 +160,16 @@ type Product o into = o Flat into U_I_I
 type (/\) = Product Object Arrow
 
 project :: forall p from into e s t .
-	Limit into U_I_I =>
+	Limit from into U_I_I =>
 	Transformation Natural Functor from into (p (Product Object into) e) I =>
 	Castable Dual into (p (Product Object into) e s) =>
 	Castable Flat into (I t) =>
 	from s t -> into (Supertype (p (Product Object into) e s)) t
 project from = wrapped @into (map @Flat @from @into @(p (Product Object into) e) @I from)
 
-(/\) :: Limit into U_I_I =>
-	Supertype (Flat into any i) ->
-	Supertype (Flat into any ii) ->
+(/\) :: Limit from into U_I_I =>
+	Supertype (Flat from any i) ->
+	Supertype (Flat from any ii) ->
 	Supertype (Flat into any (Object Flat into U_I_I i ii))
 (/\) = factor @Flat
 
@@ -178,16 +178,16 @@ type Sum o into = o Dual into U_I_I
 type (\/) = Sum Object Arrow
 
 inject :: forall p from into e s t .
-	Co Limit into U_I_I =>
+	Co Limit into into U_I_I =>
 	Transformation Natural Functor from into I (p (Sum Object into) e) =>
 	Castable Flat into (p (Sum Object into) e t) =>
 	Castable Dual into (I s) =>
 	from s t -> into s (Supertype (p (Sum Object into) e t))
 inject from = wrapped @into (map @Flat @from @into @I @(p (Sum Object into) e) from)
 
-(\/) :: Co Limit into U_I_I =>
-	Supertype (Dual into any i) ->
-	Supertype (Dual into any ii) ->
+(\/) :: Co Limit from into U_I_I =>
+	Supertype (Dual from any i) ->
+	Supertype (Dual from any ii) ->
 	Supertype (Dual into any (Object Dual into U_I_I i ii))
 (\/) = factor @Dual
 
@@ -195,9 +195,9 @@ type Terminal o into i = o Flat into U_ i i
 
 constant :: forall into i r .
 	Category into =>
-	Limit into U_ =>
+	Limit into into U_ =>
 	into (Terminal Object into i) r -> into i r
-constant f = f `compose` factor @Flat @into @U_ identity identity
+constant f = f `compose` factor @Flat @into @into @U_ identity identity
 
 type Initial o into i = o Dual into U_ i i
 
@@ -210,7 +210,7 @@ instance Mapping Flat Arrow Arrow (U_I_II (/\) e) I
 instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
 	where mapping (U_I_II from) (U_II_I (These x e)) = I (from x)
 
-instance Factor Flat Arrow U_I_I where
+instance Factor Flat Arrow Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii
 	factor this that x = These (this x) (that x)
 
@@ -225,7 +225,7 @@ instance Mapping Flat Arrow Arrow I (U_I_II (\/) e)
 instance Mapping Flat Arrow Arrow I (U_II_I (\/) e)
 	where mapping (U_I_II from) (I x) = U_II_I (This (from x))
 
-instance Factor Dual Arrow U_I_I where
+instance Factor Dual Arrow Arrow U_I_I where
 	data Object Dual Arrow U_I_I i ii = This i | That ii
 	factor this that x = case x of
 		This i -> this i
