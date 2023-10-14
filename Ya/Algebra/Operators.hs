@@ -199,9 +199,22 @@ lj :: forall from into f g s t .
 	Castable Flat into ((T_TT_I g f) s) =>
 	Castable Dual into (I s) =>
 	from (f s) t -> into s (g t)
-lj from = semifunctor @Flat from
+lj from = fo from
 	`compose` unwrap @into
 	`compose` component @Flat @from @into @I @(g `T_TT_I` f)
+	`compose` wrap @into
+
+_lj :: forall from into f g e ee s t .
+	Adjoint Functor from into (U_I_II f e) (U_I_II g ee) =>
+	Castable Flat into ((T_TT_I (U_I_II g ee) (U_I_II f e)) s) =>
+	Castable Flat into (U_I_II g ee t) =>
+	Castable Dual into (I s) =>
+	Castable Flat from (U_I_II f e s) =>
+	from (f e s) t -> into s (g ee t)
+_lj from = unwrap @into @(U_I_II g _ _)
+	`compose` fo (from `compose` unwrap @from @(U_I_II f _ _))
+	`compose` unwrap @into @(T_TT_I _ _ _)
+	`compose` component @Flat @from @into @I @(U_I_II g ee `T_TT_I` U_I_II f e)
 	`compose` wrap @into
 
 rj :: forall from into f g s t .
@@ -209,10 +222,10 @@ rj :: forall from into f g s t .
 	Castable Dual from ((T_TT_I f g) t) =>
 	Castable Flat from (I t) =>
 	into s (g t) -> from (f s) t
-rj from =  unwrap @from
+rj from = unwrap @from
 	`compose` component @Flat @into @from @(f `T_TT_I` g) @I
 	`compose` wrap @from
-	`compose` semifunctor @Flat from
+	`compose` fo from
 
 pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) f =>

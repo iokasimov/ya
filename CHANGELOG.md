@@ -165,3 +165,4 @@
 * Define `Order` type family
 * Define `absurd` expression
 * Define `empty` expression
+* Define `_lj` operator
