@@ -114,8 +114,8 @@
 * Define `Load` patter synonym
 * Define `Vector` type family
 * Define `Adjoint` type class
-* Define `ljo` operator
-* Define `rjo` operator
+* Define `lj` operator
+* Define `rj` operator
 * Define `yo'fo` operator
 * Define `monoidal` expression
 * Define `pp'fo` operator

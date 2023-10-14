@@ -250,18 +250,18 @@ type family Co x where
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
 class 
-	( x v into from f
-	, x v from into g
-	, Transformation v x into from (T_TT_I f g) I
-	, Transformation v x from into I (T_TT_I g f)
-	) => Adjoint v x from into f g
+	( x Flat into from f
+	, x Flat from into g
+	, Transformation Flat x into from (T_TT_I f g) I
+	, Transformation Flat x from into I (T_TT_I g f)
+	) => Adjoint x from into f g
 
 deriving instance
-	( x v into from f
-	, x v from into g
-	, Transformation v x into from (T_TT_I f g) I
-	, Transformation v x from into I (T_TT_I g f)
-	) => Adjoint v x from into f g
+	( x Flat into from f
+	, x Flat from into g
+	, Transformation Flat x into from (T_TT_I f g) I
+	, Transformation Flat x from into I (T_TT_I g f)
+	) => Adjoint x from into f g
 
 class
 	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f

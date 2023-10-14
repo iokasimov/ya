@@ -6,8 +6,8 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixr 9 `i`, `ho`, `ha` 
-infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
-infixr 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
+infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixr 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`
 infixr 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixr 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
@@ -194,22 +194,22 @@ ra :: forall from into hom f i .
 	into (f i) (hom i (Representation f))
 ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
 
-ljo :: forall from into f g s t .
-	Covariant Adjoint Functor from into f g =>
+lj :: forall from into f g s t .
+	Adjoint Functor from into f g =>
 	Castable Flat into ((T_TT_I g f) s) =>
 	Castable Dual into (I s) =>
 	from (f s) t -> into s (g t)
-ljo from = semifunctor @Flat from
+lj from = semifunctor @Flat from
 	`compose` unwrap @into
 	`compose` component @Flat @from @into @I @(g `T_TT_I` f)
 	`compose` wrap @into
 
-rjo :: forall from into f g s t .
-	Covariant Adjoint Functor from into f g =>
+rj :: forall from into f g s t .
+	Adjoint Functor from into f g =>
 	Castable Dual from ((T_TT_I f g) t) =>
 	Castable Flat from (I t) =>
 	into s (g t) -> from (f s) t
-rjo from =  unwrap @from
+rj from =  unwrap @from
 	`compose` component @Flat @into @from @(f `T_TT_I` g) @I
 	`compose` wrap @from
 	`compose` semifunctor @Flat from

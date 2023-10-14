@@ -191,12 +191,6 @@ instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `ho` That  `ho` U_I_II
 
--- instance Covariant Monoidal Functor into (/\) (/\) f =>
--- 	Mapping Flat from into
--- 		(U_I_II (Sum Object into) e `T_TT_I` f)
--- 		(f `T_TT_I` U_I_II (Sum Object into) e)
-	-- where mapping (U_I_II from) = rewrap @into
-
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = w'u `i` \case
 		These (These (I i) (I ii)) (U_I_II f) -> from (f (These i ii))
