@@ -54,8 +54,10 @@ type Arrow = (->)
 
 type Mono = U_I_I
 
+-- Rename to Straight?
 type Flat = U_I_II
 
+-- Rename to Opposite?
 type Dual = U_II_I
 
 type family Flip v where

@@ -27,6 +27,7 @@ library
     DataKinds
     DeriveAnyClass
     ConstraintKinds
+    EmptyCase
     ExistentialQuantification
     GADTs
     QuantifiedConstraints

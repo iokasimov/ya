@@ -236,6 +236,10 @@ instance Factor Dual Arrow Arrow U_I_I where
 -- instance Factor Dual Arrow U_ where
 	-- data Object Dual Arrow U_ i ii
 
+-- TODO: generalize via colimits
+absurd :: Void -> i
+absurd x = case x of {}
+
 type family Neutral p where
 	Neutral (/\) = Unit
 	Neutral (\/) = Void
@@ -261,15 +265,15 @@ deriving instance
 
 class
 	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
-	, Mapping v from Arrow (v Arrow (Neutral u)) f
+	, Mapping v from Arrow (v Arrow (Neutral uu)) f
 	, x v from Arrow f
 	) => Monoidal v x from u uu f where
 
 deriving instance
-	( forall i ii . Mapping v from Arrow (Day v from p pp f f i ii) f
-	, Mapping v from Arrow (v Arrow (Neutral p)) f
+	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
+	, Mapping v from Arrow (v Arrow (Neutral uu)) f
 	, x v from Arrow f
-	) => Monoidal v x from p pp f
+	) => Monoidal v x from u uu f
 
 monoidal :: forall v from f u uu s t i ii .
 	Monoidal v Functor from u uu f =>
@@ -282,10 +286,17 @@ monoidal from f x = map @v @from @(->)
 	@(Day v from u uu f f i ii) @f from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
 
+-- TODO: generalize
 point :: forall f t .
 	Monoidal Flat Functor Arrow (/\) (/\) f =>
 	t -> f t
 point x = component @Flat @Arrow @(->) @(Flat (->) Unit) @f (U_I_II (\_ -> x))
+
+-- TODO: generalize
+empty :: forall f t .
+	Monoidal Flat Functor Arrow (/\) (\/) f =>
+	f t
+empty = component @Flat @Arrow @(->) @(Flat (->) Void) @f (U_I_II absurd)
 
 rewrap :: forall into i ii .
 	Precategory into =>

@@ -216,9 +216,6 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I
 		These (These _ (U_I_II (That ii))) (U_I_II f) -> That (from (f (That ii)))
 		These (These _ (U_I_II (This ii))) (U_I_II f) -> This ii
 
-instance Mapping Flat Arrow Arrow (Flat Arrow Unit) (U_I_II (\/) e)
-	where mapping (U_I_II from) (U_I_II f) = U_I_II (That (from (f Unit)))
-
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case
 		These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f) -> This (from (f (These i ii)))
@@ -232,6 +229,15 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_II_I (\/) e) (U_I
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Unit) (U_II_I (\/) e)
 	where mapping (U_I_II from) (U_I_II f) = U_II_I (This (from (f Unit)))
+
+instance Mapping Flat Arrow Arrow (Flat Arrow Unit) (U_I_II (\/) e)
+	where mapping (U_I_II from) (U_I_II f) = U_I_II (That (from (f Unit)))
+
+instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_I_II (\/) Unit)
+	where mapping (U_I_II from) (U_I_II _) = U_I_II (This Unit)
+
+instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_II_I (\/) Unit)
+	where mapping (U_I_II from) (U_I_II _) = U_II_I (That Unit)
 
 instance Mapping Flat Arrow Arrow (U_I_II (/\) e) (U_I_II (/\) e)
 	where mapping (U_I_II from) = w'u `i` \(These e x) -> These e (from x)

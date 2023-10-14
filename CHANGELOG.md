@@ -163,3 +163,5 @@
 * Define `U_UU_UUU_V_I_II_III_UUUU` data type
 * Define `Flip` type family
 * Define `Order` type family
+* Define `absurd` expression
+* Define `empty` expression
