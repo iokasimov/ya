@@ -40,6 +40,8 @@ class Stack datastructure where
 instance Stack List where
 	-- TODO: use `transit`, try to use `yoklKL`operator
 	pop = Statefully observe `yokl`\case
-		Empty @List -> Statefully observe `yo`(\_ -> None)
-		List (Yet x xs) -> Statefully `i`replace (T_TT_I (xs `yo`R_U_I_T_I)) `yo`(\_ -> Some x)
-	push x = (wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x)) `yo`\_ -> x
+		Empty @List -> Statefully observe `ye`None
+		List (Yet x xs) -> Statefully `i`replace (T_TT_I (xs `yo`R_U_I_T_I)) `ye`Some x
+	push x = (wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x)) `ye`x
+
+-- TODO: Stack (Construction Optional)

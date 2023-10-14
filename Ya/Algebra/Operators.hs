@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixr 9 `i`, `o`, `a` 
-infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixr 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
 infixr 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -50,6 +50,14 @@ yo :: forall from into f s t .
 	Castable Dual into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor x
+
+ye :: forall into f s t .
+	Precategory into =>
+	Covariant Yoneda Functor Constant into f =>
+	Castable Dual into (U_I_II Constant s t) =>
+	Castable Dual into (Constant s t) =>
+	f s -> into t (f t)
+ye x = yoneda @Flat @Functor x `compose` wrap @into @(Constant _ _)
 
 yo'o :: forall from into f g s t .
 	Precategory into =>

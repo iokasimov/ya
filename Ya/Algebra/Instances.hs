@@ -103,19 +103,20 @@ instance
 		`compose` unwrap @into @(W_I_I_II _ _ _)
 		`compose` unwrap @into @(U_I_II _ _ _)
 
-instance Precategory from => Mapping Flat from Arrow
-	(UU_V_U_I_II_T_II Flat from Arrow f i)
-	(UU_V_U_I_II_T_II Flat from Arrow f i)
-	where mapping from = wrap
-		`compose` (`compose` (wrap `compose` (`compose` unwrap from) `compose` unwrap))
-		`compose` unwrap
+instance Mapping Flat Arrow Arrow
+	(UU_V_U_I_II_T_II Flat Arrow Arrow f i)
+	(UU_V_U_I_II_T_II Flat Arrow Arrow f i)
+	where mapping from = rewrap (`compose` (rewrap (`compose` unwrap from)))
 
-instance Precategory from => Mapping Dual from Arrow
-	(UU_V_U_I_II_T_II Dual from Arrow f i)
-	(UU_V_U_I_II_T_II Dual from Arrow f i)
-	where mapping from = wrap
-		`compose` (`compose` (wrap `compose` (compose (unwrap from)) `compose` unwrap))
-		`compose` unwrap
+instance Mapping Flat Arrow Arrow
+	(UU_V_U_I_II_T_II Flat Constant Arrow f i)
+	(UU_V_U_I_II_T_II Flat Constant Arrow f i)
+	where mapping _ = rewrap (`compose` (rewrap (rewrap identity)))
+
+instance Mapping Dual Arrow Arrow
+	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
+	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
+	where mapping from = rewrap (`compose` (rewrap (compose (unwrap from)) ))
 
 instance
 	( forall e . Covariant Semi Functor from into (U_I_II (U_I_T_II t u) e)
