@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixr 9 `i`, `o`, `a` 
+infixr 9 `i`, `ho`, `ha` 
 infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixr 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
 infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`
@@ -166,21 +166,21 @@ _fo'fo :: forall from into f g o s t .
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-o :: forall from into i s t .
+ho :: forall from into i s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II from i) =>
 	Castable Dual into (U_I_II from s t) =>
 	Castable Flat into (U_I_II from i t) =>
 	from i s -> into (from s t) (from i t)
-o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
+ho x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
 
-a :: forall into from i s t .
+ha :: forall into from i s t .
 	Precategory into =>
 	Contravariant Yoneda Functor from into (U_II_I from i) =>
 	Castable Dual into (Dual from s t) =>
 	Castable Flat into (Dual from i t) =>
 	from s i -> into (from t s) (from t i)
-a x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
+ha x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Functor from into f =>

@@ -48,7 +48,7 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
-		These / target / target_source `o` source_origin
+		These / target / target_source `ho` source_origin
 
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -56,7 +56,7 @@ instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_II_I from) = w'u `iii` w'u `ii` w'u `i` \into origin ->
 		let These source source_origin = from `u'u` origin in
 		let These target target_source = into source in
-		These `ii` target `iii` target_source `o` source_origin
+		These `ii` target `iii` target_source `ho` source_origin
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I
@@ -93,7 +93,7 @@ instance Mapping Flat Arrow Arrow
 instance Covariant Endo Semi Functor Arrow u
 	=> Mapping Flat Arrow Arrow u (T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
 	where mapping (U_I_II from) x = T_TT_TTT_I `compose` U_I_II `yi` \state ->
-		x `yo` from `o` These state `o` U_I_II
+		x `yo` from `ho` These state `ho` U_I_II
 
 instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
 	=> Mapping Flat Arrow Arrow
@@ -149,7 +149,7 @@ instance
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
 			U_I_II / \old ->
 				x old `yokl` \(U_I_II (These btw i)) ->
-					from `a`f `a`These i `fo'fo`y btw
+					from `ha` f `ha` These i `fo'fo`y btw
 
 instance
 	Monoidal Flat Functor Arrow (/\) (/\) g =>
@@ -189,7 +189,7 @@ instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (TT_T_I (U_I_II (\/) e) f)
 	where mapping (U_I_II from) = w'u `i` \case
 		U_I_II (This e) -> point (U_I_II `i` This e)
-		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
+		U_I_II (That x) -> x `yo` from `ho` That  `ho` U_I_II
 
 -- instance Covariant Monoidal Functor into (/\) (/\) f =>
 -- 	Mapping Flat from into
