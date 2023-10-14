@@ -103,7 +103,6 @@
 * Define `Field` type class
 * Define `start` expression
 * Define `_yokl` operator
-* Define `hokl` operator
 * Define `Verdict` data type
 * Define `Same` type family
 * Define `Different` type alias

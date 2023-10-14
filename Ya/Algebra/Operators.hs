@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixr 9 `i`, `o`, `a` 
 infixr 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixr 7 `iii`, `ljo`, `rjo`, `fi_`, `_fo`, `fo_`, `fa_`
-infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `okl`, `yo'o`
+infixr 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`
 infixr 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixr 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
 infixr 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -44,7 +44,6 @@ fo'fi = semifunctor @Flat
 fo = semifunctor @Flat
 
 yo :: forall from into f s t .
-	Category from =>
 	Precategory into =>
 	Covariant Yoneda Functor from into f =>
 	Castable Dual into (U_I_II from s t) =>
@@ -77,7 +76,6 @@ fa'fi = semifunctor @Dual
 fa = semifunctor @Dual
 
 ya :: forall from into f s t .
-	Category from =>
 	Precategory into =>
 	Contravariant Yoneda Functor from into f =>
 	Castable Dual into (Dual from s t) =>
@@ -168,40 +166,21 @@ _fo'fo :: forall from into f g o s t .
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-o :: forall f from into i s t .
-	Category from =>
+o :: forall from into i s t .
 	Precategory into =>
-	Covariant Yoneda Functor from into (U_I_II f i) =>
+	Covariant Yoneda Functor from into (U_I_II from i) =>
 	Castable Dual into (U_I_II from s t) =>
-	Castable Flat into (U_I_II f i t) =>
-	f i s -> into (from s t) (f i t)
-o x = unwrap `compose` yo @from @into @(U_I_II f _) (U_I_II x)
+	Castable Flat into (U_I_II from i t) =>
+	from i s -> into (from s t) (from i t)
+o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
 
-okl :: forall f from into i s t .
-	Category from =>
-	Component Natural from into (T_TT_I (U_I_II f i) (U_I_II f i)) (U_I_II f i) =>
-	Covariant Functor into into (U_I_II f i) =>
-	Covariant Yoneda Functor from into (U_I_II f i) =>
-	Castable Dual into (U_I_II from s (f i t)) =>
-	Castable Dual into (U_I_II from s t) =>
-	Castable Dual into (T_TT_I (U_I_II f i) (U_I_II f i) t) =>
-	Castable Flat into (U_I_II f i t) =>
-	Castable Dual into (U_I_II f i t) =>
-	f i s -> into (from s (f i t)) (f i t)
-okl x = unwrap @into @(U_I_II f i t)
-	`compose` component @Flat @from @into @(T_TT_I (U_I_II f i) (U_I_II f i))
-	`compose` wrap @into @(T_TT_I (U_I_II f i) (U_I_II f i) _)
-	`compose` fo (wrap @into @(U_I_II f i _))
-	`compose` yo @from @into @(U_I_II f _) (U_I_II x) 
-
-a :: forall into from f i s t .
-	Category from =>
+a :: forall into from i s t .
 	Precategory into =>
-	Contravariant Yoneda Functor from into (U_II_I f i) =>
+	Contravariant Yoneda Functor from into (U_II_I from i) =>
 	Castable Dual into (Dual from s t) =>
-	Castable Flat into (Dual f i t) =>
-	f s i -> into (from t s) (f t i)
-a x = unwrap `compose` ya @from @into @(U_II_I f _) (U_II_I x)
+	Castable Flat into (Dual from i t) =>
+	from s i -> into (from t s) (from t i)
+a x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Functor from into f =>
