@@ -180,8 +180,8 @@ instance
 	, forall ee . Wrapper into (T_TT_I (U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e) ee)
 	) => Mapping Flat from into (U_I_II (Sum Object into) e `T_TT_I` U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e)
 	where mapping (U_I_II from) = rewrap @into
-		(inject @U_II_I @from @into identity
-			\/ (inject @U_II_I @from @into identity \/ inject @U_I_II @from @into from)
+		(inject @This @from @into identity
+			\/ (inject @This @from @into identity \/ inject @That @from @into from)
 				`compose` unwrap @into @(U_I_II _ _ _)
 		) `compose` unwrap @into @(T_TT_I _ _ _)
 
@@ -233,11 +233,37 @@ instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_I_II (\/) Unit)
 instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_II_I (\/) Unit)
 	where mapping (U_I_II from) (U_I_II _) = U_II_I (That Unit)
 
-instance Mapping Flat Arrow Arrow (U_I_II (/\) e) (U_I_II (/\) e)
-	where mapping (U_I_II from) = w'u `i` \(These e x) -> These e (from x)
+instance
+	( Category from
+	, Precategory into
+	, Limit from into U_I_I
+	, Limit into into U_I_I
+	, forall ee . Mapping Flat from into (This (Product Object into) ee) I
+	, forall ee . Mapping Flat from into (That (Product Object into) ee) I
+	, forall ee . Wrapper into (This (Product Object into) ee e)
+	, forall ee . Wrapper into (That (Product Object into) e ee)
+	, forall ee . Wrapper into (I ee)
+	) => Mapping Flat from into
+		(That (Product Object into) e)
+		(That (Product Object into) e)
+	where mapping (U_I_II from) = w'u
+		/ project @This @from identity /\ project @That from
 
-instance Mapping Flat Arrow Arrow (U_II_I (/\) e) (U_II_I (/\) e)
-	where mapping (U_I_II from) = w'u `i` \(These x e) -> These (from x) e
+instance
+	( Category from
+	, Precategory into
+	, Limit from into U_I_I
+	, Limit into into U_I_I
+	, forall ee . Mapping Flat from into (This (Product Object into) ee) I
+	, forall ee . Mapping Flat from into (That (Product Object into) ee) I
+	, forall ee . Wrapper into (This (Product Object into) e ee)
+	, forall ee . Wrapper into (That (Product Object into) ee e)
+	, forall ee . Wrapper into (I ee)
+	) => Mapping Flat from into
+		(This (Product Object into) e)
+		(This (Product Object into) e)
+	where mapping (U_I_II from) = w'u
+		/ project @This from /\ project @That @from identity
 
 instance Mapping Flat Arrow Arrow (U_I_II (\/) e) (U_I_II (\/) e)
 	where mapping (U_I_II from) = w'u `i` \case

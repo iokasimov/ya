@@ -164,12 +164,14 @@ type Product o into = o Flat into U_I_I
 type (/\) = Product Object Arrow
 
 project :: forall p from into e s t .
+	Precategory into =>
 	Limit from into U_I_I =>
-	Transformation Natural Functor from into (p (Product Object into) e) I =>
+	Mapping Flat from into (p (Product Object into) e) I =>
 	Castable Dual into (p (Product Object into) e s) =>
 	Castable Flat into (I t) =>
 	from s t -> into (Supertype (p (Product Object into) e s)) t
-project from = wrapped @into (map @Flat @from @into @(p (Product Object into) e) @I from)
+project from = wrapped @into
+	/ map @Flat @from @into @(p (Product Object into) e) @I from
 
 (/\) :: Limit from into U_I_I =>
 	Supertype (Flat from any i) ->

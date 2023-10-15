@@ -60,6 +60,10 @@ type Flat = U_I_II
 -- Rename to Opposite?
 type Dual = U_II_I
 
+type This = U_II_I
+
+type That = U_I_II
+
 type family Flip v where
 	Flip Flat = Dual
 	Flip Dual = Flat
