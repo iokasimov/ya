@@ -140,18 +140,17 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
-class Ordered v (vv :: (* -> * -> *) -> * -> * -> *) from into t tt
+class Flippable v from into t tt
 
-deriving instance Mapping vv from into t tt
-	=> Ordered Flat vv from into t tt
+deriving instance Mapping Flat from into t tt => Flippable Flat from into t tt
+deriving instance Mapping Flat from into tt t => Flippable Dual from into t tt
 
-deriving instance Mapping vv from into tt t
-	=> Ordered Dual vv from into t tt
+type family Co x where Co (x Flat) = x Dual
 
 class
-	( Ordered v Flat from into I (diagram (Object v into diagram))
-	, forall e . Ordered v Flat from into (U_I_II (Object v into diagram) e) I
-	, forall e . Ordered v Flat from into (U_II_I (Object v into diagram) e) I
+	( Flippable v from into I (diagram (Object v into diagram))
+	, forall e . Flippable v from into (U_I_II (Object v into diagram) e) I
+	, forall e . Flippable v from into (U_II_I (Object v into diagram) e) I
 	) => Factor v from into diagram where
 	data Object v into diagram i ii
 	factor :: Supertype (v from any i) -> Supertype (v from any ii)
@@ -245,9 +244,6 @@ absurd x = case x of {}
 type family Neutral p where
 	Neutral (/\) = Unit
 	Neutral (\/) = Void
-
-type family Co x where
-	Co (x Flat) = x Dual
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
