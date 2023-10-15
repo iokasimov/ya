@@ -307,3 +307,17 @@ wrapped :: forall into i ii .
 	Castable Dual into i =>
 	into i ii -> into (Supertype i) (Supertype ii)
 wrapped f = unwrap `compose` f `compose` wrap
+
+_i :: forall into u s t e .
+	Precategory into =>
+	Castable Dual into (U_II_I u e s) =>
+	Castable Flat into (U_II_I u e t) =>
+	into (U_II_I u e s) (U_II_I u e t) -> into (u s e) (u t e)
+_i f = unwrap @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
+
+i_ :: forall into u s t e .
+	Precategory into =>
+	Castable Dual into (U_I_II u e s) =>
+	Castable Flat into (U_I_II u e t) =>
+	into (U_I_II u e s) (U_I_II u e t) -> into (u e s) (u e t)
+i_ f = unwrap @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)

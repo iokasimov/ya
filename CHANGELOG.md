@@ -171,3 +171,5 @@
 * Define `U_T_I_TT_I` data type
 * Define `Tree` type alias
 * Define `Binary` type family
+* Define `_i` expression
+* Define `i_` expression
