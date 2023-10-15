@@ -28,6 +28,8 @@ newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
 newtype U_T_I_II t u i ii = U_T_I_II (u (t i) ii)
 
+newtype U_T_I_TT_I u t tt i = U_T_I_TT_I (u (t i) (tt i))
+
 newtype U_I_UU_II_III u uu i ii iii = U_I_UU_II_III (u i (uu ii iii))
 
 newtype U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii x = U_UU_UUU_V_III_I_II_UUUU
@@ -81,6 +83,7 @@ type family Supertype e where
 	Supertype (U_II_I u ii i) = u i ii
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
 	Supertype (U_T_I_II t u i ii) = u (t i) ii
+	Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
 	Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
 	Supertype (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii) = 
 		u (uu (v uuu iii i) (v uuu iii ii)) (v uuu iii (uuuu i ii))
@@ -157,6 +160,12 @@ instance Castable Flat Arrow (U_I_T_II u t i ii)
 
 instance Castable Dual Arrow (U_I_T_II u f i ii)
 	where cast = U_II_I U_I_T_II
+
+instance Castable Flat Arrow (U_T_I_TT_I u t tt i)
+	where cast = U_I_II (\(U_T_I_TT_I x) -> x)
+
+instance Castable Dual Arrow (U_T_I_TT_I u t tt i)
+	where cast = U_II_I U_T_I_TT_I
 
 instance Castable Dual Arrow (U_I_UU_II_III u uu i ii iii)
 	where cast = U_II_I U_I_UU_II_III

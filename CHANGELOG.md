@@ -168,3 +168,6 @@
 * Define `_lj` operator
 * Define `This` type alias
 * Define `That` type alias
+* Define `U_T_I_TT_I` data type
+* Define `Tree` type alias
+* Define `Binary` type family

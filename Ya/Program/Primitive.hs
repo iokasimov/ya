@@ -125,6 +125,11 @@ pattern Empty :: forall t i . (Brancher t ~ Optional)
 pattern Empty <- T_TT_I None
 	where Empty = T_TT_I None
 
+type Tree = Construction
+
+type family Binary tree where
+	Binary Tree = Tree (U_T_I_TT_I (/\) Optional Optional)
+
 type family Layered known unknown where
 	Layered (U_I_II Arrow input) unknown =
 		T_TT_I (U_I_II Arrow input) unknown

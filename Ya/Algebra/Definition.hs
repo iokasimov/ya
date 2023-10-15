@@ -202,10 +202,10 @@ instance Mapping Flat Arrow Arrow I (U_I_I (/\))
 	where mapping (U_I_II from) (I x) = U_I_I (These (from x) (from x))
 
 instance Mapping Flat Arrow Arrow (U_I_II (/\) e) I
-	where mapping (U_I_II from) (U_I_II (These e x)) = I (from x)
+	where mapping (U_I_II from) (U_I_II (These _ x)) = I (from x)
 
 instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
-	where mapping (U_I_II from) (U_II_I (These x e)) = I (from x)
+	where mapping (U_I_II from) (U_II_I (These x _)) = I (from x)
 
 instance Factor Flat Arrow Arrow U_I_I where
 	data Object Flat Arrow U_I_I i ii = These i ii

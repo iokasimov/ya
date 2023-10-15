@@ -10,7 +10,7 @@ import Ya.Algebra.Operators as Exports
 -- instance Mapping Flat from into
 	-- (T_TT_I (T_TT_I f Construction f) g)
 	-- (T_TT_I g (T_TT_I f Construction f))
-	-- where mapping (U_I_II from) = w'u `iii` \(T_TT_I x) -> Unit
+	-- where mapping (U_I_II from) = rewrap `iii` \(T_TT_I x) -> Unit
 
 -- TODO: I need to reduce transformations here
 instance
@@ -18,7 +18,7 @@ instance
 	, Transformation Flat Functor Arrow Arrow (T_TT_I g g) g
 	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (TT_T_I f g)
 	) => Mapping Flat Arrow Arrow (R_U_I_T_I (/\) f `T_TT_I` g) (R_U_I_T_I (/\) f `TT_T_I` g) 
-	where mapping (U_I_II from) = w'u `i`
+	where mapping (U_I_II from) = rewrap `i`
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 			component @Flat @Arrow @Arrow @(T_TT_I _ _)
 			`compose` wrap @Arrow @(T_TT_I _ _ _)
@@ -45,7 +45,7 @@ instance
 instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	where mapping (U_I_II into) = w'u `iii` w'u `ii` w'u `i` \from origin ->
+	where mapping (U_I_II into) = rewrap `iii` rewrap `ii` rewrap `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
 		These / target / target_source `ho` source_origin
@@ -53,20 +53,19 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	where mapping (U_II_I from) = w'u `iii` w'u `ii` w'u `i` \into origin ->
+	where mapping (U_II_I from) = rewrap `iii` rewrap `ii` rewrap `i` \into origin ->
 		let These source source_origin = from `u'u` origin in
 		let These target target_source = into source in
 		These `ii` target `iii` target_source `ho` source_origin
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
-	identity = W_I_II_II `i` U_I_UU_III_U_II_I
-		(\x -> These `i` x `ii` identity)
+	identity = W_I_II_II `i` U_I_UU_III_U_II_I (\x -> These `i` x `ii` identity)
 
 instance Mapping Flat Arrow Arrow (T_TT_I (U_I_II (/\) e) (U_I_II (->) e)) I
-	where mapping (U_I_II from) = w'u `i` \(U_I_II (These e (U_I_II f))) -> from `i` f e
+	where mapping (U_I_II from) = rewrap / \(U_I_II (These e (U_I_II f))) -> from `i` f e
 
 instance Mapping Flat Arrow Arrow I (T_TT_I (U_I_II (->) e) (U_I_II (/\) e))
-	where mapping (U_I_II from) = w'u `i` \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
+	where mapping (U_I_II from) = rewrap / \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
 
 -- TODO: generalize this instance
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
@@ -87,7 +86,7 @@ instance Mapping Flat Arrow Arrow
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	)
 	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
-	where mapping (U_I_II from) = w'u `iii` w'u `ii`  w'u `i` \(U_I_UU_II_III state) old ->
+	where mapping (U_I_II from) = rewrap `iii` rewrap `ii`  rewrap `i` \(U_I_UU_II_III state) old ->
 		(\(These s (U_I_II f)) -> from `_fo` f `u'u` s) (state old)
 
 instance Covariant Endo Semi Functor Arrow u
@@ -145,7 +144,7 @@ instance
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 		i ii)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-	where mapping (U_I_II from) = w'u / \case
+	where mapping (U_I_II from) = rewrap / \case
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
 			U_I_II / \old ->
 				x old `yokl` \(U_I_II (These btw i)) ->
@@ -187,36 +186,36 @@ instance
 
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (TT_T_I (U_I_II (\/) e) f)
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap / \case
 		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `ho` That  `ho` U_I_II
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap / \case
 		These (These (I i) (I ii)) (U_I_II f) -> from (f (These i ii))
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Unit) I
 	where mapping (U_I_II from) (U_I_II f) = I (from (f Unit))
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap / \case
 		These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f) -> That (from (f (These i ii)))
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap / \case
 		These (These (U_I_II (That i)) _) (U_I_II f) -> That (from (f (This i)))
 		These (These _ (U_I_II (That ii))) (U_I_II f) -> That (from (f (That ii)))
 		These (These _ (U_I_II (This ii))) (U_I_II f) -> This ii
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap `i` \case
 		These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f) -> This (from (f (These i ii)))
 		These (These (U_II_I (That e)) _) (U_I_II f) -> That e
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
-	where mapping (U_I_II from) = w'u `i` \case
+	where mapping (U_I_II from) = rewrap `i` \case
 		These (These (U_II_I (This i)) _) (U_I_II f) -> This (from (f (This i)))
 		These (These _ (U_II_I (This ii))) (U_I_II f) -> This (from (f (That ii)))
 		These (These _ (U_II_I (That ii))) (U_I_II f) -> That ii
