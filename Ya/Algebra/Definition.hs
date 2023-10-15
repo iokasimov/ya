@@ -147,11 +147,8 @@ deriving instance Mapping Flat from into tt t => Flippable Dual from into t tt
 
 type family Co x where Co (x Flat) = x Dual
 
-class
-	( Flippable v from into I (diagram (Object v into diagram))
-	, forall e . Flippable v from into (U_I_II (Object v into diagram) e) I
-	, forall e . Flippable v from into (U_II_I (Object v into diagram) e) I
-	) => Factor v from into diagram where
+class Flippable v from into I (diagram (Object v into diagram)) =>
+	Factor v from into diagram where
 	data Object v into diagram i ii
 	factor :: Supertype (v from any i) -> Supertype (v from any ii)
 		-> Supertype (v into any (Object v into diagram i ii))
@@ -183,8 +180,9 @@ type Sum o into = o Dual into U_I_I
 type (\/) = Sum Object Arrow
 
 inject :: forall p from into e s t .
+	Precategory into =>
 	Co Limit into into U_I_I =>
-	Transformation Natural Functor from into I (p (Sum Object into) e) =>
+	Mapping Flat from into I (p (Sum Object into) e) =>
 	Castable Flat into (p (Sum Object into) e t) =>
 	Castable Dual into (I s) =>
 	from s t -> into s (Supertype (p (Sum Object into) e t))
