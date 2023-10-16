@@ -131,6 +131,88 @@ instance
 	where mapping (U_I_II from) = rewrap / inject @This from \/ inject @That @from identity
 
 instance
+	( Covariant Semi Functor from into t
+	, Covariant Semi Functor from into tt
+	, forall e . Covariant Endo Semi Functor into (U_I_II u (t e))
+	, forall e . Covariant Endo Semi Functor into (U_II_I u (tt e))
+	, forall e . Wrapper into (U_T_I_TT_I u t tt e)
+	, forall e ee . Wrapper into (U_I_II u (t e) (tt ee))
+	, forall e ee . Wrapper into (U_II_I u (tt e) (t ee))
+	) => Mapping Flat from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt)
+	where mapping (U_I_II from) = rewrap /
+		_i (map @Flat @into @into `compose` map @Flat @from @into / from) `compose`
+		i_ (map @Flat @into @into `compose` map @Flat @from @into / from)
+
+-- 1. u (t (g s)) (tt (g s))
+-- 2. u (g (t s)) (tt (g s))
+-- 3. u (g (t s)) (g (tt s))
+-- 4. g (u (t s) (g (tt s)))
+-- 5. g (g (u (t s) (tt s)))
+-- 6. g (u (t s) (tt s))
+
+-- TOTALLY FORGOT THAT I NEED TO USE OTHER WRAPPERS HERE!
+
+instance
+	( forall e . Mapping Flat Arrow Arrow (U_II_I u e `T_TT_I` g) (U_II_I u e `TT_T_I` g)
+	, Mapping Flat from Arrow (t `T_TT_I` g) (t `TT_T_I` g)
+	, Mapping Flat from Arrow (tt `T_TT_I` g) (tt `TT_T_I` g)
+	, forall e . Covariant Endo Semi Functor Arrow (This u e)
+	, forall e . Covariant Endo Semi Functor Arrow (That u e)
+	, Covariant Monoidal Functor from u u g
+	, forall e . Castable Dual from (U_T_I_TT_I u t tt e)
+	) => Mapping Flat from Arrow (U_T_I_TT_I u t tt `T_TT_I` g) (U_T_I_TT_I u t tt `TT_T_I` g)
+	where mapping (U_I_II from) = rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
+			map @Flat @from @Arrow @g @g (wrap @from @(U_T_I_TT_I u t tt _)) `compose`
+			-- TODO: the problem is here, we need to generalize `monoidal`
+			monoidal @Flat @from identity identity `compose`
+			unwrap @Arrow @(U_I_II u (g (t _)) (g (tt _))) `compose`
+			map @Flat @Arrow @Arrow @(U_I_II u _) @(U_I_II u _)
+				( wrapped @Arrow `compose` map @Flat @from @Arrow @(tt `T_TT_I` g) @(tt `TT_T_I` g) / from
+				) `compose`
+			wrap @Arrow @(U_I_II u (g (t _)) (tt (g _))) `compose`
+			unwrap @Arrow @(U_II_I u (tt (g _)) (g (t _))) `compose`
+			map @Flat @Arrow @Arrow @(U_II_I u _) @(U_II_I u _)
+				( wrapped @Arrow `compose` map @Flat @from @Arrow @(t `T_TT_I` g) @(t `TT_T_I` g) / from
+				) `compose`
+			wrap @Arrow @(U_II_I u (tt (g _)) (t (g _))) `compose`
+			unwrap @Arrow @(U_T_I_TT_I u t tt _)
+
+-- TODO: I cannot generalize instance above to an instance below
+-- since `monoidal` expression is not generalized enough
+-- instance
+	-- ( forall e . Mapping Flat into into (U_II_I u e `T_TT_I` g) (g `T_TT_I` U_II_I u e)
+	-- , Mapping Flat from into (t `T_TT_I` g) (g `T_TT_I` t)
+	-- , Mapping Flat from into (tt `T_TT_I` g) (g `T_TT_I` tt)
+	-- ) => Mapping Flat from into (U_T_I_TT_I u t tt `T_TT_I` g) (g `T_TT_I` U_T_I_TT_I u t tt)
+	-- where mapping (U_I_II from) = rewrap @into @(T_TT_I _ _ _) @(T_TT_I _ _ _) /
+		-- -- TODO: try to apply monoidal functor here	
+			-- 
+			-- map @Flat @from @into @g @g (wrap @into @(U_T_I_TT_I u t tt _)) `compose`
+			-- -- TODO: the problem is here, we need to generalize `monoidal`
+			-- monoidal @Flat @from identity identity `compose`
+		-- -- (
+			-- unwrap @into @(U_I_II u (g (t _)) (g (tt _))) `compose`
+			-- map @Flat @into @into @(U_I_II u _) @(U_I_II u _)
+				-- ( wrapped @into `compose` map @Flat @from @into @(tt `T_TT_I` g) @(g `T_TT_I` tt) / from
+				-- ) `compose`
+			-- wrap @into @(U_I_II u (g (t _)) (tt (g _))) `compose`
+	-- 
+			-- unwrap @into @(U_II_I u (tt (g _)) (g (t _))) `compose`
+			-- map @Flat @into @into @(U_II_I u _) @(U_II_I u _)
+				-- ( wrapped @into `compose` map @Flat @from @into @(t `T_TT_I` g) @(g `T_TT_I` t) / from
+				-- ) `compose`
+			-- wrap @into @(U_II_I u (tt (g _)) (t (g _))) `compose`
+-- 
+			-- unwrap @into @(U_T_I_TT_I u t tt _)
+		-- -- :: _)
+
+-- TODO: generalize
+instance Covariant Yoneda Functor Arrow Arrow g =>
+	Mapping Flat Arrow Arrow (This (/\) e `T_TT_I` g) (This (/\) e `TT_T_I` g)
+	where mapping (U_I_II from) = rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
+		\(U_II_I (These x e)) -> yoneda @Flat @Functor x (U_II_I `compose` (\x' -> These (from x') e))
+		
+instance
 	( Covariant Semi Functor into into (U_I_II u e)
 	, Covariant Semi Functor from into (U_I_II uu e)
 	, forall ee . Wrapper into (U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e ee)
