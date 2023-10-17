@@ -150,8 +150,6 @@ instance
 -- 5. g (g (u (t s) (tt s)))
 -- 6. g (u (t s) (tt s))
 
--- TOTALLY FORGOT THAT I NEED TO USE OTHER WRAPPERS HERE!
-
 instance
 	( forall e . Mapping Flat Arrow Arrow (U_II_I u e `T_TT_I` g) (U_II_I u e `TT_T_I` g)
 	, Mapping Flat from Arrow (t `T_TT_I` g) (t `TT_T_I` g)
