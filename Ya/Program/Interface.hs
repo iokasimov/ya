@@ -32,16 +32,18 @@ type family Vector x xs where
 	Vector x (y /\ xs) = (Matching x y, Vector x xs)
 	Vector x y = Matching x y
 
--- TODO: generalize `Optional`
 class Stack datastructure where
-	pop :: Stateful (List item) (Optional item)
-	push :: item -> Stateful (List item) item
+	pop :: Stateful (datastructure item) (Optional item)
+	push :: item -> Stateful (datastructure item) item
 
 instance Stack List where
-	-- TODO: use `transit`, try to use `yoklKL`operator
 	pop = Statefully observe `yokl`\case
 		Empty @List -> Statefully observe `ye`None
-		List (Yet x xs) -> Statefully `i`replace (T_TT_I (xs `yo`R_U_I_T_I)) `ye`Some x
-	push x = (wrap `compose` transit `compose` rewrap `yi`(`yo`rewrap `i`Next x)) `ye`x
+		List (Yet x xs) -> Statefully `i`replace (T_TT_I / xs `yo`R_U_I_T_I) `ye`Some x
+	push x = (wrap `compose` transit `compose` rewrap / (`yo`rewrap `i`Next x)) `ye`x
 
--- TODO: Stack (Construction Optional)
+instance Stack (Construction Optional) where
+	pop = Statefully observe `yokl` \case
+		Nonempty @List (Next x (Next xx xs)) ->
+			Statefully `i`replace (Nonempty @List / Next xx xs) `ye` Some x
+	push x = Statefully `i`transit (rewrap / Next x) `ye` x
