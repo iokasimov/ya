@@ -136,6 +136,15 @@ instance
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
 			-> point @g / U_I_II (f btw) `yo`from
 
+instance Mapping Flat Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_II (/\) e `TT_T_I` g) =>
+	Mapping Flat Arrow Arrow
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e `T_TT_I` g)
+		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	where mapping (U_I_II from) (T_TT_I (U_I_II (W_I_I_II (U_I_UU_II_III x)))) =
+		T_TT_TTT_I `compose` U_I_II / \old -> wrapped @Arrow
+			`i` map @Flat @Arrow @Arrow @(U_I_II (/\) e `T_TT_I` g) @(U_I_II (/\) e `TT_T_I` g) from
+			`ii` U_I_II (x old)
+
 instance 
 	( Component Natural Arrow Arrow (T_TT_I g g) g
 	, Covariant Yoneda Functor Arrow Arrow g
@@ -185,7 +194,7 @@ instance
 		) `compose` unwrap @into @(T_TT_I _ _ _)
 
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
-	Mapping Flat Arrow Arrow (T_TT_I (U_I_II (\/) e) f) (TT_T_I (U_I_II (\/) e) f)
+	Mapping Flat Arrow Arrow (U_I_II (\/) e `T_TT_I` f) (U_I_II (\/) e `TT_T_I` f)
 	where mapping (U_I_II from) = rewrap / \case
 		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `ho` That  `ho` U_I_II
@@ -231,3 +240,9 @@ instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_I_II (\/) Unit)
 
 instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_II_I (\/) Unit)
 	where mapping (U_I_II from) (U_I_II _) = U_II_I (That Unit)
+
+-- TODO: generalize with limits
+instance Covariant Monoidal Functor Arrow (/\) (/\) g =>
+	Mapping Flat Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_II (/\) e `TT_T_I` g)
+	where mapping (U_I_II from) = rewrap / \case
+		U_I_II (These e x) -> x `yo` from `ho` These e `ho` U_I_II
