@@ -7,10 +7,19 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports
 import Ya.Algebra.Operators as Exports
 
--- instance Mapping Flat from into
-	-- (T_TT_I (T_TT_I f Construction f) g)
-	-- (T_TT_I g (T_TT_I f Construction f))
-	-- where mapping (U_I_II from) = rewrap `iii` \(T_TT_I x) -> Unit
+instance
+	( Covariant Endo Semi Functor Arrow f
+	, Transformation Flat Functor Arrow Arrow (T_TT_I g g) g
+	, Transformation Flat Functor Arrow Arrow (T_TT_I f g) (TT_T_I f g)
+	) => Mapping Flat Arrow Arrow
+		(T_TT_I (f `T_TT_I` R_U_I_T_I (/\) f) g)
+		(TT_T_I (f `T_TT_I` R_U_I_T_I (/\) f) g)
+	where mapping (U_I_II from) = rewrap / \(T_TT_I x) ->
+		(wrapped (component @Flat @Arrow @Arrow @(f `T_TT_I` g) @(f `TT_T_I` g))
+			/ x `yo` wrapped (map @Flat @Arrow @Arrow
+				@(R_U_I_T_I (/\) f `T_TT_I` g)
+				@(R_U_I_T_I (/\) f `TT_T_I` g) from)
+			) `yo` wrap @Arrow @(T_TT_I _ _ _)
 
 -- TODO: I need to reduce transformations here
 instance
