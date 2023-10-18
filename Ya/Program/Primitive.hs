@@ -145,3 +145,10 @@ embed :: forall f g into e .
 	Component Natural Arrow into g (Layered f g) =>
 	into (g e) (Layered f g e)
 embed = component @Flat @Arrow @into @g @(Layered f g) @e
+
+joint :: forall f g into e .
+	Component Natural Arrow into (f `T_TT_I` g) (Layered f g) =>
+	Castable Dual into (T_TT_I f g e) =>
+	into (f (g e)) (Layered f g e)
+joint = component @Flat @Arrow @into @(f `T_TT_I` g) @(Layered f g) @e
+	`compose` wrap @into @((f `T_TT_I` g) e)

@@ -175,3 +175,4 @@
 * Define `i_` expression
 * Define `yekl` operator
 * Define `/` type alias
+* Define `joint` expression
