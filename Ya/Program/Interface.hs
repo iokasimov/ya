@@ -40,7 +40,9 @@ instance Stack List where
 	pop = Statefully observe `yokl`\case
 		Empty @List -> Statefully observe `ye`None
 		List (Yet x xs) -> Statefully `i`replace (T_TT_I / xs `yo`R_U_I_T_I) `ye`Some x
-	push x = (wrap `compose` transit `compose` rewrap / (`yo`rewrap `i`Next x)) `ye`x
+	push x = (Statefully `compose` transit `compose` rewrap
+		/ (Some `compose` R_U_I_T_I `compose` Yet x `compose` (`yo`unwrap @Arrow @(R_U_I_T_I _ _ _)))
+		) `ye`x
 
 instance Stack (Construction Optional) where
 	pop = Statefully observe `yokl` \case
