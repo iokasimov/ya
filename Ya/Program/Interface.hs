@@ -44,6 +44,7 @@ instance Stack List where
 
 instance Stack (Construction Optional) where
 	pop = Statefully observe `yokl` \case
-		Nonempty @List (Next x (Next xx xs)) ->
-			Statefully `i`replace (Nonempty @List / Next xx xs) `ye` Some x
-	push x = Statefully `i`transit (rewrap / Next x) `ye` x
+		Nonempty @List (Yet x (Some xs)) ->
+			Statefully `i` replace `i` Nonempty @List xs `ye` Some x
+		Nonempty @List (Yet _ None) -> Statefully observe `ye` None
+	push x = Statefully `i` transit `i` rewrap `i` Next x `ye` x
