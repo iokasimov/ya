@@ -4,6 +4,8 @@ module Ya.Algebra.Abstract where
 
 infixl 0 /
 
+type (/) t i = t i
+
 newtype I i = I i
 
 newtype Constant i ii = Constant ii
