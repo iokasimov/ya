@@ -102,7 +102,7 @@ instance
 	, forall ee . Wrapper into (That (Product Object into) ee e)
 	, forall ee . Wrapper into (I ee)
 	) => Mapping Flat from into (This (Product Object into) e) (This (Product Object into) e)
-	where mapping (U_I_II from) = rewrap / project @This from /\ project @That @from identity
+	where mapping (U_I_II from) = rewrap / factor @Flat (project @This from) (project @That @from identity)
 
 instance
 	( Category from

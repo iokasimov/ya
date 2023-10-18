@@ -216,7 +216,7 @@ instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (\/) (U_I_II (\/) e) (U_I
 	where mapping (U_I_II from) = rewrap / \case
 		These (These (U_I_II (That i)) _) (U_I_II f) -> That (from (f (This i)))
 		These (These _ (U_I_II (That ii))) (U_I_II f) -> That (from (f (That ii)))
-		These (These _ (U_I_II (This ii))) (U_I_II f) -> This ii
+		These (These _ (U_I_II (This ii))) (U_I_II _) -> This ii
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
 	where mapping (U_I_II from) = rewrap `i` \case
