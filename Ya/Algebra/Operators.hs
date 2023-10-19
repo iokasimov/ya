@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixr 9 `i`, `ho`, `ha`
+infixr 9 `i`, `o`, `ha`
 infixr 8 `ii`
 infixr 7 `iii`
 
@@ -181,13 +181,13 @@ _fo'fo :: forall from into f g o s t .
 	from s t -> into (f o (g s)) (f o (g t))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-ho :: forall from into i s t .
+o :: forall from into i s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II from i) =>
 	Castable Dual into (U_I_II from s t) =>
 	Castable Flat into (U_I_II from i t) =>
 	from i s -> into (from s t) (from i t)
-ho x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
+o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
 
 ha :: forall into from i s t .
 	Precategory into =>

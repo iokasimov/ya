@@ -57,7 +57,7 @@ instance Mapping Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_I_II into) = rewrap `iii` rewrap `ii` rewrap `i` \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = into `u'u` source in
-		These / target / target_source `ho` source_origin
+		These / target / target_source `o` source_origin
 
 instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -65,7 +65,7 @@ instance Mapping Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	where mapping (U_II_I from) = rewrap `iii` rewrap `ii` rewrap `i` \into origin ->
 		let These source source_origin = from `u'u` origin in
 		let These target target_source = into source in
-		These `ii` target `iii` target_source `ho` source_origin
+		These `ii` target `iii` target_source `o` source_origin
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `i` U_I_UU_III_U_II_I (\x -> These `i` x `ii` identity)
@@ -101,7 +101,7 @@ instance Mapping Flat Arrow Arrow
 instance Covariant Endo Semi Functor Arrow u
 	=> Mapping Flat Arrow Arrow u (T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
 	where mapping (U_I_II from) x = T_TT_TTT_I `compose` U_I_II `yi` \state ->
-		x `yo` from `ho` These state `ho` U_I_II
+		x `yo` from `o` These state `o` U_I_II
 
 instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
 	=> Mapping Flat Arrow Arrow
@@ -206,7 +206,7 @@ instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (U_I_II (\/) e `T_TT_I` f) (U_I_II (\/) e `TT_T_I` f)
 	where mapping (U_I_II from) = rewrap / \case
 		U_I_II (This e) -> point (U_I_II `i` This e)
-		U_I_II (That x) -> x `yo` from `ho` That  `ho` U_I_II
+		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
 
 instance Mapping Flat Arrow Arrow (Day Flat Arrow (/\) (/\) I I i ii) I
 	where mapping (U_I_II from) = rewrap / \case
@@ -254,7 +254,7 @@ instance Mapping Flat Arrow Arrow (Flat Arrow Void) (U_II_I (\/) Unit)
 instance Covariant Monoidal Functor Arrow (/\) (/\) g =>
 	Mapping Flat Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_II (/\) e `TT_T_I` g)
 	where mapping (U_I_II from) = rewrap / \case
-		U_I_II (These e x) -> x `yo` from `ho` These e `ho` U_I_II
+		U_I_II (These e x) -> x `yo` from `o` These e `o` U_I_II
 
 instance Covariant Endo Semi Functor Arrow g =>
 	Mapping Flat Arrow Arrow (g `T_TT_I` U_I_II (->) e) (g `TT_T_I` U_I_II (->) e)

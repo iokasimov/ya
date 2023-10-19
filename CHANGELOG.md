@@ -89,7 +89,7 @@
 * Define `Reference` type alias
 * Define `W_I_II_II` data type
 * Define `Attribute` type alias
-* Define `ho` operator
+* Define `o` operator
 * Define `ha` operator
 * Define `W_I_I_II` data type
 * Define `Transition` type alias
