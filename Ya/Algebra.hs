@@ -166,7 +166,7 @@ instance
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
 			U_I_II / \old ->
 				x old `yokl` \(U_I_II (These btw i)) ->
-					from `ha` f `ha` These i `fo'fo`y btw
+					from `a` f `a` These i `fo'fo`y btw
 
 instance
 	Monoidal Flat Functor Arrow (/\) (/\) g =>

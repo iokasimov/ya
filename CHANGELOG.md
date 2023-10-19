@@ -90,7 +90,7 @@
 * Define `W_I_II_II` data type
 * Define `Attribute` type alias
 * Define `o` operator
-* Define `ha` operator
+* Define `a` operator
 * Define `W_I_I_II` data type
 * Define `Transition` type alias
 * Define `U_I_UU_II_III` data type
