@@ -177,3 +177,4 @@
 * Define `/` type alias
 * Define `joint` expression
 * Define `try` expression
+* Define `instant` expression

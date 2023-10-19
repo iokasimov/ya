@@ -37,7 +37,7 @@ class Stack datastructure where
 	push :: item -> State / datastructure item / item
 
 instance Stack List where
-	pop =  W_I_I_II `i` U_I_UU_II_III `i` \case
+	pop = W_I_I_II `i` U_I_UU_II_III `i` \case
 		Empty @List -> These `i` Empty @List `ii` None
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo`R_U_I_T_I) `ii` Some x
 	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These
@@ -45,7 +45,7 @@ instance Stack List where
 		`ii`x
 
 instance Stack (Construction Optional) where
-	pop =  W_I_I_II `i` U_I_UU_II_III `i` \case
+	pop = W_I_I_II `i` U_I_UU_II_III `i` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `ii` Some x
 		Nonempty @List (Yet x None) -> These `i` Nonempty @List (Yet x None) `ii` None
 	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These `i` rewrap (Next x) s `ii` x

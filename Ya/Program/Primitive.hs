@@ -65,6 +65,9 @@ transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `ii` s
 start :: state -> State state result -> state /\ result
 start state stateful = stateful `u'u` state
 
+instant :: State state result -> state -> state
+instant state x = project @This @Arrow identity / state `u'u` x
+
 type Stateful = U_I_II State
 
 pattern Statefully :: State state result -> Stateful state result
