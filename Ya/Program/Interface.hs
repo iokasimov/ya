@@ -33,20 +33,19 @@ type family Vector x xs where
 	Vector x y = Matching x y
 
 class Stack datastructure where
-	pop :: Stateful (datastructure item) (Optional item)
-	push :: item -> Stateful (datastructure item) item
+	pop :: State / datastructure item / Optional item
+	push :: item -> State / datastructure item / item
 
 instance Stack List where
-	pop = Statefully observe `yokl`\case
-		Empty @List -> Statefully observe `ye`None
-		List (Yet x xs) -> Statefully `i`replace (T_TT_I / xs `yo`R_U_I_T_I) `ye`Some x
-	push x = (Statefully `compose` transit `compose` rewrap
-		/ (Some `compose` R_U_I_T_I `compose` Yet x `compose` (`yo`unwrap @Arrow @(R_U_I_T_I _ _ _)))
-		) `ye`x
+	pop =  W_I_I_II `i` U_I_UU_II_III `i` \case
+		Empty @List -> These `i` Empty @List `ii` None
+		List (Yet x xs) -> These `i` (T_TT_I / xs `yo`R_U_I_T_I) `ii` Some x
+	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These
+		`i`rewrap (Some `compose` R_U_I_T_I `compose` Yet x `compose` (`yo`unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+		`ii`x
 
 instance Stack (Construction Optional) where
-	pop = Statefully observe `yokl` \case
-		Nonempty @List (Yet x (Some xs)) ->
-			Statefully `i` replace `i` Nonempty @List xs `ye` Some x
-		Nonempty @List (Yet _ None) -> Statefully observe `ye` None
-	push x = Statefully `i` transit `i` rewrap `i` Next x `ye` x
+	pop =  W_I_I_II `i` U_I_UU_II_III `i` \case
+		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `ii` Some x
+		Nonempty @List (Yet x None) -> These `i` Nonempty @List (Yet x None) `ii` None
+	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These `i` rewrap (Next x) s `ii` x
