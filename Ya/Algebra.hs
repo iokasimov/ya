@@ -16,7 +16,7 @@ instance
 		(TT_T_I (f `T_TT_I` R_U_I_T_I (/\) f) g)
 	where mapping = rewrap / \from -> rewrap / \(T_TT_I x) ->
 		(wrapped (component @Flat @Arrow @Arrow @(f `T_TT_I` g) @(f `TT_T_I` g))
-			/ x `yo` wrapped (map @Flat @Arrow @Arrow
+			/ x `yo` wrapped (map @Flat @Flat @Arrow @Arrow
 				@(R_U_I_T_I (/\) f `T_TT_I` g)
 				@(R_U_I_T_I (/\) f `TT_T_I` g) from)
 			) `yo` wrap @Arrow @(T_TT_I _ _ _)
@@ -43,7 +43,7 @@ instance
 							@(f `T_TT_I` g) @(f `TT_T_I` g)
 						`compose` wrap @Arrow @(T_TT_I _ _ _)
 						`iii` unwrap @Arrow @(TT_T_I _ _ _)
-							`compose` map @Flat @Arrow @Arrow
+							`compose` map @Flat @Flat @Arrow @Arrow
 								@(R_U_I_T_I (/\) f `T_TT_I` g)
 								@(R_U_I_T_I (/\) f `TT_T_I` g) from
 							`compose` wrap @Arrow @(T_TT_I _ _ _)
@@ -151,7 +151,7 @@ instance Mapping Flat Flat Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_II (/\) e
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 	where mapping = rewrap / \from (T_TT_I (U_I_II (W_I_I_II (U_I_UU_II_III x)))) -> 
 		T_TT_TTT_I `compose` U_I_II / \old -> wrapped @Arrow
-			`i` map @Flat @Arrow @Arrow @(U_I_II (/\) e `T_TT_I` g) @(U_I_II (/\) e `TT_T_I` g) from
+			`i` map @Flat @Flat @Arrow @Arrow @(U_I_II (/\) e `T_TT_I` g) @(U_I_II (/\) e `TT_T_I` g) from
 			`ii` U_I_II (x old)
 
 instance 

@@ -13,12 +13,12 @@ instance Dumb x
 class Mapping v vv from into f g where
 	mapping :: v from s t -> vv into (f s) (g t)
 
--- TODO: for simplicity there is `Flat`, we should remove it later
-map :: forall v from into f g s t .
-	Mapping v Flat from into f g =>
+map :: forall v vv from into f g s t .
+	Mapping v vv from into f g =>
 	Castable Dual Arrow (v from s t) =>
-	Supertype (v from s t) -> into (f s) (g t)
-map from = unwrap @Arrow (mapping @v @Flat @from @into @f @g @s @t (wrap @Arrow from))
+	Castable Flat Arrow (vv into (f s) (g t)) =>
+	Supertype (v from s t) -> Supertype (vv into (f s) (g t))
+map from = unwrap @Arrow (mapping @v @vv @from @into @f @g @s @t (wrap @Arrow from))
 
 type Component v = Transformation v Functor
 
@@ -35,7 +35,7 @@ class
 	, forall i . Mapping Dual Flat from Arrow (U_II_I from i) (U_II_I from i)
 	) => Precategory from where
 	compose :: from s t -> from i s -> from i t
-	compose post pre = let U_I_II y = map @Flat post (U_I_II pre) in y
+	compose post pre = let U_I_II y = map @Flat @Flat post (U_I_II pre) in y
 
 deriving instance
 	( forall i . Mapping Flat Flat from Arrow (U_I_II from i) (U_I_II from i)
@@ -56,7 +56,7 @@ functor :: forall v from into f s t .
 	Functor v from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
-functor = map @v @from @into @f @f @s @t
+functor = map @v @Flat @from @into @f @f @s @t
 
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
@@ -76,7 +76,7 @@ semifunctor :: forall v from into f s t .
 	Semi v Functor from into f =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (f t)
-semifunctor = map @v @from @into @f @f @s @t
+semifunctor = map @v @Flat @from @into @f @f @s @t
 
 type Endo v x c into = x v c into into
 
@@ -114,7 +114,7 @@ class (forall t . Transformation v x Arrow Arrow f (UU_V_U_I_II_T_II v from into
 		Castable Dual Arrow (v Arrow s s) =>
 		f s -> into (Supertype (v from s t)) (f t)
 	yoneda x = unwrap
-		(map @v @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
+		(map @v @Flat @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
 		`compose` wrap @into @(v from s t)
 
 deriving instance
@@ -170,7 +170,7 @@ project :: forall p from into e s t .
 	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
 	Castable Flat into (I t) =>
 	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
-project from = wrapped @into / map @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
+project from = wrapped @into / map @Flat @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
 
 inject :: forall p from into e s t .
 	Precategory into =>
@@ -179,7 +179,7 @@ inject :: forall p from into e s t .
 	Castable Flat into (p (Object (U_I_I (Dual into))) e t) =>
 	Castable Dual into (I s) =>
 	from s t -> into s (Supertype (p (Object (U_I_I (Dual into))) e t))
-inject from = wrapped @into / map @Flat @from @into @I @(p (Object (U_I_I (Dual into))) e) from
+inject from = wrapped @into / map @Flat @Flat @from @into @I @(p (Object (U_I_I (Dual into))) e) from
 
 (/\) :: forall from into any i ii .
 	Limit from into U_I_I =>
@@ -279,7 +279,7 @@ monoidal :: forall v from f u uu s t i ii .
 	Supertype (v from s t)
 		-> Supertype (v from (uu i ii) s)
 		-> u (f i) (f ii) -> f t
-monoidal from f x = map @v @from @(->)
+monoidal from f x = map @v @Flat @from @(->)
 	@(Day v from u uu f f i ii) @f from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
 

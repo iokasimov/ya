@@ -137,8 +137,8 @@ instance
 	, forall e ee . Wrapper into (U_II_I u (tt e) (t ee))
 	) => Mapping Flat Flat from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt)
 	where mapping = rewrap / \from -> rewrap /
-		_i (map @Flat @into @into `compose` map @Flat @from @into / from) `compose`
-		i_ (map @Flat @into @into `compose` map @Flat @from @into / from)
+		_i (map @Flat @Flat @into @into `compose` map @Flat @Flat @from @into / from) `compose`
+		i_ (map @Flat @Flat @into @into `compose` map @Flat @Flat @from @into / from)
 
 -- 1. u (t (g s)) (tt (g s))
 -- 2. u (g (t s)) (tt (g s))
@@ -157,17 +157,17 @@ instance
 	, forall e . Castable Dual from (U_T_I_TT_I u t tt e)
 	) => Mapping Flat Flat from Arrow (U_T_I_TT_I u t tt `T_TT_I` g) (U_T_I_TT_I u t tt `TT_T_I` g)
 	where mapping = rewrap / \from -> rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
-			map @Flat @from @Arrow @g @g (wrap @from @(U_T_I_TT_I u t tt _)) `compose`
+			map @Flat @Flat @from @Arrow @g @g (wrap @from @(U_T_I_TT_I u t tt _)) `compose`
 			-- TODO: the problem is here, we need to generalize `monoidal`
 			monoidal @Flat @from identity identity `compose`
 			unwrap @Arrow @(U_I_II u (g (t _)) (g (tt _))) `compose`
-			map @Flat @Arrow @Arrow @(U_I_II u _) @(U_I_II u _)
-				( wrapped @Arrow `compose` map @Flat @from @Arrow @(tt `T_TT_I` g) @(tt `TT_T_I` g) / from
+			map @Flat @Flat @Arrow @Arrow @(U_I_II u _) @(U_I_II u _)
+				( wrapped @Arrow `compose` map @Flat @Flat @from @Arrow @(tt `T_TT_I` g) @(tt `TT_T_I` g) / from
 				) `compose`
 			wrap @Arrow @(U_I_II u (g (t _)) (tt (g _))) `compose`
 			unwrap @Arrow @(U_II_I u (tt (g _)) (g (t _))) `compose`
-			map @Flat @Arrow @Arrow @(U_II_I u _) @(U_II_I u _)
-				( wrapped @Arrow `compose` map @Flat @from @Arrow @(t `T_TT_I` g) @(t `TT_T_I` g) / from
+			map @Flat @Flat @Arrow @Arrow @(U_II_I u _) @(U_II_I u _)
+				( wrapped @Arrow `compose` map @Flat @Flat @from @Arrow @(t `T_TT_I` g) @(t `TT_T_I` g) / from
 				) `compose`
 			wrap @Arrow @(U_II_I u (tt (g _)) (t (g _))) `compose`
 			unwrap @Arrow @(U_T_I_TT_I u t tt _)
