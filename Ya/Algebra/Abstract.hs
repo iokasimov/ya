@@ -6,6 +6,10 @@ infixl 0 /
 
 type (/) t i = t i
 
+data (/\) i ii = These i ii
+
+data (\/) i ii = This i | That ii
+
 newtype I i = I i
 
 newtype Constant i ii = Constant ii

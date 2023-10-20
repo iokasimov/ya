@@ -153,13 +153,14 @@ type family Object diagram = r | r -> diagram where
 
 class Flippable v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where
-	factor :: Supertype (v from any i) -> Supertype (v from any ii) -> Supertype (v into any (Object (diagram (v into)) i ii))
+	factor ::
+		Supertype (v from any i) ->
+		Supertype (v from any ii) ->
+		Supertype (v into any (Object (diagram (v into)) i ii))
 
 type Limit = Factor Flat
 
 type Product o = o Flat U_I_I
-
-data (/\) i ii = These i ii
 
 project :: forall p from into e s t .
 	Precategory into =>
@@ -194,8 +195,6 @@ inject from = wrapped @into / map @Flat @from @into @I @(p (Object (U_I_I (Dual 
 (\/) = factor @Dual @from @into @U_I_I @any @i @ii
 
 type Sum o into = o Dual U_I_I into
-
-data (\/) i ii = This i | That ii
 
 type Terminal o into i = o Flat into U_ i i
 
