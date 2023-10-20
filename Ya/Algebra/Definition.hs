@@ -147,50 +147,55 @@ deriving instance Mapping Flat from into tt t => Flippable Dual from into t tt
 
 type family Co x where Co (x Flat) = x Dual
 
-class Flippable v from into I (diagram (Object v diagram into)) =>
+type family Object diagram = r | r -> diagram where
+	Object (U_I_I (Flat Arrow)) = (/\)
+	Object (U_I_I (Dual Arrow)) = (\/)
+
+class Flippable v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where
-	data Object v diagram into i ii
-	factor :: Supertype (v from any i) -> Supertype (v from any ii) -> Supertype (v into any (Object v diagram into i ii))
+	factor :: Supertype (v from any i) -> Supertype (v from any ii) -> Supertype (v into any (Object (diagram (v into)) i ii))
 
 type Limit = Factor Flat
 
 type Product o = o Flat U_I_I
 
-type (/\) = Product Object Arrow
+data (/\) i ii = These i ii
 
 project :: forall p from into e s t .
 	Precategory into =>
 	Limit from into U_I_I =>
-	Mapping Flat from into (p (Product Object into) e) I =>
-	Castable Dual into (p (Product Object into) e s) =>
+	Mapping Flat from into (p (Object (U_I_I (Flat into))) e) I =>
+	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
 	Castable Flat into (I t) =>
-	from s t -> into (Supertype (p (Product Object into) e s)) t
-project from = wrapped @into / map @Flat @from @into @(p (Product Object into) e) @I from
+	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
+project from = wrapped @into / map @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
 
 inject :: forall p from into e s t .
 	Precategory into =>
 	Co Limit into into U_I_I =>
-	Mapping Flat from into I (p (Sum Object into) e) =>
-	Castable Flat into (p (Sum Object into) e t) =>
+	Mapping Flat from into I (p (Object (U_I_I (Dual into))) e) =>
+	Castable Flat into (p (Object (U_I_I (Dual into))) e t) =>
 	Castable Dual into (I s) =>
-	from s t -> into s (Supertype (p (Sum Object into) e t))
-inject from = wrapped @into / map @Flat @from @into @I @(p (Sum Object into) e) from
+	from s t -> into s (Supertype (p (Object (U_I_I (Dual into))) e t))
+inject from = wrapped @into / map @Flat @from @into @I @(p (Object (U_I_I (Dual into))) e) from
 
-(/\) :: Limit from into U_I_I =>
+(/\) :: forall from into any i ii .
+	Limit from into U_I_I =>
 	Supertype (Flat from any i) ->
 	Supertype (Flat from any ii) ->
-	Supertype (Flat into any (Object Flat U_I_I into i ii))
-(/\) = factor @Flat
+	Supertype (Flat into any (Object (U_I_I (Flat into)) i ii))
+(/\) = factor @Flat @from @into @U_I_I
 
-(\/) :: Co Limit from into U_I_I =>
+(\/) :: forall from into any i ii .
+	Co Limit from into U_I_I =>
 	Supertype (Dual from any i) ->
 	Supertype (Dual from any ii) ->
-	Supertype (Dual into any (Object Dual U_I_I into i ii))
-(\/) = factor @Dual
+	Supertype (Dual into any (Object (U_I_I (Dual into)) i ii))
+(\/) = factor @Dual @from @into @U_I_I @any @i @ii
 
 type Sum o into = o Dual U_I_I into
 
-type (\/) = Sum Object Arrow
+data (\/) i ii = This i | That ii
 
 type Terminal o into i = o Flat into U_ i i
 
@@ -206,7 +211,6 @@ instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
 	where mapping (U_I_II from) (U_II_I (These x _)) = I (from x)
 
 instance Factor Flat Arrow Arrow U_I_I where
-	data Object Flat U_I_I Arrow i ii = These i ii
 	factor this that x = These (this x) (that x)
 
 instance Mapping Flat Arrow Arrow (U_I_I (\/)) I
@@ -221,7 +225,6 @@ instance Mapping Flat Arrow Arrow I (U_II_I (\/) e)
 	where mapping (U_I_II from) (I x) = U_II_I (This (from x))
 
 instance Factor Dual Arrow Arrow U_I_I where
-	data Object Dual U_I_I Arrow i ii = This i | That ii
 	factor this that x = case x of
 		This i -> this i
 		That ii -> that ii

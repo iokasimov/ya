@@ -188,19 +188,19 @@ instance
 	where mapping (U_II_I from) x = UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
 instance
-	( Co Limit into into U_I_I
-	, Transformation Natural Functor from into I (U_I_II (Sum Object into) e)
-	, forall ee . Transformation Natural Functor from into I (U_II_I (Sum Object into) ee)
-	, forall ee . Wrapper into (I ee)
-	, forall ee . Wrapper into (U_II_I (Sum Object into) ee e)
-	, forall ee . Wrapper into (U_I_II (Sum Object into) e ee)
-	, forall ee . Wrapper into (T_TT_I (U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e) ee)
-	) => Mapping Flat from into (U_I_II (Sum Object into) e `T_TT_I` U_I_II (Sum Object into) e) (U_I_II (Sum Object into) e)
-	where mapping (U_I_II from) = rewrap @into
-		(inject @This @from @into identity
-			\/ (inject @This @from @into identity \/ inject @That @from @into from)
-				`compose` unwrap @into @(U_I_II _ _ _)
-		) `compose` unwrap @into @(T_TT_I _ _ _)
+	( Co Limit Arrow Arrow U_I_I
+	, Transformation Natural Functor from Arrow I (U_I_II (\/) e)
+	, forall ee . Transformation Natural Functor from Arrow I (U_II_I (\/) ee)
+	, forall ee . Wrapper Arrow (I ee)
+	, forall ee . Wrapper Arrow (U_II_I (\/) ee e)
+	, forall ee . Wrapper Arrow (U_I_II (\/) e ee)
+	, forall ee . Wrapper Arrow (T_TT_I (U_I_II (\/) e) (U_I_II (\/) e) ee)
+	) => Mapping Flat from Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\/) e) (U_I_II (\/) e)
+	where mapping (U_I_II from) = rewrap @Arrow
+		(inject @This @from @Arrow identity
+			\/ (inject @This @from @Arrow identity \/ inject @That @from @Arrow from)
+				`compose` unwrap @Arrow @(U_I_II _ _ _)
+		) `compose` unwrap @Arrow @(T_TT_I _ _ _)
 
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Arrow Arrow (U_I_II (\/) e `T_TT_I` f) (U_I_II (\/) e `TT_T_I` f)

@@ -80,54 +80,51 @@ instance
 
 instance
 	( Category from
-	, Precategory into
-	, Limit from into U_I_I
-	, Limit into into U_I_I
-	, forall ee . Mapping Flat from into (This (Product Object into) ee) I
-	, forall ee . Mapping Flat from into (That (Product Object into) ee) I
-	, forall ee . Wrapper into (This (Product Object into) ee e)
-	, forall ee . Wrapper into (That (Product Object into) e ee)
-	, forall ee . Wrapper into (I ee)
-	) => Mapping Flat from into (That (Product Object into) e) (That (Product Object into) e)
+	, Limit from Arrow U_I_I
+	, Limit Arrow Arrow U_I_I
+	, forall ee . Mapping Flat from Arrow (This (/\) ee) I
+	, forall ee . Mapping Flat from Arrow (That (/\) ee) I
+	, forall ee . Wrapper Arrow (This (/\) ee e)
+	, forall ee . Wrapper Arrow (That (/\) e ee)
+	, forall ee . Wrapper Arrow (I ee)
+	) => Mapping Flat from Arrow (That (/\) e) (That (/\) e)
 	where mapping (U_I_II from) = rewrap / project @This @from identity /\ project @That from
 
 instance
 	( Category from
-	, Precategory into
-	, Limit from into U_I_I
-	, Limit into into U_I_I
-	, forall ee . Mapping Flat from into (This (Product Object into) ee) I
-	, forall ee . Mapping Flat from into (That (Product Object into) ee) I
-	, forall ee . Wrapper into (This (Product Object into) e ee)
-	, forall ee . Wrapper into (That (Product Object into) ee e)
-	, forall ee . Wrapper into (I ee)
-	) => Mapping Flat from into (This (Product Object into) e) (This (Product Object into) e)
+	, Limit from Arrow U_I_I
+	, Limit Arrow Arrow U_I_I
+	, forall ee . Mapping Flat from Arrow (This (/\) ee) I
+	, forall ee . Mapping Flat from Arrow (That (/\) ee) I
+	, forall ee . Wrapper Arrow (This (/\) e ee)
+	, forall ee . Wrapper Arrow (That (/\) ee e)
+	, forall ee . Wrapper Arrow (I ee)
+	) => Mapping Flat from Arrow (This (/\) e) (This (/\) e)
 	where mapping (U_I_II from) = rewrap / factor @Flat (project @This from) (project @That @from identity)
 
 instance
 	( Category from
-	, Precategory into
-	, Co Limit from into U_I_I
-	, Co Limit into into U_I_I
-	, forall ee . Mapping Flat from into I (This (Sum Object into) ee)
-	, forall ee . Mapping Flat from into I (That (Sum Object into) ee)
-	, forall ee . Wrapper into (This (Sum Object into) ee e)
-	, forall ee . Wrapper into (That (Sum Object into) e ee)
-	, forall ee . Wrapper into (I ee)
-	) => Mapping Flat from into (That (Sum Object into) e) (That (Sum Object into) e)
+	, Precategory Arrow
+	, Co Limit from Arrow U_I_I
+	, Co Limit Arrow Arrow U_I_I
+	, forall ee . Mapping Flat from Arrow I (This (\/) ee)
+	, forall ee . Mapping Flat from Arrow I (That (\/) ee)
+	, forall ee . Wrapper Arrow (This (\/) ee e)
+	, forall ee . Wrapper Arrow (That (\/) e ee)
+	, forall ee . Wrapper Arrow (I ee)
+	) => Mapping Flat from Arrow (That (\/) e) (That (\/) e)
 	where mapping (U_I_II from) = rewrap / inject @This @from identity \/ inject @That from
 
 instance
 	( Category from
-	, Precategory into
-	, Co Limit from into U_I_I
-	, Co Limit into into U_I_I
-	, forall ee . Mapping Flat from into I (This (Sum Object into) ee)
-	, forall ee . Mapping Flat from into I (That (Sum Object into) ee)
-	, forall ee . Wrapper into (This (Sum Object into) e ee)
-	, forall ee . Wrapper into (That (Sum Object into) ee e)
-	, forall ee . Wrapper into (I ee)
-	) => Mapping Flat from into (This (Sum Object into) e) (This (Sum Object into) e)
+	, Co Limit from Arrow U_I_I
+	, Co Limit Arrow Arrow U_I_I
+	, forall ee . Mapping Flat from Arrow I (This (\/) ee)
+	, forall ee . Mapping Flat from Arrow I (That (\/) ee)
+	, forall ee . Wrapper Arrow (This (\/) e ee)
+	, forall ee . Wrapper Arrow (That (\/) ee e)
+	, forall ee . Wrapper Arrow (I ee)
+	) => Mapping Flat from Arrow (This (\/) e) (This (\/) e)
 	where mapping (U_I_II from) = rewrap / inject @This from \/ inject @That @from identity
 
 instance
