@@ -22,6 +22,8 @@ newtype TT_T_I t tt i = TT_T_I (tt (t i))
 
 newtype T_TT_TTT_I t tt ttt i = T_TT_TTT_I (t (tt (ttt i)))
 
+data U_ u i ii
+
 newtype U_I_I u i = U_I_I (u i i)
 
 newtype U_I_II u i ii = U_I_II (u i ii)
@@ -56,11 +58,17 @@ newtype W_I_II_II w i ii = W_I_II_II (w i ii ii)
 
 newtype W_I_I_II w i ii = W_I_I_II (w i i ii)
 
-data U_ u i
+newtype UU_U_I_II_U_II_I u uu i ii
+	= UU_U_I_II_U_II_I (uu (u i ii) (u ii i))
+
+newtype UU_U_I_III_U_II_III v u uu iii i ii
+	= UU_V_U_I_III_V_U_II_III (uu (v u i iii) (v u ii iii))
+
+type Diagram = U_
 
 type Arrow = (->)
 
-type Mono = U_I_I
+type Diagonal = U_I_I
 
 -- Rename to Straight?
 type Flat = U_I_II

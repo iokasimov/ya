@@ -178,3 +178,7 @@
 * Define `joint` expression
 * Define `try` expression
 * Define `instant` expression
+* Define `UU_U_I_II_U_II_I` data type
+* Define `UU_U_I_III_U_II_III` data type
+* Define `Diagram` type alias
+* Define `Diagonal` type alias
