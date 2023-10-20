@@ -9,15 +9,15 @@ import Ya.Algebra.Definition
 instance
 	( Precategory into
 	, forall e . Wrapper into (I e)
-	) => Mapping Flat into into I I
-	where mapping (U_I_II from) = wrap @into `compose` from `compose` unwrap @into
+	) => Mapping Flat Flat into into I I
+	where mapping = rewrap / \from -> wrap @into `compose` from `compose` unwrap @into
 
 instance
 	( Covariant Semi Functor from into g
 	, Covariant Endo Semi Functor into f
 	, forall e . Wrapper into (T_TT_I f g e)
-	) => Mapping Flat from into (T_TT_I f g) (T_TT_I f g)
-	where mapping (U_I_II from) = wrap @into
+	) => Mapping Flat Flat from into (T_TT_I f g) (T_TT_I f g)
+	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Flat @into @into
 			`compose` semifunctor @Flat @from @into
 			) from
@@ -27,8 +27,8 @@ instance
 	( Covariant Semi Functor from into f
 	, Covariant Endo Semi Functor into g
 	, forall e . Wrapper into (TT_T_I f g e)
-	) => Mapping Flat from into (TT_T_I f g) (TT_T_I f g)
-	where mapping (U_I_II from) = wrap @into
+	) => Mapping Flat Flat from into (TT_T_I f g) (TT_T_I f g)
+	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Flat @into @into
 			`compose` semifunctor @Flat @from @into
 			) from
@@ -40,8 +40,8 @@ instance
 	, forall ee . Wrapper into (U_I_II (U_I_T_II t u) e ee)
 	, forall ee . Wrapper into (U_I_T_II t u e ee)
 	, forall ee . Wrapper into (U_I_II u e (t ee))
-	) => Mapping Flat from into (U_I_II (U_I_T_II t u) e) (U_I_II (U_I_T_II t u) e)
-	where mapping (U_I_II from) =
+	) => Mapping Flat Flat from into (U_I_II (U_I_T_II t u) e) (U_I_II (U_I_T_II t u) e)
+	where mapping = rewrap / \from ->
 		wrap @into @(U_I_II _ _ _)
 		`compose` wrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(U_I_II _ _ _)
@@ -55,8 +55,8 @@ instance
 	, forall ee . Wrapper into (U_II_I (U_I_T_II t u) e ee)
 	, forall ee . Wrapper into (U_I_T_II t u ee e)
 	, forall ee . Wrapper into (U_II_I u (t e) ee)
-	) => Mapping Flat from into (U_II_I (U_I_T_II t u) e) (U_II_I (U_I_T_II t u) e)
-	where mapping (U_I_II from) =
+	) => Mapping Flat Flat from into (U_II_I (U_I_T_II t u) e) (U_II_I (U_I_T_II t u) e)
+	where mapping = rewrap / \from -> 
 		wrap @into @(U_II_I _ _ _)
 		`compose` wrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(U_II_I _ _ _)
@@ -70,8 +70,8 @@ instance
 	, Covariant Endo Semi Functor into g
 	, Covariant Endo Semi Functor into f
 	, forall e . Wrapper into (T_TT_TTT_I f g h e)
-	) => Mapping Flat from into (T_TT_TTT_I f g h) (T_TT_TTT_I f g h)
-	where mapping (U_I_II from) = wrap @into
+	) => Mapping Flat Flat from into (T_TT_TTT_I f g h) (T_TT_TTT_I f g h)
+	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Flat @into @into
 			`compose` semifunctor @Flat @into @into
 			`compose` semifunctor @Flat @from @into
@@ -82,50 +82,50 @@ instance
 	( Category from
 	, Limit from Arrow U_I_I
 	, Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat from Arrow (This (/\) ee) I
-	, forall ee . Mapping Flat from Arrow (That (/\) ee) I
+	, forall ee . Mapping Flat Flat from Arrow (This (/\) ee) I
+	, forall ee . Mapping Flat Flat from Arrow (That (/\) ee) I
 	, forall ee . Wrapper Arrow (This (/\) ee e)
 	, forall ee . Wrapper Arrow (That (/\) e ee)
 	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat from Arrow (That (/\) e) (That (/\) e)
-	where mapping (U_I_II from) = rewrap / project @This @from identity /\ project @That from
+	) => Mapping Flat Flat from Arrow (That (/\) e) (That (/\) e)
+	where mapping = rewrap / \from -> rewrap / project @This @from identity /\ project @That from
 
 instance
 	( Category from
 	, Limit from Arrow U_I_I
 	, Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat from Arrow (This (/\) ee) I
-	, forall ee . Mapping Flat from Arrow (That (/\) ee) I
+	, forall ee . Mapping Flat Flat from Arrow (This (/\) ee) I
+	, forall ee . Mapping Flat Flat from Arrow (That (/\) ee) I
 	, forall ee . Wrapper Arrow (This (/\) e ee)
 	, forall ee . Wrapper Arrow (That (/\) ee e)
 	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat from Arrow (This (/\) e) (This (/\) e)
-	where mapping (U_I_II from) = rewrap / factor @Flat (project @This from) (project @That @from identity)
+	) => Mapping Flat Flat from Arrow (This (/\) e) (This (/\) e)
+	where mapping = rewrap / \from -> rewrap / factor @Flat (project @This from) (project @That @from identity)
 
 instance
 	( Category from
 	, Precategory Arrow
 	, Co Limit from Arrow U_I_I
 	, Co Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat from Arrow I (This (\/) ee)
-	, forall ee . Mapping Flat from Arrow I (That (\/) ee)
+	, forall ee . Mapping Flat Flat from Arrow I (This (\/) ee)
+	, forall ee . Mapping Flat Flat from Arrow I (That (\/) ee)
 	, forall ee . Wrapper Arrow (This (\/) ee e)
 	, forall ee . Wrapper Arrow (That (\/) e ee)
 	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat from Arrow (That (\/) e) (That (\/) e)
-	where mapping (U_I_II from) = rewrap / inject @This @from identity \/ inject @That from
+	) => Mapping Flat Flat from Arrow (That (\/) e) (That (\/) e)
+	where mapping = rewrap / \from -> rewrap / inject @This @from identity \/ inject @That from
 
 instance
 	( Category from
 	, Co Limit from Arrow U_I_I
 	, Co Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat from Arrow I (This (\/) ee)
-	, forall ee . Mapping Flat from Arrow I (That (\/) ee)
+	, forall ee . Mapping Flat Flat from Arrow I (This (\/) ee)
+	, forall ee . Mapping Flat Flat from Arrow I (That (\/) ee)
 	, forall ee . Wrapper Arrow (This (\/) e ee)
 	, forall ee . Wrapper Arrow (That (\/) ee e)
 	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat from Arrow (This (\/) e) (This (\/) e)
-	where mapping (U_I_II from) = rewrap / inject @This from \/ inject @That @from identity
+	) => Mapping Flat Flat from Arrow (This (\/) e) (This (\/) e)
+	where mapping = rewrap / \from -> rewrap / inject @This from \/ inject @That @from identity
 
 instance
 	( Covariant Semi Functor from into t
@@ -135,8 +135,8 @@ instance
 	, forall e . Wrapper into (U_T_I_TT_I u t tt e)
 	, forall e ee . Wrapper into (U_I_II u (t e) (tt ee))
 	, forall e ee . Wrapper into (U_II_I u (tt e) (t ee))
-	) => Mapping Flat from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt)
-	where mapping (U_I_II from) = rewrap /
+	) => Mapping Flat Flat from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt)
+	where mapping = rewrap / \from -> rewrap /
 		_i (map @Flat @into @into `compose` map @Flat @from @into / from) `compose`
 		i_ (map @Flat @into @into `compose` map @Flat @from @into / from)
 
@@ -148,15 +148,15 @@ instance
 -- 6. g (u (t s) (tt s))
 
 instance
-	( forall e . Mapping Flat Arrow Arrow (U_II_I u e `T_TT_I` g) (U_II_I u e `TT_T_I` g)
-	, Mapping Flat from Arrow (t `T_TT_I` g) (t `TT_T_I` g)
-	, Mapping Flat from Arrow (tt `T_TT_I` g) (tt `TT_T_I` g)
+	( forall e . Mapping Flat Flat Arrow Arrow (U_II_I u e `T_TT_I` g) (U_II_I u e `TT_T_I` g)
+	, Mapping Flat Flat from Arrow (t `T_TT_I` g) (t `TT_T_I` g)
+	, Mapping Flat Flat from Arrow (tt `T_TT_I` g) (tt `TT_T_I` g)
 	, forall e . Covariant Endo Semi Functor Arrow (This u e)
 	, forall e . Covariant Endo Semi Functor Arrow (That u e)
 	, Covariant Monoidal Functor from u u g
 	, forall e . Castable Dual from (U_T_I_TT_I u t tt e)
-	) => Mapping Flat from Arrow (U_T_I_TT_I u t tt `T_TT_I` g) (U_T_I_TT_I u t tt `TT_T_I` g)
-	where mapping (U_I_II from) = rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
+	) => Mapping Flat Flat from Arrow (U_T_I_TT_I u t tt `T_TT_I` g) (U_T_I_TT_I u t tt `TT_T_I` g)
+	where mapping = rewrap / \from -> rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
 			map @Flat @from @Arrow @g @g (wrap @from @(U_T_I_TT_I u t tt _)) `compose`
 			-- TODO: the problem is here, we need to generalize `monoidal`
 			monoidal @Flat @from identity identity `compose`
@@ -203,8 +203,8 @@ instance
 
 -- TODO: generalize
 instance Covariant Yoneda Functor Arrow Arrow g =>
-	Mapping Flat Arrow Arrow (This (/\) e `T_TT_I` g) (This (/\) e `TT_T_I` g)
-	where mapping (U_I_II from) = rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
+	Mapping Flat Flat Arrow Arrow (This (/\) e `T_TT_I` g) (This (/\) e `TT_T_I` g)
+	where mapping = rewrap / \from -> rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
 		\(U_II_I (These x e)) -> yoneda @Flat @Functor x (U_II_I `compose` (\x' -> These (from x') e))
 		
 instance
@@ -215,10 +215,10 @@ instance
 	, forall ee . Wrapper into (U_I_UU_II_III u uu e e ee)
 	, forall ee . Wrapper into (U_I_II u e ee)
 	, forall ee . Wrapper into (U_I_II uu e ee)
-	) => Mapping Flat from into
+	) => Mapping Flat Flat from into
 	(U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e)
 	(U_I_II (W_I_I_II (U_I_UU_II_III u uu)) e)
-	where mapping (U_I_II from) =
+	where mapping = rewrap / \from ->
 		wrap @into @(U_I_II _ _ _)
 		`compose` wrap @into @(W_I_I_II _ _ _)
 		`compose` wrap @into @(U_I_UU_II_III _ _ _ _ _)
@@ -232,20 +232,20 @@ instance
 		`compose` unwrap @into @(W_I_I_II _ _ _)
 		`compose` unwrap @into @(U_I_II _ _ _)
 
-instance Mapping Flat Arrow Arrow
+instance Mapping Flat Flat Arrow Arrow
 	(UU_V_U_I_II_T_II Flat Arrow Arrow f i)
 	(UU_V_U_I_II_T_II Flat Arrow Arrow f i)
-	where mapping from = rewrap (`compose` (rewrap (`compose` unwrap from)))
+	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (`compose` from)))
 
-instance Mapping Flat Arrow Arrow
+instance Mapping Flat Flat Arrow Arrow
 	(UU_V_U_I_II_T_II Flat Constant Arrow f i)
 	(UU_V_U_I_II_T_II Flat Constant Arrow f i)
-	where mapping _ = rewrap (`compose` (rewrap (rewrap identity)))
+	where mapping = rewrap / \_ -> rewrap (`compose` (rewrap (rewrap identity)))
 
-instance Mapping Dual Arrow Arrow
+instance Mapping Dual Flat Arrow Arrow
 	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
 	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
-	where mapping from = rewrap (`compose` (rewrap (compose (unwrap from)) ))
+	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (compose (from))))
 
 instance
 	( forall e . Covariant Semi Functor from into (U_I_II (U_I_T_II t u) e)
@@ -260,8 +260,9 @@ instance
 	, forall e e' . Wrapper into (U_II_I (U_I_T_II t u) e e')
 	, forall e e' . Wrapper from (U_I_II (U_I_T_II t u) e e')
 	, forall e e' . Wrapper into (U_I_II (U_I_T_II t u) e e')
-	) => Mapping Flat from into (R_U_I_T_I u t) (R_U_I_T_I u t)
-	where mapping (U_I_II from) = wrap @into @(R_U_I_T_I u t _)
+	) => Mapping Flat Flat from into (R_U_I_T_I u t) (R_U_I_T_I u t)
+	where mapping = rewrap / \from ->
+		wrap @into @(R_U_I_T_I u t _)
 		`compose` wrap @into @(Recursive _)
 		`compose` unwrap @into @(U_II_I _ _ _)
 		`compose` semifunctor @Flat from
@@ -275,11 +276,11 @@ instance
 		`compose` unwrap @into @(Recursive _)
 		`compose` unwrap @into @(R_U_I_T_I u t _)
 
-instance Mapping Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
-	where mapping (U_I_II from) (U_I_II between) = U_I_II (\x -> from (between x))
+instance Mapping Flat Flat Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
+	where mapping (U_I_II from) = U_I_II / \(U_I_II between) -> U_I_II (\x -> from (between x))
 
-instance Mapping Dual Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
-	where mapping (U_II_I from) (U_II_I between) = U_II_I (\x -> between (from x))
+instance Mapping Dual Flat Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
+	where mapping (U_II_I from) = U_I_II / \(U_II_I between) -> U_II_I (\x -> between (from x))
 
 instance Category Arrow where
 	identity = \x -> x
@@ -292,14 +293,14 @@ instance Wrapper Arrow x
 	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
-instance Mapping Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
-	where mapping (U_I_II from) (U_I_II (Constant x)) = U_I_II (Constant (from x))
+instance Mapping Flat Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
+	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))
 
-instance Mapping Dual Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
-	where mapping _ (U_II_I (Constant x)) = U_II_I (Constant (x))
+instance Mapping Dual Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
+	where mapping = rewrap / \_ (U_II_I (Constant x)) -> U_II_I (Constant (x))
 
-instance Mapping Flat Arrow into f g => Mapping Flat Constant into f g
+instance Mapping Flat Flat Arrow into f g => Mapping Flat Flat Constant into f g
 	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
 
-instance Mapping Dual Arrow into f g => Mapping Dual Constant into f g
+instance Mapping Dual Flat Arrow into f g => Mapping Dual Flat Constant into f g
 	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))

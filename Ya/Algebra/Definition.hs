@@ -10,14 +10,15 @@ infixr 8 /\, \/
 class Dumb x
 instance Dumb x
 
-class Mapping v from into f g where
-	mapping :: v from s t -> into (f s) (g t)
+class Mapping v vv from into f g where
+	mapping :: v from s t -> vv into (f s) (g t)
 
+-- TODO: for simplicity there is `Flat`, we should remove it later
 map :: forall v from into f g s t .
-	Mapping v from into f g =>
+	Mapping v Flat from into f g =>
 	Castable Dual Arrow (v from s t) =>
 	Supertype (v from s t) -> into (f s) (g t)
-map from = mapping @v @from @into @f @g @s @t (wrap @Arrow from)
+map from = unwrap @Arrow (mapping @v @Flat @from @into @f @g @s @t (wrap @Arrow from))
 
 type Component v = Transformation v Functor
 
@@ -26,19 +27,19 @@ component :: forall v from into f g t .
 	(Supertype (v from t t) ~ from t t) =>
 	Castable Dual Arrow (v from t t) =>
 	into (f t) (g t)
-component = mapping @v @from @into @f @g @_ @t (wrap @Arrow identity)
+component = unwrap @Arrow (mapping @v @Flat @from @into @f @g @_ @t (wrap @Arrow identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
-	( forall i . Mapping Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Mapping Dual from Arrow (U_II_I from i) (U_II_I from i)
+	( forall i . Mapping Flat Flat from Arrow (U_I_II from i) (U_I_II from i)
+	, forall i . Mapping Dual Flat from Arrow (U_II_I from i) (U_II_I from i)
 	) => Precategory from where
 	compose :: from s t -> from i s -> from i t
 	compose post pre = let U_I_II y = map @Flat post (U_I_II pre) in y
 
 deriving instance
-	( forall i . Mapping Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Mapping Dual from Arrow (U_II_I from i) (U_II_I from i)
+	( forall i . Mapping Flat Flat from Arrow (U_I_II from i) (U_I_II from i)
+	, forall i . Mapping Dual Flat from Arrow (U_II_I from i) (U_II_I from i)
 	) => Precategory from
 
 {- [LAW] Left identity: identity . f ≡ f -}
@@ -48,8 +49,8 @@ class Precategory from => Category from
 
 {- [LAW] Identity preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-class (Category from, Category into, Mapping v from into f f) => Functor v from into f
-deriving instance (Category from, Category into, Mapping v from into f f) => Functor v from into f
+class (Category from, Category into, Mapping v Flat from into f f) => Functor v from into f
+deriving instance (Category from, Category into, Mapping v Flat from into f f) => Functor v from into f
 
 functor :: forall v from into f s t .
 	Functor v from into f =>
@@ -61,13 +62,13 @@ functor = map @v @from @into @f @f @s @t
 
 class
 	( Precategory from, Precategory into
-	, Mapping v from into f f
+	, Mapping v Flat from into f f
 	, Dumb (x v from into f)
 	) => Semi v x from into f
 
 deriving instance
 	( Precategory from, Precategory into
-	, Mapping v from into f f
+	, Mapping v Flat from into f f
 	, Dumb (Functor v from into f)
 	) => Semi v Functor from into f
 
@@ -82,13 +83,13 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 {- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
 class
-	( Mapping v from into f g
+	( Mapping v Flat from into f g
 	, x v from into f
 	, x v from into g
 	) => Transformation v x from into f g
 
 deriving instance
-	( Mapping v from into f g
+	( Mapping v Flat from into f g
 	, x v from into f
 	, x v from into g
 	) => Transformation v x from into f g
@@ -140,10 +141,10 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
+-- TODO: after changing `Mapping` definition it should be removed
 class Flippable v from into t tt
-
-deriving instance Mapping Flat from into t tt => Flippable Flat from into t tt
-deriving instance Mapping Flat from into tt t => Flippable Dual from into t tt
+deriving instance Mapping Flat Flat from into t tt => Flippable Flat from into t tt
+deriving instance Mapping Flat Flat from into tt t => Flippable Dual from into t tt
 
 type family Co x where Co (x Flat) = x Dual
 
@@ -165,7 +166,7 @@ type Product o = o Flat U_I_I
 project :: forall p from into e s t .
 	Precategory into =>
 	Limit from into U_I_I =>
-	Mapping Flat from into (p (Object (U_I_I (Flat into))) e) I =>
+	Mapping Flat Flat from into (p (Object (U_I_I (Flat into))) e) I =>
 	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
 	Castable Flat into (I t) =>
 	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
@@ -174,7 +175,7 @@ project from = wrapped @into / map @Flat @from @into @(p (Object (U_I_I (Flat in
 inject :: forall p from into e s t .
 	Precategory into =>
 	Co Limit into into U_I_I =>
-	Mapping Flat from into I (p (Object (U_I_I (Dual into))) e) =>
+	Mapping Flat Flat from into I (p (Object (U_I_I (Dual into))) e) =>
 	Castable Flat into (p (Object (U_I_I (Dual into))) e t) =>
 	Castable Dual into (I s) =>
 	from s t -> into s (Supertype (p (Object (U_I_I (Dual into))) e t))
@@ -200,28 +201,28 @@ type Terminal o into i = o Flat into U_ i i
 
 type Initial o into i = o Dual into U_ i i
 
-instance Mapping Flat Arrow Arrow I (U_I_I (/\))
-	where mapping (U_I_II from) (I x) = U_I_I (These (from x) (from x))
+instance Mapping Flat Flat Arrow Arrow I (U_I_I (/\))
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_I (These (from x) (from x))
 
-instance Mapping Flat Arrow Arrow (U_I_II (/\) e) I
-	where mapping (U_I_II from) (U_I_II (These _ x)) = I (from x)
+instance Mapping Flat Flat Arrow Arrow (U_I_II (/\) e) I
+	where mapping (U_I_II from) = U_I_II / \(U_I_II (These _ x)) -> I (from x)
 
-instance Mapping Flat Arrow Arrow (U_II_I (/\) e) I
-	where mapping (U_I_II from) (U_II_I (These x _)) = I (from x)
+instance Mapping Flat Flat Arrow Arrow (U_II_I (/\) e) I
+	where mapping (U_I_II from) = U_I_II / \(U_II_I (These x _)) -> I (from x)
 
 instance Factor Flat Arrow Arrow U_I_I where
 	factor this that x = These (this x) (that x)
 
-instance Mapping Flat Arrow Arrow (U_I_I (\/)) I
-	where mapping (U_I_II from) = \case
+instance Mapping Flat Flat Arrow Arrow (U_I_I (\/)) I
+	where mapping (U_I_II from) = U_I_II / \case
 		U_I_I (This x) -> I (from x)
 		U_I_I (That x) -> I (from x)
 
-instance Mapping Flat Arrow Arrow I (U_I_II (\/) e)
-	where mapping (U_I_II from) (I x) = U_I_II (That (from x))
+instance Mapping Flat Flat Arrow Arrow I (U_I_II (\/) e)
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_II (That (from x))
 
-instance Mapping Flat Arrow Arrow I (U_II_I (\/) e)
-	where mapping (U_I_II from) (I x) = U_II_I (This (from x))
+instance Mapping Flat Flat Arrow Arrow I (U_II_I (\/) e)
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_II_I (This (from x))
 
 instance Factor Dual Arrow Arrow U_I_I where
 	factor this that x = case x of
@@ -260,14 +261,14 @@ deriving instance
 	) => Adjoint x from into f g
 
 class
-	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
-	, Mapping v from Arrow (v Arrow (Neutral uu)) f
+	( forall i ii . Mapping v Flat from Arrow (Day v from u uu f f i ii) f
+	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) f
 	, x v from Arrow f
 	) => Monoidal v x from u uu f where
 
 deriving instance
-	( forall i ii . Mapping v from Arrow (Day v from u uu f f i ii) f
-	, Mapping v from Arrow (v Arrow (Neutral uu)) f
+	( forall i ii . Mapping v Flat from Arrow (Day v from u uu f f i ii) f
+	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) f
 	, x v from Arrow f
 	) => Monoidal v x from u uu f
 
