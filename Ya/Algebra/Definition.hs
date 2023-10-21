@@ -181,15 +181,6 @@ that :: forall v from into s t e .
 	Supertype (v from s t) -> Supertype (v into (That (Object (U_I_I (v into))) e s) (I t))
 that from = map @v @v @from @into @(That (Object (U_I_I (v into))) e) @I @s @t from
 
-project :: forall p from into e s t .
-	Precategory into =>
-	Limit from into U_I_I =>
-	Mapping Flat Flat from into (p (Object (U_I_I (Flat into))) e) I =>
-	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
-	Castable Flat into (I t) =>
-	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
-project from = wrapped @into / map @Flat @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
-
 class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where
 	factor ::
@@ -200,15 +191,6 @@ class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 type Limit = Factor Flat
 
 type Product o = o Flat U_I_I
-
-inject :: forall p from into e s t .
-	Precategory into =>
-	Co Limit into into U_I_I =>
-	Mapping Flat Flat from into I (p (Object (U_I_I (Dual into))) e) =>
-	Castable Flat into (p (Object (U_I_I (Dual into))) e t) =>
-	Castable Dual into (I s) =>
-	from s t -> into s (Supertype (p (Object (U_I_I (Dual into))) e t))
-inject from = wrapped @into / map @Flat @Flat @from @into @I @(p (Object (U_I_I (Dual into))) e) from
 
 (/\) :: forall from into any i ii .
 	Limit from into U_I_I =>

@@ -66,7 +66,7 @@ start :: state -> State state result -> state /\ result
 start state stateful = stateful `u'u` state
 
 instant :: State state result -> state -> state
-instant state x = project @This @Arrow identity / state `u'u` x
+instant state x = wrapped (this @Flat @Arrow identity) / state `u'u` x
 
 type Stateful = U_I_II State
 

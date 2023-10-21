@@ -190,6 +190,7 @@ instance
 instance
 	( Co Limit Arrow Arrow U_I_I
 	, Transformation Natural Functor from Arrow I (U_I_II (\/) e)
+	, Cone Dual from Arrow (\/)
 	, forall ee . Transformation Natural Functor from Arrow I (U_II_I (\/) ee)
 	, forall ee . Wrapper Arrow (I ee)
 	, forall ee . Wrapper Arrow (U_II_I (\/) ee e)
@@ -197,8 +198,8 @@ instance
 	, forall ee . Wrapper Arrow (T_TT_I (U_I_II (\/) e) (U_I_II (\/) e) ee)
 	) => Mapping Flat Flat from Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\/) e) (U_I_II (\/) e)
 	where mapping = rewrap / \from -> rewrap @Arrow
-		(inject @This @from @Arrow identity
-			\/ (inject @This @from @Arrow identity \/ inject @That @from @Arrow from)
+		(wrapped (this @Dual @from @Arrow identity)
+			\/ (wrapped (this @Dual @from @Arrow identity) \/ wrapped (that @Dual @from @Arrow from))
 				`compose` unwrap @Arrow @(U_I_II _ _ _)
 		) `compose` unwrap @Arrow @(T_TT_I _ _ _)
 

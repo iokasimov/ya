@@ -151,8 +151,6 @@
 * Define `Product` type alias
 * Define `Sum` type alias
 * Define `wrapped` expression
-* Define `project` expression
-* Define `inject` expression
 * Define `/\` operator
 * Define `\/` operator
 * Define `Terminal` type alias
@@ -183,3 +181,5 @@
 * Define `Diagram` type alias
 * Define `Diagonal` type alias
 * Define `Cone` type class
+* Define `this` expression
+* Define `that` expression
