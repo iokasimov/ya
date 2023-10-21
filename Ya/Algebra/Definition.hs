@@ -13,6 +13,12 @@ instance Dumb x
 class Mapping v vv from into f g where
 	mapping :: v from s t -> vv into (f s) (g t)
 
+instance Mapping Flat Flat from into t tt => Mapping Dual Dual from into tt t
+	where mapping (U_II_I from) = U_II_I (map @Flat @Flat @from @into @t @tt from)
+
+instance Mapping Dual Flat from into t tt => Mapping Flat Dual from into tt t
+	where mapping (U_I_II from) = U_II_I (map @Dual @Flat @from @into @t @tt from)
+
 map :: forall v vv from into f g s t .
 	Mapping v vv from into f g =>
 	Castable Dual Arrow (v from s t) =>
@@ -141,18 +147,13 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
--- TODO: after changing `Mapping` definition it should be removed
-class Flippable v from into t tt
-deriving instance Mapping Flat Flat from into t tt => Flippable Flat from into t tt
-deriving instance Mapping Flat Flat from into tt t => Flippable Dual from into t tt
-
 type family Co x where Co (x Flat) = x Dual
 
 type family Object diagram = r | r -> diagram where
 	Object (U_I_I (Flat Arrow)) = (/\)
 	Object (U_I_I (Dual Arrow)) = (\/)
 
-class Flippable v from into I (diagram (Object (diagram (v into)))) =>
+class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where
 	factor ::
 		Supertype (v from any i) ->
