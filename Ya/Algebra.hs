@@ -103,7 +103,7 @@ instance Covariant Endo Semi Functor Arrow u
 	where mapping = rewrap / \from x -> T_TT_TTT_I `compose` U_I_II `yi` \state ->
 		x `yo` from `o` These state `o` U_I_II
 
-instance (Covariant Monoidal Functor Arrow (/\) (/\) u)
+instance Covariant Monoidal Functor Arrow (/\) (/\) u 
 	=> Mapping Flat Flat Arrow Arrow
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 		(T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))

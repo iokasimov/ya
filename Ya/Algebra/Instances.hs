@@ -82,50 +82,54 @@ instance
 	( Category from
 	, Limit from Arrow U_I_I
 	, Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat Flat from Arrow (This (/\) ee) I
-	, forall ee . Mapping Flat Flat from Arrow (That (/\) ee) I
+	, Cone Flat from Arrow (/\)
 	, forall ee . Wrapper Arrow (This (/\) ee e)
 	, forall ee . Wrapper Arrow (That (/\) e ee)
 	, forall ee . Wrapper Arrow (I ee)
 	) => Mapping Flat Flat from Arrow (That (/\) e) (That (/\) e)
-	where mapping = rewrap / \from -> rewrap / project @This @from identity /\ project @That from
+	where mapping = rewrap / \from -> rewrap
+		/ wrapped (this @Flat @from identity)
+		/\ wrapped (that @Flat @from from)
 
 instance
 	( Category from
 	, Limit from Arrow U_I_I
 	, Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat Flat from Arrow (This (/\) ee) I
-	, forall ee . Mapping Flat Flat from Arrow (That (/\) ee) I
+	, Cone Flat from Arrow (/\)
 	, forall ee . Wrapper Arrow (This (/\) e ee)
 	, forall ee . Wrapper Arrow (That (/\) ee e)
 	, forall ee . Wrapper Arrow (I ee)
 	) => Mapping Flat Flat from Arrow (This (/\) e) (This (/\) e)
-	where mapping = rewrap / \from -> rewrap / factor @Flat (project @This from) (project @That @from identity)
+	where mapping = rewrap / \from -> rewrap
+		/ wrapped (this @Flat from)
+		/\ wrapped (that @Flat @from identity)
 
 instance
 	( Category from
 	, Precategory Arrow
 	, Co Limit from Arrow U_I_I
 	, Co Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat Flat from Arrow I (This (\/) ee)
-	, forall ee . Mapping Flat Flat from Arrow I (That (\/) ee)
+	, Cone Dual from Arrow (\/)
 	, forall ee . Wrapper Arrow (This (\/) ee e)
 	, forall ee . Wrapper Arrow (That (\/) e ee)
 	, forall ee . Wrapper Arrow (I ee)
 	) => Mapping Flat Flat from Arrow (That (\/) e) (That (\/) e)
-	where mapping = rewrap / \from -> rewrap / inject @This @from identity \/ inject @That from
+	where mapping = rewrap / \from -> rewrap
+		/ wrapped (this @Dual @from identity)
+		\/ wrapped (that @Dual from)
 
 instance
 	( Category from
 	, Co Limit from Arrow U_I_I
 	, Co Limit Arrow Arrow U_I_I
-	, forall ee . Mapping Flat Flat from Arrow I (This (\/) ee)
-	, forall ee . Mapping Flat Flat from Arrow I (That (\/) ee)
+	, Cone Dual from Arrow (\/)
 	, forall ee . Wrapper Arrow (This (\/) e ee)
 	, forall ee . Wrapper Arrow (That (\/) ee e)
 	, forall ee . Wrapper Arrow (I ee)
 	) => Mapping Flat Flat from Arrow (This (\/) e) (This (\/) e)
-	where mapping = rewrap / \from -> rewrap / inject @This from \/ inject @That @from identity
+	where mapping = rewrap / \from -> rewrap
+		/ wrapped (this @Dual from)
+		\/ wrapped (that @Dual @from identity)
 
 instance
 	( Covariant Semi Functor from into t

@@ -153,6 +153,43 @@ type family Object diagram = r | r -> diagram where
 	Object (U_I_I (Flat Arrow)) = (/\)
 	Object (U_I_I (Dual Arrow)) = (\/)
 
+type family Neutral p where
+	Neutral (/\) = Unit
+	Neutral (\/) = Void
+
+class
+	( forall e . Mapping v v from into (Flat u e) I
+	, forall e . Mapping v v from into (Dual u e) I
+	) => Cone v from into u
+
+deriving instance
+	( forall e . Mapping v v from into (Flat u e) I
+	, forall e . Mapping v v from into (Dual u e) I
+	) => Cone v from into u
+
+this :: forall v from into s t e .
+	Cone v from into (Object (U_I_I (v into))) =>
+	Castable Dual Arrow (v from s t) =>
+	Castable Flat Arrow (v into (This (Object (U_I_I (v into))) e s) (I t)) =>
+	Supertype (v from s t) -> Supertype (v into (This (Object (U_I_I (v into))) e s) (I t))
+this from = map @v @v @from @into @(This (Object (U_I_I (v into))) e) @I @s @t from
+
+that :: forall v from into s t e .
+	Cone v from into (Object (U_I_I (v into))) =>
+	Castable Dual Arrow (v from s t) =>
+	Castable Flat Arrow (v into (That (Object (U_I_I (v into))) e s) (I t)) =>
+	Supertype (v from s t) -> Supertype (v into (That (Object (U_I_I (v into))) e s) (I t))
+that from = map @v @v @from @into @(That (Object (U_I_I (v into))) e) @I @s @t from
+
+project :: forall p from into e s t .
+	Precategory into =>
+	Limit from into U_I_I =>
+	Mapping Flat Flat from into (p (Object (U_I_I (Flat into))) e) I =>
+	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
+	Castable Flat into (I t) =>
+	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
+project from = wrapped @into / map @Flat @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
+
 class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where
 	factor ::
@@ -163,15 +200,6 @@ class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 type Limit = Factor Flat
 
 type Product o = o Flat U_I_I
-
-project :: forall p from into e s t .
-	Precategory into =>
-	Limit from into U_I_I =>
-	Mapping Flat Flat from into (p (Object (U_I_I (Flat into))) e) I =>
-	Castable Dual into (p (Object (U_I_I (Flat into))) e s) =>
-	Castable Flat into (I t) =>
-	from s t -> into (Supertype (p (Object (U_I_I (Flat into))) e s)) t
-project from = wrapped @into / map @Flat @Flat @from @into @(p (Object (U_I_I (Flat into))) e) @I from
 
 inject :: forall p from into e s t .
 	Precategory into =>
@@ -240,10 +268,6 @@ instance Factor Dual Arrow Arrow U_I_I where
 -- TODO: generalize via colimits
 absurd :: Void -> i
 absurd x = case x of {}
-
-type family Neutral p where
-	Neutral (/\) = Unit
-	Neutral (\/) = Void
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
