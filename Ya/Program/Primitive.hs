@@ -49,34 +49,32 @@ adjust ::
 	Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
-type Transition = U_I_UU_II_III (->) (/\)
+type Transition = W_I_I_II (U_I_UU_II_III (->) (/\))
 
-type State = W_I_I_II Transition
-
-observe :: State state state
+observe :: Transition state state
 observe = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `ii` old
 
-replace :: state -> State state state
+replace :: state -> Transition state state
 replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
 
-transit :: (state -> state) -> State state state
+transit :: (state -> state) -> Transition state state
 transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `ii` s
 
-start :: state -> State state result -> state /\ result
+start :: state -> Transition state result -> state /\ result
 start state stateful = stateful `u'u` state
 
-instant :: State state result -> state -> state
+instant :: Transition state result -> state -> state
 instant state x = wrapped (this @Flat @Arrow identity) / state `u'u` x
 
-type Stateful = U_I_II State
+type Stateful = U_I_II Transition
 
-pattern Statefully :: State state result -> Stateful state result
+pattern Statefully :: Transition state result -> Stateful state result
 pattern Statefully x <- U_I_II x
 	where Statefully x = U_I_II x
 
-type Scenario = U_II_I State
+type Scenario = U_II_I Transition
 
-pattern Scenario :: State state result -> Scenario result state
+pattern Scenario :: Transition state result -> Scenario result state
 pattern Scenario x <- U_II_I x
 	where Scenario x = U_II_I x
 
@@ -136,7 +134,7 @@ type family Binary tree where
 type family Layered known unknown where
 	Layered (U_I_II Arrow input) unknown =
 		T_TT_I (U_I_II Arrow input) unknown
-	Layered (U_I_II State state) unknown =
+	Layered (U_I_II Transition state) unknown =
 		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)
 
 layer :: forall g f into e .

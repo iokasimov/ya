@@ -33,8 +33,8 @@ type family Vector x xs where
 	Vector x y = Matching x y
 
 class Stack datastructure where
-	pop :: State / datastructure item / Optional item
-	push :: item -> State / datastructure item / item
+	pop :: Transition / datastructure item / Optional item
+	push :: item -> Transition / datastructure item / item
 
 instance Stack List where
 	pop = W_I_I_II `i` U_I_UU_II_III `i` \case

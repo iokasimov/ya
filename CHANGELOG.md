@@ -134,7 +134,7 @@
 * Define `Progress` type alias
 * Define `Continue` patter synonym
 * Define `Interrupt` patter synonym
-* Define `State` type alias
+* Define `Transition` type alias
 * Define `Stateful` type alias
 * Define `Scenario` type alias
 * Define `Statefully` pattern synonym
@@ -183,3 +183,5 @@
 * Define `Cone` type class
 * Define `this` expression
 * Define `that` expression
+* Define `Scrolling` type family
+* Define `Scrollable` type class
