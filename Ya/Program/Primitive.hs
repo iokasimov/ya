@@ -160,3 +160,13 @@ try :: forall f into ee e .
 	into (f (Progress ee e)) (Layered f (Progress ee) e)
 try = component @Flat @Arrow @into @(f `T_TT_I` Progress ee) @(Layered f (Progress ee)) @e
 	`compose` wrap @into @((f `T_TT_I` (Progress ee)) e)
+
+type Horizontal = U_I_II (\/) Unit Unit
+
+pattern Backward :: Horizontal
+pattern Backward <- U_I_II (This Unit)
+	where Backward = U_I_II (This Unit)
+
+pattern Forward :: Horizontal
+pattern Forward <- U_I_II (That Unit)
+	where Forward = U_I_II (That Unit)

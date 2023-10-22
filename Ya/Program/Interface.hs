@@ -49,3 +49,28 @@ instance Stack (Construction Optional) where
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `ii` Some x
 		Nonempty @List (Yet x None) -> These `i` Nonempty @List (Yet x None) `ii` None
 	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These `i` rewrap (Next x) s `ii` x
+
+type family Scrolling datastructure where
+	Scrolling List = U_T_I_TT_I (/\) I (U_T_I_TT_I (/\) List List)
+
+type family Orientation datastructure where
+	Orientation List = Horizontal
+
+class Scrollable datastructure where
+	scroll :: Orientation datastructure -> Transition
+		/ Scrolling datastructure item
+		/ Optional (Scrolling datastructure item)
+
+-- TODO: try use the fact that `Horizontal` ~ `Boolean`
+-- `Boolean` is `Representative` for `U_I_I (/\)`
+instance Scrollable List where
+	scroll Forward = W_I_I_II `i` U_I_UU_II_III `i` \case
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (List bs) (List (Yet f fs)))))) -> These
+			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (List (Yet x (Some bs))) (T_TT_I / R_U_I_T_I `fo` fs)))))
+			(Some previous)
+		previous@(_) -> These previous None
+	scroll Backward = W_I_I_II `i` U_I_UU_II_III `i` \case
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (List (Yet b bs)) (List fs))))) -> These
+			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T_TT_I / R_U_I_T_I `fo` bs) (List (Yet x (Some fs)))))))
+			(Some previous)
+		previous@(_) -> These previous None

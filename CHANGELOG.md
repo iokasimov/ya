@@ -183,5 +183,6 @@
 * Define `Cone` type class
 * Define `this` expression
 * Define `that` expression
+* Define `Orientation` type family
 * Define `Scrolling` type family
 * Define `Scrollable` type class
