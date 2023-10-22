@@ -167,12 +167,12 @@ deriving instance
 	, forall e . Mapping v v from into (Dual u e) I
 	) => Cone v from into u
 
-this :: forall v from into s t e .
+this :: forall v from into i o e .
 	Cone v from into (Object (U_I_I (v into))) =>
-	Castable Dual Arrow (v from s t) =>
-	Castable Flat Arrow (v into (This (Object (U_I_I (v into))) e s) (I t)) =>
-	Supertype (v from s t) -> Supertype (v into (This (Object (U_I_I (v into))) e s) (I t))
-this from = map @v @v @from @into @(This (Object (U_I_I (v into))) e) @I @s @t from
+	Castable Dual Arrow (v from i o) =>
+	Castable Flat Arrow (v into (This (Object (U_I_I (v into))) e i) (I o)) =>
+	Supertype (v from i o) -> Supertype (v into (This (Object (U_I_I (v into))) e i) (I o))
+this from = map @v @v @from @into @(This (Object (U_I_I (v into))) e) @I @i @o from
 
 that :: forall v from into s t e .
 	Cone v from into (Object (U_I_I (v into))) =>
@@ -180,6 +180,11 @@ that :: forall v from into s t e .
 	Castable Flat Arrow (v into (That (Object (U_I_I (v into))) e s) (I t)) =>
 	Supertype (v from s t) -> Supertype (v into (That (Object (U_I_I (v into))) e s) (I t))
 that from = map @v @v @from @into @(That (Object (U_I_I (v into))) e) @I @s @t from
+
+type Limit' v from into =
+	( Cone v from into (Object (U_I_I (v into)))
+	, Mapping v v from into I (U_I_I (Object (U_I_I (v into))))
+	)
 
 class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 	Factor v from into diagram where

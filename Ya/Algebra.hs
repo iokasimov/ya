@@ -187,21 +187,11 @@ instance
 	) => Mapping Dual Flat from Arrow f (UU_V_U_I_II_T_II Dual into Arrow f r)
 	where mapping = rewrap / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
-instance
-	( Co Limit Arrow Arrow U_I_I
-	, Transformation Natural Functor from Arrow I (U_I_II (\/) e)
-	, Cone Dual from Arrow (\/)
-	, forall ee . Transformation Natural Functor from Arrow I (U_II_I (\/) ee)
-	, forall ee . Wrapper Arrow (I ee)
-	, forall ee . Wrapper Arrow (U_II_I (\/) ee e)
-	, forall ee . Wrapper Arrow (U_I_II (\/) e ee)
-	, forall ee . Wrapper Arrow (T_TT_I (U_I_II (\/) e) (U_I_II (\/) e) ee)
-	) => Mapping Flat Flat from Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\/) e) (U_I_II (\/) e)
-	where mapping = rewrap / \from -> rewrap @Arrow
-		(wrapped (this @Dual @from @Arrow identity)
-			\/ (wrapped (this @Dual @from @Arrow identity) \/ wrapped (that @Dual @from @Arrow from))
-				`compose` unwrap @Arrow @(U_I_II _ _ _)
-		) `compose` unwrap @Arrow @(T_TT_I _ _ _)
+instance Mapping Flat Flat Arrow Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\/) e) (U_I_II (\/) e)
+	where mapping = rewrap / \from -> \case
+		T_TT_I (U_I_II (That (U_I_II (That x)))) -> U_I_II (That / from x)
+		T_TT_I (U_I_II (That (U_I_II (This e)))) -> U_I_II (This e)
+		T_TT_I (U_I_II (This e)) -> U_I_II (This e)
 
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Flat Flat Arrow Arrow (U_I_II (\/) e `T_TT_I` f) (U_I_II (\/) e `TT_T_I` f)

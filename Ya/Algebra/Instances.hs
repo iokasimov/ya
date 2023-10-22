@@ -78,58 +78,23 @@ instance
 			) from
 		`compose` unwrap @into
 
-instance
-	( Category from
-	, Limit from Arrow U_I_I
-	, Limit Arrow Arrow U_I_I
-	, Cone Flat from Arrow (/\)
-	, forall ee . Wrapper Arrow (This (/\) ee e)
-	, forall ee . Wrapper Arrow (That (/\) e ee)
-	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat Flat from Arrow (That (/\) e) (That (/\) e)
-	where mapping = rewrap / \from -> rewrap
-		/ wrapped (this @Flat @from identity)
-		/\ wrapped (that @Flat @from from)
+instance Mapping Flat Flat Arrow Arrow (That (/\) e) (That (/\) e)
+	where mapping = rewrap / \from -> rewrap / \case
+		These e x -> These e (from x)
 
-instance
-	( Category from
-	, Limit from Arrow U_I_I
-	, Limit Arrow Arrow U_I_I
-	, Cone Flat from Arrow (/\)
-	, forall ee . Wrapper Arrow (This (/\) e ee)
-	, forall ee . Wrapper Arrow (That (/\) ee e)
-	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat Flat from Arrow (This (/\) e) (This (/\) e)
-	where mapping = rewrap / \from -> rewrap
-		/ wrapped (this @Flat from)
-		/\ wrapped (that @Flat @from identity)
+instance Mapping Flat Flat Arrow Arrow (This (/\) e) (This (/\) e)
+	where mapping = rewrap / \from -> rewrap / \case
+		These x e -> These (from x) e
 
-instance
-	( Category from
-	, Precategory Arrow
-	, Co Limit from Arrow U_I_I
-	, Co Limit Arrow Arrow U_I_I
-	, Cone Dual from Arrow (\/)
-	, forall ee . Wrapper Arrow (This (\/) ee e)
-	, forall ee . Wrapper Arrow (That (\/) e ee)
-	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat Flat from Arrow (That (\/) e) (That (\/) e)
-	where mapping = rewrap / \from -> rewrap
-		/ wrapped (this @Dual @from identity)
-		\/ wrapped (that @Dual from)
+instance Mapping Flat Flat Arrow Arrow (That (\/) e) (That (\/) e)
+	where mapping = rewrap / \from -> rewrap / \case
+		That x -> That (from x)
+		This e -> This e
 
-instance
-	( Category from
-	, Co Limit from Arrow U_I_I
-	, Co Limit Arrow Arrow U_I_I
-	, Cone Dual from Arrow (\/)
-	, forall ee . Wrapper Arrow (This (\/) e ee)
-	, forall ee . Wrapper Arrow (That (\/) ee e)
-	, forall ee . Wrapper Arrow (I ee)
-	) => Mapping Flat Flat from Arrow (This (\/) e) (This (\/) e)
-	where mapping = rewrap / \from -> rewrap
-		/ wrapped (this @Dual from)
-		\/ wrapped (that @Dual @from identity)
+instance Mapping Flat Flat Arrow Arrow (This (\/) e) (This (\/) e)
+	where mapping = rewrap / \from -> rewrap / \case
+		This x -> This (from x)
+		That e -> That e
 
 instance
 	( Covariant Semi Functor from into t

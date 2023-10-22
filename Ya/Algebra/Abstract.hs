@@ -61,8 +61,9 @@ newtype W_I_I_II w i ii = W_I_I_II (w i i ii)
 newtype UU_U_I_II_U_II_I u uu i ii
 	= UU_U_I_II_U_II_I (uu (u i ii) (u ii i))
 
-newtype UU_U_I_III_U_II_III v u uu iii i ii
-	= UU_V_U_I_III_V_U_II_III (uu (v u i iii) (v u ii iii))
+newtype UU_V_U_III_I_V_U_III_II v u uu i ii iii
+	= UU_V_U_III_I_V_U_III_II
+		(uu iii (uu (v u iii i) (v u iii ii)))
 
 type Diagram = U_
 
