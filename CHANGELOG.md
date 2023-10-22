@@ -186,3 +186,5 @@
 * Define `Orientation` type family
 * Define `Scrolling` type family
 * Define `Scrollable` type class
+* Define `Only` type alias
+* Define `Only` pattern synonym
