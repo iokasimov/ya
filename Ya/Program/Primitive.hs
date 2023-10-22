@@ -3,6 +3,12 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
+type Only = I
+
+pattern Only :: i -> Only i
+pattern Only i <- I i
+	where Only i = I i
+
 type Boolean = U_I_II (\/) Unit Unit
 
 pattern False :: Boolean
