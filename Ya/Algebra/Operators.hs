@@ -9,9 +9,9 @@ infixr 9 `i`, `o`, `a`, `u`
 infixr 8 `ii`
 infixr 7 `iii`
 
-infixl 8 `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `ye`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixl 8 `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
 infixl 7 `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yekl`, `pp'fo`, `yo'o`
+infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -53,13 +53,13 @@ yo :: forall from into f s t .
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor x
 
-ye :: forall into f s t .
+yu :: forall into f s t .
 	Precategory into =>
 	Covariant Yoneda Functor Constant into f =>
 	Castable Dual into (U_I_II Constant s t) =>
 	Castable Dual into (Constant s t) =>
 	f s -> into t (f t)
-ye x = yoneda @Flat @Functor x `compose` wrap @into @(Constant _ _)
+yu x = yoneda @Flat @Functor x `compose` wrap @into @(Constant _ _)
 
 yo'o :: forall from into f g s t .
 	Precategory into =>
@@ -102,14 +102,14 @@ yokl x = component @Flat @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Flat @Functor @from x
 
-yekl :: forall into g f s t .
+yukl :: forall into g f s t .
 	Component Natural Arrow into (T_TT_I f g) f =>
 	Covariant Yoneda Functor Constant into f =>
 	Castable Dual into (Flat Constant s (g t)) =>
 	Castable Dual into (Constant s (g t)) =>
 	Castable Dual into (T_TT_I f g t) =>
 	f s -> into (g t) (f t)
-yekl x = component @Flat @Arrow @into @(T_TT_I f g)
+yukl x = component @Flat @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Flat @Functor @Constant x
 	`compose` wrap

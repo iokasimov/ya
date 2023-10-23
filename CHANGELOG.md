@@ -171,7 +171,8 @@
 * Define `Binary` type family
 * Define `_i` expression
 * Define `i_` expression
-* Define `yekl` operator
+* Define `yukl` operator
+* Define `yu` operator
 * Define `/` type alias
 * Define `joint` expression
 * Define `try` expression
