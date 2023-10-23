@@ -10,7 +10,16 @@ instance
 	( Precategory into
 	, forall e . Wrapper into (I e)
 	) => Mapping Flat Flat into into I I
-	where mapping = rewrap / \from -> wrap @into `compose` from `compose` unwrap @into
+	where mapping = rewrap / \from -> rewrap from
+
+instance
+	( forall e . Wrapper into (I e)
+	, forall e . Wrapper into (TT_T_I I g e)
+	, forall e . Wrapper into (T_TT_I I g e)
+	, Covariant Endo Semi Functor into g
+	) => Mapping Flat Flat into into (T_TT_I I g) (TT_T_I I g)
+	where mapping = rewrap / \from -> rewrap /
+		semifunctor @Flat @into @into (wrap `compose` from) `compose` unwrap @into
 
 instance
 	( Covariant Semi Functor from into g
@@ -253,14 +262,6 @@ instance Mapping Dual Flat Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 
 instance Category Arrow where
 	identity = \x -> x
-
-instance Wrapper Arrow x
-	=> Castable Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
-	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
-
-instance Wrapper Arrow x
-	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
-	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
 instance Mapping Flat Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
 	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))

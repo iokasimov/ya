@@ -186,5 +186,8 @@
 * Define `Orientation` type family
 * Define `Scrolling` type family
 * Define `Scrollable` type class
+* Define `Horizontal` type alias
+* Define `Forward` pattern synonym
+* Define `Backward` pattern synonym
 * Define `Only` type alias
 * Define `Only` pattern synonym
