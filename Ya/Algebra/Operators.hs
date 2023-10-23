@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixr 9 `i`, `o`, `a`
+infixr 9 `i`, `o`, `a`, `u`
 infixr 8 `ii`
 infixr 7 `iii`
 
@@ -102,7 +102,7 @@ yokl x = component @Flat @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Flat @Functor @from x
 
-yekl :: forall from into g f s t .
+yekl :: forall into g f s t .
 	Component Natural Arrow into (T_TT_I f g) f =>
 	Covariant Yoneda Functor Constant into f =>
 	Castable Dual into (Flat Constant s (g t)) =>
@@ -196,6 +196,16 @@ a :: forall into from i s t .
 	Castable Flat into (Dual from i t) =>
 	from s i -> into (from t s) (from t i)
 a x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
+
+u :: forall from into i s t .
+	Precategory into =>
+	Covariant Yoneda Functor from into (U_I_II Constant i) =>
+	Castable Dual into (U_I_II from s t) =>
+	Castable Flat into (U_I_II Constant i t) =>
+	Castable Flat into (Constant i t) =>
+	s -> into (from s t) t
+u x = unwrap @into @(Constant i t) `compose` unwrap `compose`
+	yo @from @into @(U_I_II Constant _) (U_I_II / wrap x)
 
 ro :: forall from into hom f i .
 	Covariant (Representable hom) Functor from into f =>
