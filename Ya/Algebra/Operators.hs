@@ -5,12 +5,9 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixr 9 `i`, `o`, `a`, `u`
-infixr 8 `ii`
-infixr 7 `iii`
-
-infixl 8 `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
-infixl 7 `fi_`, `_fo`, `fo_`, `fa_`
+infixl 9 `i`, `u`, `o`, `a`
+infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`

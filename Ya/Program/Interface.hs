@@ -37,18 +37,18 @@ class Stack datastructure where
 	push :: item -> Transition / datastructure item / item
 
 instance Stack List where
-	pop = W_I_I_II `i` U_I_UU_II_III `i` \case
+	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Empty @List -> These `i` Empty @List `ii` None
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo`R_U_I_T_I) `ii` Some x
-	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i`rewrap (Some `compose` R_U_I_T_I `compose` Yet x `compose` (`yo`unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 		`ii`x
 
 instance Stack (Construction Optional) where
-	pop = W_I_I_II `i` U_I_UU_II_III `i` \case
+	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `ii` Some x
 		Nonempty @List (Yet x None) -> These `i` Nonempty @List (Yet x None) `ii` None
-	push x = W_I_I_II `i` U_I_UU_II_III `i` \s -> These `i` rewrap (Next x) s `ii` x
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `ii` x
 
 type family Scrolling datastructure where
 	Scrolling List = U_T_I_TT_I (/\) I (U_T_I_TT_I (/\) List List)
@@ -64,12 +64,12 @@ class Scrollable datastructure where
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I (/\)`
 instance Scrollable List where
-	scroll Forward = W_I_I_II `i` U_I_UU_II_III `i` \case
+	scroll Forward = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (List bs) (List (Yet f fs)))))) -> These
 			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (List (Yet x (Some bs))) (T_TT_I / R_U_I_T_I `fo` fs)))))
 			(Some previous)
 		previous@(_) -> These previous None
-	scroll Backward = W_I_I_II `i` U_I_UU_II_III `i` \case
+	scroll Backward = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (List (Yet b bs)) (List fs))))) -> These
 			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T_TT_I / R_U_I_T_I `fo` bs) (List (Yet x (Some fs)))))))
 			(Some previous)
