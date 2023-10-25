@@ -193,3 +193,4 @@
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `u` operator
+* Define `a'a` operator
