@@ -35,11 +35,11 @@
 * Define `Natural` type alias
 * Define `Covariant` type alias
 * Define `Contravariant` type alias
-* Define `fi` operator
-* Define `fi'fi` operator
-* Define `fi'fi'fi` operator
-* Define `fi'fi'fi'fi` operator
-* Define `fi'fi'fi'fi'fi` operator
+* Define `yi` operator
+* Define `yi'yi` operator
+* Define `yi'yi'yi` operator
+* Define `yi'yi'yi'yi` operator
+* Define `yi'yi'yi'yi'yi` operator
 * Define `fo` operator
 * Define `fa` operator
 * Define `fo'fi` operator

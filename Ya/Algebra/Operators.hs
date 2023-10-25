@@ -6,29 +6,27 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `ii`, `fi`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
-infixl 7 `iii`, `fi_`, `_fo`, `fo_`, `fa_`
-infixl 6 `fi'fi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
+infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixl 7 `iii`, `yi_`, `_fo`, `fo_`, `fa_`
+infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
-infixl 4 `fi'fi'fi`, `fo'fo'fo`, `yoklKL`
+infixl 4 `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
-infixl 2 `fi'fi'fi'fi`
-infixl 0 `fi'fi'fi'fi'fi`
+infixl 2 `yi'yi'yi'yi`
+infixl 0 `yi'yi'yi'yi'yi`
 
 i, ii, iii :: Category into => into t t
 iii = identity
 ii = identity
 i = identity
 
-fi'fi'fi'fi'fi, fi'fi'fi'fi, fi'fi'fi, fi'fi, fi
+yi'yi'yi'yi'yi, yi'yi'yi'yi, yi'yi'yi, yi'yi, yi_, yi
 	:: Category into => into t t
-fi'fi'fi'fi'fi = identity
-fi'fi'fi'fi = identity
-fi'fi'fi = identity
-fi'fi = identity
-fi = identity
-
-yi :: Category into => into t t
+yi'yi'yi'yi'yi = identity
+yi'yi'yi'yi = identity
+yi'yi'yi = identity
+yi'yi = identity
+yi_ = identity
 yi = identity
 
 fi_, fi_'fi, fi_'fi'fi
