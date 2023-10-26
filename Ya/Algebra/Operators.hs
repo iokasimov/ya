@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `yi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -258,6 +258,27 @@ rj from = unwrap @from
 	`compose` component @Flat @into @from @(f `T_TT_I` g) @I
 	`compose` wrap @from
 	`compose` fo from
+
+lm :: forall from into i o oo .
+	Category from =>
+	Limit' Flat from into =>
+	Covariant Functor into into (That (Product into) o) =>
+	Covariant Functor into into (This (Product into) (Product into i i)) =>
+	Castable Flat into (Both (Product into) (Product into i i)) =>
+	Castable Flat into (That (Product into) o oo) =>
+	Castable Dual into (This (Product into) i i) =>
+	Castable Dual into (That (Product into) i i) =>
+	Castable Flat into (Both (Product into) i) =>
+	Castable Flat into (This (Product into) (Product into i i) o) =>
+	Castable Dual into (This (Product into) (Product into i i) (Product into i i)) =>
+	Wrapper into (That (Product into) o (Product into i i)) =>
+	(forall e . Wrapper into (I e)) =>
+	from i o -> from i oo -> into i (Product into o oo)
+lm from_this from_that = 
+	_i (semifunctor @Flat (wrapped (that @Flat from_that))) `compose`
+	i_ (semifunctor @Flat (wrapped (this @Flat from_this))) `compose`
+	wrapped (map @Flat @Flat @from @into @I @(Both (Product into)) identity) `compose`
+	wrapped (map @Flat @Flat @from @into @I @(Both (Product into)) identity)
 
 pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) f =>

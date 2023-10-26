@@ -192,3 +192,4 @@
 * Define `Only` pattern synonym
 * Define `u` operator
 * Define `a'a` operator
+* Define `lm` operator
