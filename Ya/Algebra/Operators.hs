@@ -261,7 +261,7 @@ rj from = unwrap @from
 
 lm :: forall from into i o oo .
 	Category from =>
-	Limit' Flat from into =>
+	Limit Flat from into =>
 	Covariant Functor into into (That (Product into) o) =>
 	Covariant Functor into into (This (Product into) (Product into i i)) =>
 	Castable Flat into (Both (Product into) (Product into i i)) =>
@@ -282,7 +282,7 @@ lm from_this from_that =
 
 ml :: forall from into i o oo .
 	Category from =>
-	Limit' Dual from into =>
+	Limit Dual from into =>
 	Covariant Functor into into (That (Sum into) o) =>
 	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
 	Castable Dual into (Both (Sum into) (Sum into i i)) =>

@@ -179,19 +179,10 @@ that :: forall v from into s t e .
 	Supertype (v from s t) -> Supertype (v into (That (Object (U_I_I (v into))) e s) (I t))
 that from = map @v @v @from @into @(That (Object (U_I_I (v into))) e) @I @s @t from
 
-type Limit' v from into =
+type Limit v from into =
 	( Cone v from into (Object (U_I_I (v into)))
 	, Mapping v v from into I (U_I_I (Object (U_I_I (v into))))
 	)
-
-class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
-	Factor v from into diagram where
-	factor ::
-		Supertype (v from any i) ->
-		Supertype (v from any ii) ->
-		Supertype (v into any (Object (diagram (v into)) i ii))
-
-type Limit = Factor Flat
 
 type Product into = Object (U_I_I (Flat into))
 
@@ -210,9 +201,6 @@ instance Mapping Flat Flat Arrow Arrow (U_I_II (/\) e) I
 instance Mapping Flat Flat Arrow Arrow (U_II_I (/\) e) I
 	where mapping (U_I_II from) = U_I_II / \(U_II_I (These x _)) -> I (from x)
 
-instance Factor Flat Arrow Arrow U_I_I where
-	factor this that x = These (this x) (that x)
-
 instance Mapping Flat Flat Arrow Arrow (U_I_I (\/)) I
 	where mapping (U_I_II from) = U_I_II / \case
 		U_I_I (This x) -> I (from x)
@@ -223,11 +211,6 @@ instance Mapping Flat Flat Arrow Arrow I (U_I_II (\/) e)
 
 instance Mapping Flat Flat Arrow Arrow I (U_II_I (\/) e)
 	where mapping (U_I_II from) = U_I_II / \(I x) -> U_II_I (This (from x))
-
-instance Factor Dual Arrow Arrow U_I_I where
-	factor this that x = case x of
-		This i -> this i
-		That ii -> that ii
 
 -- TODO: generalize via colimits
 absurd :: Void -> i
