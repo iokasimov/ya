@@ -5,8 +5,6 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixr 8 /\, \/
-
 class Dumb x
 instance Dumb x
 
@@ -197,20 +195,6 @@ type Limit = Factor Flat
 
 type Product o = o Flat U_I_I
 
-(/\) :: forall from into any i ii .
-	Limit from into U_I_I =>
-	Supertype (Flat from any i) ->
-	Supertype (Flat from any ii) ->
-	Supertype (Flat into any (Object (U_I_I (Flat into)) i ii))
-(/\) = factor @Flat @from @into @U_I_I
-
-(\/) :: forall from into any i ii .
-	Co Limit from into U_I_I =>
-	Supertype (Dual from any i) ->
-	Supertype (Dual from any ii) ->
-	Supertype (Dual into any (Object (U_I_I (Dual into)) i ii))
-(\/) = factor @Dual @from @into @U_I_I @any @i @ii
-
 type Sum o into = o Dual U_I_I into
 
 type Terminal o into i = o Flat into U_ i i
@@ -244,13 +228,6 @@ instance Factor Dual Arrow Arrow U_I_I where
 	factor this that x = case x of
 		This i -> this i
 		That ii -> that ii
-
--- instance Factor Flat Arrow U_ where
-	-- data Object Flat Arrow U_ i ii = Unit'
-	-- factor _ _ _ = Unit'
-
--- instance Factor Dual Arrow U_ where
-	-- data Object Dual Arrow U_ i ii
 
 -- TODO: generalize via colimits
 absurd :: Void -> i

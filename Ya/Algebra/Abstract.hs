@@ -3,6 +3,7 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
+infixr 8 /\, \/
 
 type (/) t i = t i
 

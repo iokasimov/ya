@@ -151,8 +151,6 @@
 * Define `Product` type alias
 * Define `Sum` type alias
 * Define `wrapped` expression
-* Define `/\` operator
-* Define `\/` operator
 * Define `Terminal` type alias
 * Define `Initial` type alias
 * Define `Constant` data type
