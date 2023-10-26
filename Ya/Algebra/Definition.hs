@@ -193,9 +193,9 @@ class Mapping v v from into I (diagram (Object (diagram (v into)))) =>
 
 type Limit = Factor Flat
 
-type Product o = o Flat U_I_I
+type Product into = Object (U_I_I (Flat into))
 
-type Sum o into = o Dual U_I_I into
+type Sum into = Object (U_I_I (Dual into))
 
 type Terminal o into i = o Flat into U_ i i
 
