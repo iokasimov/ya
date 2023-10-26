@@ -70,7 +70,7 @@ type Diagram = U_
 
 type Arrow = (->)
 
-type Diagonal = U_I_I
+type Both = U_I_I
 
 -- Rename to Straight?
 type Flat = U_I_II
