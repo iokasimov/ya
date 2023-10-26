@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `w'u`, `u'w`, `u'u`
+infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `yi_`, `_fo`, `fo_`, `fa_`
 infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -279,6 +279,27 @@ lm from_this from_that =
 	i_ (semifunctor @Flat (wrapped (this @Flat from_this))) `compose`
 	wrapped (map @Flat @Flat @from @into @I @(Both (Product into)) identity) `compose`
 	wrapped (map @Flat @Flat @from @into @I @(Both (Product into)) identity)
+
+ml :: forall from into i o oo .
+	Category from =>
+	Limit' Dual from into =>
+	Covariant Functor into into (That (Sum into) o) =>
+	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
+	Castable Dual into (Both (Sum into) (Sum into i i)) =>
+	Castable Dual into (That (Sum into) o oo) =>
+	Castable Flat into (That (Sum into) i i) =>
+	Castable Flat into (This (Sum into) i i) =>
+	Castable Dual into (Both (Sum into) i) =>
+	Castable Dual into (This (Sum into) (Sum into i i) o) =>
+	Castable Flat into (This (Sum into) (Sum into i i) (Sum into i i)) =>
+	Wrapper into (That (Sum into) o (Sum into i i)) =>
+	(forall e . Wrapper into (I e)) =>
+	from o i -> from oo i -> into (Sum into o oo) i
+ml from_this from_that = 
+	wrapped (map @Dual @Dual @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Dual @Dual @from @into @I @(Both (Sum into)) identity) `compose`
+	i_ (semifunctor @Flat (wrapped (this @Dual from_this))) `compose`
+	_i (semifunctor @Flat (wrapped (that @Dual from_that)))
 
 pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) f =>
