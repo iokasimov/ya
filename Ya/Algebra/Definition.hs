@@ -148,69 +148,49 @@ deriving instance
 type family Co x where Co (x Flat) = x Dual
 
 type family Object diagram = r | r -> diagram where
-	Object (U_I_I (Flat Arrow)) = (/\)
-	Object (U_I_I (Dual Arrow)) = (\/)
+	Object (Both (Flat Arrow)) = (/\)
+	Object (Both (Dual Arrow)) = (\/)
 
 type family Neutral p where
 	Neutral (/\) = Unit
 	Neutral (\/) = Void
 
 class
-	( forall e . Mapping v v from into (Flat u e) I
-	, forall e . Mapping v v from into (Dual u e) I
+	( forall e . Mapping v v from into (This u e) I
+	, forall e . Mapping v v from into (That u e) I
 	) => Cone v from into u
 
 deriving instance
-	( forall e . Mapping v v from into (Flat u e) I
-	, forall e . Mapping v v from into (Dual u e) I
+	( forall e . Mapping v v from into (This u e) I
+	, forall e . Mapping v v from into (That u e) I
 	) => Cone v from into u
 
 this :: forall v from into i o e .
-	Cone v from into (Object (U_I_I (v into))) =>
+	Cone v from into (Object (Both (v into))) =>
 	Castable Dual Arrow (v from i o) =>
-	Castable Flat Arrow (v into (This (Object (U_I_I (v into))) e i) (I o)) =>
-	Supertype (v from i o) -> Supertype (v into (This (Object (U_I_I (v into))) e i) (I o))
-this from = map @v @v @from @into @(This (Object (U_I_I (v into))) e) @I @i @o from
+	Castable Flat Arrow (v into (This (Object (Both (v into))) e i) (I o)) =>
+	Supertype (v from i o) -> Supertype (v into (This (Object (Both (v into))) e i) (I o))
+this from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @i @o from
 
 that :: forall v from into s t e .
-	Cone v from into (Object (U_I_I (v into))) =>
+	Cone v from into (Object (Both (v into))) =>
 	Castable Dual Arrow (v from s t) =>
-	Castable Flat Arrow (v into (That (Object (U_I_I (v into))) e s) (I t)) =>
-	Supertype (v from s t) -> Supertype (v into (That (Object (U_I_I (v into))) e s) (I t))
-that from = map @v @v @from @into @(That (Object (U_I_I (v into))) e) @I @s @t from
+	Castable Flat Arrow (v into (That (Object (Both (v into))) e s) (I t)) =>
+	Supertype (v from s t) -> Supertype (v into (That (Object (Both (v into))) e s) (I t))
+that from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @s @t from
 
 type Limit v from into =
-	( Cone v from into (Object (U_I_I (v into)))
-	, Mapping v v from into I (U_I_I (Object (U_I_I (v into))))
+	( Cone v from into (Object (Both (v into)))
+	, Mapping v v from into I (Both (Object (Both (v into))))
 	)
 
-type Product into = Object (U_I_I (Flat into))
+type Product into = Object (Both (Flat into))
 
-type Sum into = Object (U_I_I (Dual into))
+type Sum into = Object (Both (Dual into))
 
 type Terminal o into i = o Flat into U_ i i
 
 type Initial o into i = o Dual into U_ i i
-
-instance Mapping Flat Flat Arrow Arrow I (U_I_I (/\))
-	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_I (These (from x) (from x))
-
-instance Mapping Flat Flat Arrow Arrow (U_I_II (/\) e) I
-	where mapping (U_I_II from) = U_I_II / \(U_I_II (These _ x)) -> I (from x)
-
-instance Mapping Flat Flat Arrow Arrow (U_II_I (/\) e) I
-	where mapping (U_I_II from) = U_I_II / \(U_II_I (These x _)) -> I (from x)
-
-instance Mapping Flat Flat Arrow Arrow (U_I_I (\/)) I
-	where mapping (U_I_II from) = U_I_II / \case
-		U_I_I (This x) -> I (from x)
-		U_I_I (That x) -> I (from x)
-
-instance Mapping Flat Flat Arrow Arrow I (U_I_II (\/) e)
-	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_II (That (from x))
-
-instance Mapping Flat Flat Arrow Arrow I (U_II_I (\/) e)
-	where mapping (U_I_II from) = U_I_II / \(I x) -> U_II_I (This (from x))
 
 -- TODO: generalize via colimits
 absurd :: Void -> i

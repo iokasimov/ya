@@ -274,3 +274,23 @@ instance Mapping Flat Flat Arrow into f g => Mapping Flat Flat Constant into f g
 
 instance Mapping Dual Flat Arrow into f g => Mapping Dual Flat Constant into f g
 	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
+
+instance Mapping Flat Flat Arrow Arrow I (Both (/\))
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_I (These (from x) (from x))
+
+instance Mapping Flat Flat Arrow Arrow (U_I_II (/\) e) I
+	where mapping (U_I_II from) = U_I_II / \(U_I_II (These _ x)) -> I (from x)
+
+instance Mapping Flat Flat Arrow Arrow (U_II_I (/\) e) I
+	where mapping (U_I_II from) = U_I_II / \(U_II_I (These x _)) -> I (from x)
+
+instance Mapping Flat Flat Arrow Arrow (Both (\/)) I
+	where mapping (U_I_II from) = U_I_II / \case
+		U_I_I (This x) -> I (from x)
+		U_I_I (That x) -> I (from x)
+
+instance Mapping Flat Flat Arrow Arrow I (U_I_II (\/) e)
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_II (That (from x))
+
+instance Mapping Flat Flat Arrow Arrow I (U_II_I (\/) e)
+	where mapping (U_I_II from) = U_I_II / \(I x) -> U_II_I (This (from x))
