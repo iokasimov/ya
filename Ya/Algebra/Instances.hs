@@ -313,3 +313,27 @@ instance Mapping Dual Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `compose` U_I_UU_III_U_II_I / \x -> These x identity
+
+instance Mapping Flat Flat
+	(W_I_II_II (U_I_UU_III_U_II_I (->) (/\)))
+	(W_I_II_II (U_I_UU_III_U_II_I (->) (/\)))
+	(This (/\) e) I
+	where mapping = rewrap `compose` rewrap `compose` rewrap /
+		\from (U_II_I (These old e)) -> These 
+			(I (wrapped (this @Flat @(->) identity) / from old))
+			(\(I new) -> U_II_I (These ((wrapped (that @Flat @(->) identity) / from old) new) e))
+
+instance Mapping Flat Flat
+	(W_I_II_II (U_I_UU_III_U_II_I (->) (/\)))
+	(W_I_II_II (U_I_UU_III_U_II_I (->) (/\)))
+	(That (/\) e) I
+	where mapping = rewrap `compose` rewrap `compose` rewrap /
+		\from (U_I_II (These e old)) -> These 
+			/ I (wrapped (this @Flat @(->) identity) (from old))
+			/ \(I new) -> U_I_II (These e ((wrapped (that @Flat @(->) identity) / from old) new))
+
+instance Mapping Flat Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) I (Both (/\))
+	where mapping = rewrap /
+		\(W_I_II_II (U_I_UU_III_U_II_I from)) (I old) -> U_I_I (These
+			/ (wrapped (this @Flat @(->) identity) (from old))
+			/ (wrapped (this @Flat @(->) identity) (from old)))
