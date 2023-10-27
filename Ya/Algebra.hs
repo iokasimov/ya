@@ -50,25 +50,6 @@ instance
 							`compose` wrap @Arrow @(R_U_I_T_I _ _ _) 
 						`fo` xs
 				)
- 
-instance Mapping Flat Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
-	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	where mapping = rewrap / \into -> rewrap `iii` rewrap `ii` rewrap `i` \from origin ->
-		let These source source_origin = from origin in
-		let These target target_source = into `u'u` source in
-		These / target / target_source `o` source_origin
-
-instance Mapping Dual Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
-	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
-	where mapping = rewrap / \from -> rewrap `iii` rewrap `ii` rewrap `i` \into origin ->
-		let These source source_origin = from `u'u` origin in
-		let These target target_source = into source in
-		These `ii` target `iii` target_source `o` source_origin
-
-instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
-	identity = W_I_II_II `i` U_I_UU_III_U_II_I (\x -> These `i` x `ii` identity)
 
 instance Mapping Flat Flat Arrow Arrow (T_TT_I (U_I_II (/\) e) (U_I_II (->) e)) I
 	where mapping = rewrap / \from -> rewrap / \(U_I_II (These e (U_I_II f))) -> from `i` f e
