@@ -194,3 +194,4 @@
 * Define `a'a` operator
 * Define `lm` operator
 * Define `ml` operator
+* Define `Hierarchial` type class

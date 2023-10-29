@@ -57,10 +57,9 @@ adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
 -- TODO: should be moved later
 -- instance Mapping Flat Flat Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
-	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \ from (Construct x xs) -> These 
-		-- / (T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y)
-		-- / \new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new)
-			-- `yo` from `o` (\(These y _) -> y)
+	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
+		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
+		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
 
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Flat Flat (->) (->) (Construction t) (t `T_TT_I` Construction t) where
@@ -115,7 +114,7 @@ pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 pattern Load :: item -> Instruction f item
 pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
-type List = T_TT_I Optional (Construction Optional)
+type List = Optional `T_TT_I` Construction Optional
 
 pattern List :: Recursive (U_I_T_II Optional (/\) i) -> List i
 pattern List xs <- T_TT_I (Some (R_U_I_T_I xs))
