@@ -7,7 +7,7 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `w'u`, `u'w`, `u'u`
-infixl 7 `iii`, `yi_`, `_fo`, `fo_`, `fa_`
+infixl 7 `iii`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`
 infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
@@ -78,7 +78,15 @@ ya :: forall from into f s t .
 	Contravariant Yoneda Functor from into f =>
 	Castable Dual into (Dual from s t) =>
 	f s -> into (from t s) (f t)
-ya x = yoneda @Dual @Functor x
+ya = yoneda @Dual @Functor
+
+ya_ :: forall from into f e a o .
+	Precategory into =>
+	Contravariant Yoneda Functor from into (This f e) =>
+	Castable Dual into (Dual from a o) =>
+	Castable Flat into (This f e o) =>
+	f a e -> into (from o a) (f o e)
+ya_ x = compose unwrap (yoneda @Dual @Functor @from @into @(This f e) (wrap x))
 
 fokl :: forall from into f g s t .
 	Component Natural from into (T_TT_I f g) f =>

@@ -195,3 +195,4 @@
 * Define `lm` operator
 * Define `ml` operator
 * Define `Hierarchial` type class
+* Define `ya_` operator
