@@ -8,8 +8,8 @@ import Ya.Algebra.Abstract
 class Dumb x
 instance Dumb x
 
-class Mapping v vv from into f g where
-	mapping :: v from s t -> vv into (f s) (g t)
+class Mapping v vv from into f tt where
+	mapping :: v from a o -> vv into (f a) (tt o)
 
 instance Mapping Flat Flat from into t tt => Mapping Dual Dual from into tt t
 	where mapping (U_II_I from) = U_II_I (map @Flat @Flat @from @into @t @tt from)
@@ -17,118 +17,118 @@ instance Mapping Flat Flat from into t tt => Mapping Dual Dual from into tt t
 instance Mapping Dual Flat from into t tt => Mapping Flat Dual from into tt t
 	where mapping (U_I_II from) = U_II_I (map @Dual @Flat @from @into @t @tt from)
 
-map :: forall v vv from into f g s t .
-	Mapping v vv from into f g =>
-	Castable Dual Arrow (v from s t) =>
-	Castable Flat Arrow (vv into (f s) (g t)) =>
-	Supertype (v from s t) -> Supertype (vv into (f s) (g t))
-map from = unwrap @Arrow (mapping @v @vv @from @into @f @g @s @t (wrap @Arrow from))
+map :: forall v vv from into t tt a o .
+	Mapping v vv from into t tt =>
+	Castable Dual Arrow (v from a o) =>
+	Castable Flat Arrow (vv into (t a) (tt o)) =>
+	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
+map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
 
 type Component v = Transformation v Functor
 
-component :: forall v from into f g t .
-	Component v from into f g =>
-	(Supertype (v from t t) ~ from t t) =>
-	Castable Dual Arrow (v from t t) =>
-	into (f t) (g t)
-component = unwrap @Arrow (mapping @v @Flat @from @into @f @g @_ @t (wrap @Arrow identity))
+component :: forall v from into t tt o .
+	Component v from into t tt =>
+	(Supertype (v from o o) ~ from o o) =>
+	Castable Dual Arrow (v from o o) =>
+	into (t o) (tt o)
+component = unwrap @Arrow (mapping @v @Flat @from @into @t @tt @_ @o (wrap @Arrow identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
-	( forall i . Mapping Flat Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Mapping Dual Flat from Arrow (U_II_I from i) (U_II_I from i)
+	( forall e . Mapping Flat Flat from Arrow (U_I_II from e) (U_I_II from e)
+	, forall e . Mapping Dual Flat from Arrow (U_II_I from e) (U_II_I from e)
 	) => Precategory from where
-	compose :: from s t -> from i s -> from i t
+	compose :: from a o -> from e a -> from e o
 	compose post pre = let U_I_II y = map @Flat @Flat post (U_I_II pre) in y
 
 deriving instance
-	( forall i . Mapping Flat Flat from Arrow (U_I_II from i) (U_I_II from i)
-	, forall i . Mapping Dual Flat from Arrow (U_II_I from i) (U_II_I from i)
+	( forall e . Mapping Flat Flat from Arrow (U_I_II from e) (U_I_II from e)
+	, forall e . Mapping Dual Flat from Arrow (U_II_I from e) (U_II_I from e)
 	) => Precategory from
 
 {- [LAW] Left identity: identity . f ≡ f -}
 {- [LAW] Right identity: f . identity ≡ f -}
 class Precategory from => Category from
-	where identity :: from s s
+	where identity :: from a a
 
 {- [LAW] Identity preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-class (Category from, Category into, Mapping v Flat from into f f) => Functor v from into f
-deriving instance (Category from, Category into, Mapping v Flat from into f f) => Functor v from into f
+class (Category from, Category into, Mapping v Flat from into t t) => Functor v from into t
+deriving instance (Category from, Category into, Mapping v Flat from into t t) => Functor v from into t
 
-functor :: forall v from into f s t .
-	Functor v from into f =>
-	Castable Dual Arrow (v from s t) =>
-	Supertype (v from s t) -> into (f s) (f t)
-functor = map @v @Flat @from @into @f @f @s @t
+functor :: forall v from into t a o .
+	Functor v from into t =>
+	Castable Dual Arrow (v from a o) =>
+	Supertype (v from a o) -> into (t a) (t o)
+functor = map @v @Flat @from @into @t @t @a @o
 
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
 class
 	( Precategory from, Precategory into
-	, Mapping v Flat from into f f
-	, Dumb (x v from into f)
-	) => Semi v x from into f
+	, Mapping v Flat from into t t
+	, Dumb (x v from into t)
+	) => Semi v x from into t
 
 deriving instance
 	( Precategory from, Precategory into
-	, Mapping v Flat from into f f
-	, Dumb (Functor v from into f)
-	) => Semi v Functor from into f
+	, Mapping v Flat from into t t
+	, Dumb (Functor v from into t)
+	) => Semi v Functor from into t
 
-semifunctor :: forall v from into f s t .
-	Semi v Functor from into f =>
-	Castable Dual Arrow (v from s t) =>
-	Supertype (v from s t) -> into (f s) (f t)
-semifunctor = map @v @Flat @from @into @f @f @s @t
+semifunctor :: forall v from into t a o .
+	Semi v Functor from into t =>
+	Castable Dual Arrow (v from a o) =>
+	Supertype (v from a o) -> into (t a) (t o)
+semifunctor = map @v @Flat @from @into @t @t @a @o
 
 type Endo v x c into = x v c into into
 
-{- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
-{- LAW: mapping @g @g morphism . component @f @g = component @f @g . mapping morphism @f @f -}
+{- LAW: mapping @tt @tt morphism . component @t @tt = component @t @tt . mapping morphism @t @t -}
+{- LAW: mapping @tt @tt morphism . component @t @tt = component @t @tt . mapping morphism @t @t -}
 class
-	( Mapping v Flat from into f g
-	, x v from into f
-	, x v from into g
-	) => Transformation v x from into f g
+	( Mapping v Flat from into t tt
+	, x v from into t
+	, x v from into tt
+	) => Transformation v x from into t tt
 
 deriving instance
-	( Mapping v Flat from into f g
-	, x v from into f
-	, x v from into g
-	) => Transformation v x from into f g
+	( Mapping v Flat from into t tt
+	, x v from into t
+	, x v from into tt
+	) => Transformation v x from into t tt
 
 type Natural = Flat
 
 type Dinatural = Dual
 
-type Covariant f = f Flat
+type Covariant t = t Flat
 
-type Contravariant f = f Dual
+type Contravariant t = t Dual
 
 type Kleisli u t = U_I_T_II t u
 
-class (forall t . Transformation v x Arrow Arrow f (UU_V_U_I_II_T_II v from into f t)) =>
-	Yoneda v x from into f where
-	yoneda :: forall s t .
+class (forall r . Transformation v x Arrow Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+	Yoneda v x from into t where
+	yoneda :: forall a r .
 		Category Arrow =>
 		Precategory into =>
-		(Supertype (v Arrow s s) ~ Arrow s s) =>
-		Castable Dual into (v from s t) =>
-		Castable Dual Arrow (v Arrow s s) =>
-		f s -> into (Supertype (v from s t)) (f t)
+		(Supertype (v Arrow a a) ~ Arrow a a) =>
+		Castable Dual into (v from a r) =>
+		Castable Dual Arrow (v Arrow a a) =>
+		t a -> into (Supertype (v from a r)) (t r)
 	yoneda x = unwrap
-		(map @v @Flat @Arrow @Arrow @f @(UU_V_U_I_II_T_II v from into f t) identity x)
-		`compose` wrap @into @(v from s t)
+		(map @v @Flat @Arrow @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
+		`compose` wrap @into @(v from a r)
 
 deriving instance
-	(forall t . Transformation v x Arrow Arrow f
-		(UU_V_U_I_II_T_II v from into f t)) =>
-	Yoneda v x from into f 
+	(forall e . Transformation v x Arrow Arrow t
+		(UU_V_U_I_II_T_II v from into t e)) =>
+	Yoneda v x from into t 
 
 type family Representation t where
 	Representation I = Unit
-	Representation (U_I_II Arrow i) = i
+	Representation (U_I_II Arrow a) = a
 	Representation (T_TT_I t tt) =
 		Representation t /\ Representation tt
 	Representation (T_TT_TTT_I t tt ttt) =
@@ -165,19 +165,19 @@ deriving instance
 	, forall e . Mapping v v from into (That u e) I
 	) => Cone v from into u
 
-this :: forall v from into i o e .
+this :: forall v from into a o e .
 	Cone v from into (Object (Both (v into))) =>
-	Castable Dual Arrow (v from i o) =>
-	Castable Flat Arrow (v into (This (Object (Both (v into))) e i) (I o)) =>
-	Supertype (v from i o) -> Supertype (v into (This (Object (Both (v into))) e i) (I o))
-this from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @i @o from
+	Castable Dual Arrow (v from a o) =>
+	Castable Flat Arrow (v into (This (Object (Both (v into))) e a) (I o)) =>
+	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (I o))
+this from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
 
-that :: forall v from into s t e .
+that :: forall v from into a t e .
 	Cone v from into (Object (Both (v into))) =>
-	Castable Dual Arrow (v from s t) =>
-	Castable Flat Arrow (v into (That (Object (Both (v into))) e s) (I t)) =>
-	Supertype (v from s t) -> Supertype (v into (That (Object (Both (v into))) e s) (I t))
-that from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @s @t from
+	Castable Dual Arrow (v from a t) =>
+	Castable Flat Arrow (v into (That (Object (Both (v into))) e a) (I t)) =>
+	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (I t))
+that from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @a @t from
 
 type Limit v from into =
 	( Cone v from into (Object (Both (v into)))
@@ -188,89 +188,89 @@ type Product into = Object (Both (Flat into))
 
 type Sum into = Object (Both (Dual into))
 
-type Terminal o into i = o Flat into U_ i i
+type Terminal o into a = o Flat into U_ a a
 
-type Initial o into i = o Dual into U_ i i
+type Initial o into a = o Dual into U_ a a
 
 -- TODO: generalize via colimits
-absurd :: Void -> i
+absurd :: Void -> a
 absurd x = case x of {}
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 
 class 
-	( x Flat into from f
-	, x Flat from into g
-	, Transformation Flat x into from (T_TT_I f g) I
-	, Transformation Flat x from into I (T_TT_I g f)
-	) => Adjoint x from into f g
+	( x Flat into from t
+	, x Flat from into tt
+	, Transformation Flat x into from (T_TT_I t tt) I
+	, Transformation Flat x from into I (T_TT_I tt t)
+	) => Adjoint x from into t tt
 
 deriving instance
-	( x Flat into from f
-	, x Flat from into g
-	, Transformation Flat x into from (T_TT_I f g) I
-	, Transformation Flat x from into I (T_TT_I g f)
-	) => Adjoint x from into f g
+	( x Flat into from t
+	, x Flat from into tt
+	, Transformation Flat x into from (T_TT_I t tt) I
+	, Transformation Flat x from into I (T_TT_I tt t)
+	) => Adjoint x from into t tt
 
 class
-	( forall i ii . Mapping v Flat from Arrow (Day v from u uu f f i ii) f
-	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) f
-	, x v from Arrow f
-	) => Monoidal v x from u uu f where
+	( forall e ee . Mapping v Flat from Arrow (Day v from u uu t t e ee) t
+	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) t
+	, x v from Arrow t
+	) => Monoidal v x from u uu t where
 
 deriving instance
-	( forall i ii . Mapping v Flat from Arrow (Day v from u uu f f i ii) f
-	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) f
-	, x v from Arrow f
-	) => Monoidal v x from u uu f
+	( forall e ee . Mapping v Flat from Arrow (Day v from u uu t t e ee) t
+	, Mapping v Flat from Arrow (v Arrow (Neutral uu)) t
+	, x v from Arrow t
+	) => Monoidal v x from u uu t
 
-monoidal :: forall v from f u uu s t i ii .
-	Monoidal v Functor from u uu f =>
-	Castable Dual Arrow (v from s t) =>
-	Castable Dual Arrow (v from (uu i ii) s) =>
-	Supertype (v from s t)
-		-> Supertype (v from (uu i ii) s)
-		-> u (f i) (f ii) -> f t
-monoidal from f x = map @v @Flat @from @(->)
-	@(Day v from u uu f f i ii) @f from
-	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu i ii) s) f)))
-
--- TODO: generalize
-point :: forall f t .
-	Monoidal Flat Functor Arrow (/\) (/\) f =>
-	t -> f t
-point x = component @Flat @Arrow @(->) @(Flat (->) Unit) @f (U_I_II (\_ -> x))
+monoidal :: forall v from t u uu a o e ee .
+	Monoidal v Functor from u uu t =>
+	Castable Dual Arrow (v from a o) =>
+	Castable Dual Arrow (v from (uu e ee) a) =>
+	Supertype (v from a o)
+		-> Supertype (v from (uu e ee) a)
+		-> u (t e) (t ee) -> t o
+monoidal from t x = map @v @Flat @from @(->)
+	@(Day v from u uu t t e ee) @t from
+	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-empty :: forall f t .
-	Monoidal Flat Functor Arrow (/\) (\/) f =>
-	f t
-empty = component @Flat @Arrow @(->) @(Flat (->) Void) @f (U_I_II absurd)
+point :: forall t o .
+	Monoidal Flat Functor Arrow (/\) (/\) t =>
+	o -> t o
+point x = component @Flat @Arrow @(->) @(Flat (->) Unit) @t (U_I_II (\_ -> x))
 
-rewrap :: forall into i ii .
+-- TODO: generalize
+empty :: forall t o .
+	Monoidal Flat Functor Arrow (/\) (\/) t =>
+	t o
+empty = component @Flat @Arrow @(->) @(Flat (->) Void) @t (U_I_II absurd)
+
+rewrap :: forall into a o .
 	Precategory into =>
-	Castable Dual into ii => 
-	Castable Flat into i =>
-	into (Supertype i) (Supertype ii) -> into i ii
+	Castable Dual into o => 
+	Castable Flat into a =>
+	into (Supertype a) (Supertype o) -> into a o
 rewrap f = wrap `compose` f `compose` unwrap
 
-wrapped :: forall into i ii .
+wrapped :: forall into a o .
 	Precategory into =>
-	Castable Flat into ii =>
-	Castable Dual into i =>
-	into i ii -> into (Supertype i) (Supertype ii)
+	Castable Flat into o =>
+	Castable Dual into a =>
+	into a o -> into (Supertype a) (Supertype o)
 wrapped f = unwrap `compose` f `compose` wrap
 
-i_ :: forall into u s t e .
+i_ :: forall into u a t e .
 	Precategory into =>
-	Castable Dual into (U_II_I u e s) =>
+	Castable Dual into (U_II_I u e a) =>
 	Castable Flat into (U_II_I u e t) =>
-	into (U_II_I u e s) (U_II_I u e t) -> into (u s e) (u t e)
+	into (U_II_I u e a) (U_II_I u e t) -> into (u a e) (u t e)
 i_ f = unwrap @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
 
-_i :: forall into u s t e .
+_i :: forall into u a t e .
 	Precategory into =>
-	Castable Dual into (U_I_II u e s) =>
+	Castable Dual into (U_I_II u e a) =>
 	Castable Flat into (U_I_II u e t) =>
-	into (U_I_II u e s) (U_I_II u e t) -> into (u e s) (u e t)
+	into (U_I_II u e a) (U_I_II u e t) -> into (u e a) (u e t)
 _i f = unwrap @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)
