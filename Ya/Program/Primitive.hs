@@ -55,6 +55,18 @@ adjust ::
 	Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
+-- TODO: should be moved later
+-- instance Mapping Flat Flat Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
+	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \ from (Construct x xs) -> These 
+		-- / (T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y)
+		-- / \new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new)
+			-- `yo` from `o` (\(These y _) -> y)
+
+instance Covariant Endo Semi Functor (->) t =>
+	Mapping Flat Flat (->) (->) (Construction t) (t `T_TT_I` Construction t) where
+	mapping = rewrap / \ from (Construct x xs) ->
+		(T_TT_I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
+
 type Transition = W_I_I_II (U_I_UU_II_III (->) (/\))
 
 observe :: Transition state state
