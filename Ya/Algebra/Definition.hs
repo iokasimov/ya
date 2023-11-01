@@ -108,21 +108,21 @@ type Contravariant t = t Dual
 
 type Kleisli u t = U_I_T_II t u
 
-class (forall r . Transformation v x Arrow Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+class (forall r . Transformation v x from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
 	Yoneda v x from into t where
 	yoneda :: forall a r .
-		Category Arrow =>
+		Category from =>
 		Precategory into =>
-		(Supertype (v Arrow a a) ~ Arrow a a) =>
+		(Supertype (v from a a) ~ from a a) =>
+		Castable Dual Arrow (v from a a) =>
 		Castable Dual into (v from a r) =>
-		Castable Dual Arrow (v Arrow a a) =>
 		t a -> into (Supertype (v from a r)) (t r)
 	yoneda x = unwrap
-		(map @v @Flat @Arrow @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
+		(map @v @Flat @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
 		`compose` wrap @into @(v from a r)
 
 deriving instance
-	(forall e . Transformation v x Arrow Arrow t
+	(forall e . Transformation v x from Arrow t
 		(UU_V_U_I_II_T_II v from into t e)) =>
 	Yoneda v x from into t 
 

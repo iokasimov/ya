@@ -176,6 +176,11 @@ instance Mapping Dual Flat Arrow Arrow
 	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (compose (from))))
 
+-- TODO: implement `mapping` method
+instance Mapping Dual Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
+	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
+	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
+
 instance
 	( forall e . Covariant Semi Functor from into (U_I_II (U_I_T_II t u) e)
 	, forall e . Covariant Semi Functor from into (U_II_I (U_I_T_II t u) e)
@@ -292,3 +297,6 @@ instance Mapping Flat Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) I (Bot
 		\(W_I_II_II (U_I_UU_III_U_II_I from)) (I old) -> U_I_I (These
 			/ (wrapped (this @Flat @(->) identity) (from old))
 			/ (wrapped (this @Flat @(->) identity) (from old)))
+
+instance Mapping Dual Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (->) e) (U_II_I (->) e)
+   where mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> semifunctor @Dual / (\(These x _) -> x) `compose` from
