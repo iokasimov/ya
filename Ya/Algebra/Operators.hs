@@ -44,13 +44,13 @@ fo = semifunctor @Straight
 fa, fa'fi :: forall from into f s t .
 	Contravariant Semi Functor from into f =>
 	from s t -> into (f t) (f s)
-fa'fi = semifunctor @Dual
-fa = semifunctor @Dual
+fa'fi = semifunctor @Opposite
+fa = semifunctor @Opposite
 
 fu, fu'fi :: forall from into f s t .
 	Covariant Semi Functor from into f =>
 	Mapping U_1_I Straight from into f f =>
-	Castable Dual Arrow (from Unit t) =>
+	Castable Opposite Arrow (from Unit t) =>
 	Supertype (from Unit t) -> into (f s) (f t)
 fu'fi = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
 fu = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
@@ -58,7 +58,7 @@ fu = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
 yo :: forall from into f s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into f =>
-	Castable Dual into (U_I_II from s t) =>
+	Castable Opposite into (U_I_II from s t) =>
 	f s -> into (from s t) (f t)
 yo x = yoneda @Straight @Functor x
 
@@ -73,7 +73,7 @@ yo'o :: forall from into f g s t .
 	Covariant Functor from from g =>
 	Covariant Yoneda Functor from into f =>
 	Contravariant Endo Semi Functor Arrow (U_II_I into (f (g t))) =>
-	Castable Dual into (U_I_II from (g s) (g t)) =>
+	Castable Opposite into (U_I_II from (g s) (g t)) =>
 	f (g s) -> into (from s t) (f (g t))
 yo'o x = fa_ fo (yo @from @into x)
 
@@ -82,21 +82,21 @@ yo'o x = fa_ fo (yo @from @into x)
 ya :: forall from into f s t .
 	Precategory into =>
 	Contravariant Yoneda Functor from into f =>
-	Castable Dual into (Dual from s t) =>
+	Castable Opposite into (Opposite from s t) =>
 	f s -> into (from t s) (f t)
-ya = yoneda @Dual @Functor
+ya = yoneda @Opposite @Functor
 
 ya_ :: forall from into f e a o .
 	Precategory into =>
 	Contravariant Yoneda Functor from into (This f e) =>
-	Castable Dual into (Dual from a o) =>
+	Castable Opposite into (Opposite from a o) =>
 	Castable Straight into (This f e o) =>
 	f a e -> into (from o a) (f o e)
-ya_ x = compose unwrap (yoneda @Dual @Functor @from @into @(This f e) (wrap x))
+ya_ x = compose unwrap (yoneda @Opposite @Functor @from @into @(This f e) (wrap x))
 
 fokl :: forall from into f g s t .
 	Component Natural from into (T_TT_I f g) f =>
-	Castable Dual into (T_TT_I f g t) =>
+	Castable Opposite into (T_TT_I f g t) =>
 	from s (g t) -> into (f s) (f t)
 fokl from = component @Straight @from @into @(f `T_TT_I` g) @f
 	`compose` wrap `compose` fo from
@@ -104,8 +104,8 @@ fokl from = component @Straight @from @into @(f `T_TT_I` g) @f
 yokl :: forall from into g f s t .
 	Component Natural Arrow into (T_TT_I f g) f =>
 	Covariant Yoneda Functor from into f =>
-	Castable Dual into (Straight from s (g t)) =>
-	Castable Dual into (T_TT_I f g t) =>
+	Castable Opposite into (Straight from s (g t)) =>
+	Castable Opposite into (T_TT_I f g t) =>
 	f s -> into (from s (g t)) (f t)
 yokl x = component @Straight @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
@@ -114,9 +114,9 @@ yokl x = component @Straight @Arrow @into @(T_TT_I f g)
 yukl :: forall into g f s t .
 	Component Natural Arrow into (T_TT_I f g) f =>
 	Covariant Yoneda Functor Constant into f =>
-	Castable Dual into (Straight Constant s (g t)) =>
-	Castable Dual into (Constant s (g t)) =>
-	Castable Dual into (T_TT_I f g t) =>
+	Castable Opposite into (Straight Constant s (g t)) =>
+	Castable Opposite into (Constant s (g t)) =>
+	Castable Opposite into (T_TT_I f g t) =>
 	f s -> into (g t) (f t)
 yukl x = component @Straight @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
@@ -126,9 +126,9 @@ yukl x = component @Straight @Arrow @into @(T_TT_I f g)
 yoklKL :: forall from into g f s t .
 	Component Natural from into (T_TT_I f g) (TT_T_I f g) =>
 	Covariant Yoneda Functor from into f =>
-	Castable Dual into (Straight from s (g t)) =>
+	Castable Opposite into (Straight from s (g t)) =>
 	Castable Straight into (TT_T_I f g t) =>
-	Castable Dual into (T_TT_I f g t) =>
+	Castable Opposite into (T_TT_I f g t) =>
 	f s -> into (from s (g t)) (g (f t))
 yoklKL x = unwrap @into @(TT_T_I f g _)
 	`compose` component @Straight @from @into @(T_TT_I f g) @(TT_T_I f g)
@@ -138,9 +138,9 @@ yoklKL x = unwrap @into @(TT_T_I f g _)
 _yokl :: forall from into g f i s t .
 	Component Natural from into (T_TT_I (U_I_II f i) g) (U_I_II f i) =>
 	Covariant Yoneda Functor from into (U_I_II f i) =>
-	Castable Dual into (U_I_II from s (g t)) =>
+	Castable Opposite into (U_I_II from s (g t)) =>
 	Castable Straight into (U_I_II f i t) =>
-	Castable Dual into (T_TT_I (U_I_II f i) g t) =>
+	Castable Opposite into (T_TT_I (U_I_II f i) g t) =>
 	f i s -> into (from s (g t)) (f i t)
 _yokl x = unwrap @into @(U_I_II f i t)
 	`compose` component @Straight @from @into @(T_TT_I (U_I_II f i) g)
@@ -193,7 +193,7 @@ _fo'fo from = _fo @into @into (fo @from @into from)
 o :: forall from into i s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II from i) =>
-	Castable Dual into (U_I_II from s t) =>
+	Castable Opposite into (U_I_II from s t) =>
 	Castable Straight into (U_I_II from i t) =>
 	from i s -> into (from s t) (from i t)
 o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
@@ -201,15 +201,15 @@ o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
 a :: forall into from i s t .
 	Precategory into =>
 	Contravariant Yoneda Functor from into (U_II_I from i) =>
-	Castable Dual into (Dual from s t) =>
-	Castable Straight into (Dual from i t) =>
+	Castable Opposite into (Opposite from s t) =>
+	Castable Straight into (Opposite from i t) =>
 	from s i -> into (from t s) (from t i)
 a x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
 
 u :: forall from into i s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II Constant i) =>
-	Castable Dual into (U_I_II from s t) =>
+	Castable Opposite into (U_I_II from s t) =>
 	Castable Straight into (U_I_II Constant i t) =>
 	Castable Straight into (Constant i t) =>
 	s -> into (from s t) t
@@ -221,10 +221,10 @@ a'a :: forall from into i o e b .
 	Precategory into =>
 	Contravariant Yoneda Functor from from (U_II_I from e) =>
 	Contravariant Yoneda Functor from into (U_II_I from (from b e)) =>
-	Castable Dual from (Dual from o b) =>
-	Castable Straight from (Dual from e b) =>
-	Castable Dual into (Dual from (from b o) i) =>
-	Castable Straight into (Dual from (from b e) i) =>
+	Castable Opposite from (Opposite from o b) =>
+	Castable Straight from (Opposite from e b) =>
+	Castable Opposite into (Opposite from (from b o) i) =>
+	Castable Straight into (Opposite from (from b e) i) =>
 	from o e -> into (from i (from b o)) (from i (from b e))
 a'a = a @into @from `compose` a @from @from
 
@@ -236,14 +236,14 @@ ro = unwrap `compose` component @Straight @from @into @f @(Straight hom (Represe
 
 ra :: forall from into hom f i .
 	Contravariant (Representable hom) Functor from into f =>
-	Castable Straight into (Dual hom (Representation f) i) =>
+	Castable Straight into (Opposite hom (Representation f) i) =>
 	into (f i) (hom i (Representation f))
-ra = unwrap `compose` component @Dual @from @into @f @(Dual hom (Representation f))
+ra = unwrap `compose` component @Opposite @from @into @f @(Opposite hom (Representation f))
 
 lj :: forall from into f g s t .
 	Adjoint Functor from into f g =>
 	Castable Straight into ((T_TT_I g f) s) =>
-	Castable Dual into (I s) =>
+	Castable Opposite into (I s) =>
 	from (f s) t -> into s (g t)
 lj from = fo from
 	`compose` unwrap @into
@@ -254,7 +254,7 @@ _lj :: forall from into f g e ee s t .
 	Adjoint Functor from into (U_I_II f e) (U_I_II g ee) =>
 	Castable Straight into ((T_TT_I (U_I_II g ee) (U_I_II f e)) s) =>
 	Castable Straight into (U_I_II g ee t) =>
-	Castable Dual into (I s) =>
+	Castable Opposite into (I s) =>
 	Castable Straight from (U_I_II f e s) =>
 	from (f e s) t -> into s (g ee t)
 _lj from = unwrap @into @(U_I_II g _ _)
@@ -265,7 +265,7 @@ _lj from = unwrap @into @(U_I_II g _ _)
 
 rj :: forall from into f g s t .
 	Adjoint Functor from into f g =>
-	Castable Dual from ((T_TT_I f g) t) =>
+	Castable Opposite from ((T_TT_I f g) t) =>
 	Castable Straight from (I t) =>
 	into s (g t) -> from (f s) t
 rj from = unwrap @from
@@ -280,11 +280,11 @@ lm :: forall from into i o oo .
 	Covariant Functor into into (This (Product into) (Product into i i)) =>
 	Castable Straight into (Both (Product into) (Product into i i)) =>
 	Castable Straight into (That (Product into) o oo) =>
-	Castable Dual into (This (Product into) i i) =>
-	Castable Dual into (That (Product into) i i) =>
+	Castable Opposite into (This (Product into) i i) =>
+	Castable Opposite into (That (Product into) i i) =>
 	Castable Straight into (Both (Product into) i) =>
 	Castable Straight into (This (Product into) (Product into i i) o) =>
-	Castable Dual into (This (Product into) (Product into i i) (Product into i i)) =>
+	Castable Opposite into (This (Product into) (Product into i i) (Product into i i)) =>
 	Wrapper into (That (Product into) o (Product into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
@@ -296,24 +296,24 @@ lm from_this from_that =
 
 ml :: forall from into i o oo .
 	Category from =>
-	Limit Dual from into =>
+	Limit Opposite from into =>
 	Covariant Functor into into (That (Sum into) o) =>
 	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
-	Castable Dual into (Both (Sum into) (Sum into i i)) =>
-	Castable Dual into (That (Sum into) o oo) =>
+	Castable Opposite into (Both (Sum into) (Sum into i i)) =>
+	Castable Opposite into (That (Sum into) o oo) =>
 	Castable Straight into (That (Sum into) i i) =>
 	Castable Straight into (This (Sum into) i i) =>
-	Castable Dual into (Both (Sum into) i) =>
-	Castable Dual into (This (Sum into) (Sum into i i) o) =>
+	Castable Opposite into (Both (Sum into) i) =>
+	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
 	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from o i -> from oo i -> into (Sum into o oo) i
 ml from_this from_that = 
-	wrapped (map @Dual @Dual @from @into @I @(Both (Sum into)) identity) `compose`
-	wrapped (map @Dual @Dual @from @into @I @(Both (Sum into)) identity) `compose`
-	i_ (semifunctor @Straight (wrapped (this @Dual from_this))) `compose`
-	_i (semifunctor @Straight (wrapped (that @Dual from_that)))
+	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	i_ (semifunctor @Straight (wrapped (this @Opposite from_this))) `compose`
+	_i (semifunctor @Straight (wrapped (that @Opposite from_that)))
 
 pp'fo :: forall from i ii r f .
 	Covariant Monoidal Functor from (/\) (/\) f =>
@@ -329,14 +329,14 @@ pp x y = monoidal @Straight @Arrow @f @(/\) @(/\) identity identity (These x y)
 
 w'u :: forall into s t .
 	Precategory into =>
-	Castable Dual into t =>
+	Castable Opposite into t =>
 	Castable Straight into s =>
 	into (Supertype s) (Supertype t) -> into s t
 w'u into = wrap @into `compose` into `compose` unwrap @into
 
 u'w :: forall into s t .
 	Precategory into =>
-	Castable Dual into s =>
+	Castable Opposite into s =>
 	Castable Straight into t =>
 	into s t -> into (Supertype s) (Supertype t)
 u'w into = unwrap @into `compose` into `compose` wrap @into

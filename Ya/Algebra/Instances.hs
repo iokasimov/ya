@@ -109,7 +109,7 @@ instance
 	( Covariant Semi Functor from Arrow t
 	, Covariant Functor from from (U_I_I u)
 	, Covariant Monoidal Functor from u u t
-	, forall e . Castable Dual from (Both u e)
+	, forall e . Castable Opposite from (Both u e)
 	) => Mapping Straight Straight from Arrow (U_I_I u `T_TT_I` t) (U_I_I u `TT_T_I` t)
 	where mapping = rewrap / \from -> rewrap /
 		monoidal @Straight @from @t @u @u
@@ -171,13 +171,13 @@ instance Mapping Straight Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Straight Constant Arrow f i)
 	where mapping = rewrap / \_ -> rewrap (`compose` (rewrap (rewrap identity)))
 
-instance Mapping Dual Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
-	(UU_V_U_I_II_T_II Dual Arrow Arrow f i)
+instance Mapping Opposite Straight Arrow Arrow
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (compose (from))))
 
 -- TODO: implement `mapping` method
-instance Mapping Dual Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
+instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
 	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
 	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
 
@@ -213,7 +213,7 @@ instance
 instance Mapping Straight Straight Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where mapping (U_I_II from) = U_I_II / \(U_I_II between) -> U_I_II (\x -> from (between x))
 
-instance Mapping Dual Straight Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
+instance Mapping Opposite Straight Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 	where mapping (U_II_I from) = U_I_II / \(U_II_I between) -> U_II_I (\x -> between (from x))
 
 instance Category Arrow where
@@ -226,13 +226,13 @@ instance Mapping Straight Straight Arrow into f g
 -- instance Mapping Straight Straight Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
 -- 	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))
 
--- instance Mapping Dual Straight Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
+-- instance Mapping Opposite Straight Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
 -- 	where mapping = rewrap / \_ (U_II_I (Constant x)) -> U_II_I (Constant (x))
 
 -- instance Mapping Straight Straight Arrow into f g => Mapping Straight Straight Constant into f g
 -- 	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
 
--- instance Mapping Dual Straight Arrow into f g => Mapping Dual Straight Constant into f g
+-- instance Mapping Opposite Straight Arrow into f g => Mapping Opposite Straight Constant into f g
 -- 	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
 
 instance Mapping Straight Straight Arrow Arrow I (Both (/\))
@@ -267,7 +267,7 @@ instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arr
 		let These target target_source = (unwrap `compose` unwrap) into source in
 		These / target / source_origin `compose` target_source 
 
-instance Mapping Dual Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
+instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	where mapping = rewrap / \from -> rewrap `compose` rewrap `compose` rewrap / \into origin ->
@@ -302,5 +302,5 @@ instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->
 			/ (wrapped (this @Straight @(->) identity) (from old))
 			/ (wrapped (this @Straight @(->) identity) (from old)))
 
-instance Mapping Dual Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (->) e) (U_II_I (->) e)
-   where mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> semifunctor @Dual / (\(These x _) -> x) `compose` from
+instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (->) e) (U_II_I (->) e)
+   where mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> semifunctor @Opposite / (\(These x _) -> x) `compose` from

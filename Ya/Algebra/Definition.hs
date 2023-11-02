@@ -11,15 +11,15 @@ instance Dumb x
 class Mapping v vv from into f tt where
 	mapping :: v from a o -> vv into (f a) (tt o)
 
-instance Mapping Straight Straight from into t tt => Mapping Dual Dual from into tt t
+instance Mapping Straight Straight from into t tt => Mapping Opposite Opposite from into tt t
 	where mapping (U_II_I from) = U_II_I (map @Straight @Straight @from @into @t @tt from)
 
-instance Mapping Dual Straight from into t tt => Mapping Straight Dual from into tt t
-	where mapping (U_I_II from) = U_II_I (map @Dual @Straight @from @into @t @tt from)
+instance Mapping Opposite Straight from into t tt => Mapping Straight Opposite from into tt t
+	where mapping (U_I_II from) = U_II_I (map @Opposite @Straight @from @into @t @tt from)
 
 map :: forall v vv from into t tt a o .
 	Mapping v vv from into t tt =>
-	Castable Dual Arrow (v from a o) =>
+	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (vv into (t a) (tt o)) =>
 	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
 map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
@@ -29,21 +29,21 @@ type Component v = Transformation v Functor
 component :: forall v from into t tt o .
 	Component v from into t tt =>
 	(Supertype (v from o o) ~ from o o) =>
-	Castable Dual Arrow (v from o o) =>
+	Castable Opposite Arrow (v from o o) =>
 	into (t o) (tt o)
 component = unwrap @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap @Arrow identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
 	( forall e . Mapping Straight Straight from Arrow (U_I_II from e) (U_I_II from e)
-	, forall e . Mapping Dual Straight from Arrow (U_II_I from e) (U_II_I from e)
+	, forall e . Mapping Opposite Straight from Arrow (U_II_I from e) (U_II_I from e)
 	) => Precategory from where
 	compose :: from a o -> from e a -> from e o
 	compose post pre = let U_I_II y = map @Straight @Straight post (U_I_II pre) in y
 
 deriving instance
 	( forall e . Mapping Straight Straight from Arrow (U_I_II from e) (U_I_II from e)
-	, forall e . Mapping Dual Straight from Arrow (U_II_I from e) (U_II_I from e)
+	, forall e . Mapping Opposite Straight from Arrow (U_II_I from e) (U_II_I from e)
 	) => Precategory from
 
 {- [LAW] Left identity: identity . f ≡ f -}
@@ -58,7 +58,7 @@ deriving instance (Category from, Category into, Mapping v Straight from into t 
 
 functor :: forall v from into t a o .
 	Functor v from into t =>
-	Castable Dual Arrow (v from a o) =>
+	Castable Opposite Arrow (v from a o) =>
 	Supertype (v from a o) -> into (t a) (t o)
 functor = map @v @Straight @from @into @t @t @a @o
 
@@ -78,7 +78,7 @@ deriving instance
 
 semifunctor :: forall v from into t a o .
 	Semi v Functor from into t =>
-	Castable Dual Arrow (v from a o) =>
+	Castable Opposite Arrow (v from a o) =>
 	Supertype (v from a o) -> into (t a) (t o)
 semifunctor = map @v @Straight @from @into @t @t @a @o
 
@@ -100,11 +100,11 @@ deriving instance
 
 type Natural = Straight
 
-type Dinatural = Dual
+type Dinatural = Opposite
 
 type Covariant t = t Straight
 
-type Contravariant t = t Dual
+type Contravariant t = t Opposite
 
 type Kleisli u t = U_I_T_II t u
 
@@ -114,8 +114,8 @@ class (forall r . Transformation v x from Arrow t (UU_V_U_I_II_T_II v from into 
 		Category from =>
 		Precategory into =>
 		(Supertype (v from a a) ~ from a a) =>
-		Castable Dual Arrow (v from a a) =>
-		Castable Dual into (v from a r) =>
+		Castable Opposite Arrow (v from a a) =>
+		Castable Opposite into (v from a r) =>
 		t a -> into (Supertype (v from a r)) (t r)
 	yoneda x = unwrap
 		(map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
@@ -145,11 +145,11 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
-type family Co x where Co (x Straight) = x Dual
+type family Co x where Co (x Straight) = x Opposite
 
 type family Object diagram = r | r -> diagram where
 	Object (Both (Straight Arrow)) = (/\)
-	Object (Both (Dual Arrow)) = (\/)
+	Object (Both (Opposite Arrow)) = (\/)
 
 type family Neutral p where
 	Neutral (/\) = Unit
@@ -167,14 +167,14 @@ deriving instance
 
 this :: forall v from into a o e .
 	Cone v from into (Object (Both (v into))) =>
-	Castable Dual Arrow (v from a o) =>
+	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (v into (This (Object (Both (v into))) e a) (I o)) =>
 	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (I o))
 this from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
 
 that :: forall v from into a t e .
 	Cone v from into (Object (Both (v into))) =>
-	Castable Dual Arrow (v from a t) =>
+	Castable Opposite Arrow (v from a t) =>
 	Castable Straight Arrow (v into (That (Object (Both (v into))) e a) (I t)) =>
 	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (I t))
 that from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @a @t from
@@ -186,11 +186,11 @@ type Limit v from into =
 
 type Product into = Object (Both (Straight into))
 
-type Sum into = Object (Both (Dual into))
+type Sum into = Object (Both (Opposite into))
 
 type Terminal o into a = o Straight into U_ a a
 
-type Initial o into a = o Dual into U_ a a
+type Initial o into a = o Opposite into U_ a a
 
 -- TODO: generalize via colimits
 absurd :: Void -> a
@@ -226,8 +226,8 @@ deriving instance
 
 monoidal :: forall v from t u uu a o e ee .
 	Monoidal v Functor from u uu t =>
-	Castable Dual Arrow (v from a o) =>
-	Castable Dual Arrow (v from (uu e ee) a) =>
+	Castable Opposite Arrow (v from a o) =>
+	Castable Opposite Arrow (v from (uu e ee) a) =>
 	Supertype (v from a o)
 		-> Supertype (v from (uu e ee) a)
 		-> u (t e) (t ee) -> t o
@@ -249,7 +249,7 @@ empty = component @Straight @Arrow @(->) @(Straight (->) Void) @t (U_I_II absurd
 
 rewrap :: forall into a o .
 	Precategory into =>
-	Castable Dual into o => 
+	Castable Opposite into o => 
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
 rewrap f = wrap `compose` f `compose` unwrap
@@ -257,20 +257,20 @@ rewrap f = wrap `compose` f `compose` unwrap
 wrapped :: forall into a o .
 	Precategory into =>
 	Castable Straight into o =>
-	Castable Dual into a =>
+	Castable Opposite into a =>
 	into a o -> into (Supertype a) (Supertype o)
 wrapped f = unwrap `compose` f `compose` wrap
 
 i_ :: forall into u a t e .
 	Precategory into =>
-	Castable Dual into (U_II_I u e a) =>
+	Castable Opposite into (U_II_I u e a) =>
 	Castable Straight into (U_II_I u e t) =>
 	into (U_II_I u e a) (U_II_I u e t) -> into (u a e) (u t e)
 i_ f = unwrap @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
 
 _i :: forall into u a t e .
 	Precategory into =>
-	Castable Dual into (U_I_II u e a) =>
+	Castable Opposite into (U_I_II u e a) =>
 	Castable Straight into (U_I_II u e t) =>
 	into (U_I_II u e a) (U_I_II u e t) -> into (u e a) (u e t)
 _i f = unwrap @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)

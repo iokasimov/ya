@@ -166,14 +166,14 @@ embed = component @Straight @Arrow @into @g @(Layered f g) @e
 
 joint :: forall f g into e .
 	Component Natural Arrow into (f `T_TT_I` g) (Layered f g) =>
-	Castable Dual into (T_TT_I f g e) =>
+	Castable Opposite into (T_TT_I f g e) =>
 	into (f (g e)) (Layered f g e)
 joint = component @Straight @Arrow @into @(f `T_TT_I` g) @(Layered f g) @e
 	`compose` wrap @into @((f `T_TT_I` g) e)
 
 try :: forall f into ee e .
 	Component Natural Arrow into (f `T_TT_I` (Progress ee)) (Layered f (Progress ee)) =>
-	Castable Dual into (T_TT_I f (Progress ee) e) =>
+	Castable Opposite into (T_TT_I f (Progress ee) e) =>
 	into (f (Progress ee e)) (Layered f (Progress ee) e)
 try = component @Straight @Arrow @into @(f `T_TT_I` Progress ee) @(Layered f (Progress ee)) @e
 	`compose` wrap @into @((f `T_TT_I` (Progress ee)) e)

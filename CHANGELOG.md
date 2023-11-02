@@ -7,7 +7,7 @@
 * Define `U_II_I` data type
 * Define `Arrow` type alias
 * Define `Straight` type alias
-* Define `Dual` type alias
+* Define `Opposite` type alias
 * Define `Mono` type alias
 * Define `Wrapper` type class
 * Define `T_TT_I` data type

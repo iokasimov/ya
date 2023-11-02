@@ -58,7 +58,7 @@ instance Mapping Straight Straight Arrow Arrow I (T_TT_I (U_I_II (->) e) (U_I_II
 	where mapping = rewrap / \from -> rewrap / \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
 
 -- TODO: generalize this instance
-instance Mapping Dual Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
+instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	(U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	where mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> 
@@ -171,7 +171,7 @@ instance
 instance
 	( Contravariant Semi Functor from Arrow f
 	, forall e . Contravariant Semi Functor into Arrow (U_II_I from e)
-	) => Mapping Dual Straight from Arrow f (UU_V_U_I_II_T_II Dual into Arrow f r)
+	) => Mapping Opposite Straight from Arrow f (UU_V_U_I_II_T_II Opposite into Arrow f r)
 	where mapping = rewrap / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
 instance Mapping Straight Straight Arrow Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\/) e) (U_I_II (\/) e)
