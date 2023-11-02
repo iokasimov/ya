@@ -31,7 +31,9 @@ newtype U_I_II u i ii = U_I_II (u i ii)
 
 newtype U_II_I u i ii = U_II_I (u ii i)
 
-newtype U_1_I u i ii = U_1_I (u Unit ii)
+newtype U_1_I u _' i = U_1_I (u Unit i)
+
+newtype U_I_1 u i _' = U_I_1 (u i Unit)
 
 newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
@@ -96,7 +98,8 @@ type family Supertype e where
 	Supertype (TT_T_I t tt i) = tt (t i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
-	Supertype (U_1_I u _ ii) = u Unit ii
+	Supertype (U_1_I u _ i) = u Unit i
+	Supertype (U_I_1 u i _) = u i Unit
 	Supertype (U_I_II u i ii) = u i ii
 	Supertype (U_II_I u ii i) = u i ii
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
@@ -131,6 +134,12 @@ instance Castable Flat Arrow (U_1_I u i ii)
 
 instance Castable Dual Arrow (U_1_I u i ii)
 	where cast = U_II_I U_1_I
+
+instance Castable Flat Arrow (U_I_1 u i ii)
+	where cast = U_I_II (\(U_I_1 x) -> x)
+
+instance Castable Dual Arrow (U_I_1 u i ii)
+	where cast = U_II_I U_I_1
 
 -- instance Castable U_I_II Arrow x => Castable U_1_I Arrow x
 -- 	where cast = U_1_I
