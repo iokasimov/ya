@@ -62,13 +62,11 @@ yo :: forall from into f s t .
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor x
 
-yu :: forall from into f (s :: *) t .
-	Precategory into =>
-	Covariant Yoneda Functor Constant into f =>
-	Castable Dual into (U_I_II Constant s t) =>
-	Castable Dual into (Constant s t) =>
-	f s -> into t (f t)
-yu x = yoneda @Flat @Functor x `compose` wrap @into @(Constant _ _)
+-- TODO: it's not finished, generalize!
+yu :: forall f s t .
+	Covariant Yoneda Functor Arrow Arrow f =>
+	f s -> t -> f t
+yu x r = yoneda @U_I_II @Functor x (\_ -> r)
 
 yo'o :: forall from into f g s t .
 	Precategory into =>

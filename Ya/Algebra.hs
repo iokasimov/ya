@@ -163,6 +163,12 @@ instance
 	where mapping = rewrap / \from x -> UU_V_U_I_II_T_II (\(U_I_II e) -> e `_fo` from `fo'fi` x)
 
 instance
+	( Covariant Endo Semi Functor Arrow f
+	, forall e . Covariant Endo Semi Functor Arrow (U_I_II Arrow e)
+	) => Mapping U_1_I Flat Arrow Arrow f (UU_V_U_I_II_T_II U_1_I Arrow Arrow f r)
+	where mapping = rewrap / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo'fi` x)
+
+instance
 	( Contravariant Semi Functor from Arrow f
 	, forall e . Contravariant Semi Functor into Arrow (U_II_I from e)
 	) => Mapping Dual Flat from Arrow f (UU_V_U_I_II_T_II Dual into Arrow f r)
