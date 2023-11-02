@@ -44,25 +44,25 @@ type Reference = U_I_UU_III_U_II_I (->) (/\)
 type Attribute = W_I_II_II Reference
 
 inspect ::
-	Castable Flat Arrow (Reference origin target target) =>
-	Castable Flat Arrow (Attribute origin target) =>
+	Castable Straight Arrow (Reference origin target target) =>
+	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (origin -> target)
 inspect r s = let (These qt _) = r `u'u` s in qt
 
 adjust ::
-	Castable Flat Arrow (Reference origin target target) =>
-	Castable Flat Arrow (Attribute origin target) =>
+	Castable Straight Arrow (Reference origin target target) =>
+	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
 
 -- TODO: should be moved later
--- instance Mapping Flat Flat Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
+-- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
 	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
 		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
 
 instance Covariant Endo Semi Functor (->) t =>
-	Mapping Flat Flat (->) (->) (Construction t) (t `T_TT_I` Construction t) where
+	Mapping Straight Straight (->) (->) (Construction t) (t `T_TT_I` Construction t) where
 	mapping = rewrap / \ from (Construct x xs) ->
 		(T_TT_I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
 
@@ -81,7 +81,7 @@ start :: state -> Transition state result -> state /\ result
 start state stateful = stateful `u'u` state
 
 instant :: Transition state result -> state -> state
-instant state x = wrapped (this @Flat @Arrow identity) / state `u'u` x
+instant state x = wrapped (this @Straight @Arrow identity) / state `u'u` x
 
 type Stateful = U_I_II Transition
 
@@ -157,25 +157,25 @@ type family Layered known unknown where
 layer :: forall g f into e .
 	Component Natural Arrow into f (Layered f g) =>
 	into (f e) (Layered f g e)
-layer = component @Flat @Arrow @into @f @(Layered f g) @e
+layer = component @Straight @Arrow @into @f @(Layered f g) @e
 
 embed :: forall f g into e .
 	Component Natural Arrow into g (Layered f g) =>
 	into (g e) (Layered f g e)
-embed = component @Flat @Arrow @into @g @(Layered f g) @e
+embed = component @Straight @Arrow @into @g @(Layered f g) @e
 
 joint :: forall f g into e .
 	Component Natural Arrow into (f `T_TT_I` g) (Layered f g) =>
 	Castable Dual into (T_TT_I f g e) =>
 	into (f (g e)) (Layered f g e)
-joint = component @Flat @Arrow @into @(f `T_TT_I` g) @(Layered f g) @e
+joint = component @Straight @Arrow @into @(f `T_TT_I` g) @(Layered f g) @e
 	`compose` wrap @into @((f `T_TT_I` g) e)
 
 try :: forall f into ee e .
 	Component Natural Arrow into (f `T_TT_I` (Progress ee)) (Layered f (Progress ee)) =>
 	Castable Dual into (T_TT_I f (Progress ee) e) =>
 	into (f (Progress ee e)) (Layered f (Progress ee) e)
-try = component @Flat @Arrow @into @(f `T_TT_I` Progress ee) @(Layered f (Progress ee)) @e
+try = component @Straight @Arrow @into @(f `T_TT_I` Progress ee) @(Layered f (Progress ee)) @e
 	`compose` wrap @into @((f `T_TT_I` (Progress ee)) e)
 
 type Horizontal = U_I_II (\/) Unit Unit

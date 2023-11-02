@@ -75,7 +75,7 @@ type Arrow = (->)
 type Both = U_I_I
 
 -- Rename to Straight?
-type Flat = U_I_II
+type Straight = U_I_II
 
 -- Rename to Opposite?
 type Dual = U_II_I
@@ -87,8 +87,8 @@ type That = U_I_II
 type Constant' = U_1_I
 
 type family Flip v where
-	Flip Flat = Dual
-	Flip Dual = Flat
+	Flip Straight = Dual
+	Flip Dual = Straight
 
 type family Supertype e where
 	Supertype (I i) = i
@@ -120,22 +120,22 @@ type family Supertype e where
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
 
-class (Castable Dual to f, Castable Flat to f) => Wrapper to f where
-deriving instance (Castable Dual to f, Castable Flat to f) => Wrapper to f
+class (Castable Dual to f, Castable Straight to f) => Wrapper to f where
+deriving instance (Castable Dual to f, Castable Straight to f) => Wrapper to f
 
-instance Castable Flat Arrow (I i)
+instance Castable Straight Arrow (I i)
 	where cast = U_I_II (\(I x) -> x)
 
 instance Castable Dual Arrow (I i)
 	where cast = U_II_I I
 
-instance Castable Flat Arrow (U_1_I u i ii)
+instance Castable Straight Arrow (U_1_I u i ii)
 	where cast = U_I_II (\(U_1_I x) -> x)
 
 instance Castable Dual Arrow (U_1_I u i ii)
 	where cast = U_II_I U_1_I
 
-instance Castable Flat Arrow (U_I_1 u i ii)
+instance Castable Straight Arrow (U_I_1 u i ii)
 	where cast = U_I_II (\(U_I_1 x) -> x)
 
 instance Castable Dual Arrow (U_I_1 u i ii)
@@ -144,55 +144,55 @@ instance Castable Dual Arrow (U_I_1 u i ii)
 -- instance Castable U_I_II Arrow x => Castable U_1_I Arrow x
 -- 	where cast = U_1_I
 
-instance Castable Flat Arrow (Constant i ii)
+instance Castable Straight Arrow (Constant i ii)
 	where cast = U_I_II (\(Constant x) -> x)
 
 instance Castable Dual Arrow (Constant i ii)
 	where cast = U_II_I Constant
 
-instance Castable Flat Arrow (U_I_I u i)
+instance Castable Straight Arrow (U_I_I u i)
 	where cast = U_I_II (\(U_I_I x) -> x)
 
 instance Castable Dual Arrow (U_I_I u i)
 	where cast = U_II_I U_I_I
 
-instance Castable Flat Arrow (U_I_II u i ii)
+instance Castable Straight Arrow (U_I_II u i ii)
 	where cast = U_I_II (\(U_I_II x) -> x)
 
 instance Castable Dual Arrow (U_I_II u i ii)
 	where cast = U_II_I U_I_II
 
-instance Castable Flat Arrow (U_II_I u i ii)
+instance Castable Straight Arrow (U_II_I u i ii)
 	where cast = U_I_II (\(U_II_I x) -> x)
 
 instance Castable Dual Arrow (U_II_I u i ii)
 	where cast = U_II_I U_II_I
 
-instance Castable Flat Arrow (T_TT_I f g i)
+instance Castable Straight Arrow (T_TT_I f g i)
 	where cast = U_I_II (\(T_TT_I x) -> x)
 
 instance Castable Dual Arrow (T_TT_I f g i)
 	where cast = U_II_I T_TT_I
 
-instance Castable Flat Arrow (TT_T_I f g i)
+instance Castable Straight Arrow (TT_T_I f g i)
 	where cast = U_I_II (\(TT_T_I x) -> x)
 
 instance Castable Dual Arrow (TT_T_I f g i)
 	where cast = U_II_I TT_T_I
 
-instance Castable Flat Arrow (T_TT_TTT_I f g h i)
+instance Castable Straight Arrow (T_TT_TTT_I f g h i)
 	where cast = U_I_II (\(T_TT_TTT_I x) -> x)
 
 instance Castable Dual Arrow (T_TT_TTT_I f g h i)
 	where cast = U_II_I T_TT_TTT_I
 
-instance Castable Flat Arrow (U_I_T_II u t i ii)
+instance Castable Straight Arrow (U_I_T_II u t i ii)
 	where cast = U_I_II (\(U_I_T_II x) -> x)
 
 instance Castable Dual Arrow (U_I_T_II u f i ii)
 	where cast = U_II_I U_I_T_II
 
-instance Castable Flat Arrow (U_T_I_TT_I u t tt i)
+instance Castable Straight Arrow (U_T_I_TT_I u t tt i)
 	where cast = U_I_II (\(U_T_I_TT_I x) -> x)
 
 instance Castable Dual Arrow (U_T_I_TT_I u t tt i)
@@ -201,66 +201,66 @@ instance Castable Dual Arrow (U_T_I_TT_I u t tt i)
 instance Castable Dual Arrow (U_I_UU_II_III u uu i ii iii)
 	where cast = U_II_I U_I_UU_II_III
 
-instance Castable Flat Arrow (U_I_UU_II_III u uu i ii iii)
+instance Castable Straight Arrow (U_I_UU_II_III u uu i ii iii)
 	where cast = U_I_II (\(U_I_UU_II_III x) -> x)
 
-instance Castable Flat Arrow (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
+instance Castable Straight Arrow (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
 	where cast = U_I_II (\(U_UU_UUU_V_III_I_II_UUUU x) -> x)
 
 instance Castable Dual Arrow (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
 	where cast = U_II_I U_UU_UUU_V_III_I_II_UUUU
 
-instance Castable Flat Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
+instance Castable Straight Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
 	where cast = U_I_II (\(U_V_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
 
 instance Castable Dual Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
 	where cast = U_II_I U_V_UU_UUU_UUUU_T_TT_I_II_III
 
-instance Castable Flat Arrow (UU_V_U_I_II_T_II v u uu t i ii)
+instance Castable Straight Arrow (UU_V_U_I_II_T_II v u uu t i ii)
 	where cast = U_I_II (\(UU_V_U_I_II_T_II x) -> x)
 
 instance Castable Dual Arrow (UU_V_U_I_II_T_II v u uu t i ii)
 	where cast = U_II_I UU_V_U_I_II_T_II
 
-instance Castable Flat Arrow (Recursive f)
+instance Castable Straight Arrow (Recursive f)
 	where cast = U_I_II (\(Recursive x) -> x)
 
 instance Castable Dual Arrow (Recursive f)
 	where cast = U_II_I Recursive
 
-instance Castable Flat Arrow (R_U_I_T_I u t i)
+instance Castable Straight Arrow (R_U_I_T_I u t i)
 	where cast = U_I_II (\(R_U_I_T_I x) -> x)
 
 instance Castable Dual Arrow (R_U_I_T_I u t i)
 	where cast = U_II_I R_U_I_T_I
 
-instance Castable Flat Arrow (U_I_UU_III_U_II_I u uu i ii iii)
+instance Castable Straight Arrow (U_I_UU_III_U_II_I u uu i ii iii)
 	where cast = U_I_II (\(U_I_UU_III_U_II_I x) -> x)
 
 instance Castable Dual Arrow (U_I_UU_III_U_II_I u uu i ii iii)
 	where cast = U_II_I U_I_UU_III_U_II_I
 
-instance Castable Flat Arrow (W_I_II_II u i ii)
+instance Castable Straight Arrow (W_I_II_II u i ii)
 	where cast = U_I_II (\(W_I_II_II x) -> x)
 
 instance Castable Dual Arrow (W_I_II_II u i ii)
 	where cast = U_II_I W_I_II_II
 
-instance Castable Flat Arrow (W_I_I_II u i ii)
+instance Castable Straight Arrow (W_I_I_II u i ii)
 	where cast = U_I_II (\(W_I_I_II x) -> x)
 
 instance Castable Dual Arrow (W_I_I_II u i ii)
 	where cast = U_II_I W_I_I_II
 
 instance Wrapper Arrow x
-	=> Castable Flat (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
 
 instance Wrapper Arrow x
 	=> Castable Dual (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
-unwrap :: Castable Flat into i => into i (Supertype i)
+unwrap :: Castable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
 
 wrap :: Castable Dual into i => into (Supertype i) i
