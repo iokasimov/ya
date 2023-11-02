@@ -84,7 +84,7 @@
 * Define `Optional` type alias
 * Define `Some` pattern synonym
 * Define `None` pattern synonym
-* Define `U_1_II` data type
+* Define `U_1_I` data type
 * Define `U_I_UU_III_U_II_I` data type
 * Define `Reference` type alias
 * Define `W_I_II_II` data type

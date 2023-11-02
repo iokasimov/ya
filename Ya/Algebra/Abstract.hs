@@ -31,7 +31,7 @@ newtype U_I_II u i ii = U_I_II (u i ii)
 
 newtype U_II_I u i ii = U_II_I (u ii i)
 
-newtype U_1_II u i ii = U_1_II (u Unit ii)
+newtype U_1_I u i ii = U_1_I (u Unit ii)
 
 newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
@@ -82,19 +82,21 @@ type This = U_II_I
 
 type That = U_I_II
 
+type Constant' = U_1_I
+
 type family Flip v where
 	Flip Flat = Dual
 	Flip Dual = Flat
 
 type family Supertype e where
 	Supertype (I i) = i
-	Supertype (U_1_II u i ii) = u Unit ii
 	Supertype (Constant i ii) = ii
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
 	Supertype (TT_T_I t tt i) = tt (t i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
+	Supertype (U_1_I u _ ii) = u Unit ii
 	Supertype (U_I_II u i ii) = u i ii
 	Supertype (U_II_I u ii i) = u i ii
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
@@ -110,6 +112,7 @@ type family Supertype e where
 	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 	Supertype (W_I_II_II w i ii) = w i ii ii
 	Supertype (W_I_I_II w i ii) = w i i ii
+	Supertype (Arrow Unit ii) = ii
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -123,11 +126,14 @@ instance Castable Flat Arrow (I i)
 instance Castable Dual Arrow (I i)
 	where cast = U_II_I I
 
-instance Castable Flat Arrow (U_1_II u i ii)
-	where cast = U_I_II (\(U_1_II x) -> x)
+instance Castable Flat Arrow (U_1_I u i ii)
+	where cast = U_I_II (\(U_1_I x) -> x)
 
-instance Castable Dual Arrow (U_1_II u i ii)
-	where cast = U_II_I U_1_II
+instance Castable Dual Arrow (U_1_I u i ii)
+	where cast = U_II_I U_1_I
+
+-- instance Castable U_I_II Arrow x => Castable U_1_I Arrow x
+-- 	where cast = U_1_I
 
 instance Castable Flat Arrow (Constant i ii)
 	where cast = U_I_II (\(Constant x) -> x)
