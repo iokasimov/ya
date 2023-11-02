@@ -41,6 +41,20 @@ fo, fo'fi :: forall from into f s t .
 fo'fi = semifunctor @Flat
 fo = semifunctor @Flat
 
+fa, fa'fi :: forall from into f s t .
+	Contravariant Semi Functor from into f =>
+	from s t -> into (f t) (f s)
+fa'fi = semifunctor @Dual
+fa = semifunctor @Dual
+
+fu, fu'fi :: forall from into f s t .
+	Covariant Semi Functor from into f =>
+	Mapping U_1_I Flat from into f f =>
+	Castable Dual Arrow (from Unit t) =>
+	Supertype (from Unit t) -> into (f s) (f t)
+fu'fi = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
+fu = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
+
 yo :: forall from into f s t .
 	Precategory into =>
 	Covariant Yoneda Functor from into f =>
@@ -48,7 +62,7 @@ yo :: forall from into f s t .
 	f s -> into (from s t) (f t)
 yo x = yoneda @Flat @Functor x
 
-yu :: forall into f s t .
+yu :: forall from into f (s :: *) t .
 	Precategory into =>
 	Covariant Yoneda Functor Constant into f =>
 	Castable Dual into (U_I_II Constant s t) =>
@@ -66,12 +80,6 @@ yo'o :: forall from into f g s t .
 yo'o x = fa_ fo (yo @from @into x)
 
 -- TODO: yo'yo : f (g s) -> into (from s b) (g s -> into (from b t) (f (g t)))
-
-fa, fa'fi :: forall from into f s t .
-	Contravariant Semi Functor from into f =>
-	from s t -> into (f t) (f s)
-fa'fi = semifunctor @Dual
-fa = semifunctor @Dual
 
 ya :: forall from into f s t .
 	Precategory into =>

@@ -219,17 +219,21 @@ instance Mapping Dual Flat Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
-instance Mapping Flat Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
-	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))
+instance Mapping Flat Flat Arrow into f g
+	=> Mapping Constant' Flat Arrow into f g
+	where mapping (U_1_I x) = mapping (U_I_II (\_ -> x Unit))
 
-instance Mapping Dual Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
-	where mapping = rewrap / \_ (U_II_I (Constant x)) -> U_II_I (Constant (x))
+-- instance Mapping Flat Flat Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
+-- 	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))
 
-instance Mapping Flat Flat Arrow into f g => Mapping Flat Flat Constant into f g
-	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
+-- instance Mapping Dual Flat Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
+-- 	where mapping = rewrap / \_ (U_II_I (Constant x)) -> U_II_I (Constant (x))
 
-instance Mapping Dual Flat Arrow into f g => Mapping Dual Flat Constant into f g
-	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
+-- instance Mapping Flat Flat Arrow into f g => Mapping Flat Flat Constant into f g
+-- 	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
+
+-- instance Mapping Dual Flat Arrow into f g => Mapping Dual Flat Constant into f g
+-- 	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
 
 instance Mapping Flat Flat Arrow Arrow I (Both (/\))
 	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_I (These (from x) (from x))
