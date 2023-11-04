@@ -204,3 +204,4 @@
 * Define `Ramification` type family
 * Define `Branching` type family
 * Define `Brancheable` type class
+* Define `statefully` expression

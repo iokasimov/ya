@@ -89,6 +89,11 @@ pattern Statefully :: Transition state result -> Stateful state result
 pattern Statefully x <- U_I_II x
 	where Statefully x = U_I_II x
 
+statefully ::
+	Covariant Endo Semi Functor (->) t =>
+	e -> Layered (Stateful e) t o -> t (e /\ o)
+statefully state x = unwrap (unwrap x) state `yo` unwrap @(->)
+
 type Scenario = U_II_I Transition
 
 pattern Scenario :: Transition state result -> Scenario result state
