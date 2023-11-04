@@ -187,3 +187,13 @@ pattern Backward <- U_I_II (This Unit)
 pattern Forward :: Horizontal
 pattern Forward <- U_I_II (That Unit)
 	where Forward = U_I_II (That Unit)
+
+type Side = (\/) Unit Unit
+
+pattern Left :: Side
+pattern Left <- This Unit
+	where Left = This Unit
+
+pattern Right :: Side
+pattern Right <- That Unit
+	where Right = That Unit

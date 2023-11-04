@@ -198,3 +198,6 @@
 * Define `ya_` operator
 * Define `U_I_1` data type
 * Define `fu` operator
+* Define `Side` type alias
+* Define `Left` type alias
+* Define `Right` type alias
