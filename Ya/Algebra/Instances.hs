@@ -177,6 +177,11 @@ instance Mapping Opposite Straight Arrow Arrow
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (compose (from))))
 
 -- TODO: implement `mapping` method
+instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
+	(UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) ee) e)
+	(UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) ee) e)
+
+-- TODO: implement `mapping` method
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
 	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
 	(UU_V_U_I_II_T_II U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) (U_II_I (W_I_I_II (U_I_UU_II_III (->) (/\))) ee) e)
