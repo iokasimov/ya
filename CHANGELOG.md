@@ -201,3 +201,6 @@
 * Define `Side` type alias
 * Define `Left` type alias
 * Define `Right` type alias
+* Define `Ramification` type family
+* Define `Branching` type family
+* Define `Brancheable` type class
