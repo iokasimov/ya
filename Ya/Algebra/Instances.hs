@@ -225,8 +225,11 @@ instance Category Arrow where
 	identity = \x -> x
 
 instance Mapping Straight Straight Arrow into f g
-	=> Mapping Constant' Straight Arrow into f g
+	=> Mapping U_1_I Straight Arrow into f g
 	where mapping (U_1_I x) = mapping (U_I_II (\_ -> x Unit))
+
+instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e)
+	where mapping = rewrap / \from (U_1_I x) -> U_1_I / \_ -> from / x Unit
 
 -- instance Mapping Straight Straight Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
 -- 	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))

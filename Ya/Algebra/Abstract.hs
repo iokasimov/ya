@@ -252,6 +252,12 @@ instance Castable Straight Arrow (W_I_I_II u i ii)
 instance Castable Opposite Arrow (W_I_I_II u i ii)
 	where cast = U_II_I W_I_I_II
 
+instance Castable Opposite (->) (Unit -> i)
+	where cast = U_II_I (\x _ -> x)
+
+instance Castable Straight (->) (Unit -> i)
+	where cast = U_I_II (\f -> f Unit)
+
 instance Wrapper Arrow x
 	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))

@@ -208,13 +208,15 @@ a x = unwrap `compose` ya @from @into @(U_II_I from _) (U_II_I x)
 
 u :: forall from into i s t .
 	Precategory into =>
-	Covariant Yoneda Functor from into (U_I_II Constant i) =>
+	Covariant Yoneda Functor from into (U_1_I from i) =>
 	Castable Opposite into (U_I_II from s t) =>
-	Castable Straight into (U_I_II Constant i t) =>
-	Castable Straight into (Constant i t) =>
-	s -> into (from s t) t
-u x = unwrap @into @(Constant i t) `compose` unwrap `compose`
-	yo @from @into @(U_I_II Constant _) (U_I_II / wrap x)
+	Castable Straight into (U_I_II from i t) =>
+	Castable Opposite (->) (from Unit s) =>
+	Castable Straight into (from Unit t) =>
+	Castable Straight into (U_1_I from i t) =>
+	Supertype (from Unit s) -> into (from s t) (Supertype (from Unit t))
+u x = unwrap `compose` unwrap `compose` yo @from @into @(U_1_I from _)
+	(U_1_I @from @i / wrap @(->) @(from _ _) x)
 
 a'a :: forall from into i o e b .
 	Precategory from =>
