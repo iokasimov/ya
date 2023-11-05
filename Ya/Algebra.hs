@@ -126,6 +126,16 @@ instance
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
 			-> point @g / U_I_II (f btw) `yo`from
 
+instance
+	( Covariant Endo Semi Functor (->) t
+	, Mapping Straight Straight (->) (->) (t `T_TT_I` t) t
+	) => Mapping Straight Straight (->) (->)
+		(T_TT_I (T_TT_TTT_I (Straight Arrow e) t (Straight (/\) e)) t)
+		(T_TT_TTT_I (Straight Arrow e) t (Straight (/\) e))
+	where mapping = rewrap / \from (T_TT_I (T_TT_TTT_I (U_I_II f))) -> T_TT_TTT_I `compose` U_I_II / \old ->
+		component @Straight @(->) @(->) @(t `T_TT_I` t) @t
+			(T_TT_I (f old `yo` (\(U_I_II (These x y)) -> y `yo` U_I_II `a` These x `a` from)))
+
 instance Mapping Straight Straight Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_II (/\) e `TT_T_I` g) =>
 	Mapping Straight Straight Arrow Arrow
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e `T_TT_I` g)
