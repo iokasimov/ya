@@ -13,8 +13,6 @@ data (\/) i ii = This i | That ii
 
 newtype I i = I i
 
-newtype Constant i ii = Constant ii
-
 newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T_TT_I t tt i = T_TT_I (t (tt i))
@@ -92,7 +90,6 @@ type family Flip v where
 
 type family Supertype e where
 	Supertype (I i) = i
-	Supertype (Constant i ii) = ii
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
 	Supertype (TT_T_I t tt i) = tt (t i)
@@ -140,15 +137,6 @@ instance Castable Straight Arrow (U_I_1 u i ii)
 
 instance Castable Opposite Arrow (U_I_1 u i ii)
 	where cast = U_II_I U_I_1
-
--- instance Castable U_I_II Arrow x => Castable U_1_I Arrow x
--- 	where cast = U_1_I
-
-instance Castable Straight Arrow (Constant i ii)
-	where cast = U_I_II (\(Constant x) -> x)
-
-instance Castable Opposite Arrow (Constant i ii)
-	where cast = U_II_I Constant
 
 instance Castable Straight Arrow (U_I_I u i)
 	where cast = U_I_II (\(U_I_I x) -> x)

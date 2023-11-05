@@ -153,7 +153,6 @@
 * Define `wrapped` expression
 * Define `Terminal` type alias
 * Define `Initial` type alias
-* Define `Constant` data type
 * Define `point` expression
 * Define `TT_T_I` data type
 * Define `U_UU_UUU_V_I_II_III_UUUU` data type

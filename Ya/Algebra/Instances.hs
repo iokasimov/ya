@@ -166,11 +166,6 @@ instance Mapping Straight Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Straight Arrow Arrow f i)
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (`compose` from)))
 
-instance Mapping Straight Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Straight Constant Arrow f i)
-	(UU_V_U_I_II_T_II Straight Constant Arrow f i)
-	where mapping = rewrap / \_ -> rewrap (`compose` (rewrap (rewrap identity)))
-
 instance Mapping Opposite Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
 	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
@@ -230,18 +225,6 @@ instance Mapping Straight Straight Arrow into f g
 
 instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e)
 	where mapping = rewrap / \from (U_1_I x) -> U_1_I / \_ -> from / x Unit
-
--- instance Mapping Straight Straight Arrow Arrow (U_I_II Constant s) (U_I_II Constant s)
--- 	where mapping = rewrap / \from (U_I_II (Constant x)) -> U_I_II (Constant (from x))
-
--- instance Mapping Opposite Straight Arrow Arrow (U_II_I Constant t) (U_II_I Constant t)
--- 	where mapping = rewrap / \_ (U_II_I (Constant x)) -> U_II_I (Constant (x))
-
--- instance Mapping Straight Straight Arrow into f g => Mapping Straight Straight Constant into f g
--- 	where mapping (U_I_II (Constant x)) = mapping (U_I_II (\_ -> x))
-
--- instance Mapping Opposite Straight Arrow into f g => Mapping Opposite Straight Constant into f g
--- 	where mapping (U_II_I (Constant x)) = mapping (U_II_I (\_ -> x))
 
 instance Mapping Straight Straight Arrow Arrow I (Both (/\))
 	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_I (These (from x) (from x))

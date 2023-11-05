@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `w'u`, `u'w`, `u'u`
 infixl 7 `iii`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`
-infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`
+infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o` -- , `yukl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
@@ -111,17 +111,17 @@ yokl x = component @Straight @Arrow @into @(T_TT_I f g)
 	`compose` wrap @into @(T_TT_I f g _)
 	`compose` yoneda @Straight @Functor @from x
 
-yukl :: forall into g f s t .
-	Component Natural Arrow into (T_TT_I f g) f =>
-	Covariant Yoneda Functor Constant into f =>
-	Castable Opposite into (Straight Constant s (g t)) =>
-	Castable Opposite into (Constant s (g t)) =>
-	Castable Opposite into (T_TT_I f g t) =>
-	f s -> into (g t) (f t)
-yukl x = component @Straight @Arrow @into @(T_TT_I f g)
-	`compose` wrap @into @(T_TT_I f g _)
-	`compose` yoneda @Straight @Functor @Constant x
-	`compose` wrap
+-- yukl :: forall into g f s t .
+-- 	Component Natural Arrow into (T_TT_I f g) f =>
+-- 	Covariant Yoneda Functor Constant into f =>
+-- 	Castable Opposite into (Straight Constant s (g t)) =>
+-- 	Castable Opposite into (Constant s (g t)) =>
+-- 	Castable Opposite into (T_TT_I f g t) =>
+-- 	f s -> into (g t) (f t)
+-- yukl x = component @Straight @Arrow @into @(T_TT_I f g)
+-- 	`compose` wrap @into @(T_TT_I f g _)
+-- 	`compose` yoneda @Straight @Functor @Constant x
+-- 	`compose` wrap
 
 yoklKL :: forall from into g f s t .
 	Component Natural from into (T_TT_I f g) (TT_T_I f g) =>
