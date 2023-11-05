@@ -5,19 +5,19 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `ii`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `w'u`, `u'w`, `u'u`
-infixl 7 `iii`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`
-infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o` -- , `yukl`
+infixl 9 `i`, `o`, `a`, `u`
+infixl 8 `i'i`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`
+infixl 7 `i'i'i`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
+infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
 infixl 4 `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
 infixl 3 `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `yi'yi'yi'yi`
 infixl 0 `yi'yi'yi'yi'yi`
 
-i, ii, iii :: Category into => into t t
-iii = identity
-ii = identity
+i, i'i, i'i'i :: Category into => into t t
+i'i'i = identity
+i'i = identity
 i = identity
 
 yi'yi'yi'yi'yi, yi'yi'yi'yi, yi'yi'yi, yi'yi, yi_, yi
@@ -329,26 +329,26 @@ pp x y = monoidal @Straight @Arrow @f @(/\) @(/\) identity identity (These x y)
 
 -- TODO: define pp'yo instead of pp'fo
 
-w'u :: forall into s t .
+w'uw :: forall into s t .
 	Precategory into =>
 	Castable Opposite into t =>
 	Castable Straight into s =>
 	into (Supertype s) (Supertype t) -> into s t
-w'u into = wrap @into `compose` into `compose` unwrap @into
+w'uw into = wrap @into `compose` into `compose` unwrap @into
 
-u'w :: forall into s t .
+uw'w :: forall into s t .
 	Precategory into =>
 	Castable Opposite into s =>
 	Castable Straight into t =>
 	into s t -> into (Supertype s) (Supertype t)
-u'w into = unwrap @into `compose` into `compose` wrap @into
+uw'w into = unwrap @into `compose` into `compose` wrap @into
 
-u'u :: forall into s .
+uw'uw :: forall into s .
 	Precategory into =>
 	Castable Straight into s =>
 	Castable Straight into (Supertype s) =>
 	into s (Supertype (Supertype s))
-u'u = unwrap @into `compose` unwrap @into
+uw'uw = unwrap @into `compose` unwrap @into
 
 o'yokl :: forall from into t tt a o e .
 	Covariant Functor (->) into tt =>

@@ -32,7 +32,7 @@ instance
 			component @Straight @Arrow @Arrow @(T_TT_I _ _)
 			`compose` wrap @Arrow @(T_TT_I _ _ _)
 			`compose` yoneda @Straight @Functor @Arrow x
-			`ii` \s ->
+			`i'i` \s ->
 				wrap @Arrow @(R_U_I_T_I _ _ _)
 				`compose` wrap @Arrow @(Recursive _)
 				`compose` U_I_T_II
@@ -42,7 +42,7 @@ instance
 						`compose` component @Straight @Arrow @Arrow
 							@(f `T_TT_I` g) @(f `TT_T_I` g)
 						`compose` wrap @Arrow @(T_TT_I _ _ _)
-						`iii` unwrap @Arrow @(TT_T_I _ _ _)
+						`i'i'i` unwrap @Arrow @(TT_T_I _ _ _)
 							`compose` map @Straight @Straight @Arrow @Arrow
 								@(R_U_I_T_I (/\) f `T_TT_I` g)
 								@(R_U_I_T_I (/\) f `TT_T_I` g) from
@@ -76,8 +76,8 @@ instance Mapping Straight Straight Arrow Arrow
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	)
 	(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
-	where mapping = rewrap / \from -> rewrap `iii` rewrap `ii`  rewrap `i` \(U_I_UU_II_III state) old ->
-		(\(These s (U_I_II f)) -> from `_fo` f `u'u` s) (state old)
+	where mapping = rewrap / \from -> rewrap `i'i'i` rewrap `i'i`  rewrap `i` \(U_I_UU_II_III state) old ->
+		(\(These s (U_I_II f)) -> from `_fo` f `uw'uw` s) (state old)
 
 instance Covariant Endo Semi Functor Arrow u
 	=> Mapping Straight Straight Arrow Arrow u (T_TT_TTT_I (U_I_II (->) e) u (U_I_II (/\) e))
@@ -143,7 +143,7 @@ instance Mapping Straight Straight Arrow Arrow (U_I_II (/\) e `T_TT_I` g) (U_I_I
 	where mapping = rewrap / \from (T_TT_I (U_I_II (W_I_I_II (U_I_UU_II_III x)))) -> 
 		T_TT_TTT_I `compose` U_I_II / \old -> wrapped @Arrow
 			`i` map @Straight @Straight @Arrow @Arrow @(U_I_II (/\) e `T_TT_I` g) @(U_I_II (/\) e `TT_T_I` g) from
-			`ii` U_I_II (x old)
+			`i'i` U_I_II (x old)
 
 instance 
 	( Component Natural Arrow Arrow (T_TT_I g g) g
@@ -164,7 +164,7 @@ instance
 	Mapping Straight Straight Arrow Arrow (U_I_II Arrow Unit)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 	where mapping = rewrap / \from (U_I_II f) -> T_TT_TTT_I `compose` U_I_II
-		/ \old -> point `compose` U_I_II `compose` These old `compose` from `ii`f Unit
+		/ \old -> point `compose` U_I_II `compose` These old `compose` from `i'i` f Unit
 
 instance
 	( Covariant Semi Functor from Arrow f

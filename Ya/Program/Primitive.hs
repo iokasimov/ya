@@ -47,13 +47,13 @@ inspect ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (origin -> target)
-inspect r s = let (These qt _) = r `u'u` s in qt
+inspect r s = let (These qt _) = r `uw'uw` s in qt
 
 adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `u'u` s in x `i`f h
+adjust attr f s = let (These h x) = attr `uw'uw` s in x `i`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -69,19 +69,19 @@ instance Covariant Endo Semi Functor (->) t =>
 type Transition = W_I_I_II (U_I_UU_II_III (->) (/\))
 
 observe :: Transition state state
-observe = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These `i` old `ii` old
+observe = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These `i` old `i'i` old
 
 replace :: state -> Transition state state
-replace new = W_I_I_II `ii` U_I_UU_II_III `i` \old -> These new old
+replace new = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These new old
 
 transit :: (state -> state) -> Transition state state
-transit f = W_I_I_II `ii` U_I_UU_II_III `i` \s -> These `i` f s `ii` s
+transit f = W_I_I_II `i'i` U_I_UU_II_III `i` \s -> These `i` f s `i'i` s
 
 start :: state -> Transition state result -> state /\ result
-start state stateful = stateful `u'u` state
+start state stateful = stateful `uw'uw` state
 
 instant :: Transition state result -> state -> state
-instant state x = wrapped (this @Straight @Arrow identity) / state `u'u` x
+instant state x = wrapped (this @Straight @Arrow identity) / state `uw'uw` x
 
 type Stateful = U_I_II Transition
 

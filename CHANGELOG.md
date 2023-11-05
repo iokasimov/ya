@@ -24,8 +24,8 @@
 * Define `Precategory` type class
 * Define `Category` type class
 * Define `i` operator
-* Define `ii` operator
-* Define `iii` operator
+* Define `i'i` operator
+* Define `i'i'i` operator
 * Define `component` expression
 * Define `Mapping` type class
 * Define `semifunctor` expression
@@ -96,7 +96,9 @@
 * Define `U_I_UU_II_III` data type
 * Define `inspect` expression
 * Define `adjust` expression
-* Define `u'u` operator
+* Define `uw'uw` operator
+* Define `uw'w` operator
+* Define `w'uw` operator
 * Define `observe` expression
 * Define `replace` expression
 * Define `transit` expression
