@@ -347,3 +347,16 @@ u'u :: forall into s .
 	Castable Straight into (Supertype s) =>
 	into s (Supertype (Supertype s))
 u'u = unwrap @into `compose` unwrap @into
+
+o'yokl :: forall from into t tt a o e .
+	Covariant Functor (->) into tt =>
+	Covariant Functor (->) into t =>
+	Covariant Functor into into t =>
+	Covariant Yoneda Functor from into t =>
+	Covariant Yoneda Functor into into (U_I_II into (from a (tt o))) =>
+	Mapping Straight Straight (->) into (T_TT_I t tt) t =>
+	Castable Opposite into (U_I_II from a (tt o)) =>
+	(forall ee . Wrapper into (U_I_II into ee e)) =>
+	(forall ee . Wrapper into (T_TT_I t tt ee)) =>
+	t a -> into (into (t o) e) (into (from a (tt o)) e)
+o'yokl = o `compose` yokl @from @into @tt @t

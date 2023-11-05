@@ -205,3 +205,4 @@
 * Define `Branching` type family
 * Define `Brancheable` type class
 * Define `statefully` expression
+* Define `o'yokl` operator
