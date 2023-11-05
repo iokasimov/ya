@@ -49,11 +49,11 @@ fa = semifunctor @Opposite
 
 fu, fu'fi :: forall from into f s t .
 	Covariant Semi Functor from into f =>
-	Mapping U_1_I Straight from into f f =>
+	Mapping Constant Straight from into f f =>
 	Castable Opposite Arrow (from Unit t) =>
 	Supertype (from Unit t) -> into (f s) (f t)
-fu'fi = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
-fu = semifunctor @U_1_I @from @into `compose` wrap @Arrow @(from Unit t)
+fu'fi = semifunctor @Constant @from @into `compose` wrap @Arrow @(from Unit t)
+fu = semifunctor @Constant @from @into `compose` wrap @Arrow @(from Unit t)
 
 yo :: forall from into f s t .
 	Precategory into =>

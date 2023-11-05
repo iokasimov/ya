@@ -205,3 +205,4 @@
 * Define `Brancheable` type class
 * Define `statefully` expression
 * Define `o'yokl` operator
+* Define `Constant` type alias

@@ -82,7 +82,7 @@ type This = U_II_I
 
 type That = U_I_II
 
-type Constant' = U_1_I
+type Constant = U_1_I
 
 type family Flip v where
 	Flip Straight = Opposite

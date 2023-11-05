@@ -175,7 +175,7 @@ instance
 instance
 	( Covariant Endo Semi Functor Arrow f
 	, forall e . Covariant Endo Semi Functor Arrow (U_I_II Arrow e)
-	) => Mapping U_1_I Straight Arrow Arrow f (UU_V_U_I_II_T_II U_1_I Arrow Arrow f r)
+	) => Mapping Constant Straight Arrow Arrow f (UU_V_U_I_II_T_II Constant Arrow Arrow f r)
 	where mapping = rewrap / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo'fi` x)
 
 instance
