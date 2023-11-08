@@ -209,3 +209,12 @@
 * Define `o'yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
+* Define `u'u` operator
+* Define `u'u'u` operator
+* Define `u'u'u'u` operator
+* Define `u'u'u'u'u` operator
+* Define `u'u'u'u'u'u` operator
+* Define `u'u'u'u'u'u'u,` operator
+* Define `u'u'u'u'u'u'u'u` operator
+* Define `u'u'u'u'u'u'u'u'u` operator
+* Define `u'u'u'u'u'u'u'u'u'u` operator
