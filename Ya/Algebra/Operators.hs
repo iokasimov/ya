@@ -8,15 +8,23 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
-infixl 6 `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
-infixl 5 `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
-infixl 4 `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
-infixl 3 `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
-infixl 2 `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
-infixl 0 `u'u'u'u'u'u'u'u'u`
-infixl 0 `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
+infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
+infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`
 
-i, i'i, i'i'i :: Category into => into e e
+i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
+	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
+i'i'i'i'i'i'i'i'i'i = identity
+i'i'i'i'i'i'i'i'i = identity
+i'i'i'i'i'i'i'i = identity
+i'i'i'i'i'i'i = identity
+i'i'i'i'i'i = identity
+i'i'i'i'i = identity
+i'i'i'i = identity
 i'i'i = identity
 i'i = identity
 i = identity
