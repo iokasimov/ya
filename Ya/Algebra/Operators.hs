@@ -364,6 +364,8 @@ o'yokl :: forall from into t tt a o e .
 o'yokl = o `compose` yokl @from @into @tt @t
 
 -- TODO: to generalize, I need to generalize `monoidal` first
+-- TODO: effects are executed in reverse order, we can use it
+-- to alter execution order, in Scrolling List for example
 cc :: forall into t a o .
 	Adjoint Functor (->) (->) (That (/\) (t a)) (That into (t a)) =>
 	Adjoint Functor (->) (->) (That (/\) a) (That (->) a) =>

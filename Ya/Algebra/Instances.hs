@@ -14,18 +14,18 @@ instance
 
 instance
 	( forall e . Wrapper into (I e)
-	, forall e . Wrapper into (TT_T_I I g e)
-	, forall e . Wrapper into (T_TT_I I g e)
-	, Covariant Endo Semi Functor into g
-	) => Mapping Straight Straight into into (T_TT_I I g) (TT_T_I I g)
+	, forall e . Wrapper into (TT_T_I I tt e)
+	, forall e . Wrapper into (T_TT_I I tt e)
+	, Covariant Endo Semi Functor into tt
+	) => Mapping Straight Straight into into (T_TT_I I tt) (TT_T_I I tt)
 	where mapping = rewrap / \from -> rewrap /
 		semifunctor @Straight @into @into (wrap `compose` from) `compose` unwrap @into
 
 instance
-	( Covariant Semi Functor from into g
-	, Covariant Endo Semi Functor into f
-	, forall e . Wrapper into (T_TT_I f g e)
-	) => Mapping Straight Straight from into (T_TT_I f g) (T_TT_I f g)
+	( Covariant Semi Functor from into tt
+	, Covariant Endo Semi Functor into t
+	, forall e . Wrapper into (T_TT_I t tt e)
+	) => Mapping Straight Straight from into (T_TT_I t tt) (T_TT_I t tt)
 	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
@@ -33,10 +33,10 @@ instance
 		`compose` unwrap @into
 
 instance
-	( Covariant Semi Functor from into f
-	, Covariant Endo Semi Functor into g
-	, forall e . Wrapper into (TT_T_I f g e)
-	) => Mapping Straight Straight from into (TT_T_I f g) (TT_T_I f g)
+	( Covariant Semi Functor from into t
+	, Covariant Endo Semi Functor into tt
+	, forall e . Wrapper into (TT_T_I t tt e)
+	) => Mapping Straight Straight from into (TT_T_I t tt) (TT_T_I t tt)
 	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
@@ -76,10 +76,10 @@ instance
 
 instance
 	( Covariant Semi Functor from into h
-	, Covariant Endo Semi Functor into g
-	, Covariant Endo Semi Functor into f
-	, forall e . Wrapper into (T_TT_TTT_I f g h e)
-	) => Mapping Straight Straight from into (T_TT_TTT_I f g h) (T_TT_TTT_I f g h)
+	, Covariant Endo Semi Functor into tt
+	, Covariant Endo Semi Functor into t
+	, forall e . Wrapper into (T_TT_TTT_I t tt h e)
+	) => Mapping Straight Straight from into (T_TT_TTT_I t tt h) (T_TT_TTT_I t tt h)
 	where mapping = rewrap / \from -> wrap @into
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @into @into
@@ -131,8 +131,8 @@ instance
 			(wrapped / map @Straight @Straight @Arrow @Arrow @(T_TT_I t tt) @(TT_T_I t tt) from) `compose`
 		unwrap @Arrow
 
-instance Covariant Yoneda Functor Arrow Arrow g =>
-	Mapping Straight Straight Arrow Arrow (This (/\) e `T_TT_I` g) (This (/\) e `TT_T_I` g)
+instance Covariant Yoneda Functor Arrow Arrow tt =>
+	Mapping Straight Straight Arrow Arrow (This (/\) e `T_TT_I` tt) (This (/\) e `TT_T_I` tt)
 	where mapping = rewrap / \from -> rewrap @Arrow @(T_TT_I _ _ _) @(TT_T_I _ _ _) /
 		\(U_II_I (These x e)) -> yoneda @Straight @Functor x (U_II_I `compose` (\x' -> These (from x') e))
 		
@@ -162,13 +162,13 @@ instance
 		`compose` unwrap @into @(U_I_II _ _ _)
 
 instance Mapping Straight Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Straight Arrow Arrow f i)
-	(UU_V_U_I_II_T_II Straight Arrow Arrow f i)
+	(UU_V_U_I_II_T_II Straight Arrow Arrow t i)
+	(UU_V_U_I_II_T_II Straight Arrow Arrow t i)
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (`compose` from)))
 
 instance Mapping Opposite Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
-	(UU_V_U_I_II_T_II Opposite Arrow Arrow f i)
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow t i)
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow t i)
 	where mapping = rewrap / \from -> rewrap (`compose` (rewrap (compose (from))))
 
 -- TODO: implement `mapping` method
@@ -190,10 +190,10 @@ instance
 	, forall e . Wrapper into (R_U_I_T_I u t e)
 	, forall e . Wrapper from (Recursive (U_I_T_II t u e))
 	, forall e . Wrapper into (Recursive (U_I_T_II t u e))
-	, forall e e' . Wrapper from (U_II_I (U_I_T_II t u) e e')
-	, forall e e' . Wrapper into (U_II_I (U_I_T_II t u) e e')
-	, forall e e' . Wrapper from (U_I_II (U_I_T_II t u) e e')
-	, forall e e' . Wrapper into (U_I_II (U_I_T_II t u) e e')
+	, forall e ee . Wrapper from (U_II_I (U_I_T_II t u) e ee)
+	, forall e ee . Wrapper into (U_II_I (U_I_T_II t u) e ee)
+	, forall e ee . Wrapper from (U_I_II (U_I_T_II t u) e ee)
+	, forall e ee . Wrapper into (U_I_II (U_I_T_II t u) e ee)
 	) => Mapping Straight Straight from into (R_U_I_T_I u t) (R_U_I_T_I u t)
 	where mapping = rewrap / \from ->
 		wrap @into @(R_U_I_T_I u t _)
@@ -219,8 +219,8 @@ instance Mapping Opposite Straight Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
 instance Category Arrow where
 	identity = \x -> x
 
-instance Mapping Straight Straight Arrow into f g
-	=> Mapping Constant Straight Arrow into f g
+instance Mapping Straight Straight Arrow into t tt
+	=> Mapping Constant Straight Arrow into t tt
 	where mapping (U_1_I x) = mapping (U_I_II (\_ -> x Unit))
 
 instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e)
