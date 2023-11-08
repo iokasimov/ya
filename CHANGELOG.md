@@ -208,3 +208,4 @@
 * Define `statefully` expression
 * Define `o'yokl` operator
 * Define `Constant` type alias
+* Define `cc` operator

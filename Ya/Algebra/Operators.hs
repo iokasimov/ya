@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `o`, `a`, `u`
-infixl 8 `i'i`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`
+infixl 8 `i'i`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
 infixl 7 `i'i'i`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
 infixl 6 `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
 infixl 5 `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -362,3 +362,15 @@ o'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T_TT_I t tt ee)) =>
 	t a -> into (into (t o) e) (into (from a (tt o)) e)
 o'yokl = o `compose` yokl @from @into @tt @t
+
+-- TODO: to generalize, I need to generalize `monoidal` first
+cc :: forall into t a o .
+	Adjoint Functor (->) (->) (That (/\) (t a)) (That into (t a)) =>
+	Adjoint Functor (->) (->) (That (/\) a) (That (->) a) =>
+	Monoidal Straight Functor (->) (/\) (/\) t =>
+	t (a -> o) -> into (t a) (t o)
+cc = unwrap @(->) @(That into (t a) _)
+	`compose` (fo @(->) @(->) `compose` fo @(->) @(->))
+		(rj @(->) @(->) (wrap @_ @(That _ _ _)) `compose` wrap @_ @(That _ _ _))
+	`compose` lj @(->) @(->) @(That (/\) (t a)) @(That into _)
+		(monoidal @Straight @(->) @t @(/\) @(/\) identity identity `compose` unwrap @(->) @(That (/\) (t a) (t (a -> o))))
