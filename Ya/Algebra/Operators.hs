@@ -199,13 +199,13 @@ _fo'fo :: forall from into t tt e a o .
 	from a o -> into (t e (tt a)) (t e (tt o))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
-o :: forall from into i a o .
+o :: forall from into u i a o .
 	Precategory into =>
-	Covariant Yoneda Functor from into (U_I_II from i) =>
+	Covariant Yoneda Functor from into (U_I_II u i) =>
 	Castable Opposite into (U_I_II from a o) =>
-	Castable Straight into (U_I_II from i o) =>
-	from i a -> into (from a o) (from i o)
-o x = unwrap `compose` yo @from @into @(U_I_II from _) (U_I_II x)
+	Castable Straight into (U_I_II u i o) =>
+	u i a -> into (from a o) (u i o)
+o x = unwrap `compose` yo @from @into @(U_I_II u _) (U_I_II x)
 
 a :: forall into from i a o .
 	Precategory into =>
