@@ -225,3 +225,4 @@
 * Define `i'i'i'i'i'i` operator
 * Define `i'i'i'i'i` operator
 * Define `i'i'i'i` operator
+* Define `o'a` operator

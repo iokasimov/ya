@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `i'i`, `u'u`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
+infixl 8 `i'i`, `u'u`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
@@ -215,7 +215,7 @@ a :: forall into from u e a o .
 	u a e -> into (from o a) (u o e)
 a x = unwrap `compose` ya @from @into @(U_II_I u _) (U_II_I x)
 
-a'a :: forall from into u uu i o e b .
+a'a :: forall from into u i o e b .
 	Precategory from =>
 	Precategory into =>
 	Contravariant Yoneda Functor from from (U_II_I u e) =>
@@ -226,6 +226,20 @@ a'a :: forall from into u uu i o e b .
 	Castable Straight into (Opposite from (u b e) i) =>
 	u o e -> into (from i (from b o)) (from i (u b e))
 a'a = a @into @from `compose` a @from @from
+
+o'a :: forall from into u i o e b .
+	Precategory from =>
+	Precategory into =>
+	Category from =>
+	Category into =>
+	Contravariant Yoneda Functor from from (U_II_I u e) =>
+	Covariant Yoneda Functor into from (U_I_II from (from i o)) =>
+	Castable Opposite from (U_I_II into (u i e) b) =>
+	Castable Straight from (U_I_II from (from i o) b) =>
+	Castable Straight from (Opposite u e i) =>
+	Castable Opposite from (Opposite from o i) =>
+	u o e -> from (into (u i e) b) (from (from i o) b)
+o'a = o @into @from `compose` a @from @from
 
 u, u'u, u'u'u, u'u'u'u, u'u'u'u'u, u'u'u'u'u'u, u'u'u'u'u'u'u,
 	u'u'u'u'u'u'u'u, u'u'u'u'u'u'u'u'u, u'u'u'u'u'u'u'u'u'u :: forall from into i a o .
