@@ -215,6 +215,18 @@ a :: forall into from u e a o .
 	u a e -> into (from o a) (u o e)
 a x = unwrap `compose` ya @from @into @(U_II_I u _) (U_II_I x)
 
+a'a :: forall from into u uu i o e b .
+	Precategory from =>
+	Precategory into =>
+	Contravariant Yoneda Functor from from (U_II_I u e) =>
+	Contravariant Yoneda Functor from into (U_II_I from (u b e)) =>
+	Castable Opposite from (Opposite from o b) =>
+	Castable Straight from (Opposite u e b) =>
+	Castable Opposite into (Opposite from (from b o) i) =>
+	Castable Straight into (Opposite from (u b e) i) =>
+	u o e -> into (from i (from b o)) (from i (u b e))
+a'a = a @into @from `compose` a @from @from
+
 u, u'u, u'u'u, u'u'u'u, u'u'u'u'u, u'u'u'u'u'u, u'u'u'u'u'u'u,
 	u'u'u'u'u'u'u'u, u'u'u'u'u'u'u'u'u, u'u'u'u'u'u'u'u'u'u :: forall from into i a o .
 	Precategory into =>
@@ -245,18 +257,6 @@ u'u'u'u'u'u'u'u'u x = unwrap `compose` unwrap `compose` yo @from @into @(U_1_I f
 	(U_1_I @from @i / wrap @(->) @(from _ _) x)
 u'u'u'u'u'u'u'u'u'u x = unwrap `compose` unwrap `compose` yo @from @into @(U_1_I from _)
 	(U_1_I @from @i / wrap @(->) @(from _ _) x)
-
-a'a :: forall from into i o e b .
-	Precategory from =>
-	Precategory into =>
-	Contravariant Yoneda Functor from from (U_II_I from e) =>
-	Contravariant Yoneda Functor from into (U_II_I from (from b e)) =>
-	Castable Opposite from (Opposite from o b) =>
-	Castable Straight from (Opposite from e b) =>
-	Castable Opposite into (Opposite from (from b o) i) =>
-	Castable Straight into (Opposite from (from b e) i) =>
-	from o e -> into (from i (from b o)) (from i (from b e))
-a'a = a @into @from `compose` a @from @from
 
 ro :: forall from into hom t i .
 	Covariant (Representable hom) Functor from into t =>
