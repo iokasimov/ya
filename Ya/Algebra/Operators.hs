@@ -9,7 +9,7 @@ infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
@@ -416,6 +416,22 @@ o'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T_TT_I t tt ee)) =>
 	t a -> into (into (t o) e) (into (from a (tt o)) e)
 o'yokl = o `compose` yokl @from @into @tt @t
+
+a'yokl :: forall from into u t tt a o e .
+	Covariant Functor (->) into tt =>
+	Covariant Functor (->) into t =>
+	Covariant Functor into into tt =>
+	Covariant Functor from into t =>
+	Covariant Functor from into tt =>
+	Covariant Yoneda Functor into into (U_I_II into (from a (tt o))) =>
+	Contravariant Yoneda Functor from into (U_II_I into (tt o)) =>
+	Mapping Straight Straight from into (T_TT_I tt t) tt =>
+	Castable Opposite into (Straight from a (tt o)) =>
+	Castable Straight into (Opposite into (tt o) e) =>
+	Castable Opposite into (Opposite from (tt a) e) =>
+	(forall ee . Wrapper into (T_TT_I tt t ee)) =>
+	from a (t o) -> into (from e (tt a)) (into e (tt o))
+a'yokl = a `compose` fokl @from @into @tt @t
 
 -- TODO: to generalize, I need to generalize `monoidal` first
 -- TODO: effects are executed in reverse order, we can use it
