@@ -82,14 +82,14 @@ type family Substructure datastructure where
 	Substructure (Construction t) = t `T_TT_I` Construction t
 
 class Hierarchial datastructure where
-	top :: Attribute (datastructure item) item
-	sub :: Attribute (datastructure item) (Substructure datastructure item)
+	root :: Attribute (datastructure item) item
+	subs :: Attribute (datastructure item) (Substructure datastructure item)
 
 instance Covariant Endo Semi Functor (->) t
 	=> Hierarchial (Construction t) where
-	top = W_I_II_II `compose` U_I_UU_III_U_II_I /
+	root = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct old xs) -> These / old / \new -> Construct new xs
-	sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
+	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct x old) -> These
 			(T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Construct x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new)
