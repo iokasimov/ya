@@ -29,6 +29,10 @@ pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
 	where None = U_I_II (This Unit)
 
+pattern Optionally :: Unit \/ e -> Optional e
+pattern Optionally e <- U_I_II e
+	where Optionally e = U_I_II e
+
 type Progress = U_I_II (\/)
 
 pattern Interrupt :: e -> Progress e ee
