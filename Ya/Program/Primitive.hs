@@ -1,4 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Program.Primitive where
 
 import Ya.Algebra
@@ -158,34 +159,34 @@ type family Binary tree where
 	Binary Tree = Tree (U_I_I (/\) `T_TT_I` Optional)
 
 type family J known unknown where
-	J (U_I_II Arrow input) unknown =
-		T_TT_I (U_I_II Arrow input) unknown
-	J (U_I_II Transition state) unknown =
-		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)
+	J (Straight Arrow input) unknown = Straight Arrow input `T_TT_I` unknown
+	J (Straight Transition state) unknown = T_TT_TTT_I (Straight Arrow state) unknown (Straight (/\) state)
+	-- TODO: is there a loop if we cannot find such an instance?
+	-- J unknown known = J known unknown
 
-layer :: forall g f into e .
-	Component Natural Arrow into f (f `J` g) =>
-	into (f e) ((f `J` g) e)
-layer = component @Straight @Arrow @into @f @(f `J` g) @e
+layer :: forall g f e .
+	Component Natural (->) (->) f (f `J` g) =>
+	f e -> (f `J` g) e
+layer = component @Straight @(->) @(->) @f @(f `J` g) @e
 
-embed :: forall f g into e .
-	Component Natural Arrow into g (f `J` g) =>
-	into (g e) ((f `J` g) e)
-embed = component @Straight @Arrow @into @g @(f `J` g) @e
+embed :: forall f g e .
+	Component Natural (->) (->) g (f `J` g) =>
+	g e -> (f `J` g) e
+embed = component @Straight @(->) @(->) @g @(f `J` g) @e
 
-joint :: forall f g into e .
-	Component Natural Arrow into (f `T_TT_I` g) (f `J` g) =>
-	Castable Opposite into ((f `T_TT_I` g) e) =>
-	into (f (g e)) ((f `J` g) e)
-joint = component @Straight @Arrow @into @(f `T_TT_I` g) @(f `J` g) @e
-	`compose` wrap @into @((f `T_TT_I` g) e)
+joint :: forall f g e .
+	Component Natural (->) (->) (f `T_TT_I` g) (f `J` g) =>
+	Castable Opposite (->) ((f `T_TT_I` g) e) =>
+	f (g e) -> (f `J` g) e
+joint = component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `J` g) @e
+	`compose` wrap @(->) @((f `T_TT_I` g) e)
 
-try :: forall f into ee e .
-	Component Natural Arrow into (f `T_TT_I` Progress ee) (f `J` Progress ee) =>
-	Castable Opposite into ((f `T_TT_I` Progress ee) e) =>
-	into (f (Progress ee e)) ((f `J` Progress ee) e)
-try = component @Straight @Arrow @into @(f `T_TT_I` Progress ee) @(f `J` Progress ee) @e
-	`compose` wrap @into @((f `T_TT_I` (Progress ee)) e)
+try :: forall f ee e .
+	Component Natural (->) (->) (f `T_TT_I` Progress ee) (f `J` Progress ee) =>
+	Castable Opposite (->) ((f `T_TT_I` Progress ee) e) =>
+	(->) (f (Progress ee e)) ((f `J` Progress ee) e)
+try = component @Straight @(->) @(->) @(f `T_TT_I` Progress ee) @(f `J` Progress ee) @e
+	`compose` wrap @(->) @((f `T_TT_I` (Progress ee)) e)
 
 type Horizontal = U_I_II (\/) Unit Unit
 
