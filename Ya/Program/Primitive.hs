@@ -91,7 +91,7 @@ pattern Statefully x <- U_I_II x
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
-	e -> Layered (Stateful e) t o -> t (e /\ o)
+	e -> J (Stateful e) t o -> t (e /\ o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap @(->)
 
 type Scenario = U_II_I Transition
@@ -153,34 +153,34 @@ type Tree = Construction
 type family Binary tree where
 	Binary Tree = Tree (U_I_I (/\) `T_TT_I` Optional)
 
-type family Layered known unknown where
-	Layered (U_I_II Arrow input) unknown =
+type family J known unknown where
+	J (U_I_II Arrow input) unknown =
 		T_TT_I (U_I_II Arrow input) unknown
-	Layered (U_I_II Transition state) unknown =
+	J (U_I_II Transition state) unknown =
 		T_TT_TTT_I (U_I_II Arrow state) unknown (U_I_II (/\) state)
 
 layer :: forall g f into e .
-	Component Natural Arrow into f (Layered f g) =>
-	into (f e) (Layered f g e)
-layer = component @Straight @Arrow @into @f @(Layered f g) @e
+	Component Natural Arrow into f (f `J` g) =>
+	into (f e) ((f `J` g) e)
+layer = component @Straight @Arrow @into @f @(f `J` g) @e
 
 embed :: forall f g into e .
-	Component Natural Arrow into g (Layered f g) =>
-	into (g e) (Layered f g e)
-embed = component @Straight @Arrow @into @g @(Layered f g) @e
+	Component Natural Arrow into g (f `J` g) =>
+	into (g e) ((f `J` g) e)
+embed = component @Straight @Arrow @into @g @(f `J` g) @e
 
 joint :: forall f g into e .
-	Component Natural Arrow into (f `T_TT_I` g) (Layered f g) =>
-	Castable Opposite into (T_TT_I f g e) =>
-	into (f (g e)) (Layered f g e)
-joint = component @Straight @Arrow @into @(f `T_TT_I` g) @(Layered f g) @e
+	Component Natural Arrow into (f `T_TT_I` g) (f `J` g) =>
+	Castable Opposite into ((f `T_TT_I` g) e) =>
+	into (f (g e)) ((f `J` g) e)
+joint = component @Straight @Arrow @into @(f `T_TT_I` g) @(f `J` g) @e
 	`compose` wrap @into @((f `T_TT_I` g) e)
 
 try :: forall f into ee e .
-	Component Natural Arrow into (f `T_TT_I` (Progress ee)) (Layered f (Progress ee)) =>
-	Castable Opposite into (T_TT_I f (Progress ee) e) =>
-	into (f (Progress ee e)) (Layered f (Progress ee) e)
-try = component @Straight @Arrow @into @(f `T_TT_I` Progress ee) @(Layered f (Progress ee)) @e
+	Component Natural Arrow into (f `T_TT_I` Progress ee) (f `J` Progress ee) =>
+	Castable Opposite into ((f `T_TT_I` Progress ee) e) =>
+	into (f (Progress ee e)) ((f `J` Progress ee) e)
+try = component @Straight @Arrow @into @(f `T_TT_I` Progress ee) @(f `J` Progress ee) @e
 	`compose` wrap @into @((f `T_TT_I` (Progress ee)) e)
 
 type Horizontal = U_I_II (\/) Unit Unit

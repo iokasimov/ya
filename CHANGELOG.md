@@ -132,7 +132,6 @@
 * Define `pp` operator
 * Define `yoklKL` operator
 * Define `Empty` patter synonym
-* Define `Layered` type family
 * Define `Progress` type alias
 * Define `Continue` patter synonym
 * Define `Interrupt` patter synonym
@@ -214,7 +213,7 @@
 * Define `u'u'u'u` operator
 * Define `u'u'u'u'u` operator
 * Define `u'u'u'u'u'u` operator
-* Define `u'u'u'u'u'u'u,` operator
+* Define `u'u'u'u'u'u'u` operator
 * Define `u'u'u'u'u'u'u'u` operator
 * Define `u'u'u'u'u'u'u'u'u` operator
 * Define `u'u'u'u'u'u'u'u'u'u` operator
@@ -228,3 +227,4 @@
 * Define `o'a` operator
 * Define `a'o` operator
 * Define `a'yokl` operator
+* Define `J` type family
