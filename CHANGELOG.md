@@ -231,3 +231,4 @@
 * Define `Optionally` pattern synonym
 * Define `rw` operator
 * Define `uw` operator
+* Define `yo_` operator

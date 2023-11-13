@@ -7,7 +7,7 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
-infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `fa_`, `w'uw`, `uw'w`
+infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `pp'fo`, `yo'o`, `uw'uw` -- , `yukl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`
@@ -70,6 +70,14 @@ yo :: forall from into t a o .
 	Castable Opposite into (U_I_II from a o) =>
 	t a -> into (from a o) (t o)
 yo x = yoneda @Straight @Functor x
+
+yo_ :: forall from into t e a o .
+	Precategory into =>
+	Covariant Yoneda Functor from into (This t e) =>
+	Castable Opposite into (Straight from a o) =>
+	Castable Straight into (This t e o) =>
+	t a e -> into (from a o) (t o e)
+yo_ x = compose uw (yoneda @Straight @Functor @from @into @(This t e) (wrap x))
 
 -- TODO: it's not finished, generalize!
 yu :: forall t a o .
