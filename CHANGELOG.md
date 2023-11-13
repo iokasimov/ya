@@ -229,3 +229,4 @@
 * Define `a'yokl` operator
 * Define `J` type family
 * Define `Optionally` pattern synonym
+* Define `rw` operator

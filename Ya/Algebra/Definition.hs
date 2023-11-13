@@ -247,11 +247,18 @@ empty :: forall t o .
 	t o
 empty = component @Straight @Arrow @(->) @(Straight (->) Void) @t (U_I_II absurd)
 
-rewrap :: forall into a o .
+rw :: forall o into a .
 	Precategory into =>
 	Castable Opposite into o => 
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
+rw f = wrap `compose` f `compose` unwrap
+
+rewrap :: forall o a .
+	Precategory (->) =>
+	Castable Opposite (->) o => 
+	Castable Straight (->) a =>
+	(Supertype a -> Supertype o) -> a -> o
 rewrap f = wrap `compose` f `compose` unwrap
 
 wrapped :: forall into a o .
