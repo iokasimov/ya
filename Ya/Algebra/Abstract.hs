@@ -254,7 +254,10 @@ instance Wrapper Arrow x
 	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
-unwrap :: Castable Straight into i => into i (Supertype i)
+uw :: Castable Straight into i => into i (Supertype i)
+uw = let U_I_II x = cast in x
+
+unwrap :: Castable Straight (->) i => i -> Supertype i
 unwrap = let U_I_II x = cast in x
 
 wrap :: Castable Opposite into i => into (Supertype i) i

@@ -19,7 +19,7 @@ instance
 	, Covariant Endo Semi Functor into tt
 	) => Mapping Straight Straight into into (T_TT_I I tt) (TT_T_I I tt)
 	where mapping = rw / \from -> rw /
-		semifunctor @Straight @into @into (wrap `compose` from) `compose` unwrap @into
+		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
 
 instance
 	( Covariant Semi Functor from into tt
@@ -30,7 +30,7 @@ instance
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
 			) from
-		`compose` unwrap @into
+		`compose` uw @into
 
 instance
 	( Covariant Semi Functor from into t
@@ -41,7 +41,7 @@ instance
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
 			) from
-		`compose` unwrap @into
+		`compose` uw @into
 
 instance
 	( Covariant Semi Functor from into t
@@ -53,11 +53,11 @@ instance
 	where mapping = rw / \from ->
 		wrap @into @(U_I_II _ _ _)
 		`compose` wrap @into @(U_I_T_II _ _ _ _)
-		`compose` unwrap @into @(U_I_II _ _ _)
+		`compose` uw @into @(U_I_II _ _ _)
 		`compose` semifunctor @Straight @into @into (semifunctor @Straight @from @into from)
 		`compose` wrap @into @(U_I_II _ _ _)
-		`compose` unwrap @into @(U_I_T_II _ _ _ _)
-		`compose` unwrap @into @(U_I_II _ _ _)
+		`compose` uw @into @(U_I_T_II _ _ _ _)
+		`compose` uw @into @(U_I_II _ _ _)
 
 instance
 	( forall ee . Covariant Semi Functor from into (U_II_I u ee)
@@ -68,11 +68,11 @@ instance
 	where mapping = rw / \from -> 
 		wrap @into @(U_II_I _ _ _)
 		`compose` wrap @into @(U_I_T_II _ _ _ _)
-		`compose` unwrap @into @(U_II_I _ _ _)
+		`compose` uw @into @(U_II_I _ _ _)
 		`compose` semifunctor @Straight @from @into from
 		`compose` wrap @into @(U_II_I _ _ _)
-		`compose` unwrap @into @(U_I_T_II _ _ _ _)
-		`compose` unwrap @into @(U_II_I _ _ _)
+		`compose` uw @into @(U_I_T_II _ _ _ _)
+		`compose` uw @into @(U_II_I _ _ _)
 
 instance
 	( Covariant Semi Functor from into h
@@ -85,7 +85,7 @@ instance
 			`compose` semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
 			) from
-		`compose` unwrap @into
+		`compose` uw @into
 
 instance Mapping Straight Straight Arrow Arrow (That (/\) e) (That (/\) e)
 	where mapping = rw / \from -> rw / \case
@@ -114,7 +114,7 @@ instance
 	where mapping = rw / \from -> rw /
 		monoidal @Straight @from @t @u @u
 			(semifunctor @Straight from `compose` wrap @from @(Both _ _)) identity
-		`compose` unwrap @Arrow @(U_I_I u _)
+		`compose` uw @Arrow @(U_I_I u _)
 
 instance
 	( Covariant Semi Functor Arrow Arrow t
@@ -129,7 +129,7 @@ instance
 		wrapped (component @Straight @Arrow @Arrow @(T_TT_I (U_I_I u) tt) @(TT_T_I (U_I_I u) tt)) `compose`
 		semifunctor @Straight @Arrow @Arrow @(U_I_I u)
 			(wrapped / map @Straight @Straight @Arrow @Arrow @(T_TT_I t tt) @(TT_T_I t tt) from) `compose`
-		unwrap @Arrow
+		uw @Arrow
 
 instance Covariant Yoneda Functor Arrow Arrow tt =>
 	Mapping Straight Straight Arrow Arrow (This (/\) e `T_TT_I` tt) (This (/\) e `TT_T_I` tt)
@@ -151,15 +151,15 @@ instance
 		wrap @into @(U_I_II _ _ _)
 		`compose` wrap @into @(W_I_I_II _ _ _)
 		`compose` wrap @into @(U_I_UU_II_III _ _ _ _ _)
-		`compose` unwrap @into @(U_I_II u _ _)
+		`compose` uw @into @(U_I_II u _ _)
 		`compose` semifunctor @Straight @into @into
-			(unwrap @into @(U_I_II uu _ _)
+			(uw @into @(U_I_II uu _ _)
 			`compose` semifunctor @Straight @from @into from
 			`compose` wrap @into @(U_I_II uu _ _))
 		`compose` wrap @into @(U_I_II u _ _)
-		`compose` unwrap @into @(U_I_UU_II_III _ _ _ _ _)
-		`compose` unwrap @into @(W_I_I_II _ _ _)
-		`compose` unwrap @into @(U_I_II _ _ _)
+		`compose` uw @into @(U_I_UU_II_III _ _ _ _ _)
+		`compose` uw @into @(W_I_I_II _ _ _)
+		`compose` uw @into @(U_I_II _ _ _)
 
 instance Mapping Straight Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Straight Arrow Arrow t i)
@@ -198,17 +198,17 @@ instance
 	where mapping = rw / \from ->
 		wrap @into @(R_U_I_T_I u t _)
 		`compose` wrap @into @(Recursive _)
-		`compose` unwrap @into @(U_II_I _ _ _)
+		`compose` uw @into @(U_II_I _ _ _)
 		`compose` semifunctor @Straight from
 		`compose` wrap @into @(U_II_I _ _ _)
-		`compose` unwrap @into @(U_I_II _ _ _)
+		`compose` uw @into @(U_I_II _ _ _)
 		`compose` semifunctor @Straight
-			(unwrap @from
+			(uw @from
 			`compose` semifunctor @Straight @from from
 			`compose` wrap @from @(R_U_I_T_I u t _))
 		`compose` wrap @into @(U_I_II _ _ _)
-		`compose` unwrap @into @(Recursive _)
-		`compose` unwrap @into @(R_U_I_T_I u t _)
+		`compose` uw @into @(Recursive _)
+		`compose` uw @into @(R_U_I_T_I u t _)
 
 instance Mapping Straight Straight Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
 	where mapping (U_I_II from) = U_I_II / \(U_I_II between) -> U_I_II (\x -> from (between x))
@@ -255,14 +255,14 @@ instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arr
 	(U_I_II (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	where mapping = rw / \into -> rw `compose` rw `compose` rw / \from origin ->
 		let These source source_origin = from origin in
-		let These target target_source = (unwrap `compose` unwrap) into source in
+		let These target target_source = (uw `compose` uw) into source in
 		These / target / source_origin `compose` target_source 
 
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
 	where mapping = rw / \from -> rw `compose` rw `compose` rw / \into origin ->
-		let These source source_origin = (unwrap `compose` unwrap) from origin in
+		let These source source_origin = (uw `compose` uw) from origin in
 		let These target target_source = into source in
 		These / target / source_origin `compose` target_source 
 

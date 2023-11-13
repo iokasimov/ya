@@ -41,7 +41,7 @@ instance Stack List where
 		Empty @List -> These `i` Empty @List `i` None
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
-		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` uw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
 instance Stack (Construction Optional) where
@@ -92,7 +92,7 @@ instance Covariant Endo Semi Functor (->) t
 	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct x old) -> These
 			(T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Construct x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new)
+			(\new -> Construct x / uw @Arrow @(R_U_I_T_I _ _ _) `fo` uw new)
 
 type family Ramification datastructure where
 	Ramification (Tree (U_I_I (/\) `T_TT_I` Optional)) = Unit \/ Unit
@@ -112,5 +112,5 @@ instance Brancheable (Tree (U_I_I (/\) `T_TT_I` Optional)) where
 				This _ -> T_TT_I @Optional (wrap @(->) `fo` lb)
 				That _ -> T_TT_I @Optional (wrap @(->) `fo` rb)
 			/ \new -> case p of
-				This _ -> Construct x (T_TT_I (U_I_I (These (unwrap @(->) `fo` unwrap new) rb)))
-				That _ -> Construct x (T_TT_I (U_I_I (These lb (unwrap @(->) `fo` unwrap new))))
+				This _ -> Construct x (T_TT_I (U_I_I (These (uw @(->) `fo` uw new) rb)))
+				That _ -> Construct x (T_TT_I (U_I_I (These lb (uw @(->) `fo` uw new))))
