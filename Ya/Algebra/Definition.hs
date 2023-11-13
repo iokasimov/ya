@@ -247,6 +247,9 @@ empty :: forall t o .
 	t o
 empty = component @Straight @Arrow @(->) @(Straight (->) Void) @t (U_I_II absurd)
 
+enter :: forall t . Monoidal Straight Functor Arrow (/\) (/\) t => t Unit
+enter = component @Straight @Arrow @(->) @(Straight (->) Unit) @t (U_I_II identity)
+
 rw :: forall o into a .
 	Precategory into =>
 	Castable Opposite into o => 
