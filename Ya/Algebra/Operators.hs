@@ -79,11 +79,14 @@ yo_ :: forall from into t e a o .
 	t a e -> into (from a o) (t o e)
 yo_ x = compose uw (yoneda @Straight @Functor @from @into @(This t e) (wrap x))
 
--- TODO: it's not finished, generalize!
-yu :: forall t a o .
-	Covariant Yoneda Functor Arrow Arrow t =>
-	t a -> o -> t o
-yu x r = yoneda @U_I_II @Functor x (\_ -> r)
+yu :: forall into t a o .
+	Covariant Yoneda Functor into into t =>
+	Covariant Endo Semi Functor (->) t =>
+	Castable Opposite into (into Unit o) =>
+	Castable Opposite into (U_I_II into Unit o) =>
+	t a -> into (Supertype (into Unit o)) (t o)
+yu x = yoneda @U_I_II @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit o)
 
 yo'o :: forall from into t tt a o .
 	Precategory into =>
