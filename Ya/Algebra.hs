@@ -4,13 +4,13 @@ module Ya.Algebra (module Exports) where
 
 import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
-import Ya.Algebra.Instances as Exports
+import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Operators as Exports
 
 instance
 	( Covariant Endo Semi Functor Arrow f
-	, Transformation Straight Functor Arrow Arrow (T_TT_I g g) g
-	, Transformation Straight Functor Arrow Arrow (T_TT_I f g) (TT_T_I f g)
+	, Transformation Straight Functor Arrow Arrow (g `T_TT_I` g) g
+	, Transformation Straight Functor Arrow Arrow (f `T_TT_I` g) (TT_T_I f g)
 	) => Mapping Straight Straight Arrow Arrow
 		(T_TT_I (f `T_TT_I` R_U_I_T_I (/\) f) g)
 		(TT_T_I (f `T_TT_I` R_U_I_T_I (/\) f) g)
@@ -151,13 +151,13 @@ instance
 	) => Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-		i ii)
+		i eee)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 	where mapping = rw / \from -> rw / \case
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
 			U_I_II / \old ->
-				x old `yokl` \(U_I_II (These btw i)) ->
-					from `a` f `a` These i `fo'fo`y btw
+				x old `yokl` \(U_I_II (These btw e)) ->
+					from `a` f `a` These e `fo'fo` y btw
 
 instance
 	Monoidal Straight Functor Arrow (/\) (/\) g =>
@@ -196,35 +196,35 @@ instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 		U_I_II (This e) -> point (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
 
-instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) I I i ii) I
+instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) I I e ee) I
 	where mapping = rw / \from -> rw / \case
-		These (These (I i) (I ii)) (U_I_II f) -> from (f (These i ii))
+		These (These (I e) (I ee)) (U_I_II f) -> from (f (These e ee))
 
 instance Mapping Straight Straight Arrow Arrow (Straight Arrow Unit) I
 	where mapping = rw / \from (U_I_II f) -> I (from (f Unit))
 
-instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
+instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) (U_I_II (\/) e) (U_I_II (\/) e) ee eee) (U_I_II (\/) e)
 	where mapping = rw / \from -> rw / \case
-		These (These (U_I_II (That i)) (U_I_II (That ii))) (U_I_II f) -> That (from (f (These i ii)))
+		These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) -> That (from (f (These ee eee)))
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
-instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) i ii) (U_I_II (\/) e)
+instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (\/) (U_I_II (\/) e) (U_I_II (\/) e) ee eee) (U_I_II (\/) e)
 	where mapping = rw / \from -> rw / \case
-		These (These (U_I_II (That i)) _) (U_I_II f) -> That (from (f (This i)))
-		These (These _ (U_I_II (That ii))) (U_I_II f) -> That (from (f (That ii)))
-		These (These _ (U_I_II (This ii))) (U_I_II _) -> This ii
+		These (These (U_I_II (That ee)) _) (U_I_II f) -> That (from (f (This ee)))
+		These (These _ (U_I_II (That eee))) (U_I_II f) -> That (from (f (That eee)))
+		These (These _ (U_I_II (This eee))) (U_I_II _) -> This eee
 
-instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
+instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) (U_II_I (\/) e) (U_II_I (\/) e) ee eee) (U_II_I (\/) e)
 	where mapping = rw / \from -> rw `i` \case
-		These (These (U_II_I (This i)) (U_II_I (This ii))) (U_I_II f) -> This (from (f (These i ii)))
-		These (These (U_II_I (That e)) _) (U_I_II f) -> That e
+		These (These (U_II_I (This ee)) (U_II_I (This eee))) (U_I_II f) -> This (from (f (These ee eee)))
+		These (These (U_II_I (That e)) _) _ -> That e
 
-instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) i ii) (U_II_I (\/) e)
+instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (\/) (U_II_I (\/) e) (U_II_I (\/) e) ee eee) (U_II_I (\/) e)
 	where mapping = rw / \from -> rw `i` \case
-		These (These (U_II_I (This i)) _) (U_I_II f) -> This (from (f (This i)))
-		These (These _ (U_II_I (This ii))) (U_I_II f) -> This (from (f (That ii)))
-		These (These _ (U_II_I (That ii))) (U_I_II f) -> That ii
+		These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
+		These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
+		These (These _ (U_II_I (That eee))) _ -> That eee
 
 instance Mapping Straight Straight Arrow Arrow (Straight Arrow Unit) (U_II_I (\/) e)
 	where mapping = rw / \from (U_I_II f) -> U_II_I (This (from (f Unit)))
@@ -233,10 +233,10 @@ instance Mapping Straight Straight Arrow Arrow (Straight Arrow Unit) (U_I_II (\/
 	where mapping = rw / \from (U_I_II f) -> U_I_II (That (from (f Unit)))
 
 instance Mapping Straight Straight Arrow Arrow (Straight Arrow Void) (U_I_II (\/) Unit)
-	where mapping = rw / \from _ -> U_I_II (This Unit)
+	where mapping = rw / \_ _ -> U_I_II (This Unit)
 
 instance Mapping Straight Straight Arrow Arrow (Straight Arrow Void) (U_II_I (\/) Unit)
-	where mapping = rw / \from _ -> U_II_I (That Unit)
+	where mapping = rw / \_ _ -> U_II_I (That Unit)
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor Arrow (/\) (/\) g =>

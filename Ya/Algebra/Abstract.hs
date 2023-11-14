@@ -72,10 +72,8 @@ type Arrow = (->)
 
 type Both = U_I_I
 
--- Rename to Straight?
 type Straight = U_I_II
 
--- Rename to Opposite?
 type Opposite = U_II_I
 
 type This = U_II_I

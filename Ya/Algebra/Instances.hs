@@ -162,14 +162,14 @@ instance
 		`compose` uw @into @(U_I_II _ _ _)
 
 instance Mapping Straight Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Straight Arrow Arrow t i)
-	(UU_V_U_I_II_T_II Straight Arrow Arrow t i)
+	(UU_V_U_I_II_T_II Straight Arrow Arrow t e)
+	(UU_V_U_I_II_T_II Straight Arrow Arrow t e)
 	where mapping = rw / \from -> rw (`compose` (rw (`compose` from)))
 
 instance Mapping Opposite Straight Arrow Arrow
-	(UU_V_U_I_II_T_II Opposite Arrow Arrow t i)
-	(UU_V_U_I_II_T_II Opposite Arrow Arrow t i)
-	where mapping = rw / \from -> rw (`compose` (rw (compose (from))))
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow t e)
+	(UU_V_U_I_II_T_II Opposite Arrow Arrow t e)
+	where mapping = rw / \from -> rw (`compose` (rw (compose from)))
 
 -- TODO: implement `mapping` method
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->)
@@ -256,7 +256,7 @@ instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arr
 	where mapping = rw / \into -> rw `compose` rw `compose` rw / \from origin ->
 		let These source source_origin = from origin in
 		let These target target_source = (uw `compose` uw) into source in
-		These / target / source_origin `compose` target_source 
+		These target (source_origin `compose` target_source)
 
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arrow
 	(U_II_I (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) origin)
@@ -264,7 +264,7 @@ instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) Arr
 	where mapping = rw / \from -> rw `compose` rw `compose` rw / \into origin ->
 		let These source source_origin = (uw `compose` uw) from origin in
 		let These target target_source = into source in
-		These / target / source_origin `compose` target_source 
+		These target (source_origin `compose` target_source)
 
 instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) where
 	identity = W_I_II_II `compose` U_I_UU_III_U_II_I / \x -> These x identity
@@ -275,8 +275,8 @@ instance Mapping Straight Straight
 	(This (/\) e) I
 	where mapping = rw `compose` rw `compose` rw /
 		\from (U_II_I (These old e)) -> These 
-			(I (wrapped (this @Straight @(->) identity) / from old))
-			(\(I new) -> U_II_I (These ((wrapped (that @Straight @(->) identity) / from old) new) e))
+			(I (wrapped (this @Straight @(->) identity) (from old)))
+			(\(I new) -> U_II_I (These ((wrapped (that @Straight @(->) identity) (from old)) new) e))
 
 instance Mapping Straight Straight
 	(W_I_II_II (U_I_UU_III_U_II_I (->) (/\)))
@@ -285,7 +285,7 @@ instance Mapping Straight Straight
 	where mapping = rw `compose` rw `compose` rw /
 		\from (U_I_II (These e old)) -> These 
 			/ I (wrapped (this @Straight @(->) identity) (from old))
-			/ \(I new) -> U_I_II (These e ((wrapped (that @Straight @(->) identity) / from old) new))
+			/ \(I new) -> U_I_II (These e ((wrapped (that @Straight @(->) identity) (from old)) new))
 
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) (->) I (Both (/\))
 	where mapping = rw /

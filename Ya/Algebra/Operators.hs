@@ -207,7 +207,8 @@ fa_ from = uw `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
 _fo'fo :: forall from into t tt e a o .
 	Covariant Semi Functor into into (U_I_II t e) =>
 	Covariant Semi Functor from into tt =>
-	(forall i . Wrapper into (U_I_II t e i)) =>
+	Wrapper into (U_I_II t e (tt a)) =>
+	Wrapper into (U_I_II t e (tt o)) =>
 	from a o -> into (t e (tt a)) (t e (tt o))
 _fo'fo from = _fo @into @into (fo @from @into from)
 
@@ -253,7 +254,7 @@ o'a :: forall from into u i o e b .
 	u o e -> from (into (u i e) b) (from (from i o) b)
 o'a = o @into @from `compose` a @from @from
 
-a'o :: forall from into u uu o e i a .
+a'o :: forall from into u o e i a .
 	Category from =>
 	Category into =>
 	Contravariant Yoneda Functor from into (U_II_I from (u i e)) =>
@@ -429,7 +430,7 @@ o'yokl :: forall from into t tt a o e .
 	t a -> into (into (t o) e) (into (from a (tt o)) e)
 o'yokl = o `compose` yokl @from @into @tt @t
 
-a'yokl :: forall from into u t tt a o e .
+a'yokl :: forall from into t tt a o e .
 	Covariant Functor (->) into tt =>
 	Covariant Functor (->) into t =>
 	Covariant Functor into into tt =>

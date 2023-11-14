@@ -6,9 +6,9 @@ import Ya.Algebra
 
 type Only = I
 
-pattern Only :: i -> Only i
-pattern Only i <- I i
-	where Only i = I i
+pattern Only :: e -> Only e
+pattern Only e <- I e
+	where Only e = I e
 
 type Boolean = U_I_II (\/) Unit Unit
 
@@ -68,7 +68,7 @@ adjust attr f s = let (These h x) = attr `uw'uw` s in x `i`f h
 
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (Construction t) (t `T_TT_I` Construction t) where
-	mapping = rewrap / \ from (Construct x xs) ->
+	mapping = rewrap / \ from (Construct _ xs) ->
 		(T_TT_I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
 
 type Transition = W_I_I_II (U_I_UU_II_III (->) (/\))
@@ -178,15 +178,15 @@ joint :: forall f g e .
 	Component Natural (->) (->) (f `T_TT_I` g) (f `J` g) =>
 	Castable Opposite (->) ((f `T_TT_I` g) e) =>
 	f (g e) -> (f `J` g) e
-joint = component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `J` g) @e
-	`compose` wrap @(->) @((f `T_TT_I` g) e)
+joint = wrap @(->) @((f `T_TT_I` g) e)
+	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `J` g) @e
 
 try :: forall f ee e .
 	Component Natural (->) (->) (f `T_TT_I` Progress ee) (f `J` Progress ee) =>
 	Castable Opposite (->) ((f `T_TT_I` Progress ee) e) =>
-	(->) (f (Progress ee e)) ((f `J` Progress ee) e)
-try = component @Straight @(->) @(->) @(f `T_TT_I` Progress ee) @(f `J` Progress ee) @e
-	`compose` wrap @(->) @((f `T_TT_I` (Progress ee)) e)
+	f (Progress ee e) -> (f `J` Progress ee) e
+try = wrap @(->) @((f `T_TT_I` Progress ee) e)
+	`o` component @Straight @(->) @(->) @(f `T_TT_I` Progress ee) @(f `J` Progress ee) @e
 
 type Horizontal = U_I_II (\/) Unit Unit
 

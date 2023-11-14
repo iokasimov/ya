@@ -46,12 +46,9 @@ instance Stack List where
 
 instance Stack (Construction Optional) where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		Nonempty @List (Yet x (Some xs)) ->
-			These `i` Nonempty @List xs `i` Some x
-		Nonempty @List (Yet x None) ->
-			These `i'i` Nonempty @List `i` Yet x None `i'i` None
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s ->
-		These `i` rewrap (Next x) s `i` x
+		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
+		Nonempty @List (Yet x None) -> These `i'i` Nonempty @List `i` Yet x None `i'i` None
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure where
 	Scrolling List = U_T_I_TT_I (/\) I (U_T_I_TT_I (/\) List List)
