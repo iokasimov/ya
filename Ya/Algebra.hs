@@ -8,6 +8,25 @@ import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Operators as Exports
 
 instance
+	( Covariant Endo Semi Functor (->) t
+	, Monoidal Straight Functor Arrow (/\) (/\) tt
+	) => Mapping Straight Straight (->) (->) t (t `T_TT_I` tt)
+	where mapping = rw / \from -> wrap @(->) @(T_TT_I _ _ _)
+		`compose` semifunctor @Straight @(->) @(->) (point `compose` from)
+
+instance
+	( Covariant Endo Semi Functor (->) tt
+	, Monoidal Straight Functor Arrow (/\) (/\) t
+	) => Mapping Straight Straight (->) (->) tt (t `T_TT_I` tt)
+	where mapping = rw / \from ->
+		wrap @(->) @(T_TT_I _ _ _) `compose` point @t
+			`compose` semifunctor @Straight @(->) @(->) from
+
+-- TODO: instance {-# OVERLAPS #-}
+	-- Mapping Straight Straight (->) (->) ttt tt =>
+	-- Mapping Straight Straight (->) (->) ttt (t `T_TT_I` tt)
+
+instance
 	( Covariant Endo Semi Functor Arrow f
 	, Transformation Straight Functor Arrow Arrow (g `T_TT_I` g) g
 	, Transformation Straight Functor Arrow Arrow (f `T_TT_I` g) (TT_T_I f g)
@@ -151,7 +170,7 @@ instance
 	) => Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-		i eee)
+		ee eee)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 	where mapping = rw / \from -> rw / \case
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
