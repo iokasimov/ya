@@ -129,7 +129,7 @@ deriving instance
 type family Representation t where
 	Representation I = Unit
 	Representation (U_I_II Arrow a) = a
-	Representation (T_TT_I t tt) =
+	Representation (T'TT'I t tt) =
 		Representation t /\ Representation tt
 	Representation (T_TT_TTT_I t tt ttt) =
 		Representation t /\ Representation tt /\ Representation ttt
@@ -201,15 +201,15 @@ type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
 class 
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T_TT_I t tt) I
-	, Transformation Straight x from into I (T_TT_I tt t)
+	, Transformation Straight x into from (T'TT'I t tt) I
+	, Transformation Straight x from into I (T'TT'I tt t)
 	) => Adjoint x from into t tt
 
 deriving instance
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T_TT_I t tt) I
-	, Transformation Straight x from into I (T_TT_I tt t)
+	, Transformation Straight x into from (T'TT'I t tt) I
+	, Transformation Straight x from into I (T'TT'I tt t)
 	) => Adjoint x from into t tt
 
 class

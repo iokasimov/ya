@@ -15,7 +15,7 @@ newtype I i = I i
 
 newtype Recursive f = Recursive (f (Recursive f))
 
-newtype T_TT_I t tt i = T_TT_I (t (tt i))
+newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
 newtype TT_T_I t tt i = TT_T_I (tt (t i))
 
@@ -89,7 +89,7 @@ type family Flip v where
 type family Supertype e where
 	Supertype (I i) = i
 	Supertype (Recursive f) = f (Recursive f)
-	Supertype (T_TT_I t tt i) = t (tt i)
+	Supertype (T'TT'I t tt i) = t (tt i)
 	Supertype (TT_T_I t tt i) = tt (t i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
@@ -154,11 +154,11 @@ instance Castable Straight Arrow (U_II_I u i ii)
 instance Castable Opposite Arrow (U_II_I u i ii)
 	where cast = U_II_I U_II_I
 
-instance Castable Straight Arrow (T_TT_I f g i)
-	where cast = U_I_II (\(T_TT_I x) -> x)
+instance Castable Straight Arrow (T'TT'I f g i)
+	where cast = U_I_II (\(T'TT'I x) -> x)
 
-instance Castable Opposite Arrow (T_TT_I f g i)
-	where cast = U_II_I T_TT_I
+instance Castable Opposite Arrow (T'TT'I f g i)
+	where cast = U_II_I T'TT'I
 
 instance Castable Straight Arrow (TT_T_I f g i)
 	where cast = U_I_II (\(TT_T_I x) -> x)
