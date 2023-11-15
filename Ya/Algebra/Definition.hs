@@ -236,13 +236,12 @@ monoidal from t x = map @v @Straight @from @(->)
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-empty :: forall t o .
-	Monoidal Straight Functor Arrow (/\) (\/) t =>
-	t o
-empty = component @Straight @Arrow @(->) @(Straight (->) Void) @t (U_I_II absurd)
+empty :: forall t . Monoidal Straight Functor (->) (/\) (\/) t => t Void
+empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
 
-enter :: forall t . Monoidal Straight Functor Arrow (/\) (/\) t => t Unit
-enter = component @Straight @Arrow @(->) @(Straight (->) Unit) @t (U_I_II identity)
+-- TODO: generalize so I can use Attribute here
+enter :: forall t . Monoidal Straight Functor (->) (/\) (/\) t => t Unit
+enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
 
 rw :: forall o into a .
 	Precategory into =>
