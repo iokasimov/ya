@@ -236,12 +236,6 @@ monoidal from t x = map @v @Straight @from @(->)
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-point :: forall t o .
-	Monoidal Straight Functor Arrow (/\) (/\) t =>
-	o -> t o
-point x = component @Straight @Arrow @(->) @(Straight (->) Unit) @t (U_I_II (\_ -> x))
-
--- TODO: generalize
 empty :: forall t o .
 	Monoidal Straight Functor Arrow (/\) (\/) t =>
 	t o

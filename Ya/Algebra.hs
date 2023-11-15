@@ -12,14 +12,14 @@ instance
 	, Monoidal Straight Functor Arrow (/\) (/\) tt
 	) => Mapping Straight Straight (->) (->) t (t `T_TT_I` tt)
 	where mapping = rw / \from -> wrap @(->) @(T_TT_I _ _ _)
-		`compose` semifunctor @Straight @(->) @(->) (point `compose` from)
+		`compose` semifunctor @Straight @(->) @(->) (yu enter `compose` from)
 
 instance
 	( Covariant Endo Semi Functor (->) tt
 	, Monoidal Straight Functor Arrow (/\) (/\) t
 	) => Mapping Straight Straight (->) (->) tt (t `T_TT_I` tt)
 	where mapping = rw / \from ->
-		wrap @(->) @(T_TT_I _ _ _) `compose` point @t
+		wrap @(->) @(T_TT_I _ _ _) `compose` yu enter
 			`compose` semifunctor @Straight @(->) @(->) from
 
 -- TODO: instance {-# OVERLAPS #-}
@@ -110,7 +110,7 @@ instance Covariant Monoidal Functor Arrow (/\) (/\) u
 	where mapping = rw / \from (U_I_II (W_I_I_II (U_I_UU_II_III x))) -> 
 		wrap @Arrow @(T_TT_TTT_I _ _ _ _)
 		`compose` wrap @Arrow @(U_I_II _ _ _)
-		`identity` (point
+		`identity` (yu enter
 			`compose` semifunctor @Straight from
 			`compose` wrap @Arrow @(U_I_II _ _ _)
 			`compose` x)
@@ -143,7 +143,7 @@ instance
 	where mapping = rw / \from (T_TT_I (T_TT_TTT_I (U_I_II x))) -> 
 		wrap @Arrow @(T_TT_TTT_I _ _ _ _) `compose` wrap @Arrow @(U_I_II _ _ _)
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
-			-> point @g / U_I_II (f btw) `yo`from
+			-> yu (enter @g) / U_I_II (f btw) `yo` from
 
 instance
 	( Covariant Endo Semi Functor (->) t
@@ -183,7 +183,7 @@ instance
 	Mapping Straight Straight Arrow Arrow (U_I_II Arrow Unit)
 		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
 	where mapping = rw / \from (U_I_II f) -> T_TT_TTT_I `compose` U_I_II
-		/ \old -> point `compose` U_I_II `compose` These old `compose` from `i'i` f Unit
+		/ \old -> yu enter `compose` U_I_II `compose` These old `compose` from `i'i` f Unit
 
 instance
 	( Covariant Semi Functor from Arrow f
@@ -212,7 +212,7 @@ instance Mapping Straight Straight Arrow Arrow (U_I_II (\/) e `T_TT_I` U_I_II (\
 instance Covariant Monoidal Functor Arrow (/\) (/\) f =>
 	Mapping Straight Straight Arrow Arrow (U_I_II (\/) e `T_TT_I` f) (U_I_II (\/) e `TT_T_I` f)
 	where mapping = rw / \from -> rw / \case
-		U_I_II (This e) -> point (U_I_II `i` This e)
+		U_I_II (This e) -> yu enter (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
 
 instance Mapping Straight Straight Arrow Arrow (Day Straight Arrow (/\) (/\) I I e ee) I
