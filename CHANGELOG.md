@@ -234,3 +234,4 @@
 * Define `yo_` operator
 * Define `enter` expression
 * Define `yu_` operator
+* Define `Provided` type alias

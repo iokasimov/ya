@@ -20,6 +20,8 @@ pattern True :: Boolean
 pattern True <- U_I_II (That Unit)
 	where True = U_I_II (That Unit)
 
+type Provided = U_I_II (->)
+
 type Optional = U_I_II (\/) Unit
 
 pattern Some :: e -> Optional e
@@ -161,7 +163,7 @@ type family Binary tree where
 type family J known unknown where
 	J (Straight Arrow input) unknown = Straight Arrow input `T_TT_I` unknown
 	J (Straight Transition state) unknown = T_TT_TTT_I (Straight Arrow state) unknown (Straight (/\) state)
-	-- TODO: is there a loop if we cannot find such an instance?
+	-- TODO: should there be a loop if we cannot find such an instance?
 	-- J unknown known = J known unknown
 
 layer :: forall g f e .

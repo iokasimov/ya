@@ -238,7 +238,6 @@ a :: forall into from u e a o .
 a x = uw `compose` ya @from @into @(U_II_I u _) (U_II_I x)
 
 a'a :: forall from into u i o e b .
-	Precategory from =>
 	Precategory into =>
 	Contravariant Yoneda Functor from from (U_II_I u e) =>
 	Contravariant Yoneda Functor from into (U_II_I from (u b e)) =>
@@ -250,10 +249,6 @@ a'a :: forall from into u i o e b .
 a'a = a @into @from `compose` a @from @from
 
 o'a :: forall from into u i o e b .
-	Precategory from =>
-	Precategory into =>
-	Category from =>
-	Category into =>
 	Contravariant Yoneda Functor from from (U_II_I u e) =>
 	Covariant Yoneda Functor into from (U_I_II from (from i o)) =>
 	Castable Opposite from (U_I_II into (u i e) b) =>
@@ -264,7 +259,6 @@ o'a :: forall from into u i o e b .
 o'a = o @into @from `compose` a @from @from
 
 a'o :: forall from into u o e i a .
-	Category from =>
 	Category into =>
 	Contravariant Yoneda Functor from into (U_II_I from (u i e)) =>
 	Covariant Yoneda Functor from from (U_I_II u i) =>

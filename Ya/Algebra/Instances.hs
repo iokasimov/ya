@@ -10,7 +10,7 @@ instance
 	( Precategory into
 	, forall e . Wrapper into (I e)
 	) => Mapping Straight Straight into into I I
-	where mapping = rw / \from -> rw from
+	where mapping = rw rw
 
 instance
 	( forall e . Wrapper into (I e)
@@ -87,20 +87,20 @@ instance
 			) from
 		`compose` uw @into
 
-instance Mapping Straight Straight Arrow Arrow (That (/\) e) (That (/\) e)
+instance Mapping Straight Straight Arrow Arrow (That (/\) o) (That (/\) o)
 	where mapping = rw / \from -> rw / \case
 		These e x -> These e (from x)
 
-instance Mapping Straight Straight Arrow Arrow (This (/\) e) (This (/\) e)
+instance Mapping Straight Straight Arrow Arrow (This (/\) o) (This (/\) o)
 	where mapping = rw / \from -> rw / \case
 		These x e -> These (from x) e
 
-instance Mapping Straight Straight Arrow Arrow (That (\/) e) (That (\/) e)
+instance Mapping Straight Straight Arrow Arrow (That (\/) o) (That (\/) o)
 	where mapping = rw / \from -> rw / \case
 		That x -> That (from x)
 		This e -> This e
 
-instance Mapping Straight Straight Arrow Arrow (This (\/) e) (This (\/) e)
+instance Mapping Straight Straight Arrow Arrow (This (\/) o) (This (\/) o)
 	where mapping = rw / \from -> rw / \case
 		This x -> This (from x)
 		That e -> That e
@@ -210,10 +210,10 @@ instance
 		`compose` uw @into @(Recursive _)
 		`compose` uw @into @(R_U_I_T_I u t _)
 
-instance Mapping Straight Straight Arrow Arrow (U_I_II Arrow s) (U_I_II Arrow s)
+instance Mapping Straight Straight Arrow Arrow (Straight Arrow a) (Straight Arrow a)
 	where mapping (U_I_II from) = U_I_II / \(U_I_II between) -> U_I_II (\x -> from (between x))
 
-instance Mapping Opposite Straight Arrow Arrow (U_II_I Arrow t) (U_II_I Arrow t)
+instance Mapping Opposite Straight Arrow Arrow (Opposite Arrow o) (Opposite Arrow o)
 	where mapping (U_II_I from) = U_I_II / \(U_II_I between) -> U_II_I (\x -> between (from x))
 
 instance Category Arrow where
