@@ -12,14 +12,14 @@ instance
 	) => Mapping Straight Straight into into I I
 	where mapping = rw rw
 
-instance
-	( forall e . Wrapper into (I e)
-	, forall e . Wrapper into (TT_T_I I tt e)
-	, forall e . Wrapper into (T'TT'I I tt e)
-	, Covariant Endo Semi Functor into tt
-	) => Mapping Straight Straight into into (T'TT'I I tt) (TT_T_I I tt)
-	where mapping = rw / \from -> rw /
-		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
+-- instance
+-- 	( forall e . Wrapper into (I e)
+-- 	, forall e . Wrapper into (TT_T_I I tt e)
+-- 	, forall e . Wrapper into (T'TT'I I tt e)
+-- 	, Covariant Endo Semi Functor into tt
+-- 	) => Mapping Straight Straight into into (T'TT'I I tt) (TT_T_I I tt)
+-- 	where mapping = rw / \from -> rw /
+-- 		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
 
 instance
 	( Covariant Semi Functor from into tt

@@ -7,45 +7,38 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Operators as Exports
 
--- instance
--- 	( Covariant Endo Semi Functor (->) t
--- 	, Monoidal Straight Functor (->) (/\) (/\) tt
--- 	) => Mapping Straight Straight (->) (->) t (t `T'TT'I` tt)
--- 	where mapping = rw / \from -> wrap @(->) @(T'TT'I _ _ _)
--- 		`compose` semifunctor @Straight @(->) @(->) (yu enter `compose` from)
-
--- instance
--- 	( Covariant Endo Semi Functor (->) tt
--- 	, Monoidal Straight Functor (->) (/\) (/\) t
--- 	) => Mapping Straight Straight (->) (->) tt (t `T'TT'I` tt)
--- 	where mapping = rw / \from ->
--- 		wrap @(->) @(T'TT'I _ _ _) `compose` yu enter
--- 			`compose` semifunctor @Straight @(->) @(->) from
-
--- instance {-# OVERLAPS #-}
--- 	Mapping Straight Straight (->) (->) ttt tt =>
--- 	Mapping Straight Straight (->) (->) ttt (t `T'TT'I` tt)
+instance
+	( Covariant Endo Semi Functor (->) t
+	, Monoidal Straight Functor (->) (/\) (/\) tt
+	) => Mapping Straight Straight (->) (->) t (t `T'TT'I` tt)
+	where mapping = rw / \from -> wrap `compose` semifunctor @Straight @(->) @(->) (yu enter `compose` from)
 
 instance
-	( Covariant Endo Semi Functor (->) f
-	, Transformation Straight Functor (->) (->) (g `T'TT'I` g) g
-	, Transformation Straight Functor (->) (->) (f `T'TT'I` g) (TT_T_I f g)
+	( Covariant Endo Semi Functor (->) tt
+	, Monoidal Straight Functor (->) (/\) (/\) t
+	) => Mapping Straight Straight (->) (->) tt (t `T'TT'I` tt)
+	where mapping = rw / \from -> wrap `compose` yu enter `compose` semifunctor @Straight @(->) @(->) from
+
+instance
+	( Covariant Endo Semi Functor (->) t
+	, Covariant Transformation Functor (->) (->) (tt `T'TT'I` tt) tt
+	, Covariant Transformation Functor (->) (->) (t `T'TT'I` tt) (t `TT_T_I` tt)
 	) => Mapping Straight Straight (->) (->)
-		(T'TT'I (f `T'TT'I` R_U_I_T_I (/\) f) g)
-		(TT_T_I (f `T'TT'I` R_U_I_T_I (/\) f) g)
+		(T'TT'I (t `T'TT'I` R_U_I_T_I (/\) t) tt)
+		(TT_T_I (t `T'TT'I` R_U_I_T_I (/\) t) tt)
 	where mapping = rw / \from -> rw / \(T'TT'I x) ->
-		(wrapped (component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `TT_T_I` g))
+		(wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT_T_I` tt))
 			/ x `yo` wrapped (map @Straight @Straight @(->) @(->)
-				@(R_U_I_T_I (/\) f `T'TT'I` g)
-				@(R_U_I_T_I (/\) f `TT_T_I` g) from)
+				@(R_U_I_T_I (/\) t `T'TT'I` tt)
+				@(R_U_I_T_I (/\) t `TT_T_I` tt) from)
 			) `yo` wrap @(->) @(T'TT'I _ _ _)
 
 -- TODO: I need to reduce transformations here
 instance
-	( Covariant Endo Semi Functor (->) f
-	, Transformation Straight Functor (->) (->) (T'TT'I g g) g
-	, Transformation Straight Functor (->) (->) (T'TT'I f g) (TT_T_I f g)
-	) => Mapping Straight Straight (->) (->) (R_U_I_T_I (/\) f `T'TT'I` g) (R_U_I_T_I (/\) f `TT_T_I` g) 
+	( Covariant Endo Semi Functor (->) t
+	, Transformation Straight Functor (->) (->) (T'TT'I tt tt) tt
+	, Transformation Straight Functor (->) (->) (T'TT'I t tt) (TT_T_I t tt)
+	) => Mapping Straight Straight (->) (->) (R_U_I_T_I (/\) t `T'TT'I` tt) (R_U_I_T_I (/\) t `TT_T_I` tt) 
 	where mapping = rw / \from -> rw `i`
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 			component @Straight @(->) @(->) @(T'TT'I _ _)
@@ -59,21 +52,21 @@ instance
 				`fo` (uw @(->)
 					`fo'fo` uw @(->)
 						`compose` component @Straight @(->) @(->)
-							@(f `T'TT'I` g) @(f `TT_T_I` g)
+							@(t `T'TT'I` tt) @(t `TT_T_I` tt)
 						`compose` wrap @(->) @(T'TT'I _ _ _)
 						`i'i'i` uw @(->) @(TT_T_I _ _ _)
 							`compose` map @Straight @Straight @(->) @(->)
-								@(R_U_I_T_I (/\) f `T'TT'I` g)
-								@(R_U_I_T_I (/\) f `TT_T_I` g) from
+								@(R_U_I_T_I (/\) t `T'TT'I` tt)
+								@(R_U_I_T_I (/\) t `TT_T_I` tt) from
 							`compose` wrap @(->) @(T'TT'I _ _ _)
 							`compose` wrap @(->) @(R_U_I_T_I _ _ _) 
 						`fo` xs
 				)
 
-instance Mapping Straight Straight (->) (->) (T'TT'I (U_I_II (/\) e) (U_I_II (->) e)) I
+instance Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` U_I_II (->) e) I
 	where mapping = rw / \from -> rw / \(U_I_II (These e (U_I_II f))) -> from `i` f e
 
-instance Mapping Straight Straight (->) (->) I (T'TT'I (U_I_II (->) e) (U_I_II (/\) e))
+instance Mapping Straight Straight (->) (->) I (U_I_II (->) e `T'TT'I` U_I_II (/\) e)
 	where mapping = rw / \from -> rw / \x -> U_I_II `i` \e -> U_I_II `i` These e (from x)
 
 -- TODO: generalize this instance
@@ -117,14 +110,14 @@ instance Covariant Monoidal Functor (->) (/\) (/\) u
 
 -- TODO: try to use adjunctions here
 instance
-	( Covariant Endo Semi Functor (->) g
-	, Transformation Natural Functor (->) (->) (T'TT'I g g) g
+	( Covariant Endo Semi Functor (->) tt
+	, Transformation Natural Functor (->) (->) (T'TT'I tt tt) tt
 	) => Mapping Straight Straight (->) (->)
 	(T'TT'I
-		(T_TT_TTT_I (U_I_II (->) old) g (U_I_II (/\) btw))
-		(T_TT_TTT_I (U_I_II (->) btw) g (U_I_II (/\) new))
+		(T_TT_TTT_I (U_I_II (->) old) tt (U_I_II (/\) btw))
+		(T_TT_TTT_I (U_I_II (->) btw) tt (U_I_II (/\) new))
 	)
-	(T_TT_TTT_I (U_I_II (->) old) g (U_I_II (/\) new))
+	(T_TT_TTT_I (U_I_II (->) old) tt (U_I_II (/\) new))
 	where mapping = rw / \from (T'TT'I (T_TT_TTT_I (U_I_II x))) -> 
 		wrap @(->) @(T_TT_TTT_I _ _ _ _) `compose` wrap @(->) @(U_I_II _ _ _)
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (T_TT_TTT_I (U_I_II f))))
@@ -132,18 +125,18 @@ instance
 
 -- TODO: try to use adjunctions here
 instance
-	( Covariant Monoidal Functor (->) (/\) (/\) g
-	, Transformation Natural Functor (->) (->) (T'TT'I g g) g
+	( Covariant Monoidal Functor (->) (/\) (/\) tt
+	, Transformation Natural Functor (->) (->) (T'TT'I tt tt) tt
 	) => Mapping Straight Straight (->) (->)
 	(T'TT'I
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) tt (U_I_II (/\) e))
 		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e)
 	)
-	(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+	(T_TT_TTT_I (U_I_II (->) e) tt (U_I_II (/\) e))
 	where mapping = rw / \from (T'TT'I (T_TT_TTT_I (U_I_II x))) -> 
 		wrap @(->) @(T_TT_TTT_I _ _ _ _) `compose` wrap @(->) @(U_I_II _ _ _)
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (U_I_II (W_I_I_II (U_I_UU_II_III f)))))
-			-> yu (enter @g) / U_I_II (f btw) `yo` from
+			-> yu (enter @tt) / U_I_II (f btw) `yo` from
 
 instance
 	( Covariant Endo Semi Functor (->) t
@@ -155,23 +148,23 @@ instance
 		component @Straight @(->) @(->) @(t `T'TT'I` t) @t
 			(T'TT'I (f old `yo` (\(U_I_II (These x y)) -> y `yo` U_I_II `a` These x `a` from)))
 
-instance Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` g) (U_I_II (/\) e `TT_T_I` g) =>
+instance Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` tt) (U_I_II (/\) e `TT_T_I` tt) =>
 	Mapping Straight Straight (->) (->)
-		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e `T'TT'I` g)
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(U_I_II (W_I_I_II (U_I_UU_II_III (->) (/\))) e `T'TT'I` tt)
+		(T_TT_TTT_I (U_I_II (->) e) tt (U_I_II (/\) e))
 	where mapping = rw / \from (T'TT'I (U_I_II (W_I_I_II (U_I_UU_II_III x)))) -> 
 		T_TT_TTT_I `compose` U_I_II / \old -> wrapped @(->)
-			`i` map @Straight @Straight @(->) @(->) @(U_I_II (/\) e `T'TT'I` g) @(U_I_II (/\) e `TT_T_I` g) from
+			`i` map @Straight @Straight @(->) @(->) @(U_I_II (/\) e `T'TT'I` tt) @(U_I_II (/\) e `TT_T_I` tt) from
 			`i'i` U_I_II (x old)
 
 instance 
-	( Component Natural (->) (->) (T'TT'I g g) g
-	, Covariant Yoneda Functor (->) (->) g
+	( Component Natural (->) (->) (T'TT'I t t) t
+	, Covariant Yoneda Functor (->) (->) t
 	) => Mapping Straight Straight (->) (->) (Day Straight (->) (/\) (/\)
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
 		ee eee)
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
 	where mapping = rw / \from -> rw / \case
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
 			U_I_II / \old ->
@@ -179,28 +172,28 @@ instance
 					from `a` f `a` These e `fo'fo` y btw
 
 instance
-	Monoidal Straight Functor (->) (/\) (/\) g =>
+	Monoidal Straight Functor (->) (/\) (/\) tt =>
 	Mapping Straight Straight (->) (->) (U_I_II (->) Unit)
-		(T_TT_TTT_I (U_I_II (->) e) g (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) tt (U_I_II (/\) e))
 	where mapping = rw / \from (U_I_II f) -> T_TT_TTT_I `compose` U_I_II
 		/ \old -> yu enter `compose` U_I_II `compose` These old `compose` from `i'i` f Unit
 
 instance
-	( Covariant Semi Functor from (->) f
+	( Covariant Semi Functor from (->) t
 	, forall e . Covariant Semi Functor into (->) (U_I_II from e)
-	) => Mapping Straight Straight from (->) f (UU_V_U_I_II_T_II Straight into (->) f r)
+	) => Mapping Straight Straight from (->) t (UU_V_U_I_II_T_II Straight into (->) t r)
 	where mapping = rw / \from x -> UU_V_U_I_II_T_II (\(U_I_II e) -> e `_fo` from `fo'fi` x)
 
 instance
-	( Covariant Endo Semi Functor (->) f
+	( Covariant Endo Semi Functor (->) t
 	, forall e . Covariant Endo Semi Functor (->) (U_I_II (->) e)
-	) => Mapping Constant Straight (->) (->) f (UU_V_U_I_II_T_II Constant (->) (->) f r)
+	) => Mapping Constant Straight (->) (->) t (UU_V_U_I_II_T_II Constant (->) (->) t r)
 	where mapping = rw / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo'fi` x)
 
 instance
-	( Contravariant Semi Functor from (->) f
+	( Contravariant Semi Functor from (->) t
 	, forall e . Contravariant Semi Functor into (->) (U_II_I from e)
-	) => Mapping Opposite Straight from (->) f (UU_V_U_I_II_T_II Opposite into (->) f r)
+	) => Mapping Opposite Straight from (->) t (UU_V_U_I_II_T_II Opposite into (->) t r)
 	where mapping = rw / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
 instance Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` U_I_II (\/) e) (U_I_II (\/) e)
@@ -209,8 +202,8 @@ instance Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` U_I_II (\/)
 		T'TT'I (U_I_II (That (U_I_II (This e)))) -> U_I_II (This e)
 		T'TT'I (U_I_II (This e)) -> U_I_II (This e)
 
-instance Covariant Monoidal Functor (->) (/\) (/\) f =>
-	Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` f) (U_I_II (\/) e `TT_T_I` f)
+instance Covariant Monoidal Functor (->) (/\) (/\) t =>
+	Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` t) (U_I_II (\/) e `TT_T_I` t)
 	where mapping = rw / \from -> rw / \case
 		U_I_II (This e) -> yu enter (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
@@ -258,12 +251,12 @@ instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_II_I (\/) U
 	where mapping = rw / \_ _ -> U_II_I (That Unit)
 
 -- TODO: generalize with limits
-instance Covariant Monoidal Functor (->) (/\) (/\) g =>
-	Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` g) (U_I_II (/\) e `TT_T_I` g)
+instance Covariant Monoidal Functor (->) (/\) (/\) t =>
+	Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` t) (U_I_II (/\) e `TT_T_I` t)
 	where mapping = rw / \from -> rw / \case
 		U_I_II (These e x) -> x `yo` from `o` These e `o` U_I_II
 
-instance Covariant Endo Semi Functor (->) g =>
-	Mapping Straight Straight (->) (->) (g `T'TT'I` U_I_II (->) e) (g `TT_T_I` U_I_II (->) e)
+instance Covariant Endo Semi Functor (->) t =>
+	Mapping Straight Straight (->) (->) (t `T'TT'I` U_I_II (->) e) (t `TT_T_I` U_I_II (->) e)
 	where mapping = rw / \from -> rw / \x ->
-		U_I_II / \e -> x `yo`(from `compose` (`i` e) `compose` uw)
+		U_I_II / \e -> x `yo` (from `compose` (`i` e) `compose` uw)
