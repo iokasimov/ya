@@ -233,3 +233,4 @@
 * Define `uw` operator
 * Define `yo_` operator
 * Define `enter` expression
+* Define `yu_` operator
