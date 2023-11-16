@@ -188,12 +188,14 @@ joint :: forall f g e .
 joint = wrap @(->) @((f `T'TT'I` g) e)
 	`o` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `J` g) @e
 
-try :: forall f ee e .
-	Component Natural (->) (->) (f `T'TT'I` Progress ee) (f `J` Progress ee) =>
-	Castable Opposite (->) ((f `T'TT'I` Progress ee) e) =>
-	f (Progress ee e) -> (f `J` Progress ee) e
-try = wrap @(->) @((f `T'TT'I` Progress ee) e)
-	`o` component @Straight @(->) @(->) @(f `T'TT'I` Progress ee) @(f `J` Progress ee) @e
+try :: forall t e ee o .
+	Covariant Endo Semi Functor (->) t =>
+	Component Natural (->) (->) (t `T'TT'I` Progress ee) (t `J` Progress ee) =>
+	Castable Opposite (->) ((t `T'TT'I` Progress ee) ee) =>
+	(e -> ee) -> t (Progress e o) -> (t `J` Progress ee) o
+try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
+	`o` wrap @(->) @((t `T'TT'I` Progress ee) _)
+	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
 
 type Horizontal = U_I_II (\/) Unit Unit
 
