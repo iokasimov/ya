@@ -24,6 +24,9 @@ pattern True <- U_I_II (That Unit)
 
 type Provided = U_I_II (->)
 
+provide :: Straight (->) e e
+provide = U_I_II identity
+
 type Optional = U_I_II (\/) Unit
 
 pattern Some :: e -> Optional e
