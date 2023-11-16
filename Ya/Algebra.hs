@@ -157,24 +157,14 @@ instance Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` tt) (U_I_II
 			`i` map @Straight @Straight @(->) @(->) @(U_I_II (/\) e `T'TT'I` tt) @(U_I_II (/\) e `TT_T_I` tt) from
 			`i'i` U_I_II (x old)
 
-instance 
-	( Component Natural (->) (->) (T'TT'I t t) t
-	, Covariant Yoneda Functor (->) (->) t
-	) => Mapping Straight Straight (->) (->) (Day Straight (->) (/\) (/\)
-		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
-		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
-		ee eee)
-		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
-	where mapping = rw / \from -> rw / \case
-		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
-			U_I_II / \old ->
-				x old `yokl` \(U_I_II (These btw e)) ->
-					from `a` f `a` These e `fo'fo` y btw
+instance
+	Monoidal Straight Functor (->) (/\) (/\) t =>
+	Mapping Straight Straight (->) (->) (That (->) Unit) (That (->) e `T'TT'I` t)
+	where mapping = rw / \from -> rw / \f -> U_I_II / \_ -> yu enter `compose` from `i` f Unit
 
 instance
-	Monoidal Straight Functor (->) (/\) (/\) tt =>
-	Mapping Straight Straight (->) (->) (U_I_II (->) Unit)
-		(T_TT_TTT_I (U_I_II (->) e) tt (U_I_II (/\) e))
+	Monoidal Straight Functor (->) (/\) (/\) t =>
+	Mapping Straight Straight (->) (->) (That (->) Unit) (T_TT_TTT_I (That (->) e) t (That (/\) e))
 	where mapping = rw / \from (U_I_II f) -> T_TT_TTT_I `compose` U_I_II
 		/ \old -> yu enter `compose` U_I_II `compose` These old `compose` from `i'i` f Unit
 
@@ -237,6 +227,30 @@ instance Mapping Straight Straight (->) (->) (Day Straight (->) (/\) (\/) (U_II_
 		These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
 		These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
 		These (These _ (U_II_I (That eee))) _ -> That eee
+
+instance
+	( Component Natural (->) (->) (T'TT'I t t) t
+	, Covariant Yoneda Functor (->) (->) t
+	) => Mapping Straight Straight (->) (->) (Day Straight (->) (/\) (/\)
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
+		ee eee)
+		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
+	where mapping = rw / \from -> rw / \case
+		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
+			U_I_II / \old ->
+				x old `yokl` \(U_I_II (These btw e)) ->
+					from `a` f `a` These e `fo'fo` y btw
+
+instance
+	( Component Natural (->) (->) (T'TT'I t t) t
+	, Monoidal Straight Functor (->) (/\) (/\) t
+	) => Mapping Straight Straight (->) (->)
+		(Day Straight (->) (/\) (/\) (T'TT'I (That (->) e) t) (T'TT'I (That (->) e) t) ee eee)
+		(T'TT'I (That (->) e) t)
+	where mapping = rw / \from -> rw / \case
+		These (These (T'TT'I (U_I_II f)) (T'TT'I (U_I_II g))) (U_I_II h) -> U_I_II / \e ->
+			f e `pp` g e `yo` h `o` from
 
 instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_II_I (\/) e)
 	where mapping = rw / \from (U_I_II f) -> U_II_I (This (from (f Unit)))

@@ -4,6 +4,8 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
+infixr 8 `J`
+
 type Only = I
 
 pattern Only :: e -> Only e
