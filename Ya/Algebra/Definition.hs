@@ -264,16 +264,16 @@ wrapped :: forall into a o .
 	into a o -> into (Supertype a) (Supertype o)
 wrapped f = uw `compose` f `compose` wrap
 
-i_ :: forall into u a t e .
+i_ :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_II_I u e a) =>
-	Castable Straight into (U_II_I u e t) =>
-	into (U_II_I u e a) (U_II_I u e t) -> into (u a e) (u t e)
+	Castable Straight into (U_II_I u e o) =>
+	into (U_II_I u e a) (U_II_I u e o) -> into (u a e) (u o e)
 i_ f = uw @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
 
-_i :: forall into u a t e .
+_i :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_I_II u e a) =>
-	Castable Straight into (U_I_II u e t) =>
-	into (U_I_II u e a) (U_I_II u e t) -> into (u e a) (u e t)
+	Castable Straight into (U_I_II u e o) =>
+	into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
 _i f = uw @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)

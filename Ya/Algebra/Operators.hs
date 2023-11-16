@@ -9,7 +9,7 @@ infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`, `uw'uw`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`, `rw'yu_`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `uw'uw'uw`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
@@ -56,13 +56,13 @@ fa, fa'fi :: forall from into t a o .
 fa'fi = semifunctor @Opposite
 fa = semifunctor @Opposite
 
-fu, fu'fi :: forall from into t a o .
-	Covariant Semi Functor from into t =>
-	Mapping Constant Straight from into t t =>
-	Castable Opposite Arrow (from Unit o) =>
-	Supertype (from Unit o) -> into (t a) (t o)
-fu'fi = semifunctor @Constant @from @into `compose` wrap @Arrow @(from Unit o)
-fu = semifunctor @Constant @from @into `compose` wrap @Arrow @(from Unit o)
+fu, fu'fi :: forall into t a o .
+	Covariant Semi Functor into into t =>
+	Mapping Constant Straight into into t t =>
+	Castable Opposite Arrow (into Unit o) =>
+	Supertype (into Unit o) -> into (t a) (t o)
+fu'fi = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
+fu = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
 
 yo :: forall from into t a o .
 	Precategory into =>
@@ -456,6 +456,19 @@ a'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T'TT'I tt t ee)) =>
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
+
+rw'yu_ :: forall into w o u e ee .
+	Covariant Endo Semi Functor into (U_II_I u o) =>
+	Mapping Constant Straight into into (U_II_I u o) (U_II_I u o) =>
+	Castable Straight into (U_II_I u o ee) =>
+	Castable Opposite into (U_II_I u o e) =>
+	Castable Opposite into (w u ee o) =>
+	Castable Straight into (w u e o) =>
+	Castable Opposite Arrow (into Unit ee) =>
+	(Supertype (w u e o) ~ u e o) =>
+	(Supertype (w u ee o) ~ u ee o) =>
+	Supertype (into Unit ee) -> into (w u e o) (w u ee o)
+rw'yu_ = rw `compose` i_ `compose` fu
 
 -- TODO: to generalize, I need to generalize `monoidal` first
 -- TODO: effects are executed in reverse order, we can use it
