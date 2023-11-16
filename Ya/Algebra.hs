@@ -108,6 +108,13 @@ instance Covariant Monoidal Functor (->) (/\) (/\) u
 			`compose` wrap @(->) @(U_I_II _ _ _)
 			`compose` x)
 
+instance Covariant Endo Semi Functor (->) t
+	=> Mapping Straight Straight (->) (->)
+	(T'TT'I (T'TT'I (Straight (->) e) t) (Straight (->) e))
+	(T'TT'I (Straight (->) e) t)
+	where mapping = rw / \from -> rw / \(T'TT'I (U_I_II f)) ->
+		U_I_II / \e -> f e `yo` unwrap `o` (`i` e) `o` from
+
 -- TODO: try to use adjunctions here
 instance
 	( Covariant Endo Semi Functor (->) tt

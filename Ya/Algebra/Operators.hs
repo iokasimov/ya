@@ -360,7 +360,7 @@ lm :: forall from into i o oo .
 	Wrapper into (That (Product into) o (Product into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
-lm from_this from_that = 
+lm from_this from_that =
 	_i (semifunctor @Straight (wrapped (that @Straight from_that))) `compose`
 	i_ (semifunctor @Straight (wrapped (this @Straight from_this))) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
@@ -381,7 +381,7 @@ ml :: forall from into i o oo .
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from o i -> from oo i -> into (Sum into o oo) i
-ml from_this from_that = 
+ml from_this from_that =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	i_ (semifunctor @Straight (wrapped (this @Opposite from_this))) `compose`
