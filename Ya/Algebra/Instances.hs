@@ -14,10 +14,10 @@ instance
 
 -- instance
 -- 	( forall e . Wrapper into (I e)
--- 	, forall e . Wrapper into (TT_T_I I tt e)
+-- 	, forall e . Wrapper into (TT'T'I I tt e)
 -- 	, forall e . Wrapper into (T'TT'I I tt e)
 -- 	, Covariant Endo Semi Functor into tt
--- 	) => Mapping Straight Straight into into (T'TT'I I tt) (TT_T_I I tt)
+-- 	) => Mapping Straight Straight into into (T'TT'I I tt) (TT'T'I I tt)
 -- 	where mapping = rw / \from -> rw /
 -- 		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
 
@@ -35,8 +35,8 @@ instance
 instance
 	( Covariant Semi Functor from into t
 	, Covariant Endo Semi Functor into tt
-	, forall e . Wrapper into (TT_T_I t tt e)
-	) => Mapping Straight Straight from into (TT_T_I t tt) (TT_T_I t tt)
+	, forall e . Wrapper into (TT'T'I t tt e)
+	) => Mapping Straight Straight from into (TT'T'I t tt) (TT'T'I t tt)
 	where mapping = rw / \from -> wrap @into
 		`compose` (semifunctor @Straight @into @into
 			`compose` semifunctor @Straight @from @into
@@ -110,7 +110,7 @@ instance
 	, Covariant Functor from from (U_I_I u)
 	, Covariant Monoidal Functor from u u t
 	, forall e . Castable Opposite from (Both u e)
-	) => Mapping Straight Straight from Arrow (U_I_I u `T'TT'I` t) (U_I_I u `TT_T_I` t)
+	) => Mapping Straight Straight from Arrow (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t)
 	where mapping = rw / \from -> rw /
 		monoidal @Straight @from @t @u @u
 			(semifunctor @Straight from `compose` wrap @from @(Both _ _)) identity
@@ -120,19 +120,19 @@ instance
 	( Covariant Semi Functor Arrow Arrow t
 	, Covariant Functor Arrow Arrow (U_I_I u)
 	, Covariant Monoidal Functor Arrow u u tt
-	, Mapping Straight Straight Arrow Arrow (T'TT'I t tt) (TT_T_I t tt)
+	, Mapping Straight Straight Arrow Arrow (T'TT'I t tt) (TT'T'I t tt)
 	) => Mapping Straight Straight Arrow Arrow
 		((U_I_I u `T'TT'I` t) `T'TT'I` tt)
-		((U_I_I u `T'TT'I` t) `TT_T_I` tt)
+		((U_I_I u `T'TT'I` t) `TT'T'I` tt)
 	where mapping = rw / \from -> rw /
 		semifunctor @Straight @Arrow @Arrow (wrap @Arrow @(T'TT'I (U_I_I u) t _)) `compose`
-		wrapped (component @Straight @Arrow @Arrow @(T'TT'I (U_I_I u) tt) @(TT_T_I (U_I_I u) tt)) `compose`
+		wrapped (component @Straight @Arrow @Arrow @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
 		semifunctor @Straight @Arrow @Arrow @(U_I_I u)
-			(wrapped / map @Straight @Straight @Arrow @Arrow @(T'TT'I t tt) @(TT_T_I t tt) from) `compose`
+			(wrapped / map @Straight @Straight @Arrow @Arrow @(T'TT'I t tt) @(TT'T'I t tt) from) `compose`
 		uw @Arrow
 
 instance Covariant Yoneda Functor Arrow Arrow tt =>
-	Mapping Straight Straight Arrow Arrow (This (/\) e `T'TT'I` tt) (This (/\) e `TT_T_I` tt)
+	Mapping Straight Straight Arrow Arrow (This (/\) e `T'TT'I` tt) (This (/\) e `TT'T'I` tt)
 	where mapping = rw / \from -> rw / \(U_II_I (These x e)) ->
 		yoneda @Straight @Functor x (U_II_I `compose` (\x' -> These (from x') e))
 

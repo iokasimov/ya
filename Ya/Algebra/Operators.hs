@@ -154,14 +154,14 @@ yukl x = component @Straight @Arrow @into @(T'TT'I t tt)
 	`compose` wrap @into @(into Unit (tt o))
 
 yoklKL :: forall from into tt t a o .
-	Component Natural from into (T'TT'I t tt) (TT_T_I t tt) =>
+	Component Natural from into (T'TT'I t tt) (TT'T'I t tt) =>
 	Covariant Yoneda Functor from into t =>
 	Castable Opposite into (Straight from a (tt o)) =>
-	Castable Straight into (TT_T_I t tt o) =>
+	Castable Straight into (TT'T'I t tt o) =>
 	Castable Opposite into (T'TT'I t tt o) =>
 	t a -> into (from a (tt o)) (tt (t o))
-yoklKL x = uw @into @(TT_T_I t tt _)
-	`compose` component @Straight @from @into @(T'TT'I t tt) @(TT_T_I t tt)
+yoklKL x = uw @into @(TT'T'I t tt _)
+	`compose` component @Straight @from @into @(T'TT'I t tt) @(TT'T'I t tt)
 	`compose` wrap @into @(T'TT'I t tt _)
 	`compose` yoneda @Straight @Functor @from x
 

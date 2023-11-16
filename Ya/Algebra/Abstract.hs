@@ -17,7 +17,7 @@ newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
-newtype TT_T_I t tt i = TT_T_I (tt (t i))
+newtype TT'T'I t tt i = TT'T'I (tt (t i))
 
 newtype T_TT_TTT_I t tt ttt i = T_TT_TTT_I (t (tt (ttt i)))
 
@@ -90,7 +90,7 @@ type family Supertype e where
 	Supertype (I i) = i
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T'TT'I t tt i) = t (tt i)
-	Supertype (TT_T_I t tt i) = tt (t i)
+	Supertype (TT'T'I t tt i) = tt (t i)
 	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
 	Supertype (U_1_I u _ i) = u Unit i
@@ -160,11 +160,11 @@ instance Castable Straight Arrow (T'TT'I f g i)
 instance Castable Opposite Arrow (T'TT'I f g i)
 	where cast = U_II_I T'TT'I
 
-instance Castable Straight Arrow (TT_T_I f g i)
-	where cast = U_I_II (\(TT_T_I x) -> x)
+instance Castable Straight Arrow (TT'T'I f g i)
+	where cast = U_I_II (\(TT'T'I x) -> x)
 
-instance Castable Opposite Arrow (TT_T_I f g i)
-	where cast = U_II_I TT_T_I
+instance Castable Opposite Arrow (TT'T'I f g i)
+	where cast = U_II_I TT'T'I
 
 instance Castable Straight Arrow (T_TT_TTT_I f g h i)
 	where cast = U_I_II (\(T_TT_TTT_I x) -> x)
