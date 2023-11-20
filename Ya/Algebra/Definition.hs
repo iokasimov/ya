@@ -235,6 +235,26 @@ monoidal from t x = map @v @Straight @from @(->)
 	@(Day v from u uu t t e ee) @t from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 
+monoidal' :: forall v from into t u uu a o e ee .
+	Adjoint Functor (->) into
+		(That (/\) (u (t e) (t ee)))
+		(That into (u (t e) (t ee))) =>
+	Monoidal v Functor from u uu t =>
+	Castable Opposite Arrow (v from a o) =>
+	Castable Opposite into ((That into (u (t e) (t ee)) `T'TT'I` That (/\) (u (t e) (t ee))) a) =>
+	Castable Straight into ((That into (u (t e) (t ee)) `T'TT'I` That (/\) (u (t e) (t ee))) (v from (uu e ee) a)) =>
+	Castable Straight into (That into (u (t e) (t ee)) (t o)) =>
+	Castable Opposite into (I (v from (uu e ee) a)) =>
+	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
+monoidal' from =
+	uw @into @(That into _ _)
+	`compose` semifunctor @Straight
+		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
+		`compose` uw @(->) @(That (/\) _ _))
+	`compose` uw @into @(T'TT'I _ _ _)
+	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That (/\) _)
+	`compose` wrap @into
+
 -- TODO: generalize
 empty :: forall t . Monoidal Straight Functor (->) (/\) (\/) t => t Void
 empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)

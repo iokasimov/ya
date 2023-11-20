@@ -470,16 +470,19 @@ rw'yu_ :: forall into w o u e ee .
 	Supertype (into Unit ee) -> into (w u e o) (w u ee o)
 rw'yu_ = rw `compose` i_ `compose` fu
 
--- TODO: to generalize, I need to generalize `monoidal` first
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
 cc :: forall into t a o .
+	Covariant Endo Semi Functor (->) t =>
+	Covariant Endo Semi Functor (->) (U_I_II into a) =>
 	Adjoint Functor (->) (->) (That (/\) (t a)) (That into (t a)) =>
-	Adjoint Functor (->) (->) (That (/\) a) (That (->) a) =>
-	Monoidal Straight Functor (->) (/\) (/\) t =>
-	t (a -> o) -> into (t a) (t o)
+	Adjoint Functor (->) (->) (That (/\) a) (That into a) =>
+	Adjoint Functor (->) (->) (That (/\) (t a /\ t (into a o))) (That (->) (t a /\ t (into a o))) =>
+	Monoidal Straight Functor into (/\) (/\) t =>
+	t (into a o) -> into (t a) (t o)
 cc = uw @(->) @(That into (t a) _)
 	`compose` (fo @(->) @(->) `compose` fo @(->) @(->))
 		(rj @(->) @(->) (wrap @_ @(That _ _ _)) `compose` wrap @_ @(That _ _ _))
 	`compose` lj @(->) @(->) @(That (/\) (t a)) @(That into _)
-		(monoidal @Straight @(->) @t @(/\) @(/\) identity identity `compose` uw @(->) @(That (/\) (t a) (t (a -> o))))
+		(monoidal' @Straight @into @(->) @t @(/\) @(/\) identity (wrap identity)
+			`compose` uw @(->) @(That (/\) (t a) (t (into a o))))

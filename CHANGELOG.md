@@ -237,3 +237,4 @@
 * Define `provide` expression
 * Define `uw'uw'uw` operator
 * Define `rw'yu_` operator
+* Define `monoidal'` expression
