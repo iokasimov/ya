@@ -239,3 +239,4 @@
 * Define `monoidal'` expression
 * Define `lm'` operator
 * Define `ml'` operator
+* Define `pp'pp` operator
