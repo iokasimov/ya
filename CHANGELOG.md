@@ -118,7 +118,6 @@
 * Define `Adjoint` type class
 * Define `lj` operator
 * Define `rj` operator
-* Define `yo'fo` operator
 * Define `monoidal` expression
 * Define `pp'fo` operator
 * Define `Dinatural` type alias
@@ -240,3 +239,4 @@
 * Define `lm'` operator
 * Define `ml'` operator
 * Define `pp'pp` operator
+* Define `yo'yo` operator

@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`, `uw'uw`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`, `rw'yu_`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `uw'uw'uw`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
@@ -97,14 +97,14 @@ yu_ :: forall into t e a o .
 	t a e -> into (Supertype (into Unit o)) (t o e)
 yu_ x = uw @into @(U_II_I t e _) `compose` yu @into (wrap @(->) @(U_II_I t e _) x)
 
-yo'o :: forall from into t tt a o .
+yo'yo :: forall from into t tt a o .
 	Precategory into =>
 	Covariant Functor from from tt =>
 	Covariant Yoneda Functor from into t =>
 	Contravariant Endo Semi Functor Arrow (U_II_I into (t (tt o))) =>
 	Castable Opposite into (U_I_II from (tt a) (tt o)) =>
 	t (tt a) -> into (from a o) (t (tt o))
-yo'o x = fa_ fo (yo @from @into x)
+yo'yo x = fa_ fo (yo @from @into x)
 
 -- TODO: yo'yo : t (tt a) -> into (from a b) (tt a -> into (from b o) (t (tt o)))
 
