@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm`, `ml`, `cc`
+infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'o`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`, `rw'yu_`
@@ -345,7 +345,7 @@ rj from = uw @from
 	`compose` wrap @from
 	`compose` fo from
 
-lm :: forall from into i o oo .
+lm' :: forall from into i o oo .
 	Category from =>
 	Limit Straight from into =>
 	Covariant Functor into into (That (Product into) o) =>
@@ -360,13 +360,36 @@ lm :: forall from into i o oo .
 	Wrapper into (That (Product into) o (Product into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
-lm from_this from_that =
+lm' from_this from_that =
 	_i (semifunctor @Straight (wrapped (that @Straight from_that))) `compose`
 	i_ (semifunctor @Straight (wrapped (this @Straight from_this))) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity)
 
-ml :: forall from into i o oo .
+lm :: forall o oo .
+	Limit Straight (->) (->) =>
+	Covariant Functor (->) (->) (That (Product (->)) o) =>
+	Covariant Functor (->) (->) (This (Product (->)) (Product (->) Unit Unit)) =>
+	Castable Straight (->) (Both (Product (->)) (Product (->) Unit Unit)) =>
+	Castable Straight (->) (That (Product (->)) o oo) =>
+	Castable Opposite (->) (This (Product (->)) Unit Unit) =>
+	Castable Opposite (->) (That (Product (->)) Unit Unit) =>
+	Castable Straight (->) (Both (Product (->)) Unit) =>
+	Castable Straight (->) (This (Product (->)) (Product (->) Unit Unit) o) =>
+	Castable Opposite (->) (This (Product (->)) (Product (->) Unit Unit) (Product (->) Unit Unit)) =>
+	Wrapper (->) (That (Product (->)) o (Product (->) Unit Unit)) =>
+	(forall e . Wrapper (->) (I e)) =>
+	Castable Opposite (->) ((->) Unit o) =>
+	Castable Opposite (->) ((->) Unit oo) =>
+	Castable Straight (->) ((->) Unit (Product (->) o oo)) =>
+	Supertype ((->) Unit o) -> Supertype ((->) Unit oo) -> Supertype ((->) Unit (Product (->) o oo))
+lm from_this from_that = unwrap /
+	_i (semifunctor @Straight (wrapped (that @Straight (wrap @_ @((->) Unit oo) from_that)))) `compose`
+	i_ (semifunctor @Straight (wrapped (this @Straight (wrap @_ @((->) Unit o) from_this)))) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+
+ml' :: forall from into i o oo .
 	Category from =>
 	Limit Opposite from into =>
 	Covariant Functor into into (That (Sum into) o) =>
@@ -381,7 +404,7 @@ ml :: forall from into i o oo .
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from o i -> from oo i -> into (Sum into o oo) i
-ml from_this from_that =
+ml' from_this from_that =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	i_ (semifunctor @Straight (wrapped (this @Opposite from_this))) `compose`
@@ -394,8 +417,8 @@ pp'fo = monoidal @Straight @from @t @(/\) @(/\) identity
 
 pp :: forall e ee t .
 	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	t e -> t ee -> t (e /\ ee)
-pp x y = monoidal @Straight @Arrow @t @(/\) @(/\) identity identity (These x y)
+	t e /\ t ee -> t (e /\ ee)
+pp = monoidal @Straight @Arrow @t @(/\) @(/\) identity identity
 
 -- TODO: define pp'yo instead of pp'fo
 

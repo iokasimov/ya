@@ -272,7 +272,7 @@ instance
 		(T'TT'I (That (->) e) t)
 	where mapping = rw / \from -> rw / \case
 		These (These (T'TT'I (U_I_II f)) (T'TT'I (U_I_II g))) (U_I_II h) -> U_I_II / \e ->
-			f e `pp` g e `yo` h `o` from
+			pp (These (f e) (g e)) `yo` h `o` from
 
 instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_II_I (\/) e)
 	where mapping = rw / \from (U_I_II f) -> U_II_I (This (from (f Unit)))

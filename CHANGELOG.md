@@ -192,7 +192,6 @@
 * Define `u` operator
 * Define `a'a` operator
 * Define `lm` operator
-* Define `ml` operator
 * Define `Hierarchial` type class
 * Define `ya_` operator
 * Define `U_I_1` data type
@@ -238,3 +237,5 @@
 * Define `uw'uw'uw` operator
 * Define `rw'yu_` operator
 * Define `monoidal'` expression
+* Define `lm'` operator
+* Define `ml'` operator
