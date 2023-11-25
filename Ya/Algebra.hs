@@ -131,7 +131,7 @@ instance
 	where mapping = rw / \from (T'TT'I (T_TT_TTT_I (U_I_II x))) -> 
 		wrap @(->) @(T_TT_TTT_I _ _ _ _) `compose` wrap @(->) @(U_I_II _ _ _)
 		`yi` \old -> x old `yokl` \(U_I_II (These btw (T_TT_TTT_I (U_I_II f))))
-			-> f btw `yo'o` from
+			-> f btw `yo'yo` from
 
 -- TODO: try to use adjunctions here
 instance

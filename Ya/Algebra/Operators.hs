@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`, `rw'yu_`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `uw'uw'uw`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `pp'yokl`, `uw'uw'uw`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
@@ -486,6 +486,15 @@ a'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T'TT'I tt t ee)) =>
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
+
+pp'yokl :: forall e ee from into t tt o .
+	Covariant Monoidal Functor Arrow (/\) (/\) t =>
+	Covariant Yoneda Functor from into t =>
+	Component Natural Arrow into (T'TT'I t tt) t =>
+	Castable Opposite into (Straight from (e /\ ee) (tt o)) =>
+	Castable Opposite into (T'TT'I t tt o) =>
+	t e /\ t ee -> into (from (e /\ ee) (tt o)) (t o)
+pp'yokl = yokl @from @into `compose` pp
 
 rw'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
