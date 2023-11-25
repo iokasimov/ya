@@ -9,12 +9,12 @@ infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'yo`, `uw'uw`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `a'yokl`, `rw'yu_`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `pp'yokl`, `uw'uw'uw`
-infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`
-infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
-infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `pp'yokl`, `uw'uw'uw`
+infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`
+infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
 	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
@@ -140,7 +140,7 @@ yokl x = component @Straight @Arrow @into @(T'TT'I t tt)
 	`compose` wrap @into @(T'TT'I t tt _)
 	`compose` yoneda @Straight @Functor @from x
 
-yukl :: forall into tt t a o .
+yukl, yukl'u, yukl'u'u, yukl'u'u'u, yukl'u'u'u'u, yukl'u'u'u'u'u, yukl'u'u'u'u'u'u :: forall into tt t a o .
 	Covariant Endo Semi Functor (->) t =>
 	Component Natural Arrow into (T'TT'I t tt) t =>
 	Covariant Yoneda Functor into into t =>
@@ -149,6 +149,30 @@ yukl :: forall into tt t a o .
 	Castable Opposite into (T'TT'I t tt o) =>
 	t a -> into (Supertype (into Unit (tt o))) (t o)
 yukl x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit (tt o))
+yukl'u'u'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
 	`compose` wrap @into @(T'TT'I t tt _)
 	`compose` yoneda @Straight @Functor (fu @Arrow Unit x)
 	`compose` wrap @into @(into Unit (tt o))
