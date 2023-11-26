@@ -119,7 +119,6 @@
 * Define `lj` operator
 * Define `rj` operator
 * Define `monoidal` expression
-* Define `pp'fo` operator
 * Define `Dinatural` type alias
 * Define `Yet` patter synonym
 * Define `List` type alias
@@ -247,3 +246,5 @@
 * Define `yukl'u'u'u'u` operator
 * Define `yukl'u'u'u'u'u` operator
 * Define `yukl'u'u'u'u'u'u` operator
+* Define `pp'yo` operator
+* Define `pp'pp'yo` operator

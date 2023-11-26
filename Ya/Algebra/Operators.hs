@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'fo`, `yo'yo`, `uw'uw`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `pp'yokl`, `uw'uw'uw`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
@@ -434,11 +434,6 @@ ml' from_this from_that =
 	i_ (semifunctor @Straight (wrapped (this @Opposite from_this))) `compose`
 	_i (semifunctor @Straight (wrapped (that @Opposite from_that)))
 
-pp'fo :: forall from e ee r t .
-	Covariant Monoidal Functor from (/\) (/\) t =>
-	from (e /\ ee) r -> t e /\ t ee -> t r
-pp'fo = monoidal @Straight @from @t @(/\) @(/\) identity
-
 pp :: forall e ee t .
 	Covariant Monoidal Functor Arrow (/\) (/\) t =>
 	t e /\ t ee -> t (e /\ ee)
@@ -450,8 +445,6 @@ pp'pp :: forall e ee t tt .
 	t (tt e) /\ t (tt ee) -> t (tt (e /\ ee))
 pp'pp = monoidal @Straight @Arrow @t @(/\) @(/\) identity
 	(monoidal @Straight @Arrow @tt @(/\) @(/\) identity identity)
-
--- TODO: define pp'yo instead of pp'fo
 
 w'uw :: forall into a o .
 	Precategory into =>
@@ -519,6 +512,18 @@ pp'yokl :: forall e ee from into t tt o .
 	Castable Opposite into (T'TT'I t tt o) =>
 	t e /\ t ee -> into (from (e /\ ee) (tt o)) (t o)
 pp'yokl = yokl @from @into `compose` pp
+
+pp'yo :: forall from e ee r t .
+	Covariant Monoidal Functor from (/\) (/\) t =>
+	t e /\ t ee -> from (e /\ ee) r -> t r
+pp'yo x f = monoidal @Straight @from @t @(/\) @(/\) identity f x
+
+pp'pp'yo :: forall from e ee r t tt .
+	Covariant Monoidal Functor Arrow (/\) (/\) t =>
+	Covariant Monoidal Functor from (/\) (/\) tt =>
+	t (tt e) /\ t (tt ee) -> from (e /\ ee) r -> t (tt r)
+pp'pp'yo x f = monoidal @Straight @Arrow @t @(/\) @(/\) identity
+	(monoidal @Straight @from @tt @(/\) @(/\) identity f) x
 
 rw'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
