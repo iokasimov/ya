@@ -248,3 +248,6 @@
 * Define `yukl'u'u'u'u'u'u` operator
 * Define `pp'yo` operator
 * Define `pp'pp'yo` operator
+* Define `yukl'yi` operator
+* Define `yukl'yi'yi` operator
+* Define `yukl'yi'yi'yi` operator
