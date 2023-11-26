@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`
+infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
@@ -537,6 +537,13 @@ pp'pp'yo :: forall from e ee r t tt .
 	t (tt e) /\ t (tt ee) -> from (e /\ ee) r -> t (tt r)
 pp'pp'yo x f = monoidal @Straight @Arrow @t @(/\) @(/\) identity
 	(monoidal @Straight @from @tt @(/\) @(/\) identity f) x
+
+jt :: forall into f g e .
+	Component Natural (->) into (f `T'TT'I` g) (f `J` g) =>
+	Castable Opposite into ((f `T'TT'I` g) e) =>
+	into (f (g e)) ((f `J` g) e)
+jt = component @Straight @(->) @into @(f `T'TT'I` g) @(f `J` g) @e
+	`compose` wrap @into @((f `T'TT'I` g) e)
 
 rw'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
