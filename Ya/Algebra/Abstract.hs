@@ -3,7 +3,7 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 /\, \/
+infixr 8 /\, \/, `J`
 
 type (/) t i = t i
 
@@ -278,3 +278,11 @@ type Matching a b = Same a b ~ 'Yes
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
+
+type family J known unknown where
+	J (Straight Arrow input) unknown =
+		Straight Arrow input `T'TT'I` unknown
+	J (Straight (W_I_I_II (U_I_UU_II_III (->) (/\))) state) unknown =
+		T_TT_TTT_I (Straight Arrow state) unknown (Straight (/\) state)
+	-- TODO: should there be a loop if we cannot find such an instance?
+	-- J unknown known = J known unknown

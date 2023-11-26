@@ -4,8 +4,6 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
-infixr 8 `J`
-
 type Only = I
 
 pattern Only :: e -> Only e
@@ -164,12 +162,6 @@ type Tree = Construction
 
 type family Binary tree where
 	Binary Tree = Tree (U_I_I (/\) `T'TT'I` Optional)
-
-type family J known unknown where
-	J (Straight Arrow input) unknown = Straight Arrow input `T'TT'I` unknown
-	J (Straight Transition state) unknown = T_TT_TTT_I (Straight Arrow state) unknown (Straight (/\) state)
-	-- TODO: should there be a loop if we cannot find such an instance?
-	-- J unknown known = J known unknown
 
 layer :: forall g f e .
 	Component Natural (->) (->) f (f `J` g) =>
