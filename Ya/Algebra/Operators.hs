@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `uw'uw'uw`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
@@ -544,6 +544,14 @@ jt :: forall into f g e .
 	into (f (g e)) ((f `J` g) e)
 jt = component @Straight @(->) @into @(f `T'TT'I` g) @(f `J` g) @e
 	`compose` wrap @into @((f `T'TT'I` g) e)
+
+pp'pp'jt :: forall from e ee t tt .
+	Component Natural (->) (->) (t `T'TT'I` tt) (t `J` tt) =>
+	Covariant Monoidal Functor (->) (/\) (/\) t =>
+	Covariant Monoidal Functor from (/\) (/\) tt =>
+	t (tt e) /\ t (tt ee) -> (t `J` tt) (e /\ ee)
+pp'pp'jt = jt `compose` monoidal @Straight @Arrow @t @(/\) @(/\) identity
+	(monoidal @Straight @from @tt @(/\) @(/\) identity identity)
 
 rw'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
