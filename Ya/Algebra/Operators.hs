@@ -7,7 +7,7 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
-infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `w'uw`, `uw'w`
+infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`
@@ -377,10 +377,23 @@ rj :: forall from into t tt a o .
 	Castable Opposite from ((T'TT'I t tt) o) =>
 	Castable Straight from (I o) =>
 	into a (tt o) -> from (t a) o
-rj from = uw @from
+rj from = uw @from @(I _)
 	`compose` component @Straight @into @from @(t `T'TT'I` tt) @I
-	`compose` wrap @from
-	`compose` fo from
+	`compose` wrap @from @((t `T'TT'I` tt) _)
+	`compose` fo @into @from from
+
+_rj :: forall from into t tt e ee a o .
+	Adjoint Functor from into (U_I_II t ee) (U_I_II tt e) =>
+	Castable Opposite from ((T'TT'I (U_I_II t ee) (U_I_II tt e)) o) =>
+	Castable Straight from (I o) =>
+	Castable Opposite from (U_I_II t ee a) =>
+	Castable Opposite into (U_I_II tt e o) =>
+	into a (tt e o) -> from (t ee a) o
+_rj from = uw @from
+	`compose` component @Straight @into @from @(U_I_II t ee `T'TT'I` U_I_II tt e) @I
+	`compose` wrap @from @((U_I_II t ee `T'TT'I` U_I_II tt e) _)
+	`compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
+	`compose` wrap @from @(U_I_II t ee _)
 
 lm' :: forall from into i o oo .
 	Category from =>
