@@ -253,3 +253,4 @@
 * Define `yukl'yi'yi'yi` operator
 * Define `jt` operator
 * Define `pp'pp'jt` operator
+* Define `pp'pp'jt'yokl`operator

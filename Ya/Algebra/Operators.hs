@@ -14,7 +14,7 @@ infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `pp'pp'jt'yokl`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
 	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
@@ -517,6 +517,13 @@ a'yokl :: forall from into t tt a o e .
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
 
+-- TODO: generalize
+pp'yo :: forall from e ee r t .
+	Covariant Monoidal Functor from (/\) (/\) t =>
+	t e /\ t ee -> from (e /\ ee) r -> t r
+pp'yo x f = monoidal @Straight @from @t @(/\) @(/\) identity f x
+
+-- TODO: generalize
 pp'yokl :: forall e ee from into t tt o .
 	Covariant Monoidal Functor Arrow (/\) (/\) t =>
 	Covariant Yoneda Functor from into t =>
@@ -526,11 +533,7 @@ pp'yokl :: forall e ee from into t tt o .
 	t e /\ t ee -> into (from (e /\ ee) (tt o)) (t o)
 pp'yokl = yokl @from @into `compose` pp
 
-pp'yo :: forall from e ee r t .
-	Covariant Monoidal Functor from (/\) (/\) t =>
-	t e /\ t ee -> from (e /\ ee) r -> t r
-pp'yo x f = monoidal @Straight @from @t @(/\) @(/\) identity f x
-
+-- TODO: generalize
 pp'pp'yo :: forall from e ee r t tt .
 	Covariant Monoidal Functor Arrow (/\) (/\) t =>
 	Covariant Monoidal Functor from (/\) (/\) tt =>
@@ -545,13 +548,27 @@ jt :: forall into f g e .
 jt = component @Straight @(->) @into @(f `T'TT'I` g) @(f `J` g) @e
 	`compose` wrap @into @((f `T'TT'I` g) e)
 
-pp'pp'jt :: forall from e ee t tt .
+-- TODO: generalize
+pp'pp'jt :: forall e ee t tt .
 	Component Natural (->) (->) (t `T'TT'I` tt) (t `J` tt) =>
 	Covariant Monoidal Functor (->) (/\) (/\) t =>
-	Covariant Monoidal Functor from (/\) (/\) tt =>
+	Covariant Monoidal Functor (->) (/\) (/\) tt =>
 	t (tt e) /\ t (tt ee) -> (t `J` tt) (e /\ ee)
 pp'pp'jt = jt `compose` monoidal @Straight @Arrow @t @(/\) @(/\) identity
-	(monoidal @Straight @from @tt @(/\) @(/\) identity identity)
+	(monoidal @Straight @(->) @tt @(/\) @(/\) identity identity)
+
+-- TODO: generalize
+pp'pp'jt'yokl :: forall from into e ee t tt ttt o .
+	Covariant Yoneda Functor from into t =>
+	Covariant Yoneda Functor from into (t `J` tt) =>
+	Component Natural (->) (->) (t `T'TT'I` tt) (t `J` tt) =>
+	Component Natural (->) into (T'TT'I (t `J` tt) ttt) (t `J` tt) =>
+	Covariant Monoidal Functor (->) (/\) (/\) t =>
+	Covariant Monoidal Functor (->) (/\) (/\) tt =>
+	Castable Opposite into (Straight from (e /\ ee) (ttt o)) =>
+	Castable Opposite into (T'TT'I (J t tt) ttt o) =>
+	t (tt e) /\ t (tt ee) -> into (from (e /\ ee) (ttt o)) ((t `J` tt) o)
+pp'pp'jt'yokl = yokl @from @into `compose` pp'pp'jt
 
 rw'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
