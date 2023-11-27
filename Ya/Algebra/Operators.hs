@@ -9,8 +9,8 @@ infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`, `rw'yu_`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yu_`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
@@ -583,7 +583,7 @@ pp'pp'jt'yokl :: forall from into e ee t tt ttt o .
 	t (tt e) /\ t (tt ee) -> into (from (e /\ ee) (ttt o)) ((t `J` tt) o)
 pp'pp'jt'yokl = yokl @from @into `compose` pp'pp'jt
 
-rw'yu_ :: forall into w o u e ee .
+rwr'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
 	Mapping Constant Straight into into (U_II_I u o) (U_II_I u o) =>
 	Castable Straight into (U_II_I u o ee) =>
@@ -594,7 +594,7 @@ rw'yu_ :: forall into w o u e ee .
 	(Supertype (w u e o) ~ u e o) =>
 	(Supertype (w u ee o) ~ u ee o) =>
 	Supertype (into Unit ee) -> into (w u e o) (w u ee o)
-rw'yu_ = rw `compose` i_ `compose` fu
+rwr'yu_ = rwr `compose` i_ `compose` fu
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example

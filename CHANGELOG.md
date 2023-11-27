@@ -225,7 +225,7 @@
 * Define `a'yokl` operator
 * Define `J` type family
 * Define `Optionally` pattern synonym
-* Define `rw` operator
+* Define `rwr` operator
 * Define `uw` operator
 * Define `yo_` operator
 * Define `enter` expression
@@ -233,7 +233,7 @@
 * Define `Provided` type alias
 * Define `provide` expression
 * Define `uw'uw'uw` operator
-* Define `rw'yu_` operator
+* Define `rwr'yu_` operator
 * Define `monoidal'` expression
 * Define `lm'` operator
 * Define `ml'` operator

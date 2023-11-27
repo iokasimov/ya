@@ -263,12 +263,12 @@ empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identit
 enter :: forall t . Monoidal Straight Functor (->) (/\) (/\) t => t Unit
 enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
 
-rw :: forall o into a .
+rwr :: forall o into a .
 	Precategory into =>
 	Castable Opposite into o => 
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
-rw f = wrap `compose` f `compose` uw
+rwr f = wrap `compose` f `compose` uw
 
 rewrap :: forall o a .
 	Precategory (->) =>
