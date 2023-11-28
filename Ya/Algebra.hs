@@ -21,7 +21,7 @@ instance
 
 instance
 	( Covariant Endo Semi Functor (->) t
-	, Component Natural (->) (->) (tt `T'TT'I` tt) tt
+	, Covariant Monoidal Functor (->) (/\) (/\) tt
 	, Component Natural (->) (->) (t `T'TT'I` tt) (t `TT'T'I` tt)
 	) => Mapping Straight Straight (->) (->)
 		(T'TT'I (t `T'TT'I` R_U_I_T_I (/\) t) tt)
@@ -36,32 +36,28 @@ instance
 -- TODO: I need to reduce transformations here
 instance
 	( Covariant Endo Semi Functor (->) t
-	, Transformation Straight Functor (->) (->) (T'TT'I tt tt) tt
+	, Covariant Endo Semi Functor (->) tt
+	, Covariant Monoidal Functor (->) (/\) (/\) tt
 	, Transformation Straight Functor (->) (->) (T'TT'I t tt) (TT'T'I t tt)
-	) => Mapping Straight Straight (->) (->) (R_U_I_T_I (/\) t `T'TT'I` tt) (R_U_I_T_I (/\) t `TT'T'I` tt) 
-	where mapping = rwr / \from -> rwr `i`
-		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
-			component @Straight @(->) @(->) @(T'TT'I _ _)
-			`compose` wrap @(->) @(T'TT'I _ _ _)
-			`compose` yoneda @Straight @Functor @(->) x
-			`i'i` \s ->
-				wrap @(->) @(R_U_I_T_I _ _ _)
-				`compose` wrap @(->) @(Recursive _)
-				`compose` U_I_T_II
-				`compose` These (from s)
-				`fo` (uw @(->)
-					`fo'fo` uw @(->)
-						`compose` component @Straight @(->) @(->)
-							@(t `T'TT'I` tt) @(t `TT'T'I` tt)
-						`compose` wrap @(->) @(T'TT'I _ _ _)
-						`i'i'i` uw @(->) @(TT'T'I _ _ _)
-							`compose` map @Straight @Straight @(->) @(->)
-								@(R_U_I_T_I (/\) t `T'TT'I` tt)
-								@(R_U_I_T_I (/\) t `TT'T'I` tt) from
-							`compose` wrap @(->) @(T'TT'I _ _ _)
-							`compose` wrap @(->) @(R_U_I_T_I _ _ _) 
-						`fo` xs
+	) => Mapping Straight Straight (->) (->) (R_U_I_T_I (/\) t `T'TT'I` tt) (R_U_I_T_I (/\) t `TT'T'I` tt)
+	where mapping = rwr / \from -> rwr `yi` \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
+		(pp (These
+			/ x `yo` from
+			/ wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT'T'I` tt))
+				(xs `yo`wrapped
+					(map @Straight @Straight @(->) @(->) @(R_U_I_T_I (/\) t `T'TT'I` tt) @(R_U_I_T_I (/\) t `TT'T'I` tt) from)
+						`compose` wrap @(->) @(R_U_I_T_I _ _ _)
+					`yo'yo` uw @(->) @(R_U_I_T_I _ _ _)
 				)
+			)
+		) `yo` wrap @(->) @(R_U_I_T_I _ _ _)
+			`compose` wrap @(->) @(Recursive _)
+			`compose` U_I_T_II
+
+-- instance Mapping Straight Straight (->) (->)
+	-- ((t `T'TT'I` R_U_I_T_I (/\) t) `T'TT'I` (t `T'TT'I` R_U_I_T_I (/\) t))
+	-- (t `T'TT'I` R_U_I_T_I (/\) t)
+	-- where mapping = rwr / \from (T'TT'I x) -> x
 
 instance Mapping Straight Straight (->) (->) (U_I_II (/\) e `T'TT'I` U_I_II (->) e) I
 	where mapping = rwr / \from -> rwr / \(U_I_II (These e (U_I_II f))) -> from `i` f e
@@ -251,18 +247,14 @@ instance Mapping Straight Straight (->) (->)
 			These upd (f (These x y) `u` from)
 
 instance
-	( Component Natural (->) (->) (T'TT'I t t) t
+	( Component Natural (->) (->) (t `T'TT'I` t) t
 	, Covariant Yoneda Functor (->) (->) t
-	) => Mapping Straight Straight (->) (->) (Day Straight (->) (/\) (/\)
-		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
-		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
-		ee eee)
+	) => Mapping Straight Straight (->) (->)
+		(Day Straight (->) (/\) (/\) (T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e)) (T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e)) ee eee)
 		(T_TT_TTT_I (U_I_II (->) e) t (U_I_II (/\) e))
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T_TT_TTT_I (U_I_II x)) (T_TT_TTT_I (U_I_II y))) (U_I_II f) ->
-			U_I_II / \old ->
-				x old `yokl` \(U_I_II (These btw e)) ->
-					from `a` f `a` These e `fo'fo` y btw
+			U_I_II / \old -> x old `yokl` \(U_I_II (These btw e)) -> from `compose` f `compose` These e `fo'fo` y btw
 
 instance
 	( Component Natural (->) (->) (T'TT'I t t) t
