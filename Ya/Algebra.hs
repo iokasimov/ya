@@ -28,12 +28,14 @@ instance
 		(TT'T'I (t `T'TT'I` R_U_I_T_I (/\) t) tt)
 	where mapping = rwr / \from -> rwr / \(T'TT'I x) ->
 		(wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT'T'I` tt))
-			/ x `yo` wrapped (map @Straight @Straight @(->) @(->)
+			/ x `yo` wrapped @(->) (map @Straight @Straight @_ @_
 				@(R_U_I_T_I (/\) t `T'TT'I` tt)
 				@(R_U_I_T_I (/\) t `TT'T'I` tt) from)
 			) `yo` wrap @(->) @(T'TT'I _ _ _)
 
 -- TODO: I need to reduce transformations here
+-- TODO: Create an instace for a special wrapper for reverse traversals
+-- TODO: Find a way to generalize product
 instance
 	( Covariant Endo Semi Functor (->) t
 	, Covariant Endo Semi Functor (->) tt
@@ -41,18 +43,16 @@ instance
 	, Transformation Straight Functor (->) (->) (T'TT'I t tt) (TT'T'I t tt)
 	) => Mapping Straight Straight (->) (->) (R_U_I_T_I (/\) t `T'TT'I` tt) (R_U_I_T_I (/\) t `TT'T'I` tt)
 	where mapping = rwr / \from -> rwr `yi` \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
-		(pp (These
-			/ x `yo` from
-			/ wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT'T'I` tt))
-				(xs `yo`wrapped
-					(map @Straight @Straight @(->) @(->) @(R_U_I_T_I (/\) t `T'TT'I` tt) @(R_U_I_T_I (/\) t `TT'T'I` tt) from)
-						`compose` wrap @(->) @(R_U_I_T_I _ _ _)
-					`yo'yo` uw @(->) @(R_U_I_T_I _ _ _)
+		monoidal @Straight @Arrow @tt @(/\) @(/\) identity
+			(wrap @(->) @(R_U_I_T_I _ _ _) `compose` wrap @(->) @(Recursive _) `compose` wrap @(->) @(U_I_T_II _ _ _ _))
+			/ (x `yo` from) `lm`
+				(wrapped (component @Straight @(->) @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt))
+					(xs `yo`wrapped
+						(map @Straight @Straight @_ @_ @(R_U_I_T_I (/\) t `T'TT'I` tt) @(R_U_I_T_I (/\) t `TT'T'I` tt) from)
+							`compose` wrap @(->) @(R_U_I_T_I _ _ _)
+						`yo'yo` uw @(->) @(R_U_I_T_I _ _ _)
+					)
 				)
-			)
-		) `yo` wrap @(->) @(R_U_I_T_I _ _ _)
-			`compose` wrap @(->) @(Recursive _)
-			`compose` U_I_T_II
 
 -- instance Mapping Straight Straight (->) (->)
 	-- ((t `T'TT'I` R_U_I_T_I (/\) t) `T'TT'I` (t `T'TT'I` R_U_I_T_I (/\) t))
