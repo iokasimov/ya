@@ -256,3 +256,4 @@
 * Define `pp'pp'jt'yokl`operator
 * Define `_rj` operator
 * Define `lm'pp` operator
+* Define `lm'pp'pp` operator

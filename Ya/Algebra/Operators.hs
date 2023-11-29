@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`, `lm'pp`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yu_`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yu_`, `lm'pp'pp`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
@@ -534,6 +534,12 @@ lm'pp :: forall o oo t .
 	Covariant Monoidal Functor Arrow (/\) (/\) t =>
 	t o -> t oo -> t (o /\ oo)
 lm'pp from_this from_that = pp (lm from_this from_that)
+
+lm'pp'pp :: forall o oo t tt .
+	Covariant Monoidal Functor Arrow (/\) (/\) t =>
+	Covariant Monoidal Functor Arrow (/\) (/\) tt =>
+	t (tt o) -> t (tt oo) -> t (tt (o /\ oo))
+lm'pp'pp from_this from_that = pp'pp (lm from_this from_that)
 
 -- TODO: generalize
 pp'yo :: forall from e ee r t .
