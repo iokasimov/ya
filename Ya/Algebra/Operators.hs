@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`, `lm'pp`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yu_`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
@@ -529,6 +529,11 @@ a'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T'TT'I tt t ee)) =>
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
+
+lm'pp :: forall o oo t .
+	Covariant Monoidal Functor Arrow (/\) (/\) t =>
+	t o -> t oo -> t (o /\ oo)
+lm'pp from_this from_that = pp (lm from_this from_that)
 
 -- TODO: generalize
 pp'yo :: forall from e ee r t .
