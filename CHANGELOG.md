@@ -257,3 +257,4 @@
 * Define `_rj` operator
 * Define `lm'pp` operator
 * Define `lm'pp'pp` operator
+* Define `rwr'yo_` operator

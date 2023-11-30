@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`, `lm'pp`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yu_`, `lm'pp'pp`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yo_`, `rwr'yu_`, `lm'pp'pp`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
@@ -593,6 +593,18 @@ pp'pp'jt'yokl :: forall from into e ee t tt ttt o .
 	Castable Opposite into (T'TT'I (J t tt) ttt o) =>
 	t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `J` tt) o)
 pp'pp'jt'yokl = yokl @from @into `compose` pp'pp'jt
+
+rwr'yo_ :: forall into w o u e ee .
+	Covariant Endo Semi Functor into (U_II_I u o) =>
+	Castable Straight into (U_II_I u o ee) =>
+	Castable Opposite into (U_II_I u o e) =>
+	Castable Opposite into (w u ee o) =>
+	Castable Straight into (w u e o) =>
+	Castable Opposite Arrow (into Unit ee) =>
+	(Supertype (w u e o) ~ u e o) =>
+	(Supertype (w u ee o) ~ u ee o) =>
+	into e ee -> into (w u e o) (w u ee o)
+rwr'yo_ = rwr `compose` i_ `compose` fo
 
 rwr'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
