@@ -258,3 +258,5 @@
 * Define `lm'pp` operator
 * Define `lm'pp'pp` operator
 * Define `rwr'yo_` operator
+* Define `yokl'rwr'yo_` operator
+* Define `yokl'rwr'yu_` operator

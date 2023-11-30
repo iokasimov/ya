@@ -13,7 +13,7 @@ infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yo_`, `rwr'yu_`, `lm'pp'pp`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
-infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`
+infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`
 infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `pp'pp'jt'yokl`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
@@ -606,6 +606,23 @@ rwr'yo_ :: forall into w o u e ee .
 	into e ee -> into (w u e o) (w u ee o)
 rwr'yo_ = rwr `compose` i_ `compose` fo
 
+yokl'rwr'yo_ :: forall into w t o u e ee .
+	Covariant Yoneda Functor into (->) t =>
+	Covariant Endo Semi Functor (->) t =>
+	Covariant Endo Semi Functor (->) (w u ee) =>
+	Covariant Endo Semi Functor into (U_II_I u o) =>
+	Component Natural (->) (->) (T'TT'I t (w u ee)) t =>
+	(Supertype (w u e o) ~ u e o) =>
+	(Supertype (w u ee o) ~ u ee o) =>
+	Castable Opposite Arrow (into Unit ee) =>
+	Castable Opposite into (U_II_I u o e) =>
+	Castable Opposite into (w u ee o) =>
+	Castable Straight into (U_II_I u o ee) =>
+	Castable Straight into (w u e o) =>
+	t (w u e o) -> into e ee -> t o
+yokl'rwr'yo_ x f = yokl @into @_ @(w u ee) @t x
+	(rwr'yo_ @into @w @o @u @e @ee f)
+
 rwr'yu_ :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
 	Mapping Constant Straight into into (U_II_I u o) (U_II_I u o) =>
@@ -618,6 +635,25 @@ rwr'yu_ :: forall into w o u e ee .
 	(Supertype (w u ee o) ~ u ee o) =>
 	Supertype (into Unit ee) -> into (w u e o) (w u ee o)
 rwr'yu_ = rwr `compose` i_ `compose` fu
+
+-- TODO: find a way to generalize
+yokl'rwr'yu_ :: forall w t o u e ee .
+	Covariant Yoneda Functor (->) (->) t =>
+	Covariant Endo Semi Functor (->) t =>
+	Covariant Endo Semi Functor (->) (w u ee) =>
+	Covariant Endo Semi Functor (->) (U_II_I u o) =>
+	Mapping Constant Straight (->) (->) (U_II_I u o) (U_II_I u o) =>
+	Component Natural (->) (->) (T'TT'I t (w u ee)) t =>
+	(Supertype (w u e o) ~ u e o) =>
+	(Supertype (w u ee o) ~ u ee o) =>
+	Castable Opposite Arrow ((->) Unit ee) =>
+	Castable Opposite (->) (U_II_I u o e) =>
+	Castable Opposite (->) (w u ee o) =>
+	Castable Straight (->) (U_II_I u o ee) =>
+	Castable Straight (->) (w u e o) =>
+	t (w u e o) -> Supertype (Unit -> ee) -> t o
+yokl'rwr'yu_ x f = yokl @(->) @_ @(w u ee) @t x
+	(rwr'yu_ @(->) @w @o @u @e @ee f)
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
