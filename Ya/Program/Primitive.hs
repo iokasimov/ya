@@ -10,7 +10,7 @@ pattern Only :: e -> Only e
 pattern Only e <- I e
 	where Only e = I e
 
-type Boolean = U_I_II (\/) Unit Unit
+type Boolean = U_I_II ML Unit Unit
 
 pattern False :: Boolean
 pattern False <- U_I_II (This Unit)
@@ -25,7 +25,7 @@ type Provided = U_I_II (->)
 provide :: Straight (->) e e
 provide = U_I_II identity
 
-type Optional = U_I_II (\/) Unit
+type Optional = U_I_II ML Unit
 
 pattern Some :: e -> Optional e
 pattern Some e <- U_I_II (That e)
@@ -35,11 +35,11 @@ pattern None :: Optional e
 pattern None <- U_I_II (This Unit)
 	where None = U_I_II (This Unit)
 
-pattern Optionally :: Unit \/ e -> Optional e
+pattern Optionally :: Unit `ML` e -> Optional e
 pattern Optionally e <- U_I_II e
 	where Optionally e = U_I_II e
 
-type Progress = U_I_II (\/)
+type Progress = U_I_II ML
 
 pattern Interrupt :: e -> Progress e ee
 pattern Interrupt e <- U_I_II (This e)
@@ -120,9 +120,9 @@ pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM 
 pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
 	where Yet x xs = Recursive (U_I_T_II (These x xs))
 
-type Instruction = R_U_I_T_I (\/)
+type Instruction = R_U_I_T_I ML
 
-pattern Instruct :: t (Recursive (U_I_T_II t (\/) i)) -> Instruction t i
+pattern Instruct :: t (Recursive (U_I_T_II t ML i)) -> Instruction t i
 pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 	where Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
@@ -189,7 +189,7 @@ try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
 	`o` wrap @(->) @((t `T'TT'I` Progress ee) _)
 	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
 
-type Horizontal = U_I_II (\/) Unit Unit
+type Horizontal = U_I_II ML Unit Unit
 
 pattern Backward :: Horizontal
 pattern Backward <- U_I_II (This Unit)
@@ -199,7 +199,7 @@ pattern Forward :: Horizontal
 pattern Forward <- U_I_II (That Unit)
 	where Forward = U_I_II (That Unit)
 
-type Side = (\/) Unit Unit
+type Side = ML Unit Unit
 
 pattern Left :: Side
 pattern Left <- This Unit

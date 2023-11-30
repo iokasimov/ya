@@ -95,12 +95,12 @@ instance Mapping Straight Straight Arrow Arrow (This LM o) (This LM o)
 	where mapping = rwr / \from -> rwr / \case
 		These x e -> These (from x) e
 
-instance Mapping Straight Straight Arrow Arrow (That (\/) o) (That (\/) o)
+instance Mapping Straight Straight Arrow Arrow (That ML o) (That ML o)
 	where mapping = rwr / \from -> rwr / \case
 		That x -> That (from x)
 		This e -> This e
 
-instance Mapping Straight Straight Arrow Arrow (This (\/) o) (This (\/) o)
+instance Mapping Straight Straight Arrow Arrow (This ML o) (This ML o)
 	where mapping = rwr / \from -> rwr / \case
 		This x -> This (from x)
 		That e -> That e
@@ -239,15 +239,15 @@ instance Mapping Straight Straight Arrow Arrow (U_I_II LM e) I
 instance Mapping Straight Straight Arrow Arrow (U_II_I LM e) I
 	where mapping (U_I_II from) = U_I_II / \(U_II_I (These x _)) -> I (from x)
 
-instance Mapping Straight Straight Arrow Arrow (Both (\/)) I
+instance Mapping Straight Straight Arrow Arrow (Both ML) I
 	where mapping (U_I_II from) = U_I_II / \case
 		U_I_I (This x) -> I (from x)
 		U_I_I (That x) -> I (from x)
 
-instance Mapping Straight Straight Arrow Arrow I (U_I_II (\/) e)
+instance Mapping Straight Straight Arrow Arrow I (U_I_II ML e)
 	where mapping (U_I_II from) = U_I_II / \(I x) -> U_I_II (That (from x))
 
-instance Mapping Straight Straight Arrow Arrow I (U_II_I (\/) e)
+instance Mapping Straight Straight Arrow Arrow I (U_II_I ML e)
 	where mapping (U_I_II from) = U_I_II / \(I x) -> U_II_I (This (from x))
  
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) Arrow

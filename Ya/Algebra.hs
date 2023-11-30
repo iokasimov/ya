@@ -196,14 +196,14 @@ instance
 	) => Mapping Opposite Straight from (->) t (UU_V_U_I_II_T_II Opposite into (->) t r)
 	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> e `fa_` from `fa'fi` x)
 
-instance Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` U_I_II (\/) e) (U_I_II (\/) e)
+instance Mapping Straight Straight (->) (->) (U_I_II ML e `T'TT'I` U_I_II ML e) (U_I_II ML e)
 	where mapping = rwr / \from -> \case
 		T'TT'I (U_I_II (That (U_I_II (That x)))) -> U_I_II (That / from x)
 		T'TT'I (U_I_II (That (U_I_II (This e)))) -> U_I_II (This e)
 		T'TT'I (U_I_II (This e)) -> U_I_II (This e)
 
 instance Covariant Monoidal Functor (->) LM LM t =>
-	Mapping Straight Straight (->) (->) (U_I_II (\/) e `T'TT'I` t) (U_I_II (\/) e `TT'T'I` t)
+	Mapping Straight Straight (->) (->) (U_I_II ML e `T'TT'I` t) (U_I_II ML e `TT'T'I` t)
 	where mapping = rwr / \from -> rwr / \case
 		U_I_II (This e) -> yu enter (U_I_II `i` This e)
 		U_I_II (That x) -> x `yo` from `o` That  `o` U_I_II
@@ -212,24 +212,24 @@ instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM I I e ee) 
 	where mapping = rwr / \from -> rwr / \case
 		These (These (I e) (I ee)) (U_I_II f) -> from (f (These e ee))
 
-instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (U_I_II (\/) e) (U_I_II (\/) e) ee eee) (U_I_II (\/) e)
+instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (U_I_II ML e) (U_I_II ML e) ee eee) (U_I_II ML e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) -> That (from (f (These ee eee)))
 		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
 		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
-instance Mapping Straight Straight (->) (->) (Day Straight (->) LM (\/) (U_I_II (\/) e) (U_I_II (\/) e) ee eee) (U_I_II (\/) e)
+instance Mapping Straight Straight (->) (->) (Day Straight (->) LM ML (U_I_II ML e) (U_I_II ML e) ee eee) (U_I_II ML e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (U_I_II (That ee)) _) (U_I_II f) -> That (from (f (This ee)))
 		These (These _ (U_I_II (That eee))) (U_I_II f) -> That (from (f (That eee)))
 		These (These _ (U_I_II (This eee))) (U_I_II _) -> This eee
 
-instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (U_II_I (\/) e) (U_II_I (\/) e) ee eee) (U_II_I (\/) e)
+instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e)
 	where mapping = rwr / \from -> rwr `i` \case
 		These (These (U_II_I (This ee)) (U_II_I (This eee))) (U_I_II f) -> This (from (f (These ee eee)))
 		These (These (U_II_I (That e)) _) _ -> That e
 
-instance Mapping Straight Straight (->) (->) (Day Straight (->) LM (\/) (U_II_I (\/) e) (U_II_I (\/) e) ee eee) (U_II_I (\/) e)
+instance Mapping Straight Straight (->) (->) (Day Straight (->) LM ML (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e)
 	where mapping = rwr / \from -> rwr `i` \case
 		These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
 		These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
@@ -266,16 +266,16 @@ instance
 		These (These (T'TT'I (U_I_II f)) (T'TT'I (U_I_II g))) (U_I_II h) -> U_I_II / \e ->
 			pp (These (f e) (g e)) `yo` h `o` from
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_II_I (\/) e)
+instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_II_I ML e)
 	where mapping = rwr / \from (U_I_II f) -> U_II_I (This (from (f Unit)))
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_I_II (\/) e)
+instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_I_II ML e)
 	where mapping = rwr / \from (U_I_II f) -> U_I_II (That (from (f Unit)))
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_I_II (\/) Unit)
+instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_I_II ML Unit)
 	where mapping = rwr / \_ _ -> U_I_II (This Unit)
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_II_I (\/) Unit)
+instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_II_I ML Unit)
 	where mapping = rwr / \_ _ -> U_II_I (That Unit)
 
 -- TODO: generalize with limits

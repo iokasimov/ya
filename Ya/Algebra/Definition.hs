@@ -133,7 +133,7 @@ type family Representation t where
 		Representation t `LM` Representation tt
 	Representation (T_TT_TTT_I t tt ttt) =
 		Representation t `LM` Representation tt `LM` Representation ttt
-	Representation (U_I_I LM) = Unit \/ Unit
+	Representation (U_I_I LM) = Unit `ML` Unit
 
 class
 	 ( Transformation v x from into t (v hom (Representation t))
@@ -149,11 +149,11 @@ type family Co x where Co (x Straight) = x Opposite
 
 type family Object diagram = r | r -> diagram where
 	Object (Both (Straight Arrow)) = LM
-	Object (Both (Opposite Arrow)) = (\/)
+	Object (Both (Opposite Arrow)) = ML
 
 type family Neutral p where
 	Neutral LM = Unit
-	Neutral (\/) = Void
+	Neutral ML = Void
 
 class
 	( forall e . Mapping v v from into (This u e) I
@@ -256,7 +256,7 @@ monoidal' from =
 	`compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t . Monoidal Straight Functor (->) LM (\/) t => t Void
+empty :: forall t . Monoidal Straight Functor (->) LM ML t => t Void
 empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
 
 -- TODO: generalize so I can use Attribute here

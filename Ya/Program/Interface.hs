@@ -92,7 +92,7 @@ instance Covariant Endo Semi Functor (->) t
 			(\new -> Construct x / uw @Arrow @(R_U_I_T_I _ _ _) `fo` uw new)
 
 type family Ramification datastructure where
-	Ramification (Tree (U_I_I LM `T'TT'I` Optional)) = Unit \/ Unit
+	Ramification (Tree (U_I_I LM `T'TT'I` Optional)) = Unit `ML` Unit
 
 type family Branching datastructure where
 	Branching (Tree (U_I_I LM `T'TT'I` Optional)) = Optional `T'TT'I` Binary Tree

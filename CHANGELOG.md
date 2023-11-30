@@ -54,7 +54,7 @@
 * Define `_fo'fi'fi` operator
 * Define `_fo'fo` operator
 * Define `LM` data type
-* Define `\/` data type
+* Define `ML` data type
 * Define `U_I_UU_I_II` data type
 * Define `Void` data type
 * Define `Unit` data type

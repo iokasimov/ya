@@ -3,13 +3,13 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 `LM`, \/, `J`
+infixr 8 `LM`, `ML`, `J`
 
 type (/) t i = t i
 
 data LM i ii = These i ii
 
-data (\/) i ii = This i | That ii
+data ML i ii = This i | That ii
 
 newtype I i = I i
 
