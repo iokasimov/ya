@@ -3,11 +3,11 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 /\, \/, `J`
+infixr 8 `LM`, \/, `J`
 
 type (/) t i = t i
 
-data (/\) i ii = These i ii
+data LM i ii = These i ii
 
 data (\/) i ii = This i | That ii
 
@@ -245,11 +245,11 @@ instance Castable Straight (->) (Unit -> i)
 	where cast = U_I_II (\f -> f Unit)
 
 instance Wrapper Arrow x
-	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
 
 instance Wrapper Arrow x
-	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) (/\))) x where
+	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
 uw :: Castable Straight into i => into i (Supertype i)
@@ -282,7 +282,7 @@ type Matching a b = Same a b ~ 'Yes
 type family J known unknown where
 	J (Straight Arrow input) unknown =
 		Straight Arrow input `T'TT'I` unknown
-	J (Straight (W_I_I_II (U_I_UU_II_III (->) (/\))) state) unknown =
-		T_TT_TTT_I (Straight Arrow state) unknown (Straight (/\) state)
+	J (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown =
+		T_TT_TTT_I (Straight Arrow state) unknown (Straight LM state)
 	-- TODO: should there be a loop if we cannot find such an instance?
 	-- J unknown known = J known unknown

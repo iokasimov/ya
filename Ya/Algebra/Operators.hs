@@ -461,16 +461,16 @@ ml' from_this from_that =
 	_i (semifunctor @Straight (wrapped (that @Opposite from_that)))
 
 pp :: forall e ee t .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	t e /\ t ee -> t (e /\ ee)
-pp = monoidal @Straight @Arrow @t @(/\) @(/\) identity identity
+	Covariant Monoidal Functor Arrow LM LM t =>
+	t e `LM` t ee -> t (e `LM` ee)
+pp = monoidal @Straight @Arrow @t @LM @LM identity identity
 
 pp'pp :: forall e ee t tt .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	Covariant Monoidal Functor Arrow (/\) (/\) tt =>
-	t (tt e) /\ t (tt ee) -> t (tt (e /\ ee))
-pp'pp = monoidal @Straight @Arrow @t @(/\) @(/\) identity
-	(monoidal @Straight @Arrow @tt @(/\) @(/\) identity identity)
+	Covariant Monoidal Functor Arrow LM LM t =>
+	Covariant Monoidal Functor Arrow LM LM tt =>
+	t (tt e) `LM` t (tt ee) -> t (tt (e `LM` ee))
+pp'pp = monoidal @Straight @Arrow @t @LM @LM identity
+	(monoidal @Straight @Arrow @tt @LM @LM identity identity)
 
 w'uw :: forall into a o .
 	Precategory into =>
@@ -531,39 +531,39 @@ a'yokl :: forall from into t tt a o e .
 a'yokl = a `compose` fokl @from @into @tt @t
 
 lm'pp :: forall o oo t .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	t o -> t oo -> t (o /\ oo)
+	Covariant Monoidal Functor Arrow LM LM t =>
+	t o -> t oo -> t (o `LM` oo)
 lm'pp from_this from_that = pp (lm from_this from_that)
 
 lm'pp'pp :: forall o oo t tt .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	Covariant Monoidal Functor Arrow (/\) (/\) tt =>
-	t (tt o) -> t (tt oo) -> t (tt (o /\ oo))
+	Covariant Monoidal Functor Arrow LM LM t =>
+	Covariant Monoidal Functor Arrow LM LM tt =>
+	t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
 lm'pp'pp from_this from_that = pp'pp (lm from_this from_that)
 
 -- TODO: generalize
 pp'yo :: forall from e ee r t .
-	Covariant Monoidal Functor from (/\) (/\) t =>
-	t e /\ t ee -> from (e /\ ee) r -> t r
-pp'yo x f = monoidal @Straight @from @t @(/\) @(/\) identity f x
+	Covariant Monoidal Functor from LM LM t =>
+	t e `LM` t ee -> from (e `LM` ee) r -> t r
+pp'yo x f = monoidal @Straight @from @t @LM @LM identity f x
 
 -- TODO: generalize
 pp'yokl :: forall e ee from into t tt o .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
+	Covariant Monoidal Functor Arrow LM LM t =>
 	Covariant Yoneda Functor from into t =>
 	Component Natural Arrow into (T'TT'I t tt) t =>
-	Castable Opposite into (Straight from (e /\ ee) (tt o)) =>
+	Castable Opposite into (Straight from (e `LM` ee) (tt o)) =>
 	Castable Opposite into (T'TT'I t tt o) =>
-	t e /\ t ee -> into (from (e /\ ee) (tt o)) (t o)
+	t e `LM` t ee -> into (from (e `LM` ee) (tt o)) (t o)
 pp'yokl = yokl @from @into `compose` pp
 
 -- TODO: generalize
 pp'pp'yo :: forall from e ee r t tt .
-	Covariant Monoidal Functor Arrow (/\) (/\) t =>
-	Covariant Monoidal Functor from (/\) (/\) tt =>
-	t (tt e) /\ t (tt ee) -> from (e /\ ee) r -> t (tt r)
-pp'pp'yo x f = monoidal @Straight @Arrow @t @(/\) @(/\) identity
-	(monoidal @Straight @from @tt @(/\) @(/\) identity f) x
+	Covariant Monoidal Functor Arrow LM LM t =>
+	Covariant Monoidal Functor from LM LM tt =>
+	t (tt e) `LM` t (tt ee) -> from (e `LM` ee) r -> t (tt r)
+pp'pp'yo x f = monoidal @Straight @Arrow @t @LM @LM identity
+	(monoidal @Straight @from @tt @LM @LM identity f) x
 
 jt :: forall into f g e .
 	Component Natural (->) into (f `T'TT'I` g) (f `J` g) =>
@@ -575,11 +575,11 @@ jt = component @Straight @(->) @into @(f `T'TT'I` g) @(f `J` g) @e
 -- TODO: generalize
 pp'pp'jt :: forall e ee t tt .
 	Component Natural (->) (->) (t `T'TT'I` tt) (t `J` tt) =>
-	Covariant Monoidal Functor (->) (/\) (/\) t =>
-	Covariant Monoidal Functor (->) (/\) (/\) tt =>
-	t (tt e) /\ t (tt ee) -> (t `J` tt) (e /\ ee)
-pp'pp'jt = jt `compose` monoidal @Straight @Arrow @t @(/\) @(/\) identity
-	(monoidal @Straight @(->) @tt @(/\) @(/\) identity identity)
+	Covariant Monoidal Functor (->) LM LM t =>
+	Covariant Monoidal Functor (->) LM LM tt =>
+	t (tt e) `LM` t (tt ee) -> (t `J` tt) (e `LM` ee)
+pp'pp'jt = jt `compose` monoidal @Straight @Arrow @t @LM @LM identity
+	(monoidal @Straight @(->) @tt @LM @LM identity identity)
 
 -- TODO: generalize
 pp'pp'jt'yokl :: forall from into e ee t tt ttt o .
@@ -587,11 +587,11 @@ pp'pp'jt'yokl :: forall from into e ee t tt ttt o .
 	Covariant Yoneda Functor from into (t `J` tt) =>
 	Component Natural (->) (->) (t `T'TT'I` tt) (t `J` tt) =>
 	Component Natural (->) into (T'TT'I (t `J` tt) ttt) (t `J` tt) =>
-	Covariant Monoidal Functor (->) (/\) (/\) t =>
-	Covariant Monoidal Functor (->) (/\) (/\) tt =>
-	Castable Opposite into (Straight from (e /\ ee) (ttt o)) =>
+	Covariant Monoidal Functor (->) LM LM t =>
+	Covariant Monoidal Functor (->) LM LM tt =>
+	Castable Opposite into (Straight from (e `LM` ee) (ttt o)) =>
 	Castable Opposite into (T'TT'I (J t tt) ttt o) =>
-	t (tt e) /\ t (tt ee) -> into (from (e /\ ee) (ttt o)) ((t `J` tt) o)
+	t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `J` tt) o)
 pp'pp'jt'yokl = yokl @from @into `compose` pp'pp'jt
 
 rwr'yu_ :: forall into w o u e ee .
@@ -612,14 +612,14 @@ rwr'yu_ = rwr `compose` i_ `compose` fu
 cc :: forall into t a o .
 	Covariant Endo Semi Functor (->) t =>
 	Covariant Endo Semi Functor (->) (U_I_II into a) =>
-	Adjoint Functor (->) (->) (That (/\) (t a)) (That into (t a)) =>
-	Adjoint Functor (->) (->) (That (/\) a) (That into a) =>
-	Adjoint Functor (->) (->) (That (/\) (t a /\ t (into a o))) (That (->) (t a /\ t (into a o))) =>
-	Monoidal Straight Functor into (/\) (/\) t =>
+	Adjoint Functor (->) (->) (That LM (t a)) (That into (t a)) =>
+	Adjoint Functor (->) (->) (That LM a) (That into a) =>
+	Adjoint Functor (->) (->) (That LM (t a `LM` t (into a o))) (That (->) (t a `LM` t (into a o))) =>
+	Monoidal Straight Functor into LM LM t =>
 	t (into a o) -> into (t a) (t o)
 cc = uw @(->) @(That into (t a) _)
 	`compose` (fo @(->) @(->) `compose` fo @(->) @(->))
 		(rj @(->) @(->) (wrap @_ @(That _ _ _)) `compose` wrap @_ @(That _ _ _))
-	`compose` lj @(->) @(->) @(That (/\) (t a)) @(That into _)
-		(monoidal' @Straight @into @(->) @t @(/\) @(/\) identity (wrap identity)
-			`compose` uw @(->) @(That (/\) (t a) (t (into a o))))
+	`compose` lj @(->) @(->) @(That LM (t a)) @(That into _)
+		(monoidal' @Straight @into @(->) @t @LM @LM identity (wrap identity)
+			`compose` uw @(->) @(That LM (t a) (t (into a o))))

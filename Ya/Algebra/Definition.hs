@@ -130,10 +130,10 @@ type family Representation t where
 	Representation I = Unit
 	Representation (U_I_II Arrow a) = a
 	Representation (T'TT'I t tt) =
-		Representation t /\ Representation tt
+		Representation t `LM` Representation tt
 	Representation (T_TT_TTT_I t tt ttt) =
-		Representation t /\ Representation tt /\ Representation ttt
-	Representation (U_I_I (/\)) = Unit \/ Unit
+		Representation t `LM` Representation tt `LM` Representation ttt
+	Representation (U_I_I LM) = Unit \/ Unit
 
 class
 	 ( Transformation v x from into t (v hom (Representation t))
@@ -148,11 +148,11 @@ deriving instance
 type family Co x where Co (x Straight) = x Opposite
 
 type family Object diagram = r | r -> diagram where
-	Object (Both (Straight Arrow)) = (/\)
+	Object (Both (Straight Arrow)) = LM
 	Object (Both (Opposite Arrow)) = (\/)
 
 type family Neutral p where
-	Neutral (/\) = Unit
+	Neutral LM = Unit
 	Neutral (\/) = Void
 
 class
@@ -196,7 +196,7 @@ type Initial o into a = o Opposite into U_ a a
 absurd :: Void -> a
 absurd x = case x of {}
 
-type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III (/\)
+type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 
 class 
 	( x Straight into from t
@@ -237,12 +237,12 @@ monoidal from t x = map @v @Straight @from @(->)
 
 monoidal' :: forall v from into t u uu a o e ee .
 	Adjoint Functor (->) into
-		(That (/\) (u (t e) (t ee)))
+		(That LM (u (t e) (t ee)))
 		(That into (u (t e) (t ee))) =>
 	Monoidal v Functor from u uu t =>
 	Castable Opposite Arrow (v from a o) =>
-	Castable Opposite into ((That into (u (t e) (t ee)) `T'TT'I` That (/\) (u (t e) (t ee))) a) =>
-	Castable Straight into ((That into (u (t e) (t ee)) `T'TT'I` That (/\) (u (t e) (t ee))) (v from (uu e ee) a)) =>
+	Castable Opposite into ((That into (u (t e) (t ee)) `T'TT'I` That LM (u (t e) (t ee))) a) =>
+	Castable Straight into ((That into (u (t e) (t ee)) `T'TT'I` That LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
 	Castable Straight into (That into (u (t e) (t ee)) (t o)) =>
 	Castable Opposite into (I (v from (uu e ee) a)) =>
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
@@ -250,17 +250,17 @@ monoidal' from =
 	uw @into @(That into _ _)
 	`compose` semifunctor @Straight
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
-		`compose` uw @(->) @(That (/\) _ _))
+		`compose` uw @(->) @(That LM _ _))
 	`compose` uw @into @(T'TT'I _ _ _)
-	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That (/\) _)
+	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That LM _)
 	`compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t . Monoidal Straight Functor (->) (/\) (\/) t => t Void
+empty :: forall t . Monoidal Straight Functor (->) LM (\/) t => t Void
 empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Monoidal Straight Functor (->) (/\) (/\) t => t Unit
+enter :: forall t . Monoidal Straight Functor (->) LM LM t => t Unit
 enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
 
 rwr :: forall o into a .

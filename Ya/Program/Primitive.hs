@@ -49,7 +49,7 @@ pattern Continue :: ee -> Progress e ee
 pattern Continue ee <- U_I_II (That ee)
 	where Continue ee = U_I_II (That ee)
 
-type Reference = U_I_UU_III_U_II_I (->) (/\)
+type Reference = U_I_UU_III_U_II_I (->) LM
 
 type Attribute = W_I_II_II Reference
 
@@ -76,7 +76,7 @@ instance Covariant Endo Semi Functor (->) t =>
 	mapping = rewrap / \ from (Construct _ xs) ->
 		(T'TT'I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
 
-type Transition = W_I_I_II (U_I_UU_II_III (->) (/\))
+type Transition = W_I_I_II (U_I_UU_II_III (->) LM)
 
 observe :: Transition state state
 observe = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These `i` old `i'i` old
@@ -87,7 +87,7 @@ replace new = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These new old
 transit :: (state -> state) -> Transition state state
 transit f = W_I_I_II `i'i` U_I_UU_II_III `i` \s -> These `i` f s `i'i` s
 
-start :: state -> Transition state result -> state /\ result
+start :: state -> Transition state result -> state `LM` result
 start state stateful = stateful `uw'uw` state
 
 instant :: Transition state result -> state -> state
@@ -101,7 +101,7 @@ pattern Statefully x <- U_I_II x
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
-	e -> J (Stateful e) t o -> t (e /\ o)
+	e -> J (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
 type Scenario = U_II_I Transition
@@ -110,13 +110,13 @@ pattern Scenario :: Transition state result -> Scenario result state
 pattern Scenario x <- U_II_I x
 	where Scenario x = U_II_I x
 
-type Construction = R_U_I_T_I (/\)
+type Construction = R_U_I_T_I LM
 
-pattern Construct :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Construction t i
+pattern Construct :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
 pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 	where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
-pattern Yet :: i -> t (Recursive (U_I_T_II t (/\) i)) -> Recursive (U_I_T_II t (/\) i)
+pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
 	where Yet x xs = Recursive (U_I_T_II (These x xs))
 
@@ -131,15 +131,15 @@ pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
 type List = Optional `T'TT'I` Construction Optional
 
-pattern List :: Recursive (U_I_T_II Optional (/\) i) -> List i
+pattern List :: Recursive (U_I_T_II Optional LM i) -> List i
 pattern List xs <- T'TT'I (Some (R_U_I_T_I xs))
 	where List xs = T'TT'I (Some (R_U_I_T_I xs))
 
-pattern Next :: i -> Recursive (U_I_T_II Optional (/\) i) -> Recursive (U_I_T_II Optional (/\) i)
+pattern Next :: i -> Recursive (U_I_T_II Optional LM i) -> Recursive (U_I_T_II Optional LM i)
 pattern Next x xs <- Yet x (Some xs)
 	where Next x xs = Yet x (Some xs)
 
-pattern Last :: i -> Recursive (U_I_T_II Optional (/\) i)
+pattern Last :: i -> Recursive (U_I_T_II Optional LM i)
 pattern Last x <- Yet x None
 	where Last x = Yet x None
 
@@ -149,7 +149,7 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
 	Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) (/\) i) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
 pattern Nonempty xs <- R_U_I_T_I xs
 	where Nonempty xs = R_U_I_T_I xs
 
@@ -161,7 +161,7 @@ pattern Empty <- T'TT'I None
 type Tree = Construction
 
 type family Binary tree where
-	Binary Tree = Tree (U_I_I (/\) `T'TT'I` Optional)
+	Binary Tree = Tree (U_I_I LM `T'TT'I` Optional)
 
 layer :: forall g f e .
 	Component Natural (->) (->) f (f `J` g) =>
