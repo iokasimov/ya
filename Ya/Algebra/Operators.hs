@@ -9,12 +9,12 @@ infixl 9 `i`, `u`, `o`, `a`
 infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`, `lm'pp`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yukl'u`, `a'yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yo_`, `rwr'yu_`, `lm'pp'pp`
-infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yukl'u'u'u`
-infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`
-infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `pp'pp'jt'yokl`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yokl'u`, `yukl'u`, `a'yokl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yokl'u'u`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yo_`, `rwr'yu_`, `lm'pp'pp`
+infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yokl'u'u'u`, `yukl'u'u'u`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`, `yokl'u'u'u'u`
+infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `pp'pp'jt'yokl`, `yokl'u'u'u'u'u'u`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
 	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
@@ -130,13 +130,31 @@ fokl :: forall from into t tt a o .
 fokl from = component @Straight @from @into @(t `T'TT'I` tt) @t
 	`compose` wrap `compose` fo from
 
-yokl :: forall from into tt t a o .
+yokl, yokl'u, yokl'u'u, yokl'u'u'u, yokl'u'u'u'u, yokl'u'u'u'u'u, yokl'u'u'u'u'u'u :: forall from into tt t a o .
 	Component Natural Arrow into (T'TT'I t tt) t =>
 	Covariant Yoneda Functor from into t =>
 	Castable Opposite into (Straight from a (tt o)) =>
 	Castable Opposite into (T'TT'I t tt o) =>
 	t a -> into (from a (tt o)) (t o)
 yokl x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
+	`compose` wrap @into @(T'TT'I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yokl'u'u'u'u'u'u x = component @Straight @Arrow @into @(T'TT'I t tt)
 	`compose` wrap @into @(T'TT'I t tt _)
 	`compose` yoneda @Straight @Functor @from x
 
