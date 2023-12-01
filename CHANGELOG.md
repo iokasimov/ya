@@ -265,3 +265,5 @@
 * Define `yokl'u'u'u` operator
 * Define `yokl'u'u'u'u` operator
 * Define `yokl'u'u'u'u'u` operator
+* Define `yokl'u'u'u'u'u'u` operator
+* Define `T'_'I` data type
