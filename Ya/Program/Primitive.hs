@@ -189,15 +189,15 @@ try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
 	`o` wrap @(->) @((t `T'TT'I` Progress ee) _)
 	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
 
-type Horizontal = U_I_II ML Unit Unit
+type Horizontal = U_I_I ML Unit
 
 pattern Backward :: Horizontal
-pattern Backward <- U_I_II (This Unit)
-	where Backward = U_I_II (This Unit)
+pattern Backward <- U_I_I (This Unit)
+	where Backward = U_I_I (This Unit)
 
 pattern Forward :: Horizontal
-pattern Forward <- U_I_II (That Unit)
-	where Forward = U_I_II (That Unit)
+pattern Forward <- U_I_I (That Unit)
+	where Forward = U_I_I (That Unit)
 
 type Side = ML Unit Unit
 
