@@ -45,6 +45,14 @@ instance
 
 instance
 	( Covariant Semi Functor from into t
+	, forall e . Wrapper into (T'_'I l t e)
+	) => Mapping Straight Straight from into (T'_'I l t) (T'_'I l t)
+	where mapping = rwr / \from -> wrap @into @(T'_'I _ t _)
+		`compose` semifunctor @Straight @from @into @t from
+		`compose` uw @into @(T'_'I _ t _)
+
+instance
+	( Covariant Semi Functor from into t
 	, forall ee . Covariant Endo Semi Functor into (U_I_II u ee)
 	, forall ee . Wrapper into (U_I_II (U_I_T_II t u) e ee)
 	, forall ee . Wrapper into (U_I_T_II t u e ee)

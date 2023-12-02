@@ -199,6 +199,11 @@ pattern Forward :: Horizontal
 pattern Forward <- U_I_I (That Unit)
 	where Forward = U_I_I (That Unit)
 
+type Backward = T'_'I Back
+
+label :: forall l t e . t e -> T'_'I l t e
+label = T'_'I
+
 type Side = ML Unit Unit
 
 pattern Left :: Side
