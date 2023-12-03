@@ -5,16 +5,16 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`
-infixl 8 `i'i`, `u'u`, `fo`, `fa`, `fu`, `yi`, `yo`, `ya`, `yu`, `a'a`, `o'a`, `a'o`, `lj`, `rj`, `ro`, `ra`, `pp`, `pp'pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`
-infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `w'uw`, `uw'w`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fo'fi`, `fa'fi`, `fokl`, `fo'fo`, `yokl`, `yukl`, `pp'yo`, `yo'yo`, `uw'uw`, `lm'pp`
-infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `_yokl`, `yokl'u`, `yukl'u`, `a'yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `fo'fo'fo`, `yoklKL`, `yokl'u'u`, `yukl'u'u`, `yukl'yi`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `uw'uw'uw`, `rwr'yo_`, `rwr'yu_`, `lm'pp'pp`
-infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`, `fi_'fi'fi`, `_fo'fi'fi`, `yokl'u'u'u`, `yukl'u'u'u`
-infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'u'u'u'u`, `yukl'yi'yi`, `yokl'u'u'u'u`
-infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `pp'pp'jt'yokl`, `yokl'u'u'u'u'u'u`
+infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
+infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yukl'yi`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yukl'yi'yi`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`
+infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`
+infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
+infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
 	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
