@@ -8,13 +8,13 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
 infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yukl'yi`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yukl'yi'yi`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yukl'yi'yi'yi`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`, `yukl'yi`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
-infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`
+infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yukl'yi'yi'yi`
 
 i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i,
 	i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
@@ -672,6 +672,20 @@ yokl'rwr'yu_ :: forall w t o u e ee .
 	t (w u e o) -> Supertype (Unit -> ee) -> t o
 yokl'rwr'yu_ x f = yokl @(->) @_ @(w u ee) @t x
 	(rwr'yu_ @(->) @w @o @u @e @ee f)
+
+-- TODO: generalize
+yokl'uw'yokl :: forall t tt ttt a aa o .
+	Covariant Yoneda Functor (->) (->) t =>
+	Covariant Endo Semi Functor (->) t =>
+	Covariant Endo Semi Functor (->) tt =>
+	Covariant Endo Semi Functor (->) ttt =>
+	Component Natural (->) (->) (T'TT'I t tt) t =>
+	Component Natural (->) (->) (T'TT'I t ttt) t =>
+	Castable Straight (->) a =>
+	(Supertype a ~ tt aa) =>
+	t a -> (aa -> ttt o) -> t o
+yokl'uw'yokl x = yokl @(->) @(->) @ttt @t
+	(yokl @(->) @(->) @tt @t x unwrap)
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
