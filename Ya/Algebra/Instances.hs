@@ -12,14 +12,14 @@ instance
 	) => Mapping Straight Straight into into I I
 	where mapping = rwr rwr
 
--- instance
--- 	( forall e . Wrapper into (I e)
--- 	, forall e . Wrapper into (TT'T'I I tt e)
--- 	, forall e . Wrapper into (T'TT'I I tt e)
--- 	, Covariant Endo Semi Functor into tt
--- 	) => Mapping Straight Straight into into (T'TT'I I tt) (TT'T'I I tt)
--- 	where mapping = rwr / \from -> rwr /
--- 		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
+instance
+	( forall e . Wrapper into (I e)
+	, forall e . Wrapper into (TT'T'I I t e)
+	, forall e . Wrapper into (T'TT'I I t e)
+	, Covariant Endo Semi Functor into t
+	) => Mapping Straight Straight into into (T'TT'I I t) (TT'T'I I t)
+	where mapping = rwr / \from -> rwr /
+		semifunctor @Straight @into @into (wrap `compose` from) `compose` uw @into
 
 instance
 	( Covariant Semi Functor from into tt
@@ -94,6 +94,52 @@ instance
 			`compose` semifunctor @Straight @from @into
 			) from
 		`compose` uw @into
+
+instance
+	( forall e . Covariant Endo Semi Functor into (U_I_II u (t e))
+	, forall e . Covariant Endo Semi Functor into (U_II_I u (tt e))
+	, Covariant Semi Functor from into tt
+	, Covariant Semi Functor from into t
+	, forall e . Wrapper into (U_T_I_TT_I u t tt e)
+	, forall e ee . Wrapper into (U_I_II u (t e) (tt ee))
+	, forall e ee . Wrapper into (U_II_I u (tt e) (t ee))
+	) => Mapping Straight Straight from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt)
+	where mapping = rwr / \from -> rwr /
+		wrapped @into (semifunctor @Straight @into @into @(U_II_I u _) `compose` semifunctor @Straight @from @into / from) `compose`
+		wrapped @into (semifunctor @Straight @into @into @(U_I_II u _) `compose` semifunctor @Straight @from @into / from)
+
+instance
+	( forall e . Covariant Endo Semi Functor (->) (U_I_II u e)
+	, forall e . Covariant Endo Semi Functor (->) (U_II_I u e)
+	, Covariant Monoidal Functor from u u ttt
+	, Component Natural from (->) (t `T'TT'I` ttt) (t `TT'T'I` ttt)
+	, Component Natural from (->) (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
+	, forall e . Wrapper from (U_T_I_TT_I u t tt e)
+	, forall e . Wrapper (->) (TT'T'I (U_T_I_TT_I u t tt) ttt e)
+	, forall e . Wrapper (->) (T'TT'I (U_T_I_TT_I u t tt) ttt e)
+	) => Mapping Straight Straight from (->) (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt)
+	where mapping = rwr / \from -> rwr /
+		monoidal @Straight @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+			wrapped (semifunctor @Straight @(->) @(->) @(U_II_I u _)
+				(wrapped (map @Straight @Straight @from @(->) @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
+			wrapped (semifunctor @Straight @(->) @(->) @(U_I_II u _)
+				(wrapped (map @Straight @Straight @from @(->) @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
+			uw @(->) @(U_T_I_TT_I u t tt _)
+
+-- TODO: here should be a generalized version of an instance above
+-- instance
+	-- ( forall e . Covariant Endo Semi Functor into (U_I_II (u :: * -> * -> *) (t e))
+	-- , forall e . Wrapper into (U_T_I_TT_I u t tt e)
+	-- , forall e . Wrapper into (TT'T'I (U_T_I_TT_I u t tt) ttt e)
+	-- , forall e . Wrapper into (T'TT'I (U_T_I_TT_I u t tt) ttt e)
+	-- ) => Mapping Straight Straight from into (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt)
+	-- where mapping = rwr / \from -> rwr /
+		-- monoidal' @Straight @from @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+			-- wrapped (semifunctor @Straight @into @into @(U_II_I u _)
+				-- (wrapped (map @Straight @Straight @from @into @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
+			-- wrapped (semifunctor @Straight @into @into @(U_I_II u _)
+				-- (wrapped (map @Straight @Straight @from @into @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
+			-- uw @into @(U_T_I_TT_I u t tt _)
 
 instance Mapping Straight Straight Arrow Arrow (That LM o) (That LM o)
 	where mapping = rwr / \from -> rwr / \case
