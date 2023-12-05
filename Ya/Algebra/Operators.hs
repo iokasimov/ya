@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
-infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm''pp`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
@@ -547,6 +547,28 @@ a'yokl :: forall from into t tt a o e .
 	(forall ee . Wrapper into (T'TT'I tt t ee)) =>
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
+
+lm''pp :: forall from t i o oo .
+	Category from =>
+	Limit Straight from (->) =>
+	Covariant Functor (->) (->) (That (LM) o) =>
+	Covariant Functor (->) (->) (This (LM) (LM i i)) =>
+	Covariant Monoidal Functor Arrow LM LM t =>
+	Castable Straight (->) (Both (LM) (LM i i)) =>
+	Castable Straight (->) (That (LM) o oo) =>
+	Castable Opposite (->) (This (LM) i i) =>
+	Castable Opposite (->) (That (LM) i i) =>
+	Castable Straight (->) (Both (LM) i) =>
+	Castable Straight (->) (This (LM) (LM i i) o) =>
+	Castable Opposite (->) (This (LM) (LM i i) (LM i i)) =>
+	Wrapper (->) (That (LM) o (LM i i)) =>
+	(forall e . Wrapper (->) (I e)) =>
+	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
+lm''pp from_this from_that = pp `compose`
+	_i (semifunctor @Straight (wrapped (that @Straight from_that))) `compose`
+	i_ (semifunctor @Straight (wrapped (this @Straight from_this))) `compose`
+	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity) `compose`
+	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity)
 
 lm'pp :: forall o oo t .
 	Covariant Monoidal Functor Arrow LM LM t =>

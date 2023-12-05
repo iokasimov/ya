@@ -271,3 +271,4 @@
 * Define `Backward` type alias
 * Define `label` expression
 * Define `yokl'uw'yokl` operator
+* Define `lm''pp` operator
