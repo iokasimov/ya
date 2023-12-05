@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
-infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
@@ -689,7 +689,7 @@ yokl'uw'yokl x = yokl @(->) @(->) @ttt @t
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
-cc :: forall into t a o .
+fc :: forall into t a o .
 	Covariant Endo Semi Functor (->) t =>
 	Covariant Endo Semi Functor (->) (U_I_II into a) =>
 	Adjoint Functor (->) (->) (That LM (t a)) (That into (t a)) =>
@@ -697,9 +697,18 @@ cc :: forall into t a o .
 	Adjoint Functor (->) (->) (That LM (t a `LM` t (into a o))) (That (->) (t a `LM` t (into a o))) =>
 	Monoidal Straight Functor into LM LM t =>
 	t (into a o) -> into (t a) (t o)
-cc = uw @(->) @(That into (t a) _)
+fc = uw @(->) @(That into (t a) _)
 	`compose` (fo @(->) @(->) `compose` fo @(->) @(->))
 		(rj @(->) @(->) (wrap @_ @(That _ _ _)) `compose` wrap @_ @(That _ _ _))
 	`compose` lj @(->) @(->) @(That LM (t a)) @(That into _)
 		(monoidal' @Straight @into @(->) @t @LM @LM identity (wrap identity)
 			`compose` uw @(->) @(That LM (t a) (t (into a o))))
+
+cc :: forall t e ee .
+	Adjoint Functor (->) (->) (That LM (t e `LM` t ee)) (That (->) (t e `LM` t ee)) =>
+	Monoidal Straight Functor (->) LM LM t =>
+	t e -> t ee -> t (e `LM` ee)
+cc e ee = monoidal'
+	@Straight @(->) @(->) @t @LM @LM identity
+	(wrap @(->) identity)
+	(e `lm` ee)

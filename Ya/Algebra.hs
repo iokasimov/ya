@@ -70,7 +70,7 @@ instance
 				/ These x' xs'
 			)
 			`fo` (x `yo` from)
-			`cc` (wrapped (component @Straight @(->) @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt))
+			`fc` (wrapped (component @Straight @(->) @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt))
 				(xs `yo`wrapped
 					(map @Straight @Straight @_ @_
 							@((Back `T'_'I` R_U_I_T_I LM t) `T'TT'I` tt)
