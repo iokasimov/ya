@@ -75,6 +75,12 @@ instance Scrollable List where
 			(Some previous)
 		previous@(_) -> These previous None
 
+class Fastenable datastructure where
+	fasten :: e -> datastructure e -> Scrolling datastructure e
+
+instance Fastenable List
+	where fasten x xs = T'_'I (U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (Empty @List) xs))))
+
 type family Substructure datastructure where
 	Substructure (Construction t) = t `T'TT'I` Construction t
 

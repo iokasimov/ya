@@ -272,3 +272,4 @@
 * Define `label` expression
 * Define `yokl'uw'yokl` operator
 * Define `lm''pp` operator
+* Define `Fastenable` type class
