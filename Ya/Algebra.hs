@@ -229,7 +229,7 @@ instance
 	( Covariant Semi Functor from (->) t
 	, forall e . Covariant Semi Functor into (->) (U_I_II from e)
 	) => Mapping Straight Straight from (->) t (UU_V_U_I_II_T_II Straight into (->) t r)
-	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(U_I_II e) -> (e `_fo` from) `fo` x)
+	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(U_I_II e) -> fo @from (_fo @into @(->) e from) x)
 
 instance
 	( Covariant Endo Semi Functor (->) t
@@ -241,7 +241,7 @@ instance
 	( Contravariant Semi Functor from (->) t
 	, forall e . Contravariant Semi Functor into (->) (U_II_I from e)
 	) => Mapping Opposite Straight from (->) t (UU_V_U_I_II_T_II Opposite into (->) t r)
-	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> (e `fa_` from) `fa` x)
+	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(U_II_I e) -> fa @from (fa_ @into @(->) e from) x)
 
 instance Mapping Straight Straight (->) (->) (U_I_II ML e `T'TT'I` U_I_II ML e) (U_I_II ML e)
 	where mapping = rwr / \from -> \case
