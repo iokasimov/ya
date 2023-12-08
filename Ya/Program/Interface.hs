@@ -83,6 +83,7 @@ instance Fastenable List
 
 type family Substructure datastructure where
 	Substructure (Construction t) = t `T'TT'I` Construction t
+	Substructure (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = U_T_I_TT_I LM List List
 
 class Hierarchial datastructure where
 	root :: Attribute (datastructure item) item
@@ -97,17 +98,24 @@ instance Covariant Endo Semi Functor (->) t
 			(T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Construct x / uw @Arrow @(R_U_I_T_I _ _ _) `fo` uw new)
 
+instance Hierarchial (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
+	root = W_I_II_II `compose` U_I_UU_III_U_II_I /
+		\(U_T_I_TT_I (These (I old) xs)) -> These old (\new -> U_T_I_TT_I (These (I new) xs))
+	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
+		\(U_T_I_TT_I (These (I x) old)) -> These old (\new -> U_T_I_TT_I (These (I x) new))
+
 type family Ramification datastructure where
 	Ramification (Tree (U_I_I LM `T'TT'I` Optional)) = Unit `ML` Unit
+	Ramification (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = Unit `ML` Unit
 
 type family Branching datastructure where
 	Branching (Tree (U_I_I LM `T'TT'I` Optional)) = Optional `T'TT'I` Binary Tree
+	Branching (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = List
 
 class Hierarchial datastructure => Brancheable datastructure where
-	branch :: Ramification datastructure ->
-		Attribute (datastructure item) (Branching datastructure item)
+	branch :: Ramification datastructure -> Attribute (datastructure item) (Branching datastructure item)
 
--- TODO: refactor using limits
+-- TODO: refactor using limits/colimits
 instance Brancheable (Tree (U_I_I LM `T'TT'I` Optional)) where
 	branch p = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct x (T'TT'I (U_I_I (These lb rb)))) -> These
@@ -117,3 +125,14 @@ instance Brancheable (Tree (U_I_I LM `T'TT'I` Optional)) where
 			/ \new -> case p of
 				This _ -> Construct x (T'TT'I (U_I_I (These (uw @(->) `fo` uw new) rb)))
 				That _ -> Construct x (T'TT'I (U_I_I (These lb (uw @(->) `fo` uw new))))
+
+-- TODO: refactor using limits/colimits
+instance Brancheable (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
+	branch p = W_I_II_II `compose` U_I_UU_III_U_II_I /
+		\(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These rs fs)))) -> These
+			/ case p of
+				This _ -> rs
+				That _ -> fs
+			/ \new -> case p of
+				This _ -> U_T_I_TT_I (These (I x) (U_T_I_TT_I (These new fs)))
+				This _ -> U_T_I_TT_I (These (I x) (U_T_I_TT_I (These rs new)))
