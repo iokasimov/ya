@@ -211,3 +211,6 @@ pattern Left <- This Unit
 pattern Right :: Side
 pattern Right <- That Unit
 	where Right = That Unit
+
+forever :: Monad (->) t => t e -> t e
+forever x = x `yukl` forever x
