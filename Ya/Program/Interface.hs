@@ -7,26 +7,36 @@ import Ya.Algebra
 import Ya.Program.Primitive
 
 type family Record record where
-	Record (x `LM` (xx `LM` (xxx `LM` (xxxx `LM` xs)))) = (Different x xx, Different x xxx, Different x xxxx, Different xx xxx, Different xx xxxx, Different xxx xxxx, Different x xs, Different xx xs, Different xxx xs, Different xxxx xs, Record xs)
-	Record (x `LM` (xx `LM` (xxx `LM` xs))) = (Different x xx, Different x xxx, Different xx xxx, Different x xs, Different xx xs, Different xxx xs, Record xs)
-	Record (x `LM` (xx `LM` xs)) = (Different x xx, Different x xs, Different xx xs, Record xs)
+	Record (U_T_I_TT_I LM t tt x) = Record (t x `LM` tt x)
+	Record (x `LM` xx `LM` xxx `LM` xxxx `LM` xs) = (Different x xx, Different x xxx, Different x xxxx, Different xx xxx, Different xx xxxx, Different xxx xxxx, Different x xs, Different xx xs, Different xxx xs, Different xxxx xs, Record xs)
+	Record (x `LM` xx `LM` xxx `LM` xs) = (Different x xx, Different x xxx, Different xx xxx, Different x xs, Different xx xs, Different xxx xs, Record xs)
+	Record (x `LM` xx `LM` xs) = (Different x xx, Different x xs, Different xx xs, Record xs)
 	Record (x `LM` xs) = (Different x xs, Record xs)
 	Record x = ()
 
-class Record r => Field x r where
-	field :: Attribute r x
+class Record r => Field e r where
+	field :: Attribute r e
 
-instance Record x => Field x x
+instance Record e => Field e e
 	where field = identity
 
-instance Record (x `LM` xs) => Field x (x `LM` xs)
+instance Record (e `LM` ee) => Field e (e `LM` ee)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f' -> These f' fs
 
-instance {-# OVERLAPS #-} (Record (y `LM` xs), Field x xs) => Field x (y `LM` xs) where
+instance {-# OVERLAPS #-} (Record (eee `LM` ee), Field e ee) => Field e (eee `LM` ee) where
 	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
-		`i` inspect (field @x @xs) fs
-		`i` \new -> These old `i` adjust (field @x @xs) (\_ -> new) fs
+		`i` inspect (field @e @ee) fs
+		`i` \new -> These old `i` adjust (field @e @ee) (\_ -> new) fs
+
+instance Record (t e `LM` tt e) => Field (t e) (U_T_I_TT_I LM t tt e)
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+		\(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f' -> U_T_I_TT_I (These f' fs)
+
+instance {-# OVERLAPS #-} (Record (t ee `LM` tt ee), Field e (tt ee)) => Field e (U_T_I_TT_I LM t tt ee) where
+	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These old fs)) -> These
+		`i` inspect (field @e @(tt ee)) fs
+		`i` \new -> U_T_I_TT_I (These old `i` adjust (field @e @(tt ee)) (\_ -> new) fs)
 
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Matching x y, Vector x xs)
