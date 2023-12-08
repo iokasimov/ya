@@ -268,7 +268,9 @@
 * Define `yokl'u'u'u'u'u'u` operator
 * Define `T'_'I` data type
 * Define `Backward` type alias
+* Define `Forward` type alias
 * Define `label` expression
 * Define `yokl'uw'yokl` operator
 * Define `lm''pp` operator
 * Define `Fastenable` type class
+* Define `Monad` type alias
