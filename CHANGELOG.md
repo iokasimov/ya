@@ -267,7 +267,6 @@
 * Define `yokl'u'u'u'u'u` operator
 * Define `yokl'u'u'u'u'u'u` operator
 * Define `T'_'I` data type
-* Define `Back` type alias
 * Define `Backward` type alias
 * Define `label` expression
 * Define `yokl'uw'yokl` operator

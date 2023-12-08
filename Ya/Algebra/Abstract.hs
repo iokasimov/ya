@@ -84,7 +84,9 @@ type That = U_I_II
 
 type Constant = U_1_I
 
-type Back = U_II_I (->) Unit Unit
+type Forward = T'_'I (Straight (->) Unit Unit)
+
+type Backward = T'_'I (Opposite (->) Unit Unit)
 
 type family Flip v where
 	Flip Straight = Opposite

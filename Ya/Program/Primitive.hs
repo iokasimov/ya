@@ -199,8 +199,6 @@ pattern Forward :: Horizontal
 pattern Forward <- That Unit
 	where Forward = That Unit
 
-type Backward = T'_'I Back
-
 label :: forall l t e . t e -> T'_'I l t e
 label = T'_'I
 
