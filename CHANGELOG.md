@@ -178,7 +178,7 @@
 * Define `Both` type alias
 * Define `Cone` type class
 * Define `left` expression
-* Define `that` expression
+* Define `right` expression
 * Define `Orientation` type family
 * Define `Scrolling` type family
 * Define `Scrollable` type class
@@ -275,3 +275,5 @@
 * Define `Fastenable` type class
 * Define `Monad` type alias
 * Define `forever` expression
+* Define `this` expression
+* Define `that` expression
