@@ -165,12 +165,12 @@ deriving instance
 	, forall e . Mapping v v from into (That u e) I
 	) => Cone v from into u
 
-this :: forall v from into a o e .
+left :: forall v from into a o e .
 	Cone v from into (Object (Both (v into))) =>
 	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (v into (This (Object (Both (v into))) e a) (I o)) =>
 	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (I o))
-this from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
+left from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
 
 that :: forall v from into a t e .
 	Cone v from into (Object (Both (v into))) =>

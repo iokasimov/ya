@@ -329,7 +329,7 @@ instance Mapping Straight Straight
 	(This LM e) I
 	where mapping = rwr `compose` rwr `compose` rwr /
 		\from (U_II_I (These old e)) -> These 
-			(I (wrapped (this @Straight @(->) identity) (from old)))
+			(I (wrapped (left @Straight @(->) identity) (from old)))
 			(\(I new) -> U_II_I (These ((wrapped (that @Straight @(->) identity) (from old)) new) e))
 
 instance Mapping Straight Straight
@@ -338,14 +338,14 @@ instance Mapping Straight Straight
 	(That LM e) I
 	where mapping = rwr `compose` rwr `compose` rwr /
 		\from (U_I_II (These e old)) -> These 
-			/ I (wrapped (this @Straight @(->) identity) (from old))
+			/ I (wrapped (left @Straight @(->) identity) (from old))
 			/ \(I new) -> U_I_II (These e ((wrapped (that @Straight @(->) identity) (from old)) new))
 
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) I (Both LM)
 	where mapping = rwr /
 		\(W_I_II_II (U_I_UU_III_U_II_I from)) (I old) -> U_I_I (These
-			/ (wrapped (this @Straight @(->) identity) (from old))
-			/ (wrapped (this @Straight @(->) identity) (from old)))
+			/ (wrapped (left @Straight @(->) identity) (from old))
+			/ (wrapped (left @Straight @(->) identity) (from old)))
 
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (U_II_I (->) e) (U_II_I (->) e)
    where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> semifunctor @Opposite / (\(These x _) -> x) `compose` from

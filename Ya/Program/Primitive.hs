@@ -91,7 +91,7 @@ start :: state -> Transition state result -> state `LM` result
 start state stateful = stateful `uw'uw` state
 
 instant :: Transition state result -> state -> state
-instant state x = wrapped (this @Straight @Arrow identity) / state `uw'uw` x
+instant state x = wrapped (left @Straight @Arrow identity) / state `uw'uw` x
 
 type Stateful = U_I_II Transition
 

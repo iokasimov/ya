@@ -428,9 +428,9 @@ lm' :: forall from into i o oo .
 	Wrapper into (That (Product into) o (Product into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
-lm' from_this from_that =
+lm' from_left from_that =
 	_i (semifunctor @Straight (wrapped (that @Straight from_that))) `compose`
-	i_ (semifunctor @Straight (wrapped (this @Straight from_this))) `compose`
+	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity)
 
@@ -451,9 +451,9 @@ lm :: forall o oo .
 	Castable Opposite (->) ((->) Unit oo) =>
 	Castable Straight (->) ((->) Unit (Product (->) o oo)) =>
 	Supertype ((->) Unit o) -> Supertype ((->) Unit oo) -> Supertype ((->) Unit (Product (->) o oo))
-lm from_this from_that = unwrap /
+lm from_left from_that = unwrap /
 	_i (semifunctor @Straight (wrapped (that @Straight (wrap @_ @((->) Unit oo) from_that)))) `compose`
-	i_ (semifunctor @Straight (wrapped (this @Straight (wrap @_ @((->) Unit o) from_this)))) `compose`
+	i_ (semifunctor @Straight (wrapped (left @Straight (wrap @_ @((->) Unit o) from_left)))) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
 
@@ -472,10 +472,10 @@ ml' :: forall from into i o oo .
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from o i -> from oo i -> into (Sum into o oo) i
-ml' from_this from_that =
+ml' from_left from_that =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	i_ (semifunctor @Straight (wrapped (this @Opposite from_this))) `compose`
+	i_ (semifunctor @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (semifunctor @Straight (wrapped (that @Opposite from_that)))
 
 pp :: forall e ee t .
@@ -564,22 +564,22 @@ lm''pp :: forall from t i o oo .
 	Wrapper (->) (That (LM) o (LM i i)) =>
 	(forall e . Wrapper (->) (I e)) =>
 	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
-lm''pp from_this from_that = pp `compose`
+lm''pp from_left from_that = pp `compose`
 	_i (semifunctor @Straight (wrapped (that @Straight from_that))) `compose`
-	i_ (semifunctor @Straight (wrapped (this @Straight from_this))) `compose`
+	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity) `compose`
 	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity)
 
 lm'pp :: forall o oo t .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	t o -> t oo -> t (o `LM` oo)
-lm'pp from_this from_that = pp (lm from_this from_that)
+lm'pp from_left from_that = pp (lm from_left from_that)
 
 lm'pp'pp :: forall o oo t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	Covariant Monoidal Functor Arrow LM LM tt =>
 	t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
-lm'pp'pp from_this from_that = pp'pp (lm from_this from_that)
+lm'pp'pp from_left from_that = pp'pp (lm from_left from_that)
 
 -- TODO: generalize
 pp'yo :: forall from e ee r t .

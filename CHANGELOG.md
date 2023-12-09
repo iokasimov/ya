@@ -177,7 +177,7 @@
 * Define `Diagram` type alias
 * Define `Both` type alias
 * Define `Cone` type class
-* Define `this` expression
+* Define `left` expression
 * Define `that` expression
 * Define `Orientation` type family
 * Define `Scrolling` type family
