@@ -75,13 +75,13 @@ class Scrollable datastructure where
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List where
 	scroll Forward = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List bs)) (List (Yet f fs)))))) -> These
-			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T'_'I (List (Yet x (Some bs)))) (T'TT'I / R_U_I_T_I `fo` fs)))))
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (T'TT'I bs)) (List (Yet f fs)))))) -> These
+			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T'_'I (List (Yet x (bs `yo` unwrap)))) (T'TT'I / fs `yo` wrap @(->))))))
 			(Some previous)
 		previous@(_) -> These previous None
 	scroll Backward = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List (Yet b bs))) (List fs))))) -> These
-			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T'_'I (T'TT'I / R_U_I_T_I `fo` bs)) (List (Yet x (Some fs)))))))
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List (Yet b bs))) (T'TT'I fs))))) -> These
+			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T'_'I (T'TT'I / bs `yo` R_U_I_T_I)) (List (Yet x (fs `yo` unwrap)))))))
 			(Some previous)
 		previous@(_) -> These previous None
 
