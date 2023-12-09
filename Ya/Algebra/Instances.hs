@@ -330,7 +330,7 @@ instance Mapping Straight Straight
 	where mapping = rwr `compose` rwr `compose` rwr /
 		\from (U_II_I (These old e)) -> These 
 			(I (wrapped (left @Straight @(->) identity) (from old)))
-			(\(I new) -> U_II_I (These ((wrapped (that @Straight @(->) identity) (from old)) new) e))
+			(\(I new) -> U_II_I (These ((wrapped (right @Straight @(->) identity) (from old)) new) e))
 
 instance Mapping Straight Straight
 	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
@@ -339,7 +339,7 @@ instance Mapping Straight Straight
 	where mapping = rwr `compose` rwr `compose` rwr /
 		\from (U_I_II (These e old)) -> These 
 			/ I (wrapped (left @Straight @(->) identity) (from old))
-			/ \(I new) -> U_I_II (These e ((wrapped (that @Straight @(->) identity) (from old)) new))
+			/ \(I new) -> U_I_II (These e ((wrapped (right @Straight @(->) identity) (from old)) new))
 
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) I (Both LM)
 	where mapping = rwr /

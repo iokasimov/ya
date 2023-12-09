@@ -172,12 +172,12 @@ left :: forall v from into a o e .
 	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (I o))
 left from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
 
-that :: forall v from into a t e .
+right :: forall v from into a t e .
 	Cone v from into (Object (Both (v into))) =>
 	Castable Opposite Arrow (v from a t) =>
 	Castable Straight Arrow (v into (That (Object (Both (v into))) e a) (I t)) =>
 	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (I t))
-that from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @a @t from
+right from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @a @t from
 
 type Limit v from into =
 	( Cone v from into (Object (Both (v into)))
