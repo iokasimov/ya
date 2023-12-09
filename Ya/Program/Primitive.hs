@@ -218,5 +218,15 @@ pattern Right :: Side
 pattern Right <- That Unit
 	where Right = That Unit
 
-forever :: Monad (->) t => t e -> t e
+forever ::
+	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	t e -> t e
 forever x = x `yukl` forever x
+
+until ::
+	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	Monoidal Straight Functor (->) LM LM t =>
+	t (That ML e ee) -> t ee
+until x = x `yokl` \case
+	U_I_II (This _) -> until x
+	U_I_II (That e) -> enter `yu` e
