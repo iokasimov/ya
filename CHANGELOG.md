@@ -278,3 +278,6 @@
 * Define `this` expression
 * Define `that` expression
 * Define `until` expression
+* Define `Up` pattern synonym
+* Define `Donw` pattern synonym
+* Define `Vertical` type alias

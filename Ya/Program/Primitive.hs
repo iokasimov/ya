@@ -218,6 +218,16 @@ pattern Right :: Side
 pattern Right <- That Unit
 	where Right = That Unit
 
+type Vertical = ML Unit Unit
+
+pattern Down :: Vertical
+pattern Down <- This Unit
+	where Down = This Unit
+
+pattern Up :: Vertical
+pattern Up <- That Unit
+	where Up = That Unit
+
 forever ::
 	Component Natural (->) (->) (t `T'TT'I` t) t =>
 	t e -> t e
