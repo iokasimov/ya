@@ -16,6 +16,12 @@ pattern Only :: e -> Only e
 pattern Only e <- I e
 	where Only e = I e
 
+type Singular = I
+
+pattern Singular :: e -> Singular e
+pattern Singular e <- I e
+	where Singular e = I e
+
 type Boolean = U_I_II ML Unit Unit
 
 pattern False :: Boolean

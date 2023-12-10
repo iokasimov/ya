@@ -281,3 +281,4 @@
 * Define `Up` pattern synonym
 * Define `Donw` pattern synonym
 * Define `Vertical` type alias
+* Define `Singular` type alias
