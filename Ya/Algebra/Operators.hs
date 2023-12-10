@@ -64,6 +64,23 @@ fu, fu'fi :: forall into t a o .
 fu'fi = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
 fu = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
 
+fokl :: forall from into t tt a o .
+	Component Natural from into (T'TT'I t tt) t =>
+	Castable Opposite into (T'TT'I t tt o) =>
+	from a (tt o) -> into (t a) (t o)
+fokl from = component @Straight @from @into @(t `T'TT'I` tt) @t
+	`compose` wrap `compose` fo from
+
+foklKL :: forall from into t tt a o .
+	Covariant Semi Functor from into t =>
+	Component Natural from into (T'TT'I t tt) (TT'T'I t tt) =>
+	Castable Opposite into (T'TT'I t tt o) =>
+	Castable Straight into (TT'T'I t tt o) =>
+	from a (tt o) -> into (t a) (tt (t o))
+foklKL from = wrapped
+	(component @Straight @from @into @(t `T'TT'I` tt) @(t `TT'T'I` tt))
+	`compose` fo from
+
 yo :: forall from into t a o .
 	Precategory into =>
 	Covariant Yoneda Functor from into t =>
