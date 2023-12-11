@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
 infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm''pp`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
 infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`, `yoklKL'yokl`, `yukl'yi`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
@@ -242,7 +242,20 @@ _yokl x = uw @into @(U_I_II t i o)
 	`compose` wrap @into @(T'TT'I (U_I_II t i) tt _)
 	`compose` yoneda @Straight @Functor @from (U_I_II x)
 
--- TODO: this operator wasn't tested yet
+yokl'yoklKL :: forall from into t tt ttt a o .
+	Covariant Yoneda Functor from into t =>
+	Covariant Endo Semi Functor from tt =>
+	Covariant Endo Semi Functor from ttt =>
+	Contravariant Endo Semi Functor (->) (U_II_I into (t (ttt o))) =>
+	Component Natural (->) into (T'TT'I t tt) t =>
+	Component Natural from from (T'TT'I ttt tt) (TT'T'I ttt tt) =>
+	Castable Opposite into (That from (ttt a) (tt (ttt o))) =>
+	Castable Opposite from (T'TT'I ttt tt o)=>
+	Castable Straight from (TT'T'I ttt tt o) =>
+	Castable Opposite into (T'TT'I t tt (ttt o)) =>
+	t (ttt a) -> into (from a (tt o)) (t (ttt o))
+yokl'yoklKL x = fa_ foklKL (yokl @from @into x)
+
 yoklKL'yokl :: forall from into t tt ttt a o .
 	Covariant Yoneda Functor from into t =>
 	Covariant Endo Semi Functor from tt =>

@@ -284,3 +284,4 @@
 * Define `Singular` type alias
 * Define `foklKL` operator
 * Define `yoklKL'yokl` operator
+* Define `yokl'yoklKL` operator
