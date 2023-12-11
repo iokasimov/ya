@@ -285,3 +285,4 @@
 * Define `foklKL` operator
 * Define `yoklKL'yokl` operator
 * Define `yokl'yoklKL` operator
+* Define `constant` expression

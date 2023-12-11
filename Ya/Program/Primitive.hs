@@ -10,6 +10,9 @@ this (These x _) = x
 that :: e `LM` ee -> ee
 that (These _ x) = x
 
+constant :: e -> ee -> e
+constant x _ = x
+
 type Only = I
 
 pattern Only :: e -> Only e
