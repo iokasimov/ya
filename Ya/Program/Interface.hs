@@ -85,11 +85,25 @@ instance Scrollable List where
 			(Some previous)
 		previous@(_) -> These previous None
 
+type family Fastening datastructure where
+	Fastening List = Nonempty List
+
 class Fastenable datastructure where
-	fasten :: e -> datastructure e -> Scrolling datastructure e
+	fasten :: Fastening datastructure e -> Scrolling datastructure e
 
 instance Fastenable List
-	where fasten x xs = U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (label (Empty @List)) xs)))
+	where fasten (Construct x xs) =
+		U_T_I_TT_I / These (I x)
+		(U_T_I_TT_I (These
+			(label (Empty @List))
+			(T'TT'I / xs `yo` R_U_I_T_I)
+			)
+		)
+
+-- pattern Construct :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
+
+-- pattern List :: Recursive (U_I_T_II Optional LM i) -> List i
+-- pattern List xs <- T'TT'I (Some (R_U_I_T_I xs))
 
 type family Substructure datastructure where
 	Substructure (Construction t) = t `T'TT'I` Construction t
