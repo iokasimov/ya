@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`, `yukl'yi`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`, `yoklKL'yokl`, `yukl'yi`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yukl'yi'yi`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
@@ -140,13 +140,6 @@ ya_ :: forall from into t e a o .
 	t a e -> into (from o a) (t o e)
 ya_ x = compose uw (yoneda @Opposite @Functor @from @into @(This t e) (wrap x))
 
-fokl :: forall from into t tt a o .
-	Component Natural from into (T'TT'I t tt) t =>
-	Castable Opposite into (T'TT'I t tt o) =>
-	from a (tt o) -> into (t a) (t o)
-fokl from = component @Straight @from @into @(t `T'TT'I` tt) @t
-	`compose` wrap `compose` fo from
-
 yokl, yokl'u, yokl'u'u, yokl'u'u'u, yokl'u'u'u'u, yokl'u'u'u'u'u, yokl'u'u'u'u'u'u :: forall from into tt t a o .
 	Component Natural Arrow into (T'TT'I t tt) t =>
 	Covariant Yoneda Functor from into t =>
@@ -248,6 +241,21 @@ _yokl x = uw @into @(U_I_II t i o)
 	`compose` component @Straight @from @into @(T'TT'I (U_I_II t i) tt)
 	`compose` wrap @into @(T'TT'I (U_I_II t i) tt _)
 	`compose` yoneda @Straight @Functor @from (U_I_II x)
+
+-- TODO: this operator wasn't tested yet
+yoklKL'yokl :: forall from into t tt ttt a o .
+	Covariant Yoneda Functor from into t =>
+	Covariant Endo Semi Functor from tt =>
+	Covariant Endo Semi Functor from ttt =>
+	Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t o))) =>
+	Component Natural from from (T'TT'I ttt tt) ttt =>
+	Component Natural from into (T'TT'I t ttt) (TT'T'I t ttt) =>
+	Castable Opposite into (That from (ttt a) (ttt o)) =>
+	Castable Straight into (TT'T'I t ttt o) =>
+	Castable Opposite into (T'TT'I t ttt o) =>
+	Castable Opposite from (T'TT'I ttt tt o) =>
+	t (ttt a) -> into (from a (tt o)) (ttt (t o))
+yoklKL'yokl x = fa_ fokl (yoklKL @from @into x)
 
 fo'fo :: forall from into t tt a o .
 	Covariant Semi Functor from into tt =>

@@ -279,6 +279,8 @@
 * Define `that` expression
 * Define `until` expression
 * Define `Up` pattern synonym
-* Define `Donw` pattern synonym
+* Define `Down` pattern synonym
 * Define `Vertical` type alias
 * Define `Singular` type alias
+* Define `foklKL` operator
+* Define `yoklKL'yokl` operator
