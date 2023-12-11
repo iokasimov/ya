@@ -8,11 +8,11 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
 infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `uw'uw`, `lm''pp`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `uw'uw'uw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'uw`, `uw'w`, `rwr'yo_`, `rwr'yu_`
-infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
+infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'uw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yoklKL`, `yoklKL'yokl`, `yi'yukl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yi'yi'yu`, `yoklKL`, `yoklKL'yokl`, `yi'yukl`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
-infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yi'yi'yukl`
+infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yukl`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
 infixl 0 `i'i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u'u`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yukl`
 
@@ -96,13 +96,19 @@ yo_ :: forall from into t e a o .
 	t a e -> into (from a o) (t o e)
 yo_ x = compose uw (yoneda @Straight @Functor @from @into @(This t e) (wrap x))
 
-yu :: forall into t a o .
+yu, yi'yu, yi'yi'yu, yi'yi'yi'yu  :: forall into t a o .
 	Covariant Yoneda Functor into into t =>
 	Covariant Endo Semi Functor (->) t =>
 	Castable Opposite into (into Unit o) =>
 	Castable Opposite into (U_I_II into Unit o) =>
 	t a -> into (Supertype (into Unit o)) (t o)
 yu x = yoneda @U_I_II @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit o)
+yi'yu x = yoneda @U_I_II @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit o)
+yi'yi'yu x = yoneda @U_I_II @Functor (fu @Arrow Unit x)
+	`compose` wrap @into @(into Unit o)
+yi'yi'yi'yu x = yoneda @U_I_II @Functor (fu @Arrow Unit x)
 	`compose` wrap @into @(into Unit o)
 
 yu_ :: forall into t e a o .

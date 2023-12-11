@@ -287,3 +287,6 @@
 * Define `yokl'yoklKL` operator
 * Define `constant` expression
 * Define `Fastening` type family
+* Define `yi'yu` operator
+* Define `yi'yi'yu` operator
+* Define `yi'yi'yi'yu` operator
