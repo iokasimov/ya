@@ -248,9 +248,9 @@
 * Define `yukl'u'u'u'u'u'u` operator
 * Define `pp'yo` operator
 * Define `pp'pp'yo` operator
-* Define `yukl'yi` operator
-* Define `yukl'yi'yi` operator
-* Define `yukl'yi'yi'yi` operator
+* Define `yi'yukl` operator
+* Define `yi'yi'yukl` operator
+* Define `yi'yi'yi'yukl` operator
 * Define `jt` operator
 * Define `pp'pp'jt` operator
 * Define `pp'pp'jt'yokl`operator
