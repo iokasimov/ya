@@ -109,7 +109,6 @@
 * Define `Same` type family
 * Define `Different` type alias
 * Define `Matching` type alias
-* Define `Record` type family
 * Define `Construction` type alias
 * Define `Instruction` type alias
 * Define `Instruct` patter synonym
