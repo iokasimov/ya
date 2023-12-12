@@ -217,6 +217,16 @@ pattern Forward <- That Unit
 label :: forall l t e . t e -> T'_'I l t e
 label = T'_'I
 
+type Decision = ML Unit Unit
+
+pattern No :: Decision
+pattern No <- This Unit
+	where No = This Unit
+
+pattern Yes :: Decision
+pattern Yes <- That Unit
+	where Yes = That Unit
+
 type Side = ML Unit Unit
 
 pattern Left :: Side

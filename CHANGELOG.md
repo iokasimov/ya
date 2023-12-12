@@ -286,3 +286,6 @@
 * Define `yi'yu` operator
 * Define `yi'yi'yu` operator
 * Define `yi'yi'yi'yu` operator
+* Define `Decision` type alias
+* Define `No` pattern synonym
+* Define `Yes` pattern synonym
