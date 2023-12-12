@@ -105,10 +105,7 @@
 * Define `Field` type class
 * Define `start` expression
 * Define `_yokl` operator
-* Define `Verdict` data type
 * Define `Same` type family
-* Define `Different` type alias
-* Define `Matching` type alias
 * Define `Construction` type alias
 * Define `Instruction` type alias
 * Define `Instruct` patter synonym

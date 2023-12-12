@@ -16,7 +16,8 @@ instance Field e (e `LM` ee)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f' -> These f' fs
 
-instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
+instance {-# OVERLAPS #-} Field e ee =>
+	Field e (eee `LM` ee) where
 	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
 		`i` inspect (field @e @ee) fs
 		`i` \new -> These old `i` adjust (field @e @ee) (\_ -> new) fs
@@ -25,14 +26,15 @@ instance Field (t e) (U_T_I_TT_I LM t tt e)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f' -> U_T_I_TT_I (These f' fs)
 
-instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM t tt ee) where
+instance {-# OVERLAPS #-} Field e (tt ee) =>
+	Field e (U_T_I_TT_I LM t tt ee) where
 	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These old fs)) -> These
 		`i` inspect (field @e @(tt ee)) fs
 		`i` \new -> U_T_I_TT_I (These old `i` adjust (field @e @(tt ee)) (\_ -> new) fs)
 
 type family Vector x xs where
-	Vector x (y `LM` xs) = (Matching x y, Vector x xs)
-	Vector x y = Matching x y
+	Vector x (y `LM` xs) = (Same x y, Vector x xs)
+	Vector x y = Same x y
 
 class Stack datastructure where
 	pop :: Transition / datastructure item / Optional item

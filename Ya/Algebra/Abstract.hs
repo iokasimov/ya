@@ -281,14 +281,8 @@ data Void
 -- Category: terminal object
 data Unit = Unit
 
-data Verdict = Yes | No
-
 type family Same a b where
-  Same a a = 'Yes
-  Same a b = 'No
-
-type Different a b = Same a b ~ 'No
-type Matching a b = Same a b ~ 'Yes
+  Same a a = ()
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
