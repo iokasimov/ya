@@ -3,7 +3,8 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 `LM`, `ML`, `J`
+infixr 8 `J`
+infixl 8 `LM`, `ML`
 
 type (/) t i = t i
 
