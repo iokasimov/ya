@@ -267,6 +267,7 @@
 * Define `Forward` type alias
 * Define `label` expression
 * Define `yokl'rw'yokl` operator
+* Define `o'rw` operator
 * Define `lm''pp` operator
 * Define `Fastenable` type class
 * Define `Monad` type alias

@@ -357,6 +357,21 @@ o'a :: forall from into u i o e b .
 	u o e -> from (into (u i e) b) (from (from i o) b)
 o'a = o @into @from `compose` a @from @from
 
+o'rw :: forall from into u e a o .
+	Precategory into =>
+	Covariant Endo Semi Functor from (That from a) =>
+	Covariant Yoneda Functor from into (U_I_II u e) =>
+	Contravariant Yoneda Functor from into (U_II_I into (u e (Supertype o))) =>
+	Castable Straight into (U_I_II u e o) =>
+	Castable Straight from o =>
+	Wrapper from (U_I_II from a o) =>
+	Wrapper from (U_I_II from a (Supertype o)) =>
+	Wrapper into (U_I_II from e (Supertype o)) =>
+	Wrapper into (U_I_II from a (Supertype o)) =>
+	Wrapper into (U_I_II u e (Supertype o)) =>
+	u e a -> into (from a o) (u e (Supertype o))
+o'rw x = fa_ @from (_fo @from rw) (o x)
+
 a'o :: forall from into u o e i a .
 	Category into =>
 	Contravariant Yoneda Functor from into (U_II_I from (u i e)) =>
