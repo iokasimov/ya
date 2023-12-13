@@ -293,3 +293,4 @@
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
 * Define `substructure` expression
+* Define `o'rw'o` operator

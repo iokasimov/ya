@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `a'o`, `a'yokl`
+infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `o'rw'o`, `a'o`, `a'yokl`
 infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `pp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `pp'yo`, `pp'pp`, `yo'yo`, `fo'fo`, `rw'rw`, `lm''pp`, `lm'pp`, `fo'fo'fo`, `pp'pp'yo`, `pp'yokl`, `pp'pp'jt`, `pp'pp'jt'yokl`, `rw'rw'rw`, `lm'pp'pp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'rw`, `rw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'rw'yokl`
@@ -371,6 +371,13 @@ o'rw :: forall from into u e a o .
 	Wrapper into (U_I_II u e (Supertype o)) =>
 	u e a -> into (from a o) (u e (Supertype o))
 o'rw x = fa_ @from (_fo @from rw) (o x)
+
+-- TODO: generalize
+o'rw'o :: forall from u e a o .
+	Covariant Yoneda Functor from (->) (That u e) =>
+	Castable Straight from a =>
+	u e a -> from (Supertype a) o -> u e o
+o'rw'o x xx = x `o`rw @from `o` xx
 
 a'o :: forall from into u o e i a .
 	Category into =>
