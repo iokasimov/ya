@@ -289,3 +289,5 @@
 * Define `Decision` type alias
 * Define `No` pattern synonym
 * Define `Yes` pattern synonym
+* Define `Focused` type alias
+* Define `Focused` pattern synonym

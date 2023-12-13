@@ -25,6 +25,12 @@ pattern Singular :: e -> Singular e
 pattern Singular e <- I e
 	where Singular e = I e
 
+type Focused = I
+
+pattern Focused :: e -> Focused e
+pattern Focused e <- I e
+	where Focused e = I e
+
 type Boolean = U_I_II ML Unit Unit
 
 pattern False :: Boolean
