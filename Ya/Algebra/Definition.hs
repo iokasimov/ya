@@ -22,7 +22,7 @@ map :: forall v vv from into t tt a o .
 	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (vv into (t a) (tt o)) =>
 	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
-map from = uw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
+map from = rw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
 
 type Component v = Transformation v Functor
 
@@ -31,7 +31,7 @@ component :: forall v from into t tt o .
 	(Supertype (v from o o) ~ from o o) =>
 	Castable Opposite Arrow (v from o o) =>
 	into (t o) (tt o)
-component = uw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap @Arrow identity))
+component = rw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap @Arrow identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -117,7 +117,7 @@ class (forall r . Transformation v x from Arrow t (UU_V_U_I_II_T_II v from into 
 		Castable Opposite Arrow (v from a a) =>
 		Castable Opposite into (v from a r) =>
 		t a -> into (Supertype (v from a r)) (t r)
-	yoneda x = uw
+	yoneda x = rw
 		(map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
 		`compose` wrap @into @(v from a r)
 
@@ -247,11 +247,11 @@ monoidal' :: forall v from into t u uu a o e ee .
 	Castable Opposite into (I (v from (uu e ee) a)) =>
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal' from =
-	uw @into @(That into _ _)
+	rw @into @(That into _ _)
 	`compose` semifunctor @Straight
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
-		`compose` uw @(->) @(That LM _ _))
-	`compose` uw @into @(T'TT'I _ _ _)
+		`compose` rw @(->) @(That LM _ _))
+	`compose` rw @into @(T'TT'I _ _ _)
 	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That LM _)
 	`compose` wrap @into
 
@@ -273,32 +273,32 @@ rwr :: forall o into a .
 	Castable Opposite into o => 
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
-rwr f = wrap `compose` f `compose` uw
+rwr f = wrap `compose` f `compose` rw
 
 rewrap :: forall o a .
 	Precategory (->) =>
 	Castable Opposite (->) o => 
 	Castable Straight (->) a =>
 	(Supertype a -> Supertype o) -> a -> o
-rewrap f = wrap `compose` f `compose` uw
+rewrap f = wrap `compose` f `compose` rw
 
 wrapped :: forall into a o .
 	Precategory into =>
 	Castable Straight into o =>
 	Castable Opposite into a =>
 	into a o -> into (Supertype a) (Supertype o)
-wrapped f = uw `compose` f `compose` wrap
+wrapped f = rw `compose` f `compose` wrap
 
 i_ :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_II_I u e a) =>
 	Castable Straight into (U_II_I u e o) =>
 	into (U_II_I u e a) (U_II_I u e o) -> into (u a e) (u o e)
-i_ f = uw @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
+i_ f = rw @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
 
 _i :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_I_II u e a) =>
 	Castable Straight into (U_I_II u e o) =>
 	into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
-_i f = uw @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)
+_i f = rw @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)

@@ -45,7 +45,7 @@ instance Stack List where
 		Empty @List -> These `i` Empty @List `i` None
 		List (Yet x xs) -> These `i` (T'TT'I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
-		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` uw @Arrow @(R_U_I_T_I _ _ _))) s
+		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
 instance Stack (Construction Optional) where
@@ -109,7 +109,7 @@ instance Covariant Endo Semi Functor (->) t
 	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct x old) -> These
 			(T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Construct x / uw @Arrow @(R_U_I_T_I _ _ _) `fo` uw new)
+			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` rw new)
 
 instance Hierarchial (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
 	root = W_I_II_II `compose` U_I_UU_III_U_II_I /
@@ -136,8 +136,8 @@ instance Brancheable (Tree (U_I_I LM `T'TT'I` Optional)) where
 				This _ -> T'TT'I @Optional (wrap @(->) `fo` lb)
 				That _ -> T'TT'I @Optional (wrap @(->) `fo` rb)
 			/ \new -> case p of
-				This _ -> Construct x (T'TT'I (U_I_I (These (uw @(->) `fo` uw new) rb)))
-				That _ -> Construct x (T'TT'I (U_I_I (These lb (uw @(->) `fo` uw new))))
+				This _ -> Construct x (T'TT'I (U_I_I (These (rw @(->) `fo` rw new) rb)))
+				That _ -> Construct x (T'TT'I (U_I_I (These lb (rw @(->) `fo` rw new))))
 
 -- TODO: refactor using limits/colimits
 -- instance Brancheable (U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) List)) where

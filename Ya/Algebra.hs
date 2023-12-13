@@ -34,7 +34,7 @@ instance
 					(xs `yo`wrapped
 						(map @Straight @Straight @_ @_ @(R_U_I_T_I LM t `T'TT'I` tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
 							`compose` wrap @(->) @(R_U_I_T_I _ _ _)
-						`yo'yo` uw @(->) @(R_U_I_T_I _ _ _)
+						`yo'yo` rw @(->) @(R_U_I_T_I _ _ _)
 					)
 				)
 
@@ -76,7 +76,7 @@ instance
 						@(Backward (R_U_I_T_I LM t) `T'TT'I` tt)
 						@(Backward (R_U_I_T_I LM t) `TT'T'I` tt)
 					from) `compose` wrap @(->) @(Backward _ _) `compose` wrap @(->) @(R_U_I_T_I _ _ _)
-					`yo'yo` uw @(->) @(R_U_I_T_I _ _ _) `compose` uw @(->) @(Backward _ _)
+					`yo'yo` rw @(->) @(R_U_I_T_I _ _ _) `compose` rw @(->) @(Backward _ _)
 				)
 			)
 
@@ -97,7 +97,7 @@ instance
 					@((Backward (R_U_I_T_I LM t)) `T'TT'I` tt)
 					@((Backward (R_U_I_T_I LM t)) `TT'T'I` tt) from)
 				`compose` wrap @(->) @(Backward (R_U_I_T_I LM t) (tt _))
-				`yo'yo`uw @(->) @(Backward _ _)
+				`yo'yo`rw @(->) @(Backward _ _)
 				)
 			)
 
@@ -121,9 +121,9 @@ instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
 		`compose` wrap @(->) @(W_I_I_II _ _ _)
 		`compose` wrap @(->) @(U_I_UU_II_III (->) _ _ _ _)
 		`compose` (\state old -> let (These new f) = from old in f `fo_` state new)
-		`compose` uw @(->) @(U_I_UU_II_III (->) _ _ _ _)
-		`compose` uw @(->) @(W_I_I_II _ _ _) 
-		`compose` uw @(->) @(U_II_I _ _ _)
+		`compose` rw @(->) @(U_I_UU_II_III (->) _ _ _ _)
+		`compose` rw @(->) @(W_I_I_II _ _ _) 
+		`compose` rw @(->) @(U_II_I _ _ _)
 
 instance Mapping Straight Straight (->) (->)
 	(T'TT'I
@@ -132,7 +132,7 @@ instance Mapping Straight Straight (->) (->)
 	)
 	(U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr `i'i'i` rwr `i'i` rwr `i` \(U_I_UU_II_III state) old ->
-		(\(These s (U_I_II f)) -> from `_fo` f `uw'uw` s) (state old)
+		(\(These s (U_I_II f)) -> from `_fo` f `rw'rw` s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
 	=> Mapping Straight Straight (->) (->) t (T_TT_TTT_I (U_I_II (->) e) t (U_I_II LM e))
@@ -289,8 +289,8 @@ instance Mapping Straight Straight (->) (->)
 	(U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These ee eee) (U_I_II f) -> W_I_I_II `a` U_I_UU_II_III `yi` \old ->
-			let These new x = ee `uw'uw'uw` old in
-			let These upd y = eee `uw'uw'uw` new in
+			let These new x = ee `rw'rw'rw` old in
+			let These upd y = eee `rw'rw'rw` new in
 			These upd (f (These x y) `u` from)
 
 instance
@@ -334,4 +334,4 @@ instance Covariant Monoidal Functor (->) LM LM t =>
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (t `T'TT'I` U_I_II (->) e) (t `TT'T'I` U_I_II (->) e)
 	where mapping = rwr / \from -> rwr / \x ->
-		U_I_II / \e -> x `yo` (from `compose` (`i` e) `compose` uw)
+		U_I_II / \e -> x `yo` (from `compose` (`i` e) `compose` rw)

@@ -96,9 +96,9 @@
 * Define `U_I_UU_II_III` data type
 * Define `inspect` expression
 * Define `adjust` expression
-* Define `uw'uw` operator
-* Define `uw'w` operator
-* Define `w'uw` operator
+* Define `rw'rw` operator
+* Define `rw'w` operator
+* Define `w'rw` operator
 * Define `observe` expression
 * Define `replace` expression
 * Define `transit` expression
@@ -222,13 +222,13 @@
 * Define `J` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
-* Define `uw` operator
+* Define `rw` operator
 * Define `yo_` operator
 * Define `enter` expression
 * Define `yu_` operator
 * Define `Provided` type alias
 * Define `provide` expression
-* Define `uw'uw'uw` operator
+* Define `rw'rw'rw` operator
 * Define `rwr'yu_` operator
 * Define `monoidal'` expression
 * Define `lm'` operator
@@ -266,7 +266,7 @@
 * Define `Backward` type alias
 * Define `Forward` type alias
 * Define `label` expression
-* Define `yokl'uw'yokl` operator
+* Define `yokl'rw'yokl` operator
 * Define `lm''pp` operator
 * Define `Fastenable` type class
 * Define `Monad` type alias
