@@ -32,6 +32,10 @@ instance {-# OVERLAPS #-} Field e (tt ee) =>
 		`i` inspect (field @e @(tt ee)) fs
 		`i` \new -> U_T_I_TT_I (These old `i` adjust (field @e @(tt ee)) (\_ -> new) fs)
 
+substructure :: forall t tt e .
+	Field (t e) (tt e) => Attribute (tt e) (t e)
+substructure = field @(t e) @(tt e)
+
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y

@@ -292,3 +292,4 @@
 * Define `Yes` pattern synonym
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
+* Define `substructure` expression
