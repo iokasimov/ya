@@ -112,8 +112,8 @@ instance
 	( forall e . Covariant Endo Semi Functor (->) (U_I_II u e)
 	, forall e . Covariant Endo Semi Functor (->) (U_II_I u e)
 	, Covariant Monoidal Functor from u u ttt
-	, Component Natural from (->) (t `T'TT'I` ttt) (t `TT'T'I` ttt)
-	, Component Natural from (->) (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
+	, Transformation Natural Functor from (->) (t `T'TT'I` ttt) (t `TT'T'I` ttt)
+	, Transformation Natural Functor from (->) (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
 	, forall e . Wrapper from (U_T_I_TT_I u t tt e)
 	, forall e . Wrapper (->) (TT'T'I (U_T_I_TT_I u t tt) ttt e)
 	, forall e . Wrapper (->) (T'TT'I (U_T_I_TT_I u t tt) ttt e)
@@ -180,7 +180,7 @@ instance
 		((U_I_I u `T'TT'I` t) `TT'T'I` tt)
 	where mapping = rwr / \from -> rwr /
 		semifunctor @Straight @Arrow @Arrow (wrap @Arrow @(T'TT'I (U_I_I u) t _)) `compose`
-		wrapped (component @Straight @Arrow @Arrow @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
+		wrapped (component @Arrow @Arrow @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
 		semifunctor @Straight @Arrow @Arrow @(U_I_I u)
 			(wrapped / map @Straight @Straight @Arrow @Arrow @(T'TT'I t tt) @(TT'T'I t tt) from) `compose`
 		rw @Arrow

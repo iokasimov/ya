@@ -185,30 +185,30 @@ type family Binary tree where
 	Binary Tree = Tree (U_I_I LM `T'TT'I` Optional)
 
 layer :: forall g f e .
-	Component Natural (->) (->) f (f `J` g) =>
+	Component (->) (->) f (f `J` g) =>
 	f e -> (f `J` g) e
-layer = component @Straight @(->) @(->) @f @(f `J` g) @e
+layer = component @(->) @(->) @f @(f `J` g) @e
 
 embed :: forall f g e .
-	Component Natural (->) (->) g (f `J` g) =>
+	Component (->) (->) g (f `J` g) =>
 	g e -> (f `J` g) e
-embed = component @Straight @(->) @(->) @g @(f `J` g) @e
+embed = component @(->) @(->) @g @(f `J` g) @e
 
 joint :: forall f g e .
-	Component Natural (->) (->) (f `T'TT'I` g) (f `J` g) =>
+	Component (->) (->) (f `T'TT'I` g) (f `J` g) =>
 	Castable Opposite (->) ((f `T'TT'I` g) e) =>
 	f (g e) -> (f `J` g) e
 joint = wrap @(->) @((f `T'TT'I` g) e)
-	`o` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `J` g) @e
+	`o` component @(->) @(->) @(f `T'TT'I` g) @(f `J` g) @e
 
 try :: forall t e ee o .
 	Covariant Endo Semi Functor (->) t =>
-	Component Natural (->) (->) (t `T'TT'I` Progress ee) (t `J` Progress ee) =>
+	Component (->) (->) (t `T'TT'I` Progress ee) (t `J` Progress ee) =>
 	Castable Opposite (->) ((t `T'TT'I` Progress ee) ee) =>
 	(e -> ee) -> t (Progress e o) -> (t `J` Progress ee) o
 try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
 	`o` wrap @(->) @((t `T'TT'I` Progress ee) _)
-	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
+	`o` component @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
 
 type Horizontal = ML Unit Unit
 
@@ -254,12 +254,12 @@ pattern Up <- That Unit
 	where Up = That Unit
 
 forever ::
-	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	Transformation Natural Functor (->) (->) (t `T'TT'I` t) t =>
 	t e -> t e
 forever x = x `yukl` forever x
 
 until ::
-	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	Transformation Natural Functor (->) (->) (t `T'TT'I` t) t =>
 	Monoidal Straight Functor (->) LM LM t =>
 	t (That ML e ee) -> t ee
 until x = x `yokl` \case
