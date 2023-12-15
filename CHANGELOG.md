@@ -270,7 +270,6 @@
 * Define `o'rw` operator
 * Define `lm''pp` operator
 * Define `Fastenable` type class
-* Define `Monad` type alias
 * Define `forever` expression
 * Define `this` expression
 * Define `that` expression
