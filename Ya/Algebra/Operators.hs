@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `o'rw'o`, `a'o`, `a'yokl`
-infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `lm''dp`, `lm'dp`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `fr'dp`, `lm'dp`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'rw`, `rw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'rw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
@@ -479,7 +479,7 @@ _rj from = rw @from
 	`compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
 	`compose` wrap @from @(U_I_II t ee _)
 
-lm' :: forall from into i o oo .
+fr :: forall from into i o oo .
 	Category from =>
 	Limit Straight from into =>
 	Covariant Functor into into (That (Product into) o) =>
@@ -494,7 +494,7 @@ lm' :: forall from into i o oo .
 	Wrapper into (That (Product into) o (Product into i i)) =>
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
-lm' from_left from_right =
+fr from_left from_right =
 	_i (semifunctor @Straight (wrapped (right @Straight from_right))) `compose`
 	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
@@ -619,7 +619,7 @@ a'yokl :: forall from into t tt a o e .
 	from a (t o) -> into (from e (tt a)) (into e (tt o))
 a'yokl = a `compose` fokl @from @into @tt @t
 
-lm''dp :: forall from t i o oo .
+fr'dp :: forall from t i o oo .
 	Category from =>
 	Limit Straight from (->) =>
 	Covariant Functor (->) (->) (That (LM) o) =>
@@ -635,7 +635,7 @@ lm''dp :: forall from t i o oo .
 	Wrapper (->) (That (LM) o (LM i i)) =>
 	(forall e . Wrapper (->) (I e)) =>
 	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
-lm''dp from_left from_right = dp `compose`
+fr'dp from_left from_right = dp `compose`
 	_i (semifunctor @Straight (wrapped (right @Straight from_right))) `compose`
 	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity) `compose`
