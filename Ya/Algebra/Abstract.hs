@@ -294,6 +294,3 @@ type family J known unknown where
 		T_TT_TTT_I (Straight Arrow state) unknown (Straight LM state)
 	-- TODO: should there be a loop if we cannot find such an instance?
 	-- J unknown known = J known unknown
-
-class Variance this that where
-	variance :: (this => r) -> (that => r) -> r

@@ -24,26 +24,14 @@ map :: forall v vv from into t tt a o .
 	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
 map from = rw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
 
-instance {-# OVERLAPPABLE #-}
-	(Transformation Straight Functor from into t tt ~ this, this) => Variance this that
-	where variance = \this _ -> this
+type Component v = Transformation v Functor
 
-instance that => Variance (Transformation Straight Functor from into (This (->) o) (This (->) o)) that
-	where variance = \_ that -> that
-
-type Component from into t tt =
-	(Category from, Category into, Variance
-		(Transformation Straight Functor from into t tt)
-		(Transformation Opposite Functor from into t tt))
-
-component :: forall from into t tt e .
-	Component from into t tt =>
-	into (t e) (tt e)
-component = variance
-	@(Transformation Straight Functor from into t tt)
-	@(Transformation Opposite Functor from into t tt)
-	(map @Straight @Straight @from @into @t @tt identity)
-	(map @Opposite @Straight @from @into @t @tt identity)
+component :: forall v from into t tt o .
+	Component v from into t tt =>
+	(Supertype (v from o o) ~ from o o) =>
+	Castable Opposite Arrow (v from o o) =>
+	into (t o) (tt o)
+component = rw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap @Arrow identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -264,22 +252,21 @@ monoidal' from =
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
 		`compose` rw @(->) @(That LM _ _))
 	`compose` rw @into @(T'TT'I _ _ _)
-	`compose` component @(->) @into @I @(That into _ `T'TT'I` That LM _)
+	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That LM _)
 	`compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t .
-	-- Monoidal Straight Functor (->) LM ML t =>
-	Component (->) (->) (Straight (->) Void) t =>
-	t Void
-empty = component @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
+empty :: forall t . Monoidal Straight Functor (->) LM ML t => t Void
+empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t .
-	-- Monoidal Straight Functor (->) LM LM t =>
-	Component (->) (->) (Straight (->) Unit) t =>
-	t Unit
-enter = component @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
+enter :: forall t . Monoidal Straight Functor (->) LM LM t => t Unit
+enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
+
+-- type Monad into t =
+	-- ( Covariant Monoidal Functor into LM LM t
+	-- , Component Natural (->) into (t `T'TT'I` t) t
+	-- )
 
 rwr :: forall o into a .
 	Precategory into =>
