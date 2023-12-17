@@ -301,3 +301,4 @@
 * Define `Forth` pattern synonym
 * Define `Backward` pattern synonym
 * Define `Forward` pattern synonym
+* Define `Labeled` type alias

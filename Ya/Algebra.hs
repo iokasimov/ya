@@ -24,40 +24,20 @@ instance
 	( Covariant Endo Semi Functor (->) t
 	, Covariant Monoidal Functor (->) LM LM tt
 	, Component Natural (->) (->) (t `T'TT'I` tt) (t `TT'T'I` tt)
+	, Component Natural (->) (->) (Labeled l (R_U_I_T_I LM t) `T'TT'I` tt) (Labeled l (R_U_I_T_I LM t) `TT'T'I` tt)
 	) => Mapping Straight Straight (->) (->)
-		(Forward (t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` tt)
-		(Forward (t `T'TT'I` R_U_I_T_I LM t) `TT'T'I` tt)
+		(Labeled l (t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` tt)
+		(Labeled l (t `T'TT'I` R_U_I_T_I LM t) `TT'T'I` tt)
 	where mapping = rwr / \from -> rwr / \(T'_'I (T'TT'I x)) ->
-		semifunctor @Straight @(->) @(->) @tt
-			(wrap @(->) @(Forward (t `T'TT'I` R_U_I_T_I LM t) _)
+		map @Straight @Straight @(->) @(->) @tt
+			(wrap @(->) @(Labeled l (t `T'TT'I` R_U_I_T_I LM t) _)
 				`compose` wrap @(->) @(T'TT'I t _ _))
 		/ (wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT'T'I` tt))
 			(x `yo`wrapped (map @Straight @Straight @_ @_
-					@((Forward (R_U_I_T_I LM t)) `T'TT'I` tt)
-					@((Forward (R_U_I_T_I LM t)) `TT'T'I` tt) from)
-				`compose` wrap @(->) @(Forward (R_U_I_T_I LM t) (tt _))
-				`yo'yo`rw @(->) @(Forward _ _)
-				)
-			)
-
--- TODO: reduce a number of transformations here
-instance
-	( Covariant Endo Semi Functor (->) t
-	, Covariant Monoidal Functor (->) LM LM tt
-	, Component Natural (->) (->) (t `T'TT'I` tt) (t `TT'T'I` tt)
-	) => Mapping Straight Straight (->) (->)
-		(Backward (t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` tt)
-		(Backward (t `T'TT'I` R_U_I_T_I LM t) `TT'T'I` tt)
-	where mapping = rwr / \from -> rwr / \(T'_'I (T'TT'I x)) ->
-		semifunctor @Straight @(->) @(->) @tt
-			(wrap @(->) @(Backward (t `T'TT'I` R_U_I_T_I LM t) _)
-				`compose` wrap @(->) @(T'TT'I t _ _))
-		/ (wrapped (component @Straight @(->) @(->) @(t `T'TT'I` tt) @(t `TT'T'I` tt))
-			(x `yo`wrapped (map @Straight @Straight @_ @_
-					@((Backward (R_U_I_T_I LM t)) `T'TT'I` tt)
-					@((Backward (R_U_I_T_I LM t)) `TT'T'I` tt) from)
-				`compose` wrap @(->) @(Backward (R_U_I_T_I LM t) (tt _))
-				`yo'yo`rw @(->) @(Backward _ _)
+					@(Labeled l (R_U_I_T_I LM t) `T'TT'I` tt)
+					@(Labeled l (R_U_I_T_I LM t) `TT'T'I` tt) from)
+				`compose` wrap @(->) @(Labeled l (R_U_I_T_I LM t) (tt _))
+				`yo'yo`rw @(->) @(Labeled l _ _)
 				)
 			)
 
