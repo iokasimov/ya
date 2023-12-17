@@ -123,7 +123,7 @@
 * Define `Nonempty` type family
 * Define `Nonempty` patter synonym
 * Define `Brancher` type family
-* Define `pp` operator
+* Define `dp` operator
 * Define `yoklKL` operator
 * Define `Empty` patter synonym
 * Define `Progress` type alias
