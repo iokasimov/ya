@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `o'rw'o`, `a'o`, `a'yokl`
-infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `lm''dp`, `lm'dp`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `lm'`, `lm`, `ml'`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `lm''dp`, `lm'dp`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'rw`, `rw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'rw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
@@ -544,10 +544,15 @@ ml' from_left from_right =
 	i_ (semifunctor @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (semifunctor @Straight (wrapped (right @Opposite from_right)))
 
-dp :: forall e ee t .
-	Covariant Monoidal Functor Arrow LM LM t =>
-	t e `LM` t ee -> t (e `LM` ee)
-dp = monoidal @Straight @Arrow @t @LM @LM identity identity
+dp :: forall u e ee t .
+	Covariant Monoidal Functor Arrow u LM t =>
+	u (t e) (t ee) -> t (e `LM` ee)
+dp = monoidal @Straight @Arrow @t @u @LM identity identity
+
+ds :: forall u e ee t .
+	Covariant Monoidal Functor Arrow u ML t =>
+	u (t e) (t ee) -> t (e `ML` ee)
+ds = monoidal @Straight @Arrow @t @u @ML identity identity
 
 dp'dp :: forall e ee t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>

@@ -293,3 +293,4 @@
 * Define `Focused` pattern synonym
 * Define `substructure` expression
 * Define `o'rw'o` operator
+* Define `ds` operator
