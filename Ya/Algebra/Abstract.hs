@@ -87,7 +87,15 @@ type Constant = U_1_I
 
 type Forward = T'_'I (Straight (->) Unit Unit)
 
+pattern Forward :: t e -> Forward t e
+pattern Forward e <- T'_'I e
+	where Forward e = T'_'I e
+
 type Backward = T'_'I (Opposite (->) Unit Unit)
+
+pattern Backward :: t e -> Backward t e
+pattern Backward e <- T'_'I e
+	where Backward e = T'_'I e
 
 type family Flip v where
 	Flip Straight = Opposite

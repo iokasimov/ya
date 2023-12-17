@@ -297,3 +297,7 @@
 * Define `Fallible` type alias
 * Define `Failure` pattern synonym
 * Define `Success` pattern synonym
+* Define `Back` pattern synonym
+* Define `Forth` pattern synonym
+* Define `Backward` pattern synonym
+* Define `Forward` pattern synonym

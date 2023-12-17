@@ -59,7 +59,7 @@ instance Stack (Construction Optional) where
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure where
-	Scrolling List = U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) List)
+	Scrolling List = U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) (Forward List))
 
 type family Orientation datastructure where
 	Orientation List = Horizontal
@@ -72,14 +72,14 @@ class Scrollable datastructure where
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List where
-	scroll Forward = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (T'TT'I bs)) (List (Yet f fs)))))) -> These
-			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T'_'I (List (Yet x (bs `yo` unwrap)))) (T'TT'I / fs `yo` wrap @(->))))))
+	scroll Forth = W_I_I_II `a` U_I_UU_II_III `yi` \case
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (T'TT'I bs)) (T'_'I (List (Yet f fs))))))) -> These
+			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T'_'I (List (Yet x (bs `yo` unwrap)))) (T'_'I (T'TT'I / fs `yo` wrap @(->)))))))
 			(Some previous)
 		previous@(_) -> These previous None
-	scroll Backward = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List (Yet b bs))) (T'TT'I fs))))) -> These
-			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T'_'I (T'TT'I / bs `yo` R_U_I_T_I)) (List (Yet x (fs `yo` unwrap)))))))
+	scroll Back = W_I_I_II `a` U_I_UU_II_III `yi` \case
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List (Yet b bs))) (T'_'I (T'TT'I fs)))))) -> These
+			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T'_'I (T'TT'I / bs `yo` R_U_I_T_I)) (T'_'I (List (Yet x (fs `yo` unwrap))))))))
 			(Some previous)
 		previous@(_) -> These previous None
 
@@ -94,7 +94,7 @@ instance Fastenable List
 		U_T_I_TT_I / These (I x)
 		(U_T_I_TT_I (These
 			(label (Empty @List))
-			(T'TT'I / xs `yo` R_U_I_T_I)
+			(label (T'TT'I / xs `yo` R_U_I_T_I))
 			)
 		)
 

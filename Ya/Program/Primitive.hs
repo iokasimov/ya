@@ -80,10 +80,6 @@ pattern Success :: e -> Progress e ee
 pattern Success e <- U_I_II (This e)
 	where Success e = U_I_II (This e)
 
--- pattern Continue :: ee -> Progress e ee
--- pattern Continue ee <- U_I_II (That ee)
-	-- where Continue ee = U_I_II (That ee)
-
 type Reference = U_I_UU_III_U_II_I (->) LM
 
 type Attribute = W_I_II_II Reference
@@ -226,13 +222,13 @@ try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
 
 type Horizontal = ML Unit Unit
 
-pattern Backward :: Horizontal
-pattern Backward <- This Unit
-	where Backward = This Unit
+pattern Back :: Horizontal
+pattern Back <- This Unit
+	where Back = This Unit
 
-pattern Forward :: Horizontal
-pattern Forward <- That Unit
-	where Forward = That Unit
+pattern Forth :: Horizontal
+pattern Forth <- That Unit
+	where Forth = That Unit
 
 label :: forall l t e . t e -> T'_'I l t e
 label = T'_'I
