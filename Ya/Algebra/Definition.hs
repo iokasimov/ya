@@ -263,11 +263,6 @@ empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identit
 enter :: forall t . Monoidal Straight Functor (->) LM LM t => t Unit
 enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
 
--- type Monad into t =
-	-- ( Covariant Monoidal Functor into LM LM t
-	-- , Component Natural (->) into (t `T'TT'I` t) t
-	-- )
-
 rwr :: forall o into a .
 	Precategory into =>
 	Castable Opposite into o => 

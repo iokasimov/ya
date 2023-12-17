@@ -70,6 +70,20 @@ pattern Continue :: ee -> Progress e ee
 pattern Continue ee <- U_I_II (That ee)
 	where Continue ee = U_I_II (That ee)
 
+type Fallible = U_I_II ML
+
+pattern Failure :: e -> Progress e ee
+pattern Failure e <- U_I_II (This e)
+	where Failure e = U_I_II (This e)
+
+pattern Success :: e -> Progress e ee
+pattern Success e <- U_I_II (This e)
+	where Success e = U_I_II (This e)
+
+-- pattern Continue :: ee -> Progress e ee
+-- pattern Continue ee <- U_I_II (That ee)
+	-- where Continue ee = U_I_II (That ee)
+
 type Reference = U_I_UU_III_U_II_I (->) LM
 
 type Attribute = W_I_II_II Reference
