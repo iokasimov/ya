@@ -304,3 +304,5 @@
 * Define `Labeled` type alias
 * Define `Straight` pattern synonym
 * Define `Opposite` pattern synonym
+* Define `cata` expression
+* Define `ana` expression

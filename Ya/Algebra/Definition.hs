@@ -297,3 +297,17 @@ _i :: forall into u a o e .
 	Castable Straight into (U_I_II u e o) =>
 	into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
 _i f = rw @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)
+
+cata :: forall into t e .
+	Covariant Endo Semi Functor into t =>
+	Castable Straight into (Recursive t) =>
+	into (t e) e -> into (Recursive t) e
+cata into = into `compose`
+	map @Straight @Straight (cata into) `compose`
+	(let U_I_II x = cast in x)
+
+ana :: forall into t e .
+	Covariant Endo Semi Functor into t =>
+	Castable Opposite into (Recursive t) =>
+	into e (t e) -> into e (Recursive t)
+ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
