@@ -77,7 +77,15 @@ type Both = U_I_I
 
 type Straight = U_I_II
 
+pattern Straight :: u e ee -> Straight u e ee
+pattern Straight x <- U_I_II x
+	where Straight x = U_I_II x
+
 type Opposite = U_II_I
+
+pattern Opposite :: u e ee -> Opposite u ee e
+pattern Opposite x <- U_II_I x
+	where Opposite x = U_II_I x
 
 type This = U_II_I
 

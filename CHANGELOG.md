@@ -302,3 +302,5 @@
 * Define `Backward` pattern synonym
 * Define `Forward` pattern synonym
 * Define `Labeled` type alias
+* Define `Straight` pattern synonym
+* Define `Opposite` pattern synonym

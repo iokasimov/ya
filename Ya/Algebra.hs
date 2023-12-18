@@ -269,18 +269,6 @@ instance
 		These (These (T'TT'I (U_I_II f)) (T'TT'I (U_I_II g))) (U_I_II h) -> U_I_II / \a ->
 			dp (These (f a) (g a)) `yo` h `o` from
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (U_II_I ML e)
-	where mapping = rwr / \from (U_I_II f) -> U_II_I (This (from (f Unit)))
-
-instance Mapping Straight Straight (->) (->) (Straight (->) Unit) (That ML e)
-	where mapping = rwr / \from (U_I_II f) -> U_I_II (That (from (f Unit)))
-
-instance Mapping Straight Straight (->) (->) (Straight (->) Void) (That ML Unit)
-	where mapping = rwr / \_ _ -> U_I_II (This Unit)
-
-instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_II_I ML Unit)
-	where mapping = rwr / \_ _ -> U_II_I (That Unit)
-
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That LM e `T'TT'I` t) (That LM e `TT'T'I` t)
