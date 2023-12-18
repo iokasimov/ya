@@ -364,9 +364,6 @@ instance Mapping Straight Straight (->) (->)
 instance Mapping Straight Straight (->) (->) (Straight (->) Unit) I
 	where mapping = rwr / \from (Straight f) -> I (from (f Unit))
 
--- TODO: instance Mapping Straight Straight (->) (->) (Day Straight (->) LM ML I I e ee) I
--- TODO: instance Mapping Straight Straight (->) (->) (Straight (->) Void) I
-
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM LM (This ML e) (This ML e) ee eee) (This ML e)
 	where mapping = rwr / \from -> rwr / \case

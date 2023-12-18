@@ -14,71 +14,53 @@ constant :: e -> ee -> e
 constant x _ = x
 
 type Only = I
-
 pattern Only :: e -> Only e
-pattern Only e <- I e
-	where Only e = I e
+pattern Only e <- I e where Only e = I e
 
 type Singular = I
-
 pattern Singular :: e -> Singular e
-pattern Singular e <- I e
-	where Singular e = I e
+pattern Singular e <- I e where Singular e = I e
 
 type Focused = I
-
 pattern Focused :: e -> Focused e
-pattern Focused e <- I e
-	where Focused e = I e
+pattern Focused e <- I e where Focused e = I e
 
-type Boolean = U_I_II ML Unit Unit
+type Boolean = Straight ML Unit Unit
+pattern False, True :: Boolean
+pattern False <- Straight (This Unit) where False = Straight (This Unit)
+pattern True <- Straight (That Unit) where True = Straight (That Unit)
 
-pattern False :: Boolean
-pattern False <- U_I_II (This Unit)
-	where False = U_I_II (This Unit)
-
-pattern True :: Boolean
-pattern True <- U_I_II (That Unit)
-	where True = U_I_II (That Unit)
-
-type Provided = U_I_II (->)
+type Provided = Straight (->)
 
 provide :: Straight (->) e e
-provide = U_I_II identity
+provide = Straight identity
 
-type Optional = U_I_II ML Unit
+type Optional = Straight ML Unit
 
 pattern Some :: e -> Optional e
-pattern Some e <- U_I_II (That e)
-	where Some e = U_I_II (That e)
+pattern Some e <- Straight (That e) where Some e = Straight (That e)
 
 pattern None :: Optional e
-pattern None <- U_I_II (This Unit)
-	where None = U_I_II (This Unit)
+pattern None <- Straight (This Unit) where None = Straight (This Unit)
 
 pattern Optionally :: Unit `ML` e -> Optional e
-pattern Optionally e <- U_I_II e
-	where Optionally e = U_I_II e
+pattern Optionally e <- Straight e where Optionally e = Straight e
 
-type Progress = U_I_II ML
+type Progress = Straight ML
 
 pattern Interrupt :: e -> Progress e ee
-pattern Interrupt e <- U_I_II (This e)
-	where Interrupt e = U_I_II (This e)
+pattern Interrupt e <- Straight (This e) where Interrupt e = Straight (This e)
 
 pattern Continue :: ee -> Progress e ee
-pattern Continue ee <- U_I_II (That ee)
-	where Continue ee = U_I_II (That ee)
+pattern Continue ee <- Straight (That ee) where Continue ee = Straight (That ee)
 
-type Fallible = U_I_II ML
+type Fallible = Straight ML
 
 pattern Failure :: e -> Progress e ee
-pattern Failure e <- U_I_II (This e)
-	where Failure e = U_I_II (This e)
+pattern Failure e <- Straight (This e) where Failure e = Straight (This e)
 
-pattern Success :: e -> Progress e ee
-pattern Success e <- U_I_II (This e)
-	where Success e = U_I_II (This e)
+pattern Success :: ee -> Progress e ee
+pattern Success ee <- Straight (That ee) where Success ee = Straight (That ee)
 
 type Reference = U_I_UU_III_U_II_I (->) LM
 
@@ -124,38 +106,33 @@ start state stateful = stateful `rw'rw` state
 instant :: Transition state result -> state -> state
 instant state x = wrapped (left @Straight @Arrow identity) / state `rw'rw` x
 
-type Stateful = U_I_II Transition
+type Stateful = Straight Transition
 
 pattern Statefully :: Transition state result -> Stateful state result
-pattern Statefully x <- U_I_II x
-	where Statefully x = U_I_II x
+pattern Statefully x <- Straight x where Statefully x = Straight x
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
 	e -> J (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
-type Scenario = U_II_I Transition
+type Scenario = Opposite Transition
 
 pattern Scenario :: Transition state result -> Scenario result state
-pattern Scenario x <- U_II_I x
-	where Scenario x = U_II_I x
+pattern Scenario x <- Opposite x where Scenario x = Opposite x
 
 type Construction = R_U_I_T_I LM
 
 pattern Construct :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
-pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
-	where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs))) where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
 pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
-pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
-	where Yet x xs = Recursive (U_I_T_II (These x xs))
+pattern Yet x xs <- Recursive (U_I_T_II (These x xs)) where Yet x xs = Recursive (U_I_T_II (These x xs))
 
 type Instruction = R_U_I_T_I ML
 
 pattern Instruct :: t (Recursive (U_I_T_II t ML i)) -> Instruction t i
-pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs)))
-	where Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
+pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs))) where Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
 pattern Load :: item -> Instruction f item
 pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
@@ -163,16 +140,13 @@ pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 type List = Optional `T'TT'I` Construction Optional
 
 pattern List :: Recursive (U_I_T_II Optional LM i) -> List i
-pattern List xs <- T'TT'I (Some (R_U_I_T_I xs))
-	where List xs = T'TT'I (Some (R_U_I_T_I xs))
+pattern List xs <- T'TT'I (Some (R_U_I_T_I xs)) where List xs = T'TT'I (Some (R_U_I_T_I xs))
 
 pattern Next :: i -> Recursive (U_I_T_II Optional LM i) -> Recursive (U_I_T_II Optional LM i)
-pattern Next x xs <- Yet x (Some xs)
-	where Next x xs = Yet x (Some xs)
+pattern Next x xs <- Yet x (Some xs) where Next x xs = Yet x (Some xs)
 
 pattern Last :: i -> Recursive (U_I_T_II Optional LM i)
-pattern Last x <- Yet x None
-	where Last x = Yet x None
+pattern Last x <- Yet x None where Last x = Yet x None
 
 type family Brancher datastructure where
 	Brancher (T'TT'I t (Construction t)) = t
@@ -181,13 +155,11 @@ type family Nonempty datastructure where
 	Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
 pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
-pattern Nonempty xs <- R_U_I_T_I xs
-	where Nonempty xs = R_U_I_T_I xs
+pattern Nonempty xs <- R_U_I_T_I xs where Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t i . (Brancher t ~ Optional)
 	=> T'TT'I Optional (Construction Optional) i
-pattern Empty <- T'TT'I None
-	where Empty = T'TT'I None
+pattern Empty <- T'TT'I None where Empty = T'TT'I None
 
 type Tree = Construction
 
@@ -221,47 +193,27 @@ try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
 	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
 
 type Horizontal = ML Unit Unit
-
-pattern Back :: Horizontal
-pattern Back <- This Unit
-	where Back = This Unit
-
-pattern Forth :: Horizontal
-pattern Forth <- That Unit
-	where Forth = That Unit
+pattern Back, Forth :: Horizontal
+pattern Back <- This Unit where Back = This Unit
+pattern Forth <- That Unit where Forth = That Unit
 
 label :: forall l t e . t e -> T'_'I l t e
 label = T'_'I
 
 type Decision = ML Unit Unit
-
-pattern No :: Decision
-pattern No <- This Unit
-	where No = This Unit
-
-pattern Yes :: Decision
-pattern Yes <- That Unit
-	where Yes = That Unit
+pattern No, Yes :: Decision
+pattern No <- This Unit where No = This Unit
+pattern Yes <- That Unit where Yes = That Unit
 
 type Side = ML Unit Unit
-
-pattern Left :: Side
-pattern Left <- This Unit
-	where Left = This Unit
-
-pattern Right :: Side
-pattern Right <- That Unit
-	where Right = That Unit
+pattern Left, Right :: Side
+pattern Left <- This Unit where Left = This Unit
+pattern Right <- That Unit where Right = That Unit
 
 type Vertical = ML Unit Unit
-
-pattern Down :: Vertical
-pattern Down <- This Unit
-	where Down = This Unit
-
-pattern Up :: Vertical
-pattern Up <- That Unit
-	where Up = That Unit
+pattern Down, Up :: Vertical
+pattern Down <- This Unit where Down = This Unit
+pattern Up <- That Unit where Up = That Unit
 
 forever ::
 	Component Natural (->) (->) (t `T'TT'I` t) t =>
@@ -273,5 +225,5 @@ until ::
 	Monoidal Straight Functor (->) LM LM t =>
 	t (That ML e ee) -> t ee
 until x = x `yokl` \case
-	U_I_II (This _) -> until x
-	U_I_II (That e) -> enter `yu` e
+	Straight (This _) -> until x
+	Straight (That e) -> enter `yu` e
