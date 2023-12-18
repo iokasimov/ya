@@ -141,7 +141,13 @@ instance
 				-- (wrapped (map @Straight @Straight @from @into @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
 			-- rw @into @(U_T_I_TT_I u t tt _)
 
-instance Mapping Straight Straight Arrow Arrow (That LM o) (That LM o)
+instance Mapping Straight Straight (->) (->) (U_I_II LM e `T'TT'I` U_I_II (->) e) I
+	where mapping = rwr / \from -> rwr / \(U_I_II (These e (U_I_II f))) -> from (f e)
+
+instance Mapping Straight Straight (->) (->) I (U_I_II (->) e `T'TT'I` U_I_II LM e)
+	where mapping = rwr / \from -> rwr / \x -> U_I_II / \e -> U_I_II (These e (from x))
+
+instance Mapping Straight Straight Arrow Arrow (That LM e) (That LM e)
 	where mapping = rwr / \from -> rwr / \case
 		These e x -> These e (from x)
 
@@ -342,10 +348,48 @@ instance Mapping Straight Straight
 			/ \(I new) -> U_I_II (These e ((wrapped (right @Straight @(->) identity) (from old)) new))
 
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) I (Both LM)
-	where mapping = rwr /
-		\(W_I_II_II (U_I_UU_III_U_II_I from)) (I old) -> U_I_I (These
-			/ (wrapped (left @Straight @(->) identity) (from old))
-			/ (wrapped (left @Straight @(->) identity) (from old)))
+	where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) (I old) -> U_I_I / These
+		(wrapped (left @Straight @(->) identity) (from old))
+		(wrapped (left @Straight @(->) identity) (from old))
 
-instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (U_II_I (->) e) (U_II_I (->) e)
-   where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> semifunctor @Opposite / (\(These x _) -> x) `compose` from
+instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (This (->) e) (This (->) e)
+	where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
+		map @Opposite @Straight / (\(These x _) -> x) `compose` from
+
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM I I e ee) I
+	where mapping = rwr / \from -> rwr / \case
+		These (These (I e) (I ee)) (U_I_II f) -> from (f (These e ee))
+
+instance Mapping Straight Straight (->) (->) (Straight (->) Unit) I
+	where mapping = rwr / \from (U_I_II f) -> I (from (f Unit))
+
+-- TODO: instance Mapping Straight Straight (->) (->) (Day Straight (->) LM ML I I e ee) I
+-- TODO: instance Mapping Straight Straight (->) (->) (Straight (->) Void) I
+
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM (That ML e) (That ML e) ee eee) (That ML e)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) -> That (from (f (These ee eee)))
+		These (These (U_I_II (This e)) _) (U_I_II _) -> This e
+		These (These _ (U_I_II (This e))) (U_I_II _) -> This e
+
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM ML (That ML e) (That ML e) ee eee) (That ML e)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (U_I_II (That ee)) _) (U_I_II f) -> That (from (f (This ee)))
+		These (These _ (U_I_II (That eee))) (U_I_II f) -> That (from (f (That eee)))
+		These (These _ (U_I_II (This eee))) (U_I_II _) -> This eee
+
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM (This ML e) (This ML e) ee eee) (This ML e)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (U_II_I (This ee)) (U_II_I (This eee))) (U_I_II f) -> This (from (f (These ee eee)))
+		These (These (U_II_I (That e)) _) _ -> That e
+
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM ML (This ML e) (This ML e) ee eee) (This ML e)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
+		These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
+		These (These _ (U_II_I (That eee))) _ -> That eee
