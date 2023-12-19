@@ -93,6 +93,51 @@ instance
 				)
 			)
 
+instance Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t =>
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
+	where mapping = rwr / \from -> rwr / \case
+		These (These e ee) (Straight f) ->
+			let These e' e'' = rw'rw'rw e in
+			let These ee' ee'' = rw'rw'rw ee in
+			Recursive `compose` U_I_T_II / These
+				(from `compose` f / These e' ee')
+				(semimonoidal @Straight @Arrow @t @LM @LM identity
+					(unwrap `compose` (semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f)) `compose` _fo R_U_I_T_I `compose` fo_ R_U_I_T_I)
+					/ These e'' ee'')
+
+instance
+	Monoidal Straight Functor (->) LM ML t =>
+	Mapping Straight Straight (->) (->) (Straight (->) Unit) (R_U_I_T_I LM t)
+	where mapping = rwr / \from (Straight f) ->
+		R_U_I_T_I `compose` Recursive `compose` U_I_T_II
+			/ These (from / f Unit) (empty @t `yo` absurd)
+
+instance
+	( Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
+	, Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t
+	) => Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (T'TT'I e) (T'TT'I ee)) (Straight f) ->
+				semimonoidal @Straight @Arrow @t @LM @LM identity
+					(semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f))
+						(These e ee)
+
+instance
+	( Monoidal Straight Functor (->) LM LM t
+	, Monoidal Straight Functor (->) LM LM (R_U_I_T_I LM tt)
+	) => Mapping Straight Straight (->) (->) (Straight (->) Unit) (t `T'TT'I` R_U_I_T_I LM tt)
+	where mapping = rwr / \from (Straight f) -> T'TT'I /
+		enter @t `yi'yu` enter @(R_U_I_T_I LM tt) `yo` from `compose` f
+
+instance Monoidal Straight Functor (->) LM ML t =>
+	Mapping Straight Straight (->) (->) (Straight (->) Void) (t `T'TT'I` R_U_I_T_I LM tt)
+	where mapping = rwr / \_ _ -> T'TT'I (empty @t `yo` absurd)
+
 -- instance Mapping Straight Straight (->) (->)
 	-- ((t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` (t `T'TT'I` R_U_I_T_I LM t))
 	-- (t `T'TT'I` R_U_I_T_I LM t)

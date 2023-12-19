@@ -306,3 +306,4 @@
 * Define `Opposite` pattern synonym
 * Define `cata` expression
 * Define `ana` expression
+* Define `semimonoidal` expression
