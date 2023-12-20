@@ -309,3 +309,4 @@
 * Define `semimonoidal` expression
 * Define `yi'rf` operator
 * Define `yi'yi'rf` operator
+* Define `engage` expression

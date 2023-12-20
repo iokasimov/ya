@@ -166,6 +166,9 @@ type Tree = Construction
 type family Binary tree where
 	Binary Tree = Tree (U_I_I LM `T'TT'I` Optional)
 
+engage :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
+engage x = enter `yu` x
+
 layer :: forall g f e .
 	Component Natural (->) (->) f (f `J` g) =>
 	f e -> (f `J` g) e
