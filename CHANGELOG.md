@@ -307,3 +307,5 @@
 * Define `cata` expression
 * Define `ana` expression
 * Define `semimonoidal` expression
+* Define `yi'rf` operator
+* Define `yi'yi'rf` operator
