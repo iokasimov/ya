@@ -294,7 +294,7 @@
 * Define `substructure` expression
 * Define `o'rw'o` operator
 * Define `ds` operator
-* Define `Fallible` type alias
+* Define `Failable` type alias
 * Define `Failure` pattern synonym
 * Define `Success` pattern synonym
 * Define `Back` pattern synonym

@@ -54,12 +54,12 @@ pattern Interrupt e <- Straight (This e) where Interrupt e = Straight (This e)
 pattern Continue :: ee -> Progress e ee
 pattern Continue ee <- Straight (That ee) where Continue ee = Straight (That ee)
 
-type Fallible = Straight ML
+type Failable = Straight ML
 
-pattern Failure :: e -> Progress e ee
+pattern Failure :: e -> Failable e ee
 pattern Failure e <- Straight (This e) where Failure e = Straight (This e)
 
-pattern Success :: ee -> Progress e ee
+pattern Success :: ee -> Failable e ee
 pattern Success ee <- Straight (That ee) where Success ee = Straight (That ee)
 
 type Reference = U_I_UU_III_U_II_I (->) LM
