@@ -132,7 +132,7 @@
 * Define `Transition` type alias
 * Define `Stateful` type alias
 * Define `Scenario` type alias
-* Define `Statefully` pattern synonym
+* Define `Stateful` pattern synonym
 * Define `Scenario` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator

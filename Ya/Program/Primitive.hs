@@ -108,8 +108,8 @@ instant state x = wrapped (left @Straight @Arrow identity) / state `rw'rw` x
 
 type Stateful = Straight Transition
 
-pattern Statefully :: Transition state result -> Stateful state result
-pattern Statefully x <- Straight x where Statefully x = Straight x
+pattern Stateful :: Transition state result -> Stateful state result
+pattern Stateful x <- Straight x where Stateful x = Straight x
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
@@ -186,14 +186,13 @@ joint :: forall f g e .
 joint = wrap @(->) @((f `T'TT'I` g) e)
 	`o` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `J` g) @e
 
-try :: forall t e ee o .
+try :: forall t e o .
 	Covariant Endo Semi Functor (->) t =>
-	Component Natural (->) (->) (t `T'TT'I` Progress ee) (t `J` Progress ee) =>
-	Castable Opposite (->) ((t `T'TT'I` Progress ee) ee) =>
-	(e -> ee) -> t (Progress e o) -> (t `J` Progress ee) o
-try f = (`yo` rewrap @(Progress ee _) (`yo_` f))
-	`o` wrap @(->) @((t `T'TT'I` Progress ee) _)
-	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress ee) @(t `J` Progress ee)
+	Component Natural (->) (->) (t `T'TT'I` Progress e) (t `J` Progress e) =>
+	Castable Opposite (->) ((t `T'TT'I` Progress e) e) =>
+	t (Progress e o) -> (t `J` Progress e) o
+try = wrap @(->) @((t `T'TT'I` Progress e) _)
+	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress e) @(t `J` Progress e)
 
 type Horizontal = ML Unit Unit
 pattern Back, Forth :: Horizontal
