@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a'a`, `o'a`, `o'rw'o`, `a'o`, `a'yokl`
-infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `fr'dp`, `lm'dp`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
+infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo'fi`, `fa'fi`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `rw'rw`, `fr'dp`, `lm'dp`, `lm'ds`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'dp'jt`, `dp'dp'jt'yokl`, `rw'rw'rw`, `lm'dp'dp`
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'rw`, `rw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `yi'rf`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'rw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
@@ -655,6 +655,11 @@ lm'dp :: forall o oo t .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	t o -> t oo -> t (o `LM` oo)
 lm'dp from_left from_right = dp (lm from_left from_right)
+
+lm'ds :: forall o oo t .
+	Covariant Monoidal Functor Arrow LM ML t =>
+	t o -> t oo -> t (o `ML` oo)
+lm'ds from_left from_right = ds (lm from_left from_right)
 
 lm'dp'dp :: forall o oo t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>
