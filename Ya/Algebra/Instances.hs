@@ -380,6 +380,18 @@ instance Mapping Straight Straight (->) (->)
 		These (These (Straight (This e)) _) (Straight _) -> This e
 		These (These _ (Straight (This e))) (Straight _) -> This e
 
+instance Mapping Straight Straight (->) (->)
+		(Day That (->) LM MLM (That ML e) (That ML e) ee eee) (That ML e)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (Straight (That ee)) (Straight (That eee))) (Straight f) ->
+			That `compose` from `compose` f `compose` MLM `compose` That / These ee eee
+		These (These (Straight (That ee)) _) (Straight f) ->
+			That `compose` from `compose` f `compose` MLM `compose` This / This ee
+		These (These (Straight (This _)) (Straight (That eee))) (Straight f) ->
+			That `compose` from `compose` f `compose` MLM `compose` This / That eee
+		These (These (Straight (This e)) (Straight (This _))) (Straight f) ->
+			This e
+
 instance Mapping Straight Straight (->) (->) (That (->) Unit) (That ML e)
 	where mapping = rwr / \from (Straight f) -> Straight (That (from (f Unit)))
 
