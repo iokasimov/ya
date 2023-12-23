@@ -555,27 +555,31 @@ yi'yi'rf from_left from_right =
 	_i (semifunctor @Straight (wrapped (right @Opposite from_right)))
 
 dp :: forall u e ee t .
-	Covariant Monoidal Functor Arrow u LM t =>
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) u LM t t e ee) t =>
 	u (t e) (t ee) -> t (e `LM` ee)
-dp = monoidal @Straight @Arrow @t @u @LM identity identity
+dp = semimonoidal @Straight @Arrow @t @u @LM identity identity
 
 ds :: forall u e ee t .
-	Covariant Monoidal Functor Arrow u ML t =>
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) u ML t t e ee) t =>
 	u (t e) (t ee) -> t (e `ML` ee)
-ds = monoidal @Straight @Arrow @t @u @ML identity identity
+ds = semimonoidal @Straight @Arrow @t @u @ML identity identity
 
 dw :: forall u e ee t .
-	Covariant Monoidal Functor Arrow u MLM t =>
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) u MLM t t e ee) t =>
 	u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
-dw = monoidal @Straight @Arrow @t @u @MLM identity unwrap
+dw = semimonoidal @Straight @Arrow @t @u @MLM identity unwrap
 
--- TODO: try to generalize
-dp'dp :: forall e ee t tt .
-	Covariant Monoidal Functor Arrow LM LM t =>
-	Covariant Monoidal Functor Arrow LM LM tt =>
-	t (tt e) `LM` t (tt ee) -> t (tt (e `LM` ee))
-dp'dp = monoidal @Straight @Arrow @t @LM @LM identity
-	(monoidal @Straight @Arrow @tt @LM @LM identity identity)
+dp'dp :: forall u e ee t tt .
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) u LM t t (tt e) (tt ee)) t =>
+	Mapping Straight Straight (->) (->)
+		(Day Straight (->) LM LM tt tt e ee) tt =>
+	u (t (tt e)) (t (tt ee)) -> t (tt (e `LM` ee))
+dp'dp = semimonoidal @Straight @Arrow @t @u @LM identity
+	(semimonoidal @Straight @Arrow @tt @LM @LM identity identity)
 
 w'rw :: forall into a o .
 	Precategory into =>
