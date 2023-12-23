@@ -312,3 +312,4 @@
 * Define `engage` expression
 * Define `lm'ds` operator
 * Define `MLM` data type
+* Define `dw` operator

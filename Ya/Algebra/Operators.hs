@@ -564,6 +564,12 @@ ds :: forall u e ee t .
 	u (t e) (t ee) -> t (e `ML` ee)
 ds = monoidal @Straight @Arrow @t @u @ML identity identity
 
+dw :: forall u e ee t .
+	Covariant Monoidal Functor Arrow u MLM t =>
+	u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
+dw = monoidal @Straight @Arrow @t @u @MLM identity unwrap
+
+-- TODO: try to generalize
 dp'dp :: forall e ee t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	Covariant Monoidal Functor Arrow LM LM tt =>
