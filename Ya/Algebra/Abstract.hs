@@ -12,6 +12,8 @@ data LM i ii = These i ii
 
 data ML i ii = This i | That ii
 
+newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
+
 newtype I i = I i
 
 newtype Recursive f = Recursive (f (Recursive f))
@@ -141,6 +143,7 @@ type family Supertype e where
 	Supertype (W_I_II_II w i ii) = w i ii ii
 	Supertype (W_I_I_II w i ii) = w i i ii
 	Supertype (Arrow Unit ii) = ii
+	Supertype (MLM i ii) = ML (ML i ii) (LM i ii)
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -279,6 +282,12 @@ instance Castable Opposite (->) (Unit -> i)
 
 instance Castable Straight (->) (Unit -> i)
 	where cast = U_I_II (\f -> f Unit)
+
+instance Castable Opposite (->) (MLM i ii)
+	where cast = U_II_I MLM
+
+instance Castable Straight (->) (MLM i ii)
+	where cast = U_I_II (\(MLM x) -> x)
 
 instance Wrapper Arrow x
 	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
