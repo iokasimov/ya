@@ -313,3 +313,4 @@
 * Define `lm'ds` operator
 * Define `MLM` data type
 * Define `dw` operator
+* Define `yoklKL'yoklKL` operator

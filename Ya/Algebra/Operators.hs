@@ -10,7 +10,7 @@ infixl 8 `i'i`, `u'u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro
 infixl 7 `i'i'i`, `u'u'u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi_'fi`, `_fo'fi`, `_fo'fo`, `fi_'fi'fi`, `_fo'fi'fi`, `w'rw`, `rw'w`, `rwr'yo_`, `rwr'yu_`
 infixl 6 `i'i'i'i`, `u'u'u'u`, `yi'yi`, `yi'yu`, `yi'rf`, `fokl`, `yokl`, `yukl`, `yokl'yoklKL`, `yokl'u`, `yukl'u`, `yokl'u'u`, `yukl'u'u`, `yokl'u'u'u`, `yukl'u'u'u`, `yukl'u'u'u'u`, `yokl'u'u'u'u`, `yukl'u'u'u'u'u'u`, `yokl'u'u'u'u'u'u`, `yukl'u'u'u'u'u`, `yokl'rwr'yo_`, `yokl'rwr'yu_`, `yokl'u'u'u'u'u`, `yokl'rw'yokl`
 infixl 5 `i'i'i'i'i`, `u'u'u'u'u`, `_yokl`
-infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'rf`, `yoklKL`, `yoklKL'yokl`, `yi'yukl`
+infixl 4 `i'i'i'i'i'i`, `u'u'u'u'u'u`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'rf`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`
 infixl 3 `i'i'i'i'i'i'i`, `u'u'u'u'u'u'u`
 infixl 2 `i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yukl`
 infixl 1 `i'i'i'i'i'i'i'i'i`, `u'u'u'u'u'u'u'u'u`
@@ -275,6 +275,21 @@ yoklKL'yokl :: forall from into t tt ttt a o .
 	Castable Opposite from (T'TT'I ttt tt o) =>
 	t (ttt a) -> into (from a (tt o)) (ttt (t o))
 yoklKL'yokl x = fa_ fokl (yoklKL @from @into x)
+
+yoklKL'yoklKL :: forall from into t tt ttt a o .
+	Covariant Yoneda Functor from into t =>
+	Covariant Endo Semi Functor from tt =>
+	Covariant Endo Semi Functor from ttt =>
+	Component Natural from into (T'TT'I t ttt) (TT'T'I t ttt) =>
+	Component Natural from from (T'TT'I tt ttt) (TT'T'I tt ttt) =>
+	Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
+	Castable Opposite from (T'TT'I tt ttt o) =>
+	Castable Straight from (TT'T'I tt ttt o) =>
+	Castable Straight into (TT'T'I t ttt (tt o)) =>
+	Castable Opposite into (T'TT'I t ttt (tt o)) =>
+	Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
+	t (tt a) -> into (from a (ttt o)) (ttt (t (tt o)))
+yoklKL'yoklKL x = fa_ foklKL (yoklKL @from @into x)
 
 fo'fo :: forall from into t tt a o .
 	Covariant Semi Functor from into tt =>
@@ -675,7 +690,7 @@ lm'dp'dp :: forall o oo t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	Covariant Monoidal Functor Arrow LM LM tt =>
 	t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
-lm'dp'dp from_left from_right = dp'dp (lm from_left from_right)
+lm'dp'dp from_left from_right = dp'dp @LM (lm from_left from_right)
 
 -- TODO: generalize
 dp'yo :: forall from e ee r t .
