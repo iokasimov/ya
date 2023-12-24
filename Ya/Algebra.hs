@@ -93,7 +93,9 @@ instance
 				)
 			)
 
-instance Mapping Straight Straight (->) (->)
+-- TODO: try to simplify
+instance
+	Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM LM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t =>
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM LM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
@@ -104,7 +106,12 @@ instance Mapping Straight Straight (->) (->)
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f / These e' ee')
 				(semimonoidal @Straight @Arrow @t @LM @LM identity
-					(unwrap `compose` (semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f)) `compose` _fo R_U_I_T_I `compose` fo_ R_U_I_T_I)
+					(unwrap
+						`compose` semimonoidal @Straight @(->)
+							@(R_U_I_T_I LM t) @LM @LM
+								identity (from `compose` f)
+						`compose` _fo R_U_I_T_I
+						`compose` fo_ R_U_I_T_I)
 					/ These e'' ee'')
 
 instance
@@ -115,12 +122,9 @@ instance
 			/ These (from / f Unit) (empty @t `yo` absurd)
 
 instance
-	( Mapping Straight Straight (->) (->)
-		(Day Straight (->) LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
-	, Mapping Straight Straight (->) (->)
-		(Day Straight (->) LM LM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t
-	) => Mapping Straight Straight (->) (->)
-		(Day Straight (->) LM LM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
+	( Mapping Straight Straight (->) (->) (Day Straight (->) LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
+	, Mapping Straight Straight (->) (->) (Day Straight (->) LM LM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t
+	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T'TT'I e) (T'TT'I ee)) (Straight f) ->
 				semimonoidal @Straight @Arrow @t @LM @LM identity
@@ -134,14 +138,46 @@ instance
 	where mapping = rwr / \from (Straight f) -> T'TT'I /
 		enter @t `yi'yu` enter @(R_U_I_T_I LM tt) `yo` from `compose` f
 
+-- TODO: try to avoid mapping twice datastructure here
+instance
+	( Covariant Endo Semi Functor (->) t
+	, Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
+	, Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t
+	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
+	where mapping = rwr / \from -> rwr / \case
+		These (These (T'TT'I e) (T'TT'I ee)) (Straight f) ->
+				(semimonoidal @Straight @Arrow @t @LM @MLM identity
+					(\case
+						MLM (This (This x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` This
+						MLM (This (That x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` That
+						MLM (That x) -> semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
+					)
+						(These e ee)
+				)
+
+-- TODO: try to avoid mapping twice datastructure here
+instance
+	( Covariant Endo Semi Functor (->) t
+	, Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM t t (Recursive (U_I_T_II t LM e)) (Recursive (U_I_T_II t LM ee))) t
+	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
+	where mapping = rwr / \from -> rwr / \case
+		These (These e ee) (Straight f) ->
+			let These e' e'' = rw'rw'rw e in
+			let These ee' ee'' = rw'rw'rw ee in
+			Recursive `compose` U_I_T_II / These
+				(from `compose` f `compose` MLM `compose` That / These e' ee')
+				(semimonoidal @Straight @Arrow @t @LM @MLM identity
+					(unwrap `compose` \case
+						MLM (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` This
+						MLM (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` That
+						MLM (That (These x xx)) -> semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
+							(These (R_U_I_T_I x) (R_U_I_T_I xx))
+					)
+					/ These e'' ee'')
+
 instance Monoidal Straight Functor (->) LM ML t =>
 	Mapping Straight Straight (->) (->) (Straight (->) Void) (t `T'TT'I` R_U_I_T_I LM tt)
 	where mapping = rwr / \_ _ -> T'TT'I (empty @t `yo` absurd)
-
--- instance Mapping Straight Straight (->) (->)
-	-- ((t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` (t `T'TT'I` R_U_I_T_I LM t))
-	-- (t `T'TT'I` R_U_I_T_I LM t)
-	-- where mapping = rwr / \from (T'TT'I x) -> x
 
 -- TODO: generalize this instance
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
