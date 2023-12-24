@@ -573,19 +573,19 @@ dp :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) u LM t t e ee) t =>
 	u (t e) (t ee) -> t (e `LM` ee)
-dp = semimonoidal @Straight @Arrow @t @u @LM identity identity
+dp = day @Straight @Arrow @t @u @LM identity identity
 
 ds :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) u ML t t e ee) t =>
 	u (t e) (t ee) -> t (e `ML` ee)
-ds = semimonoidal @Straight @Arrow @t @u @ML identity identity
+ds = day @Straight @Arrow @t @u @ML identity identity
 
 dw :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) u MLM t t e ee) t =>
 	u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
-dw = semimonoidal @Straight @Arrow @t @u @MLM identity unwrap
+dw = day @Straight @Arrow @t @u @MLM identity unwrap
 
 dp'dp :: forall u e ee t tt .
 	Mapping Straight Straight (->) (->)
@@ -593,8 +593,8 @@ dp'dp :: forall u e ee t tt .
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM LM tt tt e ee) tt =>
 	u (t (tt e)) (t (tt ee)) -> t (tt (e `LM` ee))
-dp'dp = semimonoidal @Straight @Arrow @t @u @LM identity
-	(semimonoidal @Straight @Arrow @tt @LM @LM identity identity)
+dp'dp = day @Straight @Arrow @t @u @LM identity
+	(day @Straight @Arrow @tt @LM @LM identity identity)
 
 w'rw :: forall into a o .
 	Precategory into =>
@@ -696,7 +696,7 @@ lm'dp'dp from_left from_right = dp'dp @LM (lm from_left from_right)
 dp'yo :: forall from e ee r t .
 	Covariant Monoidal Functor from LM LM t =>
 	t e `LM` t ee -> from (e `LM` ee) r -> t r
-dp'yo x f = monoidal @Straight @from @t @LM @LM identity f x
+dp'yo x f = day @Straight @from @t @LM @LM identity f x
 
 -- TODO: generalize
 dp'yokl :: forall e ee from into t tt o .
@@ -713,8 +713,8 @@ dp'dp'yo :: forall from e ee r t tt .
 	Covariant Monoidal Functor Arrow LM LM t =>
 	Covariant Monoidal Functor from LM LM tt =>
 	t (tt e) `LM` t (tt ee) -> from (e `LM` ee) r -> t (tt r)
-dp'dp'yo x f = monoidal @Straight @Arrow @t @LM @LM identity
-	(monoidal @Straight @from @tt @LM @LM identity f) x
+dp'dp'yo x f = day @Straight @Arrow @t @LM @LM identity
+	(day @Straight @from @tt @LM @LM identity f) x
 
 jt :: forall into f g e .
 	Component Natural (->) into (f `T'TT'I` g) (f `J` g) =>
@@ -729,8 +729,8 @@ dp'dp'jt :: forall e ee t tt .
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Monoidal Functor (->) LM LM tt =>
 	t (tt e) `LM` t (tt ee) -> (t `J` tt) (e `LM` ee)
-dp'dp'jt = jt `compose` monoidal @Straight @Arrow @t @LM @LM identity
-	(monoidal @Straight @(->) @tt @LM @LM identity identity)
+dp'dp'jt = jt `compose` day @Straight @Arrow @t @LM @LM identity
+	(day @Straight @(->) @tt @LM @LM identity identity)
 
 -- TODO: generalize
 dp'dp'jt'yokl :: forall from into e ee t tt ttt o .

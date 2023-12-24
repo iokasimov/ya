@@ -114,7 +114,6 @@
 * Define `Adjoint` type class
 * Define `lj` operator
 * Define `rj` operator
-* Define `monoidal` expression
 * Define `Dinatural` type alias
 * Define `Yet` patter synonym
 * Define `List` type alias
@@ -306,7 +305,7 @@
 * Define `Opposite` pattern synonym
 * Define `cata` expression
 * Define `ana` expression
-* Define `semimonoidal` expression
+* Define `day` expression
 * Define `yi'rf` operator
 * Define `yi'yi'rf` operator
 * Define `engage` expression

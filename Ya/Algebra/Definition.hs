@@ -224,25 +224,14 @@ deriving instance
 	, x v from Arrow t
 	) => Monoidal v x from u uu t
 
-semimonoidal :: forall v from t u uu a o e ee .
+day :: forall v from t u uu a o e ee .
 	Mapping v Straight from (->) (Day v from u uu t t e ee) t =>
 	Castable Opposite Arrow (v from a o) =>
 	Castable Opposite Arrow (v from (uu e ee) a) =>
 	Supertype (v from a o)
 		-> Supertype (v from (uu e ee) a)
 		-> u (t e) (t ee) -> t o
-semimonoidal from t x = map @v @Straight @from @(->)
-	@(Day v from u uu t t e ee) @t from
-	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
-
-monoidal :: forall v from t u uu a o e ee .
-	Monoidal v Functor from u uu t =>
-	Castable Opposite Arrow (v from a o) =>
-	Castable Opposite Arrow (v from (uu e ee) a) =>
-	Supertype (v from a o)
-		-> Supertype (v from (uu e ee) a)
-		-> u (t e) (t ee) -> t o
-monoidal from t x = map @v @Straight @from @(->)
+day from t x = map @v @Straight @from @(->)
 	@(Day v from u uu t t e ee) @t from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 

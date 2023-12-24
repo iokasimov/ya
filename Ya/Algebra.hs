@@ -52,7 +52,7 @@ instance
 		(Forward (R_U_I_T_I LM t) `TT'T'I` tt)
 	where mapping = rwr / \from -> rwr `yi`
 		\(T'_'I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
-			monoidal @Straight @Arrow @tt @LM @LM identity
+			day @Straight @Arrow @tt @LM @LM identity
 				(wrap @(->) @(Forward _ _) `compose` wrap @(->) @(R_U_I_T_I _ _ _) `compose` wrap @(->) @(Recursive _) `compose` wrap @(->) @(U_I_T_II _ _ _ _))
 				/ (x `yo` from) `lm`
 					(wrapped (component @Straight @(->) @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt))
@@ -105,9 +105,9 @@ instance
 			let These ee' ee'' = rw'rw'rw ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f / These e' ee')
-				(semimonoidal @Straight @Arrow @t @LM @LM identity
+				(day @Straight @Arrow @t @LM @LM identity
 					(unwrap
-						`compose` semimonoidal @Straight @(->)
+						`compose` day @Straight @(->)
 							@(R_U_I_T_I LM t) @LM @LM
 								identity (from `compose` f)
 						`compose` _fo R_U_I_T_I
@@ -127,8 +127,8 @@ instance
 	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T'TT'I e) (T'TT'I ee)) (Straight f) ->
-				semimonoidal @Straight @Arrow @t @LM @LM identity
-					(semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f))
+				day @Straight @Arrow @t @LM @LM identity
+					(day @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f))
 						(These e ee)
 
 instance
@@ -146,11 +146,11 @@ instance
 	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM (t `T'TT'I` R_U_I_T_I LM t) (t `T'TT'I` R_U_I_T_I LM t) e ee) (t `T'TT'I` R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T'TT'I e) (T'TT'I ee)) (Straight f) ->
-				(semimonoidal @Straight @Arrow @t @LM @MLM identity
+				(day @Straight @Arrow @t @LM @MLM identity
 					(\case
 						MLM (This (This x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` This
 						MLM (This (That x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` That
-						MLM (That x) -> semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
+						MLM (That x) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
 					)
 						(These e ee)
 				)
@@ -166,11 +166,11 @@ instance
 			let These ee' ee'' = rw'rw'rw ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f `compose` MLM `compose` That / These e' ee')
-				(semimonoidal @Straight @Arrow @t @LM @MLM identity
+				(day @Straight @Arrow @t @LM @MLM identity
 					(unwrap `compose` \case
 						MLM (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` This
 						MLM (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` That
-						MLM (That (These x xx)) -> semimonoidal @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
+						MLM (That (These x xx)) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
 							(These (R_U_I_T_I x) (R_U_I_T_I xx))
 					)
 					/ These e'' ee'')

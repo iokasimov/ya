@@ -119,7 +119,7 @@ instance
 	, forall e . Wrapper (->) (T'TT'I (U_T_I_TT_I u t tt) ttt e)
 	) => Mapping Straight Straight from (->) (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt)
 	where mapping = rwr / \from -> rwr /
-		monoidal @Straight @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+		day @Straight @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
 			wrapped (semifunctor @Straight @(->) @(->) @(Opposite u _)
 				(wrapped (map @Straight @Straight @from @(->) @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
 			wrapped (semifunctor @Straight @(->) @(->) @(Straight u _)
@@ -134,7 +134,7 @@ instance
 	-- , forall e . Wrapper into (T'TT'I (U_T_I_TT_I u t tt) ttt e)
 	-- ) => Mapping Straight Straight from into (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt)
 	-- where mapping = rwr / \from -> rwr /
-		-- monoidal' @Straight @from @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+		-- day' @Straight @from @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
 			-- wrapped (semifunctor @Straight @into @into @(Opposite u _)
 				-- (wrapped (map @Straight @Straight @from @into @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
 			-- wrapped (semifunctor @Straight @into @into @(Straight u _)
@@ -172,7 +172,7 @@ instance
 	, forall e . Castable Opposite from (Both u e)
 	) => Mapping Straight Straight from Arrow (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t)
 	where mapping = rwr / \from -> rwr /
-		monoidal @Straight @from @t @u @u
+		day @Straight @from @t @u @u
 			(semifunctor @Straight from `compose` wrap @from @(Both _ _)) identity
 		`compose` rw @Arrow @(U_I_I u _)
 
