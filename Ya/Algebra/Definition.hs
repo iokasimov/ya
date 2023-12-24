@@ -56,12 +56,6 @@ class Precategory from => Category from
 class (Category from, Category into, Mapping v Straight from into t t) => Functor v from into t
 deriving instance (Category from, Category into, Mapping v Straight from into t t) => Functor v from into t
 
-functor :: forall v from into t a o .
-	Functor v from into t =>
-	Castable Opposite Arrow (v from a o) =>
-	Supertype (v from a o) -> into (t a) (t o)
-functor = map @v @Straight @from @into @t @t @a @o
-
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
 class

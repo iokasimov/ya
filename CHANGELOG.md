@@ -30,7 +30,6 @@
 * Define `Mapping` type class
 * Define `semifunctor` expression
 * Define `Functor` type alias
-* Define `functor` expression
 * Define `Compositional` type class
 * Define `Natural` type alias
 * Define `Covariant` type alias
