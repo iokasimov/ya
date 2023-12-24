@@ -47,22 +47,22 @@ fi_'fi'fi = identity
 fo, fo'fi :: forall from into t a o .
 	Covariant Semi Functor from into t =>
 	from a o -> into (t a) (t o)
-fo'fi = semifunctor @Straight
-fo = semifunctor @Straight
+fo'fi = map @Straight @Straight
+fo = map @Straight @Straight
 
 fa, fa'fi :: forall from into t a o .
 	Contravariant Semi Functor from into t =>
 	from a o -> into (t o) (t a)
-fa'fi = semifunctor @Opposite
-fa = semifunctor @Opposite
+fa'fi = map @Opposite @Straight
+fa = map @Opposite @Straight
 
 fu, fu'fi :: forall into t a o .
 	Covariant Semi Functor into into t =>
 	Mapping Constant Straight into into t t =>
 	Castable Opposite Arrow (into Unit o) =>
 	Supertype (into Unit o) -> into (t a) (t o)
-fu'fi = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
-fu = semifunctor @Constant @into @into `compose` wrap @Arrow @(into Unit o)
+fu'fi = map @Constant @Straight @into @into `compose` wrap @Arrow @(into Unit o)
+fu = map @Constant @Straight @into @into `compose` wrap @Arrow @(into Unit o)
 
 fokl :: forall from into t tt a o .
 	Component Natural from into (T'TT'I t tt) t =>
@@ -510,8 +510,8 @@ fr :: forall from into i o oo .
 	(forall e . Wrapper into (I e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
 fr from_left from_right =
-	_i (semifunctor @Straight (wrapped (right @Straight from_right))) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
+	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
 	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity)
 
@@ -533,8 +533,8 @@ lm :: forall o oo .
 	Castable Straight (->) ((->) Unit (Product (->) o oo)) =>
 	Supertype ((->) Unit o) -> Supertype ((->) Unit oo) -> Supertype ((->) Unit (Product (->) o oo))
 lm from_left from_right = unwrap /
-	_i (semifunctor @Straight (wrapped (right @Straight (wrap @_ @((->) Unit oo) from_right)))) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Straight (wrap @_ @((->) Unit o) from_left)))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) Unit oo) from_right)))) `compose`
+	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) Unit o) from_left)))) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
 
@@ -556,18 +556,18 @@ rf, yi'rf, yi'yi'rf :: forall from into i o oo .
 rf from_left from_right =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (semifunctor @Straight (wrapped (right @Opposite from_right)))
+	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 yi'rf from_left from_right =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (semifunctor @Straight (wrapped (right @Opposite from_right)))
+	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 yi'yi'rf from_left from_right =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (semifunctor @Straight (wrapped (right @Opposite from_right)))
+	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
 dp :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
@@ -671,8 +671,8 @@ fr'dp :: forall from t i o oo .
 	(forall e . Wrapper (->) (I e)) =>
 	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
 fr'dp from_left from_right = dp `compose`
-	_i (semifunctor @Straight (wrapped (right @Straight from_right))) `compose`
-	i_ (semifunctor @Straight (wrapped (left @Straight from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
+	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity) `compose`
 	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity)
 

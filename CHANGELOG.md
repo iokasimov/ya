@@ -28,7 +28,6 @@
 * Define `i'i'i` operator
 * Define `component` expression
 * Define `Mapping` type class
-* Define `semifunctor` expression
 * Define `Functor` type alias
 * Define `Compositional` type class
 * Define `Natural` type alias

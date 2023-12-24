@@ -70,12 +70,6 @@ deriving instance
 	, Dumb (Functor v from into t)
 	) => Semi v Functor from into t
 
-semifunctor :: forall v from into t a o .
-	Semi v Functor from into t =>
-	Castable Opposite Arrow (v from a o) =>
-	Supertype (v from a o) -> into (t a) (t o)
-semifunctor = map @v @Straight @from @into @t @t @a @o
-
 type Endo v x c into = x v c into into
 
 {- LAW: mapping @tt @tt morphism . component @t @tt = component @t @tt . mapping morphism @t @t -}
@@ -242,7 +236,8 @@ monoidal' :: forall v from into t u uu a o e ee .
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal' from =
 	rw @into @(That into _ _)
-	`compose` semifunctor @Straight
+	`compose` map @Straight @Straight @(->) @into
+		@(That into (u (t e) (t ee))) @(That into (u (t e) (t ee)))
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
 		`compose` rw @(->) @(That LM _ _))
 	`compose` rw @into @(T'TT'I _ _ _)
