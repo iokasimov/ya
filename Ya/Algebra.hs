@@ -202,16 +202,16 @@ instance Mapping Straight Straight (->) (->)
 		(\(These s (Straight f)) -> from `_fo` f `rw'rw` s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
-	=> Mapping Straight Straight (->) (->) t (T_TT_TTT_I (Straight (->) e) t (Straight LM e))
-	where mapping = rwr / \from x -> T_TT_TTT_I `compose` Straight `yi` \state ->
+	=> Mapping Straight Straight (->) (->) t (T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
+	where mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `yi` \state ->
 		x `yo` from `o` These state `o` Straight
 
 instance Covariant Monoidal Functor (->) LM LM t 
 	=> Mapping Straight Straight (->) (->)
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-		(T_TT_TTT_I (Straight (->) e) t (Straight LM e))
+		(T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
 	where mapping = rwr / \from (Straight (W_I_I_II (U_I_UU_II_III x))) -> 
-		wrap @(->) @(T_TT_TTT_I _ _ _ _)
+		wrap @(->) @(T_TTT_TT_I _ _ _ _)
 		`compose` wrap @(->) @(Straight _ _ _)
 		`identity` (yu enter
 			`compose` map @Straight @Straight from
@@ -228,19 +228,19 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t => Mapping Straight
 	where mapping = rwr / \from -> rwr `compose` rwr /
 		\(Straight f) e -> f e `yo` unwrap `o` (`i` e) `o` from
 
--- TODO: try to use adjunctions here
+-- NOTE: this version allow different type of states, but it requires providing types to make it compile
 instance
 	( Covariant Endo Semi Functor (->) t
 	, Transformation Natural Functor (->) (->) (T'TT'I t t) t
 	) => Mapping Straight Straight (->) (->)
 	(T'TT'I
-		(T_TT_TTT_I (Straight (->) old) t (Straight LM btw))
-		(T_TT_TTT_I (Straight (->) btw) t (Straight LM new))
+		(T_TTT_TT_I (Straight (->) old) (Straight LM btw) t)
+		(T_TTT_TT_I (Straight (->) btw) (Straight LM new) t)
 	)
-	(T_TT_TTT_I (Straight (->) old) t (Straight LM new))
-	where mapping = rwr / \from (T'TT'I (T_TT_TTT_I (Straight x))) -> 
-		wrap @(->) @(T_TT_TTT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
-		`yi` \old -> x old `yokl` \(Straight (These btw (T_TT_TTT_I (Straight f))))
+	(T_TTT_TT_I (Straight (->) old) (Straight LM new) t)
+	where mapping = rwr / \from (T'TT'I (T_TTT_TT_I (Straight x))) -> 
+		wrap @(->) @(T_TTT_TT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
+		`yi` \old -> x old `yokl` \(Straight (These btw (T_TTT_TT_I (Straight f))))
 			-> f btw `yo'yo` from
 
 -- TODO: try to use adjunctions here
@@ -249,12 +249,12 @@ instance
 	, Transformation Natural Functor (->) (->) (T'TT'I tt tt) tt
 	) => Mapping Straight Straight (->) (->)
 	(T'TT'I
-		(T_TT_TTT_I (Straight (->) e) tt (Straight LM e))
+		(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	)
-	(T_TT_TTT_I (Straight (->) e) tt (Straight LM e))
-	where mapping = rwr / \from (T'TT'I (T_TT_TTT_I (Straight x))) -> 
-		wrap @(->) @(T_TT_TTT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
+	(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
+	where mapping = rwr / \from (T'TT'I (T_TTT_TT_I (Straight x))) -> 
+		wrap @(->) @(T_TTT_TT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
 		`yi` \old -> x old `yokl` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
 			-> yu (enter @tt) / Straight (f btw) `yo` from
 
@@ -262,18 +262,18 @@ instance
 	( Covariant Endo Semi Functor (->) t
 	, Mapping Straight Straight (->) (->) (t `T'TT'I` t) t
 	) => Mapping Straight Straight (->) (->)
-		(T'TT'I (T_TT_TTT_I (Straight (->) e) t (Straight LM e)) t)
-		(T_TT_TTT_I (Straight (->) e) t (Straight LM e))
-	where mapping = rwr / \from (T'TT'I (T_TT_TTT_I (Straight f))) -> T_TT_TTT_I `compose` Straight / \old ->
+		(T'TT'I (T_TTT_TT_I (Straight (->) e) (Straight LM e) t) t)
+		(T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
+	where mapping = rwr / \from (T'TT'I (T_TTT_TT_I (Straight f))) -> T_TTT_TT_I `compose` Straight / \old ->
 		component @Straight @(->) @(->) @(t `T'TT'I` t) @t
 			(T'TT'I (f old `yo` (\(Straight (These x y)) -> y `yo` Straight `a` These x `a` from)))
 
 instance Mapping Straight Straight (->) (->) (That LM e `T'TT'I` tt) (That LM e `TT'T'I` tt) =>
 	Mapping Straight Straight (->) (->)
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e `T'TT'I` tt)
-		(T_TT_TTT_I (Straight (->) e) tt (Straight LM e))
+		(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
 	where mapping = rwr / \from (T'TT'I (Straight (W_I_I_II (U_I_UU_II_III x)))) -> 
-		T_TT_TTT_I `compose` Straight / \old -> wrapped @(->)
+		T_TTT_TT_I `compose` Straight / \old -> wrapped @(->)
 			`i` map @Straight @Straight @(->) @(->) @(That LM e `T'TT'I` tt) @(That LM e `TT'T'I` tt) from
 			`i'i` Straight (x old)
 
@@ -285,8 +285,8 @@ instance Mapping Straight Straight (->) (->) (That (->) Unit) (That (W_I_I_II (U
 	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `a` U_I_UU_II_III `yi` \e -> These e (f Unit `u` from)
 
 instance Monoidal Straight Functor (->) LM LM t =>
-	Mapping Straight Straight (->) (->) (That (->) Unit) (T_TT_TTT_I (That (->) e) t (That LM e))
-	where mapping = rwr / \from (Straight f) -> T_TT_TTT_I `compose` Straight
+	Mapping Straight Straight (->) (->) (That (->) Unit) (T_TTT_TT_I (That (->) e) (That LM e) t)
+	where mapping = rwr / \from (Straight f) -> T_TTT_TT_I `compose` Straight
 		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `i'i` f Unit
 
 instance
@@ -334,10 +334,10 @@ instance
 	( Component Natural (->) (->) (t `T'TT'I` t) t
 	, Covariant Yoneda Functor (->) (->) t
 	) => Mapping Straight Straight (->) (->)
-		(Day Straight (->) LM LM (T_TT_TTT_I (That (->) e) t (That LM e)) (T_TT_TTT_I (That (->) e) t (That LM e)) ee eee)
-		(T_TT_TTT_I (That (->) e) t (That LM e))
+		(Day Straight (->) LM LM (T_TTT_TT_I (That (->) e) (That LM e) t) (T_TTT_TT_I (That (->) e) (That LM e) t) ee eee)
+		(T_TTT_TT_I (That (->) e) (That LM e) t)
 	where mapping = rwr / \from -> rwr / \case
-		These (These (T_TT_TTT_I (Straight x)) (T_TT_TTT_I (Straight y))) (Straight f) ->
+		These (These (T_TTT_TT_I (Straight x)) (T_TTT_TT_I (Straight y))) (Straight f) ->
 			Straight / \old -> x old `yokl` \(Straight (These btw e)) -> from `compose` f `compose` These e `fo'fo` y btw
 
 instance

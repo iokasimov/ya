@@ -119,7 +119,7 @@ type family Representation t where
 	Representation (U_I_II Arrow a) = a
 	Representation (T'TT'I t tt) =
 		Representation t `LM` Representation tt
-	Representation (T_TT_TTT_I t tt ttt) =
+	Representation (T_TTT_TT_I t ttt tt) =
 		Representation t `LM` Representation tt `LM` Representation ttt
 	Representation (U_I_I LM) = Unit `ML` Unit
 

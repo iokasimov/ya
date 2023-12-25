@@ -24,7 +24,7 @@ newtype TT'T'I t tt i = TT'T'I (tt (t i))
 
 newtype T'_'I e t i = T'_'I (t i)
 
-newtype T_TT_TTT_I t tt ttt i = T_TT_TTT_I (t (tt (ttt i)))
+newtype T_TTT_TT_I t ttt tt i = T_TTT_TT_I (t (tt (ttt i)))
 
 data U_ u i ii
 
@@ -123,7 +123,7 @@ type family Supertype e where
 	Supertype (T'TT'I t tt i) = t (tt i)
 	Supertype (TT'T'I t tt i) = tt (t i)
 	Supertype (T'_'I e t i) = t i
-	Supertype (T_TT_TTT_I t tt ttt i) = t (tt (ttt i))
+	Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
 	Supertype (U_1_I u _ i) = u Unit i
 	Supertype (U_I_1 u i _) = u i Unit
@@ -205,11 +205,11 @@ instance Castable Straight Arrow (T'_'I e t i)
 instance Castable Opposite Arrow (T'_'I e t i)
 	where cast = U_II_I T'_'I
 
-instance Castable Straight Arrow (T_TT_TTT_I f g h i)
-	where cast = U_I_II (\(T_TT_TTT_I x) -> x)
+instance Castable Straight Arrow (T_TTT_TT_I f g h i)
+	where cast = U_I_II (\(T_TTT_TT_I x) -> x)
 
-instance Castable Opposite Arrow (T_TT_TTT_I f g h i)
-	where cast = U_II_I T_TT_TTT_I
+instance Castable Opposite Arrow (T_TTT_TT_I f g h i)
+	where cast = U_II_I T_TTT_TT_I
 
 instance Castable Straight Arrow (U_I_T_II u t i ii)
 	where cast = U_I_II (\(U_I_T_II x) -> x)
@@ -320,8 +320,6 @@ type family Same a b where
 
 type family J known unknown where
 	J (Straight Arrow input) unknown =
-		Straight Arrow input `T'TT'I` unknown
+		T'TT'I (Straight Arrow input) unknown
 	J (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown =
-		T_TT_TTT_I (Straight Arrow state) unknown (Straight LM state)
-	-- TODO: should there be a loop if we cannot find such an instance?
-	-- J unknown known = J known unknown
+		T_TTT_TT_I (Straight Arrow state) (Straight LM state) unknown

@@ -86,8 +86,8 @@ instance
 	( Covariant Semi Functor from into h
 	, Covariant Endo Semi Functor into tt
 	, Covariant Endo Semi Functor into t
-	, forall e . Wrapper into (T_TT_TTT_I t tt h e)
-	) => Mapping Straight Straight from into (T_TT_TTT_I t tt h) (T_TT_TTT_I t tt h)
+	, forall e . Wrapper into (T_TTT_TT_I t h tt e)
+	) => Mapping Straight Straight from into (T_TTT_TT_I t h tt) (T_TTT_TT_I t h tt)
 	where mapping = rwr / \from -> wrap @into
 		`compose` (map @Straight @Straight @into @into
 			`compose` map @Straight @Straight @into @into
