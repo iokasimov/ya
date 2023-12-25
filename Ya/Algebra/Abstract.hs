@@ -151,130 +151,130 @@ class Castable direction morphism e where
 class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
 deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
 
-instance Castable Straight Arrow (I i)
+instance Castable Straight (->) (I i)
 	where cast = U_I_II (\(I x) -> x)
 
-instance Castable Opposite Arrow (I i)
+instance Castable Opposite (->) (I i)
 	where cast = U_II_I I
 
-instance Castable Straight Arrow (U_1_I u i ii)
+instance Castable Straight (->) (U_1_I u i ii)
 	where cast = U_I_II (\(U_1_I x) -> x)
 
-instance Castable Opposite Arrow (U_1_I u i ii)
+instance Castable Opposite (->) (U_1_I u i ii)
 	where cast = U_II_I U_1_I
 
-instance Castable Straight Arrow (U_I_1 u i ii)
+instance Castable Straight (->) (U_I_1 u i ii)
 	where cast = U_I_II (\(U_I_1 x) -> x)
 
-instance Castable Opposite Arrow (U_I_1 u i ii)
+instance Castable Opposite (->) (U_I_1 u i ii)
 	where cast = U_II_I U_I_1
 
-instance Castable Straight Arrow (U_I_I u i)
+instance Castable Straight (->) (U_I_I u i)
 	where cast = U_I_II (\(U_I_I x) -> x)
 
-instance Castable Opposite Arrow (U_I_I u i)
+instance Castable Opposite (->) (U_I_I u i)
 	where cast = U_II_I U_I_I
 
-instance Castable Straight Arrow (U_I_II u i ii)
+instance Castable Straight (->) (U_I_II u i ii)
 	where cast = U_I_II (\(U_I_II x) -> x)
 
-instance Castable Opposite Arrow (U_I_II u i ii)
+instance Castable Opposite (->) (U_I_II u i ii)
 	where cast = U_II_I U_I_II
 
-instance Castable Straight Arrow (U_II_I u i ii)
+instance Castable Straight (->) (U_II_I u i ii)
 	where cast = U_I_II (\(U_II_I x) -> x)
 
-instance Castable Opposite Arrow (U_II_I u i ii)
+instance Castable Opposite (->) (U_II_I u i ii)
 	where cast = U_II_I U_II_I
 
-instance Castable Straight Arrow (T'TT'I f g i)
+instance Castable Straight (->) (T'TT'I f g i)
 	where cast = U_I_II (\(T'TT'I x) -> x)
 
-instance Castable Opposite Arrow (T'TT'I f g i)
+instance Castable Opposite (->) (T'TT'I f g i)
 	where cast = U_II_I T'TT'I
 
-instance Castable Straight Arrow (TT'T'I f g i)
+instance Castable Straight (->) (TT'T'I f g i)
 	where cast = U_I_II (\(TT'T'I x) -> x)
 
-instance Castable Opposite Arrow (TT'T'I f g i)
+instance Castable Opposite (->) (TT'T'I f g i)
 	where cast = U_II_I TT'T'I
 
-instance Castable Straight Arrow (T'_'I e t i)
+instance Castable Straight (->) (T'_'I e t i)
 	where cast = U_I_II (\(T'_'I x) -> x)
 
-instance Castable Opposite Arrow (T'_'I e t i)
+instance Castable Opposite (->) (T'_'I e t i)
 	where cast = U_II_I T'_'I
 
-instance Castable Straight Arrow (T_TTT_TT_I f g h i)
+instance Castable Straight (->) (T_TTT_TT_I f g h i)
 	where cast = U_I_II (\(T_TTT_TT_I x) -> x)
 
-instance Castable Opposite Arrow (T_TTT_TT_I f g h i)
+instance Castable Opposite (->) (T_TTT_TT_I f g h i)
 	where cast = U_II_I T_TTT_TT_I
 
-instance Castable Straight Arrow (U_I_T_II u t i ii)
+instance Castable Straight (->) (U_I_T_II u t i ii)
 	where cast = U_I_II (\(U_I_T_II x) -> x)
 
-instance Castable Opposite Arrow (U_I_T_II u f i ii)
+instance Castable Opposite (->) (U_I_T_II u f i ii)
 	where cast = U_II_I U_I_T_II
 
-instance Castable Straight Arrow (U_T_I_TT_I u t tt i)
+instance Castable Straight (->) (U_T_I_TT_I u t tt i)
 	where cast = U_I_II (\(U_T_I_TT_I x) -> x)
 
-instance Castable Opposite Arrow (U_T_I_TT_I u t tt i)
+instance Castable Opposite (->) (U_T_I_TT_I u t tt i)
 	where cast = U_II_I U_T_I_TT_I
 
-instance Castable Opposite Arrow (U_I_UU_II_III u uu i ii iii)
+instance Castable Opposite (->) (U_I_UU_II_III u uu i ii iii)
 	where cast = U_II_I U_I_UU_II_III
 
-instance Castable Straight Arrow (U_I_UU_II_III u uu i ii iii)
+instance Castable Straight (->) (U_I_UU_II_III u uu i ii iii)
 	where cast = U_I_II (\(U_I_UU_II_III x) -> x)
 
-instance Castable Straight Arrow (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
+instance Castable Straight (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
 	where cast = U_I_II (\(U_UU_UUU_V_III_I_II_UUUU x) -> x)
 
-instance Castable Opposite Arrow (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
+instance Castable Opposite (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
 	where cast = U_II_I U_UU_UUU_V_III_I_II_UUUU
 
-instance Castable Straight Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
+instance Castable Straight (->) (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
 	where cast = U_I_II (\(U_V_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
 
-instance Castable Opposite Arrow (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
+instance Castable Opposite (->) (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
 	where cast = U_II_I U_V_UU_UUU_UUUU_T_TT_I_II_III
 
-instance Castable Straight Arrow (UU_V_U_I_II_T_II v u uu t i ii)
+instance Castable Straight (->) (UU_V_U_I_II_T_II v u uu t i ii)
 	where cast = U_I_II (\(UU_V_U_I_II_T_II x) -> x)
 
-instance Castable Opposite Arrow (UU_V_U_I_II_T_II v u uu t i ii)
+instance Castable Opposite (->) (UU_V_U_I_II_T_II v u uu t i ii)
 	where cast = U_II_I UU_V_U_I_II_T_II
 
-instance Castable Straight Arrow (Recursive f)
+instance Castable Straight (->) (Recursive f)
 	where cast = U_I_II (\(Recursive x) -> x)
 
-instance Castable Opposite Arrow (Recursive f)
+instance Castable Opposite (->) (Recursive f)
 	where cast = U_II_I Recursive
 
-instance Castable Straight Arrow (R_U_I_T_I u t i)
+instance Castable Straight (->) (R_U_I_T_I u t i)
 	where cast = U_I_II (\(R_U_I_T_I x) -> x)
 
-instance Castable Opposite Arrow (R_U_I_T_I u t i)
+instance Castable Opposite (->) (R_U_I_T_I u t i)
 	where cast = U_II_I R_U_I_T_I
 
-instance Castable Straight Arrow (U_I_UU_III_U_II_I u uu i ii iii)
+instance Castable Straight (->) (U_I_UU_III_U_II_I u uu i ii iii)
 	where cast = U_I_II (\(U_I_UU_III_U_II_I x) -> x)
 
-instance Castable Opposite Arrow (U_I_UU_III_U_II_I u uu i ii iii)
+instance Castable Opposite (->) (U_I_UU_III_U_II_I u uu i ii iii)
 	where cast = U_II_I U_I_UU_III_U_II_I
 
-instance Castable Straight Arrow (W_I_II_II u i ii)
+instance Castable Straight (->) (W_I_II_II u i ii)
 	where cast = U_I_II (\(W_I_II_II x) -> x)
 
-instance Castable Opposite Arrow (W_I_II_II u i ii)
+instance Castable Opposite (->) (W_I_II_II u i ii)
 	where cast = U_II_I W_I_II_II
 
-instance Castable Straight Arrow (W_I_I_II u i ii)
+instance Castable Straight (->) (W_I_I_II u i ii)
 	where cast = U_I_II (\(W_I_I_II x) -> x)
 
-instance Castable Opposite Arrow (W_I_I_II u i ii)
+instance Castable Opposite (->) (W_I_I_II u i ii)
 	where cast = U_II_I W_I_I_II
 
 instance Castable Opposite (->) (Unit -> i)
@@ -289,11 +289,11 @@ instance Castable Opposite (->) (MLM i ii)
 instance Castable Straight (->) (MLM i ii)
 	where cast = U_I_II (\(MLM x) -> x)
 
-instance Wrapper Arrow x
+instance Wrapper (->) x
 	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
 
-instance Wrapper Arrow x
+instance Wrapper (->) x
 	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
 
@@ -318,8 +318,6 @@ type family Same a b where
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type family J known unknown where
-	J (Straight Arrow input) unknown =
-		T'TT'I (Straight Arrow input) unknown
-	J (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown =
-		T_TTT_TT_I (Straight Arrow state) (Straight LM state) unknown
+type family J effect where
+	J (U_I_II (->) e) = T'TT'I (U_I_II (->) e)
+	J (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
