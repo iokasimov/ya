@@ -46,6 +46,10 @@ pattern None <- Straight (This Unit) where None = Straight (This Unit)
 pattern Optionally :: Unit `ML` e -> Optional e
 pattern Optionally e <- Straight e where Optionally e = Straight e
 
+type Halting = Straight ML Unit
+
+type Haltable t = J t Halting
+
 type Progress = Straight ML
 
 pattern Interrupt :: e -> Progress e ee
@@ -107,6 +111,8 @@ instant :: Transition state result -> state -> state
 instant state x = wrapped (left @Straight @Arrow identity) / state `rw'rw` x
 
 type Stateful = Straight Transition
+
+type Statefully state = J (Stateful state)
 
 pattern Stateful :: Transition state result -> Stateful state result
 pattern Stateful x <- Straight x where Stateful x = Straight x
