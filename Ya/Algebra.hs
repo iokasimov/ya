@@ -110,8 +110,8 @@ instance
 						`compose` day @Straight @(->)
 							@(R_U_I_T_I LM t) @LM @LM
 								identity (from `compose` f)
-						`compose` _fo R_U_I_T_I
-						`compose` fo_ R_U_I_T_I)
+						`compose` fio R_U_I_T_I
+						`compose` foi R_U_I_T_I)
 					/ These e__ ee__)
 
 instance
@@ -187,7 +187,7 @@ instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
 		wrap @(->) @(Opposite _ _ _)
 		`compose` wrap @(->) @(W_I_I_II _ _ _)
 		`compose` wrap @(->) @(U_I_UU_II_III (->) _ _ _ _)
-		`compose` (\state old -> let (These new f) = from old in f `fo_` state new)
+		`compose` (\state old -> let (These new f) = from old in f `foi` state new)
 		`compose` rw @(->) @(U_I_UU_II_III (->) _ _ _ _)
 		`compose` rw @(->) @(W_I_I_II _ _ _) 
 		`compose` rw @(->) @(Opposite _ _ _)
@@ -199,7 +199,7 @@ instance Mapping Straight Straight (->) (->)
 	)
 	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr `i_i_i` rwr `i_i` rwr `i` \(U_I_UU_II_III state) old ->
-		(\(These s (Straight f)) -> from `_fo` f `rw_rw` s) (state old)
+		(\(These s (Straight f)) -> from `fio` f `rw_rw` s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
 	=> Mapping Straight Straight (->) (->) t (T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
@@ -293,7 +293,7 @@ instance
 	( Covariant Semi Functor from (->) t
 	, forall e . Covariant Semi Functor into (->) (That from e)
 	) => Mapping Straight Straight from (->) t (UU_V_U_I_II_T_II Straight into (->) t r)
-	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(Straight e) -> fo @from (_fo @into @(->) e from) x)
+	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(Straight e) -> fo @from (fio @into @(->) e from) x)
 
 instance
 	( Covariant Endo Semi Functor (->) t
@@ -305,7 +305,7 @@ instance
 	( Contravariant Semi Functor from (->) t
 	, forall e . Contravariant Semi Functor into (->) (Opposite from e)
 	) => Mapping Opposite Straight from (->) t (UU_V_U_I_II_T_II Opposite into (->) t r)
-	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(Opposite e) -> fa @from (fa_ @into @(->) e from) x)
+	where mapping = rwr / \from x -> UU_V_U_I_II_T_II (\(Opposite e) -> fa @from (fai @into @(->) e from) x)
 
 instance Mapping Straight Straight (->) (->) (That ML e `T_TT_I` That ML e) (That ML e)
 	where mapping = rwr / \from -> \case
