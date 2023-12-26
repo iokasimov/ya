@@ -705,32 +705,32 @@ dp_dp_yo x f = day @Straight @Arrow @t @LM @LM identity
 	(day @Straight @from @tt @LM @LM identity f) x
 
 jt :: forall into f g e .
-	Component Natural (->) into (f `T_TT_I` g) (f `J` g) =>
+	Component Natural (->) into (f `T_TT_I` g) (f `JT` g) =>
 	Castable Opposite into ((f `T_TT_I` g) e) =>
-	into (f (g e)) ((f `J` g) e)
-jt = component @Straight @(->) @into @(f `T_TT_I` g) @(f `J` g) @e
+	into (f (g e)) ((f `JT` g) e)
+jt = component @Straight @(->) @into @(f `T_TT_I` g) @(f `JT` g) @e
 	`compose` wrap @into @((f `T_TT_I` g) e)
 
 -- TODO: generalize
 dp_dp_jt :: forall e ee t tt .
-	Component Natural (->) (->) (t `T_TT_I` tt) (t `J` tt) =>
+	Component Natural (->) (->) (t `T_TT_I` tt) (t `JT` tt) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Monoidal Functor (->) LM LM tt =>
-	t (tt e) `LM` t (tt ee) -> (t `J` tt) (e `LM` ee)
+	t (tt e) `LM` t (tt ee) -> (t `JT` tt) (e `LM` ee)
 dp_dp_jt = jt `compose` day @Straight @Arrow @t @LM @LM identity
 	(day @Straight @(->) @tt @LM @LM identity identity)
 
 -- TODO: generalize
 dp_dp_jt_yokl :: forall from into e ee t tt ttt o .
 	Covariant Yoneda Functor from into t =>
-	Covariant Yoneda Functor from into (t `J` tt) =>
-	Component Natural (->) (->) (t `T_TT_I` tt) (t `J` tt) =>
-	Component Natural (->) into (T_TT_I (t `J` tt) ttt) (t `J` tt) =>
+	Covariant Yoneda Functor from into (t `JT` tt) =>
+	Component Natural (->) (->) (t `T_TT_I` tt) (t `JT` tt) =>
+	Component Natural (->) into (T_TT_I (t `JT` tt) ttt) (t `JT` tt) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Monoidal Functor (->) LM LM tt =>
 	Castable Opposite into (Straight from (e `LM` ee) (ttt o)) =>
-	Castable Opposite into (T_TT_I (J t tt) ttt o) =>
-	t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `J` tt) o)
+	Castable Opposite into (T_TT_I (JT t tt) ttt o) =>
+	t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `JT` tt) o)
 dp_dp_jt_yokl = yokl @from @into `compose` dp_dp_jt
 
 rwr_yoi :: forall into w o u e ee .

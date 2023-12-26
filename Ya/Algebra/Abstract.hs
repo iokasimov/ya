@@ -3,7 +3,7 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 `J`
+infixr 8 `JT`
 infixl 8 `LM`, `ML`
 
 type (/) t i = t i
@@ -318,6 +318,6 @@ type family Same a b where
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type family J effect where
-	J (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
-	J (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+type family JT effect where
+	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
+	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)

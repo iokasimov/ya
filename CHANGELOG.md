@@ -209,7 +209,7 @@
 * Define `o_a` operator
 * Define `a_o` operator
 * Define `a_yokl` operator
-* Define `J` type family
+* Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
 * Define `rw` operator

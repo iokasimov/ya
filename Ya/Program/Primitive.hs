@@ -48,7 +48,7 @@ pattern Optionally e <- Straight e where Optionally e = Straight e
 
 type Halting = Straight ML Unit
 
-type Haltable t = J t Halting
+type Haltable t = JT t Halting
 
 type Progress = Straight ML
 
@@ -112,14 +112,14 @@ instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 
 type Stateful = Straight Transition
 
-type Statefully state = J (Stateful state)
+type Statefully state = JT (Stateful state)
 
 pattern Stateful :: Transition state result -> Stateful state result
 pattern Stateful x <- Straight x where Stateful x = Straight x
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
-	e -> J (Stateful e) t o -> t (e `LM` o)
+	e -> JT (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
 type Scenario = Opposite Transition
@@ -176,29 +176,29 @@ engage :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
 engage x = enter `yu` x
 
 layer :: forall g f e .
-	Component Natural (->) (->) f (f `J` g) =>
-	f e -> (f `J` g) e
-layer = component @Straight @(->) @(->) @f @(f `J` g) @e
+	Component Natural (->) (->) f (f `JT` g) =>
+	f e -> (f `JT` g) e
+layer = component @Straight @(->) @(->) @f @(f `JT` g) @e
 
 embed :: forall f g e .
-	Component Natural (->) (->) g (f `J` g) =>
-	g e -> (f `J` g) e
-embed = component @Straight @(->) @(->) @g @(f `J` g) @e
+	Component Natural (->) (->) g (f `JT` g) =>
+	g e -> (f `JT` g) e
+embed = component @Straight @(->) @(->) @g @(f `JT` g) @e
 
 joint :: forall f g e .
-	Component Natural (->) (->) (f `T_TT_I` g) (f `J` g) =>
+	Component Natural (->) (->) (f `T_TT_I` g) (f `JT` g) =>
 	Castable Opposite (->) ((f `T_TT_I` g) e) =>
-	f (g e) -> (f `J` g) e
+	f (g e) -> (f `JT` g) e
 joint = wrap @(->) @((f `T_TT_I` g) e)
-	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `J` g) @e
+	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
 try :: forall t e o .
 	Covariant Endo Semi Functor (->) t =>
-	Component Natural (->) (->) (t `T_TT_I` Progress e) (t `J` Progress e) =>
+	Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
 	Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
-	t (Progress e o) -> (t `J` Progress e) o
+	t (Progress e o) -> (t `JT` Progress e) o
 try = wrap @(->) @((t `T_TT_I` Progress e) _)
-	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `J` Progress e)
+	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `JT` Progress e)
 
 type Horizontal = ML Unit Unit
 pattern Back, Forth :: Horizontal
