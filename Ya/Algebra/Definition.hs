@@ -117,7 +117,7 @@ deriving instance
 type family Representation t where
 	Representation I = Unit
 	Representation (U_I_II Arrow a) = a
-	Representation (T'TT'I t tt) =
+	Representation (T_TT_I t tt) =
 		Representation t `LM` Representation tt
 	Representation (T_TTT_TT_I t ttt tt) =
 		Representation t `LM` Representation tt `LM` Representation ttt
@@ -189,15 +189,15 @@ type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 class 
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T'TT'I t tt) I
-	, Transformation Straight x from into I (T'TT'I tt t)
+	, Transformation Straight x into from (T_TT_I t tt) I
+	, Transformation Straight x from into I (T_TT_I tt t)
 	) => Adjoint x from into t tt
 
 deriving instance
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T'TT'I t tt) I
-	, Transformation Straight x from into I (T'TT'I tt t)
+	, Transformation Straight x into from (T_TT_I t tt) I
+	, Transformation Straight x from into I (T_TT_I tt t)
 	) => Adjoint x from into t tt
 
 class
@@ -223,25 +223,25 @@ day from t x = map @v @Straight @from @(->)
 	@(Day v from u uu t t e ee) @t from
 	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
 
-monoidal' :: forall v from into t u uu a o e ee .
+monoidal_ :: forall v from into t u uu a o e ee .
 	Adjoint Functor (->) into
 		(That LM (u (t e) (t ee)))
 		(That into (u (t e) (t ee))) =>
 	Monoidal v Functor from u uu t =>
 	Castable Opposite Arrow (v from a o) =>
-	Castable Opposite into ((That into (u (t e) (t ee)) `T'TT'I` That LM (u (t e) (t ee))) a) =>
-	Castable Straight into ((That into (u (t e) (t ee)) `T'TT'I` That LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+	Castable Opposite into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) a) =>
+	Castable Straight into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
 	Castable Straight into (That into (u (t e) (t ee)) (t o)) =>
 	Castable Opposite into (I (v from (uu e ee) a)) =>
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
-monoidal' from =
+monoidal_ from =
 	rw @into @(That into _ _)
 	`compose` map @Straight @Straight @(->) @into
 		@(That into (u (t e) (t ee))) @(That into (u (t e) (t ee)))
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
 		`compose` rw @(->) @(That LM _ _))
-	`compose` rw @into @(T'TT'I _ _ _)
-	`compose` component @Straight @(->) @into @I @(That into _ `T'TT'I` That LM _)
+	`compose` rw @into @(T_TT_I _ _ _)
+	`compose` component @Straight @(->) @into @I @(That into _ `T_TT_I` That LM _)
 	`compose` wrap @into
 
 -- TODO: generalize

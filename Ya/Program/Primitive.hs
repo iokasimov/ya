@@ -74,41 +74,41 @@ inspect ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (origin -> target)
-inspect r s = let (These qt _) = r `rw'rw` s in qt
+inspect r s = let (These qt _) = r `rw_rw` s in qt
 
 adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `rw'rw` s in x `i`f h
+adjust attr f s = let (These h x) = attr `rw_rw` s in x `i`f h
 
 -- TODO: should be moved later
--- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
+-- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
 	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
-		-- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
+		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
 
 instance Covariant Endo Semi Functor (->) t =>
-	Mapping Straight Straight (->) (->) (Construction t) (t `T'TT'I` Construction t) where
+	Mapping Straight Straight (->) (->) (Construction t) (t `T_TT_I` Construction t) where
 	mapping = rewrap / \ from (Construct _ xs) ->
-		(T'TT'I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
+		(T_TT_I / xs `yo` wrap @Arrow @(R_U_I_T_I _ _ _)) `yo` from
 
 type Transition = W_I_I_II (U_I_UU_II_III (->) LM)
 
 observe :: Transition state state
-observe = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These `i` old `i'i` old
+observe = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These `i` old `i_i` old
 
 replace :: state -> Transition state state
-replace new = W_I_I_II `i'i` U_I_UU_II_III `i` \old -> These new old
+replace new = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These new old
 
 transit :: (state -> state) -> Transition state state
-transit f = W_I_I_II `i'i` U_I_UU_II_III `i` \s -> These `i` f s `i'i` s
+transit f = W_I_I_II `i_i` U_I_UU_II_III `i` \s -> These `i` f s `i_i` s
 
 start :: state -> Transition state result -> state `LM` result
-start state stateful = stateful `rw'rw` state
+start state stateful = stateful `rw_rw` state
 
 instant :: Transition state result -> state -> state
-instant state x = wrapped (left @Straight @Arrow identity) / state `rw'rw` x
+instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 
 type Stateful = Straight Transition
 
@@ -143,10 +143,10 @@ pattern Instruct xs <- R_U_I_T_I (Recursive (U_I_T_II (That xs))) where Instruct
 pattern Load :: item -> Instruction f item
 pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
-type List = Optional `T'TT'I` Construction Optional
+type List = Optional `T_TT_I` Construction Optional
 
 pattern List :: Recursive (U_I_T_II Optional LM i) -> List i
-pattern List xs <- T'TT'I (Some (R_U_I_T_I xs)) where List xs = T'TT'I (Some (R_U_I_T_I xs))
+pattern List xs <- T_TT_I (Some (R_U_I_T_I xs)) where List xs = T_TT_I (Some (R_U_I_T_I xs))
 
 pattern Next :: i -> Recursive (U_I_T_II Optional LM i) -> Recursive (U_I_T_II Optional LM i)
 pattern Next x xs <- Yet x (Some xs) where Next x xs = Yet x (Some xs)
@@ -155,22 +155,22 @@ pattern Last :: i -> Recursive (U_I_T_II Optional LM i)
 pattern Last x <- Yet x None where Last x = Yet x None
 
 type family Brancher datastructure where
-	Brancher (T'TT'I t (Construction t)) = t
+	Brancher (T_TT_I t (Construction t)) = t
 
 type family Nonempty datastructure where
-	Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
+	Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
 
 pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
 pattern Nonempty xs <- R_U_I_T_I xs where Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t i . (Brancher t ~ Optional)
-	=> T'TT'I Optional (Construction Optional) i
-pattern Empty <- T'TT'I None where Empty = T'TT'I None
+	=> T_TT_I Optional (Construction Optional) i
+pattern Empty <- T_TT_I None where Empty = T_TT_I None
 
 type Tree = Construction
 
 type family Binary tree where
-	Binary Tree = Tree (U_I_I LM `T'TT'I` Optional)
+	Binary Tree = Tree (U_I_I LM `T_TT_I` Optional)
 
 engage :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
 engage x = enter `yu` x
@@ -186,27 +186,27 @@ embed :: forall f g e .
 embed = component @Straight @(->) @(->) @g @(f `J` g) @e
 
 joint :: forall f g e .
-	Component Natural (->) (->) (f `T'TT'I` g) (f `J` g) =>
-	Castable Opposite (->) ((f `T'TT'I` g) e) =>
+	Component Natural (->) (->) (f `T_TT_I` g) (f `J` g) =>
+	Castable Opposite (->) ((f `T_TT_I` g) e) =>
 	f (g e) -> (f `J` g) e
-joint = wrap @(->) @((f `T'TT'I` g) e)
-	`o` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `J` g) @e
+joint = wrap @(->) @((f `T_TT_I` g) e)
+	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `J` g) @e
 
 try :: forall t e o .
 	Covariant Endo Semi Functor (->) t =>
-	Component Natural (->) (->) (t `T'TT'I` Progress e) (t `J` Progress e) =>
-	Castable Opposite (->) ((t `T'TT'I` Progress e) e) =>
+	Component Natural (->) (->) (t `T_TT_I` Progress e) (t `J` Progress e) =>
+	Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
 	t (Progress e o) -> (t `J` Progress e) o
-try = wrap @(->) @((t `T'TT'I` Progress e) _)
-	`o` component @Straight @(->) @(->) @(t `T'TT'I` Progress e) @(t `J` Progress e)
+try = wrap @(->) @((t `T_TT_I` Progress e) _)
+	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `J` Progress e)
 
 type Horizontal = ML Unit Unit
 pattern Back, Forth :: Horizontal
 pattern Back <- This Unit where Back = This Unit
 pattern Forth <- That Unit where Forth = That Unit
 
-label :: forall l t e . t e -> T'_'I l t e
-label = T'_'I
+label :: forall l t e . t e -> T_'_I l t e
+label = T_'_I
 
 type Decision = ML Unit Unit
 pattern No, Yes :: Decision
@@ -224,12 +224,12 @@ pattern Down <- This Unit where Down = This Unit
 pattern Up <- That Unit where Up = That Unit
 
 forever ::
-	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	Component Natural (->) (->) (t `T_TT_I` t) t =>
 	t e -> t e
 forever x = x `yukl` forever x
 
 until ::
-	Component Natural (->) (->) (t `T'TT'I` t) t =>
+	Component Natural (->) (->) (t `T_TT_I` t) t =>
 	Monoidal Straight Functor (->) LM LM t =>
 	t (That ML e ee) -> t ee
 until x = x `yokl` \case

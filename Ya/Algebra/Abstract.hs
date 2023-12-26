@@ -18,11 +18,11 @@ newtype I i = I i
 
 newtype Recursive f = Recursive (f (Recursive f))
 
-newtype T'TT'I t tt i = T'TT'I (t (tt i))
+newtype T_TT_I t tt i = T_TT_I (t (tt i))
 
-newtype TT'T'I t tt i = TT'T'I (tt (t i))
+newtype TT_T_I t tt i = TT_T_I (tt (t i))
 
-newtype T'_'I e t i = T'_'I (t i)
+newtype T_'_I e t i = T_'_I (t i)
 
 newtype T_TTT_TT_I t ttt tt i = T_TTT_TT_I (t (tt (ttt i)))
 
@@ -95,23 +95,23 @@ type That = U_I_II
 
 type Constant = U_1_I
 
-type Labeled = T'_'I
+type Labeled = T_'_I
 
 -- TODO: move to `Primitive`
 type Forward = Labeled (Straight (->) Unit Unit)
 
 -- TODO: move to `Primitive`
 pattern Forward :: t e -> Forward t e
-pattern Forward e <- T'_'I e
-	where Forward e = T'_'I e
+pattern Forward e <- T_'_I e
+	where Forward e = T_'_I e
 
 -- TODO: move to `Primitive`
 type Backward = Labeled (Opposite (->) Unit Unit)
 
 -- TODO: move to `Primitive`
 pattern Backward :: t e -> Backward t e
-pattern Backward e <- T'_'I e
-	where Backward e = T'_'I e
+pattern Backward e <- T_'_I e
+	where Backward e = T_'_I e
 
 type family Flip v where
 	Flip Straight = Opposite
@@ -120,9 +120,9 @@ type family Flip v where
 type family Supertype e where
 	Supertype (I i) = i
 	Supertype (Recursive f) = f (Recursive f)
-	Supertype (T'TT'I t tt i) = t (tt i)
-	Supertype (TT'T'I t tt i) = tt (t i)
-	Supertype (T'_'I e t i) = t i
+	Supertype (T_TT_I t tt i) = t (tt i)
+	Supertype (TT_T_I t tt i) = tt (t i)
+	Supertype (T_'_I e t i) = t i
 	Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
 	Supertype (U_1_I u _ i) = u Unit i
@@ -187,23 +187,23 @@ instance Castable Straight (->) (U_II_I u i ii)
 instance Castable Opposite (->) (U_II_I u i ii)
 	where cast = U_II_I U_II_I
 
-instance Castable Straight (->) (T'TT'I f g i)
-	where cast = U_I_II (\(T'TT'I x) -> x)
+instance Castable Straight (->) (T_TT_I f g i)
+	where cast = U_I_II (\(T_TT_I x) -> x)
 
-instance Castable Opposite (->) (T'TT'I f g i)
-	where cast = U_II_I T'TT'I
+instance Castable Opposite (->) (T_TT_I f g i)
+	where cast = U_II_I T_TT_I
 
-instance Castable Straight (->) (TT'T'I f g i)
-	where cast = U_I_II (\(TT'T'I x) -> x)
+instance Castable Straight (->) (TT_T_I f g i)
+	where cast = U_I_II (\(TT_T_I x) -> x)
 
-instance Castable Opposite (->) (TT'T'I f g i)
-	where cast = U_II_I TT'T'I
+instance Castable Opposite (->) (TT_T_I f g i)
+	where cast = U_II_I TT_T_I
 
-instance Castable Straight (->) (T'_'I e t i)
-	where cast = U_I_II (\(T'_'I x) -> x)
+instance Castable Straight (->) (T_'_I e t i)
+	where cast = U_I_II (\(T_'_I x) -> x)
 
-instance Castable Opposite (->) (T'_'I e t i)
-	where cast = U_II_I T'_'I
+instance Castable Opposite (->) (T_'_I e t i)
+	where cast = U_II_I T_'_I
 
 instance Castable Straight (->) (T_TTT_TT_I f g h i)
 	where cast = U_I_II (\(T_TTT_TT_I x) -> x)
@@ -319,5 +319,5 @@ type family Same a b where
 (/) f x = f x
 
 type family J effect where
-	J (U_I_II (->) e) = T'TT'I (U_I_II (->) e)
+	J (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
 	J (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)

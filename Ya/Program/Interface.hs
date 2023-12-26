@@ -14,7 +14,7 @@ instance Field e e
 
 instance Field e (e `LM` ee)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I
-		`i` \(These f fs) -> These `i` f `i` \f' -> These f' fs
+		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
 instance {-# OVERLAPS #-} Field e ee =>
 	Field e (eee `LM` ee) where
@@ -24,7 +24,7 @@ instance {-# OVERLAPS #-} Field e ee =>
 
 instance Field (t e) (U_T_I_TT_I LM t tt e)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f' -> U_T_I_TT_I (These f' fs)
+		\(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f_ -> U_T_I_TT_I (These f_ fs)
 
 instance {-# OVERLAPS #-} Field e (tt ee) =>
 	Field e (U_T_I_TT_I LM t tt ee) where
@@ -47,7 +47,7 @@ class Stack datastructure where
 instance Stack List where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
 		Empty @List -> These `i` Empty @List `i` None
-		List (Yet x xs) -> These `i` (T'TT'I / xs `yo` R_U_I_T_I) `i` Some x
+		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
@@ -55,7 +55,7 @@ instance Stack List where
 instance Stack (Construction Optional) where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
-		Nonempty @List (Yet x None) -> These `i'i` Nonempty @List `i` Yet x None `i'i` None
+		Nonempty @List (Yet x None) -> These `i_i` Nonempty @List `i` Yet x None `i_i` None
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure where
@@ -73,13 +73,13 @@ class Scrollable datastructure where
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List where
 	scroll Forth = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (T'TT'I bs)) (T'_'I (List (Yet f fs))))))) -> These
-			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T'_'I (List (Yet x (bs `yo` unwrap)))) (T'_'I (T'TT'I / fs `yo` wrap @(->)))))))
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T_'_I (T_TT_I bs)) (T_'_I (List (Yet f fs))))))) -> These
+			(U_T_I_TT_I (These (I f) (U_T_I_TT_I (These (T_'_I (List (Yet x (bs `yo` unwrap)))) (T_'_I (T_TT_I / fs `yo` wrap @(->)))))))
 			(Some previous)
 		previous@(_) -> These previous None
 	scroll Back = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T'_'I (List (Yet b bs))) (T'_'I (T'TT'I fs)))))) -> These
-			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T'_'I (T'TT'I / bs `yo` R_U_I_T_I)) (T'_'I (List (Yet x (fs `yo` unwrap))))))))
+		previous@(U_T_I_TT_I (These (I x) (U_T_I_TT_I (These (T_'_I (List (Yet b bs))) (T_'_I (T_TT_I fs)))))) -> These
+			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T_'_I (T_TT_I / bs `yo` R_U_I_T_I)) (T_'_I (List (Yet x (fs `yo` unwrap))))))))
 			(Some previous)
 		previous@(_) -> These previous None
 
@@ -94,12 +94,12 @@ instance Fastenable List
 		U_T_I_TT_I / These (I x)
 		(U_T_I_TT_I (These
 			(label (Empty @List))
-			(label (T'TT'I / xs `yo` R_U_I_T_I))
+			(label (T_TT_I / xs `yo` R_U_I_T_I))
 			)
 		)
 
 type family Substructure datastructure where
-	Substructure (Construction t) = t `T'TT'I` Construction t
+	Substructure (Construction t) = t `T_TT_I` Construction t
 	Substructure (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = U_T_I_TT_I LM List List
 
 class Hierarchial datastructure where
@@ -112,7 +112,7 @@ instance Covariant Endo Semi Functor (->) t
 		\(Construct old xs) -> These / old / \new -> Construct new xs
 	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 		\(Construct x old) -> These
-			(T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
+			(T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` rw new)
 
 instance Hierarchial (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
@@ -122,26 +122,26 @@ instance Hierarchial (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
 		\(U_T_I_TT_I (These (I x) old)) -> These old (\new -> U_T_I_TT_I (These (I x) new))
 
 type family Ramification datastructure where
-	Ramification (Tree (U_I_I LM `T'TT'I` Optional)) = Unit `ML` Unit
+	Ramification (Tree (U_I_I LM `T_TT_I` Optional)) = Unit `ML` Unit
 	-- Ramification (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = Unit `ML` Unit
 
 type family Branching datastructure where
-	Branching (Tree (U_I_I LM `T'TT'I` Optional)) = Optional `T'TT'I` Binary Tree
+	Branching (Tree (U_I_I LM `T_TT_I` Optional)) = Optional `T_TT_I` Binary Tree
 	-- Branching (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = List
 
 class Hierarchial datastructure => Brancheable datastructure where
 	branch :: Ramification datastructure -> Attribute (datastructure item) (Branching datastructure item)
 
 -- TODO: refactor using limits/colimits
-instance Brancheable (Tree (U_I_I LM `T'TT'I` Optional)) where
+instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 	branch p = W_I_II_II `compose` U_I_UU_III_U_II_I /
-		\(Construct x (T'TT'I (U_I_I (These lb rb)))) -> These
+		\(Construct x (T_TT_I (U_I_I (These lb rb)))) -> These
 			/ case p of
-				This _ -> T'TT'I @Optional (wrap @(->) `fo` lb)
-				That _ -> T'TT'I @Optional (wrap @(->) `fo` rb)
+				This _ -> T_TT_I @Optional (wrap @(->) `fo` lb)
+				That _ -> T_TT_I @Optional (wrap @(->) `fo` rb)
 			/ \new -> case p of
-				This _ -> Construct x (T'TT'I (U_I_I (These (rw @(->) `fo` rw new) rb)))
-				That _ -> Construct x (T'TT'I (U_I_I (These lb (rw @(->) `fo` rw new))))
+				This _ -> Construct x (T_TT_I (U_I_I (These (rw @(->) `fo` rw new) rb)))
+				That _ -> Construct x (T_TT_I (U_I_I (These lb (rw @(->) `fo` rw new))))
 
 -- TODO: refactor using limits/colimits
 -- instance Brancheable (U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) List)) where

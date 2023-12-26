@@ -10,7 +10,7 @@
 * Define `Opposite` type alias
 * Define `Mono` type alias
 * Define `Wrapper` type class
-* Define `T'TT'I` data type
+* Define `T_TT_I` data type
 * Define `T_TTT_TT_I` data type
 * Define `U_I_T_II` data type
 * Define `U_T_I_II` data type
@@ -24,8 +24,8 @@
 * Define `Precategory` type class
 * Define `Category` type class
 * Define `i` operator
-* Define `i'i` operator
-* Define `i'i'i` operator
+* Define `i_i` operator
+* Define `i_i_i` operator
 * Define `component` expression
 * Define `Mapping` type class
 * Define `Functor` type alias
@@ -34,23 +34,23 @@
 * Define `Covariant` type alias
 * Define `Contravariant` type alias
 * Define `yi` operator
-* Define `yi'yi` operator
-* Define `yi'yi'yi` operator
-* Define `yi'yi'yi'yi` operator
-* Define `yi'yi'yi'yi'yi` operator
+* Define `yi_yi` operator
+* Define `yi_yi_yi` operator
+* Define `yi_yi_yi_yi` operator
+* Define `yi_yi_yi_yi_yi` operator
 * Define `fo` operator
 * Define `fa` operator
-* Define `fo'fi` operator
-* Define `fa'fi` operator
+* Define `fo_fi` operator
+* Define `fa_fi` operator
 * Define `fi_` operator
-* Define `fi_'fi` operator
-* Define `fi_'fi'fi` operator
+* Define `fi__fi` operator
+* Define `fi__fi_fi` operator
 * Define `fokl` operator
-* Define `fo'fo` operator
+* Define `fo_fo` operator
 * Define `_fo` operator
-* Define `_fo'fi` operator
-* Define `_fo'fi'fi` operator
-* Define `_fo'fo` operator
+* Define `_fo_fi` operator
+* Define `_fo_fi_fi` operator
+* Define `_fo_fo` operator
 * Define `LM` data type
 * Define `ML` data type
 * Define `U_I_UU_I_II` data type
@@ -75,7 +75,7 @@
 * Define `Dumb` type class
 * Define `ya` operator
 * Define `yokl` operator
-* Define `fo'fo'fo` operator
+* Define `fo_fo_fo` operator
 * Define `Boolean` type alias
 * Define `False` pattern synonym
 * Define `True` pattern synonym
@@ -94,9 +94,9 @@
 * Define `U_I_UU_II_III` data type
 * Define `inspect` expression
 * Define `adjust` expression
-* Define `rw'rw` operator
-* Define `rw'w` operator
-* Define `w'rw` operator
+* Define `rw_rw` operator
+* Define `rw_w` operator
+* Define `w_rw` operator
 * Define `observe` expression
 * Define `replace` expression
 * Define `transit` expression
@@ -145,7 +145,7 @@
 * Define `wrapped` expression
 * Define `Terminal` type alias
 * Define `Initial` type alias
-* Define `TT'T'I` data type
+* Define `TT_T_I` data type
 * Define `U_UU_UUU_V_I_II_III_UUUU` data type
 * Define `Flip` type family
 * Define `Flippable` type family
@@ -181,7 +181,7 @@
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `u` operator
-* Define `a'a` operator
+* Define `a_a` operator
 * Define `lm` operator
 * Define `Hierarchial` type class
 * Define `ya_` operator
@@ -194,28 +194,28 @@
 * Define `Branching` type family
 * Define `Brancheable` type class
 * Define `statefully` expression
-* Define `o'yokl` operator
+* Define `o_yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
-* Define `u'u` operator
-* Define `u'u'u` operator
-* Define `u'u'u'u` operator
-* Define `u'u'u'u'u` operator
-* Define `u'u'u'u'u'u` operator
-* Define `u'u'u'u'u'u'u` operator
-* Define `u'u'u'u'u'u'u'u` operator
-* Define `u'u'u'u'u'u'u'u'u` operator
-* Define `u'u'u'u'u'u'u'u'u'u` operator
-* Define `i'i'i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i` operator
-* Define `i'i'i'i'i` operator
-* Define `i'i'i'i` operator
-* Define `o'a` operator
-* Define `a'o` operator
-* Define `a'yokl` operator
+* Define `u_u` operator
+* Define `u_u_u` operator
+* Define `u_u_u_u` operator
+* Define `u_u_u_u_u` operator
+* Define `u_u_u_u_u_u` operator
+* Define `u_u_u_u_u_u_u` operator
+* Define `u_u_u_u_u_u_u_u` operator
+* Define `u_u_u_u_u_u_u_u_u` operator
+* Define `u_u_u_u_u_u_u_u_u_u` operator
+* Define `i_i_i_i_i_i_i_i_i_i` operator
+* Define `i_i_i_i_i_i_i_i_i` operator
+* Define `i_i_i_i_i_i_i_i` operator
+* Define `i_i_i_i_i_i_i` operator
+* Define `i_i_i_i_i_i` operator
+* Define `i_i_i_i_i` operator
+* Define `i_i_i_i` operator
+* Define `o_a` operator
+* Define `a_o` operator
+* Define `a_yokl` operator
 * Define `J` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
@@ -225,47 +225,47 @@
 * Define `yu_` operator
 * Define `Provided` type alias
 * Define `provide` expression
-* Define `rw'rw'rw` operator
-* Define `rwr'yu_` operator
-* Define `monoidal'` expression
+* Define `rw_rw_rw` operator
+* Define `rwr_yu_` operator
+* Define `monoidal_` expression
 * Define `fr` operator
 * Define `rf` operator
-* Define `pp'pp` operator
-* Define `yo'yo` operator
-* Define `pp'yokl` operator
-* Define `yukl'u` operator
-* Define `yukl'u'u` operator
-* Define `yukl'u'u'u` operator
-* Define `yukl'u'u'u'u` operator
-* Define `yukl'u'u'u'u'u` operator
-* Define `yukl'u'u'u'u'u'u` operator
-* Define `pp'yo` operator
-* Define `pp'pp'yo` operator
-* Define `yi'yukl` operator
-* Define `yi'yi'yukl` operator
-* Define `yi'yi'yi'yukl` operator
+* Define `dp_dp` operator
+* Define `yo_yo` operator
+* Define `dp_yokl` operator
+* Define `yukl_u` operator
+* Define `yukl_u_u` operator
+* Define `yukl_u_u_u` operator
+* Define `yukl_u_u_u_u` operator
+* Define `yukl_u_u_u_u_u` operator
+* Define `yukl_u_u_u_u_u_u` operator
+* Define `dp_yo` operator
+* Define `dp_dp_yo` operator
+* Define `yi_yukl` operator
+* Define `yi_yi_yukl` operator
+* Define `yi_yi_yi_yukl` operator
 * Define `jt` operator
-* Define `pp'pp'jt` operator
-* Define `pp'pp'jt'yokl`operator
+* Define `dp_dp_jt` operator
+* Define `dp_dp_jt_yokl`operator
 * Define `_rj` operator
-* Define `lm'pp` operator
-* Define `lm'pp'pp` operator
-* Define `rwr'yo_` operator
-* Define `yokl'rwr'yo_` operator
-* Define `yokl'rwr'yu_` operator
-* Define `yokl'u` operator
-* Define `yokl'u'u` operator
-* Define `yokl'u'u'u` operator
-* Define `yokl'u'u'u'u` operator
-* Define `yokl'u'u'u'u'u` operator
-* Define `yokl'u'u'u'u'u'u` operator
-* Define `T'_'I` data type
+* Define `lm_dp` operator
+* Define `lm_dp_dp` operator
+* Define `rwr_yo_` operator
+* Define `yokl_rwr_yo_` operator
+* Define `yokl_rwr_yu_` operator
+* Define `yokl_u` operator
+* Define `yokl_u_u` operator
+* Define `yokl_u_u_u` operator
+* Define `yokl_u_u_u_u` operator
+* Define `yokl_u_u_u_u_u` operator
+* Define `yokl_u_u_u_u_u_u` operator
+* Define `T___I` data type
 * Define `Backward` type alias
 * Define `Forward` type alias
 * Define `label` expression
-* Define `yokl'rw'yokl` operator
-* Define `o'rw` operator
-* Define `lm''pp` operator
+* Define `yokl_rw_yokl` operator
+* Define `o_rw` operator
+* Define `lm_dp` operator
 * Define `Fastenable` type class
 * Define `forever` expression
 * Define `this` expression
@@ -276,20 +276,20 @@
 * Define `Vertical` type alias
 * Define `Singular` type alias
 * Define `foklKL` operator
-* Define `yoklKL'yokl` operator
-* Define `yokl'yoklKL` operator
+* Define `yoklKL_yokl` operator
+* Define `yokl_yoklKL` operator
 * Define `constant` expression
 * Define `Fastening` type family
-* Define `yi'yu` operator
-* Define `yi'yi'yu` operator
-* Define `yi'yi'yi'yu` operator
+* Define `yi_yu` operator
+* Define `yi_yi_yu` operator
+* Define `yi_yi_yi_yu` operator
 * Define `Decision` type alias
 * Define `No` pattern synonym
 * Define `Yes` pattern synonym
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
 * Define `substructure` expression
-* Define `o'rw'o` operator
+* Define `o_rw_o` operator
 * Define `ds` operator
 * Define `Errorful` type alias
 * Define `Error` pattern synonym
@@ -304,13 +304,13 @@
 * Define `cata` expression
 * Define `ana` expression
 * Define `day` expression
-* Define `yi'rf` operator
-* Define `yi'yi'rf` operator
+* Define `yi_rf` operator
+* Define `yi_yi_rf` operator
 * Define `engage` expression
-* Define `lm'ds` operator
+* Define `lm_ds` operator
 * Define `MLM` data type
 * Define `dw` operator
-* Define `yoklKL'yoklKL` operator
+* Define `yoklKL_yoklKL` operator
 * Define `Halting` type alias
 * Define `Haltable` type alias
 * Define `Statefully` type alias
