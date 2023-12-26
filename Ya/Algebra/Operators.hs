@@ -7,7 +7,7 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_rw_o`, `a_o`, `a_yokl`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo_fi`, `fa_fi`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`
-infixl 7 `i_i_i`, `u_u_u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `fi__fi`, `_fo_fi`, `_fo_fo`, `fi__fi_fi`, `_fo_fi_fi`, `w_rw`, `rw_w`, `rwr_yo_`, `rwr_yu_`
+infixl 7 `i_i_i`, `u_u_u`, `yi_`, `ya_`, `_fo`, `fo_`, `yo_`, `fa_`, `yu_`, `_lj`, `_rj`, `_fo_fi`, `_fo_fo`, `_fo_fi_fi`, `w_rw`, `rw_w`, `rwr_yo_`, `rwr_yu_`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yo_`, `yokl_rwr_yu_`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `_yokl`
 infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_rf`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`
@@ -37,12 +37,6 @@ yi_yi_yi = identity
 yi_yi = identity
 yi_ = identity
 yi = identity
-
-fi_, fi__fi, fi__fi_fi
-	:: Category into => into (into a o) (into a o)
-fi_ = identity
-fi__fi = identity
-fi__fi_fi = identity
 
 fo, fo_fi :: forall from into t a o .
 	Covariant Semi Functor from into t =>
