@@ -5,8 +5,11 @@ module Ya.Algebra.Abstract where
 infixl 0 /
 infixr 8 `JT`
 infixl 8 `LM`, `ML`
+infixr 7 `ARR`
 
 type (/) t i = t i
+
+type ARR = (->)
 
 data LM i ii = These i ii
 

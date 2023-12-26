@@ -307,3 +307,4 @@
 * Define `Halting` type alias
 * Define `Haltable` type alias
 * Define `Statefully` type alias
+* Define `ARR` type alias
