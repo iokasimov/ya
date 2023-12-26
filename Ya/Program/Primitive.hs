@@ -112,7 +112,7 @@ instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 
 type Stateful = Straight Transition
 
-type Statefully state = JT (Stateful state)
+type Statefully t state = JT (Stateful state) t
 
 pattern Stateful :: Transition state result -> Stateful state result
 pattern Stateful x <- Straight x where Stateful x = Straight x
