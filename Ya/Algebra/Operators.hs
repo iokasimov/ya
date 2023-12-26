@@ -6,8 +6,8 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_rw_o`, `a_o`, `a_yokl`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo_fi`, `fa_fi`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`
-infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `ilj`, `irj`, `_fo_fi`, `_fo_fo`, `_fo_fi_fi`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`
+infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `ilj`, `irj`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
 infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_rf`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`
@@ -37,24 +37,21 @@ yi_yi_yi = identity
 yi_yi = identity
 yi = identity
 
-fo, fo_fi :: forall from into t a o .
+fo :: forall from into t a o .
 	Covariant Semi Functor from into t =>
 	from a o -> into (t a) (t o)
-fo_fi = map @Straight @Straight
 fo = map @Straight @Straight
 
-fa, fa_fi :: forall from into t a o .
+fa :: forall from into t a o .
 	Contravariant Semi Functor from into t =>
 	from a o -> into (t o) (t a)
-fa_fi = map @Opposite @Straight
 fa = map @Opposite @Straight
 
-fu, fu_fi :: forall into t a o .
+fu :: forall into t a o .
 	Covariant Semi Functor into into t =>
 	Mapping Constant Straight into into t t =>
 	Castable Opposite Arrow (into Unit o) =>
 	Supertype (into Unit o) -> into (t a) (t o)
-fu_fi = map @Constant @Straight @into @into `compose` wrap @Arrow @(into Unit o)
 fu = map @Constant @Straight @into @into `compose` wrap @Arrow @(into Unit o)
 
 fokl :: forall from into t tt a o .
@@ -297,14 +294,12 @@ fo_fo_fo :: forall from into t tt h a o .
 	from a o -> into (t (tt (h a))) (t (tt (h o)))
 fo_fo_fo from = fo @into @into (fo @into @into (fo @from @into from))
 
-fio, _fo_fi, _fo_fi_fi :: forall from into t a o i .
+fio :: forall from into t a o i .
 	Covariant Semi Functor from into (U_I_II t i) =>
 	Wrapper into (U_I_II t i a) =>
 	Wrapper into (U_I_II t i o) =>
 	from a o -> into (t i a) (t i o)
 fio from = rw `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
-_fo_fi from = rw `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
-_fo_fi_fi from = rw `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
 foi :: forall from into t a o i .
 	Covariant Semi Functor from into (U_II_I t i) =>
@@ -320,13 +315,13 @@ fai :: forall from into t a o i .
 	from a o -> into (t o i) (t a i)
 fai from = rw `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
 
-_fo_fo :: forall from into t tt e a o .
+fio_fo :: forall from into t tt e a o .
 	Covariant Semi Functor into into (U_I_II t e) =>
 	Covariant Semi Functor from into tt =>
 	Wrapper into (U_I_II t e (tt a)) =>
 	Wrapper into (U_I_II t e (tt o)) =>
 	from a o -> into (t e (tt a)) (t e (tt o))
-_fo_fo from = fio @into @into (fo @from @into from)
+fio_fo from = fio @into @into (fo @from @into from)
 
 o :: forall from into u i a o .
 	Precategory into =>

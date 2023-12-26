@@ -40,14 +40,10 @@
 * Define `yi_yi_yi_yi_yi` operator
 * Define `fo` operator
 * Define `fa` operator
-* Define `fo_fi` operator
-* Define `fa_fi` operator
 * Define `fokl` operator
 * Define `fo_fo` operator
-* Define `_fo` operator
-* Define `_fo_fi` operator
-* Define `_fo_fi_fi` operator
-* Define `_fo_fo` operator
+* Define `fio` operator
+* Define `fio_fo` operator
 * Define `LM` data type
 * Define `ML` data type
 * Define `U_I_UU_I_II` data type
@@ -67,7 +63,7 @@
 * Define `Component` type alias
 * Define `UU_V_U_I_II_T_II` data type
 * Define `Yoneda` type class
-* Define `fa_` operator
+* Define `fai` operator
 * Define `yo` operator
 * Define `Dumb` type class
 * Define `ya` operator
