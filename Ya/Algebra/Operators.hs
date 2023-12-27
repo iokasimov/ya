@@ -733,7 +733,7 @@ dp_dp_jt_yokl :: forall from into e ee t tt ttt o .
 	t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `JT` tt) o)
 dp_dp_jt_yokl = yokl @from @into `compose` dp_dp_jt
 
-rwr_yoi :: forall into w o u e ee .
+rwr_foi :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>
 	Castable Straight into (U_II_I u o ee) =>
 	Castable Opposite into (U_II_I u o e) =>
@@ -743,7 +743,20 @@ rwr_yoi :: forall into w o u e ee .
 	(Supertype (w u e o) ~ u e o) =>
 	(Supertype (w u ee o) ~ u ee o) =>
 	into e ee -> into (w u e o) (w u ee o)
-rwr_yoi = rwr `compose` i_ `compose` fo
+rwr_foi = rwr `compose` i_ `compose` fo
+
+-- TODO: try to simplify
+rwr_yoi :: forall from into w o u e ee .
+	Precategory into =>
+	Covariant Yoneda Functor from into (U_II_I u o) =>
+	Castable Opposite into (w u ee o) =>
+	Castable Straight (->) (w u e o) =>
+	Castable Straight into (U_II_I u o ee) =>
+	Castable Opposite into (U_I_II from e ee) =>
+	(Supertype (w u e o) ~ u e o) =>
+	(Supertype (w u ee o) ~ u ee o) =>
+	w u e o -> into (from e ee) (w u ee o)
+rwr_yoi x = wrap @into `compose` yoi (unwrap x)
 
 yokl_rwr_yoi :: forall into w t o u e ee .
 	Covariant Yoneda Functor into (->) t =>
@@ -760,7 +773,7 @@ yokl_rwr_yoi :: forall into w t o u e ee .
 	Castable Straight into (w u e o) =>
 	t (w u e o) -> into e ee -> t o
 yokl_rwr_yoi x f = yokl @into @_ @(w u ee) @t x
-	(rwr_yoi @into @w @o @u @e @ee f)
+	(rwr_foi @into @w @o @u @e @ee f)
 
 rwr_yui :: forall into w o u e ee .
 	Covariant Endo Semi Functor into (U_II_I u o) =>

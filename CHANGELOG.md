@@ -243,6 +243,7 @@
 * Define `_rj` operator
 * Define `lm_dp` operator
 * Define `lm_dp_dp` operator
+* Define `rwr_fo_` operator
 * Define `rwr_yo_` operator
 * Define `yokl_rwr_yo_` operator
 * Define `yokl_rwr_yu_` operator
