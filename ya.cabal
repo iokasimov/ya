@@ -55,4 +55,4 @@ library
     TypeFamilyDependencies
     TypeOperators
   default-language: Haskell2010
-  ghc-options: -Wall -fno-warn-tabs -fno-warn-unticked-promoted-constructors -fprint-potential-instances -Wno-incomplete-patterns
+  ghc-options: -Wall -fno-warn-tabs -fno-warn-unticked-promoted-constructors -fprint-potential-instances

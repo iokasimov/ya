@@ -3,8 +3,9 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixr 8 `JT`
 infixl 8 `LM`, `ML`
+
+infixr 8 `JT`
 infixr 7 `ARR`
 
 type (/) t i = t i
@@ -86,11 +87,15 @@ pattern Straight :: u e ee -> Straight u e ee
 pattern Straight x <- U_I_II x
 	where Straight x = U_I_II x
 
+{-# COMPLETE Straight #-}
+
 type Opposite = U_II_I
 
 pattern Opposite :: u e ee -> Opposite u ee e
 pattern Opposite x <- U_II_I x
 	where Opposite x = U_II_I x
+
+{-# COMPLETE Opposite #-}
 
 type This = U_II_I
 
