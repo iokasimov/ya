@@ -309,3 +309,4 @@
 * Define `Haltable` type alias
 * Define `Statefully` type alias
 * Define `ARR` type alias
+* Define `o_rwr_yoi` operator
