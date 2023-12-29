@@ -240,7 +240,7 @@
 * Define `jt` operator
 * Define `dp_dp_jt` operator
 * Define `dp_dp_jt_yokl`operator
-* Define `_rj` operator
+* Define `rij` operator
 * Define `lm_dp` operator
 * Define `lm_dp_dp` operator
 * Define `rwr_fo_` operator
