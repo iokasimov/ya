@@ -154,7 +154,6 @@
 * Define `i_` expression
 * Define `yukl` operator
 * Define `yu` operator
-* Define `/` type alias
 * Define `joint` expression
 * Define `try` expression
 * Define `instant` expression
