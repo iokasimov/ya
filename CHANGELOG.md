@@ -311,3 +311,4 @@
 * Define `ARR` type alias
 * Define `o_rwr_yoi` operator
 * Define `yi_yokl` operator
+* Define `TI` type alias
