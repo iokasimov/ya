@@ -10,7 +10,7 @@ infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
-infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_rf`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`
+infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`
 infixl 3 `i_i_i_i_i_i_i`, `u_u_u_u_u_u_u`
 infixl 2 `i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yukl`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
@@ -136,13 +136,16 @@ yai :: forall from into t e a o .
 	t a e -> into (from o a) (t o e)
 yai x = compose rw (yoneda @Opposite @Functor @from @into @(This t e) (wrap x))
 
-yokl, yokl_u, yokl_u_u, yokl_u_u_u, yokl_u_u_u_u, yokl_u_u_u_u_u, yokl_u_u_u_u_u_u :: forall from into tt t a o .
+yokl, yi_yokl, yokl_u, yokl_u_u, yokl_u_u_u, yokl_u_u_u_u, yokl_u_u_u_u_u, yokl_u_u_u_u_u_u :: forall from into tt t a o .
 	Component Natural Arrow into (T_TT_I t tt) t =>
 	Covariant Yoneda Functor from into t =>
 	Castable Opposite into (Straight from a (tt o)) =>
 	Castable Opposite into (T_TT_I t tt o) =>
 	t a -> into (from a (tt o)) (t o)
 yokl x = component @Straight @Arrow @into @(T_TT_I t tt)
+	`compose` wrap @into @(T_TT_I t tt _)
+	`compose` yoneda @Straight @Functor @from x
+yi_yokl x = component @Straight @Arrow @into @(T_TT_I t tt)
 	`compose` wrap @into @(T_TT_I t tt _)
 	`compose` yoneda @Straight @Functor @from x
 yokl_u x = component @Straight @Arrow @into @(T_TT_I t tt)
