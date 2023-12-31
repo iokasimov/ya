@@ -560,6 +560,31 @@ yi_yi_rf from_left from_right =
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
+-- TODO: to test
+rwr_rf :: forall from into r eee e ee .
+	Category from =>
+	Limit Opposite from into =>
+	Covariant Functor into into (That (Sum into) e) =>
+	Covariant Functor into into (This (Sum into) (Sum into (Supertype r) (Supertype r))) =>
+	Castable Opposite into (Both (Sum into) (Sum into (Supertype r) (Supertype r))) =>
+	Castable Opposite into (That (Sum into) e ee) =>
+	Castable Straight into (That (Sum into) (Supertype r) (Supertype r)) =>
+	Castable Straight into (This (Sum into) (Supertype r) (Supertype r)) =>
+	Castable Opposite into (Both (Sum into) (Supertype r)) =>
+	Castable Straight into (That (Sum into) e (Sum into (Supertype r) (Supertype r))) =>
+	Castable Opposite into (This (Sum into) (Sum into (Supertype r) (Supertype r)) e) =>
+	Castable Straight into (This (Sum into) (Sum into (Supertype r) (Supertype r)) (Sum into (Supertype r) (Supertype r))) =>
+	(Supertype eee ~ Sum into e ee) =>
+	(forall eeee . Wrapper into (I eeee)) =>
+	Castable Opposite into r =>
+	Castable Straight into eee =>
+	from e (Supertype r) -> from ee (Supertype r) -> into eee r
+rwr_rf from_left from_right = rwr /
+	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+
 dp :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
 		(Day Straight (->) u LM t t e ee) t =>
