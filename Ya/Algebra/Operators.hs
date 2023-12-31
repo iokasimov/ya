@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_rw_o`, `a_o`, `a_yokl`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
@@ -559,6 +559,25 @@ yi_yi_rf from_left from_right =
 	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+
+rw_rf :: forall from into e i o oo .
+	Category from =>
+	Limit Opposite from into =>
+	Covariant Functor into into (That (Sum into) o) =>
+	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
+	Castable Opposite into (Both (Sum into) (Sum into i i)) =>
+	Castable Opposite into (That (Sum into) o oo) =>
+	Castable Straight into (That (Sum into) i i) =>
+	Castable Straight into (This (Sum into) i i) =>
+	Castable Opposite into (Both (Sum into) i) =>
+	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
+	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
+	Wrapper into (That (Sum into) o (Sum into i i)) =>
+	(forall e . Wrapper into (I e)) =>
+	(Supertype e ~ (Sum into o oo)) =>
+	Castable Straight into e =>
+	from o i -> from oo i -> into e i
+rw_rf from_left from_right = rf from_left from_right `compose` rw
 
 -- TODO: to test
 rwr_rf :: forall from into r eee e ee .
