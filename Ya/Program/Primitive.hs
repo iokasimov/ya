@@ -136,10 +136,10 @@ type Stateful = Straight Transition
 
 type Statefully t state = JT (Stateful state) t
 
-pattern Stateful :: Transition state result -> Stateful state result
-pattern Stateful x <- Straight x where Stateful x = Straight x
+pattern Statefully :: Transition state result -> Stateful state result
+pattern Statefully x <- Straight x where Statefully x = Straight x
 
-{-# COMPLETE Stateful #-}
+{-# COMPLETE Statefully #-}
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
