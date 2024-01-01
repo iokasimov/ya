@@ -116,10 +116,10 @@ instance
 
 instance
 	Monoidal Straight Functor (->) LM ML t =>
-	Mapping Straight Straight (->) (->) (Straight (->) Unit) (R_U_I_T_I LM t)
+	Mapping Straight Straight (->) (->) (Straight (->) ()) (R_U_I_T_I LM t)
 	where mapping = rwr / \from (Straight f) ->
 		R_U_I_T_I `compose` Recursive `compose` U_I_T_II
-			/ These (from / f Unit) (empty @t `yo` absurd)
+			/ These (from / f ()) (empty @t `yo` absurd)
 
 instance
 	( Mapping Straight Straight (->) (->) (Day Straight (->) LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
@@ -134,7 +134,7 @@ instance
 instance
 	( Monoidal Straight Functor (->) LM LM t
 	, Monoidal Straight Functor (->) LM LM (R_U_I_T_I LM tt)
-	) => Mapping Straight Straight (->) (->) (Straight (->) Unit) (t `T_TT_I` R_U_I_T_I LM tt)
+	) => Mapping Straight Straight (->) (->) (Straight (->) ()) (t `T_TT_I` R_U_I_T_I LM tt)
 	where mapping = rwr / \from (Straight f) -> T_TT_I /
 		enter @t `yi_yu` enter @(R_U_I_T_I LM tt) `yo` from `compose` f
 
@@ -278,16 +278,16 @@ instance Mapping Straight Straight (->) (->) (That LM e `T_TT_I` tt) (That LM e 
 			`i_i` Straight (x old)
 
 instance Monoidal Straight Functor (->) LM LM t =>
-	Mapping Straight Straight (->) (->) (That (->) Unit) (That (->) e `T_TT_I` t)
-	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `i` f Unit
+	Mapping Straight Straight (->) (->) (That (->) ()) (That (->) e `T_TT_I` t)
+	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `i` f ()
 
-instance Mapping Straight Straight (->) (->) (That (->) Unit) (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `a` U_I_UU_II_III `yi` \e -> These e (f Unit `u` from)
+instance Mapping Straight Straight (->) (->) (That (->) ()) (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `a` U_I_UU_II_III `yi` \e -> These e (f () `u` from)
 
 instance Monoidal Straight Functor (->) LM LM t =>
-	Mapping Straight Straight (->) (->) (That (->) Unit) (T_TTT_TT_I (That (->) e) (That LM e) t)
+	Mapping Straight Straight (->) (->) (That (->) ()) (T_TTT_TT_I (That (->) e) (That LM e) t)
 	where mapping = rwr / \from (Straight f) -> T_TTT_TT_I `compose` Straight
-		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `i_i` f Unit
+		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `i_i` f ()
 
 instance
 	( Covariant Semi Functor from (->) t
@@ -299,7 +299,7 @@ instance
 	( Covariant Endo Semi Functor (->) t
 	, forall e . Covariant Endo Semi Functor (->) (That (->) e)
 	) => Mapping Constant Straight (->) (->) t (UU_V_U_I_II_T_II Constant (->) (->) t r)
-	where mapping = rwr / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo` x)
+	where mapping = rwr / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e ()) `fo` x)
 
 instance
 	( Contravariant Semi Functor from (->) t

@@ -38,9 +38,9 @@ newtype U_I_II u i ii = U_I_II (u i ii)
 
 newtype U_II_I u i ii = U_II_I (u ii i)
 
-newtype U_1_I u _' i = U_1_I (u Unit i)
+newtype U_1_I u _' i = U_1_I (u () i)
 
-newtype U_I_1 u i _' = U_I_1 (u i Unit)
+newtype U_I_1 u i _' = U_I_1 (u i ())
 
 newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
@@ -106,7 +106,7 @@ type Constant = U_1_I
 type Labeled = T_'_I
 
 -- TODO: move to `Primitive`
-type Forward = Labeled (Straight (->) Unit Unit)
+type Forward = Labeled (Straight (->) () ())
 
 -- TODO: move to `Primitive`
 pattern Forward :: t e -> Forward t e
@@ -114,7 +114,7 @@ pattern Forward e <- T_'_I e
 	where Forward e = T_'_I e
 
 -- TODO: move to `Primitive`
-type Backward = Labeled (Opposite (->) Unit Unit)
+type Backward = Labeled (Opposite (->) () ())
 
 -- TODO: move to `Primitive`
 pattern Backward :: t e -> Backward t e
@@ -133,8 +133,8 @@ type family Supertype e where
 	Supertype (T_'_I e t i) = t i
 	Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
 	Supertype (U_I_I u i) = u i i
-	Supertype (U_1_I u _ i) = u Unit i
-	Supertype (U_I_1 u i _) = u i Unit
+	Supertype (U_1_I u _ i) = u () i
+	Supertype (U_I_1 u i _) = u i ()
 	Supertype (U_I_II u i ii) = u i ii
 	Supertype (U_II_I u ii i) = u i ii
 	Supertype (U_I_T_II t u i ii) = u i (t ii)
@@ -150,7 +150,7 @@ type family Supertype e where
 	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 	Supertype (W_I_II_II w i ii) = w i ii ii
 	Supertype (W_I_I_II w i ii) = w i i ii
-	Supertype (Arrow Unit ii) = ii
+	Supertype (Arrow () ii) = ii
 	Supertype (MLM i ii) = ML (ML i ii) (LM i ii)
 
 class Castable direction morphism e where
@@ -285,11 +285,11 @@ instance Castable Straight (->) (W_I_I_II u i ii)
 instance Castable Opposite (->) (W_I_I_II u i ii)
 	where cast = U_II_I W_I_I_II
 
-instance Castable Opposite (->) (Unit -> i)
+instance Castable Opposite (->) (() -> i)
 	where cast = U_II_I (\x _ -> x)
 
-instance Castable Straight (->) (Unit -> i)
-	where cast = U_I_II (\f -> f Unit)
+instance Castable Straight (->) (() -> i)
+	where cast = U_I_II (\f -> f ())
 
 instance Castable Opposite (->) (MLM i ii)
 	where cast = U_II_I MLM
@@ -316,9 +316,6 @@ wrap = let U_II_I x = cast in x
 
 -- Category: initial object
 data Void
-
--- Category: terminal object
-data Unit = Unit
 
 type family Same a b where
   Same a a = ()

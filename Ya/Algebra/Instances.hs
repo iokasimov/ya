@@ -283,10 +283,10 @@ instance Category Arrow where
 
 instance Mapping Straight Straight Arrow into t tt
 	=> Mapping Constant Straight Arrow into t tt
-	where mapping (U_1_I x) = mapping (Straight (\_ -> x Unit))
+	where mapping (U_1_I x) = mapping (Straight (\_ -> x ()))
 
 instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e)
-	where mapping = rwr / \from (U_1_I x) -> U_1_I / \_ -> from / x Unit
+	where mapping = rwr / \from (U_1_I x) -> U_1_I / \_ -> from / x ()
 
 instance Mapping Straight Straight Arrow Arrow I (Both LM)
 	where mapping (Straight from) = Straight / \(I x) -> U_I_I (These (from x) (from x))
@@ -363,8 +363,8 @@ instance Mapping Straight Straight (->) (->)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (I e) (I ee)) (Straight f) -> from (f (These e ee))
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Unit) I
-	where mapping = rwr / \from (Straight f) -> I (from (f Unit))
+instance Mapping Straight Straight (->) (->) (Straight (->) ()) I
+	where mapping = rwr / \from (Straight f) -> I (from (f ()))
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM LM (This ML e) (This ML e) ee eee) (This ML e)
@@ -372,8 +372,8 @@ instance Mapping Straight Straight (->) (->)
 		These (These (Opposite (This ee)) (Opposite (This eee))) (Straight f) -> This (from (f (These ee eee)))
 		These (These (Opposite (That e)) _) _ -> That e
 
-instance Mapping Straight Straight (->) (->) (That (->) Unit) (This ML e)
-	where mapping = rwr / \from (Straight f) -> Opposite (This (from (f Unit)))
+instance Mapping Straight Straight (->) (->) (That (->) ()) (This ML e)
+	where mapping = rwr / \from (Straight f) -> Opposite (This (from (f ())))
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM LM (That ML e) (That ML e) ee eee) (That ML e)
@@ -394,8 +394,8 @@ instance Mapping Straight Straight (->) (->)
 		These (These (Straight (This e)) (Straight (This _))) (Straight f) ->
 			This e
 
-instance Mapping Straight Straight (->) (->) (That (->) Unit) (That ML e)
-	where mapping = rwr / \from (Straight f) -> Straight (That (from (f Unit)))
+instance Mapping Straight Straight (->) (->) (That (->) ()) (That ML e)
+	where mapping = rwr / \from (Straight f) -> Straight (That (from (f ())))
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM ML (That ML e) (That ML e) ee eee) (That ML e)
@@ -404,8 +404,8 @@ instance Mapping Straight Straight (->) (->)
 		These (These _ (Straight (That eee))) (Straight f) -> That (from (f (That eee)))
 		These (These _ (Straight (This eee))) (Straight _) -> This eee
 
-instance Mapping Straight Straight (->) (->) (That (->) Void) (This ML Unit)
-	where mapping = rwr / \_ _ -> Opposite (That Unit)
+instance Mapping Straight Straight (->) (->) (That (->) Void) (This ML ())
+	where mapping = rwr / \_ _ -> Opposite (That ())
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM ML (This ML e) (This ML e) ee eee) (This ML e)
@@ -414,5 +414,5 @@ instance Mapping Straight Straight (->) (->)
 		These (These _ (Opposite (This eee))) (Straight f) -> This (from (f (That eee)))
 		These (These _ (Opposite (That eee))) _ -> That eee
 
-instance Mapping Straight Straight (->) (->) (That (->) Void) (That ML Unit)
-	where mapping = rwr / \_ _ -> Straight (This Unit)
+instance Mapping Straight Straight (->) (->) (That (->) Void) (That ML ())
+	where mapping = rwr / \_ _ -> Straight (This ())

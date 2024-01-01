@@ -122,8 +122,8 @@ instance Hierarchial (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) where
 		\(U_T_I_TT_I (These (I x) old)) -> These old (\new -> U_T_I_TT_I (These (I x) new))
 
 type family Ramification datastructure where
-	Ramification (Tree (U_I_I LM `T_TT_I` Optional)) = Unit `ML` Unit
-	-- Ramification (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = Unit `ML` Unit
+	Ramification (Tree (U_I_I LM `T_TT_I` Optional)) = () `ML` ()
+	-- Ramification (U_T_I_TT_I LM I (U_T_I_TT_I LM List List)) = () `ML` ()
 
 type family Branching datastructure where
 	Branching (Tree (U_I_I LM `T_TT_I` Optional)) = Optional `T_TT_I` Binary Tree

@@ -48,7 +48,6 @@
 * Define `ML` data type
 * Define `U_I_UU_I_II` data type
 * Define `Void` data type
-* Define `Unit` data type
 * Define `Representation` type family
 * Define `Representable` type class
 * Define `ro` operator

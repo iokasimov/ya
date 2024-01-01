@@ -37,15 +37,15 @@ pattern Focused e <- I e
 
 {-# COMPLETE Focused #-}
 
-type Boolean = Straight ML Unit Unit
+type Boolean = Straight ML () ()
 
 pattern False :: Boolean
-pattern False <- Straight (This Unit)
-	where False = Straight (This Unit)
+pattern False <- Straight (This ())
+	where False = Straight (This ())
 
 pattern True :: Boolean
-pattern True <- Straight (That Unit)
-	where True = Straight (That Unit)
+pattern True <- Straight (That ())
+	where True = Straight (That ())
 
 {-# COMPLETE False, True #-}
 
@@ -54,22 +54,22 @@ type Provided = Straight (->)
 provide :: Straight (->) e e
 provide = Straight identity
 
-type Optional = Straight ML Unit
+type Optional = Straight ML ()
 
 pattern None :: Optional e
-pattern None <- Straight (This Unit) where None = Straight (This Unit)
+pattern None <- Straight (This ()) where None = Straight (This ())
 
 pattern Some :: e -> Optional e
 pattern Some e <- Straight (That e) where Some e = Straight (That e)
 
 {-# COMPLETE Some, None #-}
 
-pattern Optionally :: Unit `ML` e -> Optional e
+pattern Optionally :: () `ML` e -> Optional e
 pattern Optionally e <- Straight e where Optionally e = Straight e
 
 {-# COMPLETE Optionally #-}
 
-type Halting = Straight ML Unit
+type Halting = Straight ML ()
 
 type Haltable t = JT t Halting
 
@@ -241,50 +241,50 @@ try :: forall t e o .
 try = wrap @(->) @((t `T_TT_I` Progress e) _)
 	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `JT` Progress e)
 
-type Horizontal = ML Unit Unit
+type Horizontal = ML () ()
 
 pattern Back :: Horizontal
-pattern Back <- This Unit 
-	where Back = This Unit
+pattern Back <- This () 
+	where Back = This ()
 
 pattern Forth :: Horizontal
-pattern Forth <- That Unit
-	where Forth = That Unit
+pattern Forth <- That ()
+	where Forth = That ()
 
 {-# COMPLETE Nonempty #-}
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I
 
-type Decision = ML Unit Unit
+type Decision = ML () ()
 
 pattern No :: Decision
-pattern No <- This Unit
-	where No = This Unit
+pattern No <- This ()
+	where No = This ()
 
 pattern Yes :: Decision
-pattern Yes <- That Unit
-	where Yes = That Unit
+pattern Yes <- That ()
+	where Yes = That ()
 
-type Side = ML Unit Unit
+type Side = ML () ()
 
 pattern Left :: Side
-pattern Left <- This Unit
-	where Left = This Unit
+pattern Left <- This ()
+	where Left = This ()
 
 pattern Right :: Side
-pattern Right <- That Unit
-	where Right = That Unit
+pattern Right <- That ()
+	where Right = That ()
 
-type Vertical = ML Unit Unit
+type Vertical = ML () ()
 
 pattern Down :: Vertical
-pattern Down <- This Unit
-	where Down = This Unit
+pattern Down <- This ()
+	where Down = This ()
 
 pattern Up :: Vertical
-pattern Up <- That Unit
-	where Up = That Unit
+pattern Up <- That ()
+	where Up = That ()
 
 forever ::
 	Component Natural (->) (->) (t `T_TT_I` t) t =>

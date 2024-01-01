@@ -115,13 +115,13 @@ deriving instance
 	Yoneda v x from into t 
 
 type family Representation t where
-	Representation I = Unit
+	Representation I = ()
 	Representation (U_I_II Arrow a) = a
 	Representation (T_TT_I t tt) =
 		Representation t `LM` Representation tt
 	Representation (T_TTT_TT_I t ttt tt) =
 		Representation t `LM` Representation tt `LM` Representation ttt
-	Representation (U_I_I LM) = Unit `ML` Unit
+	Representation (U_I_I LM) = () `ML` ()
 
 class
 	 ( Transformation v x from into t (v hom (Representation t))
@@ -140,7 +140,7 @@ type family Object diagram = r | r -> diagram where
 	Object (Both (Opposite Arrow)) = ML
 
 type family Neutral p where
-	Neutral LM = Unit
+	Neutral LM = ()
 	Neutral ML = Void
 
 class
@@ -249,8 +249,8 @@ empty :: forall t . Monoidal Straight Functor (->) LM ML t => t Void
 empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Monoidal Straight Functor (->) LM LM t => t Unit
-enter = component @Straight @(->) @(->) @(Straight (->) Unit) @t (U_I_II identity)
+enter :: forall t . Monoidal Straight Functor (->) LM LM t => t ()
+enter = component @Straight @(->) @(->) @(Straight (->) ()) @t (U_I_II identity)
 
 rwr :: forall o into a .
 	Precategory into =>
