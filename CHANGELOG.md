@@ -313,3 +313,4 @@
 * Define `TI` type alias
 * Define `rwr_rf` operator
 * Define `rw_rf` operator
+* Define `yi_o` operator
