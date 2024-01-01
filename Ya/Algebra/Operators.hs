@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_rw_o`, `a_o`, `a_yokl`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
@@ -326,13 +326,14 @@ fio_fo :: forall from into t tt e a o .
 	from a o -> into (t e (tt a)) (t e (tt o))
 fio_fo from = fio @into @into (fo @from @into from)
 
-o, yi_o :: forall from into u i a o .
+o, u_o, yi_o :: forall from into u i a o .
 	Precategory into =>
 	Covariant Yoneda Functor from into (U_I_II u i) =>
 	Castable Opposite into (U_I_II from a o) =>
 	Castable Straight into (U_I_II u i o) =>
 	u i a -> into (from a o) (u i o)
 o x = rw `compose` yo @from @into @(U_I_II u _) (U_I_II x)
+u_o x = rw `compose` yo @from @into @(U_I_II u _) (U_I_II x)
 yi_o x = rw `compose` yo @from @into @(U_I_II u _) (U_I_II x)
 
 a :: forall into from u e a o .

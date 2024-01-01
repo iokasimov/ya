@@ -314,3 +314,4 @@
 * Define `rwr_rf` operator
 * Define `rw_rf` operator
 * Define `yi_o` operator
+* Define `u_o` operator
