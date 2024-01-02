@@ -416,3 +416,13 @@ instance Mapping Straight Straight (->) (->)
 
 instance Mapping Straight Straight (->) (->) (That (->) Void) (That ML ())
 	where mapping = rwr / \_ _ -> Straight (This ())
+
+instance Mapping Straight Straight (->) (->) (U_I_II (->) (ML () ())) (U_I_I LM)
+	where mapping = rwr / \from -> rwr / \f -> These
+		(from `compose` f / This ())
+		(from `compose` f / That ())
+
+instance Mapping Straight Straight (->) (->) (U_I_I LM) (U_I_II (->) (ML () ()))
+	where mapping = rwr / \from -> rwr / \(These x y) -> \case
+		This () -> from x
+		That () -> from y
