@@ -161,6 +161,21 @@ pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
 {-# COMPLETE Construct #-}
 
+-- TODO: maybe it should be a Reference, not an Attribute?
+top :: forall t e .
+	Attribute (Construction t e) e
+top = W_I_II_II `compose` U_I_UU_III_U_II_I /
+	\(Construct old xs) -> These / old / \new -> Construct new xs
+
+-- TODO: maybe it should be a Reference, not an Attribute?
+sub :: forall t e .
+	Covariant Endo Semi Functor (->) t =>
+	Attribute (Construction t e) (t (Construction t e))
+sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
+	\(Construct x old) -> These
+		(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
+		(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+
 pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
 	where Yet x xs = Recursive (U_I_T_II (These x xs))
