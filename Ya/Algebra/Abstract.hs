@@ -326,3 +326,12 @@ type family Same a b where
 type family JT effect where
 	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
 	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+
+this :: e `LM` ee -> e
+this (These x _) = x
+
+that :: e `LM` ee -> ee
+that (These _ x) = x
+
+constant :: e -> ee -> e
+constant x _ = x
