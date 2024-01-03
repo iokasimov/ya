@@ -426,3 +426,24 @@ instance Mapping Straight Straight (->) (->) (U_I_I LM) (U_I_II (->) (ML () ()))
 	where mapping = rwr / \from -> rwr / \(These x y) -> \case
 		This () -> from x
 		That () -> from y
+
+instance Mapping Straight Straight
+	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+	(U_I_I LM) (U_I_II (->) (ML () ()))
+	where mapping = rwr `compose` rwr `compose` rwr / \from (U_I_I (These x y)) -> These
+		/ U_I_II (\case { This () -> this (from x); That () -> this (from y) })
+		/ \(U_I_II f) -> U_I_I (These
+			/ that (from x) (f (This ()))
+			/ that (from x) (f (That ()))
+			)
+
+instance Mapping Straight Straight
+	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+	(U_I_II (->) (ML () ())) (U_I_I LM)
+	where mapping = rwr `compose` rwr `compose` rwr / \from (U_I_II f) -> These
+		/ U_I_I (These / this (from (f (This ()))) / this (from (f (That ()))))
+		/ \(U_I_I (These x y)) -> U_I_II / \case
+			This () -> that (from (f (This ()))) x
+			That () -> that (from (f (That ()))) y
