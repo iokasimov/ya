@@ -1,5 +1,6 @@
 # 0.0.1
 * Define `Castable` type class
+* Define `cast` method
 * Define `I` data type
 * Define `Supertype` type family
 * Define `U_I_I` data type
@@ -19,15 +20,16 @@
 * Define `U_V_UU_UUU_UUUU_T_TT_I_II_III` data type
 * Define `R_U_I_T_I` data type
 * Define `Mapping` type class
+* Define `map` method
 * Define `unwrap` expression
 * Define `wrap` expression
 * Define `Precategory` type class
 * Define `Category` type class
+* Define `identity` method
 * Define `i` operator
 * Define `i_i` operator
 * Define `i_i_i` operator
 * Define `component` expression
-* Define `Mapping` type class
 * Define `Functor` type alias
 * Define `Compositional` type class
 * Define `Natural` type alias
@@ -92,6 +94,7 @@
 * Define `replace` expression
 * Define `transit` expression
 * Define `Field` type class
+* Define `itme` method
 * Define `start` expression
 * Define `_yokl` operator
 * Define `Same` type family
@@ -127,7 +130,8 @@
 * Define `layer` expression
 * Define `embed` expression
 * Define `Stack` type class
-* Define `Factor` type class
+* Define `push` method
+* Define `pop` method
 * Define `Object` data family
 * Define `Co` type family
 * Define `Limit` type alias
@@ -165,6 +169,7 @@
 * Define `Orientation` type family
 * Define `Scrolling` type family
 * Define `Scrollable` type class
+* Define `scroll` method
 * Define `Horizontal` type alias
 * Define `Forward` pattern synonym
 * Define `Backward` pattern synonym
@@ -174,6 +179,8 @@
 * Define `a_a` operator
 * Define `lm` operator
 * Define `Hierarchial` type class
+* Define `root` method
+* Define `subs` method
 * Define `ya_` operator
 * Define `U_I_1` data type
 * Define `fu` operator
@@ -183,6 +190,7 @@
 * Define `Ramification` type family
 * Define `Branching` type family
 * Define `Brancheable` type class
+* Define `branch` method
 * Define `statefully` expression
 * Define `o_yokl` operator
 * Define `Constant` type alias
@@ -258,6 +266,7 @@
 * Define `o_rw` operator
 * Define `lm_dp` operator
 * Define `Fastenable` type class
+* Define `fasten` method
 * Define `forever` expression
 * Define `this` expression
 * Define `that` expression
