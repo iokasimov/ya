@@ -429,17 +429,17 @@ u_u_u_u_u_u_u_u_u x = rw `compose` rw `compose` yo @from @into @(U_1_I from _)
 u_u_u_u_u_u_u_u_u_u x = rw `compose` rw `compose` yo @from @into @(U_1_I from _)
 	(U_1_I @from @i / wrap @(->) @(from _ _) x)
 
-ro :: forall from into hom t i .
-	Covariant (Representable hom) Functor from into t =>
+ro :: forall into hom t i .
+	Covariant (Representable hom) Functor into into t =>
 	Castable Straight into (Straight hom (Representation t) i) =>
 	into (t i) (hom (Representation t) i)
-ro = rw `compose` component @Straight @from @into @t @(Straight hom (Representation t))
+ro = rw `compose` component @Straight @into @into @t @(Straight hom (Representation t))
 
-ra :: forall from into hom t i .
-	Contravariant (Representable hom) Functor from into t =>
+ra :: forall into hom t i .
+	Contravariant (Representable hom) Functor into into t =>
 	Castable Straight into (Opposite hom (Representation t) i) =>
 	into (t i) (hom i (Representation t))
-ra = rw `compose` component @Opposite @from @into @t @(Opposite hom (Representation t))
+ra = rw `compose` component @Opposite @into @into @t @(Opposite hom (Representation t))
 
 lj :: forall from into t tt a o .
 	Adjoint Functor from into t tt =>
