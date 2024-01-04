@@ -332,7 +332,7 @@ instance Mapping Straight Straight (->) (->)
 
 instance
 	( Component Natural (->) (->) (t `T_TT_I` t) t
-	, Covariant Yoneda Functor (->) (->) t
+	, Covariant Yoneda (->) (->) t
 	) => Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM LM (T_TTT_TT_I (That (->) e) (That LM e) t) (T_TTT_TT_I (That (->) e) (That LM e) t) ee eee)
 		(T_TTT_TT_I (That (->) e) (That LM e) t)

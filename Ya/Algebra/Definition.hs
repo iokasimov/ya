@@ -96,8 +96,8 @@ type Contravariant t = t Opposite
 
 type Kleisli u t = U_I_T_II t u
 
-class (forall r . Transformation v x from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
-	Yoneda v x from into t where
+class (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+	Yoneda v from into t where
 	yoneda :: forall a r .
 		Category from =>
 		Precategory into =>
@@ -110,9 +110,8 @@ class (forall r . Transformation v x from Arrow t (UU_V_U_I_II_T_II v from into 
 		`compose` wrap @into @(v from a r)
 
 deriving instance
-	(forall e . Transformation v x from Arrow t
-		(UU_V_U_I_II_T_II v from into t e)) =>
-	Yoneda v x from into t 
+	(Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+	Yoneda v from into t 
 
 type family Representation t where
 	Representation I = ()
@@ -124,29 +123,34 @@ type family Representation t where
 	Representation (U_I_I LM) = () `ML` ()
 
 class
-	 ( Transformation v x from into t (v hom (Representation t))
-	 , Transformation v x from into (v hom (Representation t)) t
-	 ) => Representable hom v x from into t
+	 ( Mapping v Straight from into t (v hom (Representation t))
+	 , Mapping v Straight from into (v hom (Representation t)) t
+	 ) => Representable hom v from into t
 
 deriving instance
-	( Transformation v x from into t (v hom (Representation t))
-	, Transformation v x from into (v hom (Representation t)) t
-	) => Representable hom v x from into t
+	( Mapping v Straight from into t (v hom (Representation t))
+	, Mapping v Straight from into (v hom (Representation t)) t
+	) => Representable hom v from into t
 
 rep :: forall into hom t i .
 	Category (->) =>
+	Category into =>
+	Covariant Endo Semi Functor into t =>
 	Covariant Endo Semi Functor (->) (Straight hom (Representation t)) =>
-	Covariant (Representable hom) Functor into into t =>
-	Component Natural (->) (->)
+	Covariant (Representable hom) into into t =>
+	Mapping Straight Straight (->) (->)
 		(T_TT_I (Straight into (t i)) (Straight hom (Representation t)))
 		(TT_T_I (Straight into (t i)) (Straight hom (Representation t))) =>
 	Castable Straight into (Straight hom (Representation t) i) =>
 	hom (Representation t) (into (t i) i)
-rep = unwrap `compose` map @Straight @Straight @_ @(->) @(Straight hom (Representation t)) @(Straight hom (Representation t)) unwrap / wrapped
-	(component @Straight @(->) @(->)
-		@(T_TT_I (Straight into _) (Straight hom (Representation t)))
-		@(TT_T_I (Straight into _) (Straight hom (Representation t))))
-	(wrap @(->) @(U_I_II into _ _) / component @Straight @into @into @t @(Straight hom (Representation t)))
+rep = unwrap `compose` map @Straight @Straight @_ @(->)
+	@(Straight hom (Representation t))
+	@(Straight hom (Representation t))
+		unwrap / wrapped
+		(map @Straight @Straight @(->) @(->)
+			@(T_TT_I (Straight into _) (Straight hom (Representation t)))
+			@(TT_T_I (Straight into _) (Straight hom (Representation t))) identity)
+		(wrap @(->) @(U_I_II into _ _) / map @Straight @Straight @into @into @t @(Straight hom (Representation t)) identity)
 
 type family Co x where Co (x Straight) = x Opposite
 
