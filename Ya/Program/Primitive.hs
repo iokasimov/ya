@@ -137,12 +137,12 @@ statefully ::
 	e -> JT (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
-type Scenario = Opposite Automata
+type Transition = Opposite Automata
 
-pattern Scenario :: Automata state result -> Scenario result state
-pattern Scenario x <- Opposite x where Scenario x = Opposite x
+pattern Transition :: Automata state result -> Transition result state
+pattern Transition x <- Opposite x where Transition x = Opposite x
 
-{-# COMPLETE Scenario #-}
+{-# COMPLETE Transition #-}
 
 type Construction = R_U_I_T_I LM
 

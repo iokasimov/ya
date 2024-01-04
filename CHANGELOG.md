@@ -119,9 +119,9 @@
 * Define `Interrupt` patter synonym
 * Define `Automata` type alias
 * Define `Stateful` type alias
-* Define `Scenario` type alias
+* Define `Transition` type alias
 * Define `Statefully` pattern synonym
-* Define `Scenario` pattern synonym
+* Define `Transition` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator
 * Define `layer` expression
