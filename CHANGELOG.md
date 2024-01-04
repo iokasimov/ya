@@ -316,3 +316,4 @@
 * Define `u_o` operator
 * Define `top` expression
 * Define `sub` expression
+* Define `rep` expression

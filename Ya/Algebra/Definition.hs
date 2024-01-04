@@ -133,6 +133,21 @@ deriving instance
 	, Transformation v x from into (v hom (Representation t)) t
 	) => Representable hom v x from into t
 
+rep :: forall into hom t i .
+	Category (->) =>
+	Covariant Endo Semi Functor (->) (Straight hom (Representation t)) =>
+	Covariant (Representable hom) Functor into into t =>
+	Component Natural (->) (->)
+		(T_TT_I (Straight into (t i)) (Straight hom (Representation t)))
+		(TT_T_I (Straight into (t i)) (Straight hom (Representation t))) =>
+	Castable Straight into (Straight hom (Representation t) i) =>
+	hom (Representation t) (into (t i) i)
+rep = unwrap `compose` map @Straight @Straight @_ @(->) @(Straight hom (Representation t)) @(Straight hom (Representation t)) unwrap / wrapped
+	(component @Straight @(->) @(->)
+		@(T_TT_I (Straight into _) (Straight hom (Representation t)))
+		@(TT_T_I (Straight into _) (Straight hom (Representation t))))
+	(wrap @(->) @(U_I_II into _ _) / component @Straight @into @into @t @(Straight hom (Representation t)))
+
 type family Co x where Co (x Straight) = x Opposite
 
 type family Object diagram = r | r -> diagram where
