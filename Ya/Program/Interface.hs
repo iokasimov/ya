@@ -41,8 +41,8 @@ type family Vector x xs where
 	Vector x y = Same x y
 
 class Stack datastructure where
-	pop :: Transition `TI` datastructure item `TI` Optional item
-	push :: item -> Transition `TI` datastructure item `TI` item
+	pop :: Automata `TI` datastructure item `TI` Optional item
+	push :: item -> Automata `TI` datastructure item `TI` item
 
 instance Stack List where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
@@ -65,7 +65,7 @@ type family Orientation datastructure where
 	Orientation List = Horizontal
 
 class Scrollable datastructure where
-	scroll :: Orientation datastructure -> Transition
+	scroll :: Orientation datastructure -> Automata
 		`TI` Scrolling datastructure item
 		`TI` Optional (Scrolling datastructure item)
 

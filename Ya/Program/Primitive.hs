@@ -106,28 +106,28 @@ adjust attr f s = let (These h x) = attr `rw_rw` s in x `i`f h
 		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
 
-type Transition = W_I_I_II (U_I_UU_II_III (->) LM)
+type Automata = W_I_I_II (U_I_UU_II_III (->) LM)
 
-observe :: Transition state state
+observe :: Automata state state
 observe = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These `i` old `i_i` old
 
-replace :: state -> Transition state state
+replace :: state -> Automata state state
 replace new = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These new old
 
-transit :: (state -> state) -> Transition state state
+transit :: (state -> state) -> Automata state state
 transit f = W_I_I_II `i_i` U_I_UU_II_III `i` \s -> These `i` f s `i_i` s
 
-start :: state -> Transition state result -> state `LM` result
+start :: state -> Automata state result -> state `LM` result
 start state stateful = stateful `rw_rw` state
 
-instant :: Transition state result -> state -> state
+instant :: Automata state result -> state -> state
 instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 
-type Stateful = Straight Transition
+type Stateful = Straight Automata
 
 type Statefully t state = JT (Stateful state) t
 
-pattern Statefully :: Transition state result -> Stateful state result
+pattern Statefully :: Automata state result -> Stateful state result
 pattern Statefully x <- Straight x where Statefully x = Straight x
 
 {-# COMPLETE Statefully #-}
@@ -137,9 +137,9 @@ statefully ::
 	e -> JT (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
-type Scenario = Opposite Transition
+type Scenario = Opposite Automata
 
-pattern Scenario :: Transition state result -> Scenario result state
+pattern Scenario :: Automata state result -> Scenario result state
 pattern Scenario x <- Opposite x where Scenario x = Opposite x
 
 {-# COMPLETE Scenario #-}
