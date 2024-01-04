@@ -218,8 +218,13 @@ pattern Empty <- T_TT_I None where Empty = T_TT_I None
 
 type Tree = Construction
 
+type Twice = T_TT_I (U_I_I LM)
+
 type family Binary tree where
-	Binary Tree = Tree (U_I_I LM `T_TT_I` Optional)
+	Binary Tree = Tree (Twice Optional)
+
+type family Forest tree where
+	Forest (Construction t) = t `T_TT_I` Construction t
 
 engage :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
 engage x = enter `yu` x
