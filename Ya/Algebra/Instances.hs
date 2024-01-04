@@ -193,10 +193,10 @@ instance
 			(wrapped / map @Straight @Straight @Arrow @Arrow @(T_TT_I t tt) @(TT_T_I t tt) from) `compose`
 		rw @Arrow
 
-instance Covariant Yoneda Functor Arrow Arrow tt =>
+instance Covariant Yoneda Arrow Arrow tt =>
 	Mapping Straight Straight Arrow Arrow (This LM e `T_TT_I` tt) (This LM e `TT_T_I` tt)
 	where mapping = rwr / \from -> rwr / \(Opposite (These x e)) ->
-		yoneda @Straight @Functor x (Opposite `compose` (\x_ -> These (from x_) e))
+		yoneda @Straight x (Opposite `compose` (\x_ -> These (from x_) e))
 
 instance
 	( Covariant Semi Functor into into (Straight u e)

@@ -16,8 +16,7 @@ instance Field e (e `LM` ee)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
-instance {-# OVERLAPS #-} Field e ee =>
-	Field e (eee `LM` ee) where
+instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
 	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
 		`i` inspect (field @e @ee) fs
 		`i` \new -> These old `i` adjust (field @e @ee) (\_ -> new) fs
@@ -26,11 +25,21 @@ instance Field (t e) (U_T_I_TT_I LM t tt e)
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f_ -> U_T_I_TT_I (These f_ fs)
 
-instance {-# OVERLAPS #-} Field e (tt ee) =>
-	Field e (U_T_I_TT_I LM t tt ee) where
+instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM t tt ee) where
 	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These old fs)) -> These
 		`i` inspect (field @e @(tt ee)) fs
 		`i` \new -> U_T_I_TT_I (These old `i` adjust (field @e @(tt ee)) (\_ -> new) fs)
+
+instance Field e (Construction t e)
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+		\(Construct old xs) -> These / old / \new -> Construct new xs
+
+instance Covariant Endo Semi Functor (->) t =>
+	Field (t (Construction t e)) (Construction t e)
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+		\(Construct x old) -> These
+			(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
+			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 substructure :: forall t tt e .
 	Field (t e) (tt e) => Attribute (tt e) (t e)
