@@ -288,7 +288,6 @@
 * Define `Yes` pattern synonym
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
-* Define `substructure` expression
 * Define `o_rw_o` operator
 * Define `ds` operator
 * Define `Errorful` type alias
