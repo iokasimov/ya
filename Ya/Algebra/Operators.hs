@@ -355,15 +355,17 @@ a_a :: forall from into u i o e b .
 	u o e -> into (from i (from b o)) (from i (u b e))
 a_a = a @into @from `compose` a @from @from
 
-o_a :: forall from into u i o e b .
-	Contravariant Yoneda from from (U_II_I u e) =>
-	Covariant Yoneda into from (U_I_II from (from i o)) =>
-	Castable Opposite from (U_I_II into (u i e) b) =>
-	Castable Straight from (U_I_II from (from i o) b) =>
-	Castable Straight from (Opposite u e i) =>
-	Castable Opposite from (Opposite from o i) =>
-	u o e -> from (into (u i e) b) (from (from i o) b)
-o_a = o @into @from `compose` a @from @from
+o_a :: forall from u uu i o e ee a b .
+	Covariant Yoneda from (->) (Straight u e) =>
+	Contravariant Yoneda from (->) (Opposite u e) =>
+	Contravariant Endo Semi Functor from (Opposite uu ee) =>
+	Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+	Castable Opposite (->) (U_I_II from (uu o ee) (uu a ee)) =>
+	Castable Straight (->) (U_I_II u e (uu a ee)) =>
+	Wrapper from (U_II_I uu ee a) =>
+	Wrapper from (U_II_I uu ee o) =>
+	u e (uu o ee) -> from a o -> u e (uu a ee)
+o_a x = fai @(->) @(->) fai (o @from @(->) x)
 
 o_rw :: forall from into u e a o .
 	Precategory into =>
