@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_rw_o`, `a_o`, `a_yokl`
+infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `o_rw_o`, `a_o`, `a_yokl`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
@@ -366,6 +366,18 @@ o_a :: forall from u uu i o e ee a b .
 	Wrapper from (U_II_I uu ee o) =>
 	u e (uu o ee) -> from a o -> u e (uu a ee)
 o_a x = fai @(->) @(->) fai (o @from @(->) x)
+
+o_o :: forall from u uu i o e ee a b .
+	Covariant Yoneda from (->) (Straight u e) =>
+	Contravariant Yoneda from (->) (Opposite u e) =>
+	Covariant Endo Semi Functor from (Straight uu ee) =>
+	Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
+	Castable Opposite (->) (U_I_II from (uu o ee) (uu a ee)) =>
+	Castable Straight (->) (U_I_II u e (uu a ee)) =>
+	Wrapper from (Straight uu ee a) =>
+	Wrapper from (Straight uu ee o) =>
+	u e (uu ee a) -> from a o -> u e (uu ee o)
+o_o x = fai @(->) @(->) fio (o @from @(->) x)
 
 o_rw :: forall from into u e a o .
 	Precategory into =>
