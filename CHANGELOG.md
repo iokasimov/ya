@@ -329,3 +329,4 @@
 * Define `o_o` operator
 * Define `o_yu` operator
 * Define `section` expression
+* Define `u_o_a` operator
