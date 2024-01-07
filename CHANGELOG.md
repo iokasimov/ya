@@ -332,3 +332,4 @@
 * Define `u_o_a` operator
 * Define `u_o_yu` operator
 * Define `transform` expression
+* Define `yi_rw` operator
