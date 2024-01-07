@@ -311,3 +311,8 @@ until ::
 until x = x `yokl` \case
 	Straight (This _) -> until x
 	Straight (That e) -> enter `yu` e
+
+transform :: forall tt t e .
+	Component Straight (->) (->) t tt =>
+	t e -> tt e
+transform = component @Straight @Arrow
