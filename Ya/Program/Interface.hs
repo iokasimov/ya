@@ -12,6 +12,10 @@ class Field e r where
 instance Field e e
 	where item = identity
 
+instance Field e (Only e)
+	where item = W_I_II_II `a` U_I_UU_III_U_II_I
+		`i` \(Only x) -> These `i` x `i` \x' -> Only x
+
 instance Field e (e `LM` ee)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
