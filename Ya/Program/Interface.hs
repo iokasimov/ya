@@ -75,6 +75,16 @@ instance Stack (Construction Optional) where
 type family Scrolling datastructure where
 	Scrolling List = U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) (Forward List))
 
+instance Mapping Straight Straight Arrow Arrow
+	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM I (U_T_I_TT_I LM (Backward List) (Forward List)))
+	where mapping = rewrap / \from (Construct x xs) ->
+		U_T_I_TT_I / These (I (from x))
+		(U_T_I_TT_I (These
+			(label (Empty @List))
+			(label ((T_TT_I / xs `yo` R_U_I_T_I) `yo` from))
+			)
+		)
+
 type family Orientation datastructure where
 	Orientation List = Horizontal
 
@@ -96,21 +106,6 @@ instance Scrollable List where
 			(U_T_I_TT_I (These (I b) (U_T_I_TT_I (These (T_'_I (T_TT_I / bs `yo` R_U_I_T_I)) (T_'_I (List (Yet x (fs `yo` unwrap))))))))
 			(Some previous)
 		previous@(_) -> These previous None
-
-type family Fastening datastructure where
-	Fastening List = Nonempty List
-
-class Fastenable datastructure where
-	fasten :: Fastening datastructure e -> Scrolling datastructure e
-
-instance Fastenable List
-	where fasten (Construct x xs) =
-		U_T_I_TT_I / These (I x)
-		(U_T_I_TT_I (These
-			(label (Empty @List))
-			(label (T_TT_I / xs `yo` R_U_I_T_I))
-			)
-		)
 
 type family Substructure datastructure where
 	Substructure (Construction t) = t `T_TT_I` Construction t

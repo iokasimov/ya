@@ -265,8 +265,6 @@
 * Define `yokl_rw_yokl` operator
 * Define `o_rw` operator
 * Define `lm_dp` operator
-* Define `Fastenable` type class
-* Define `fasten` method
 * Define `forever` expression
 * Define `this` expression
 * Define `that` expression
@@ -279,7 +277,6 @@
 * Define `yoklKL_yokl` operator
 * Define `yokl_yoklKL` operator
 * Define `constant` expression
-* Define `Fastening` type family
 * Define `yi_yu` operator
 * Define `yi_yi_yu` operator
 * Define `yi_yi_yi_yu` operator
