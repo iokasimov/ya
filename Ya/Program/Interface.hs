@@ -41,6 +41,11 @@ instance Covariant Endo Semi Functor (->) t =>
 			(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
+section :: forall t tt e .
+	Field (t e) (tt e) =>
+	Attribute (tt e) (t e)
+section = item @(t e) @(tt e)
+
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
