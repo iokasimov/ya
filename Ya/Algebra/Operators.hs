@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yu`, `o_rw_o`, `a_yokl`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `u_o_a`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `u_o_a`, `u_o_yu`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
@@ -377,13 +377,14 @@ a_o :: forall from u uu o e ee a .
 	u (uu o ee) e -> from a o -> u (uu a ee) e
 a_o x = fai @(->) @(->) foi (a @u x)
 
-o_yu :: forall from u t o e a .
+o_yu, u_o_yu :: forall from u t o e a .
 	Covariant Yoneda (->) (->) (Straight u e) =>
 	Contravariant Yoneda (->) (->) (Opposite u e) =>
 	Covariant Endo Semi Functor (->) t =>
 	Mapping Constant Straight (->) (->) t t =>
 	Castable Opposite Arrow (u () o) =>
 	u e (t a) -> o -> u e (t o)
+u_o_yu x = fai @(->) @(->) (fu @(->)) (o @(->) x)
 o_yu x = fai @(->) @(->) (fu @(->)) (o @(->) x)
 
 o_rw :: forall from into u e a o .
