@@ -332,3 +332,7 @@
 * Define `yi_rw` operator
 * Define `Node` pattern synonym
 * Define `leaf` expression
+* Define `yi_lm` operator
+* Define `yi_yi_lm` operator
+* Define `yi_yi_yi_lm` operator
+* Define `yi_yi_yi_yi_lm` operator
