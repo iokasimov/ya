@@ -152,6 +152,12 @@ pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
 {-# COMPLETE Construct #-}
 
+pattern Node :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
+pattern Node x xs <- Recursive (U_I_T_II (These x xs))
+	where Node x xs = Recursive (U_I_T_II (These x xs))
+
+{-# COMPLETE Node #-}
+
 -- TODO: maybe it should be a Reference, not an Attribute?
 top :: forall tt t e .
 	(tt ~ Construction t) =>

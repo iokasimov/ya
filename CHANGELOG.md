@@ -330,3 +330,4 @@
 * Define `u_o_yu` operator
 * Define `transform` expression
 * Define `yi_rw` operator
+* Define `Node` pattern synonym
