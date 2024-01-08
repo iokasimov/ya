@@ -158,6 +158,11 @@ pattern Node x xs <- Recursive (U_I_T_II (These x xs))
 
 {-# COMPLETE Node #-}
 
+leaf :: forall t e .
+	Monoidal Straight Functor (->) LM ML t =>
+	e -> Recursive (U_I_T_II t LM e)
+leaf x = Recursive (U_I_T_II (These x (yo empty absurd)))
+
 -- TODO: maybe it should be a Reference, not an Attribute?
 top :: forall tt t e .
 	(tt ~ Construction t) =>
