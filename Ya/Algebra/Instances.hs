@@ -447,3 +447,13 @@ instance Mapping Straight Straight
 		/ \(U_I_I (These x y)) -> U_I_II / \case
 			This () -> that (from (f (This ()))) x
 			That () -> that (from (f (That ()))) y
+
+-- TODO: implement
+instance Mapping Straight Straight (->) (->)
+		(Day That (->) LM ML (U_I_I LM `T_TT_I` t) (U_I_I LM `T_TT_I` t) ee eee) (U_I_I LM `T_TT_I` t)
+
+instance Monoidal Straight Functor (->) LM ML t
+	=> Mapping Straight Straight (->) (->) (U_I_II (->) Void) (U_I_I LM `T_TT_I` t)
+	where mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
+		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
+		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
