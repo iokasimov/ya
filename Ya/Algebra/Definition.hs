@@ -135,7 +135,6 @@ deriving instance
 rep :: forall into hom t i .
 	Category (->) =>
 	Category into =>
-	-- Covariant Endo Semi Functor into t =>
 	Covariant Semi Functor into (->) (Straight hom (Representation t)) =>
 	Covariant (Representable hom) (->) into t =>
 	Mapping Straight Straight (->) (->)

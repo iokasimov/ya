@@ -348,14 +348,14 @@ a x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
 -- a_a x = fai @(->) @(->) fai (a @u x)
 
 -- This is not `right` version, but I can use it as I want to
-a_a :: forall from into u uu a o e ee .
+a_a :: forall from into u a o e ee .
 	Category into =>
 	Contravariant Yoneda from (->) (Opposite u e) =>
 	Contravariant Yoneda into (->) (Opposite (->) (u o e)) =>
 	u a e -> into ee (from o a) -> ee -> u o e
 a_a = a @into `compose` a @from
 
-o_a, u_o_a :: forall from u uu o e ee a b .
+o_a, u_o_a :: forall from u uu o e ee a .
 	Covariant Yoneda u (->) (Straight u e) =>
 	Contravariant Yoneda u (->) (Opposite u e) =>
 	Contravariant Semi Functor from u (Opposite uu ee) =>
@@ -366,7 +366,7 @@ o_a, u_o_a :: forall from u uu o e ee a b .
 u_o_a x = fai @(->) @(->) fai (o @u x)
 o_a x = fai @(->) @(->) fai (o @u x)
 
-o_o :: forall from u uu o e ee a b .
+o_o :: forall from u uu o e ee a .
 	Covariant Yoneda u (->) (Straight u e) =>
 	Contravariant Yoneda from (->) (Opposite u e) =>
 	Covariant Semi Functor from u (Straight uu ee) =>
@@ -386,7 +386,7 @@ a_o :: forall from u uu o e ee a .
 	u (uu o ee) e -> from a o -> u (uu a ee) e
 a_o x = fai @(->) @(->) foi (a @u x)
 
-o_yu, u_o_yu :: forall from u t o e a .
+o_yu, u_o_yu :: forall u t o e a .
 	Covariant Yoneda (->) (->) (Straight u e) =>
 	Contravariant Yoneda (->) (->) (Opposite u e) =>
 	Covariant Endo Semi Functor (->) t =>
@@ -396,7 +396,7 @@ o_yu, u_o_yu :: forall from u t o e a .
 u_o_yu x = fai @(->) @(->) (fu @(->)) (o @(->) x)
 o_yu x = fai @(->) @(->) (fu @(->)) (o @(->) x)
 
-o_rw :: forall from into u e a o .
+o_rw :: forall from u e a o .
 	Covariant Endo Semi Functor from (That from a) =>
 	Covariant Yoneda from (->) (U_I_II u e) =>
 	Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
@@ -704,7 +704,7 @@ rw_rw_rw :: forall into a .
 	into a (Supertype (Supertype (Supertype a)))
 rw_rw_rw = rw @into `compose` rw @into `compose` rw @into
 
-o_yokl :: forall from into u t tt a o e .
+o_yokl :: forall from u t tt a o e .
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from t =>
 	Mapping Straight Straight from from (T_TT_I t tt) t =>
