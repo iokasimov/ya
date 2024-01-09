@@ -338,13 +338,22 @@ a :: forall from u e a o .
 	u a e -> from o a -> u o e
 a x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
 
-a_a :: forall from u uu a o e ee .
-	Contravariant Yoneda u (->) (Opposite u e) =>
-	Contravariant Semi Functor from u (Opposite uu ee) =>
-	Wrapper u (Opposite uu ee o) =>
-	Wrapper u (Opposite uu ee a) =>
-	u (uu a ee) e -> from a o -> u (uu o ee) e
-a_a x = fai @(->) @(->) fai (a @u x)
+-- This it the `right` version of this operator, however I cannot use it as I need
+-- a_a :: forall from u uu a o e ee .
+	-- Contravariant Yoneda u (->) (Opposite u e) =>
+	-- Contravariant Semi Functor from u (Opposite uu ee) =>
+	-- Wrapper u (Opposite uu ee o) =>
+	-- Wrapper u (Opposite uu ee a) =>
+	-- u (uu a ee) e -> from a o -> u (uu o ee) e
+-- a_a x = fai @(->) @(->) fai (a @u x)
+
+-- This is not `right` version, but I can use it as I want to
+a_a :: forall from into u uu a o e ee .
+	Category into =>
+	Contravariant Yoneda from (->) (Opposite u e) =>
+	Contravariant Yoneda into (->) (Opposite (->) (u o e)) =>
+	u a e -> into ee (from o a) -> ee -> u o e
+a_a = a @into `compose` a @from
 
 o_a, u_o_a :: forall from u uu o e ee a b .
 	Covariant Yoneda u (->) (Straight u e) =>
