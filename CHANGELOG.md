@@ -336,3 +336,4 @@
 * Define `yi_yi_lm` operator
 * Define `yi_yi_yi_lm` operator
 * Define `yi_yi_yi_yi_lm` operator
+* Define `yio` operator
