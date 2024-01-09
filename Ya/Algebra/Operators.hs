@@ -454,45 +454,45 @@ ra = rw `compose` map @Opposite @Straight @into @into @t @(Opposite hom (Represe
 lj :: forall from into t tt a o .
 	Adjoint Functor from into t tt =>
 	Castable Straight into ((T_TT_I tt t) a) =>
-	Castable Opposite into (I a) =>
+	Castable Opposite into (Identity a) =>
 	from (t a) o -> into a (tt o)
 lj from = fo from
 	`compose` rw @into
-	`compose` component @Straight @from @into @I @(tt `T_TT_I` t)
+	`compose` component @Straight @from @into @Identity @(tt `T_TT_I` t)
 	`compose` wrap @into
 
 ilj :: forall from into t tt e ee a o .
 	Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
 	Castable Straight into ((T_TT_I (U_I_II tt ee) (U_I_II t e)) a) =>
 	Castable Straight into (U_I_II tt ee o) =>
-	Castable Opposite into (I a) =>
+	Castable Opposite into (Identity a) =>
 	Castable Straight from (U_I_II t e a) =>
 	from (t e a) o -> into a (tt ee o)
 ilj from = rw @into @(U_I_II tt _ _)
 	`compose` fo (from `compose` rw @from @(U_I_II t _ _))
 	`compose` rw @into @(T_TT_I _ _ _)
-	`compose` component @Straight @from @into @I @(U_I_II tt ee `T_TT_I` U_I_II t e)
+	`compose` component @Straight @from @into @Identity @(U_I_II tt ee `T_TT_I` U_I_II t e)
 	`compose` wrap @into
 
 rj :: forall from into t tt a o .
 	Adjoint Functor from into t tt =>
 	Castable Opposite from ((T_TT_I t tt) o) =>
-	Castable Straight from (I o) =>
+	Castable Straight from (Identity o) =>
 	into a (tt o) -> from (t a) o
-rj from = rw @from @(I _)
-	`compose` component @Straight @into @from @(t `T_TT_I` tt) @I
+rj from = rw @from @(Identity _)
+	`compose` component @Straight @into @from @(t `T_TT_I` tt) @Identity
 	`compose` wrap @from @((t `T_TT_I` tt) _)
 	`compose` fo @into @from from
 
 rij :: forall from into t tt e ee a o .
 	Adjoint Functor from into (U_I_II t ee) (U_I_II tt e) =>
 	Castable Opposite from ((T_TT_I (U_I_II t ee) (U_I_II tt e)) o) =>
-	Castable Straight from (I o) =>
+	Castable Straight from (Identity o) =>
 	Castable Opposite from (U_I_II t ee a) =>
 	Castable Opposite into (U_I_II tt e o) =>
 	into a (tt e o) -> from (t ee a) o
 rij from = rw @from
-	`compose` component @Straight @into @from @(U_I_II t ee `T_TT_I` U_I_II tt e) @I
+	`compose` component @Straight @into @from @(U_I_II t ee `T_TT_I` U_I_II tt e) @Identity
 	`compose` wrap @from @((U_I_II t ee `T_TT_I` U_I_II tt e) _)
 	`compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
 	`compose` wrap @from @(U_I_II t ee _)
@@ -510,13 +510,13 @@ fr :: forall from into i o oo .
 	Castable Straight into (This (Product into) (Product into i i) o) =>
 	Castable Opposite into (This (Product into) (Product into i i) (Product into i i)) =>
 	Wrapper into (That (Product into) o (Product into i i)) =>
-	(forall e . Wrapper into (I e)) =>
+	(forall e . Wrapper into (Identity e)) =>
 	from i o -> from i oo -> into i (Product into o oo)
 fr from_left from_right =
 	_i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
-	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity) `compose`
-	wrapped (map @Straight @Straight @from @into @I @(Both (Product into)) identity)
+	wrapped (map @Straight @Straight @from @into @Identity @(Both (Product into)) identity) `compose`
+	wrapped (map @Straight @Straight @from @into @Identity @(Both (Product into)) identity)
 
 lm, yi_lm, yi_yi_lm, yi_yi_yi_lm, yi_yi_yi_yi_lm :: forall o oo .
 	Limit Straight (->) (->) =>
@@ -530,7 +530,7 @@ lm, yi_lm, yi_yi_lm, yi_yi_yi_lm, yi_yi_yi_yi_lm :: forall o oo .
 	Castable Straight (->) (This (Product (->)) (Product (->) () ()) o) =>
 	Castable Opposite (->) (This (Product (->)) (Product (->) () ()) (Product (->) () ())) =>
 	Wrapper (->) (That (Product (->)) o (Product (->) () ())) =>
-	(forall e . Wrapper (->) (I e)) =>
+	(forall e . Wrapper (->) (Identity e)) =>
 	Castable Opposite (->) ((->) () o) =>
 	Castable Opposite (->) ((->) () oo) =>
 	Castable Straight (->) ((->) () (Product (->) o oo)) =>
@@ -538,28 +538,28 @@ lm, yi_lm, yi_yi_lm, yi_yi_yi_lm, yi_yi_yi_yi_lm :: forall o oo .
 lm from_left from_right = unwrap /
 	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 yi_lm from_left from_right = unwrap /
 	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 yi_yi_lm from_left from_right = unwrap /
 	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 yi_yi_yi_lm from_left from_right = unwrap /
 	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 yi_yi_yi_yi_lm from_left from_right = unwrap /
 	_i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
+	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 
 rf, yi_rf, yi_yi_rf :: forall from into i o oo .
 	Category from =>
@@ -574,21 +574,21 @@ rf, yi_rf, yi_yi_rf :: forall from into i o oo .
 	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
 	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
-	(forall e . Wrapper into (I e)) =>
+	(forall e . Wrapper into (Identity e)) =>
 	from o i -> from oo i -> into (Sum into o oo) i
 rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 yi_yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
@@ -605,7 +605,7 @@ rw_rf :: forall from into e i o oo .
 	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
 	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
-	(forall e . Wrapper into (I e)) =>
+	(forall e . Wrapper into (Identity e)) =>
 	(Supertype e ~ (Sum into o oo)) =>
 	Castable Straight into e =>
 	from o i -> from oo i -> into e i
@@ -626,13 +626,13 @@ rwr_rf :: forall from into r eee e ee .
 	Castable Opposite into (This (Sum into) (Sum into (Supertype r) (Supertype r)) e) =>
 	Castable Straight into (This (Sum into) (Sum into (Supertype r) (Supertype r)) (Sum into (Supertype r) (Supertype r))) =>
 	(Supertype eee ~ Sum into e ee) =>
-	(forall eeee . Wrapper into (I eeee)) =>
+	(forall eeee . Wrapper into (Identity eeee)) =>
 	Castable Opposite into r =>
 	Castable Straight into eee =>
 	from e (Supertype r) -> from ee (Supertype r) -> into eee r
 rwr_rf from_left from_right = rwr /
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @I @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
@@ -706,16 +706,10 @@ o_yokl x = fai fokl (o @from x)
 
 a_yokl :: forall from t tt a o e .
 	Covariant Functor (->) (->) tt =>
-	-- Covariant Functor (->) (->) t =>
 	Covariant Functor from (->) t =>
 	Covariant Functor from (->) tt =>
-	-- Covariant Yoneda from (->) (U_I_II (->) (from a (tt o))) =>
 	Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
 	Mapping Straight Straight from (->) (T_TT_I tt t) tt =>
-	-- Castable Opposite (->) (Straight from a (tt o)) =>
-	-- Castable Straight (->) (Opposite (->) (tt o) e) =>
-	-- Castable Opposite (->) (Opposite from (tt a) e) =>
-	-- (forall ee . Wrapper (->) (T_TT_I tt t ee)) =>
 	from a (t o) -> from e (tt a) -> e -> tt o
 a_yokl = a `compose` fokl @from @(->) @tt @t
 
@@ -733,13 +727,13 @@ fr_dp :: forall from t i o oo .
 	Castable Straight (->) (This (LM) (LM i i) o) =>
 	Castable Opposite (->) (This (LM) (LM i i) (LM i i)) =>
 	Wrapper (->) (That (LM) o (LM i i)) =>
-	(forall e . Wrapper (->) (I e)) =>
+	(forall e . Wrapper (->) (Identity e)) =>
 	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
 fr_dp from_left from_right = dp `compose`
 	_i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
-	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity) `compose`
-	wrapped (map @Straight @Straight @from @(->) @I @(Both (LM)) identity)
+	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
+	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
 lm_dp :: forall o oo t .
 	Covariant Monoidal Functor Arrow LM LM t =>

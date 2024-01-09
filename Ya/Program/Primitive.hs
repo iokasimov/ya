@@ -4,27 +4,27 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
-type Only = I
+type Only = Identity
 
 pattern Only :: e -> Only e
-pattern Only e <- I e
-	where Only e = I e
+pattern Only e <- Identity e
+	where Only e = Identity e
 
 {-# COMPLETE Only #-}
 
-type Singular = I
+type Singular = Identity
 
 pattern Singular :: e -> Singular e
-pattern Singular e <- I e
-	where Singular e = I e
+pattern Singular e <- Identity e
+	where Singular e = Identity e
 
 {-# COMPLETE Singular #-}
 
-type Focused = I
+type Focused = Identity
 
 pattern Focused :: e -> Focused e
-pattern Focused e <- I e
-	where Focused e = I e
+pattern Focused e <- Identity e
+	where Focused e = Identity e
 
 {-# COMPLETE Focused #-}
 

@@ -18,7 +18,7 @@ data ML i ii = This i | That ii
 
 newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
 
-newtype I i = I i
+newtype Identity i = Identity i
 
 newtype Recursive f = Recursive (f (Recursive f))
 
@@ -126,7 +126,7 @@ type family Flip v where
 	Flip Opposite = Straight
 
 type family Supertype e where
-	Supertype (I i) = i
+	Supertype (Identity i) = i
 	Supertype (Recursive f) = f (Recursive f)
 	Supertype (T_TT_I t tt i) = t (tt i)
 	Supertype (TT_T_I t tt i) = tt (t i)
@@ -159,11 +159,11 @@ class Castable direction morphism e where
 class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
 deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
 
-instance Castable Straight (->) (I i)
-	where cast = U_I_II (\(I x) -> x)
+instance Castable Straight (->) (Identity i)
+	where cast = U_I_II (\(Identity x) -> x)
 
-instance Castable Opposite (->) (I i)
-	where cast = U_II_I I
+instance Castable Opposite (->) (Identity i)
+	where cast = U_II_I Identity
 
 instance Castable Straight (->) (U_1_I u i ii)
 	where cast = U_I_II (\(U_1_I x) -> x)

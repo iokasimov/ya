@@ -114,7 +114,7 @@ deriving instance
 	Yoneda v from into t 
 
 type family Representation t where
-	Representation I = ()
+	Representation Identity = ()
 	Representation (U_I_II Arrow a) = a
 	Representation (T_TT_I t tt) =
 		Representation t `LM` Representation tt
@@ -135,22 +135,21 @@ deriving instance
 rep :: forall into hom t i .
 	Category (->) =>
 	Category into =>
-	Covariant Endo Semi Functor into t =>
-	Covariant Endo Semi Functor (->) (Straight hom (Representation t)) =>
-	Covariant (Representable hom) into into t =>
+	-- Covariant Endo Semi Functor into t =>
+	Covariant Semi Functor into (->) (Straight hom (Representation t)) =>
+	Covariant (Representable hom) (->) into t =>
 	Mapping Straight Straight (->) (->)
 		(T_TT_I (Straight into (t i)) (Straight hom (Representation t)))
 		(TT_T_I (Straight into (t i)) (Straight hom (Representation t))) =>
 	Castable Straight into (Straight hom (Representation t) i) =>
+	Castable Straight into (Straight into (t i) i) =>
 	hom (Representation t) (into (t i) i)
-rep = unwrap `compose` map @Straight @Straight @_ @(->)
-	@(Straight hom (Representation t))
-	@(Straight hom (Representation t))
-		unwrap / wrapped
+rep = unwrap `compose` map @Straight @Straight @into @(->) @(Straight hom (Representation t)) @(Straight hom (Representation t))
+		rw / wrapped
 		(map @Straight @Straight @(->) @(->)
 			@(T_TT_I (Straight into _) (Straight hom (Representation t)))
 			@(TT_T_I (Straight into _) (Straight hom (Representation t))) identity)
-		(wrap @(->) @(U_I_II into _ _) / map @Straight @Straight @into @into @t @(Straight hom (Representation t)) identity)
+		(wrap @(->) @(U_I_II into _ _) / map @Straight @Straight @(->) @into @t @(Straight hom (Representation t)) identity)
 
 type family Co x where Co (x Straight) = x Opposite
 
@@ -163,32 +162,32 @@ type family Neutral p where
 	Neutral ML = Void
 
 class
-	( forall e . Mapping v v from into (This u e) I
-	, forall e . Mapping v v from into (That u e) I
+	( forall e . Mapping v v from into (This u e) Identity
+	, forall e . Mapping v v from into (That u e) Identity
 	) => Cone v from into u
 
 deriving instance
-	( forall e . Mapping v v from into (This u e) I
-	, forall e . Mapping v v from into (That u e) I
+	( forall e . Mapping v v from into (This u e) Identity
+	, forall e . Mapping v v from into (That u e) Identity
 	) => Cone v from into u
 
 left :: forall v from into a o e .
 	Cone v from into (Object (Both (v into))) =>
 	Castable Opposite Arrow (v from a o) =>
-	Castable Straight Arrow (v into (This (Object (Both (v into))) e a) (I o)) =>
-	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (I o))
-left from = map @v @v @from @into @(This (Object (Both (v into))) e) @I @a @o from
+	Castable Straight Arrow (v into (This (Object (Both (v into))) e a) (Identity o)) =>
+	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (Identity o))
+left from = map @v @v @from @into @(This (Object (Both (v into))) e) @Identity @a @o from
 
 right :: forall v from into a t e .
 	Cone v from into (Object (Both (v into))) =>
 	Castable Opposite Arrow (v from a t) =>
-	Castable Straight Arrow (v into (That (Object (Both (v into))) e a) (I t)) =>
-	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (I t))
-right from = map @v @v @from @into @(That (Object (Both (v into))) e) @I @a @t from
+	Castable Straight Arrow (v into (That (Object (Both (v into))) e a) (Identity t)) =>
+	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (Identity t))
+right from = map @v @v @from @into @(That (Object (Both (v into))) e) @Identity @a @t from
 
 type Limit v from into =
 	( Cone v from into (Object (Both (v into)))
-	, Mapping v v from into I (Both (Object (Both (v into))))
+	, Mapping v v from into Identity (Both (Object (Both (v into))))
 	)
 
 type Product into = Object (Both (Straight into))
@@ -208,15 +207,15 @@ type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 class 
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T_TT_I t tt) I
-	, Transformation Straight x from into I (T_TT_I tt t)
+	, Transformation Straight x into from (T_TT_I t tt) Identity
+	, Transformation Straight x from into Identity (T_TT_I tt t)
 	) => Adjoint x from into t tt
 
 deriving instance
 	( x Straight into from t
 	, x Straight from into tt
-	, Transformation Straight x into from (T_TT_I t tt) I
-	, Transformation Straight x from into I (T_TT_I tt t)
+	, Transformation Straight x into from (T_TT_I t tt) Identity
+	, Transformation Straight x from into Identity (T_TT_I tt t)
 	) => Adjoint x from into t tt
 
 class
@@ -251,7 +250,7 @@ monoidal_ :: forall v from into t u uu a o e ee .
 	Castable Opposite into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) a) =>
 	Castable Straight into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
 	Castable Straight into (That into (u (t e) (t ee)) (t o)) =>
-	Castable Opposite into (I (v from (uu e ee) a)) =>
+	Castable Opposite into (Identity (v from (uu e ee) a)) =>
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal_ from =
 	rw @into @(That into _ _)
@@ -260,7 +259,7 @@ monoidal_ from =
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
 		`compose` rw @(->) @(That LM _ _))
 	`compose` rw @into @(T_TT_I _ _ _)
-	`compose` component @Straight @(->) @into @I @(That into _ `T_TT_I` That LM _)
+	`compose` component @Straight @(->) @into @Identity @(That into _ `T_TT_I` That LM _)
 	`compose` wrap @into
 
 -- TODO: generalize
