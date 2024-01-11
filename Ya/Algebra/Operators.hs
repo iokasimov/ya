@@ -7,7 +7,7 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `u_o_a`, `u_o_yu`, `yi_rw`
-infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
+infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
 infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`
@@ -126,6 +126,16 @@ yo_yo :: forall from into t tt a o .
 	Castable Opposite into (U_I_II from (tt a) (tt o)) =>
 	t (tt a) -> into (from a o) (t (tt o))
 yo_yo x = fai fo (yo @from @into x)
+
+yio_yo :: forall from into t tt e a o .
+	Precategory into =>
+	Contravariant Endo Semi Functor (->) (This into (t e (tt o))) =>
+	Covariant Yoneda from into (That t e) =>
+	Covariant Functor from from tt =>
+	Castable Opposite into (Straight from (tt a) (tt o)) =>
+	Castable Straight into (That t e (tt o)) =>
+	t e (tt a) -> into (from a o) (t e (tt o))
+yio_yo x = fai fo (yio @from @into x)
 
 -- TODO: yo_yo : t (tt a) -> into (from a b) (tt a -> into (from b o) (t (tt o)))
 
