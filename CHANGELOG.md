@@ -99,6 +99,7 @@
 * Define `_yokl` operator
 * Define `Same` type family
 * Define `Construction` type alias
+* Define `Root` patter synonym
 * Define `Instruction` type alias
 * Define `Instruct` patter synonym
 * Define `Load` patter synonym

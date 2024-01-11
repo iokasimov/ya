@@ -146,11 +146,11 @@ pattern Transition x <- Opposite x where Transition x = Opposite x
 
 type Construction = R_U_I_T_I LM
 
-pattern Construct :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
-pattern Construct x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
-	where Construct x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+pattern Root :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
+pattern Root x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+	where Root x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
-{-# COMPLETE Construct #-}
+{-# COMPLETE Root #-}
 
 pattern Node :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Node x xs <- Recursive (U_I_T_II (These x xs))
@@ -168,7 +168,7 @@ top :: forall tt t e .
 	(tt ~ Construction t) =>
 	Attribute (Construction t e) e
 top = W_I_II_II `compose` U_I_UU_III_U_II_I /
-	\(Construct old xs) -> These / old / \new -> Construct new xs
+	\(Root old xs) -> These / old / \new -> Root new xs
 
 -- TODO: maybe it should be a Reference, not an Attribute?
 sub :: forall tt t e .
@@ -176,9 +176,9 @@ sub :: forall tt t e .
 	Covariant Endo Semi Functor (->) t =>
 	Attribute (Construction t e) (t (Construction t e))
 sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
-	\(Construct x old) -> These
+	\(Root x old) -> These
 		(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
-		(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+		(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Yet x xs <- Recursive (U_I_T_II (These x xs))

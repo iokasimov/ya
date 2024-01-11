@@ -36,14 +36,14 @@ instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM t tt ee) whe
 
 instance Field e (Construction t e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(Construct old xs) -> These / old / \new -> Construct new xs
+		\(Root old xs) -> These / old / \new -> Root new xs
 
 instance Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(Construct x old) -> These
+		\(Root x old) -> These
 			(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 section :: forall t tt e .
 	Field (t e) (tt e) =>
@@ -77,7 +77,7 @@ type family Scrolling datastructure where
 
 instance Mapping Straight Straight Arrow Arrow
 	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM Identity (U_T_I_TT_I LM (Backward List) (Forward List)))
-	where mapping = rewrap / \from (Construct x xs) ->
+	where mapping = rewrap / \from (Root x xs) ->
 		U_T_I_TT_I / These (Identity (from x))
 		(U_T_I_TT_I (These
 			(label (Empty @List))
@@ -118,11 +118,11 @@ class Hierarchial datastructure where
 instance Covariant Endo Semi Functor (->) t
 	=> Hierarchial (Construction t) where
 	root = W_I_II_II `compose` U_I_UU_III_U_II_I /
-		\(Construct old xs) -> These / old / \new -> Construct new xs
+		\(Root old xs) -> These / old / \new -> Root new xs
 	subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
-		\(Construct x old) -> These
+		\(Root x old) -> These
 			(T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Construct x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` rw new)
+			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` rw new)
 
 instance Hierarchial (U_T_I_TT_I LM Identity (U_T_I_TT_I LM List List)) where
 	root = W_I_II_II `compose` U_I_UU_III_U_II_I /
@@ -144,13 +144,13 @@ class Hierarchial datastructure => Brancheable datastructure where
 -- TODO: refactor using limits/colimits
 instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 	branch p = W_I_II_II `compose` U_I_UU_III_U_II_I /
-		\(Construct x (T_TT_I (U_I_I (These lb rb)))) -> These
+		\(Root x (T_TT_I (U_I_I (These lb rb)))) -> These
 			/ case p of
 				This _ -> T_TT_I @Optional (wrap @(->) `fo` lb)
 				That _ -> T_TT_I @Optional (wrap @(->) `fo` rb)
 			/ \new -> case p of
-				This _ -> Construct x (T_TT_I (U_I_I (These (rw @(->) `fo` rw new) rb)))
-				That _ -> Construct x (T_TT_I (U_I_I (These lb (rw @(->) `fo` rw new))))
+				This _ -> Root x (T_TT_I (U_I_I (These (rw @(->) `fo` rw new) rb)))
+				That _ -> Root x (T_TT_I (U_I_I (These lb (rw @(->) `fo` rw new))))
 
 -- TODO: refactor using limits/colimits
 -- instance Brancheable (U_T_I_TT_I LM Identity (U_T_I_TT_I LM (Backward List) List)) where
