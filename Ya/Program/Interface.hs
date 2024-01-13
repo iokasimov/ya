@@ -163,10 +163,22 @@ instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 				-- This _ -> U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These new fs)))
 				-- This _ -> U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These rs new)))
 
+-- TODO: should I try to use recursion schemes to implement these instances below?
+
 -- TODO: experimental and highly likely very inefficient
 -- TODO: should we defined with a wrapper since it's not the only possible implementation?
-instance Mapping Straight Straight (->) (->)
-	((U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ())) `T_TT_I` (U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ())))
-	(U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ()))
+instance Mapping Straight Straight (->) (->) (List `T_TT_I` List) List
 	where mapping = rwr / \from (T_TT_I x) ->
 		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Statefully) (T_TT_I None)
+
+instance Mapping Straight Straight (->) (->)
+	(R_U_I_T_I LM Optional)
+	(R_U_I_T_I LM Optional `T_TT_I` R_U_I_T_I LM Optional)
+	where mapping = rwr / \from -> \case
+		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
+			T_TT_I `a` Nonempty @List
+				`i` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
+		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
+			T_TT_I `a` Nonempty @List
+				`a` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
+				`i` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
