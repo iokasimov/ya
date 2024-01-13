@@ -162,3 +162,11 @@ instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 			-- / \new -> case p of
 				-- This _ -> U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These new fs)))
 				-- This _ -> U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These rs new)))
+
+-- TODO: experimental and highly likely very inefficient
+-- TODO: should we defined with a wrapper since it's not the only possible implementation?
+instance Mapping Straight Straight (->) (->)
+	((U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ())) `T_TT_I` (U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ())))
+	(U_I_II ML () `T_TT_I` R_U_I_T_I LM (U_I_II ML ()))
+	where mapping = rwr / \from (T_TT_I x) ->
+		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Statefully) (T_TT_I None)
