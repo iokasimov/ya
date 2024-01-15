@@ -601,3 +601,4 @@
 * Define `yio` operator
 * Define `yio_yo` operator
 * Define `yolk` operator
+* Define `U_III_UU_I_II` data type
