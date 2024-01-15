@@ -7,18 +7,6 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Operators as Exports
 
-instance
-	( Covariant Endo Semi Functor (->) t
-	, Monoidal Straight Functor (->) LM LM tt
-	) => Mapping Straight Straight (->) (->) t (t `T_TT_I` tt)
-	where mapping = rwr / \from -> wrap `compose` map @Straight @Straight @(->) @(->) (yu enter `compose` from)
-
-instance
-	( Covariant Endo Semi Functor (->) tt
-	, Monoidal Straight Functor (->) LM LM t
-	) => Mapping Straight Straight (->) (->) tt (t `T_TT_I` tt)
-	where mapping = rwr / \from -> wrap `compose` yu enter `compose` map @Straight @Straight @(->) @(->) from
-
 -- TODO: reduce a number of transformations here
 instance
 	( Covariant Endo Semi Functor (->) t
