@@ -88,6 +88,7 @@ instance Mapping Straight Straight Arrow Arrow
 type family Orientation datastructure where
 	Orientation List = Horizontal
 
+-- TODO: use `Mapping` instance instead
 class Scrollable datastructure where
 	scroll :: Orientation datastructure -> Automata
 		`TI` Scrolling datastructure item
