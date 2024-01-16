@@ -71,6 +71,8 @@ newtype W_I_II_II w i ii = W_I_II_II (w i ii ii)
 
 newtype W_I_I_II w i ii = W_I_I_II (w i i ii)
 
+newtype W_II_II_I w i ii = W_II_II_I (w ii ii i)
+
 newtype W_III_I_II w iii ii i = W_III_I_II (w i ii iii)
 
 newtype UU_U_I_II_U_II_I u uu i ii
@@ -155,6 +157,7 @@ type family Supertype e where
 	Supertype (U_III_UU_I_II u uu iii i ii) = u i (uu ii iii)
 	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 	Supertype (W_I_II_II w i ii) = w i ii ii
+	Supertype (W_II_II_I w i ii) = w ii ii i
 	Supertype (W_I_I_II w i ii) = w i i ii
 	Supertype (W_III_I_II w iii ii i) = w i ii iii
 	Supertype (Arrow () ii) = ii
@@ -291,6 +294,12 @@ instance Castable Straight (->) (W_I_II_II u i ii)
 
 instance Castable Opposite (->) (W_I_II_II u i ii)
 	where cast = U_II_I W_I_II_II
+
+instance Castable Straight (->) (W_II_II_I w i ii)
+	where cast = U_I_II (\(W_II_II_I x) -> x)
+
+instance Castable Opposite (->) (W_II_II_I w i ii)
+	where cast = U_II_I W_II_II_I
 
 instance Castable Straight (->) (W_I_I_II u i ii)
 	where cast = U_I_II (\(W_I_I_II x) -> x)
