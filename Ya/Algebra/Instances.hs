@@ -223,6 +223,38 @@ instance
 		`compose` rw @into @(W_I_I_II _ _ _)
 		`compose` rw @into @(Straight _ _ _)
 
+-- TODO: generalize as an instance above
+instance Mapping Straight Straight (->) (->)
+	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \from -> rwr `compose` rwr `compose` rwr / \f x ->
+		wrapped (map @Straight @Straight @(->) @(->) @(This LM _) @(This LM _) from) (f x)
+
+-- TODO: I need to test it, not sure it's correct
+instance Mapping Straight Straight
+	(W_I_II_I (U_I_UU_II_III (->) LM)) (->)
+	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
+		-> rwr `compose` rwr `compose` rwr / \f x ->
+			let These btw old = f x in
+			let These new y = from btw in
+			These btw new
+
+-- TODO: I need to test it, not sure it's correct
+instance Mapping Opposite Straight
+	(W_I_II_I (U_I_UU_II_III (->) LM)) (->)
+	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
+		-> rwr `compose` rwr `compose` rwr / \f x ->
+			let These btw old = f x in
+			let These new y = from btw in
+			These btw new
+
+instance Category (W_I_II_I (U_I_UU_II_III (->) LM))
+	where identity = W_I_II_I (U_I_UU_II_III (\e -> These e e))
+
 instance Mapping Straight Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Straight Arrow Arrow t e)
 	(UU_V_U_I_II_T_II Straight Arrow Arrow t e)
