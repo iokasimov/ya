@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE UndecidableSuperClasses #-}
@@ -14,7 +15,7 @@ instance Field e e
 
 instance Field e (Only e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I
-		`i` \(Only x) -> These `i` x `i` \x' -> Only x
+		`i` \(Only x) -> These `i` x `i` \new -> Only new
 
 instance Field e (e `LM` ee)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I

@@ -195,8 +195,8 @@ instance
 
 instance Covariant Yoneda Arrow Arrow tt =>
 	Mapping Straight Straight Arrow Arrow (This LM e `T_TT_I` tt) (This LM e `TT_T_I` tt)
-	where mapping = rwr / \from -> rwr / \(Opposite (These x e)) ->
-		yoneda @Straight x (Opposite `compose` (\x_ -> These (from x_) e))
+	where mapping = rwr / \from -> rwr / \(U_II_I (These x e)) ->
+		yoneda @Straight x (U_II_I `compose` (\x_ -> These (from x_) e))
 
 instance
 	( Covariant Semi Functor into into (Straight u e)
@@ -308,7 +308,7 @@ instance Mapping Straight Straight Arrow Arrow (Straight Arrow a) (Straight Arro
 	where mapping (Straight from) = Straight / \(Straight between) -> Straight (\x -> from (between x))
 
 instance Mapping Opposite Straight Arrow Arrow (Opposite Arrow o) (Opposite Arrow o)
-	where mapping (Opposite from) = Straight / \(Opposite between) -> Opposite (\x -> between (from x))
+	where mapping (U_II_I from) = Straight / \(U_II_I between) -> U_II_I (\x -> between (from x))
 
 instance Category Arrow where
 	identity = \x -> x
@@ -331,7 +331,7 @@ instance Mapping Straight Straight Arrow Arrow (Straight LM e) Identity
 	where mapping (Straight from) = Straight / \(Straight (These _ x)) -> Identity (from x)
 
 instance Mapping Straight Straight Arrow Arrow (Opposite LM e) Identity
-	where mapping (Straight from) = Straight / \(Opposite (These x _)) -> Identity (from x)
+	where mapping (Straight from) = Straight / \(U_II_I (These x _)) -> Identity (from x)
 
 instance Mapping Straight Straight Arrow Arrow (Both ML) Identity
 	where mapping (Straight from) = Straight / \case
@@ -342,7 +342,7 @@ instance Mapping Straight Straight Arrow Arrow Identity (Straight ML e)
 	where mapping (Straight from) = Straight / \(Identity x) -> Straight (That (from x))
 
 instance Mapping Straight Straight Arrow Arrow Identity (Opposite ML e)
-	where mapping (Straight from) = Straight / \(Identity x) -> Opposite (This (from x))
+	where mapping (Straight from) = Straight / \(Identity x) -> U_II_I (This (from x))
  
 instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) Arrow
 	(Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) origin)
@@ -368,9 +368,9 @@ instance Mapping Straight Straight
 	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
 	(This LM e) Identity
 	where mapping = rwr `compose` rwr `compose` rwr /
-		\from (Opposite (These old e)) -> These 
+		\from (U_II_I (These old e)) -> These 
 			(Identity (wrapped (left @Straight @(->) identity) (from old)))
-			(\(Identity new) -> Opposite (These ((wrapped (right @Straight @(->) identity) (from old)) new) e))
+			(\(Identity new) -> U_II_I (These ((wrapped (right @Straight @(->) identity) (from old)) new) e))
 
 instance Mapping Straight Straight
 	(W_I_II_II (U_I_UU_III_U_II_I (->) LM))
@@ -401,11 +401,11 @@ instance Mapping Straight Straight (->) (->) (Straight (->) ()) Identity
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM LM (This ML e) (This ML e) ee eee) (This ML e)
 	where mapping = rwr / \from -> rwr / \case
-		These (These (Opposite (This ee)) (Opposite (This eee))) (Straight f) -> This (from (f (These ee eee)))
-		These (These (Opposite (That e)) _) _ -> That e
+		These (These (U_II_I (This ee)) (U_II_I (This eee))) (Straight f) -> This (from (f (These ee eee)))
+		These (These (U_II_I (That e)) _) _ -> That e
 
 instance Mapping Straight Straight (->) (->) (That (->) ()) (This ML e)
-	where mapping = rwr / \from (Straight f) -> Opposite (This (from (f ())))
+	where mapping = rwr / \from (Straight f) -> U_II_I (This (from (f ())))
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM LM (That ML e) (That ML e) ee eee) (That ML e)
@@ -437,14 +437,14 @@ instance Mapping Straight Straight (->) (->)
 		These (These _ (Straight (This eee))) (Straight _) -> This eee
 
 instance Mapping Straight Straight (->) (->) (That (->) Void) (This ML ())
-	where mapping = rwr / \_ _ -> Opposite (That ())
+	where mapping = rwr / \_ _ -> U_II_I (That ())
 
 instance Mapping Straight Straight (->) (->)
 		(Day That (->) LM ML (This ML e) (This ML e) ee eee) (This ML e)
 	where mapping = rwr / \from -> rwr / \case
-		These (These (Opposite (This ee)) _) (Straight f) -> This (from (f (This ee)))
-		These (These _ (Opposite (This eee))) (Straight f) -> This (from (f (That eee)))
-		These (These _ (Opposite (That eee))) _ -> That eee
+		These (These (U_II_I (This ee)) _) (Straight f) -> This (from (f (This ee)))
+		These (These _ (U_II_I (This eee))) (Straight f) -> This (from (f (That eee)))
+		These (These _ (U_II_I (That eee))) _ -> That eee
 
 instance Mapping Straight Straight (->) (->) (That (->) Void) (That ML ())
 	where mapping = rwr / \_ _ -> Straight (This ())

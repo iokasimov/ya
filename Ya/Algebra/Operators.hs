@@ -642,7 +642,7 @@ rw_rf :: forall from into e i o oo .
 	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
 	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
 	Wrapper into (That (Sum into) o (Sum into i i)) =>
-	(forall e . Wrapper into (Identity e)) =>
+	(forall ee . Wrapper into (Identity ee)) =>
 	(Supertype e ~ (Sum into o oo)) =>
 	Castable Straight into e =>
 	from o i -> from oo i -> into e i
