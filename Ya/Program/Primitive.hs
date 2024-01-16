@@ -128,15 +128,6 @@ pattern State x = W_I_I_II x
 
 type Automata = W_I_I_II (U_I_UU_II_III (->) LM)
 
-observe :: Automata state state
-observe = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These `i` old `i_i` old
-
-replace :: state -> Automata state state
-replace new = W_I_I_II `i_i` U_I_UU_II_III `i` \old -> These new old
-
-transit :: (state -> state) -> Automata state state
-transit f = W_I_I_II `i_i` U_I_UU_II_III `i` \s -> These `i` f s `i_i` s
-
 start :: state -> Automata state result -> state `LM` result
 start state stateful = stateful `rw_rw` state
 
