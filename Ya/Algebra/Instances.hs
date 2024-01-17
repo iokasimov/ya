@@ -221,10 +221,10 @@ instance Mapping Straight Straight
 	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
 	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
-		-> rwr `compose` rwr `compose` rwr / \f x ->
-			let These btw _ = f x in
-			let These new _ = from btw in
-			These btw new
+		-> rwr `compose` rwr `compose` rwr / \trstn e ->
+			let These old e' = trstn e in
+			let These new _ = from old in
+			These new e'
 
 -- TODO: I need to test it, not sure it's correct
 instance Mapping Opposite Straight
@@ -232,10 +232,10 @@ instance Mapping Opposite Straight
 	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
 	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
-		-> rwr `compose` rwr `compose` rwr / \f x ->
-			let These btw _ = f x in
-			let These new _ = from btw in
-			These btw new
+		-> rwr `compose` rwr `compose` rwr / \trstn new ->
+			let These old new' = from new in
+			let These e old' = trstn old in
+			These e new'
 
 instance Category (W_I_II_I (U_I_UU_II_III (->) LM))
 	where identity = W_I_II_I (U_I_UU_II_III (\e -> These e e))
