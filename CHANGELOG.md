@@ -120,9 +120,7 @@
 * Define `Interrupt` patter synonym
 * Define `Automata` type alias
 * Define `Stateful` type alias
-* Define `Transition` type alias
 * Define `Statefully` pattern synonym
-* Define `Transition` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator
 * Define `layer` expression
@@ -605,6 +603,6 @@
 * Define `Transition'` type alias
 * Define `State` type alias
 * Define `Statefully'` pattern
-* Define `Transition'` pattern
+* Define `Transition` pattern
 * Define `switch` expression
 * Define `review` expression

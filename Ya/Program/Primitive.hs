@@ -115,10 +115,10 @@ switch f = U_I_UU_II_III `i` \s -> These `i` f s `i` s
 review :: Automation old old old
 review = U_I_UU_II_III `i` \old -> These `i` old `i` old
 
-type Transition' = W_I_II_I Automation
+type Transition = W_I_II_I Automation
 
-pattern Transition' :: Automation old new old -> Transition' old new
-pattern Transition' x = W_I_II_I x
+pattern Transition :: Automation old new old -> Transition old new
+pattern Transition x = W_I_II_I x
 
 pattern Statefully' :: Automation state state result -> Stateful state result
 pattern Statefully' x = Straight (W_I_I_II x)
@@ -147,13 +147,6 @@ statefully ::
 	Covariant Endo Semi Functor (->) t =>
 	e -> JT (Stateful e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
-
-type Transition = Opposite Automata
-
-pattern Transition :: Automata state result -> Transition result state
-pattern Transition x <- Opposite x where Transition x = Opposite x
-
-{-# COMPLETE Transition #-}
 
 type Construction = R_U_I_T_I LM
 
