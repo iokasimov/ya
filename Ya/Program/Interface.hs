@@ -56,22 +56,22 @@ type family Vector x xs where
 	Vector x y = Same x y
 
 class Stack datastructure where
-	pop :: Automata `TI` datastructure item `TI` Optional item
-	push :: item -> Automata `TI` datastructure item `TI` item
+	pop :: Automation `TI` datastructure item `TI` datastructure item `TI` Optional item
+	push :: item -> Automation `TI` datastructure item `TI` datastructure item `TI` item
 
 instance Stack List where
-	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
+	pop = U_I_UU_II_III `i` \case
 		Empty @List -> These `i` Empty @List `i` None
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
+	push x = U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
 instance Stack (Construction Optional) where
-	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
+	pop = U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
 		Nonempty @List (Yet x None) -> These `i_i` Nonempty @List `i` Yet x None `i_i` None
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
+	push x = U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure where
 	Scrolling List = U_T_I_TT_I LM Identity (U_T_I_TT_I LM (Backward List) (Forward List))
@@ -171,7 +171,7 @@ instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 -- TODO: should we defined with a wrapper since it's not the only possible implementation?
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` List) List
 	where mapping = rwr / \from (T_TT_I x) ->
-		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Straight) (T_TT_I None)
+		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Statefully) (T_TT_I None)
 
 instance Mapping Straight Straight (->) (->)
 	(R_U_I_T_I LM Optional)
