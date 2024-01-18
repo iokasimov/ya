@@ -120,8 +120,8 @@ type Transition = W_I_II_I Automation
 pattern Transition :: Automation old new old -> Transition old new
 pattern Transition x = W_I_II_I x
 
-pattern Statefully' :: Automation state state result -> Stateful state result
-pattern Statefully' x = Straight (W_I_I_II x)
+pattern Statefully :: Automation state state result -> Stateful state result
+pattern Statefully x = Straight (W_I_I_II x)
 
 pattern State :: Automation state state result -> Automata state result
 pattern State x = W_I_I_II x
@@ -137,11 +137,6 @@ instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 type Stateful = Straight Automata
 
 type Statefully t state = JT (Stateful state) t
-
-pattern Statefully :: Automata state result -> Stateful state result
-pattern Statefully x <- Straight x where Statefully x = Straight x
-
-{-# COMPLETE Statefully #-}
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>

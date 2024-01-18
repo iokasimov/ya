@@ -171,7 +171,7 @@ instance Brancheable (Tree (U_I_I LM `T_TT_I` Optional)) where
 -- TODO: should we defined with a wrapper since it's not the only possible implementation?
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` List) List
 	where mapping = rwr / \from (T_TT_I x) ->
-		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Statefully) (T_TT_I None)
+		instant (unwrap / Backward x `yo` Backward `yoklKL_yoklKL` from `o` push `o` Straight) (T_TT_I None)
 
 instance Mapping Straight Straight (->) (->)
 	(R_U_I_T_I LM Optional)

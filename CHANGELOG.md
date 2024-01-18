@@ -566,7 +566,6 @@
 * Define `yoklKL_yoklKL` operator
 * Define `Halting` type alias
 * Define `Haltable` type alias
-* Define `Statefully` type alias
 * Define `ARR` type alias
 * Define `o_rwr_yoi` operator
 * Define `yi_yokl` operator
@@ -602,7 +601,7 @@
 * Define `Automation` type alias
 * Define `Transition'` type alias
 * Define `State` type alias
-* Define `Statefully'` pattern
+* Define `Statefully` pattern
 * Define `Transition` pattern
 * Define `switch` expression
 * Define `review` expression
