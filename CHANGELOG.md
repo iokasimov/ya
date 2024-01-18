@@ -174,19 +174,12 @@
 * Define `u` operator
 * Define `a_a` operator
 * Define `lm` operator
-* Define `Hierarchial` type class
-* Define `root` method
-* Define `subs` method
 * Define `ya_` operator
 * Define `U_I_1` data type
 * Define `fu` operator
 * Define `Side` type alias
 * Define `Left` type alias
 * Define `Right` type alias
-* Define `Ramification` type family
-* Define `Branching` type family
-* Define `Brancheable` type class
-* Define `branch` method
 * Define `statefully` expression
 * Define `o_yokl` operator
 * Define `Constant` type alias
