@@ -43,7 +43,7 @@ instance Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
-			(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
+			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 section :: forall t tt e .
@@ -100,7 +100,7 @@ class Scrollable datastructure where
 instance Scrollable List where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These (T_'_I (T_TT_I bs)) (T_'_I (List (Yet f fs))))))) -> These
-			(U_T_I_TT_I (These (Identity f) (U_T_I_TT_I (These (T_'_I (List (Yet x (bs `yo` unwrap)))) (T_'_I (T_TT_I / fs `yo` wrap @(->)))))))
+			(U_T_I_TT_I (These (Identity f) (U_T_I_TT_I (These (T_'_I (List (Yet x (bs `yo` unwrap)))) (T_'_I (T_TT_I / fs `yo` wrap ))))))
 			(Some previous)
 		previous@(_) -> These previous None
 	scroll (This _) = W_I_I_II `a` U_I_UU_II_III `yi` \case

@@ -22,7 +22,7 @@ map :: forall v vv from into t tt a o .
 	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (vv into (t a) (tt o)) =>
 	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
-map from = rw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap @Arrow from))
+map from = rw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
 type Component v = Transformation v Functor
 
@@ -31,7 +31,7 @@ component :: forall v from into t tt o .
 	(Supertype (v from o o) ~ from o o) =>
 	Castable Opposite Arrow (v from o o) =>
 	into (t o) (tt o)
-component = rw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap @Arrow identity))
+component = rw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -107,7 +107,7 @@ class (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_
 		t a -> into (Supertype (v from a r)) (t r)
 	yoneda x = rw
 		(map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
-		`compose` wrap @into @(v from a r)
+		`compose` wr @into @(v from a r)
 
 deriving instance
 	(Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
@@ -148,7 +148,7 @@ rep = unwrap `compose` map @Straight @Straight @into @(->) @(Straight hom (Repre
 		(map @Straight @Straight @(->) @(->)
 			@(T_TT_I (Straight into _) (Straight hom (Representation t)))
 			@(TT_T_I (Straight into _) (Straight hom (Representation t))) identity)
-		(wrap @(->) @(U_I_II into _ _) / map @Straight @Straight @(->) @into @t @(Straight hom (Representation t)) identity)
+		(wrap @(U_I_II into _ _) / map @Straight @Straight @(->) @into @t @(Straight hom (Representation t)) identity)
 
 type family Co x where Co (x Straight) = x Opposite
 
@@ -238,7 +238,7 @@ day :: forall v from t u uu a o e ee .
 		-> u (t e) (t ee) -> t o
 day from t x = map @v @Straight @from @(->)
 	@(Day v from u uu t t e ee) @t from
-	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @Arrow @(v from (uu e ee) a) t)))
+	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @(v from (uu e ee) a) t)))
 
 monoidal_ :: forall v from into t u uu a o e ee .
 	Adjoint Functor (->) into
@@ -259,7 +259,7 @@ monoidal_ from =
 		`compose` rw @(->) @(That LM _ _))
 	`compose` rw @into @(T_TT_I _ _ _)
 	`compose` component @Straight @(->) @into @Identity @(That into _ `T_TT_I` That LM _)
-	`compose` wrap @into
+	`compose` wr @into
 
 -- TODO: generalize
 empty :: forall t . Monoidal Straight Functor (->) LM ML t => t Void
@@ -274,35 +274,35 @@ rwr :: forall o into a .
 	Castable Opposite into o => 
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
-rwr f = wrap `compose` f `compose` rw
+rwr f = wr `compose` f `compose` rw
 
 rewrap :: forall o a .
 	Precategory (->) =>
 	Castable Opposite (->) o => 
 	Castable Straight (->) a =>
 	(Supertype a -> Supertype o) -> a -> o
-rewrap f = wrap `compose` f `compose` rw
+rewrap f = wr `compose` f `compose` rw
 
 wrapped :: forall into a o .
 	Precategory into =>
 	Castable Straight into o =>
 	Castable Opposite into a =>
 	into a o -> into (Supertype a) (Supertype o)
-wrapped f = rw `compose` f `compose` wrap
+wrapped f = rw `compose` f `compose` wr
 
 i_ :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_II_I u e a) =>
 	Castable Straight into (U_II_I u e o) =>
 	into (U_II_I u e a) (U_II_I u e o) -> into (u a e) (u o e)
-i_ f = rw @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
+i_ f = rw @into @(U_II_I _ _ _) `compose` f `compose` wr @into @(U_II_I _ _ _)
 
 _i :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_I_II u e a) =>
 	Castable Straight into (U_I_II u e o) =>
 	into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
-_i f = rw @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)
+_i f = rw @into @(U_I_II _ _ _) `compose` f `compose` wr @into @(U_I_II _ _ _)
 
 cata :: forall into t e .
 	Covariant Endo Semi Functor into t =>
@@ -316,4 +316,4 @@ ana :: forall into t e .
 	Covariant Endo Semi Functor into t =>
 	Castable Opposite into (Recursive t) =>
 	into e (t e) -> into e (Recursive t)
-ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
+ana into = wr `compose` map @Straight @Straight (ana into) `compose` into

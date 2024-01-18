@@ -17,8 +17,8 @@ instance
 		((t `T_TT_I` R_U_I_T_I LM t) `T_TT_I` Labeled l tt)
 		((t `T_TT_I` R_U_I_T_I LM t) `TT_T_I` Labeled l tt)
 	where mapping = rwr / \from -> rwr /
-		\(T_TT_I x) -> wrap @(->) @(Labeled l _ _) /
-			map @Straight @Straight @(->) @(->) @tt (wrap @(->) @(T_TT_I t _ _))
+		\(T_TT_I x) -> wrap @(Labeled l _ _) /
+			map @Straight @Straight @(->) @(->) @tt (wrap @(T_TT_I t _ _))
 			(wrapped (component @Straight @(->) @(->) @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 				(x `yo`wrapped (map @Straight @Straight @(->) @(->)
 						@(R_U_I_T_I LM t `T_TT_I` Labeled l tt)
@@ -40,10 +40,10 @@ instance
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 		 wrap /
 			day @Straight @Arrow @tt @LM @LM identity
-				(wrap @(->) @(R_U_I_T_I _ _ _) `compose` wrap @(->) @(Recursive _) `compose` wrap @(->) @(U_I_T_II _ _ _ _))
+				(wrap @(R_U_I_T_I _ _ _) `compose` wrap @(Recursive _) `compose` wrap @(U_I_T_II _ _ _ _))
 				((unwrap x `yo` from) `lm`
 					(wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
-						(xs `yo`wrap @(->) @(R_U_I_T_I _ _ _)
+						(xs `yo`wrap @(R_U_I_T_I _ _ _)
 							`o` wrapped (map @Straight @Straight @(->) @(->)
 									@(R_U_I_T_I LM t `T_TT_I` Forward tt)
 									@(R_U_I_T_I LM t `TT_T_I` Forward tt)
@@ -65,16 +65,16 @@ instance
 		(R_U_I_T_I LM t `T_TT_I` Backward tt)
 		(R_U_I_T_I LM t `TT_T_I` Backward tt)
 	where mapping = rwr / \from -> rwr
-		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(->) @(Backward _ _) /
-			(\x' xs' -> wrap @(->) @(R_U_I_T_I _ _ _)
-				`compose` wrap @(->) @(Recursive _)
-				`compose` wrap @(->) @(U_I_T_II _ _ _ _)
+		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(Backward _ _) /
+			(\x' xs' -> wrap @(R_U_I_T_I _ _ _)
+				`compose` wrap @(Recursive _)
+				`compose` wrap @(U_I_T_II _ _ _ _)
 				/ These x' xs'
 			)
 			`fo` (unwrap x `yo` from)
 			`fc` wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 				(xs
-					`yo` wrap @(->) @(R_U_I_T_I _ _ _)
+					`yo` wrap @(R_U_I_T_I _ _ _)
 						`o` wrapped (map @Straight @Straight @_ @(->)
 								@(R_U_I_T_I LM t `T_TT_I` Backward tt)
 								@(R_U_I_T_I LM t `TT_T_I` Backward tt)
@@ -174,9 +174,9 @@ instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
 	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> 
-		wrap @(->) @(Opposite _ _ _)
-		`compose` wrap @(->) @(W_I_I_II _ _ _)
-		`compose` wrap @(->) @(U_I_UU_II_III (->) _ _ _ _)
+		wrap @(Opposite _ _ _)
+		`compose` wrap @(W_I_I_II _ _ _)
+		`compose` wrap @(U_I_UU_II_III (->) _ _ _ _)
 		`compose` (\state old -> let (These new f) = from old in f `foi` state new)
 		`compose` rw @(->) @(U_I_UU_II_III (->) _ _ _ _)
 		`compose` rw @(->) @(W_I_I_II _ _ _) 
@@ -201,11 +201,11 @@ instance Covariant Monoidal Functor (->) LM LM t
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 		(T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
 	where mapping = rwr / \from (Straight (W_I_I_II (U_I_UU_II_III x))) -> 
-		wrap @(->) @(T_TTT_TT_I _ _ _ _)
-		`compose` wrap @(->) @(Straight _ _ _)
+		wrap @(T_TTT_TT_I _ _ _ _)
+		`compose` wrap @(Straight _ _ _)
 		`identity` (yu enter
 			`compose` map @Straight @Straight from
-			`compose` wrap @(->) @(Straight _ _ _)
+			`compose` wrap @(Straight _ _ _)
 			`compose` x)
 
 instance  {-# OVERLAPPABLE #-} Component Natural (->) (->) (T_TT_I t tt) t => Mapping Straight Straight (->) (->)
@@ -229,7 +229,7 @@ instance
 	)
 	(T_TTT_TT_I (Straight (->) old) (Straight LM new) t)
 	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
-		wrap @(->) @(T_TTT_TT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
+		wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
 		`yi` \old -> x old `yokl` \(Straight (These btw (T_TTT_TT_I (Straight f))))
 			-> f btw `yo_yo` from
 
@@ -244,7 +244,7 @@ instance
 	)
 	(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
 	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
-		wrap @(->) @(T_TTT_TT_I _ _ _ _) `compose` wrap @(->) @(Straight _ _ _)
+		wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
 		`yi` \old -> x old `yokl` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
 			-> yu (enter @tt) / Straight (f btw) `yo` from
 

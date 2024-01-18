@@ -353,7 +353,7 @@ rw = let U_I_II x = cast in x
 unwrap :: Castable Straight (->) i => i -> Supertype i
 unwrap = let U_I_II x = cast in x
 
-wrap :: Castable Opposite into i => into (Supertype i) i
+wrap :: Castable Opposite (->) i => Supertype i -> i
 wrap = let U_II_I x = cast in x
 
 -- Category: initial object

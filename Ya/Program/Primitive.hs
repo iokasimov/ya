@@ -176,7 +176,7 @@ sub :: forall tt t e .
 	Attribute (Construction t e) (t (Construction t e))
 sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
 	\(Root x old) -> These
-		(wrap @Arrow @(R_U_I_T_I _ _ _) `fo` old)
+		(wrap @(R_U_I_T_I _ _ _) `fo` old)
 		(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
@@ -253,7 +253,7 @@ joint :: forall f g e .
 	Component Natural (->) (->) (f `T_TT_I` g) (f `JT` g) =>
 	Castable Opposite (->) ((f `T_TT_I` g) e) =>
 	f (g e) -> (f `JT` g) e
-joint = wrap @(->) @((f `T_TT_I` g) e)
+joint = wrap @((f `T_TT_I` g) e)
 	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
 try :: forall t e o .
@@ -261,7 +261,7 @@ try :: forall t e o .
 	Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
 	Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
 	t (Progress e o) -> (t `JT` Progress e) o
-try = wrap @(->) @((t `T_TT_I` Progress e) _)
+try = wrap @((t `T_TT_I` Progress e) _)
 	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `JT` Progress e)
 
 type Horizontal = ML () ()
