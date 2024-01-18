@@ -8,6 +8,8 @@ infixl 8 `TI`, `LM`, `ML`
 infixr 8 `JT`
 infixr 7 `ARR`
 
+infixl 8 `wr`, `rw`
+
 type TI t i = t i
 
 type ARR = (->)
@@ -341,6 +343,9 @@ instance Wrapper (->) x
 instance Wrapper (->) x
 	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+
+wr :: Castable Opposite into i => into (Supertype i) i
+wr = let U_II_I x = cast in x
 
 rw :: Castable Straight into i => into i (Supertype i)
 rw = let U_I_II x = cast in x

@@ -598,3 +598,4 @@
 * Define `Transition` pattern
 * Define `switch` expression
 * Define `review` expression
+* Define `wr` operator
