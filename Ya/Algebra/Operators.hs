@@ -246,13 +246,15 @@ yolk = yoneda @Straight @from @into `compose` unwrap
 	`compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
 yoklKL :: forall from into tt t a o .
+	Unlabelable into tt =>
 	Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
 	Covariant Yoneda from into t =>
 	Castable Opposite into (Straight from a (tt o)) =>
 	Castable Straight into (TT_T_I t tt o) =>
 	Castable Opposite into (T_TT_I t tt o) =>
-	t a -> into (from a (tt o)) (tt (t o))
-yoklKL x = rw @into @(TT_T_I t tt _)
+	t a -> into (from a (tt o)) (Unlabeled tt (t o))
+yoklKL x = unlabel
+	`compose` rw @into @(TT_T_I t tt _)
 	`compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
 	`compose` wr @into @(T_TT_I t tt _)
 	`compose` yoneda @Straight @from x
@@ -284,32 +286,34 @@ yokl_yoklKL :: forall from into t tt ttt a o .
 yokl_yoklKL x = fai foklKL (yokl @from @into x)
 
 yoklKL_yokl :: forall from into t tt ttt a o .
+	Unlabelable into ttt =>
 	Covariant Yoneda from into t =>
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from ttt =>
-	Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t o))) =>
+	Contravariant Endo Semi Functor (->) (U_II_I into (Unlabeled ttt (t o))) =>
 	Component Natural from from (T_TT_I ttt tt) ttt =>
 	Component Natural from into (T_TT_I t ttt) (TT_T_I t ttt) =>
 	Castable Opposite into (That from (ttt a) (ttt o)) =>
 	Castable Straight into (TT_T_I t ttt o) =>
 	Castable Opposite into (T_TT_I t ttt o) =>
 	Castable Opposite from (T_TT_I ttt tt o) =>
-	t (ttt a) -> into (from a (tt o)) (ttt (t o))
+	t (ttt a) -> into (from a (tt o)) (Unlabeled ttt (t o))
 yoklKL_yokl x = fai fokl (yoklKL @from @into x)
 
 yoklKL_yoklKL :: forall from into t tt ttt a o .
+	Unlabelable into ttt =>
 	Covariant Yoneda from into t =>
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from ttt =>
 	Component Natural from into (T_TT_I t ttt) (TT_T_I t ttt) =>
 	Component Natural from from (T_TT_I tt ttt) (TT_T_I tt ttt) =>
-	Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
+	Contravariant Endo Semi Functor (->) (U_II_I into (Unlabeled ttt (t (tt o)))) =>
 	Castable Opposite from (T_TT_I tt ttt o) =>
 	Castable Straight from (TT_T_I tt ttt o) =>
 	Castable Straight into (TT_T_I t ttt (tt o)) =>
 	Castable Opposite into (T_TT_I t ttt (tt o)) =>
 	Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
-	t (tt a) -> into (from a (ttt o)) (ttt (t (tt o)))
+	t (tt a) -> into (from a (ttt o)) (Unlabeled ttt (t (tt o)))
 yoklKL_yoklKL x = fai foklKL (yoklKL @from @into x)
 
 fo_fo :: forall from into t tt a o .

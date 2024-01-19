@@ -317,3 +317,16 @@ ana :: forall into t e .
 	Castable Opposite into (Recursive t) =>
 	into e (t e) -> into e (Recursive t)
 ana into = wr `compose` map @Straight @Straight (ana into) `compose` into
+
+type family Unlabeled t where
+	Unlabeled (Labeled label t) = t
+	Unlabeled t = t
+
+class Unlabelable into t where
+	unlabel :: into (t e) (Unlabeled t e)
+
+instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
+	=> Unlabelable into t where unlabel = identity
+
+instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
+	=> Unlabelable into (Labeled label t) where unlabel = rw

@@ -600,3 +600,6 @@
 * Define `review` expression
 * Define `wr` operator
 * Define `u_a` operator
+* Define `Unlabeled` type family
+* Define `Unlabelable` type class
+* Define `unlabel` method
