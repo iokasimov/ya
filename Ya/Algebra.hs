@@ -49,7 +49,7 @@ instance
 									@(R_U_I_T_I LM t `TT_T_I` Forward tt)
 									from)
 							`o` rw @(->) @(Forward _ _)
-							`yo_yo` rw @(->) @(R_U_I_T_I _ _ _) -- `compose` rw @(->) @(Forward _ _)
+							`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
 						)
 					)
 				)
@@ -80,7 +80,7 @@ instance
 								@(R_U_I_T_I LM t `TT_T_I` Backward tt)
 								from)
 						`o` rw @(->) @(Backward _ _)
-					`yo_yo` rw @(->) @(R_U_I_T_I _ _ _) -- `compose` rw @(->) @(Backward _ _)
+					`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
 				)
 
 -- TODO: try to simplify

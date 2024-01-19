@@ -120,17 +120,15 @@ type Labeled = T_'_I
 type Forward = Labeled (Straight (->) () ())
 
 -- TODO: move to `Primitive`
-pattern Forward :: t e -> Forward t e
-pattern Forward e <- T_'_I e
-	where Forward e = T_'_I e
+pattern Forwards :: t e -> Forward t e
+pattern Forwards e = T_'_I e
 
 -- TODO: move to `Primitive`
 type Backward = Labeled (Opposite (->) () ())
 
 -- TODO: move to `Primitive`
-pattern Backward :: t e -> Backward t e
-pattern Backward e <- T_'_I e
-	where Backward e = T_'_I e
+pattern Backwards :: t e -> Backward t e
+pattern Backwards e = T_'_I e
 
 type family Flip v where
 	Flip Straight = Opposite
