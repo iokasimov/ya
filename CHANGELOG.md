@@ -603,3 +603,5 @@
 * Define `Unlabeled` type family
 * Define `Unlabelable` type class
 * Define `unlabel` method
+* Define `_a` operator
+* Define `_o` operator

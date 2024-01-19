@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `u_a`, `u_o_a`, `u_o_yu`, `yi_rw`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
@@ -358,17 +358,19 @@ fio_fo :: forall from into t tt e a o .
 	from a o -> into (t e (tt a)) (t e (tt o))
 fio_fo from = fio @into @into (fo @from @into from)
 
-o, u_o, yi_o :: forall from u i a o .
+o, o_, u_o, yi_o :: forall from u i a o .
 	Covariant Yoneda from (->) (U_I_II u i) =>
 	u i a -> from a o -> u i o
 o x = rw `compose` yo @from @(->) @(U_I_II u _) (U_I_II x)
+o_ x = rw `compose` yo @from @(->) @(U_I_II u _) (U_I_II x)
 u_o x = rw `compose` yo @from @(->) @(U_I_II u _) (U_I_II x)
 yi_o x = rw `compose` yo @from @(->) @(U_I_II u _) (U_I_II x)
 
-a, u_a :: forall from u e a o .
+a, a_, u_a :: forall from u e a o .
 	Contravariant Yoneda from (->) (U_II_I u e) =>
 	u a e -> from o a -> u o e
 a x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
+a_ x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
 u_a x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
 
 -- This it the `right` version of this operator, however I cannot use it as I need
