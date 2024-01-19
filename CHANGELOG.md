@@ -599,3 +599,4 @@
 * Define `switch` expression
 * Define `review` expression
 * Define `wr` operator
+* Define `u_a` operator
