@@ -605,3 +605,5 @@
 * Define `unlabel` method
 * Define `a_` operator
 * Define `o_` operator
+* Define `rwr_fio` operator
+* Define `o_rwr_yio` operator

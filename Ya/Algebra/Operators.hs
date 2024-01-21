@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`
+infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`
@@ -860,6 +860,18 @@ rwr_foi :: forall into w o u e ee .
 	into e ee -> into (w u e o) (w u ee o)
 rwr_foi = rwr `compose` i_ `compose` fo
 
+-- TODO: generalize
+rwr_fio :: forall into w o u e ee .
+	Covariant Endo Semi Functor into (U_I_II u o) =>
+	Castable Straight into (U_I_II u o ee) =>
+	Castable Opposite into (U_I_II u o e) =>
+	Castable Opposite into (w u o ee) =>
+	Castable Straight into (w u o e) =>
+	(Supertype (w u o e) ~ u o e) =>
+	(Supertype (w u o ee) ~ u o ee) =>
+	into e ee -> into (w u o e) (w u o ee)
+rwr_fio = rwr `compose` _i `compose` fo
+
 -- TODO: try to simplify
 rwr_yoi :: forall from into w o u e ee .
 	Precategory into =>
@@ -886,6 +898,20 @@ o_rwr_yoi :: forall from into w a o u e ee .
 	(Supertype (w u ee o) ~ u ee o) =>
 	from a (w u e o) -> into e ee -> from a (w u ee o)
 o_rwr_yoi x f = x `o` rwr_foi @into @w @o @u @e @ee f
+
+-- TODO: generalize
+o_rwr_yio :: forall from into w a o u e ee .
+	Precategory into =>
+	Covariant Endo Semi Functor into (U_I_II u o) =>
+	Covariant Yoneda into (->) (U_I_II from a) =>
+	Castable Straight into (w u o e) =>
+	Castable Opposite into (w u o ee) =>
+	Castable Straight into (U_I_II u o ee) =>
+	Castable Opposite into (U_I_II u o e) =>
+	(Supertype (w u o e) ~ u o e) =>
+	(Supertype (w u o ee) ~ u o ee) =>
+	from a (w u o e) -> into e ee -> from a (w u o ee)
+o_rwr_yio x f = x `o` rwr_fio @into @w @o @u @e @ee f
 
 yokl_rwr_yoi :: forall into w t o u e ee .
 	Covariant Yoneda into (->) t =>
