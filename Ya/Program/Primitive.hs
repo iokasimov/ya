@@ -326,3 +326,8 @@ transform :: forall tt t e .
 	Component Straight (->) (->) t tt =>
 	t e -> tt e
 transform = component @Straight @Arrow
+
+pass ::
+	Covariant Endo Semi Functor (->) t =>
+	t e -> t ()
+pass x = x `yu` ()

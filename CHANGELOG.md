@@ -607,3 +607,4 @@
 * Define `o_` operator
 * Define `rwr_fio` operator
 * Define `o_rwr_yio` operator
+* Define `pass` expression
