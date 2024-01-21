@@ -35,9 +35,9 @@ instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM t tt ee) whe
 		`i` inspect (item @e @(tt ee)) fs
 		`i` \new -> U_T_I_TT_I (These old `i` adjust (item @e @(tt ee)) (\_ -> new) fs)
 
-instance Field e (Construction t e)
+instance Field (Focused e) (Construction t e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(Root old xs) -> These / old / \new -> Root new xs
+		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
 
 instance Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
