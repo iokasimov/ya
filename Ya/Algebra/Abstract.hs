@@ -100,6 +100,9 @@ pattern Straight x <- U_I_II x
 
 {-# COMPLETE Straight #-}
 
+pattern Out :: u e ee -> U_I_II u e ee
+pattern Out x = U_I_II x
+
 type Opposite = U_II_I
 
 pattern Opposite :: u e ee -> Opposite u ee e
@@ -107,6 +110,9 @@ pattern Opposite x <- U_II_I x
 	where Opposite x = U_II_I x
 
 {-# COMPLETE Opposite #-}
+
+pattern In :: u e ee -> U_II_I u ee e
+pattern In x = U_II_I x
 
 type This = U_II_I
 
