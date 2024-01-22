@@ -96,7 +96,7 @@ class Scrollable morphism datastructure where
 
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
-instance Scrollable Statefully' List where
+instance Scrollable Statefully List where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These (T_'_I (T_TT_I bs)) (T_'_I (List (Yet f fs))))))) -> These
 			(U_T_I_TT_I (These (Identity f) (U_T_I_TT_I (These (T_'_I (List (Yet x (bs `yo` unwrap)))) (T_'_I (T_TT_I / fs `yo` wrap ))))))
@@ -108,11 +108,11 @@ instance Scrollable Statefully' List where
 			(Some previous)
 		previous@(_) -> These previous None
 
-instance {-# OVERLAPS #-} Scrollable Statefully' t => Scrollable Transition t where
+instance {-# OVERLAPS #-} Scrollable Statefully t => Scrollable Transition t where
 	scroll orient = W_I_II_I `compose` U_I_UU_II_III
 		`compose` fio (\(These x y) -> These y x)
 		`compose` unwrap `compose` unwrap
-		/ scroll @Statefully' @t orient
+		/ scroll @Statefully @t orient
 
 -- TODO: experimental and highly likely very inefficient
 -- TODO: should we defined with a wrapper since it's not the only possible implementation?
