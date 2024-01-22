@@ -125,9 +125,6 @@ type Statefully = W_I_I_II Automation
 pattern Statefully :: Automation state state result -> Statefully state result
 pattern Statefully x = W_I_I_II x
 
-pattern State :: Automation state state result -> Automata state result
-pattern State x = W_I_I_II x
-
 type Automata = W_I_I_II (U_I_UU_II_III (->) LM)
 
 start :: state -> Automata state result -> state `LM` result
