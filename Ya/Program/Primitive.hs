@@ -120,13 +120,10 @@ type Transition = W_I_II_I Automation
 pattern Transition :: Automation old new old -> Transition old new
 pattern Transition x = W_I_II_I x
 
--- pattern Statefully :: Automation state state result -> W_I_I_II Automation state result
--- pattern Statefully x = W_I_I_II x
-
 type Statefully' = W_I_I_II Automation
 
-pattern Statefully :: Automation state state result -> Stateful state result
-pattern Statefully x = Straight (W_I_I_II x)
+pattern Statefully :: Automation state state result -> Statefully' state result
+pattern Statefully x = W_I_I_II x
 
 pattern State :: Automation state state result -> Automata state result
 pattern State x = W_I_I_II x
