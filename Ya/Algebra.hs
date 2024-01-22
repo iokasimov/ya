@@ -350,3 +350,10 @@ instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (t `T_TT_I` That (->) e) (t `TT_T_I` That (->) e)
 	where mapping = rwr / \from -> rwr / \x ->
 		Straight / \e -> x `yo` (from `compose` (`i` e) `compose` rw)
+
+-- TODO: generalize
+-- We need this instance to make `yokl_yoklKL` work
+instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
+	Mapping Straight Straight (->) (->) (T_TT_I t (T_'_I l tt)) t
+	where mapping = rwr / \from ->
+		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
