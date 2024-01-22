@@ -590,7 +590,6 @@
 * Define `U_III_UU_I_II` data type
 * Define `W_II_II_I` data type
 * Define `W_I_II_I` data type
-* Define `Automation` type alias
 * Define `Transition'` type alias
 * Define `Statefully` pattern
 * Define `Transition` pattern

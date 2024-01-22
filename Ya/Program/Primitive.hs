@@ -125,9 +125,7 @@ type Statefully = W_I_I_II Automation
 pattern Statefully :: Automation state state result -> Statefully state result
 pattern Statefully x = W_I_I_II x
 
-type Automata = W_I_I_II (U_I_UU_II_III (->) LM)
-
-instant :: Automata state result -> state -> state
+instant :: Statefully state result -> state -> state
 instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 
 type Stateful = Straight Statefully
