@@ -117,7 +117,6 @@
 * Define `Progress` type alias
 * Define `Continue` patter synonym
 * Define `Interrupt` patter synonym
-* Define `Automata` type alias
 * Define `Stateful` type alias
 * Define `Statefully` pattern synonym
 * Define `rewrap` expression
@@ -153,7 +152,6 @@
 * Define `yu` operator
 * Define `joint` expression
 * Define `try` expression
-* Define `instant` expression
 * Define `UU_U_I_II_U_II_I` data type
 * Define `UU_U_I_III_U_II_III` data type
 * Define `Diagram` type alias
@@ -590,6 +588,7 @@
 * Define `U_III_UU_I_II` data type
 * Define `W_II_II_I` data type
 * Define `W_I_II_I` data type
+* Define `Automation` type alias
 * Define `Transition'` type alias
 * Define `Statefully` pattern
 * Define `Transition` pattern
