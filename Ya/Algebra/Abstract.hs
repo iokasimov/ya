@@ -5,7 +5,7 @@ module Ya.Algebra.Abstract where
 infixl 0 /
 infixl 8 `TI`, `LM`, `ML`
 
-infixr 8 `JT`
+infixl 8 `JT`
 infixr 7 `ARR`
 
 infixl 8 `wr`, `rw`
