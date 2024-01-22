@@ -127,9 +127,6 @@ pattern Statefully x = W_I_I_II x
 
 type Automata = W_I_I_II (U_I_UU_II_III (->) LM)
 
-start :: state -> Automata state result -> state `LM` result
-start state stateful = stateful `rw_rw` state
-
 instant :: Automata state result -> state -> state
 instant state x = wrapped (left @Straight @Arrow identity) / state `rw_rw` x
 

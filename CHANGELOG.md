@@ -92,7 +92,6 @@
 * Define `w_rw` operator
 * Define `Field` type class
 * Define `itme` method
-* Define `start` expression
 * Define `_yokl` operator
 * Define `Same` type family
 * Define `Construction` type alias
