@@ -493,3 +493,7 @@ instance Monoidal Straight Functor (->) LM ML t
 	-- (->)
 	-- (U_I_II (->) (ML () ()))
 	-- (U_I_II (->) (ML () ()))
+
+instance Covariant Endo Semi Functor (->) unknown =>
+	Unjointable (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown where
+	unjoint (T_TTT_TT_I x) = \e -> map @Straight @Straight @(->) @(->) unwrap / unwrap x e

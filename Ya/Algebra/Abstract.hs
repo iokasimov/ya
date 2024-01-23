@@ -373,6 +373,14 @@ type family JT effect where
 	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
 	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
 
+type family Unjointed effect unknown result where
+	Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown result =
+		state -> unknown (state `LM` result)
+
+class Unjointable effect unknown where
+	unjoint :: effect `JT` unknown `TI` result
+		`ARR` Unjointed effect unknown result
+
 this :: e `LM` ee -> e
 this (These x _) = x
 

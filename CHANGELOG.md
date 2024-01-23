@@ -607,3 +607,6 @@
 * Define `In` pattern
 * Define `Out` pattern
 * Define `o_yo` operator
+* Define `Unjointed` type family
+* Define `Unjointable` type class
+* Define `unjoint` method
