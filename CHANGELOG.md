@@ -273,7 +273,7 @@
 * Define `Focused` pattern synonym
 * Define `o_rw_o` operator
 * Define `ds` operator
-* Define `Errorful` type alias
+* Define `Error` type alias
 * Define `Error` pattern synonym
 * Define `Ok` pattern synonym
 * Define `Back` pattern synonym

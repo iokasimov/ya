@@ -74,12 +74,12 @@ pattern Continue ee <- Straight (That ee) where Continue ee = Straight (That ee)
 
 {-# COMPLETE Interrupt, Continue #-}
 
-type Errorful = Straight ML
+type Error = Straight ML
 
-pattern Error :: e -> Errorful e ee
+pattern Error :: e -> Error e ee
 pattern Error e <- Straight (This e) where Error e = Straight (This e)
 
-pattern Ok :: ee -> Errorful e ee
+pattern Ok :: ee -> Error e ee
 pattern Ok ee <- Straight (That ee) where Ok ee = Straight (That ee)
 
 {-# COMPLETE Error, Ok #-}
