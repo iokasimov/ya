@@ -125,11 +125,11 @@ type Statefully = W_I_I_II Automation
 pattern Statefully :: Automation state state result -> Statefully state result
 pattern Statefully x = W_I_I_II x
 
-type Stateful = Straight Statefully
+type State = Straight Statefully
 
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
-	e -> JT (Stateful e) t o -> t (e `LM` o)
+	e -> JT (State e) t o -> t (e `LM` o)
 statefully state x = unwrap (unwrap x) state `yo` unwrap
 
 type Construction = R_U_I_T_I LM

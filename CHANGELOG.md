@@ -117,7 +117,7 @@
 * Define `Progress` type alias
 * Define `Continue` patter synonym
 * Define `Interrupt` patter synonym
-* Define `Stateful` type alias
+* Define `State` type alias
 * Define `Statefully` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator
