@@ -606,3 +606,4 @@
 * Define `pass` expression
 * Define `In` pattern
 * Define `Out` pattern
+* Define `o_yo` operator
