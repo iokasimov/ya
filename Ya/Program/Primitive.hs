@@ -60,9 +60,9 @@ pattern Optionally e <- Straight e where Optionally e = Straight e
 
 {-# COMPLETE Optionally #-}
 
-type Halting = Straight ML ()
+type Halts = Straight ML ()
 
-type Haltable t = JT t Halting
+type Haltable t = JT t Halts
 
 type Progress = Straight ML
 

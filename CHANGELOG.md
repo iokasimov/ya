@@ -293,7 +293,7 @@
 * Define `MLM` data type
 * Define `dw` operator
 * Define `yoklKL_yoklKL` operator
-* Define `Halting` type alias
+* Define `Halts` type alias
 * Define `Haltable` type alias
 * Define `Statefully` type alias
 * Define `ARR` type alias
