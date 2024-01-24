@@ -610,3 +610,5 @@
 * Define `Unjointed` type family
 * Define `Unjointable` type class
 * Define `unjoint` method
+* Define `yi_yi_rw` operator
+* Define `yi_yi_yi_rw` operator
