@@ -613,54 +613,60 @@ yi_yi_yi_yi_lm from_left from_right = unwrap /
 	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 
-rf, yi_rf, yi_yi_rf :: forall from into i o oo .
+rf, yi_rf, yi_yi_rf :: forall from e i o oo .
 	Category from =>
-	Limit Opposite from into =>
-	Covariant Functor into into (That (Sum into) o) =>
-	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
-	Castable Opposite into (Both (Sum into) (Sum into i i)) =>
-	Castable Opposite into (That (Sum into) o oo) =>
-	Castable Straight into (That (Sum into) i i) =>
-	Castable Straight into (This (Sum into) i i) =>
-	Castable Opposite into (Both (Sum into) i) =>
-	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
-	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
-	Wrapper into (That (Sum into) o (Sum into i i)) =>
-	(forall e . Wrapper into (Identity e)) =>
-	from o i -> from oo i -> into (Sum into o oo) i
+	Limit Opposite from from =>
+	Juggleable from e (Sum from o oo) =>
+	Covariant Functor from from (That (Sum from) o) =>
+	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
+	Castable Opposite from (Both (Sum from) (Sum from i i)) =>
+	Castable Opposite from (That (Sum from) o oo) =>
+	Castable Straight from (That (Sum from) i i) =>
+	Castable Straight from (This (Sum from) i i) =>
+	Castable Opposite from (Both (Sum from) i) =>
+	Castable Opposite from (This (Sum from) (Sum from i i) o) =>
+	Castable Straight from (This (Sum from) (Sum from i i) (Sum from i i)) =>
+	Wrapper from (That (Sum from) o (Sum from i i)) =>
+	(forall ee . Wrapper from (Identity ee)) =>
+	from o i -> from oo i -> from e i
 rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
+	juggle @from @e @(Sum from o oo)
 yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
+	juggle @from @e @(Sum from o oo)
 yi_yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
+	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
+	juggle @from @e @(Sum from o oo)
 
-rw_rf :: forall from into e i o oo .
+rw_rf :: forall from e i o oo .
 	Category from =>
-	Limit Opposite from into =>
-	Covariant Functor into into (That (Sum into) o) =>
-	Covariant Functor into into (This (Sum into) (Sum into i i)) =>
-	Castable Opposite into (Both (Sum into) (Sum into i i)) =>
-	Castable Opposite into (That (Sum into) o oo) =>
-	Castable Straight into (That (Sum into) i i) =>
-	Castable Straight into (This (Sum into) i i) =>
-	Castable Opposite into (Both (Sum into) i) =>
-	Castable Opposite into (This (Sum into) (Sum into i i) o) =>
-	Castable Straight into (This (Sum into) (Sum into i i) (Sum into i i)) =>
-	Wrapper into (That (Sum into) o (Sum into i i)) =>
-	(forall ee . Wrapper into (Identity ee)) =>
-	(Supertype e ~ (Sum into o oo)) =>
-	Castable Straight into e =>
-	from o i -> from oo i -> into e i
+	Limit Opposite from from =>
+	-- TODO: fix it later
+	Juggleable from (Sum from o oo) (Sum from o oo) =>
+	Covariant Functor from from (That (Sum from) o) =>
+	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
+	Castable Opposite from (Both (Sum from) (Sum from i i)) =>
+	Castable Opposite from (That (Sum from) o oo) =>
+	Castable Straight from (That (Sum from) i i) =>
+	Castable Straight from (This (Sum from) i i) =>
+	Castable Opposite from (Both (Sum from) i) =>
+	Castable Opposite from (This (Sum from) (Sum from i i) o) =>
+	Castable Straight from (This (Sum from) (Sum from i i) (Sum from i i)) =>
+	Wrapper from (That (Sum from) o (Sum from i i)) =>
+	(forall ee . Wrapper from (Identity ee)) =>
+	(Supertype e ~ (Sum from o oo)) =>
+	Castable Straight from e =>
+	from o i -> from oo i -> from e i
 rw_rf from_left from_right = rf from_left from_right `compose` rw
 
 -- TODO: to test
