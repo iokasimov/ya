@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra (module Exports) where
 
@@ -357,3 +358,13 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	Mapping Straight Straight (->) (->) (T_TT_I t (T_'_I l tt)) t
 	where mapping = rwr / \from ->
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
+
+instance {-# OVERLAPS #-} Juggleable (->) (e `ML` ee) (e `ML` ee) where
+	juggle = identity
+
+instance {-# OVERLAPS #-} Juggleable (->) (That ML e ee) (e `ML` ee) where
+	juggle = unwrap
+
+instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
+	Juggleable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e))
+	where juggle = fio @(->) (fo @(->) wrap) `compose` unwrap `compose` unwrap `compose` unwrap

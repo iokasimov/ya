@@ -612,3 +612,5 @@
 * Define `unjoint` method
 * Define `yi_yi_rw` operator
 * Define `yi_yi_yi_rw` operator
+* Define `Juggleable` type class
+* Define `juggle` method

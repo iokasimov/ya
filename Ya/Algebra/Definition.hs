@@ -330,3 +330,9 @@ instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
 
 instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 	=> Unlabelable into (Labeled label t) where unlabel = rw
+
+class Juggleable into a o | into a -> o
+	where juggle :: into a o
+
+-- instance {-# OVERLAPPABLE #-} Category into =>
+	-- Juggleable into e e where juggle = identity
