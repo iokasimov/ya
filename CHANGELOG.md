@@ -617,3 +617,4 @@
 * Define `rw____` operator
 * Define `rw_____` operator
 * Define `rw______` operator
+* Define `rw_rw__` operator

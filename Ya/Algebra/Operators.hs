@@ -10,7 +10,7 @@ infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `o__`, `a__`, `rw_`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `o___`, `a___`, `rw__`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`, `o____`, `a____`, `rw___`
-infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yi_yi_rw`, `o_____`, `a_____`, `rw____`
+infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yi_yi_rw`, `o_____`, `a_____`, `rw____`, `rw_rw__`
 infixl 3 `i_i_i_i_i_i_i`, `u_u_u_u_u_u_u`, `rw_____`
 infixl 2 `i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yukl`, `rw______`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
@@ -712,12 +712,14 @@ rw_w :: forall into a o .
 	into a o -> into (Supertype a) (Supertype o)
 rw_w into = rw @into `compose` into `compose` wr @into
 
-rw_rw :: forall into a .
+rw_rw, rw_rw__ :: forall into a .
 	Precategory into =>
 	Castable Straight into a =>
 	Castable Straight into (Supertype a) =>
 	into a (Supertype (Supertype a))
 rw_rw = rw @into `compose` rw @into
+
+rw_rw__ = rw_rw
 
 rw_rw_rw :: forall into a .
 	Precategory into =>
