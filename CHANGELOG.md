@@ -607,3 +607,7 @@
 * Define `o___` operator
 * Define `o____` operator
 * Define `o_____` operator
+* Define `a__` operator
+* Define `a___` operator
+* Define `a____` operator
+* Define `a_____` operator
