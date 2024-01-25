@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`
-infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_u`, `yukl_u`, `yokl_u_u`, `yukl_u_u`, `yokl_u_u_u`, `yukl_u_u_u`, `yukl_u_u_u_u`, `yokl_u_u_u_u`, `yukl_u_u_u_u_u_u`, `yokl_u_u_u_u_u_u`, `yukl_u_u_u_u_u`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_u_u_u_u_u`, `yokl_rw_yokl`, `yi_yi_rw`
+infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`
 infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yi_yi_rw`
 infixl 3 `i_i_i_i_i_i_i`, `u_u_u_u_u_u_u`
@@ -100,14 +100,11 @@ yu, yi_yu, yi_yi_yu, yi_yi_yi_yu  :: forall into t a o .
 	Castable Opposite into (into () o) =>
 	Castable Opposite into (U_I_II into () o) =>
 	t a -> into (Supertype (into () o)) (t o)
-yu x = yoneda @U_I_II (fu @(->) () x)
-	`compose` wr @into @(into () o)
-yi_yu x = yoneda @U_I_II (fu @(->) () x)
-	`compose` wr @into @(into () o)
-yi_yi_yu x = yoneda @U_I_II (fu @(->) () x)
-	`compose` wr @into @(into () o)
-yi_yi_yi_yu x = yoneda @U_I_II (fu @(->) () x)
-	`compose` wr @into @(into () o)
+yu x = yoneda @U_I_II (fu @(->) () x) `compose` wr @into @(into () o)
+
+yi_yu = yu
+yi_yi_yu = yu
+yi_yi_yi_yu = yu
 
 yui :: forall into t e a o .
 	Covariant Yoneda into into (U_II_I t e) =>
@@ -154,7 +151,7 @@ yai :: forall from into t e a o .
 	t a e -> into (from o a) (t o e)
 yai x = compose rw (yoneda @Opposite @from @into @(This t e) (wr x))
 
-yokl, yi_yokl, yokl_u, yokl_u_u, yokl_u_u_u, yokl_u_u_u_u, yokl_u_u_u_u_u, yokl_u_u_u_u_u_u :: forall from into tt t a o .
+yokl, yi_yokl :: forall from into tt t a o .
 	Component Natural (->) into (T_TT_I t tt) t =>
 	Covariant Yoneda from into t =>
 	Castable Opposite into (Straight from a (tt o)) =>
@@ -163,27 +160,8 @@ yokl, yi_yokl, yokl_u, yokl_u_u, yokl_u_u_u, yokl_u_u_u_u, yokl_u_u_u_u_u, yokl_
 yokl x = component @Straight @(->) @into @(T_TT_I t tt)
 	`compose` wr @into @(T_TT_I t tt _)
 	`compose` yoneda @Straight @from x
-yi_yokl x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
-yokl_u_u_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
-	`compose` wr @into @(T_TT_I t tt _)
-	`compose` yoneda @Straight @from x
+
+yi_yokl = yokl
 
 yukl, yukl_u, yukl_u_u, yukl_u_u_u, yukl_u_u_u_u, yukl_u_u_u_u_u, yukl_u_u_u_u_u_u, yi_yukl, yi_yi_yukl, yi_yi_yi_yukl
 	:: forall into tt t a o .
@@ -592,26 +570,11 @@ lm from_left from_right = unwrap /
 	i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
 	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
-yi_lm from_left from_right = unwrap /
-	_i (map @Straight @Straight (wrapped (right @Straight (wr @_ @((->) () oo) from_right)))) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
-yi_yi_lm from_left from_right = unwrap /
-	_i (map @Straight @Straight (wrapped (right @Straight (wr @_ @((->) () oo) from_right)))) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
-yi_yi_yi_lm from_left from_right = unwrap /
-	_i (map @Straight @Straight (wrapped (right @Straight (wr @_ @((->) () oo) from_right)))) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
-yi_yi_yi_yi_lm from_left from_right = unwrap /
-	_i (map @Straight @Straight (wrapped (right @Straight (wr @_ @((->) () oo) from_right)))) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
-	wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
+
+yi_lm = lm
+yi_yi_lm = lm
+yi_yi_yi_lm = lm
+yi_yi_yi_yi_lm = lm
 
 rf, yi_rf, yi_yi_rf :: forall from e i o oo .
 	Category from =>
@@ -635,18 +598,9 @@ rf from_left from_right =
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
 	juggle @from @e @(Sum from o oo)
-yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
-	juggle @from @e @(Sum from o oo)
-yi_yi_rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
-	juggle @from @e @(Sum from o oo)
+
+yi_rf = rf
+yi_yi_rf = rf
 
 rw_rf :: forall from e i o oo .
 	Category from =>

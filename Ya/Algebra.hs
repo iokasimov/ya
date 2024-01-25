@@ -367,4 +367,4 @@ instance {-# OVERLAPS #-} Juggleable (->) (That ML e ee) (e `ML` ee) where
 
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 	Juggleable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e))
-	where juggle = fio @(->) (fo @(->) wrap) `compose` unwrap `compose` unwrap `compose` unwrap
+	where juggle = fio @(->) (fo @(->) wrap) `compose` rw_rw_rw
