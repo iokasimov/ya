@@ -239,11 +239,6 @@
 * Define `yokl_rwr_yo_` operator
 * Define `yokl_rwr_yu_` operator
 * Define `yokl_u` operator
-* Define `yokl_u_u` operator
-* Define `yokl_u_u_u` operator
-* Define `yokl_u_u_u_u` operator
-* Define `yokl_u_u_u_u_u` operator
-* Define `yokl_u_u_u_u_u_u` operator
 * Define `T___I` data type
 * Define `Backward` type alias
 * Define `Forward` type alias
@@ -478,12 +473,6 @@
 * Define `dp_dp` operator
 * Define `yo_yo` operator
 * Define `dp_yokl` operator
-* Define `yukl_u` operator
-* Define `yukl_u_u` operator
-* Define `yukl_u_u_u` operator
-* Define `yukl_u_u_u_u` operator
-* Define `yukl_u_u_u_u_u` operator
-* Define `yukl_u_u_u_u_u_u` operator
 * Define `dp_yo` operator
 * Define `dp_dp_yo` operator
 * Define `yi_yukl` operator
@@ -614,3 +603,7 @@
 * Define `yi_yi_yi_rw` operator
 * Define `Juggleable` type class
 * Define `juggle` method
+* Define `o__` operator
+* Define `o___` operator
+* Define `o____` operator
+* Define `o_____` operator
