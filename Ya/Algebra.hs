@@ -359,21 +359,24 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	where mapping = rwr / \from ->
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
 
-instance {-# OVERLAPS #-} Juggleable (->) (e `LM` ee) (e `LM` ee) where
+instance Juggleable (->) (e `LM` ee) (e `LM` ee) where
 	juggle = identity
 
-instance {-# OVERLAPS #-} Juggleable (->) (e `ML` ee) (e `ML` ee) where
+instance Juggleable (->) (e `ML` ee) (e `ML` ee) where
 	juggle = identity
 
-instance {-# OVERLAPS #-} Juggleable (->) (That LM e ee) (e `LM` ee) where
+instance Juggleable (->) (That LM e ee) (e `LM` ee) where
 	juggle = unwrap
 
-instance {-# OVERLAPS #-} Juggleable (->) (That ML e ee) (e `ML` ee) where
+instance Juggleable (->) (That ML e ee) (e `ML` ee) where
 	juggle = unwrap
 
-instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
+instance Covariant Endo Semi Functor (->) t =>
 	Juggleable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e))
 	where juggle = fio @(->) (fo @(->) wrap) `compose` rw_rw_rw
 
-instance {-# OVERLAPS #-} Juggleable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee)
+instance Juggleable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee)
 	where juggle = rw_rw
+
+instance Juggleable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e))
+  where juggle = unwrap
