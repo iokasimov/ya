@@ -665,11 +665,12 @@ dp :: forall eee u e ee t .
 dp = day @Straight @(->) @t @u @LM identity identity
 	`compose` juggle @(->) @eee @(u (t e) (t ee))
 
-ds :: forall u e ee t .
-	Mapping Straight Straight (->) (->)
-		(Day Straight (->) u ML t t e ee) t =>
-	u (t e) (t ee) -> t (e `ML` ee)
+ds :: forall eee u e ee t .
+	Juggleable (->) eee (u (t e) (t ee)) =>
+	Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
+	eee -> t (e `ML` ee)
 ds = day @Straight @(->) @t @u @ML identity identity
+	`compose` juggle @(->) @eee @(u (t e) (t ee))
 
 dw :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
@@ -780,6 +781,8 @@ lm_dp :: forall o oo t .
 lm_dp from_left from_right = dp (lm from_left from_right)
 
 lm_ds :: forall o oo t .
+	-- TODO: generalize
+	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Covariant Monoidal Functor (->) LM ML t =>
 	t o -> t oo -> t (o `ML` oo)
 lm_ds from_left from_right = ds (lm from_left from_right)
