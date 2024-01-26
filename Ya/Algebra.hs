@@ -359,8 +359,14 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	where mapping = rwr / \from ->
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
 
+instance {-# OVERLAPS #-} Juggleable (->) (e `LM` ee) (e `LM` ee) where
+	juggle = identity
+
 instance {-# OVERLAPS #-} Juggleable (->) (e `ML` ee) (e `ML` ee) where
 	juggle = identity
+
+instance {-# OVERLAPS #-} Juggleable (->) (That LM e ee) (e `LM` ee) where
+	juggle = unwrap
 
 instance {-# OVERLAPS #-} Juggleable (->) (That ML e ee) (e `ML` ee) where
 	juggle = unwrap

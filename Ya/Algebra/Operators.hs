@@ -658,11 +658,12 @@ rwr_rf from_left from_right = rwr /
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
-dp :: forall u e ee t .
-	Mapping Straight Straight (->) (->)
-		(Day Straight (->) u LM t t e ee) t =>
-	u (t e) (t ee) -> t (e `LM` ee)
+dp :: forall eee u e ee t .
+	Juggleable (->) eee (u (t e) (t ee)) =>
+	Mapping Straight Straight (->) (->) (Day Straight (->) u LM t t e ee) t =>
+	eee -> t (e `LM` ee)
 dp = day @Straight @(->) @t @u @LM identity identity
+	`compose` juggle @(->) @eee @(u (t e) (t ee))
 
 ds :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
@@ -749,6 +750,8 @@ a_yokl = a `compose` fokl @from @(->) @tt @t
 
 fr_dp :: forall from t i o oo .
 	Category from =>
+	-- TODO: generalize
+	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Limit Straight from (->) =>
 	Covariant Functor (->) (->) (That (LM) o) =>
 	Covariant Functor (->) (->) (This (LM) (LM i i)) =>
@@ -770,6 +773,8 @@ fr_dp from_left from_right = dp `compose`
 	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
 lm_dp :: forall o oo t .
+	-- TODO: generalize
+	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	t o -> t oo -> t (o `LM` oo)
 lm_dp from_left from_right = dp (lm from_left from_right)
@@ -793,6 +798,8 @@ dp_yo x f = day @Straight @from @t @LM @LM identity f x
 
 -- TODO: generalize
 dp_yokl :: forall e ee from into t tt o .
+	-- TODO: generalize
+	Juggleable (->) (t e `LM` t ee) (t e `LM` t ee) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Yoneda from into t =>
 	Component Natural (->) into (T_TT_I t tt) t =>
