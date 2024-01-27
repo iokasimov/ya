@@ -363,8 +363,8 @@ wrap = let U_II_I x = cast in x
 -- Category: initial object
 data Void
 
-type family Same a b where
-  Same a a = ()
+-- type family Same a b where
+  -- Same a a = ()
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x

@@ -93,7 +93,6 @@
 * Define `Field` type class
 * Define `itme` method
 * Define `_yokl` operator
-* Define `Same` type family
 * Define `Construction` type alias
 * Define `Root` patter synonym
 * Define `Instruction` type alias
@@ -618,3 +617,5 @@
 * Define `rw_____` operator
 * Define `rw______` operator
 * Define `rw_rw__` operator
+* Define `Same` type alias
+* Define `Same` pattern synonym

@@ -4,6 +4,11 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
+type Same e = e
+
+pattern Same :: e -> Same e
+pattern Same e = e
+
 type Only = Identity
 
 pattern Only :: e -> Only e
