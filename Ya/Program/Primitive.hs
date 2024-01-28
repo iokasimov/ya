@@ -132,6 +132,9 @@ pattern Statefully x = W_I_I_II x
 
 type State = Straight Statefully
 
+pattern State :: Statefully state result -> State state result
+pattern State x = U_I_II x
+
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
 	e -> JT (State e) t o -> t (e `LM` o)

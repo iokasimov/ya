@@ -619,3 +619,4 @@
 * Define `rw_rw__` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
+* Define `State` pattern synonym
