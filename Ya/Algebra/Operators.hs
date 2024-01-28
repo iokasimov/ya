@@ -5,8 +5,8 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`
+infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yoklKL`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_yoklKL`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `o__`, `a__`, `rw_`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `o___`, `a___`, `rw__`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`, `o____`, `a____`, `rw___`
@@ -739,6 +739,20 @@ o_yokl :: forall from u t tt a o e .
 	(forall ee . Wrapper from (T_TT_I t tt ee)) =>
 	u e (t a) -> from a (tt o) -> u e (t o)
 o_yokl x = fai fokl (o @from x)
+
+o_yoklKL, oo_yoklKL :: forall from u t tt a o e .
+	Unlabelable from tt =>
+	Covariant Semi Functor from (->) (Straight u e) =>
+	Covariant Endo Semi Functor from tt =>
+	Covariant Endo Semi Functor from t =>
+	Mapping Straight Straight from from (T_TT_I t tt) (TT_T_I t tt) =>
+	Covariant Yoneda from (->) (Straight u e) =>
+	(forall ee . Wrapper from (T_TT_I t tt ee)) =>
+	(forall ee . Wrapper from (TT_T_I t tt ee)) =>
+	u e (t a) -> from a (tt o) -> u e (Unlabeled tt (t o))
+o_yoklKL x = fio @from unlabel `compose` fai foklKL (o @from x)
+
+oo_yoklKL = o_yoklKL
 
 a_yokl :: forall from t tt a o e .
 	Covariant Functor (->) (->) tt =>
