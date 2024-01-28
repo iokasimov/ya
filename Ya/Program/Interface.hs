@@ -55,23 +55,23 @@ type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
 
-class Stack datastructure where
-	pop :: Automation `TI` datastructure item `TI` datastructure item `TI` Optional item
-	push :: item -> Automation `TI` datastructure item `TI` datastructure item `TI` item
+class Stack datastructure morphism where
+	pop :: morphism `TI` datastructure item `TI` Optional item
+	push :: item -> morphism `TI` datastructure item `TI` item
 
-instance Stack List where
-	pop = U_I_UU_II_III `i` \case
+instance Stack List Statefully where
+	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
 		Empty @List -> These `i` Empty @List `i` None
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
-	push x = U_I_UU_II_III `yi` \s -> These
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
-instance Stack (Construction Optional) where
-	pop = U_I_UU_II_III `yi` \case
+instance Stack (Construction Optional) Statefully where
+	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
 		Nonempty @List (Yet x None) -> These `i_i` Nonempty @List `i` Yet x None `i_i` None
-	push x = U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure where
 	Scrolling List = U_T_I_TT_I LM Identity (U_T_I_TT_I LM (Backward List) (Forward List))
