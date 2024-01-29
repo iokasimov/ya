@@ -26,16 +26,16 @@ instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
 		`i` inspect (item @e @ee) fs
 		`i` \new -> These old `i` adjust (item @e @ee) (\_ -> new) fs
 
--- TODO: fix it after redefining Scrolling List
--- instance Field (t e) (U_T_I_TT_I LM t tt e)
-	-- where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		-- \(U_T_I_TT_I (These f fs)) -> These `i` f `i` \f_ -> U_T_I_TT_I (These f_ fs)
+instance Field (t e) (U_T_I_TT_I LM tt t e)
+	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+		\(U_T_I_TT_I (These y x)) -> These `i` x `i` \x_ -> U_T_I_TT_I (These y x_)
 
--- TODO: fix it after redefining Scrolling List
--- instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM t tt ee) where
-	-- item = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These old fs)) -> These
-		-- `i` inspect (item @e @(tt ee)) fs
-		-- `i` \new -> U_T_I_TT_I (These old `i` adjust (item @e @(tt ee)) (\_ -> new) fs)
+instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM tt t ee) where
+	item = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These x y)) -> These
+		`i` inspect (item @e @(tt ee)) x
+		`i` \new -> U_T_I_TT_I / These
+			`i` adjust (item @e @(tt ee)) (\_ -> new) x
+			`i` y
 
 instance Field (Focused e) (Construction t e)
 	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
@@ -76,13 +76,13 @@ instance Stack (Construction Optional) Statefully where
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
 
 type family Scrolling datastructure = result | result -> datastructure where
-	Scrolling List = U_T_I_TT_I LM (U_T_I_TT_I LM Identity List) List
+	Scrolling List = U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List
 
 instance Mapping Straight Straight Arrow Arrow
-	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM (U_T_I_TT_I LM Identity List) List)
+	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List)
 	where mapping = rewrap / \from (Root x xs) ->
 		(U_T_I_TT_I (These
-			(U_T_I_TT_I / These (Identity (from x)) (Empty @List))
+			(Empty @List `lm` Identity (from x) `u_u` U_T_I_TT_I)
 			((T_TT_I / xs `yo` R_U_I_T_I) `yo` from)
 			)
 		)
@@ -99,13 +99,13 @@ class Scrollable datastructure item morphism where
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List item Statefully where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (Identity x) (T_TT_I bs))) (List (Yet f fs)))) -> These
-			(U_T_I_TT_I (These (U_T_I_TT_I (These (Identity f) (List (Yet x (bs `yo` unwrap))))) (T_TT_I / fs `yo` wrap )))
+		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs)))) -> These
+			(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap )))
 			(Some previous)
 		previous@(_) -> These previous None
 	scroll (This _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (Identity x) (List (Yet b bs)))) (T_TT_I fs))) -> These
-			(U_T_I_TT_I (These (U_T_I_TT_I (These (Identity b) (T_TT_I / bs `yo` R_U_I_T_I))) (List (Yet x (fs `yo` unwrap)))))
+		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet b bs)) (Identity x))) (T_TT_I fs))) -> These
+			(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List (Yet x (fs `yo` unwrap)))))
 			(Some previous)
 		previous@(_) -> These previous None
 
