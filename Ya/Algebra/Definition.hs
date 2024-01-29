@@ -5,6 +5,14 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
+infixl 8 `TI`, `LM`, `ML`, `JT`
+
+type TI t i = t i
+
+data LM i ii = These i ii
+
+data ML i ii = This i | That ii
+
 class Dumb x
 instance Dumb x
 
@@ -333,3 +341,35 @@ instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 
 class Juggleable into a o | into a -> o
 	where juggle :: into a o
+
+type family JT effect where
+	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
+	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+
+type family Unjointed effect unknown result where
+	Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown result =
+		state -> unknown (state `LM` result)
+
+class Unjointable effect unknown where
+	unjoint :: effect `JT` unknown `TI` result
+		`ARR` Unjointed effect unknown result
+
+this :: e `LM` ee -> e
+this (These x _) = x
+
+that :: e `LM` ee -> ee
+that (These _ x) = x
+
+constant :: e -> ee -> e
+constant x _ = x
+
+type MLM = U_U_I_II_UU_I_II ML LM
+-- newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
+
+instance Wrapper (->) x
+	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
+	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
+
+instance Wrapper (->) x
+	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
+	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))

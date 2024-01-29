@@ -623,3 +623,4 @@
 * Define `o_yoklKL` operator
 * Define `oo_yoklKL` operator
 * Define `Automatable` type class
+* Define `U_U_I_II_UU_I_II` data type

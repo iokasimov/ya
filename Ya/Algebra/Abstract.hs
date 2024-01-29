@@ -3,22 +3,13 @@
 module Ya.Algebra.Abstract where
 
 infixl 0 /
-infixl 8 `TI`, `LM`, `ML`
-
-infixl 8 `JT`
 infixr 7 `ARR`
 
 infixl 8 `wr`, `rw`
 
-type TI t i = t i
-
 type ARR = (->)
 
-data LM i ii = These i ii
-
-data ML i ii = This i | That ii
-
-newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
+newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
 newtype Identity i = Identity i
 
@@ -170,7 +161,7 @@ type family Supertype e where
 	Supertype (W_I_I_II w i ii) = w i i ii
 	Supertype (W_III_I_II w i ii iii) = w iii i ii
 	Supertype (Arrow () ii) = ii
-	Supertype (MLM i ii) = ML (ML i ii) (LM i ii)
+	Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -334,19 +325,11 @@ instance Castable Opposite (->) (() -> i)
 instance Castable Straight (->) (() -> i)
 	where cast = U_I_II (\f -> f ())
 
-instance Castable Opposite (->) (MLM i ii)
-	where cast = U_II_I MLM
+instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
+	where cast = U_II_I U_U_I_II_UU_I_II
 
-instance Castable Straight (->) (MLM i ii)
-	where cast = U_I_II (\(MLM x) -> x)
-
-instance Wrapper (->) x
-	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
-	cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
-
-instance Wrapper (->) x
-	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
-	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
+	where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
 wr :: Castable Opposite into i => into (Supertype i) i
 wr = let U_II_I x = cast in x
@@ -368,24 +351,3 @@ data Void
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
-
-type family JT effect where
-	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
-	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
-
-type family Unjointed effect unknown result where
-	Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown result =
-		state -> unknown (state `LM` result)
-
-class Unjointable effect unknown where
-	unjoint :: effect `JT` unknown `TI` result
-		`ARR` Unjointed effect unknown result
-
-this :: e `LM` ee -> e
-this (These x _) = x
-
-that :: e `LM` ee -> ee
-that (These _ x) = x
-
-constant :: e -> ee -> e
-constant x _ = x

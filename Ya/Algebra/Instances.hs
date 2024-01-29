@@ -403,11 +403,11 @@ instance Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM MLM (Straight ML e) (Straight ML e) ee eee) (Straight ML e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (Straight (That ee)) (Straight (That eee))) (Straight f) ->
-			That `compose` from `compose` f `compose` MLM `compose` That / These ee eee
+			That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These ee eee
 		These (These (Straight (That ee)) _) (Straight f) ->
-			That `compose` from `compose` f `compose` MLM `compose` This / This ee
+			That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This / This ee
 		These (These (Straight (This _)) (Straight (That eee))) (Straight f) ->
-			That `compose` from `compose` f `compose` MLM `compose` This / That eee
+			That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This / That eee
 		These (These (Straight (This e)) (Straight (This _))) (Straight _) ->
 			This e
 
