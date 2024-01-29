@@ -111,14 +111,7 @@ adjust attr f s = let (These h x) = attr `rw_rw` s in x `i`f h
 		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
 
--- TODO: rename to `Automata` later
 type Automation = U_I_UU_II_III (->) LM
-
-switch :: Arrow old new -> Automation old new old
-switch f = U_I_UU_II_III `i` \s -> These `i` f s `i` s
-
-review :: Automation old old old
-review = U_I_UU_II_III `i` \old -> These `i` old `i` old
 
 type Transition = W_I_II_I Automation
 

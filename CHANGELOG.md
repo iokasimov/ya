@@ -622,3 +622,4 @@
 * Define `State` pattern synonym
 * Define `o_yoklKL` operator
 * Define `oo_yoklKL` operator
+* Define `Automatable` type class
