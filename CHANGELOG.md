@@ -602,20 +602,20 @@
 * Define `yi_yi_yi_rw` operator
 * Define `Juggleable` type class
 * Define `juggle` method
-* Define `o__` operator
-* Define `o___` operator
-* Define `o____` operator
-* Define `o_____` operator
-* Define `a__` operator
-* Define `a___` operator
-* Define `a____` operator
-* Define `a_____` operator
-* Define `rw_` operator
-* Define `rw__` operator
-* Define `rw___` operator
-* Define `rw____` operator
-* Define `rw_____` operator
-* Define `rw______` operator
+* Define `ooo` operator
+* Define `oooo` operator
+* Define `ooooo` operator
+* Define `oooooo` operator
+* Define `aaa` operator
+* Define `aaaa` operator
+* Define `aaaaa` operator
+* Define `aaaaaa` operator
+* Define `rww` operator
+* Define `rwww` operator
+* Define `rwwww` operator
+* Define `rwwwww` operator
+* Define `rwwwwww` operator
+* Define `rwwwwwww` operator
 * Define `rw_rw__` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
