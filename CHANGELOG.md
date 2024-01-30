@@ -629,3 +629,4 @@
 * Define `yi_yokl_yoklKL` operator
 * Define `yi_yi_yokl_yoklKL` operator
 * Define `yi_yi_yi_yokl_yoklKL` operator
+* Define `oo_a` operator
