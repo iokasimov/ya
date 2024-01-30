@@ -10,11 +10,11 @@ infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `o__`, `a__`, `rw_`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `o___`, `a___`, `rw__`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`, `o____`, `a____`, `rw___`
-infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yi_yi_rw`, `o_____`, `a_____`, `rw____`, `rw_rw__`
+infixl 4 `i_i_i_i_i_i`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi_rw`, `o_____`, `a_____`, `rw____`, `rw_rw__`
 infixl 3 `i_i_i_i_i_i_i`, `u_u_u_u_u_u_u`, `rw_____`
-infixl 2 `i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yukl`, `rw______`
+infixl 2 `i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yukl`, `rw______`, `yi_yi_yokl_yoklKL`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
-infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yukl`
+infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
 	i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i_i :: Category into => into e e
@@ -249,7 +249,8 @@ yiokl x = rw @into @(U_I_II t i o)
 	`compose` wr @into @(T_TT_I (U_I_II t i) tt _)
 	`compose` yoneda @Straight @from (U_I_II x)
 
-yokl_yoklKL :: forall from into t tt ttt a o .
+yokl_yoklKL, yi_yokl_yoklKL, yi_yi_yokl_yoklKL, yi_yi_yi_yokl_yoklKL
+	:: forall from into t tt ttt a o .
 	Covariant Yoneda from into t =>
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from ttt =>
@@ -262,6 +263,10 @@ yokl_yoklKL :: forall from into t tt ttt a o .
 	Castable Opposite into (T_TT_I t tt (ttt o)) =>
 	t (ttt a) -> into (from a (tt o)) (t (ttt o))
 yokl_yoklKL x = fai foklKL (yokl @from @into x)
+
+yi_yokl_yoklKL = yokl_yoklKL
+yi_yi_yokl_yoklKL = yokl_yoklKL
+yi_yi_yi_yokl_yoklKL = yokl_yoklKL
 
 yoklKL_yokl :: forall from into t tt ttt a o .
 	Unlabelable into ttt =>

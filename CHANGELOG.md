@@ -626,3 +626,6 @@
 * Define `U_U_I_II_UU_I_II` data type
 * Define `cn` operator
 * Define `cn_dp` operator
+* Define `yi_yokl_yoklKL` operator
+* Define `yi_yi_yokl_yoklKL` operator
+* Define `yi_yi_yi_yokl_yoklKL` operator
