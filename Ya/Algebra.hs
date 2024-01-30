@@ -139,9 +139,9 @@ instance
 		These (These (T_TT_I e) (T_TT_I ee)) (Straight f) ->
 				(day @Straight @Arrow @t @LM @MLM identity
 					(\case
-						MLM (This (This x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` This
-						MLM (This (That x)) -> x `yo` from `compose` f `compose` MLM `compose` This `compose` That
-						MLM (That x) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
+						U_U_I_II_UU_I_II (This (This x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
+						U_U_I_II_UU_I_II (This (That x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
+						U_U_I_II_UU_I_II (That x) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
 					)
 						(These e ee)
 				)
@@ -156,12 +156,12 @@ instance
 			let These e_ e__ = rw_rw_rw e in
 			let These ee_ ee__ = rw_rw_rw ee in
 			Recursive `compose` U_I_T_II / These
-				(from `compose` f `compose` MLM `compose` That / These e_ ee_)
+				(from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
 				(day @Straight @Arrow @t @LM @MLM identity
 					(unwrap `compose` \case
-						MLM (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` This
-						MLM (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` MLM `compose` This `compose` That
-						MLM (That (These x xx)) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
+						U_U_I_II_UU_I_II (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
+						U_U_I_II_UU_I_II (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
+						U_U_I_II_UU_I_II (That (These x xx)) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
 							(These (R_U_I_T_I x) (R_U_I_T_I xx))
 					)
 					/ These e__ ee__)

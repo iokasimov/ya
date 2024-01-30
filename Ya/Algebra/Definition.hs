@@ -9,10 +9,6 @@ infixl 8 `TI`, `LM`, `ML`, `JT`
 
 type TI t i = t i
 
-data LM i ii = These i ii
-
-data ML i ii = This i | That ii
-
 class Dumb x
 instance Dumb x
 
@@ -160,9 +156,12 @@ rep = unwrap `compose` map @Straight @Straight @into @(->) @(Straight hom (Repre
 
 type family Co x where Co (x Straight) = x Opposite
 
-type family Object diagram = r | r -> diagram where
-	Object (Both (Straight Arrow)) = LM
-	Object (Both (Opposite Arrow)) = ML
+data family Object (v :: (* -> * -> *) -> * -> * -> *) (diagram :: * -> * -> *) e ee
+data instance Object Straight Arrow e ee = These e ee
+data instance Object Opposite Arrow e ee = This e | That ee
+
+type LM = Object Straight Arrow
+type ML = Object Opposite Arrow
 
 type family Neutral p where
 	Neutral LM = ()
@@ -179,27 +178,27 @@ deriving instance
 	) => Cone v from into u
 
 left :: forall v from into a o e .
-	Cone v from into (Object (Both (v into))) =>
+	Cone v from into (Object v into) =>
 	Castable Opposite Arrow (v from a o) =>
-	Castable Straight Arrow (v into (This (Object (Both (v into))) e a) (Identity o)) =>
-	Supertype (v from a o) -> Supertype (v into (This (Object (Both (v into))) e a) (Identity o))
-left from = map @v @v @from @into @(This (Object (Both (v into))) e) @Identity @a @o from
+	Castable Straight Arrow (v into ((This (Object v into)) e a) (Identity o)) =>
+	Supertype (v from a o) -> Supertype (v into (This (Object v into) e a) (Identity o))
+left from = map @v @v @from @into @(This (Object v into) e) @Identity @a @o from
 
 right :: forall v from into a t e .
-	Cone v from into (Object (Both (v into))) =>
+	Cone v from into (Object v into) =>
 	Castable Opposite Arrow (v from a t) =>
-	Castable Straight Arrow (v into (That (Object (Both (v into))) e a) (Identity t)) =>
-	Supertype (v from a t) -> Supertype (v into (That (Object (Both (v into))) e a) (Identity t))
-right from = map @v @v @from @into @(That (Object (Both (v into))) e) @Identity @a @t from
+	Castable Straight Arrow (v into (That (Object v into) e a) (Identity t)) =>
+	Supertype (v from a t) -> Supertype (v into (That (Object v into) e a) (Identity t))
+right from = map @v @v @from @into @(That (Object v into) e) @Identity @a @t from
 
 type Limit v from into =
-	( Cone v from into (Object (Both (v into)))
-	, Mapping v v from into Identity (Both (Object (Both (v into))))
+	( Cone v from into (Object v into)
+	, Mapping v v from into Identity (Both (Object v into))
 	)
 
-type Product into = Object (Both (Straight into))
+type Product into = Object Straight into
 
-type Sum into = Object (Both (Opposite into))
+type Sum into = Object Opposite into
 
 type Terminal o into a = o Straight into U_ a a
 

@@ -48,6 +48,7 @@ library
     ViewPatterns
     PatternSynonyms
     DerivingVia
+    StarIsType
     StandaloneDeriving
     ScopedTypeVariables
     TypeApplications
