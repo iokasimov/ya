@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yoklKL`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_yoklKL`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `o_`, `u_a`, `a_`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_yoklKL`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `o__`, `a__`, `rw_`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `o___`, `a___`, `rw__`
 infixl 5 `i_i_i_i_i`, `u_u_u_u_u`, `yiokl`, `o____`, `a____`, `rw___`
@@ -551,6 +551,15 @@ fr from_left from_right =
 	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
 	wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
 	wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
+
+cn :: forall into a aa o oo .
+	Cone Straight into into (Object Straight into) =>
+	(forall e . Functor Straight into into (That (Product into) e)) =>
+	(forall e . Functor Straight into into (This (Product into) e)) =>
+	(forall e ee . Wrapper into (That (Product into) e ee)) =>
+	(forall e ee . Wrapper into (This (Product into) e ee)) =>
+	into a o -> into aa oo -> into (Product into a aa) (Product into o oo)
+cn from_left from_right = fio from_right `compose` foi from_left
 
 -- TODO: try to generalize
 lm, yi_lm, yi_yi_lm, yi_yi_yi_lm, yi_yi_yi_yi_lm :: forall o oo .
