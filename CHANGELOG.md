@@ -625,3 +625,4 @@
 * Define `Automatable` type class
 * Define `U_U_I_II_UU_I_II` data type
 * Define `cn` operator
+* Define `cn_dp` operator
