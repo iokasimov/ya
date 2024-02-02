@@ -305,7 +305,7 @@
 * Define `Twice` type alias
 * Define `o_o` operator
 * Define `o_yu` operator
-* Define `section` expression
+* Define `part` expression
 * Define `u_o_a` operator
 * Define `u_o_yu` operator
 * Define `transform` expression
@@ -637,3 +637,4 @@
 * Define `yiiiiii` operator
 * Define `yiiiiiii` operator
 * Define `yi_yi_yi_rf` operator
+* Define `has` method

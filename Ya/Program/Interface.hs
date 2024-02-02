@@ -8,58 +8,58 @@ import Ya.Algebra
 import Ya.Program.Primitive
 
 class Field e r where
-	item :: Attribute r e
+	has :: Attribute r e
 
 instance Field e e
-	where item = identity
+	where has = identity
 
 instance Field e (Only e)
-	where item = W_I_II_II `a` U_I_UU_III_U_II_I
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(Only x) -> These `i` x `i` \new -> Only new
 
 instance Field e (e `LM` ee)
-	where item = W_I_II_II `a` U_I_UU_III_U_II_I
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
-	item = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
-		`i` inspect (item @e @ee) fs
-		`i` \new -> These old `i` adjust (item @e @ee) (\_ -> new) fs
+	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
+		`i` inspect (has @e @ee) fs
+		`i` \new -> These old `i` adjust (has @e @ee) (\_ -> new) fs
 
 instance Field (t e) (U_T_I_TT_I LM tt t e)
-	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(U_T_I_TT_I (These y x)) -> These `i` x `i` \x_ -> U_T_I_TT_I (These y x_)
 
 instance {-# OVERLAPS #-} Field e (tt ee) => Field e (U_T_I_TT_I LM tt t ee) where
-	item = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These x y)) -> These
-		`i` inspect (item @e @(tt ee)) x
+	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(U_T_I_TT_I (These x y)) -> These
+		`i` inspect (has @e @(tt ee)) x
 		`i` \new -> U_T_I_TT_I / These
-			`i` adjust (item @e @(tt ee)) (\_ -> new) x
+			`i` adjust (has @e @(tt ee)) (\_ -> new) x
 			`i` y
 
 instance Field (Focused e) (Construction t e)
-	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
 
 instance Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
-	where item = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
-section :: forall t tt e .
+part :: forall t tt e .
 	Field (t e) (tt e) =>
 	Attribute (tt e) (t e)
-section = item @(t e) @(tt e)
+part = has @(t e) @(tt e)
 
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
 
 class Stack datastructure morphism where
-	pop :: morphism `TI` datastructure item `TI` Optional item
-	push :: item -> morphism `TI` datastructure item `TI` item
+	pop :: morphism `TI` datastructure has `TI` Optional has
+	push :: has -> morphism `TI` datastructure has `TI` has
 
 instance Stack List Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
@@ -90,14 +90,14 @@ instance Mapping Straight Straight Arrow Arrow
 type family Orientation datastructure where
 	Orientation List = Horizontal
 
-class Scrollable datastructure item morphism where
+class Scrollable datastructure has morphism where
 	scroll :: Orientation datastructure -> morphism
-		`TI` Scrolling datastructure item
-		`TI` Optional (Scrolling datastructure item)
+		`TI` Scrolling datastructure has
+		`TI` Optional (Scrolling datastructure has)
 
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
-instance Scrollable List item Statefully where
+instance Scrollable List has Statefully where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs)))) -> These
 			(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap )))
@@ -109,11 +109,11 @@ instance Scrollable List item Statefully where
 			(Some previous)
 		previous@(_) -> These previous None
 
-instance {-# OVERLAPS #-} Scrollable t item Statefully => Scrollable t item Transition where
+instance {-# OVERLAPS #-} Scrollable t has Statefully => Scrollable t has Transition where
 	scroll orient = W_I_II_I `compose` U_I_UU_II_III
 		`compose` fio (\(These x y) -> These y x)
 		`compose` unwrap `compose` unwrap
-		/ scroll @t @item @Statefully orient
+		/ scroll @t @has @Statefully orient
 
 -- TODO: experimental and highly likely very inefficient
 -- TODO: should we defined with a wrapper since it's not the only possible implementation?
