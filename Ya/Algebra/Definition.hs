@@ -338,8 +338,8 @@ instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
 instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 	=> Unlabelable into (Labeled label t) where unlabel = rw
 
-class Juggleable into a o | into a -> o
-	where juggle :: into a o
+class Downcastable into a o | into a -> o
+	where downcast :: into a o
 
 type family JT effect where
 	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)

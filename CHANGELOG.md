@@ -600,8 +600,8 @@
 * Define `unjoint` method
 * Define `yi_yi_rw` operator
 * Define `yi_yi_yi_rw` operator
-* Define `Juggleable` type class
-* Define `juggle` method
+* Define `Downcastable` type class
+* Define `downcast` method
 * Define `ooo` operator
 * Define `oooo` operator
 * Define `ooooo` operator

@@ -568,19 +568,19 @@ fr from_left from_right =
 
 -- TODO: use juggling here
 cn :: forall into e a aa o oo .
-	Juggleable into e (Product into a aa) =>
+	Downcastable into e (Product into a aa) =>
 	Cone Straight into into (Object Straight into) =>
 	(forall e . Functor Straight into into (That (Product into) e)) =>
 	(forall e . Functor Straight into into (This (Product into) e)) =>
 	(forall e ee . Wrapper into (That (Product into) e ee)) =>
 	(forall e ee . Wrapper into (This (Product into) e ee)) =>
 	into a o -> into aa oo -> into e (Product into o oo)
-cn from_left from_right = fio from_right `compose` foi from_left `compose` juggle
+cn from_left from_right = fio from_right `compose` foi from_left `compose` downcast
 
 -- TODO: try to generalize
 cn_dp :: forall e t a aa o oo .
-	Juggleable (->) e (Product (->) a aa) =>
-	Juggleable (->) (Product (->) (t o) (t oo)) (Product (->) (t o) (t oo)) =>
+	Downcastable (->) e (Product (->) a aa) =>
+	Downcastable (->) (Product (->) (t o) (t oo)) (Product (->) (t o) (t oo)) =>
 	Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
 	Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
 cn_dp from_left from_right = dp @(Product (->) (t o) (t oo)) `compose` cn from_left from_right
@@ -617,7 +617,7 @@ yi_yi_yi_yi_lm = lm
 rf, yi_rf, yi_yi_rf, yi_yi_yi_rf :: forall from e i o oo .
 	Category from =>
 	Limit Opposite from from =>
-	Juggleable from e (Sum from o oo) =>
+	Downcastable from e (Sum from o oo) =>
 	Covariant Functor from from (That (Sum from) o) =>
 	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
 	(forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
@@ -630,7 +630,7 @@ rf from_left from_right =
 	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
-	juggle @from @e @(Sum from o oo)
+	downcast @from @e @(Sum from o oo)
 
 yi_rf = rf
 yi_yi_rf = rf
@@ -640,7 +640,7 @@ rw_rf :: forall from e i o oo .
 	Category from =>
 	Limit Opposite from from =>
 	-- TODO: fix it later
-	Juggleable from (Sum from o oo) (Sum from o oo) =>
+	Downcastable from (Sum from o oo) (Sum from o oo) =>
 	Covariant Functor from from (That (Sum from) o) =>
 	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
 	(forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
@@ -678,18 +678,18 @@ rwr_rf from_left from_right = rwr /
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
 dp :: forall eee u e ee t .
-	Juggleable (->) eee (u (t e) (t ee)) =>
+	Downcastable (->) eee (u (t e) (t ee)) =>
 	Mapping Straight Straight (->) (->) (Day Straight (->) u LM t t e ee) t =>
 	eee -> t (e `LM` ee)
 dp = day @Straight @(->) @t @u @LM identity identity
-	`compose` juggle @(->) @eee @(u (t e) (t ee))
+	`compose` downcast @(->) @eee @(u (t e) (t ee))
 
 ds :: forall eee u e ee t .
-	Juggleable (->) eee (u (t e) (t ee)) =>
+	Downcastable (->) eee (u (t e) (t ee)) =>
 	Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
 	eee -> t (e `ML` ee)
 ds = day @Straight @(->) @t @u @ML identity identity
-	`compose` juggle @(->) @eee @(u (t e) (t ee))
+	`compose` downcast @(->) @eee @(u (t e) (t ee))
 
 dw :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
@@ -785,7 +785,7 @@ a_yokl = a `compose` fokl @from @(->) @tt @t
 fr_dp :: forall from t i o oo .
 	Category from =>
 	-- TODO: generalize
-	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
+	Downcastable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Limit Straight from (->) =>
 	Covariant Functor (->) (->) (That (LM) o) =>
 	Covariant Functor (->) (->) (This (LM) (LM i i)) =>
@@ -808,14 +808,14 @@ fr_dp from_left from_right = dp `compose`
 
 lm_dp :: forall o oo t .
 	-- TODO: generalize
-	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
+	Downcastable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	t o -> t oo -> t (o `LM` oo)
 lm_dp from_left from_right = dp (lm from_left from_right)
 
 lm_ds :: forall o oo t .
 	-- TODO: generalize
-	Juggleable (->) (t o `LM` t oo) (t o `LM` t oo) =>
+	Downcastable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Covariant Monoidal Functor (->) LM ML t =>
 	t o -> t oo -> t (o `ML` oo)
 lm_ds from_left from_right = ds (lm from_left from_right)
@@ -835,7 +835,7 @@ dp_yo x f = day @Straight @from @t @LM @LM identity f x
 -- TODO: generalize
 dp_yokl :: forall e ee from into t tt o .
 	-- TODO: generalize
-	Juggleable (->) (t e `LM` t ee) (t e `LM` t ee) =>
+	Downcastable (->) (t e `LM` t ee) (t e `LM` t ee) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Yoneda from into t =>
 	Component Natural (->) into (T_TT_I t tt) t =>
