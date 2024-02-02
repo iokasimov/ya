@@ -636,3 +636,4 @@
 * Define `yiiiii` operator
 * Define `yiiiiii` operator
 * Define `yiiiiiii` operator
+* Define `yi_yi_yi_rf` operator

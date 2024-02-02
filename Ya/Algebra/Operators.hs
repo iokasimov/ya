@@ -12,7 +12,7 @@ infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl
 infixl 5 `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `aaaaa`, `rwwww`
 infixl 4 `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi_rw`, `oooooo`, `aaaaaa`, `rwwwww`, `rw_rw__`
 infixl 3 `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`
-infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yukl`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
+infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yukl`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`
 
@@ -614,7 +614,7 @@ yi_yi_lm = lm
 yi_yi_yi_lm = lm
 yi_yi_yi_yi_lm = lm
 
-rf, yi_rf, yi_yi_rf :: forall from e i o oo .
+rf, yi_rf, yi_yi_rf, yi_yi_yi_rf :: forall from e i o oo .
 	Category from =>
 	Limit Opposite from from =>
 	Juggleable from e (Sum from o oo) =>
@@ -634,6 +634,7 @@ rf from_left from_right =
 
 yi_rf = rf
 yi_yi_rf = rf
+yi_yi_yi_rf = rf
 
 rw_rf :: forall from e i o oo .
 	Category from =>
