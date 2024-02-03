@@ -639,3 +639,4 @@
 * Define `yi_yi_yi_rf` operator
 * Define `has` method
 * Define `is` expression
+* Define `Setoid` type class

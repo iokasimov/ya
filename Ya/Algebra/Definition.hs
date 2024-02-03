@@ -366,7 +366,6 @@ is :: e -> ee -> e
 is x _ = x
 
 type MLM = U_U_I_II_UU_I_II ML LM
--- newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
 
 instance Wrapper (->) x
 	=> Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
@@ -375,3 +374,6 @@ instance Wrapper (->) x
 instance Wrapper (->) x
 	=> Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
 	cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+
+class Setoid e where
+	e :: e `LM` e `ARR` e `LM` e `ML` e
