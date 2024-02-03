@@ -362,6 +362,9 @@ that (These _ x) = x
 constant :: e -> ee -> e
 constant x _ = x
 
+is :: e -> ee -> e
+is x _ = x
+
 type MLM = U_U_I_II_UU_I_II ML LM
 -- newtype MLM i ii = MLM (ML (ML i ii) (LM i ii))
 
