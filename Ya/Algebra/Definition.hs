@@ -338,9 +338,6 @@ instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
 instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 	=> Unlabelable into (Labeled label t) where unlabel = rw
 
-class Downcastable into a o | into a -> o
-	where downcast :: into a o
-
 class Derivable into elaborated primitive | into elaborated -> primitive where
 	primitive :: into elaborated primitive
 	elaborate :: into primitive elaborated

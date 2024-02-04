@@ -600,8 +600,6 @@
 * Define `unjoint` method
 * Define `yi_yi_rw` operator
 * Define `yi_yi_yi_rw` operator
-* Define `Downcastable` type class
-* Define `downcast` method
 * Define `ooo` operator
 * Define `oooo` operator
 * Define `ooooo` operator

@@ -359,28 +359,6 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	where mapping = rwr / \from ->
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
 
-instance Downcastable (->) (e `LM` ee) (e `LM` ee) where
-	downcast = identity
-
-instance Downcastable (->) (e `ML` ee) (e `ML` ee) where
-	downcast = identity
-
-instance Downcastable (->) (That LM e ee) (e `LM` ee) where
-	downcast = unwrap
-
-instance Downcastable (->) (That ML e ee) (e `ML` ee) where
-	downcast = unwrap
-
-instance Covariant Endo Semi Functor (->) t =>
-	Downcastable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e))
-	where downcast = fio @(->) (fo @(->) wrap) `compose` rw_rw_rw
-
-instance Downcastable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee)
-	where downcast = rw_rw
-
-instance Downcastable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e))
-  where downcast = unwrap
-
 instance Derivable (->) (e `LM` ee) (e `LM` ee) where
 	primitive = identity
 	elaborate = identity
