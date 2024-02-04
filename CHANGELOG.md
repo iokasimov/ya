@@ -641,3 +641,4 @@
 * Define `Derivable` type class
 * Define `primitive` method
 * Define `elaborate` method
+* Define `e` method and operator
