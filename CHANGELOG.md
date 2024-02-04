@@ -640,3 +640,6 @@
 * Define `has` method
 * Define `is` expression
 * Define `Setoid` type class
+* Define `Derivable` type class
+* Define `primitive` method
+* Define `elaborate` method

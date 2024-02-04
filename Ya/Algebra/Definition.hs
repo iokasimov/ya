@@ -341,6 +341,10 @@ instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 class Downcastable into a o | into a -> o
 	where downcast :: into a o
 
+class Derivable into elaborated primitive | into elaborated -> primitive where
+	primitive :: into elaborated primitive
+	elaborate :: into primitive elaborated
+
 type family JT effect where
 	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
 	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)

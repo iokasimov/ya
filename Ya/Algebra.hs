@@ -380,3 +380,38 @@ instance Downcastable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee)
 
 instance Downcastable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e))
   where downcast = unwrap
+
+instance Derivable (->) (e `LM` ee) (e `LM` ee) where
+	primitive = identity
+	elaborate = identity
+
+instance Derivable (->) (e `ML` ee) (e `ML` ee) where
+	primitive = identity
+	elaborate = identity
+
+instance Derivable (->) (Straight LM e ee) (e `LM` ee) where
+	primitive = unwrap
+	elaborate = wrap
+
+instance Derivable (->) (Straight ML e ee) (e `ML` ee) where
+	primitive = unwrap
+	elaborate = wrap
+
+instance Derivable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee) where
+	primitive = unwrap `compose` unwrap
+	elaborate = wrap `compose` wrap
+
+instance Derivable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e)) where
+	primitive = unwrap
+	elaborate = wrap
+
+instance Covariant Endo Semi Functor (->) t =>
+	Derivable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e)) where
+	primitive = fio @(->) (fo @(->) wrap)
+		`compose` unwrap @(U_I_T_II _ LM _ _)
+		`compose` unwrap @(Recursive _)
+		`compose` unwrap @(R_U_I_T_I LM _ _)
+	elaborate = wrap @(R_U_I_T_I LM _ _)
+		`compose` wrap @(Recursive _)
+		`compose` wrap @(U_I_T_II _ LM _ _)
+		`compose` fio @(->) (fo @(->) unwrap)
