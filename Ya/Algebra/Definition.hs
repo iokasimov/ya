@@ -7,6 +7,8 @@ import Ya.Algebra.Abstract
 
 infixl 8 `TI`, `LM`, `ML`, `JT`
 
+infixl 9 `e`
+
 type TI t i = t i
 
 class Dumb x

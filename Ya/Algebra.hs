@@ -393,3 +393,18 @@ instance Covariant Endo Semi Functor (->) t =>
 		`compose` wrap @(Recursive _)
 		`compose` wrap @(U_I_T_II _ LM _ _)
 		`compose` fio @(->) (fo @(->) unwrap)
+
+instance Setoid () where
+	e _ = That ()
+
+-- TODO: add Derivable behaviour here
+instance (Setoid e, Setoid ee) => Setoid (e `ML` ee) where
+	e (These (This x) (This xx)) = e (These x xx) `yoi` (`yio` This) `o` (`yoi` This) `yio` This
+	e (These (That x) (That xx)) = e (These x xx) `yoi` (`yio` That) `o` (`yoi` That) `yio` That
+	e (These x xx) = This (These x xx)
+
+-- TODO: add Derivable behaviour here
+instance (Setoid e, Setoid ee) => Setoid (e `LM` ee) where
+	e (These (These x xx) (These xxx xxxx)) = case e (x `lm` xxx) `lm`e (xx `lm` xxxx) of
+		These (That x') (That xx') -> That (These x' xx')
+		These _ _ -> This (x `lm` xx `yi_lm` xxx `lm` xxxx)
