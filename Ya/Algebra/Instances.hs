@@ -145,6 +145,12 @@ instance Mapping Straight Straight (->) (->) (Straight LM e `T_TT_I` Straight (-
 instance Mapping Straight Straight (->) (->) Identity (Straight (->) e `T_TT_I` Straight LM e)
 	where mapping = rwr / \from -> rwr / \x -> Straight / \e -> Straight (These e (from x))
 
+instance Mapping Straight Straight (->) (->) Identity (Straight (->) e `T_TT_I` Opposite LM e)
+	where mapping = rwr / \from -> rwr / \x -> Straight / \e -> Opposite (These (from x) e)
+
+instance Mapping Straight Straight (->) (->) (Opposite LM e `T_TT_I` Straight (->) e) Identity
+	where mapping = rwr / \from -> rwr / \(Opposite (These (Straight f) e)) -> from (f e)
+
 instance Mapping Straight Straight Arrow Arrow (That LM e) (That LM e)
 	where mapping = rwr / \from -> rwr / \case
 		These e x -> These e (from x)

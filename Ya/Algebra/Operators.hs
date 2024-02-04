@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `i`, `u`, `o`, `a`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yoklKL`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
+infixl 9 `i`, `u`, `o`, `a`, `_j`, `j_`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yoklKL`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `oo`, `u_a`, `aa`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_a`, `oo_yoklKL`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `aaa`, `rww`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `oooo`, `aaaa`, `rwww`
@@ -527,6 +527,32 @@ ilj from = rw @into @(U_I_II tt _ _)
 	`compose` rw @into @(T_TT_I _ _ _)
 	`compose` component @Straight @from @into @Identity @(U_I_II tt ee `T_TT_I` U_I_II t e)
 	`compose` wr @into
+
+_j :: forall from into t tt e a o .
+	Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
+	Castable Straight into ((U_I_II tt e `T_TT_I` U_II_I t e) a) =>
+	Castable Straight into (U_I_II tt e o) =>
+	Castable Opposite into (Identity a) =>
+	Castable Straight from (U_II_I t e a) =>
+	from (t a e) o -> into a (tt e o)
+_j from = rw @into @(U_I_II tt _ _)
+	`compose` fo (from `compose` rw @from @(U_II_I t _ _))
+	`compose` rw @into @(T_TT_I _ _ _)
+	`compose` component @Straight @from @into @Identity @(U_I_II tt e `T_TT_I` U_II_I t e)
+	`compose` wr @into
+
+j_ :: forall from into t tt e a o .
+	Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
+	Castable Opposite from ((T_TT_I (U_II_I t e) (U_I_II tt e)) o) =>
+	Castable Straight from (Identity o) =>
+	Castable Opposite from (U_II_I t e a) =>
+	Castable Opposite into (U_I_II tt e o) =>
+	into a (tt e o) -> from (t a e) o
+j_ from = rw @from
+	`compose` component @Straight @into @from @(U_II_I t e `T_TT_I` U_I_II tt e) @Identity
+	`compose` wr @from @((U_II_I t e `T_TT_I` U_I_II tt e) _)
+	`compose` fo (wr @into @(U_I_II tt e _) `compose` from)
+	`compose` wr @from @(U_II_I t e _)
 
 rj :: forall from into t tt a o .
 	Adjoint Functor from into t tt =>
