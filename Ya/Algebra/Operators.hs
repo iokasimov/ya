@@ -7,12 +7,12 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `_j`, `j_`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yoklKL`, `a_yokl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `oo`, `u_a`, `aa`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_a`, `oo_yoklKL`
-infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `aaa`, `rww`
-infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_yi_rw`, `oooo`, `aaaa`, `rwww`
+infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `aaa`, `rww`
+infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `yokl`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `aaaa`, `rwww`
 infixl 5 `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `aaaaa`, `rwwww`
-infixl 4 `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi_rw`, `oooooo`, `aaaaaa`, `rwwwww`, `rw_rw__`
+infixl 4 `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `aaaaaa`, `rwwwww`, `rw_rw__`
 infixl 3 `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`
-infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yukl`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
+infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yukl`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`
 
@@ -606,12 +606,14 @@ cn :: forall into e a aa o oo .
 cn from_left from_right = fio from_right `compose` foi from_left `compose` primitive
 
 -- TODO: try to generalize
-cn_dp :: forall e t a aa o oo .
+cn_dp, yi_cn_dp :: forall e t a aa o oo .
 	Derivable (->) e (Product (->) a aa) =>
 	Derivable (->) (Product (->) (t o) (t oo)) (Product (->) (t o) (t oo)) =>
 	Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
 	Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
 cn_dp from_left from_right = dp @(Product (->) (t o) (t oo)) `compose` cn from_left from_right
+
+yi_cn_dp = cn_dp
 
 -- TODO: try to generalize
 lm, yi_lm, yi_yi_lm, yi_yi_yi_lm, yi_yi_yi_yi_lm :: forall o oo .
@@ -834,12 +836,14 @@ fr_dp from_left from_right = dp `compose`
 	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
 	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
-lm_dp :: forall o oo t .
+lm_dp, yi_lm_dp :: forall o oo t .
 	-- TODO: generalize
 	Derivable (->) (t o `LM` t oo) (t o `LM` t oo) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	t o -> t oo -> t (o `LM` oo)
 lm_dp from_left from_right = dp (lm from_left from_right)
+
+yi_lm_dp = lm_dp
 
 lm_ds :: forall o oo t .
 	-- TODO: generalize
