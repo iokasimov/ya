@@ -648,3 +648,4 @@
 * Define `yi_cn_dp` operator
 * Define `yi_lm_dp` operator
 * Define `fukl` operator
+* Define `a_yukl` operator
