@@ -799,6 +799,35 @@ o_yokl :: forall from u t tt a o e .
 	u e (t a) -> from a (tt o) -> u e (t o)
 o_yokl x = fai fokl (o @from x)
 
+a_yokl :: forall from u t tt a o e .
+	Covariant Functor (->) (->) tt =>
+	Covariant Functor from (->) t =>
+	Covariant Functor from (->) tt =>
+	Covariant Functor from from tt =>
+	Covariant Functor from from t =>
+	Mapping Straight Straight from from (T_TT_I t tt) t =>
+	Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
+	Contravariant Yoneda from (->) (U_II_I u e) =>
+	(forall ee . Wrapper from (T_TT_I t tt ee)) =>
+	u (t o) e -> from a (tt o) -> u (t a) e
+a_yokl x = fai fokl (a @from x)
+
+-- yokl_o :: forall from u t tt a o e .
+	-- Category from =>
+	-- -- Covariant Endo Semi Functor from tt =>
+	-- Covariant Functor from from (Straight u e) =>
+	-- Covariant Functor (->) u t =>
+	-- Covariant Functor u u t =>
+	-- -- Mapping Straight Straight from from (T_TT_I t tt) t =>
+	-- Covariant Yoneda from u t =>
+	-- Covariant Yoneda u from (Straight u e) =>
+	-- Covariant Yoneda from from (Opposite u (t o)) =>
+	-- -- Covariant Yoneda from from t =>
+	-- -- (forall ee . Wrapper from (T_TT_I t tt ee)) =>
+	-- -- t (from a o) -> from (u e a) (t o)
+	-- t (u e a) -> u (from a o) (t o)
+-- yokl_o x = fai fio (yokl @from @u x)
+
 o_yoklKL, oo_yoklKL :: forall from u t tt a o e .
 	Unlabelable from tt =>
 	Covariant Semi Functor from (->) (Straight u e) =>
