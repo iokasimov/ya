@@ -78,12 +78,14 @@ foklKL from = wrapped
 	(component @Straight @from @into @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 	`compose` fo from
 
-yo :: forall from into t a o .
+yo, yoo :: forall from into t a o .
 	Precategory into =>
 	Covariant Yoneda from into t =>
 	Castable Opposite into (U_I_II from a o) =>
 	t a -> into (from a o) (t o)
 yo x = yoneda @Straight x
+
+yoo = yo
 
 yoi :: forall from into t e a o .
 	Precategory into =>

@@ -644,3 +644,4 @@
 * Define `e` method and operator
 * Define `_j` operator
 * Define `j_` operator
+* Define `yoo` operator
