@@ -647,3 +647,4 @@
 * Define `yoo` operator
 * Define `yi_cn_dp` operator
 * Define `yi_lm_dp` operator
+* Define `fukl` operator
