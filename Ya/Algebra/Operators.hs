@@ -842,23 +842,19 @@ o_yoklKL x = fio @from unlabel `compose` fai foklKL (o @from x)
 
 oo_yoklKL = o_yoklKL
 
-a_yokl :: forall from t tt a o e .
-	Covariant Functor (->) (->) tt =>
-	Covariant Functor from (->) t =>
-	Covariant Functor from (->) tt =>
-	Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
-	Mapping Straight Straight from (->) (T_TT_I tt t) tt =>
-	from a (t o) -> from e (tt a) -> e -> tt o
-a_yokl = a `compose` fokl @from @(->) @tt @t
-
 a_yukl :: forall from t tt a o e .
 	Covariant Functor (->) (->) tt =>
-	Covariant Functor from (->) t =>
-	Covariant Functor from (->) tt =>
-	Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
-	Mapping Straight Straight from (->) (T_TT_I tt t) tt =>
-	from a (t o) -> from e (tt a) -> e -> tt o
-a_yukl = a `compose` fokl @from @(->) @tt @t
+	Covariant Functor from from t =>
+	Covariant Functor from from tt =>
+	Contravariant Yoneda from (->) (U_II_I from (tt o)) =>
+	Mapping Straight Straight from from (T_TT_I tt t) tt =>
+	Mapping Constant Straight from from tt tt =>
+	Castable Opposite from (T_TT_I tt t o) =>
+	(forall ee . Wrapper from (T_TT_I tt t ee)) =>
+	Castable Opposite from (T_TT_I tt tt o) =>
+	Castable Opposite (->) (from () (t o)) =>
+	Supertype (from () (t o)) -> from e (tt a) -> from e (tt o)
+a_yukl = a `compose` fukl @from @tt @t
 
 fr_dp :: forall from t i o oo .
 	Category from =>
