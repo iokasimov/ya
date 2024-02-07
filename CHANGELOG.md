@@ -649,3 +649,7 @@
 * Define `yi_lm_dp` operator
 * Define `fukl` operator
 * Define `a_yukl` operator
+* Define `yokl_a` operator
+* Define `yi_yokl_a` operator
+* Define `yi_yi_yokl_a` operator
+* Define `yi_yi_yi_yokl_a` operator
