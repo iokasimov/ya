@@ -58,8 +58,8 @@ type family Vector x xs where
 	Vector x y = Same x y
 
 class Stack datastructure morphism where
-	pop :: morphism `TI` datastructure has `TI` Optional has
-	push :: has -> morphism `TI` datastructure has `TI` has
+	pop :: morphism `TI` datastructure item `TI` Optional item
+	push :: item -> morphism `TI` datastructure item `TI` item
 
 instance Stack List Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case

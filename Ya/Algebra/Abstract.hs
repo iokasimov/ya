@@ -81,6 +81,8 @@ type Diagram = U_
 
 type Arrow = (->)
 
+type Function = (->)
+
 type Both = U_I_I
 
 type Straight = U_I_II
