@@ -115,11 +115,21 @@ instance {-# OVERLAPS #-} Scrollable t has Statefully => Scrollable t has Transi
 		`compose` unwrap `compose` unwrap
 		/ scroll @t @has @Statefully orient
 
--- TODO: experimental and highly likely very inefficient
--- TODO: should we defined with a wrapper since it's not the only possible implementation?
--- instance Mapping Straight Straight (->) (->) (List `T_TT_I` List) List
-	-- where mapping = rwr / \from (T_TT_I x) ->
-		-- instant (unwrap / Backwards x `yo` Backwards `yoklKL_yoklKL` from `o` push `o` Statefully) (T_TT_I None)
+-- TODO: label inner `List` as `Cascading`
+-- TODO: think about alternative implementations
+instance Mapping Straight Straight (->) (->) (List `T_TT_I` List) List
+	where mapping = rwr / \from -> \case
+		T_TT_I (T_TT_I (U_I_II (This ())))
+			-> T_TT_I (U_I_II (This ()))
+		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (T_TT_I (U_I_II (This ()))) _)))))))
+			-> T_TT_I (U_I_II (This ()))
+		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (T_TT_I (U_I_II (That
+			(R_U_I_T_I (Recursive (U_I_T_II (These x xx))))))) xxx)))))))
+			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
+					(fo unwrap `compose` unwrap / map @Straight @Straight @(->) @(->) @(List `T_TT_I` List) @List from
+						(T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
+					)
+				))))))
 
 instance Mapping Straight Straight (->) (->)
 	(R_U_I_T_I LM Optional)
