@@ -614,7 +614,7 @@
 * Define `rwwwww` operator
 * Define `rwwwwww` operator
 * Define `rwwwwwww` operator
-* Define `rw_rw__` operator
+* Define `rwwwww_rw` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
 * Define `State` pattern synonym
