@@ -321,3 +321,7 @@ pass ::
 	Covariant Endo Semi Functor (->) t =>
 	t e -> t ()
 pass x = x `yu` ()
+
+match, same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML` e
+match = e
+same = e
