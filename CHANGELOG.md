@@ -655,3 +655,5 @@
 * Define `yi_yi_yi_yokl_a` operator
 * Define `Function'` type alias
 * Define `o_yukl` operator
+* Define `yi_yoklKL` operator
+* Define `yi_yi_yoklKL` operator

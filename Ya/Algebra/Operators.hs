@@ -12,9 +12,9 @@ infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl
 infixl 5 `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `aaaaa`, `rwwww`
 infixl 4 `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `aaaaaa`, `rwwwww`, `rw_rw__`
 infixl 3 `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`
-infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
+infixl 2 `i_i_i_i_i_i_i_i`, `yiiiiiii`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
 infixl 1 `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
-infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`
+infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
 	i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i_i :: Category into => into e e
@@ -242,7 +242,7 @@ yolk :: forall from into tt t a o .
 yolk = yoneda @Straight @from @into `compose` unwrap
 	`compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
-yoklKL :: forall from into tt t a o .
+yoklKL, yi_yoklKL, yi_yi_yoklKL :: forall from into tt t a o .
 	Unlabelable into tt =>
 	Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
 	Covariant Yoneda from into t =>
@@ -255,6 +255,9 @@ yoklKL x = unlabel
 	`compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
 	`compose` wr @into @(T_TT_I t tt _)
 	`compose` yoneda @Straight @from x
+
+yi_yoklKL = yoklKL
+yi_yi_yoklKL = yoklKL
 
 yiokl :: forall from into tt t i a o .
 	Component Natural from into (T_TT_I (U_I_II t i) tt) (U_I_II t i) =>
