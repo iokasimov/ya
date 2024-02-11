@@ -73,7 +73,12 @@ instance Stack (Construction Optional) Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
 		Nonempty @List (Yet x None) -> These `i_i` Nonempty @List `i` Yet x None `i_i` None
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These `i` rewrap (Next x) s `i` x
+	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
+		let new = Next x `rwr` old in These new x
+
+instance {-# OVERLAPS #-} Stack datastructure Statefully => Stack datastructure Transition where
+	pop = (rwr `compose` rwr) (fio (\(These x y) -> These y x)) (pop @datastructure @Statefully)
+	push x = (rwr `compose` rwr) (fio (\(These x y) -> These y x)) (push @datastructure @Statefully x)
 
 type family Scrolling datastructure = result | result -> datastructure where
 	Scrolling List = U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List
