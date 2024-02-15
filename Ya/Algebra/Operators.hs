@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `o`, `a`, `_j`, `j_`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yukl`, `o_yoklKL`, `a_yokl`, `a_yukl`, `o_rwr_yoi`, `o_rwr_yio`
-infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `oo`, `u_a`, `aa`, `u_o_a`, `u_o_yu`, `yi_rw`, `oo_a`, `oo_yoklKL`
+infixl 8 `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `oo`, `oo_a`, `oo_yokl`, `oo_yoklKL`, `u_a`, `aa`, `u_o_a`, `u_o_yu`, `yi_rw`
 infixl 7 `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `aaa`, `rww`
 infixl 6 `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `aaaa`, `rwww`
 infixl 5 `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `aaaaa`, `rwwww`
@@ -793,7 +793,7 @@ rw_rw_rw :: forall into a .
 	into a (Supertype (Supertype (Supertype a)))
 rw_rw_rw = rw @into `compose` rw @into `compose` rw @into
 
-o_yokl :: forall from u t tt a o e .
+o_yokl, oo_yokl :: forall from u t tt a o e .
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from t =>
 	Mapping Straight Straight from from (T_TT_I t tt) t =>
@@ -801,6 +801,8 @@ o_yokl :: forall from u t tt a o e .
 	(forall ee . Wrapper from (T_TT_I t tt ee)) =>
 	u e (t a) -> from a (tt o) -> u e (t o)
 o_yokl x = fai fokl (o @from x)
+
+oo_yokl = o_yokl
 
 o_yukl :: forall from t tt a o e .
 	Covariant Endo Semi Functor from tt =>
