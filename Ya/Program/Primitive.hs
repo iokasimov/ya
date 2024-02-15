@@ -226,8 +226,8 @@ type family Binary tree where
 type family Forest tree where
 	Forest (Construction t) = t `T_TT_I` Construction t
 
-engage :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
-engage x = enter `yu` x
+intro :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
+intro x = enter `yu` x
 
 layer :: forall g f e .
 	Component Natural (->) (->) f (f `JT` g) =>

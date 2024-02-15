@@ -282,7 +282,7 @@
 * Define `day` expression
 * Define `yi_rf` operator
 * Define `yi_yi_rf` operator
-* Define `engage` expression
+* Define `intro` expression
 * Define `lm_ds` operator
 * Define `MLM` data type
 * Define `dw` operator
