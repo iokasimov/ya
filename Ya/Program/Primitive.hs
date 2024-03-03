@@ -322,8 +322,7 @@ pass ::
 	t e -> t ()
 pass x = x `yu` ()
 
-match, same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML` e
-match = e
+same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML` e
 same = e
 
 type Cascading = Labeled (Straight LM () ())
