@@ -52,8 +52,8 @@ provide = Straight identity
 
 type Optional = Straight ML ()
 
-pattern None :: Optional e
-pattern None <- Straight (This ()) where None = Straight (This ())
+pattern None :: () -> Optional e
+pattern None e <- Straight (This e) where None e = Straight (This e)
 
 pattern Some :: e -> Optional e
 pattern Some e <- Straight (That e) where Some e = Straight (That e)
@@ -84,10 +84,15 @@ type Error = Straight ML
 pattern Error :: e -> Error e ee
 pattern Error e <- Straight (This e) where Error e = Straight (This e)
 
+pattern Valid :: ee -> Error e ee
+pattern Valid ee <- Straight (That ee) where Valid ee = Straight (That ee)
+
 pattern Ok :: ee -> Error e ee
 pattern Ok ee <- Straight (That ee) where Ok ee = Straight (That ee)
 
 {-# COMPLETE Error, Ok #-}
+
+type Probably = Straight ML
 
 type Reference = U_I_UU_III_U_II_I (->) LM
 
@@ -197,7 +202,7 @@ pattern Next :: i -> Recursive (U_I_T_II Optional LM i) -> Recursive (U_I_T_II O
 pattern Next x xs <- Yet x (Some xs) where Next x xs = Yet x (Some xs)
 
 pattern Last :: i -> Recursive (U_I_T_II Optional LM i)
-pattern Last x <- Yet x None where Last x = Yet x None
+pattern Last x <- Yet x (None ()) where Last x = Yet x (None ())
 
 {-# COMPLETE Next, Last #-}
 
@@ -214,7 +219,7 @@ pattern Nonempty xs <- R_U_I_T_I xs where Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t i . (Brancher t ~ Optional)
 	=> T_TT_I Optional (Construction Optional) i
-pattern Empty <- T_TT_I None where Empty = T_TT_I None
+pattern Empty <- T_TT_I (None ()) where Empty = T_TT_I (None ())
 
 type Tree = Construction
 

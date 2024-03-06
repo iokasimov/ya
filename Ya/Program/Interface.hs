@@ -69,7 +69,7 @@ class Stack datastructure morphism where
 
 instance Stack List Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
-		Empty @List -> These `i` Empty @List `i` None
+		Empty @List -> These `i` Empty @List `i` (None ())
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
@@ -78,7 +78,7 @@ instance Stack List Statefully where
 instance Stack (Construction Optional) Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
-		Nonempty @List (Yet x None) -> These `i_i` Nonempty @List `i` Yet x None `i_i` None
+		Nonempty @List (Yet x (None _)) -> These `i_i` Nonempty @List `i` Yet x (None ()) `i_i` (None ())
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
 		let new = Next x `rwr` old in These new x
 
@@ -113,12 +113,12 @@ instance Scrollable List has Statefully where
 		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs)))) -> These
 			(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap )))
 			(Some previous)
-		previous@(_) -> These previous None
+		previous@(_) -> These previous (None ())
 	scroll (This _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet b bs)) (Identity x))) (T_TT_I fs))) -> These
 			(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List (Yet x (fs `yo` unwrap)))))
 			(Some previous)
-		previous@(_) -> These previous None
+		previous@(_) -> These previous (None ())
 
 instance {-# OVERLAPS #-} Scrollable t has Statefully => Scrollable t has Transition where
 	scroll orient = W_I_II_I `compose` U_I_UU_II_III
