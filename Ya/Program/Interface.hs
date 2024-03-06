@@ -7,6 +7,12 @@ module Ya.Program.Interface where
 import Ya.Algebra
 import Ya.Program.Primitive
 
+match :: eee `LM` r `ARR` r
+match = that
+
+on :: (e `ARR` ee) `ARR` (e `ARR` r) `ARR` (e `ARR` ee `LM` r)
+on constructor handle = \x -> constructor x `lm` handle x
+
 class Field e r where
 	has :: Attribute r e
 

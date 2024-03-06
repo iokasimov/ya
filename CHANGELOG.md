@@ -661,3 +661,5 @@
 * Define `Cascading'` type alias
 * Define `Cascading'` pattern synonym
 * Define `oo_yukl` operator
+* Define `match` expression
+* Define `on` expression
