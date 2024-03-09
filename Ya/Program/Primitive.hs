@@ -45,6 +45,12 @@ pattern True <- Straight (That ())
 
 {-# COMPLETE False, True #-}
 
+pattern Mismatch :: e `LM` e `ARR` U_I_II ML (e `LM` e) ee
+pattern Mismatch eae = U_I_II (This eae)
+
+pattern Selfsame :: e `ARR` U_I_II ML (e `LM` e) e
+pattern Selfsame e = U_I_II (That e)
+
 type Provided = Straight (->)
 
 provide :: Straight (->) e e
@@ -327,7 +333,7 @@ pass ::
 	t e -> t ()
 pass x = x `yu` ()
 
-same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML` e
+same :: Setoid e => e `ARR` e `ARR` U_I_II ML (e `LM` e) e
 same = e
 
 type Cascading = Labeled (Straight LM () ())

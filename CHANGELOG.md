@@ -663,3 +663,5 @@
 * Define `oo_yukl` operator
 * Define `on` expression
 * Define `Valid` pattern synonym
+* Define `Mismatch` pattern synonym
+* Define `Selfsame` pattern synonym
