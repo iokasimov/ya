@@ -665,3 +665,4 @@
 * Define `Valid` pattern synonym
 * Define `Mismatch` pattern synonym
 * Define `Selfsame` pattern synonym
+* Define `Construct` pattern synonym

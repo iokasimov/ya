@@ -148,6 +148,9 @@ statefully state x = unwrap (unwrap x) state `yo` unwrap
 
 type Construction = R_U_I_T_I LM
 
+pattern Construct :: Recursive (U_I_T_II t LM i) -> Construction t i
+pattern Construct xs = R_U_I_T_I xs
+
 pattern Root :: i -> t (Recursive (U_I_T_II t LM i)) -> Construction t i
 pattern Root x xs <- R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 	where Root x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
