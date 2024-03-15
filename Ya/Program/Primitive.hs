@@ -45,10 +45,12 @@ pattern True <- Straight (That ())
 
 {-# COMPLETE False, True #-}
 
-pattern Mismatch :: e `LM` e `ARR` U_I_II ML (e `LM` e) ee
+type Mismatched e = e `LM` e
+
+pattern Mismatch :: e `LM` e `ARR` Error (e `LM` e) ee
 pattern Mismatch eae = U_I_II (This eae)
 
-pattern Selfsame :: e `ARR` U_I_II ML (e `LM` e) e
+pattern Selfsame :: e `ARR` Error (ee `LM` ee) e
 pattern Selfsame e = U_I_II (That e)
 
 type Provided = Straight (->)
