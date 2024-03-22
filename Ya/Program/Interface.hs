@@ -69,7 +69,7 @@ class Stack datastructure morphism where
 
 instance Stack List Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
-		Empty @List -> These `i` Empty @List `i` (None ())
+		Empty @List _ -> These `i` Empty @List () `i` (None ())
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
@@ -77,8 +77,8 @@ instance Stack List Statefully where
 
 instance Stack (Construction Optional) Statefully where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		Nonempty @List (Yet x (Some xs)) -> These `i` Nonempty @List xs `i` Some x
-		Nonempty @List (Yet x (None _)) -> These `i_i` Nonempty @List `i` Yet x (None ()) `i_i` (None ())
+		R_U_I_T_I (Yet x (Some xs)) -> These `i` R_U_I_T_I xs `i` Some x
+		R_U_I_T_I (Yet x (None _)) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
 		let new = Next x `rwr` old in These new x
 
@@ -93,7 +93,7 @@ instance Mapping Straight Straight Arrow Arrow
 	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List)
 	where mapping = rewrap / \from (Root x xs) ->
 		(U_T_I_TT_I (These
-			(Empty @List `lm` Identity (from x) `u_u` U_T_I_TT_I)
+			(Empty @List () `lm` Identity (from x) `u_u` U_T_I_TT_I)
 			((T_TT_I / xs `yo` R_U_I_T_I) `yo` from)
 			)
 		)
@@ -146,10 +146,10 @@ instance Mapping Straight Straight (->) (->)
 	(R_U_I_T_I LM Optional `T_TT_I` R_U_I_T_I LM Optional)
 	where mapping = rwr / \from -> \case
 		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
-			T_TT_I `a` Nonempty @List
+			T_TT_I `a` R_U_I_T_I
 				`i` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
 		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
-			T_TT_I `a` Nonempty @List
+			T_TT_I `a` R_U_I_T_I
 				`a` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
 				`i` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
 

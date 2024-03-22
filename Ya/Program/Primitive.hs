@@ -223,14 +223,12 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
 	Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
-pattern Nonempty xs <- R_U_I_T_I xs where Nonempty xs = R_U_I_T_I xs
-
-{-# COMPLETE Nonempty #-}
+pattern Nonempty :: forall t i . Construction (Brancher t) i -> Construction (Brancher t) i
+pattern Nonempty xs = xs
 
 pattern Empty :: forall t i . (Brancher t ~ Optional)
-	=> T_TT_I Optional (Construction Optional) i
-pattern Empty <- T_TT_I (None ()) where Empty = T_TT_I (None ())
+	=> () -> T_TT_I Optional (Construction Optional) i
+pattern Empty e <- T_TT_I (None e) where Empty e = T_TT_I (None e)
 
 type Tree = Construction
 
@@ -279,8 +277,6 @@ pattern Back <- This ()
 pattern Forth :: Horizontal
 pattern Forth <- That ()
 	where Forth = That ()
-
-{-# COMPLETE Nonempty #-}
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I
