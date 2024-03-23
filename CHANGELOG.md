@@ -666,3 +666,4 @@
 * Define `Mismatch` pattern synonym
 * Define `Selfsame` pattern synonym
 * Define `Construct` pattern synonym
+* Define `v` operator
