@@ -667,3 +667,11 @@
 * Define `Selfsame` pattern synonym
 * Define `Construct` pattern synonym
 * Define `v` operator
+* Define `vv` operator
+* Define `vvv` operator
+* Define `vvvv` operator
+* Define `vvvvv` operator
+* Define `vvvvvv` operator
+* Define `vvvvvvv` operator
+* Define `vvvvvvvv` operator
+* Define `vvvvvvvvv` operator
