@@ -675,3 +675,7 @@
 * Define `vvvvvvv` operator
 * Define `vvvvvvvv` operator
 * Define `vvvvvvvvv` operator
+* Define `yi_yo` operator
+* Define `yi_yi_yo` operator
+* Define `yi_yi_yi_yo` operator
+* Define `yi_yi_yi_yi_yo` operator
