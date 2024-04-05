@@ -56,6 +56,21 @@ part :: forall t tt e .
 	Attribute (tt e) (t e)
 part = has @(t e) @(tt e)
 
+class Match e ee where
+  match :: (e -> r) -> (ee -> r) -> (ee -> r)
+
+instance Match e e where
+  match target _ = target
+
+instance Match e (e `ML` es) where
+  match target rest = target `rf` rest `a` That
+
+instance Match e (es `ML` e) where
+  match target rest = rest `a` This `rf` target
+
+instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
+  match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
+
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
