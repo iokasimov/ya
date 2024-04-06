@@ -686,3 +686,4 @@
 * Define `oooo_yo` operator
 * Define `ooooo_yo` operator
 * Define `oooooo_yo` operator
+* Define `yokl_u` operator
