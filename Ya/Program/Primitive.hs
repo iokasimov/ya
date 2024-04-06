@@ -240,7 +240,7 @@ type family Binary tree where
 type family Forest tree where
 	Forest (Construction t) = t `T_TT_I` Construction t
 
-intro :: forall t e . Monoidal Straight Functor (->) LM LM t => e -> t e
+intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x
 
 layer :: forall g f e .
