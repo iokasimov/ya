@@ -681,3 +681,8 @@
 * Define `yi_yi_yi_yi_yo` operator
 * Define `a_yo` operator
 * Define `Match` type class
+* Define `oo_yo` operator
+* Define `ooo_yo` operator
+* Define `oooo_yo` operator
+* Define `ooooo_yo` operator
+* Define `oooooo_yo` operator
