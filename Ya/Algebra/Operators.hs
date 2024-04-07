@@ -7,13 +7,13 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `i`, `u`, `v`, `o`, `a`, `_j`, `j_`, `a_a`, `o_a`, `o_o`, `a_o`, `o_yo`, `a_yo`, `o_yu`, `o_rw_o`, `o_yokl`, `o_yukl`, `o_yoklKL`, `a_yokl`, `a_yukl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `vv`, `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `rw_rw`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_dp_jt`, `dp_dp_jt_yokl`, `rw_rw_rw`, `lm_dp_dp`, `rw_rf`, `u_o`, `oo`, `oo_a`, `oo_yo`, `oo_yokl`, `oo_yoklKL`, `u_a`, `aa`, `u_o_a`, `u_o_yu`, `yi_rw`
-infixl 7 `vvv`, `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo_yo`, `aaa`, `rww`
-infixl 6 `vvvv`, `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `aaaa`, `rwww`
-infixl 5 `vvvvv`, `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `ooooo_yo`, `aaaaa`, `rwwww`
-infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `aaaaaa`, `rwwwww`, `rwwwww_rw`
-infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`
-infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`
-infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`
+infixl 7 `vvv`, `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo_yo`, `ooo_yokl`, `aaa`, `rww`
+infixl 6 `vvvv`, `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `aaaa`, `rwww`
+infixl 5 `vvvvv`, `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `ooooo_yo`, `ooooo_yokl`, `aaaaa`, `rwwww`
+infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `aaaaaa`, `rwwwww`, `rwwwww_rw`
+infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`, `ooooooo_yokl`
+infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`
+infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`, `ooooooooo_yokl`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
@@ -823,7 +823,7 @@ rw_rw_rw :: forall into a .
 	into a (Supertype (Supertype (Supertype a)))
 rw_rw_rw = rw @into `compose` rw @into `compose` rw @into
 
-o_yokl, oo_yokl :: forall from u t tt a o e .
+o_yokl, oo_yokl, ooo_yokl, oooo_yokl, ooooo_yokl, oooooo_yokl, ooooooo_yokl, oooooooo_yokl, ooooooooo_yokl :: forall from u t tt a o e .
 	Covariant Endo Semi Functor from tt =>
 	Covariant Endo Semi Functor from t =>
 	Mapping Straight Straight from from (T_TT_I t tt) t =>
@@ -833,6 +833,13 @@ o_yokl, oo_yokl :: forall from u t tt a o e .
 o_yokl x = fai fokl (o @from x)
 
 oo_yokl = o_yokl
+ooo_yokl = o_yokl
+oooo_yokl = o_yokl
+ooooo_yokl = o_yokl
+oooooo_yokl = o_yokl
+ooooooo_yokl = o_yokl
+oooooooo_yokl = o_yokl
+ooooooooo_yokl = o_yokl
 
 o_yukl :: forall from t tt a o e .
 	Covariant Endo Semi Functor from tt =>
