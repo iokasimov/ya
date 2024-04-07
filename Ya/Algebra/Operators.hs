@@ -11,9 +11,9 @@ infixl 7 `vvv`, `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio
 infixl 6 `vvvv`, `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `aaaa`, `rwww`
 infixl 5 `vvvvv`, `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `ooooo_yo`, `ooooo_yokl`, `aaaaa`, `rwwww`
 infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `aaaaaa`, `rwwwww`, `rwwwww_rw`
-infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`, `ooooooo_yokl`
-infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`
-infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`, `ooooooooo_yokl`
+infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`, `ooooooo_yokl`, `aaaaaaa`
+infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `aaaaaaaa`
+infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`, `ooooooooo_yokl`, `aaaaaaaaa`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u_u`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
@@ -380,7 +380,7 @@ oooooo = o
 u_o = o
 yi_o = o
 
-a, aa, aaa, aaaa, aaaaa, aaaaaa, u_a :: forall from u e a o .
+a, aa, aaa, aaaa, aaaaa, aaaaaa, aaaaaaa, aaaaaaaa, aaaaaaaaa, u_a :: forall from u e a o .
 	Contravariant Yoneda from (->) (U_II_I u e) =>
 	u a e -> from o a -> u o e
 a x = rw `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
@@ -390,6 +390,9 @@ aaa = a
 aaaa = a
 aaaaa = a
 aaaaaa = a
+aaaaaaa = a
+aaaaaaaa = a
+aaaaaaaaa = a
 u_a = a
 
 -- This it the `right` version of this operator, however I cannot use it as I need
