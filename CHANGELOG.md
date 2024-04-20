@@ -705,3 +705,4 @@
 * Define `ooooooo_yukl` operator
 * Define `oooooooo_yukl` operator
 * Define `ooooooooo_yukl` operator
+* Define `as` expression

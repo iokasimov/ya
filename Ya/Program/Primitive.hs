@@ -4,6 +4,9 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
+as :: e -> e
+as = identity
+
 type Same e = e
 
 pattern Same :: e -> Same e
