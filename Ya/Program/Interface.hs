@@ -99,7 +99,8 @@ instance {-# OVERLAPS #-} Stack datastructure Statefully => Stack datastructure 
 	push x = (rwr `compose` rwr) (fio (\(These x y) -> These y x)) (push @datastructure @Statefully x)
 
 type family Scrolling datastructure = result | result -> datastructure where
-	Scrolling List = U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List
+	Scrolling Stream = U_T_I_TT_I LM (U_T_I_TT_I LM Stream Only) Stream
+	Scrolling List = U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List
 
 instance Mapping Straight Straight Arrow Arrow
 	(R_U_I_T_I LM Optional) (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List)
@@ -111,16 +112,21 @@ instance Mapping Straight Straight Arrow Arrow
 		)
 
 type family Orientation datastructure where
+	Orientation Stream = Horizontal
 	Orientation List = Horizontal
 
-class Scrollable datastructure has morphism where
-	scroll :: Orientation datastructure -> morphism
-		`TI` Scrolling datastructure has
-		`TI` Optional (Scrolling datastructure has)
+type family Scrolled datastructure where
+	Scrolled Stream = Only
+	Scrolled List = Optional
+
+class Scrollable datastructure item morphism where
+ scroll :: Orientation datastructure -> morphism
+  `TI` Scrolling datastructure item
+  `TI` (Scrolled datastructure) (Scrolling datastructure item)
 
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
-instance Scrollable List has Statefully where
+instance Scrollable List item Statefully where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs)))) -> These
 			(U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap )))
@@ -132,11 +138,11 @@ instance Scrollable List has Statefully where
 			(Some previous)
 		previous@(_) -> These previous (None ())
 
-instance {-# OVERLAPS #-} Scrollable t has Statefully => Scrollable t has Transition where
+instance {-# OVERLAPS #-} Scrollable t item Statefully => Scrollable t item Transition where
 	scroll orient = W_I_II_I `compose` U_I_UU_II_III
 		`compose` fio (\(These x y) -> These y x)
 		`compose` unwrap `compose` unwrap
-		/ scroll @t @has @Statefully orient
+		/ scroll @t @item @Statefully orient
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List

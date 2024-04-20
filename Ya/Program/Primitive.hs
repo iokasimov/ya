@@ -243,6 +243,8 @@ type family Binary tree where
 type family Forest tree where
 	Forest (Construction t) = t `T_TT_I` Construction t
 
+type Stream = Construction Only
+
 intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x
 

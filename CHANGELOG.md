@@ -706,3 +706,5 @@
 * Define `oooooooo_yukl` operator
 * Define `ooooooooo_yukl` operator
 * Define `as` expression
+* Define `Stream` type alias
+* Define `Scrolled` type family
