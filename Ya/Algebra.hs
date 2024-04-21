@@ -383,6 +383,10 @@ instance Derivable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e)) where
 	primitive = unwrap
 	elaborate = wrap
 
+instance Derivable (->) (Labeled l (U_T_I_TT_I u t tt) e) (u (t e) (tt e)) where
+	primitive = unwrap `a` unwrap
+	elaborate = wrap `a`wrap
+
 instance Covariant Endo Semi Functor (->) t =>
 	Derivable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e)) where
 	primitive = fio @(->) (fo @(->) wrap)
