@@ -38,13 +38,14 @@ pattern Focused e <- Identity e
 
 type Boolean = Straight ML () ()
 
-pattern False :: Boolean
-pattern False <- Straight (This ())
-	where False = Straight (This ())
+pattern False :: () -> Boolean
+pattern False e = Straight (This e)
 
-pattern True :: Boolean
-pattern True <- Straight (That ())
-	where True = Straight (That ())
+pattern True :: () -> Boolean
+pattern True e = Straight (That e)
+
+not :: Boolean -> Boolean
+not = True `rf` False
 
 {-# COMPLETE False, True #-}
 
@@ -244,6 +245,9 @@ type family Forest tree where
 	Forest (Construction t) = t `T_TT_I` Construction t
 
 type Stream = Construction Only
+
+pattern Stream :: Stream i -> Stream i
+pattern Stream xs = xs
 
 intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x

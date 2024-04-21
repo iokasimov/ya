@@ -708,3 +708,4 @@
 * Define `as` expression
 * Define `Stream` type alias
 * Define `Scrolled` type family
+* Define `not` expression
