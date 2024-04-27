@@ -25,26 +25,15 @@ instance Field e (e `LM` ee)
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
-	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) ->These
+	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
 		`i` inspect (has @e @ee) fs
 		`i` \new -> These old `i` adjust (has @e @ee) (\_ -> new) fs
 
-instance Field (t e) (U_T_I_TT_I LM tt t e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(U_T_I_TT_I (These y x)) -> These `i` x `i` \x_ -> U_T_I_TT_I (These y x_)
-
-instance {-# OVERLAPS #-} Field e (tt ee) => Field e (Labeled l (U_T_I_TT_I LM tt t) ee) where
-	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x y))) -> These
-		`i` inspect (has @e @(tt ee)) x
-		`i` \new -> T_'_I `a` U_T_I_TT_I / These
-			`i` adjust (has @e @(tt ee)) (\_ -> new) x
-			`i` y
-
-instance Field (Focused e) (Construction t e)
+instance {-# OVERLAPS #-} Field (Focused e) (Construction t e)
 	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
 
-instance Covariant Endo Semi Functor (->) t =>
+instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
 	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
@@ -146,6 +135,20 @@ instance {-# OVERLAPS #-} Scrollable t item Statefully => Scrollable t item Tran
 		`compose` fio (\(These x y) -> These y x)
 		`compose` unwrap `compose` unwrap
 		/ scroll @t @item @Statefully orient
+
+instance {-# OVERLAPS #-} Field (Focused e)
+ (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Focused) List) e) where
+  has = W_I_II_II `a` U_I_UU_III_U_II_I
+   `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
+    `i` x
+    `i` \x' -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x')) fs))
+
+instance {-# OVERLAPS #-} Field (U_T_I_TT_I LM List List e)
+ (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List) e) where
+  has = W_I_II_II `a` U_I_UU_III_U_II_I
+   `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
+    `i` U_T_I_TT_I (These bs fs)
+    `i` \(U_T_I_TT_I (These bs' fs')) -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs' x)) fs'))
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
