@@ -102,6 +102,9 @@ type family Scrolling datastructure = result | result -> datastructure where
 	Scrolling Stream = Labeled Stream (U_T_I_TT_I LM (U_T_I_TT_I LM Stream Only) Stream)
 	Scrolling List = Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List)
 
+type family Context datastructure = result | result -> datastructure where
+ Context (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List)) = U_T_I_TT_I LM List List
+
 instance Mapping Straight Straight Arrow Arrow
 	(R_U_I_T_I LM Optional) (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List))
 	where mapping = rewrap / \from (Root x xs) ->

@@ -709,3 +709,4 @@
 * Define `Stream` type alias
 * Define `Scrolled` type family
 * Define `not` expression
+* Define `Context` type family
