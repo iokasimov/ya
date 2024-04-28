@@ -200,51 +200,34 @@ instance Covariant Yoneda Arrow Arrow tt =>
 	where mapping = rwr / \from -> rwr / \(U_II_I (These x e)) ->
 		yoneda @Straight x (U_II_I `compose` (\x_ -> These (from x_) e))
 
-instance
-	( Covariant Semi Functor into into (Straight u e)
-	, Covariant Semi Functor from into (Straight uu e)
-	, forall ee . Wrapper into (Straight (W_I_I_II (U_I_UU_II_III u uu)) e ee)
-	, forall ee . Wrapper into (W_I_I_II (U_I_UU_II_III u uu) e ee)
-	, forall ee . Wrapper into (U_I_UU_II_III u uu e e ee)
-	, forall ee . Wrapper into (Straight u e ee)
-	, forall ee . Wrapper into (Straight uu e ee)
-	) => Mapping Straight Straight from into
-	(Straight (W_I_I_II (U_I_UU_II_III u uu)) e)
-	(Straight (W_I_I_II (U_I_UU_II_III u uu)) e)
-	where mapping = rwr / \from -> rwr `compose` rwr `compose` rwr /
-		_i (map @Straight @Straight @into @into (_i (map @Straight @Straight @from @into from)))
-
--- TODO: generalize as an instance above
 instance Mapping Straight Straight (->) (->)
-	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
-	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
+	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr `compose` rwr `compose` rwr / \f x ->
-		i_ (map @Straight @Straight from) (f x)
+		_i (map @Straight @Straight from) (f x)
 
--- TODO: I need to test it, not sure it's correct
 instance Mapping Straight Straight
-	(W_I_II_I (U_I_UU_II_III (->) LM)) (->)
-	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
-	(Straight (W_I_II_I (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
+	(W_I_I_II (U_I_UU_II_III (->) LM)) (->)
+	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \(W_I_I_II (U_I_UU_II_III from))
 		-> rwr `compose` rwr `compose` rwr / \trstn e ->
-			let These old e' = trstn e in
-			let These new _ = from old in
-			These new e'
+			let These e' old = trstn e in
+			let These _ new = from old in
+			These e' new
 
--- TODO: I need to test it, not sure it's correct
 instance Mapping Opposite Straight
-	(W_I_II_I (U_I_UU_II_III (->) LM)) (->)
-	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
-	(Opposite (W_I_II_I (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \(W_I_II_I (U_I_UU_II_III from))
+	(W_I_I_II (U_I_UU_II_III (->) LM)) (->)
+	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+	where mapping = rwr / \(W_I_I_II (U_I_UU_II_III from))
 		-> rwr `compose` rwr `compose` rwr / \trstn new ->
-			let These old new' = from new in
-			let These e old' = trstn old in
-			These e new'
+			let These new' old = from new in
+			let These old' e = trstn old in
+			These new' e
 
-instance Category (W_I_II_I (U_I_UU_II_III (->) LM))
-	where identity = W_I_II_I (U_I_UU_II_III (\e -> These e e))
+instance Category (W_I_I_II (U_I_UU_II_III (->) LM))
+	where identity = W_I_I_II (U_I_UU_II_III (\e -> These e e))
 
 instance Mapping Straight Straight Arrow Arrow
 	(UU_V_U_I_II_T_II Straight Arrow Arrow t e)
