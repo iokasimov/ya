@@ -330,9 +330,6 @@
 * Define `rw_rw` operator
 * Define `rw_w` operator
 * Define `w_rw` operator
-* Define `observe` expression
-* Define `replace` expression
-* Define `transit` expression
 * Define `Field` type class
 * Define `itme` method
 * Define `start` expression
@@ -710,3 +707,4 @@
 * Define `Scrolled` type family
 * Define `not` expression
 * Define `Context` type family
+* Define `transit` expression

@@ -135,6 +135,9 @@ type Transition = W_I_II_I Automation
 pattern Transition :: Automation old new old -> Transition old new
 pattern Transition x = W_I_II_I x
 
+transit :: Arrow old new -> Transition old new
+transit f = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
+
 type Statefully = W_I_I_II Automation
 
 pattern Statefully :: Automation state state result -> Statefully state result
