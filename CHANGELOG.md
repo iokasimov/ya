@@ -360,9 +360,7 @@
 * Define `Interrupt` patter synonym
 * Define `Automata` type alias
 * Define `Stateful` type alias
-* Define `Transition` type alias
 * Define `Statefully` pattern synonym
-* Define `Transition` pattern synonym
 * Define `rewrap` expression
 * Define `/` operator
 * Define `layer` expression
@@ -573,9 +571,7 @@
 * Define `U_III_UU_I_II` data type
 * Define `W_II_II_I` data type
 * Define `W_I_II_I` data type
-* Define `Automation` type alias
 * Define `Transition'` type alias
-* Define `Statefully` pattern
 * Define `Transition` pattern
 * Define `switch` expression
 * Define `review` expression
@@ -707,4 +703,3 @@
 * Define `Scrolled` type family
 * Define `not` expression
 * Define `Context` type family
-* Define `transit` expression

@@ -130,22 +130,20 @@ adjust attr f s = let (These h x) = attr `rw_rw` s in x `i`f h
 
 type Automation = U_I_UU_II_III (->) LM
 
-type Transition = W_I_II_I Automation
+type Transition = W_I_I_II Automation
 
-pattern Transition :: Automation old new old -> Transition old new
-pattern Transition x = W_I_II_I x
+pattern Transition :: Automation state state result -> Transition state result
+pattern Transition x = W_I_I_II x
 
-transit :: Arrow old new -> Transition old new
-transit f = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
+review :: Transition state state
+review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
-type Statefully = W_I_I_II Automation
+switch :: state -> Transition state state
+switch new = W_I_I_II `a` U_I_UU_II_III `i` \_ -> These `i` new `i` new
 
-pattern Statefully :: Automation state state result -> Statefully state result
-pattern Statefully x = W_I_I_II x
+type State = Straight Transition
 
-type State = Straight Statefully
-
-pattern State :: Statefully state result -> State state result
+pattern State :: Transition state result -> State state result
 pattern State x = U_I_II x
 
 statefully ::

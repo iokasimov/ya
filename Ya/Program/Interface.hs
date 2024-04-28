@@ -65,8 +65,8 @@ type family Vector x xs where
 	Vector x y = Same x y
 
 class Stack datastructure where
-	pop :: Statefully `TI` datastructure item `TI` Optional item
-	push :: item -> Statefully `TI` datastructure item `TI` item
+	pop :: Transition `TI` datastructure item `TI` Optional item
+	push :: item -> Transition `TI` datastructure item `TI` item
 
 instance Stack List where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
@@ -108,7 +108,7 @@ type family Scrolled datastructure where
 	Scrolled List = Optional
 
 class Scrollable datastructure item where
- scroll :: Orientation datastructure -> Statefully
+ scroll :: Orientation datastructure -> Transition
   `TI` Scrolling datastructure item
   `TI` (Scrolled datastructure) (Scrolling datastructure item)
 
@@ -166,17 +166,3 @@ instance Mapping Straight Straight (->) (->)
 			T_TT_I `a` R_U_I_T_I
 				`a` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
 				`i` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
-
-class Automatable morphism where
-	review :: morphism old old
-	switch :: new -> morphism new new
-	-- change_ :: (new -> new) -> morphism new old
-
-instance Automatable Statefully where
-	review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
-	switch new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` new
-	-- change_ f = W_I_I_II `a` U_I_UU_II_III `i` \s -> These `i` f s `i` s
-
--- instance Automatable Transition where
-	-- review = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
-	-- switch new = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` new `i` new
