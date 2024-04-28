@@ -64,11 +64,11 @@ type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
 
-class Stack datastructure morphism where
-	pop :: morphism `TI` datastructure item `TI` Optional item
-	push :: item -> morphism `TI` datastructure item `TI` item
+class Stack datastructure where
+	pop :: Statefully `TI` datastructure item `TI` Optional item
+	push :: item -> Statefully `TI` datastructure item `TI` item
 
-instance Stack List Statefully where
+instance Stack List where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
 		Empty @List _ -> These `i` Empty @List () `i` (None ())
 		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
@@ -76,16 +76,12 @@ instance Stack List Statefully where
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
-instance Stack (Construction Optional) Statefully where
+instance Stack (Construction Optional) where
 	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		R_U_I_T_I (Yet x (Some xs)) -> These `i` R_U_I_T_I xs `i` Some x
 		R_U_I_T_I (Yet x (None _)) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
 		let new = Next x `rwr` old in These new x
-
-instance {-# OVERLAPS #-} Stack datastructure Statefully => Stack datastructure Transition where
-	pop = (rwr `compose` rwr) (fio (\(These x y) -> These y x)) (pop @datastructure @Statefully)
-	push x = (rwr `compose` rwr) (fio (\(These x y) -> These y x)) (push @datastructure @Statefully x)
 
 type family Scrolling datastructure = result | result -> datastructure where
 	Scrolling Stream = Labeled Stream (U_T_I_TT_I LM (U_T_I_TT_I LM Stream Only) Stream)
@@ -111,14 +107,14 @@ type family Scrolled datastructure where
 	Scrolled Stream = Only
 	Scrolled List = Optional
 
-class Scrollable datastructure item morphism where
- scroll :: Orientation datastructure -> morphism
+class Scrollable datastructure item where
+ scroll :: Orientation datastructure -> Statefully
   `TI` Scrolling datastructure item
   `TI` (Scrolled datastructure) (Scrolling datastructure item)
 
 -- TODO: try use the fact that `Horizontal` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
-instance Scrollable List item Statefully where
+instance Scrollable List item where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
 		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs))))) -> These
 			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap ))))
@@ -129,12 +125,6 @@ instance Scrollable List item Statefully where
 			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List (Yet x (fs `yo` unwrap))))))
 			(Some previous)
 		previous@(_) -> These previous (None ())
-
-instance {-# OVERLAPS #-} Scrollable t item Statefully => Scrollable t item Transition where
-	scroll orient = W_I_II_I `compose` U_I_UU_II_III
-		`compose` fio (\(These x y) -> These y x)
-		`compose` unwrap `compose` unwrap
-		/ scroll @t @item @Statefully orient
 
 instance {-# OVERLAPS #-} Field (Focused e)
  (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Focused) List) e) where
@@ -187,6 +177,6 @@ instance Automatable Statefully where
 	switch new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` new
 	-- change_ f = W_I_I_II `a` U_I_UU_II_III `i` \s -> These `i` f s `i` s
 
-instance Automatable Transition where
-	review = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
-	switch new = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` new `i` new
+-- instance Automatable Transition where
+	-- review = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
+	-- switch new = W_I_II_I `a` U_I_UU_II_III `i` \old -> These `i` new `i` new
