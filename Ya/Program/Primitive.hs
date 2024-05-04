@@ -141,6 +141,9 @@ review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
 switch :: state -> Transition state state
 switch new = W_I_I_II `a` U_I_UU_II_III `i` \_ -> These `i` new `i` new
 
+change :: (state -> state) -> Transition state state
+change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
+
 type State = Straight Transition
 
 pattern State :: Transition state result -> State state result
