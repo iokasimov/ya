@@ -527,8 +527,8 @@ u_u_u_u_u_u_u_u_u x = rw `compose` rw `compose` yo @from @into @(U_1_I from _)
 u_u_u_u_u_u_u_u_u_u x = rw `compose` rw `compose` yo @from @into @(U_1_I from _)
 	(U_1_I @from @i / wrap @(from _ _) x)
 
-v :: from a o -> from a oo -> from a oo
-v _ from = from
+v :: (a -> o) -> a -> e -> o
+v from x y = from (constant x y)
 
 vv = v
 vvv = v
