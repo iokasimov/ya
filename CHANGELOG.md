@@ -704,3 +704,4 @@
 * Define `not` expression
 * Define `Context` type family
 * Define `change` expression
+* Define `dp_yoklKL` operator
