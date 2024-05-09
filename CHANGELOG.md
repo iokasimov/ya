@@ -705,3 +705,4 @@
 * Define `Context` type family
 * Define `change` expression
 * Define `dp_yoklKL` operator
+* Define `j_j_` operator
