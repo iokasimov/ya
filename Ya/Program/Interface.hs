@@ -71,7 +71,7 @@ class Stack datastructure where
 instance Stack List where
 	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
 		Empty @List _ -> These `i` Empty @List () `i` (None ())
-		List (Yet x xs) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
+		T_TT_I (Some (Construct (Yet x xs))) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
 		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
@@ -116,13 +116,13 @@ class Scrollable datastructure item where
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List item where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (List (Yet f fs))))) -> These
-			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet x (bs `yo` unwrap))) (Identity f))) (T_TT_I / fs `yo` wrap ))))
+		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (T_TT_I (Some (Construct (Yet f fs))))))) -> These
+			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (List `a` Some `a` Construct `yi`Yet x (bs `yo` unwrap)) (Identity f))) (T_TT_I / fs `yo` wrap ))))
 			(Some previous)
 		previous@(_) -> These previous (None ())
 	scroll (This _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (List (Yet b bs)) (Identity x))) (T_TT_I fs)))) -> These
-			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List (Yet x (fs `yo` unwrap))))))
+		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I (Some (Construct (Yet b bs)))) (Identity x))) (T_TT_I fs)))) -> These
+			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List `a` Some `a` Construct `yi` Yet x (fs `yo` unwrap)))))
 			(Some previous)
 		previous@(_) -> These previous (None ())
 

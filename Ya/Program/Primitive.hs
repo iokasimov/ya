@@ -144,6 +144,9 @@ switch new = W_I_I_II `a` U_I_UU_II_III `i` \_ -> These `i` new `i` new
 change :: (state -> state) -> Transition state state
 change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
 
+modify :: (state -> state) -> Transition state state
+modify f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
+
 type State = Straight Transition
 
 pattern State :: Transition state result -> State state result
@@ -212,8 +215,8 @@ pattern Load x <- R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
 type List = Optional `T_TT_I` Construction Optional
 
-pattern List :: Recursive (U_I_T_II Optional LM i) -> List i
-pattern List xs <- T_TT_I (Some (R_U_I_T_I xs)) where List xs = T_TT_I (Some (R_U_I_T_I xs))
+pattern List :: Optional (Construction Optional i) -> List i
+pattern List xs = T_TT_I xs
 
 {-# COMPLETE List #-}
 
@@ -226,16 +229,16 @@ pattern Last x <- Yet x (None ()) where Last x = Yet x (None ())
 {-# COMPLETE Next, Last #-}
 
 type family Brancher datastructure where
-	Brancher (T_TT_I t (Construction t)) = t
+ Brancher (T_TT_I t (Construction t)) = t
 
 type family Nonempty datastructure where
-	Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
+ Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
 
 pattern Nonempty :: forall t i . Construction (Brancher t) i -> Construction (Brancher t) i
 pattern Nonempty xs = xs
 
 pattern Empty :: forall t i . (Brancher t ~ Optional)
-	=> () -> T_TT_I Optional (Construction Optional) i
+ => () -> T_TT_I Optional (Construction Optional) i
 pattern Empty e <- T_TT_I (None e) where Empty e = T_TT_I (None e)
 
 type Tree = Construction
