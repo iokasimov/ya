@@ -10,7 +10,7 @@ infixl 8 `vv`, `i_i`, `u_u`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj
 infixl 7 `vvv`, `i_i_i`, `u_u_u`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo_yo`, `ooo_yokl`, `ooo_yukl`, `aaa`, `rww`
 infixl 6 `vvvv`, `i_i_i_i`, `u_u_u_u`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_rw_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `oooo_yukl`, `aaaa`, `rwww`
 infixl 5 `vvvvv`, `i_i_i_i_i`, `yiiii`, `u_u_u_u_u`, `yiokl`, `ooooo`, `ooooo_yo`, `ooooo_yokl`, `ooooo_yukl`, `aaaaa`, `rwwww`
-infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `rwwwww`, `rwwwww_rw`
+infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `u_u_u_u_u_u`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `rwwwww`, `rwwwww_rw`, `rwwwww_rw_rw`
 infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `u_u_u_u_u_u_u`, `rwwwwww`, `ooooooo_yokl`, `ooooooo_yukl`, `aaaaaaa`
 infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `u_u_u_u_u_u_u_u`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `oooooooo_yukl`, `aaaaaaaa`
 infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `u_u_u_u_u_u_u_u_u`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`
@@ -602,23 +602,24 @@ j_ from = rw @from
 	`compose` fo (wr @into @(U_I_II tt e _) `compose` from)
 	`compose` wr @from @(U_II_I t e _)
 
--- TODO: generalize, introduce 'ee' parameter
-j_j_ :: forall from into t tt ttt tttt e a o .
- Adjoint Functor from from (U_II_I t e) (U_I_II tttt e) =>
+j_j_ :: forall from into t tt ttt tttt e ee a o .
+ Adjoint Functor from from (U_II_I t ee) (U_I_II tttt ee) =>
  Adjoint Functor from into (U_II_I ttt e) (U_I_II tt e) =>
- Castable Opposite from (U_II_I t e a) =>
+ Castable Opposite from (U_II_I t ee a) =>
  Castable Opposite into (U_I_II tt e o) =>
- Castable Opposite into (U_I_II tt e (tttt e o)) =>
+ Castable Opposite into (U_I_II tt e (tttt ee o)) =>
  Castable Straight from (Identity o) =>
- Castable Straight from (Identity (tttt e o)) =>
- Castable Opposite from (Identity (U_I_II tttt e o)) =>
+ Castable Straight from (Identity (tttt ee o)) =>
+ Castable Opposite from (Identity (U_I_II tttt ee o)) =>
  Castable Opposite from (U_II_I ttt e a) =>
- Castable Opposite from (U_I_II tttt e o) =>
- Castable Opposite from (U_II_I t e (ttt a e)) =>
- Castable Opposite from ((T_TT_I (U_II_I ttt e) (U_I_II tt e)) (tttt e o)) =>
- Castable Opposite from ((T_TT_I (U_II_I t e) (U_I_II tttt e)) o) =>
- into a (tt e (tttt e o)) -> from (t (ttt a e) e) o
-j_j_ = j_ `compose` j_ @from
+ Castable Opposite from (U_I_II tttt ee o) =>
+ Castable Opposite from (U_II_I t ee (ttt a e)) =>
+ Castable Opposite from ((T_TT_I (U_II_I ttt e) (U_I_II tt e)) (tttt ee o)) =>
+ Castable Opposite from ((T_TT_I (U_II_I t ee) (U_I_II tttt ee)) o) =>
+ into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
+j_j_ = j_ @from @from `compose` j_ @from @into
+
+-- TODO: define `j_j_j_`, `j_j_j_j_`, `j_j_j_j_j_,
 
 rj :: forall from into t tt a o .
 	Adjoint Functor from into t tt =>
@@ -836,13 +837,15 @@ rw_rw = rw @into `compose` rw @into
 
 rwwwww_rw = rw_rw
 
-rw_rw_rw :: forall into a .
+rw_rw_rw, rwwwww_rw_rw :: forall into a .
 	Precategory into =>
 	Castable Straight into a =>
 	Castable Straight into (Supertype a) =>
 	Castable Straight into (Supertype (Supertype a)) =>
 	into a (Supertype (Supertype (Supertype a)))
 rw_rw_rw = rw @into `compose` rw @into `compose` rw @into
+
+rwwwww_rw_rw = rw_rw_rw
 
 o_yokl, oo_yokl, ooo_yokl, oooo_yokl, ooooo_yokl, oooooo_yokl, ooooooo_yokl, oooooooo_yokl, ooooooooo_yokl :: forall from u t tt a o e .
 	Covariant Endo Semi Functor from tt =>
