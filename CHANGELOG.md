@@ -162,7 +162,7 @@
 * Define `Scrolling` type family
 * Define `Scrollable` type class
 * Define `scroll` method
-* Define `Horizontal` type alias
+* Define `Way` type alias
 * Define `Forward` pattern synonym
 * Define `Backward` pattern synonym
 * Define `Only` type alias

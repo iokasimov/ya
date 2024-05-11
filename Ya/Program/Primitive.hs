@@ -284,13 +284,13 @@ try :: forall t e o .
 try = wrap @((t `T_TT_I` Progress e) _)
 	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `JT` Progress e)
 
-type Horizontal = ML () ()
+type Way = ML () ()
 
-pattern Back :: Horizontal
+pattern Back :: Way
 pattern Back <- This () 
 	where Back = This ()
 
-pattern Forth :: Horizontal
+pattern Forth :: Way
 pattern Forth <- That ()
 	where Forth = That ()
 

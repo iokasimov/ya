@@ -100,8 +100,8 @@ instance Mapping Straight Straight Arrow Arrow
 		)
 
 type family Orientation datastructure where
-	Orientation Stream = Horizontal
-	Orientation List = Horizontal
+	Orientation Stream = Way
+	Orientation List = Way
 
 type family Scrolled datastructure where
 	Scrolled Stream = Only
@@ -112,7 +112,7 @@ class Scrollable datastructure item where
   `TI` Scrolling datastructure item
   `TI` (Scrolled datastructure) (Scrolling datastructure item)
 
--- TODO: try use the fact that `Horizontal` ~ `Boolean`
+-- TODO: try use the fact that `Way` ~ `Boolean`
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List item where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
