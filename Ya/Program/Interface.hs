@@ -40,10 +40,10 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
-part :: forall t tt e .
+section :: forall t tt e .
 	Field (t e) (tt e) =>
 	Attribute (tt e) (t e)
-part = has @(t e) @(tt e)
+section = field @(t e) @(tt e)
 
 class Match e ee where
   match :: (e -> r) -> (ee -> r) -> (ee -> r)
