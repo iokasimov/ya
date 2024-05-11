@@ -11,31 +11,31 @@ on :: (e `ARR` ee) `ARR` (e `ARR` r) `ARR` (e `ARR` r)
 on constructor handle = \x -> that (constructor x `lm` handle x)
 
 class Field e r where
-	has :: Attribute r e
+	field :: Attribute r e
 
 instance Field e e
-	where has = identity
+	where field = identity
 
 instance Field e (Only e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(Only x) -> These `i` x `i` \new -> Only new
 
 instance Field e (e `LM` ee)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
-	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-		`i` inspect (has @e @ee) fs
-		`i` \new -> These old `i` adjust (has @e @ee) (\_ -> new) fs
+	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
+		`i` inspect (field @e @ee) fs
+		`i` \new -> These old `i` adjust (field @e @ee) (\_ -> new) fs
 
 instance {-# OVERLAPS #-} Field (Focused e) (Construction t e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
 
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
@@ -128,14 +128,14 @@ instance Scrollable List item where
 
 instance {-# OVERLAPS #-} Field (Focused e)
  (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Focused) List) e) where
-  has = W_I_II_II `a` U_I_UU_III_U_II_I
+  field = W_I_II_II `a` U_I_UU_III_U_II_I
    `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
     `i` x
     `i` \x' -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x')) fs))
 
 instance {-# OVERLAPS #-} Field (U_T_I_TT_I LM List List e)
  (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List) e) where
-  has = W_I_II_II `a` U_I_UU_III_U_II_I
+  field = W_I_II_II `a` U_I_UU_III_U_II_I
    `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
     `i` U_T_I_TT_I (These bs fs)
     `i` \(U_T_I_TT_I (These bs' fs')) -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs' x)) fs'))
