@@ -60,9 +60,22 @@ instance Match e (es `ML` e) where
 instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
   match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
 
+-- TODO: replace `Same` with `~`
 type family Vector x xs where
 	Vector x (y `LM` xs) = (Same x y, Vector x xs)
 	Vector x y = Same x y
+
+class Literal datastructure item literal
+ where lit :: literal -> datastructure item
+
+instance Literal (Construction Optional) item item
+ where lit x = Construct `yi` Last x
+
+instance Literal (Construction Optional) item init =>
+ Literal (Construction Optional) item (init `LM` item) where
+ lit (These init last) =
+  (lit @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
+  `rw_rw_rw_o`  Construct (Last last) `yi` this
 
 class Stack datastructure where
 	pop :: Transition `TI` datastructure item `TI` Optional item

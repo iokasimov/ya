@@ -706,3 +706,5 @@
 * Define `change` expression
 * Define `dp_yoklKL` operator
 * Define `j'_j'` operator
+* Define `Literal` type class
+* Define `lit` method
