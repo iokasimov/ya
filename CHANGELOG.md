@@ -708,3 +708,4 @@
 * Define `j'_j'` operator
 * Define `Literal` type class
 * Define `lit` method
+* Define `rw_rw_rw_o` operator
