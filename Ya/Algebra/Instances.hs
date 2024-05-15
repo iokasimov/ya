@@ -206,6 +206,7 @@ instance Mapping Straight Straight (->) (->)
 	where mapping = rwr / \from -> rwr `compose` rwr `compose` rwr / \f x ->
 		_i (map @Straight @Straight from) (f x)
 
+-- TODO: it doesn't work correctly
 instance Mapping Straight Straight
 	(W_I_I_II (U_I_UU_II_III (->) LM)) (->)
 	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
@@ -216,6 +217,7 @@ instance Mapping Straight Straight
 			let These _ new = from old in
 			These e' new
 
+-- TODO: it doesn't work correctly
 instance Mapping Opposite Straight
 	(W_I_I_II (U_I_UU_II_III (->) LM)) (->)
 	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)

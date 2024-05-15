@@ -116,18 +116,18 @@ type Constant = U_1_I
 type Labeled = T_'_I
 
 -- TODO: move to `Primitive`
-type Forward = Labeled (Straight (->) () ())
+type Fore = Labeled (Straight (->) () ())
 
 -- TODO: move to `Primitive`
-pattern Forwards :: t e -> Forward t e
-pattern Forwards e = T_'_I e
+pattern Fore :: t e -> Fore t e
+pattern Fore e = T_'_I e
 
 -- TODO: move to `Primitive`
-type Backward = Labeled (Opposite (->) () ())
+type Back = Labeled (Opposite (->) () ())
 
 -- TODO: move to `Primitive`
-pattern Backwards :: t e -> Backward t e
-pattern Backwards e = T_'_I e
+pattern Back :: t e -> Back t e
+pattern Back e = T_'_I e
 
 type family Flip v where
 	Flip Straight = Opposite
@@ -348,8 +348,8 @@ wrap = let U_II_I x = cast in x
 -- Category: initial object
 data Void
 
--- type family Same a b where
-  -- Same a a = ()
+type family Equals a b where
+  Equals a b = a ~ b
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x

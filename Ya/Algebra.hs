@@ -35,8 +35,8 @@ instance
 	, Covariant Monoidal Functor (->) LM LM tt
 	, Transformation Straight Functor (->) (->) (T_TT_I t tt) (TT_T_I t tt)
 	) => Mapping Straight Straight (->) (->)
-		(R_U_I_T_I LM t `T_TT_I` Forward tt)
-		(R_U_I_T_I LM t `TT_T_I` Forward tt)
+		(R_U_I_T_I LM t `T_TT_I` Fore tt)
+		(R_U_I_T_I LM t `TT_T_I` Fore tt)
 	where mapping = rwr / \from -> rwr /
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 		 wrap /
@@ -46,10 +46,10 @@ instance
 					(wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 						(xs `yo`wrap @(R_U_I_T_I _ _ _)
 							`o` wrapped (map @Straight @Straight @(->) @(->)
-									@(R_U_I_T_I LM t `T_TT_I` Forward tt)
-									@(R_U_I_T_I LM t `TT_T_I` Forward tt)
+									@(R_U_I_T_I LM t `T_TT_I` Fore tt)
+									@(R_U_I_T_I LM t `TT_T_I` Fore tt)
 									from)
-							`o` rw @(->) @(Forward _ _)
+							`o` rw @(->) @(Fore _ _)
 							`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
 						)
 					)
@@ -63,10 +63,10 @@ instance
 	, Covariant Monoidal Functor (->) LM LM tt
 	, Transformation Straight Functor (->) (->) (t `T_TT_I` tt) (t `TT_T_I` tt)
 	) => Mapping Straight Straight (->) (->)
-		(R_U_I_T_I LM t `T_TT_I` Backward tt)
-		(R_U_I_T_I LM t `TT_T_I` Backward tt)
+		(R_U_I_T_I LM t `T_TT_I` Back tt)
+		(R_U_I_T_I LM t `TT_T_I` Back tt)
 	where mapping = rwr / \from -> rwr
-		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(Backward _ _) /
+		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(Back _ _) /
 			(\x' xs' -> wrap @(R_U_I_T_I _ _ _)
 				`compose` wrap @(Recursive _)
 				`compose` wrap @(U_I_T_II _ _ _ _)
@@ -77,10 +77,10 @@ instance
 				(xs
 					`yo` wrap @(R_U_I_T_I _ _ _)
 						`o` wrapped (map @Straight @Straight @_ @(->)
-								@(R_U_I_T_I LM t `T_TT_I` Backward tt)
-								@(R_U_I_T_I LM t `TT_T_I` Backward tt)
+								@(R_U_I_T_I LM t `T_TT_I` Back tt)
+								@(R_U_I_T_I LM t `TT_T_I` Back tt)
 								from)
-						`o` rw @(->) @(Backward _ _)
+						`o` rw @(->) @(Back _ _)
 					`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
 				)
 

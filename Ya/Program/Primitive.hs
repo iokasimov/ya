@@ -286,13 +286,13 @@ try = wrap @((t `T_TT_I` Progress e) _)
 
 type Way = ML () ()
 
-pattern Back :: Way
-pattern Back <- This () 
-	where Back = This ()
+pattern Backwards :: Way
+pattern Backwards <- This () 
+	where Backwards = This ()
 
-pattern Forth :: Way
-pattern Forth <- That ()
-	where Forth = That ()
+pattern Forwards :: Way
+pattern Forwards <- That ()
+	where Forwards = That ()
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I
