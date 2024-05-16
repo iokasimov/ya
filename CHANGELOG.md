@@ -707,5 +707,5 @@
 * Define `dp_yoklKL` operator
 * Define `j'_j'` operator
 * Define `Literal` type class
-* Define `lit` method
+* Define `literal` method
 * Define `rw_rw_rw_o` operator

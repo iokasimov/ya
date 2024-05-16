@@ -66,15 +66,15 @@ type family Vector x xs where
 	Vector x y = Same x y
 
 class Literal datastructure item literal
- where lit :: literal -> datastructure item
+ where literal :: literal -> datastructure item
 
 instance Literal (Construction Optional) item item
- where lit x = Construct `yi` Last x
+ where literal x = Construct `yi` Last x
 
 instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
- lit (These init last) =
-  (lit @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
+ literal (These init last) =
+  (literal @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
   `rw_rw_rw_o`  Construct (Last last) `yi` this
 
 class Stack datastructure where
