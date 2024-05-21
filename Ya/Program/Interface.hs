@@ -107,7 +107,7 @@ instance Mapping Straight Straight Arrow Arrow
 	(R_U_I_T_I LM Optional) (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List))
 	where mapping = rewrap / \from (Root x xs) ->
 		label (U_T_I_TT_I (These
-			(Empty @List () `lm` Identity (from x) `u_u` U_T_I_TT_I)
+			(Empty @List () `lm` Identity (from x) `uu` U_T_I_TT_I)
 			((T_TT_I / xs `yo` R_U_I_T_I) `yo` from)
 			)
 		)
