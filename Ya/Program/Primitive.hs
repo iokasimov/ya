@@ -49,10 +49,10 @@ not = True `rf` False
 
 {-# COMPLETE False, True #-}
 
-type Mismatched e = e `LM` e
+-- type Mismatched e = e `LM` e
 
-pattern Mismatch :: e `LM` e `ARR` Error (e `LM` e) ee
-pattern Mismatch eae = U_I_II (This eae)
+-- pattern Mismatch :: (e `LM` e) `ARR` (e `LM` e) `LM` ee
+-- pattern Mismatch eae = This eae
 
 pattern Selfsame :: e `ARR` Error (ee `LM` ee) e
 pattern Selfsame e = U_I_II (That e)
