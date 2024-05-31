@@ -60,10 +60,10 @@ provide = Straight identity
 type Optional = Straight ML ()
 
 pattern None :: () -> Optional e
-pattern None e <- Straight (This e) where None e = Straight (This e)
+pattern None e = Straight (This e)
 
 pattern Some :: e -> Optional e
-pattern Some e <- Straight (That e) where Some e = Straight (That e)
+pattern Some e = Straight (That e)
 
 {-# COMPLETE Some, None #-}
 
@@ -241,7 +241,9 @@ type Tree = Construction
 type Twice = T_TT_I (U_I_I LM)
 
 type family Binary tree where
-	Binary Tree = Tree (Twice Optional)
+ Binary Tree = Tree (Twice Optional)
+
+pattern Binary xs = T_TT_I (U_I_I xs)
 
 type family Forest tree where
 	Forest (Construction t) = t `T_TT_I` Construction t

@@ -708,3 +708,4 @@
 * Define `Literal` type class
 * Define `literal` method
 * Define `rw_rw_rw_o` operator
+* Define `Binary` pattern synonym
