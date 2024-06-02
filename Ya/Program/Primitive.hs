@@ -134,7 +134,7 @@ review :: Transition state state
 review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
 switch :: state -> Transition state state
-switch new = W_I_I_II `a` U_I_UU_II_III `i` \_ -> These `i` new `i` new
+switch new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
 
 change :: (state -> state) -> Transition state state
 change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
@@ -172,7 +172,7 @@ pattern Node x xs <- Recursive (U_I_T_II (These x xs))
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
 	e -> Recursive (U_I_T_II t LM e)
-leaf x = Recursive (U_I_T_II (These x (yo empty absurd)))
+leaf x = Recursive `a` U_I_T_II `a` These x `yii` empty `yo` absurd
 
 -- TODO: maybe it should be a Reference, not an Attribute?
 top :: forall tt t e .
@@ -238,10 +238,10 @@ pattern Empty e <- T_TT_I (None e) where Empty e = T_TT_I (None e)
 
 type Tree = Construction
 
-type Twice = T_TT_I (U_I_I LM)
+type Twice = U_I_I LM
 
-type family Binary tree where
- Binary Tree = Tree (Twice Optional)
+type family Binary t where
+ Binary t = t (Twice `T_TT_I` Optional)
 
 pattern Binary xs = T_TT_I (U_I_I xs)
 
