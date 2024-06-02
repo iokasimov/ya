@@ -6,10 +6,13 @@ module Ya.Algebra.Definition where
 import Ya.Algebra.Abstract
 
 infixl 8 `TI`, `LM`, `ML`, `JT`
+infixl 7 `TII`
 
 infixl 9 `e`
 
 type TI t i = t i
+
+type TII t i = t i
 
 class Dumb x
 instance Dumb x
@@ -117,7 +120,7 @@ class (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_
 
 deriving instance
 	(Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
-	Yoneda v from into t 
+	Yoneda v from into t
 
 type family Representation t where
 	Representation Identity = ()
