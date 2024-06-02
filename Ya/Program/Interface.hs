@@ -68,14 +68,23 @@ type family Vector x xs where
 class Literal datastructure item literal
  where literal :: literal -> datastructure item
 
-instance Literal (Construction Optional) item item
- where literal x = Construct `yi` Last x
+instance Literal (Construction Optional) item item where
+ literal x = Construct `yi` Last x
 
 instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  literal (These init last) =
   (literal @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
   `rw_rw_rw_o`  Construct (Last last) `yi` this
+
+instance Literal (Construction (Twice `T_TT_I` Optional)) item item where
+ literal x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
+
+instance (Literal (Construction (Twice `T_TT_I` Optional)) item lst, Literal (Construction (Twice `T_TT_I` Optional)) item rst) =>
+ Literal (Construction (Twice `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
+ literal (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
+   `yi_yi_yi` lx `yo` literal @(Binary Tree) `o` unwrap
+     `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap
 
 class Stack datastructure where
 	pop :: Transition `TI` datastructure item `TI` Optional item
