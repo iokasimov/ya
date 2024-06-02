@@ -13,7 +13,7 @@ infixl 5 `vvvvv`, `i_i_i_i_i`, `yiiii`, `uuuuu`, `yiokl`, `ooooo`, `ooooo_yo`, `
 infixl 4 `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `uuuuuu`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_rw`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `rwwwww`, `rwwwww_rw`, `rwwwww_rw_rw`
 infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `uuuuuuu`, `rwwwwww`, `ooooooo_yokl`, `ooooooo_yukl`, `aaaaaaa`
 infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `uuuuuuuu`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rw`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `rwwwwwww`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `oooooooo_yukl`, `aaaaaaaa`
-infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `uuuuuuuuu`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`
+infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `yiiiiiiii`, `uuuuuuuuu`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `uuuuuuuuuu`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
@@ -29,7 +29,7 @@ i_i_i = identity
 i_i = identity
 i = identity
 
-yi, yii, yiii, yiiii, yiiiii, yiiiiii, yiiiiiii, yi_yi, yi_yi_yi, yi_yi_yi_yi, yi_yi_yi_yi_yi
+yi, yii, yiii, yiiii, yiiiii, yiiiiii, yiiiiiii, yiiiiiiii, yi_yi, yi_yi_yi, yi_yi_yi_yi, yi_yi_yi_yi_yi
 	:: Category into => into e e
 yi = identity
 
@@ -39,6 +39,7 @@ yiiii = yi
 yiiiii = yi
 yiiiiii = yi
 yiiiiiii = yi
+yiiiiiiii = yi
 yi_yi = yi
 yi_yi_yi = yi
 yi_yi_yi_yi = yi
