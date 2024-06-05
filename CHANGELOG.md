@@ -711,3 +711,9 @@
 * Define `Binary` pattern synonym
 * Define `TII` type alias
 * Define `yiiiiiiii` operator
+* Define `ARRR` type alias
+* Define `ARRRR` type alias
+* Define `ARRRRR` type alias
+* Define `ARRRRRR` type alias
+* Define `ARRRRRRR` type alias
+* Define `ARRRRRRRR` type alias

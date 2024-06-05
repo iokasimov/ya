@@ -4,10 +4,22 @@ module Ya.Algebra.Abstract where
 
 infixl 0 /
 infixr 7 `ARR`
+infixr 6 `ARRR`
+infixr 5 `ARRRR`
+infixr 4 `ARRRRR`
+infixr 3 `ARRRRRR`
+infixr 2 `ARRRRRRR`
+infixr 1 `ARRRRRRRR`
 
 infixl 8 `wr`, `rw`
 
 type ARR = (->)
+type ARRR = (->)
+type ARRRR = (->)
+type ARRRRR = (->)
+type ARRRRRR = (->)
+type ARRRRRRR = (->)
+type ARRRRRRRR = (->)
 
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
