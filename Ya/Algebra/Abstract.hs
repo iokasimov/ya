@@ -2,25 +2,6 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
-infixl 0 /
-infixr 7 `ARR`
-infixr 6 `ARRR`
-infixr 5 `ARRRR`
-infixr 4 `ARRRRR`
-infixr 3 `ARRRRRR`
-infixr 2 `ARRRRRRR`
-infixr 1 `ARRRRRRRR`
-
-infixl 8 `wr`, `rw`
-
-type ARR = (->)
-type ARRR = (->)
-type ARRRR = (->)
-type ARRRRR = (->)
-type ARRRRRR = (->)
-type ARRRRRRR = (->)
-type ARRRRRRRR = (->)
-
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
 newtype Identity i = Identity i
@@ -345,12 +326,6 @@ instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
 instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
 	where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
-wr :: Castable Opposite into i => into (Supertype i) i
-wr = let U_II_I x = cast in x
-
-rw :: Castable Straight into i => into i (Supertype i)
-rw = let U_I_II x = cast in x
-
 unwrap :: Castable Straight (->) i => i -> Supertype i
 unwrap = let U_I_II x = cast in x
 
@@ -362,6 +337,3 @@ data Void
 
 type family Equals a b where
   Equals a b = a ~ b
-
-(/) :: (i -> o) -> i -> o
-(/) f x = f x

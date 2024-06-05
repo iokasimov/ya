@@ -8,7 +8,25 @@ import Ya.Algebra.Abstract
 infixl 8 `TI`, `LM`, `ML`, `JT`
 infixl 7 `TII`
 
+infixr 7 `ARR`
+infixr 6 `ARRR`
+infixr 5 `ARRRR`
+infixr 4 `ARRRRR`
+infixr 3 `ARRRRRR`
+infixr 2 `ARRRRRRR`
+infixr 1 `ARRRRRRRR`
+
 infixl 9 `e`
+infixl 8 `wr`, `rw`
+infixl 0 /
+
+type ARR = (->)
+type ARRR = (->)
+type ARRRR = (->)
+type ARRRRR = (->)
+type ARRRRRR = (->)
+type ARRRRRRR = (->)
+type ARRRRRRRR = (->)
 
 type TI t i = t i
 
@@ -383,3 +401,12 @@ instance Wrapper (->) x
 
 class Setoid e where
 	e :: e `ARR` e `ARR` U_I_II ML (e `LM` e) e
+
+(/) :: (i -> o) -> i -> o
+(/) f x = f x
+
+wr :: Castable Opposite into i => into (Supertype i) i
+wr = let U_II_I x = cast in x
+
+rw :: Castable Straight into i => into i (Supertype i)
+rw = let U_I_II x = cast in x
