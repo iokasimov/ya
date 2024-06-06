@@ -111,6 +111,8 @@ type Scrolling datastructure =
 type family Situation datastructure = result | result -> datastructure where
  Situation (Construction Singular) = U_T_I_TT_I LM Stream Stream
  Situation (Optional `T_TT_I` Construction Optional) = U_T_I_TT_I LM List List
+ Situation (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
+  (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (Labeled List (U_T_I_TT_I LM Only (U_T_I_TT_I LM List List))) where
  mapping = rewrap / \from (Root x xs) -> 
