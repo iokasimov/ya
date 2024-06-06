@@ -105,21 +105,17 @@ instance Stack (Construction Optional) where
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
 		let new = Next x `rwr` old in These new x
 
-type family Scrolling datastructure = result | result -> datastructure where
-	Scrolling Stream = Labeled Stream (U_T_I_TT_I LM (U_T_I_TT_I LM Stream Only) Stream)
-	Scrolling List = Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List)
+type Scrolling datastructure =
+ Labeled datastructure (U_T_I_TT_I LM Only (Situation datastructure))
 
-type family Context datastructure = result | result -> datastructure where
- Context (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List)) = U_T_I_TT_I LM List List
+type family Situation datastructure = result | result -> datastructure where
+ Situation (Construction Singular) = U_T_I_TT_I LM Stream Stream
+ Situation (Optional `T_TT_I` Construction Optional) = U_T_I_TT_I LM List List
 
-instance Mapping Straight Straight Arrow Arrow
-	(R_U_I_T_I LM Optional) (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Identity) List))
-	where mapping = rewrap / \from (Root x xs) ->
-		label (U_T_I_TT_I (These
-			(Empty @List () `lm` Identity (from x) `uu` U_T_I_TT_I)
-			((T_TT_I / xs `yo` R_U_I_T_I) `yo` from)
-			)
-		)
+instance Mapping Straight Straight Arrow Arrow (Construction Optional) (Labeled List (U_T_I_TT_I LM Only (U_T_I_TT_I LM List List))) where
+ mapping = rewrap / \from (Root x xs) -> 
+  from x `u` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `uu` T_TT_I `yo` from
+   `uuuuu` U_T_I_TT_I `uuuuuu` U_T_I_TT_I `o` label
 
 type family Orientation datastructure where
 	Orientation Stream = Way
@@ -138,29 +134,29 @@ class Scrollable datastructure item where
 -- `Boolean` is `Representative` for `U_I_I LM`
 instance Scrollable List item where
 	scroll (That _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I bs) (Identity x))) (T_TT_I (Some (Construct (Yet f fs))))))) -> These
-			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (List `a` Some `a` Construct `yi`Yet x (bs `yo` unwrap)) (Identity f))) (T_TT_I / fs `yo` wrap ))))
+		previous@(T_'_I (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These (T_TT_I bs) (T_TT_I (Some (Construct (Yet f fs))))))))) -> These
+			(T_'_I (U_T_I_TT_I (These (Identity f) (U_T_I_TT_I (These (List `a` Some `a` Construct `yi`Yet x (bs `yo` unwrap)) (T_TT_I / fs `yo` wrap))))))
 			(Some previous)
 		previous@(_) -> These previous (None ())
 	scroll (This _) = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		previous@(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I (Some (Construct (Yet b bs)))) (Identity x))) (T_TT_I fs)))) -> These
-			(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (Identity b))) (List `a` Some `a` Construct `yi` Yet x (fs `yo` unwrap)))))
+		previous@(T_'_I (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These (T_TT_I (Some (Construct (Yet b bs)))) (T_TT_I fs)))))) -> These
+			(T_'_I (U_T_I_TT_I (These (Identity b) (U_T_I_TT_I (These (T_TT_I / bs `yo` R_U_I_T_I) (List `a` Some `a` Construct `yi` Yet x (fs `yo` unwrap)))))))
 			(Some previous)
 		previous@(_) -> These previous (None ())
 
 instance {-# OVERLAPS #-} Field (Focused e)
- (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Focused) List) e) where
+ (Labeled List (U_T_I_TT_I LM Focused (U_T_I_TT_I LM List List)) e) where
   field = W_I_II_II `a` U_I_UU_III_U_II_I
-   `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
+   `i` \(T_'_I (U_T_I_TT_I (These x (U_T_I_TT_I (These bs fs))))) -> These
     `i` x
-    `i` \x' -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x')) fs))
+    `i` \x' -> T_'_I (U_T_I_TT_I (These x' (U_T_I_TT_I (These bs fs))))
 
 instance {-# OVERLAPS #-} Field (U_T_I_TT_I LM List List e)
- (Labeled List (U_T_I_TT_I LM (U_T_I_TT_I LM List Only) List) e) where
+ (Labeled List (U_T_I_TT_I LM Focused (U_T_I_TT_I LM List List)) e) where
   field = W_I_II_II `a` U_I_UU_III_U_II_I
-   `i` \(T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs x)) fs))) -> These
+   `i` \(T_'_I (U_T_I_TT_I (These x (U_T_I_TT_I (These bs fs))))) -> These
     `i` U_T_I_TT_I (These bs fs)
-    `i` \(U_T_I_TT_I (These bs' fs')) -> T_'_I (U_T_I_TT_I (These (U_T_I_TT_I (These bs' x)) fs'))
+    `i` \(U_T_I_TT_I (These bs' fs')) -> T_'_I (U_T_I_TT_I (These  x (U_T_I_TT_I (These bs' fs'))))
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
@@ -168,7 +164,7 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
 		T_TT_I (T_TT_I (U_I_II (This ())))
 			-> T_TT_I (U_I_II (This ()))
 		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (This ())))) _)))))))
-			-> T_TT_I (U_I_II (This ()))
+			-> T_TT_I (U_I_II (This ()))c
 		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (That
 			(R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
 			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
@@ -177,9 +173,7 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
 					)
 				))))))
 
-instance Mapping Straight Straight (->) (->)
-	(R_U_I_T_I LM Optional)
-	(R_U_I_T_I LM Optional `T_TT_I` R_U_I_T_I LM Optional)
+instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T_TT_I` Construction Optional)
 	where mapping = rwr / \from -> \case
 		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
 			T_TT_I `a` R_U_I_T_I

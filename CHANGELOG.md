@@ -701,7 +701,7 @@
 * Define `Stream` type alias
 * Define `Scrolled` type family
 * Define `not` expression
-* Define `Context` type family
+* Define `Situation` type family
 * Define `change` expression
 * Define `dp_yoklKL` operator
 * Define `j'_j'` operator
