@@ -238,10 +238,8 @@ pattern Empty e <- T_TT_I (None e) where Empty e = T_TT_I (None e)
 
 type Tree = Construction
 
-type Twice = U_I_I LM
-
 type family Binary t where
- Binary t = t (Twice `T_TT_I` Optional)
+ Binary t = t (U_I_I LM `T_TT_I` Optional)
 
 pattern Binary xs = T_TT_I (U_I_I xs)
 

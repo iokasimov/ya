@@ -77,11 +77,11 @@ instance Literal (Construction Optional) item init =>
   (literal @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
   `rw_rw_rw_o`  Construct (Last last) `yi` this
 
-instance Literal (Construction (Twice `T_TT_I` Optional)) item item where
+instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  literal x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
 
-instance (Literal (Construction (Twice `T_TT_I` Optional)) item lst, Literal (Construction (Twice `T_TT_I` Optional)) item rst) =>
- Literal (Construction (Twice `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
+instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
+ Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  literal (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
    `yi_yi_yi` lx `yo` literal @(Binary Tree) `o` unwrap
      `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap
@@ -166,7 +166,7 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
 		T_TT_I (T_TT_I (U_I_II (This ())))
 			-> T_TT_I (U_I_II (This ()))
 		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (This ())))) _)))))))
-			-> T_TT_I (U_I_II (This ()))c
+			-> T_TT_I (U_I_II (This ()))
 		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (That
 			(R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
 			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
