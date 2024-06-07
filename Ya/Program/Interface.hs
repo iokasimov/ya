@@ -120,12 +120,14 @@ instance Mapping Straight Straight Arrow Arrow (Construction Optional) (Labeled 
    `uuuuu` U_T_I_TT_I `uuuuuu` U_T_I_TT_I `o` label
 
 type family Orientation datastructure where
-	Orientation Stream = Way
-	Orientation List = Way
+ Orientation Stream = () `ML` ()
+ Orientation (Optional `T_TT_I` Construction Optional) = () `ML` ()
+ Orientation (Construction (U_I_I LM `T_TT_I` Optional)) = () `ML` () `ML` ()
 
 type family Scrolled datastructure where
-	Scrolled Stream = Only
-	Scrolled List = Optional
+ Scrolled Stream = Only
+ Scrolled (Optional `T_TT_I` Construction Optional) = Optional
+ Scrolled (Construction (U_I_I LM `T_TT_I` Optional)) = Optional
 
 class Scrollable datastructure item where
  scroll :: Orientation datastructure -> Transition
