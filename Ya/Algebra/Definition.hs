@@ -8,6 +8,7 @@ import Ya.Algebra.Abstract
 infixl 8 `TI`, `LM`, `ML`, `JT`
 infixl 7 `TII`
 
+infixr 8 `JT`
 infixr 7 `ARR`
 infixr 6 `ARRR`
 infixr 5 `ARRRR`
