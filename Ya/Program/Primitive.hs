@@ -44,8 +44,8 @@ pattern False e = Straight (This e)
 pattern True :: () -> Boolean
 pattern True e = Straight (That e)
 
-not :: Boolean -> Boolean
-not = True `rf` False
+not :: e `ML` ee `ARR` ee `ML` e
+not = That `rf` This
 
 {-# COMPLETE False, True #-}
 
@@ -282,7 +282,7 @@ try = wrap @((t `T_TT_I` Progress e) _)
 type Way = ML () ()
 
 pattern Backwards :: Way
-pattern Backwards <- This () 
+pattern Backwards <- This ()
 	where Backwards = This ()
 
 pattern Forwards :: Way
