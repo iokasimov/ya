@@ -716,3 +716,4 @@
 * Define `ARRRRRR` type alias
 * Define `ARRRRRRR` type alias
 * Define `ARRRRRRRR` type alias
+* Define `put` expression

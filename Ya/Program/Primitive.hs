@@ -136,6 +136,9 @@ review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
 switch :: state -> Transition state state
 switch new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
 
+put :: state -> Transition state state
+put new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
+
 change :: (state -> state) -> Transition state state
 change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
 
