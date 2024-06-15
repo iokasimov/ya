@@ -127,36 +127,37 @@ type family Flip v where
 	Flip Opposite = Straight
 
 type family Supertype e where
-	Supertype (Identity i) = i
-	Supertype (Recursive f) = f (Recursive f)
-	Supertype (T_TT_I t tt i) = t (tt i)
-	Supertype (TT_T_I t tt i) = tt (t i)
-	Supertype (T_'_I e t i) = t i
-	Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
-	Supertype (U_I_I u i) = u i i
-	Supertype (U_1_I u _ i) = u () i
-	Supertype (U_I_1 u i _) = u i ()
-	Supertype (U_I_II u i ii) = u i ii
-	Supertype (U_II_I u ii i) = u i ii
-	Supertype (U_I_T_II t u i ii) = u i (t ii)
-	Supertype (U_T_I_II t u i ii) = u (t i) ii
-	Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
-	Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
-	Supertype (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii) = 
-		u (uu (v uuu iii i) (v uuu iii ii)) (v uuu iii (uuuu i ii))
-	Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
-		u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
-	Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
-	Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
-	Supertype (U_III_UU_I_II u uu iii i ii) = u i (uu ii iii)
-	Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
-	Supertype (W_I_II_I w i ii) = w i ii i
-	Supertype (W_I_II_II w i ii) = w i ii ii
-	Supertype (W_II_II_I w i ii) = w ii ii i
-	Supertype (W_I_I_II w i ii) = w i i ii
-	Supertype (W_III_I_II w i ii iii) = w iii i ii
-	Supertype (Arrow () ii) = ii
-	Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
+ Supertype (Identity i) = i
+ Supertype (Recursive f) = f (Recursive f)
+ Supertype (T_TT_I t tt i) = t (tt i)
+ Supertype (TT_T_I t tt i) = tt (t i)
+ Supertype (T_'_I e t i) = t i
+ Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
+ Supertype (U_I_I u i) = u i i
+ Supertype (U_1_I u _ i) = u () i
+ Supertype (U_I_1 u i _) = u i ()
+ Supertype (U_I_II u i ii) = u i ii
+ Supertype (U_II_I u ii i) = u i ii
+ Supertype (U_I_T_II t u i ii) = u i (t ii)
+ Supertype (U_T_I_II t u i ii) = u (t i) ii
+ Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
+ Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
+ Supertype (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii) = 
+  u (uu (v uuu iii i) (v uuu iii ii)) (v uuu iii (uuuu i ii))
+ Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
+  u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
+ Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
+ Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
+ Supertype (U_III_UU_I_II u uu iii i ii) = u i (uu ii iii)
+ Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
+ Supertype (W_I_II_I w i ii) = w i ii i
+ Supertype (W_I_II_II w i ii) = w i ii ii
+ Supertype (W_II_II_I w i ii) = w ii ii i
+ Supertype (W_I_I_II w i ii) = w i i ii
+ Supertype (W_III_I_II w i ii iii) = w iii i ii
+ Supertype (Arrow () ii) = ii
+ Supertype (Arrow i ii) = Arrow i ii
+ Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
 class Castable direction morphism e where
 	cast :: direction morphism e (Supertype e)
@@ -326,7 +327,7 @@ instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
 instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
 	where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
-unwrap :: Castable Straight (->) i => i -> Supertype i
+unwrap :: Castable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
 
 wrap :: Castable Opposite (->) i => Supertype i -> i

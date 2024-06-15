@@ -91,8 +91,8 @@ instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  literal (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
-   `yi_yi_yi` lx `yo` literal @(Binary Tree) `o` unwrap
-     `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap
+   `yi_yi_yi` lx `yo` literal @(Binary Tree) `o` unwrap @Arrow
+     `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap @Arrow
 
 class Stack datastructure where
 	pop :: Transition `TI` datastructure item `TI` Optional item
@@ -123,7 +123,7 @@ type family Situation datastructure = result | result -> datastructure where
   (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (Labeled List (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List))) where
- mapping = rewrap / \from (Root x xs) -> 
+ mapping = rewrap / \from (Root x xs) ->
   from x `u` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `uu` T_TT_I `yo` from
    `uuuuu` T_TT_I `a` U_I_I `uuuuuu` U_T_I_TT_I `o` label
 
@@ -144,11 +144,11 @@ class Scrollable datastructure item where
    `TI` Scrolled datastructure item
 
 instance Scrollable List item where
- scroll way = unwrap `a` tnj @(State (Scrolling List _))
+ scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State (Scrolling List _) `JT` Halts)
-    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o_rw_o` rep way `yokl` as' @(Optional _)
-    `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o_rw_o` as @item @Attribute
-    `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o_rw_o` rep (not way)
+    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o` unwrap @Attribute `o` rep way `yokl` as @(Optional _)
+    `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o` unwrap @Attribute
+    `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o` unwrap @Attribute `o` rep (not way)
 
 instance {-# OVERLAPS #-} Field (Focused e)
  (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where
@@ -168,7 +168,7 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
 		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (That
 			(R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
 			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
-					(fo unwrap `compose` unwrap / map @Straight @Straight @(->) @(->) @(List `T_TT_I` Cascading List) @List from
+					(fo @Arrow unwrap `compose` unwrap @Arrow / map @Straight @Straight @(->) @(->) @(List `T_TT_I` Cascading List) @List from
 						(T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `a` T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
 					)
 				))))))

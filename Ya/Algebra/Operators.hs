@@ -495,7 +495,7 @@ o_rw_o :: forall from u e a o .
 	Covariant Yoneda from (->) (That u e) =>
 	Castable Straight from a =>
 	u e a -> from (Supertype a) o -> u e o
-o_rw_o x xx = x `o`rw @from `o` xx
+o_rw_o x xx = x `o` rw @from `o` xx
 
 u, uu, uuu, uuuu, uuuuu, uuuuuu, uuuuuuu,
 	uuuuuuuu, uuuuuuuuu, uuuuuuuuuu :: forall from into i a o .

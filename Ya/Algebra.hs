@@ -158,7 +158,7 @@ instance
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
 				(day @Straight @Arrow @t @LM @MLM identity
-					(unwrap `compose` \case
+					(unwrap @Arrow `compose` \case
 						U_U_I_II_UU_I_II (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
 						U_U_I_II_UU_I_II (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
 						U_U_I_II_UU_I_II (That (These x xx)) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
@@ -217,7 +217,7 @@ instance  {-# OVERLAPPABLE #-} Component Natural (->) (->) (T_TT_I t tt) t => Ma
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t => Mapping Straight Straight (->) (->)
 	(T_TT_I (Straight (->) e `T_TT_I` t) (Straight (->) e)) (Straight (->) e `T_TT_I` t)
 	where mapping = rwr / \from -> rwr `compose` rwr /
-		\(Straight f) e -> f e `yo` unwrap `o` (`i` e) `o` from
+		\(Straight f) e -> f e `yo` unwrap @Arrow `o` (`i` e) `o` from
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 instance
@@ -357,7 +357,7 @@ instance Covariant Endo Semi Functor (->) t =>
 instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	Mapping Straight Straight (->) (->) (T_TT_I t (T_'_I l tt)) t
 	where mapping = rwr / \from ->
-		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo unwrap)
+		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo @Arrow unwrap)
 
 instance Derivable (->) (e `LM` ee) (e `LM` ee) where
 	primitive = identity
@@ -368,31 +368,35 @@ instance Derivable (->) (e `ML` ee) (e `ML` ee) where
 	elaborate = identity
 
 instance Derivable (->) (Straight LM e ee) (e `LM` ee) where
-	primitive = unwrap
+	primitive = unwrap @Arrow
 	elaborate = wrap
 
 instance Derivable (->) (Straight ML e ee) (e `ML` ee) where
-	primitive = unwrap
+	primitive = unwrap @Arrow
 	elaborate = wrap
 
 instance Derivable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee) where
-	primitive = unwrap `compose` unwrap
+	primitive = unwrap @Arrow `compose` unwrap @Arrow
 	elaborate = wrap `compose` wrap
 
 instance Derivable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e)) where
-	primitive = unwrap
+	primitive = unwrap @Arrow
 	elaborate = wrap
 
+instance Derivable (->) ((U_I_I u `T_TT_I` t) e) (u (t e) (t e)) where
+	primitive = unwrap @Arrow `a` unwrap @Arrow
+	elaborate = wrap `a` wrap
+
 instance Derivable (->) (Labeled l (U_T_I_TT_I u t tt) e) (u (t e) (tt e)) where
-	primitive = unwrap `a` unwrap
+	primitive = unwrap @Arrow `a` unwrap @Arrow
 	elaborate = wrap `a`wrap
 
 instance Covariant Endo Semi Functor (->) t =>
 	Derivable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e)) where
 	primitive = fio @(->) (fo @(->) wrap)
-		`compose` unwrap @(U_I_T_II _ LM _ _)
-		`compose` unwrap @(Recursive _)
-		`compose` unwrap @(R_U_I_T_I LM _ _)
+		`compose` unwrap @Arrow @(U_I_T_II _ LM _ _)
+		`compose` unwrap @Arrow @(Recursive _)
+		`compose` unwrap @Arrow @(R_U_I_T_I LM _ _)
 	elaborate = wrap @(R_U_I_T_I LM _ _)
 		`compose` wrap @(Recursive _)
 		`compose` wrap @(U_I_T_II _ LM _ _)

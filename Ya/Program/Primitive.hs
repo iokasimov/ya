@@ -153,7 +153,7 @@ pattern State x = U_I_II x
 statefully ::
 	Covariant Endo Semi Functor (->) t =>
 	e -> JT (State e) t o -> t (e `LM` o)
-statefully state x = unwrap (unwrap x) state `yo` unwrap
+statefully state x = unwrap @Arrow (unwrap @Arrow x) state `yo` unwrap @Arrow
 
 type Construction = R_U_I_T_I LM
 
@@ -185,11 +185,11 @@ top = W_I_II_II `compose` U_I_UU_III_U_II_I /
 	\(Root old xs) -> These / old / \new -> Root new xs
 
 -- TODO: maybe it should be a Reference, not an Attribute?
-sub :: forall tt t e .
+subs :: forall tt t e .
 	(tt ~ Construction t) =>
 	Covariant Endo Semi Functor (->) t =>
 	Attribute (Construction t e) (t (Construction t e))
-sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
+subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 	\(Root x old) -> These
 		(wrap @(R_U_I_T_I _ _ _) `fo` old)
 		(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
