@@ -718,3 +718,4 @@
 * Define `ARRRRRRRR` type alias
 * Define `put` expression
 * Define `has` expression
+* Define `sub` expression

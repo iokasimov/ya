@@ -48,6 +48,11 @@ section :: forall t tt e .
 	Attribute (tt e) (t e)
 section = field @(t e) @(tt e)
 
+sub :: forall t tt e .
+	Field (t e) (tt e) =>
+	Attribute (tt e) (t e)
+sub = field @(t e) @(tt e)
+
 class Match e ee where
   match :: (e -> r) -> (ee -> r) -> (ee -> r)
 
