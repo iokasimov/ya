@@ -8,7 +8,6 @@ import Ya.Algebra.Abstract
 infixl 8 `TI`, `LM`, `ML`, `JT`
 infixl 7 `TII`
 
-infixr 8 `JT`
 infixr 7 `ARR`
 infixr 6 `ARRR`
 infixr 5 `ARRRR`
@@ -284,7 +283,7 @@ enter = component @Straight @(->) @(->) @(Straight (->) ()) @t (U_I_II identity)
 
 rwr :: forall o into a .
 	Precategory into =>
-	Castable Opposite into o => 
+	Castable Opposite into o =>
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
 rwr f = wr `compose` f `compose` rw
@@ -349,16 +348,19 @@ class Derivable into elaborated primitive | into elaborated -> primitive where
 	elaborate :: into primitive elaborated
 
 type family JT effect where
-	JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
-	JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+ JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
+ JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
 
-type family Unjointed effect unknown result where
-	Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown result =
-		state -> unknown (state `LM` result)
+-- type family Unjointed effect unknown e where
+-- 	Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown e =
+-- 		state -> unknown (state `LM` e)
 
 class Unjointable effect unknown where
-	unjoint :: effect `JT` unknown `TI` result
-		`ARR` Unjointed effect unknown result
+ tnj :: effect `JT` unknown `TI` result `ARR` effect `TI` unknown result
+
+instance Unjointable (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) (U_I_II ML ee) where
+ tnj (T_TTT_TT_I (U_I_II f)) = U_I_II (W_I_I_II
+  (U_I_UU_II_III (\e -> case unwrap (f e) of { This x -> These e (U_I_II (This x)); That (U_I_II (These y x)) -> These y (U_I_II (That x))})))
 
 this :: e `LM` ee -> e
 this (These x _) = x
