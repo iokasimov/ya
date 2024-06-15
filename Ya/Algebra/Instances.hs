@@ -465,26 +465,3 @@ instance Monoidal Straight Functor (->) LM ML t
 	where mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
 		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
 		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
-
--- instance Mapping Straight Straight
-	-- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
-	-- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
-	-- (U_I_I LM) (U_I_I LM)
-
--- instance Mapping Straight Straight (->)
-	-- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
-	-- (U_I_II (->) (ML () ())) (U_I_I LM)
-
--- instance Mapping Straight Straight (->)
-	-- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
-	-- (U_I_I LM) (U_I_II (->) (ML () ()))
-
--- instance Mapping Straight Straight
-	-- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
-	-- (->)
-	-- (U_I_II (->) (ML () ()))
-	-- (U_I_II (->) (ML () ()))
-
-instance Covariant Endo Semi Functor (->) unknown =>
-	Unjointable (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown where
-	unjoint (T_TTT_TT_I x) = \e -> map @Straight @Straight @(->) @(->) unwrap / unwrap x e
