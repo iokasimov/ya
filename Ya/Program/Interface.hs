@@ -13,6 +13,9 @@ on constructor handle = \x -> that (constructor x `lm` handle x)
 class Field e r where
 	field :: Attribute r e
 
+has :: Field e r => Attribute r e
+has = field
+
 instance Field e e
 	where field = identity
 
