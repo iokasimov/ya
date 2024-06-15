@@ -355,3 +355,12 @@ type Cascading = Labeled (Straight LM () ())
 
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = T_'_I e
+
+rep :: forall t e .
+ Setoid (Representation t) =>
+ Covariant (Representable (->)) (->) (->) t =>
+ Representation t `ARR` Attribute `TI` t e `TI` e
+rep index = W_I_II_II `a` U_I_UU_III_U_II_I `yi` \origin ->
+ let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
+ let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
+ These (idx origin `rw` index) (\x -> tbt (U_I_II / \index' -> (is `yii` idx origin `rw` index') `rf` is x `yi` index' `e` index))
