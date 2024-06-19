@@ -719,3 +719,4 @@
 * Define `put` expression
 * Define `has` expression
 * Define `sub` expression
+* Define `_'` operator
