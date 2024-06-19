@@ -720,3 +720,4 @@
 * Define `has` expression
 * Define `sub` expression
 * Define `_'` operator
+* Define `yiiiii'` operator
