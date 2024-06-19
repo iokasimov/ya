@@ -807,7 +807,7 @@ dp_dp :: forall u e ee t tt .
 dp_dp = day @Straight @(->) @t @u @LM identity
 	(day @Straight @(->) @tt @LM @LM identity identity)
 
-rww, rwww, rwwww, rwwwww, rwwwwww, rwwwwwww, yi_rw, yi_yi_rw, yi_yi_yi_rw, yiiiii' ::
+rww, rwww, rwwww, rwwwww, rwwwwww, rwwwwwww, yi_rw, yi_yi_rw, yi_yi_yi_rw, yi', yii', yiii', yiiii', yiiiii' ::
 	Castable Straight into i =>
 	into i (Supertype i)
 rww = rw
@@ -820,6 +820,10 @@ yi_rw = rw
 yi_yi_rw = rw
 yi_yi_yi_rw = rw
 
+yi' = rw
+yii' = rw
+yiii' = rw
+yiiii' = rw
 yiiiii' = rw
 
 w_rw :: forall into a o .
