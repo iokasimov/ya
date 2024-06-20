@@ -719,3 +719,5 @@
 * Define `yiiii'` operator
 * Define `yiiiii'` operator
 * Define `at` expression
+* Define `yii'_yi'` operator
+* Define `yiii'_yi'` operator

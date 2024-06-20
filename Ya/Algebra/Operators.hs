@@ -834,12 +834,15 @@ rw_w :: forall into a o .
 	into a o -> into (Supertype a) (Supertype o)
 rw_w into = unwrap @into `compose` into `compose` wr @into
 
-yi'_yi', rwwwww_rw :: forall into a .
+yi'_yi', yii'_yi', yiii'_yi', rwwwww_rw :: forall into a .
 	Precategory into =>
 	Castable Straight into a =>
 	Castable Straight into (Supertype a) =>
 	into a (Supertype (Supertype a))
 yi'_yi' = unwrap @into `compose` unwrap @into
+
+yii'_yi' = yi'_yi'
+yiii'_yi' = yi'_yi'
 
 rwwwww_rw = yi'_yi'
 
