@@ -112,13 +112,13 @@ inspect ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (origin -> target)
-inspect r s = let (These qt _) = r `rw_rw` s in qt
+inspect r s = let (These qt _) = r `yi'_yi'` s in qt
 
 adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `rw_rw` s in x `i`f h
+adjust attr f s = let (These h x) = attr `yi'_yi'` s in x `i`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)

@@ -325,7 +325,7 @@
 * Define `U_I_UU_II_III` data type
 * Define `inspect` expression
 * Define `adjust` expression
-* Define `rw_rw` operator
+* Define `yi'_yi'` operator
 * Define `rw_w` operator
 * Define `w_rw` operator
 * Define `Field` type class
@@ -457,7 +457,7 @@
 * Define `yu_` operator
 * Define `Provided` type alias
 * Define `provide` expression
-* Define `rw_rw_rw` operator
+* Define `yi'_yi'_yi'` operator
 * Define `rwr_yu_` operator
 * Define `monoidal_` expression
 * Define `fr` operator
