@@ -491,7 +491,7 @@
 * Define `Forward` type alias
 * Define `label` expression
 * Define `yokl_rw_yokl` operator
-* Define `o_rw` operator
+* Define `o_yi'` operator
 * Define `lm_dp` operator
 * Define `forever` expression
 * Define `this` expression
@@ -513,7 +513,7 @@
 * Define `Yes` pattern synonym
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
-* Define `o_rw_o` operator
+* Define `o_yi'_o` operator
 * Define `ds` operator
 * Define `Errorful` type alias
 * Define `Error` pattern synonym
@@ -556,7 +556,7 @@
 * Define `u_o_a` operator
 * Define `u_o_yu` operator
 * Define `transform` expression
-* Define `yi_rw` operator
+* Define `yi_yi'` operator
 * Define `Node` pattern synonym
 * Define `leaf` expression
 * Define `yi_lm` operator
@@ -589,8 +589,8 @@
 * Define `Unjointed` type family
 * Define `Unjointable` type class
 * Define `unjoint` method
-* Define `yi_yi_rw` operator
-* Define `yi_yi_yi_rw` operator
+* Define `yi_yi_yi'` operator
+* Define `yi_yi_yi_yi'` operator
 * Define `ooo` operator
 * Define `oooo` operator
 * Define `ooooo` operator
