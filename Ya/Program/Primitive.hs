@@ -7,6 +7,9 @@ import Ya.Algebra
 as :: e -> e
 as = identity
 
+at :: forall t e . t e `ARR` t e
+at = identity
+
 type Same e = e
 
 pattern Same :: e -> Same e

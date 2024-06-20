@@ -600,12 +600,6 @@
 * Define `aaaa` operator
 * Define `aaaaa` operator
 * Define `aaaaaa` operator
-* Define `rww` operator
-* Define `rwww` operator
-* Define `rwwww` operator
-* Define `rwwwww` operator
-* Define `rwwwwww` operator
-* Define `rwwwwwww` operator
 * Define `rwwwww_rw` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
@@ -725,3 +719,4 @@
 * Define `yiii'` operator
 * Define `yiiii'` operator
 * Define `yiiiii'` operator
+* Define `at` expression
