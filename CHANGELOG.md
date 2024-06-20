@@ -202,7 +202,6 @@
 * Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
-* Define `rw` operator
 * Define `yo_` operator
 * Define `enter` expression
 * Define `yu_` operator

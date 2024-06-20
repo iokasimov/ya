@@ -24,7 +24,7 @@ instance
 				(x `yo`wrapped (map @Straight @Straight @(->) @(->)
 						@(R_U_I_T_I LM t `T_TT_I` Labeled l tt)
 						@(R_U_I_T_I LM t `TT_T_I` Labeled l tt) from)
-					`o` rw @(->) @(Labeled l tt _)
+					`o` unwrap @(->) @(Labeled l tt _)
 				)
 			)
 
@@ -49,8 +49,8 @@ instance
 									@(R_U_I_T_I LM t `T_TT_I` Fore tt)
 									@(R_U_I_T_I LM t `TT_T_I` Fore tt)
 									from)
-							`o` rw @(->) @(Fore _ _)
-							`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
+							`o` unwrap @(->) @(Fore _ _)
+							`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 						)
 					)
 				)
@@ -80,8 +80,8 @@ instance
 								@(R_U_I_T_I LM t `T_TT_I` Back tt)
 								@(R_U_I_T_I LM t `TT_T_I` Back tt)
 								from)
-						`o` rw @(->) @(Back _ _)
-					`yo_yo` rw @(->) @(R_U_I_T_I _ _ _)
+						`o` unwrap @(->) @(Back _ _)
+					`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 				)
 
 -- TODO: try to simplify
@@ -179,9 +179,9 @@ instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
 		`compose` wrap @(W_I_I_II _ _ _)
 		`compose` wrap @(U_I_UU_II_III (->) _ _ _ _)
 		`compose` (\state old -> let (These new f) = from old in f `foi` state new)
-		`compose` rw @(->) @(U_I_UU_II_III (->) _ _ _ _)
-		`compose` rw @(->) @(W_I_I_II _ _ _) 
-		`compose` rw @(->) @(Opposite _ _ _)
+		`compose` unwrap @(->) @(U_I_UU_II_III (->) _ _ _ _)
+		`compose` unwrap @(->) @(W_I_I_II _ _ _) 
+		`compose` unwrap @(->) @(Opposite _ _ _)
 
 instance Mapping Straight Straight (->) (->)
 	(T_TT_I
@@ -350,7 +350,7 @@ instance Covariant Monoidal Functor (->) LM LM t =>
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (t `T_TT_I` That (->) e) (t `TT_T_I` That (->) e)
 	where mapping = rwr / \from -> rwr / \x ->
-		Straight / \e -> x `yo` (from `compose` (`i` e) `compose` rw)
+		Straight / \e -> x `yo` (from `compose` (`i` e) `compose` unwrap)
 
 -- TODO: generalize
 -- We need this instance to make `yokl_yoklKL` work

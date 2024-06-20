@@ -41,7 +41,7 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+			(\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 section :: forall t tt e .
 	Field (t e) (tt e) =>
@@ -103,7 +103,7 @@ instance Stack List where
 		Empty @List _ -> These `i` Empty @List () `i` (None ())
 		T_TT_I (Some (Construct (Yet x xs))) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
 	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
-		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` rw @Arrow @(R_U_I_T_I _ _ _))) s
+		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 		`i` x
 
 instance Stack (Construction Optional) where
@@ -143,12 +143,14 @@ class Scrollable datastructure item where
    `TI` Scrolling datastructure item
    `TI` Scrolled datastructure item
 
-instance Scrollable List item where
+instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State (Scrolling List _) `JT` Halts)
     `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o` unwrap @Attribute `o` rep way `yokl` as @(Optional _)
     `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o` unwrap @Attribute
     `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o` unwrap @Attribute `o` rep (not way)
+
+-- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
 instance {-# OVERLAPS #-} Field (Focused e)
  (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where

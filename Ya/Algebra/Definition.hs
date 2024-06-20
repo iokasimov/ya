@@ -17,7 +17,7 @@ infixr 2 `ARRRRRRR`
 infixr 1 `ARRRRRRRR`
 
 infixl 9 `e`
-infixl 8 `wr`, `rw`
+infixl 8 `wr`
 infixl 0 /
 
 type ARR = (->)
@@ -49,7 +49,7 @@ map :: forall v vv from into t tt a o .
 	Castable Opposite Arrow (v from a o) =>
 	Castable Straight Arrow (vv into (t a) (tt o)) =>
 	Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
-map from = rw @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
+map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
 type Component v = Transformation v Functor
 
@@ -58,7 +58,7 @@ component :: forall v from into t tt o .
 	(Supertype (v from o o) ~ from o o) =>
 	Castable Opposite Arrow (v from o o) =>
 	into (t o) (tt o)
-component = rw @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap identity))
+component = unwrap @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap identity))
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -132,7 +132,7 @@ class (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_
 		Castable Opposite Arrow (v from a a) =>
 		Castable Opposite into (v from a r) =>
 		t a -> into (Supertype (v from a r)) (t r)
-	yoneda x = rw
+	yoneda x = unwrap
 		(map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
 		`compose` wr @into @(v from a r)
 
@@ -264,12 +264,12 @@ monoidal_ :: forall v from into t u uu a o e ee .
 	Castable Opposite into (Identity (v from (uu e ee) a)) =>
 	Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal_ from =
-	rw @into @(That into _ _)
+	unwrap @into @(That into _ _)
 	`compose` map @Straight @Straight @(->) @into
 		@(That into (u (t e) (t ee))) @(That into (u (t e) (t ee)))
 		((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
-		`compose` rw @(->) @(That LM _ _))
-	`compose` rw @into @(T_TT_I _ _ _)
+		`compose` unwrap @(->) @(That LM _ _))
+	`compose` unwrap @into @(T_TT_I _ _ _)
 	`compose` component @Straight @(->) @into @Identity @(That into _ `T_TT_I` That LM _)
 	`compose` wr @into
 
@@ -286,35 +286,35 @@ rwr :: forall o into a .
 	Castable Opposite into o =>
 	Castable Straight into a =>
 	into (Supertype a) (Supertype o) -> into a o
-rwr f = wr `compose` f `compose` rw
+rwr f = wr `compose` f `compose` unwrap
 
 rewrap :: forall o a .
 	Precategory (->) =>
 	Castable Opposite (->) o => 
 	Castable Straight (->) a =>
 	(Supertype a -> Supertype o) -> a -> o
-rewrap f = wr `compose` f `compose` rw
+rewrap f = wr `compose` f `compose` unwrap
 
 wrapped :: forall into a o .
 	Precategory into =>
 	Castable Straight into o =>
 	Castable Opposite into a =>
 	into a o -> into (Supertype a) (Supertype o)
-wrapped f = rw `compose` f `compose` wr
+wrapped f = unwrap `compose` f `compose` wr
 
 i_ :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_II_I u e a) =>
 	Castable Straight into (U_II_I u e o) =>
 	into (U_II_I u e a) (U_II_I u e o) -> into (u a e) (u o e)
-i_ f = rw @into @(U_II_I _ _ _) `compose` f `compose` wr @into @(U_II_I _ _ _)
+i_ f = unwrap @into @(U_II_I _ _ _) `compose` f `compose` wr @into @(U_II_I _ _ _)
 
 _i :: forall into u a o e .
 	Precategory into =>
 	Castable Opposite into (U_I_II u e a) =>
 	Castable Straight into (U_I_II u e o) =>
 	into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
-_i f = rw @into @(U_I_II _ _ _) `compose` f `compose` wr @into @(U_I_II _ _ _)
+_i f = unwrap @into @(U_I_II _ _ _) `compose` f `compose` wr @into @(U_I_II _ _ _)
 
 cata :: forall into t e .
 	Covariant Endo Semi Functor into t =>
@@ -341,7 +341,7 @@ instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
 	=> Unlabelable into t where unlabel = identity
 
 instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
-	=> Unlabelable into (Labeled label t) where unlabel = rw
+	=> Unlabelable into (Labeled label t) where unlabel = unwrap
 
 class Derivable into elaborated primitive | into elaborated -> primitive where
 	primitive :: into elaborated primitive
@@ -392,6 +392,3 @@ class Setoid e where
 
 wr :: Castable Opposite into i => into (Supertype i) i
 wr = let U_II_I x = cast in x
-
-rw :: Castable Straight into i => into i (Supertype i)
-rw = let U_I_II x = cast in x

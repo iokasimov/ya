@@ -4,7 +4,7 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
-as :: e -> e
+as :: e `ARR` e
 as = identity
 
 at :: forall t e . t e `ARR` t e
@@ -195,7 +195,7 @@ subs :: forall tt t e .
 subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
 	\(Root x old) -> These
 		(wrap @(R_U_I_T_I _ _ _) `fo` old)
-		(\new -> Root x / rw @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+		(\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 pattern Yet :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Yet x xs <- Recursive (U_I_T_II (These x xs))
@@ -366,4 +366,4 @@ rep :: forall t e .
 rep index = W_I_II_II `a` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- These (idx origin `rw` index) (\x -> tbt (U_I_II / \index' -> (is `yii` idx origin `rw` index') `rf` is x `yi` index' `e` index))
+ These (idx origin `yi'` index) (\x -> tbt (U_I_II / \index' -> (is `yii` idx origin `yi'` index') `rf` is x `yi` index' `e` index))
