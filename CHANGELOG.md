@@ -688,7 +688,7 @@
 * Define `ooooooo_yukl` operator
 * Define `oooooooo_yukl` operator
 * Define `ooooooooo_yukl` operator
-* Define `as` expression
+* Define `is` expression
 * Define `Stream` type alias
 * Define `Scrolled` type family
 * Define `not` expression

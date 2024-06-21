@@ -4,8 +4,8 @@ module Ya.Program.Primitive where
 
 import Ya.Algebra
 
-as :: e `ARR` e
-as = identity
+is :: e `ARR` e
+is = identity
 
 on :: forall t e . t e `ARR` t e
 on = identity
