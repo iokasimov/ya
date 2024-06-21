@@ -303,7 +303,6 @@
 * Define `Forest` type family
 * Define `o_o` operator
 * Define `o_yu` operator
-* Define `section` expression
 * Define `u_o_a` operator
 * Define `u_o_yu` operator
 * Define `transform` expression

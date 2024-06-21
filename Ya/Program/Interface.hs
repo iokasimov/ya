@@ -40,11 +40,6 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
-section :: forall t tt e .
-	Field (t e) (tt e) =>
-	Attribute (tt e) (t e)
-section = field @(t e) @(tt e)
-
 sub :: forall t tt e .
 	Field (t e) (tt e) =>
 	Attribute (tt e) (t e)
@@ -143,7 +138,7 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State (Scrolling List _) `JT` Halts)
-    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o` unwrap @Attribute `o` rep way `yokl` as @(Optional _)
+    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o` unwrap @Attribute `o` rep way `yokl` on @Halts
     `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o` unwrap @Attribute
     `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o` unwrap @Attribute `o` rep (not way)
 
