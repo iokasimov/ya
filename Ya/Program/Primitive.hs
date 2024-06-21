@@ -366,4 +366,4 @@ rep :: forall t e .
 rep index = W_I_II_II `a` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- These (idx origin `yi'` index) (\x -> tbt (U_I_II / \index' -> (is `yii` idx origin `yi'` index') `rf` is x `yi` index' `e` index))
+ These (idx origin `yi'` index) (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `yi'` index') `rf` but x `yi` index' `e` index))

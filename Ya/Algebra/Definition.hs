@@ -371,8 +371,8 @@ that (These _ x) = x
 constant :: e -> ee -> e
 constant x _ = x
 
-is :: e -> ee -> e
-is x _ = x
+but :: e -> ee -> e
+but x _ = x
 
 type MLM = U_U_I_II_UU_I_II ML LM
 

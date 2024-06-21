@@ -621,7 +621,7 @@
 * Define `yiiiiiii` operator
 * Define `yi_yi_yi_rf` operator
 * Define `field` method
-* Define `is` expression
+* Define `but` expression
 * Define `Setoid` type class
 * Define `Derivable` type class
 * Define `primitive` method
