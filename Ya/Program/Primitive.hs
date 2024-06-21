@@ -7,8 +7,8 @@ import Ya.Algebra
 as :: e `ARR` e
 as = identity
 
-at :: forall t e . t e `ARR` t e
-at = identity
+on :: forall t e . t e `ARR` t e
+on = identity
 
 type Same e = e
 
