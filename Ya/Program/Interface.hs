@@ -8,34 +8,31 @@ import Ya.Algebra
 import Ya.Program.Primitive
 
 class Field e r where
-	field :: Attribute r e
-
-has :: Field e r => Attribute r e
-has = field
+	has :: Attribute r e
 
 instance Field e e
-	where field = identity
+	where has = identity
 
 instance Field e (Only e)
-	where field = W_I_II_II `a` U_I_UU_III_U_II_I
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(Only x) -> These `i` x `i` \new -> Only new
 
 instance Field e (e `LM` ee)
-	where field = W_I_II_II `a` U_I_UU_III_U_II_I
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I
 		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
-	field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-		`i` inspect (field @e @ee) fs
-		`i` \new -> These old `i` adjust (field @e @ee) (\_ -> new) fs
+	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
+		`i` inspect (has @e @ee) fs
+		`i` \new -> These old `i` adjust (has @e @ee) (\_ -> new) fs
 
 instance {-# OVERLAPS #-} Field (Focused e) (Construction t e)
-	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
 
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 	Field (t (Construction t e)) (Construction t e)
-	where field = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
 		\(Root x old) -> These
 			(wrap @(R_U_I_T_I _ _ _) `fo` old)
 			(\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
@@ -43,7 +40,7 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
 sub :: forall t tt e .
 	Field (t e) (tt e) =>
 	Attribute (tt e) (t e)
-sub = field @(t e) @(tt e)
+sub = has @(t e) @(tt e)
 
 class Match e ee where
   match :: (e -> r) -> (ee -> r) -> (ee -> r)
@@ -146,11 +143,11 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
 
 instance {-# OVERLAPS #-} Field (Focused e)
  (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where
-  field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> x `lm` T_'_I `a` U_T_I_TT_I `a` (`lm` xs)
+  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> x `lm` T_'_I `a` U_T_I_TT_I `a` (`lm` xs)
 
 instance {-# OVERLAPS #-} Field ((U_I_I LM `T_TT_I` List) e)
  (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where
-  field = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> xs `lm` T_'_I `a` U_T_I_TT_I `a` (x `lm`)
+  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> xs `lm` T_'_I `a` U_T_I_TT_I `a` (x `lm`)
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List

@@ -619,7 +619,7 @@
 * Define `yiiiiii` operator
 * Define `yiiiiiii` operator
 * Define `yi_yi_yi_rf` operator
-* Define `field` method
+* Define `has` method
 * Define `but` expression
 * Define `Setoid` type class
 * Define `Derivable` type class
@@ -708,7 +708,6 @@
 * Define `ARRRRRRR` type alias
 * Define `ARRRRRRRR` type alias
 * Define `put` expression
-* Define `has` expression
 * Define `sub` expression
 * Define `_'` operator
 * Define `yi'` operator
