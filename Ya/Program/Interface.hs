@@ -7,9 +7,6 @@ module Ya.Program.Interface where
 import Ya.Algebra
 import Ya.Program.Primitive
 
-on :: (e `ARR` ee) `ARR` (e `ARR` r) `ARR` (e `ARR` r)
-on constructor handle = \x -> that (constructor x `lm` handle x)
-
 class Field e r where
 	field :: Attribute r e
 
@@ -83,7 +80,7 @@ instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  literal (These init last) =
   (literal @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
-  `rw_rw_rw_o`  Construct (Last last) `yi` this
+  `yi'_yi'_yi'_o`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  literal x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
