@@ -14,53 +14,50 @@ instance Field e e
 	where has = identity
 
 instance Field e (Only e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I
-		`i` \(Only x) -> These `i` x `i` \new -> Only new
+ where has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(Only x) -> x `lm` Only
 
 instance Field e (e `LM` ee)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I
-		`i` \(These f fs) -> These `i` f `i` \f_ -> These f_ fs
+ where has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
-	has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-		`i` inspect (has @e @ee) fs
-		`i` \new -> These old `i` adjust (has @e @ee) (\_ -> new) fs
+ has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
+  `i` inspect (has @e @ee) fs
+  `i` \new -> old `lm` adjust (has @e @ee) (but new) fs
 
-instance {-# OVERLAPS #-} Field (Focused e) (Construction t e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(Root old xs) -> These / Focused old / \new -> Root (unwrap new) xs
+instance {-# OVERLAPS #-} Field (Focused e) (Construction t e) where
+ has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
+  \(Root old xs) -> Focused old `lm` (\new -> Root (unwrap new) xs)
 
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
-	Field (t (Construction t e)) (Construction t e)
-	where has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-		\(Root x old) -> These
-			(wrap @(R_U_I_T_I _ _ _) `fo` old)
-			(\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
+ Field (t (Construction t e)) (Construction t e) where
+  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(Root x old) -> These
+   (wrap @(R_U_I_T_I _ _ _) `fo` old)
+   (\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
 
 sub :: forall t tt e .
-	Field (t e) (tt e) =>
-	Attribute (tt e) (t e)
+ Field (t e) (tt e) =>
+ Attribute (tt e) (t e)
 sub = has @(t e) @(tt e)
 
 class Match e ee where
-  match :: (e -> r) -> (ee -> r) -> (ee -> r)
+ match :: (e -> r) -> (ee -> r) -> (ee -> r)
 
 instance Match e e where
-  match target _ = target
+ match target _ = target
 
 instance Match e (e `ML` es) where
-  match target rest = target `rf` rest `a` That
+ match target rest = target `rf` rest `a` That
 
 instance Match e (es `ML` e) where
-  match target rest = rest `a` This `rf` target
+ match target rest = rest `a` This `rf` target
 
 instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
-  match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
+ match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
 
 -- TODO: replace `Same` with `~`
 type family Vector x xs where
-	Vector x (y `LM` xs) = (Same x y, Vector x xs)
-	Vector x y = Same x y
+ Vector x (y `LM` xs) = (Same x y, Vector x xs)
+ Vector x y = Same x y
 
 class Literal datastructure item literal
  where literal :: literal -> datastructure item
@@ -84,23 +81,23 @@ instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal 
      `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap @Arrow
 
 class Stack datastructure where
-	pop :: Transition `TI` datastructure item `TI` Optional item
-	push :: item -> Transition `TI` datastructure item `TI` item
+ pop :: Transition `TI` datastructure item `TI` Optional item
+ push :: item -> Transition `TI` datastructure item `TI` item
 
 instance Stack List where
-	pop = W_I_I_II `a` U_I_UU_II_III `i` \case
-		Empty @List _ -> These `i` Empty @List () `i` (None ())
-		T_TT_I (Some (Construct (Yet x xs))) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
-		`i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
-		`i` x
+ pop = W_I_I_II `a` U_I_UU_II_III `i` \case
+  Empty @List _ -> These `i` Empty @List () `i` (None ())
+  T_TT_I (Some (Construct (Yet x xs))) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
+ push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
+  `i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+  `i` x
 
 instance Stack (Construction Optional) where
-	pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
-		R_U_I_T_I (Yet x (Some xs)) -> These `i` R_U_I_T_I xs `i` Some x
-		R_U_I_T_I (Yet x (None _)) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
-	push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
-		let new = Next x `rwr` old in These new x
+ pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
+  R_U_I_T_I (Yet x (Some xs)) -> These `i` R_U_I_T_I xs `i` Some x
+  R_U_I_T_I (Yet x (None _)) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
+ push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
+  let new = Next x `rwr` old in These new x
 
 type Scrolling datastructure =
  Labeled datastructure (U_T_I_TT_I LM Only (Situation datastructure))
@@ -135,9 +132,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State (Scrolling List _) `JT` Halts)
-    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o` unwrap @Attribute `o` rep way `yokl` on @Halts
+    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o'` rep way `yokl` on @Halts
     `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o` unwrap @Attribute
-    `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o` unwrap @Attribute `o` rep (not way)
+    `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
