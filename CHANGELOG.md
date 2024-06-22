@@ -720,3 +720,4 @@
 * Define `yiii'_yi'` operator
 * Define `o'` operator
 * Define `o'_yo` operator
+* Define `a'` operator
