@@ -718,3 +718,4 @@
 * Define `on` expression
 * Define `yii'_yi'` operator
 * Define `yiii'_yi'` operator
+* Define `o'` operator
