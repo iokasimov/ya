@@ -598,7 +598,6 @@
 * Define `aaaa` operator
 * Define `aaaaa` operator
 * Define `aaaaaa` operator
-* Define `rwwwww_rw` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
 * Define `State` pattern synonym
