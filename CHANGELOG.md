@@ -720,3 +720,6 @@
 * Define `o'_yo` operator
 * Define `a'` operator
 * Define `as` method
+* Define `a'_a` operator
+* Define `a_a'` operator
+* Define `a'_a'` operator
