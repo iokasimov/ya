@@ -60,25 +60,25 @@ type family Vector x xs where
  Vector x y = Same x y
 
 class Literal datastructure item literal
- where literal :: literal -> datastructure item
+ where as :: literal -> datastructure item
 
 instance Literal (Construction Optional) item item where
- literal x = Construct `yi` Last x
+ as x = Construct `yi` Last x
 
 instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
- literal (These init last) =
-  (literal @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
+ as (These init last) =
+  (as @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
   `yi'_yi'_yi'_o`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
- literal x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
+ as x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
 
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
- literal (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
-   `yi_yi_yi` lx `yo` literal @(Binary Tree) `o` unwrap @Arrow
-     `yi_lm` rx `yo` literal @(Binary Tree) `o` unwrap @Arrow
+ as (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
+   `yi_yi_yi` lx `yo` as @(Binary Tree) `o` unwrap @Arrow
+     `yi_lm` rx `yo` as @(Binary Tree) `o` unwrap @Arrow
 
 class Stack datastructure where
  pop :: Transition `TI` datastructure item `TI` Optional item

@@ -695,7 +695,6 @@
 * Define `dp_yoklKL` operator
 * Define `j'_j'` operator
 * Define `Literal` type class
-* Define `literal` method
 * Define `rw_rw_rw_o` operator
 * Define `Binary` pattern synonym
 * Define `TII` type alias
@@ -720,3 +719,4 @@
 * Define `o'` operator
 * Define `o'_yo` operator
 * Define `a'` operator
+* Define `as` method
