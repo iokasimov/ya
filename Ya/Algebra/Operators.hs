@@ -722,23 +722,23 @@ fr from_left from_right =
 	wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
 
 -- TODO: use juggling here
-cn :: forall into e a aa o oo .
-	Derivable into e (Product into a aa) =>
-	Cone Straight into into (Object Straight into) =>
-	(forall e . Functor Straight into into (That (Product into) e)) =>
-	(forall e . Functor Straight into into (This (Product into) e)) =>
-	(forall e ee . Wrapper into (That (Product into) e ee)) =>
-	(forall e ee . Wrapper into (This (Product into) e ee)) =>
-	into a o -> into aa oo -> into e (Product into o oo)
-cn from_left from_right = fio from_right `compose` foi from_left `compose` primitive
+cn :: forall into a aa o oo .
+ Cone Straight into into (Object Straight into) =>
+ Functor Straight into into (That (Product into) o) =>
+ Functor Straight into into (That (Product into) aa) =>
+ Functor Straight into into (This (Product into) aa) =>
+ Wrapper into (That (Product into) o aa) =>
+ Wrapper into (That (Product into) o oo) =>
+ Wrapper into (This (Product into) aa o) =>
+ Wrapper into (This (Product into) aa a) =>
+ into a o -> into aa oo -> into (Product into a aa) (Product into o oo)
+cn from_left from_right = fio from_right `compose` foi from_left
 
 -- TODO: try to generalize
-cn_dp, yi_cn_dp :: forall e t a aa o oo .
-	Derivable (->) e (Product (->) a aa) =>
-	Derivable (->) (Product (->) (t o) (t oo)) (Product (->) (t o) (t oo)) =>
-	Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
-	Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
-cn_dp from_left from_right = dp @(Product (->) (t o) (t oo)) `compose` cn from_left from_right
+cn_dp, yi_cn_dp :: forall t a aa o oo .
+ Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
+ Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (->) a aa) (t (Product Arrow o oo))
+cn_dp from_left from_right = dp `compose` cn from_left from_right
 
 yi_cn_dp = cn_dp
 
@@ -771,42 +771,38 @@ yi_yi_lm = lm
 yi_yi_yi_lm = lm
 yi_yi_yi_yi_lm = lm
 
-rf, yi_rf, yi_yi_rf, yi_yi_yi_rf :: forall from e i o oo .
-	Category from =>
-	Limit Opposite from from =>
-	Derivable from e (Sum from o oo) =>
-	Covariant Functor from from (That (Sum from) o) =>
-	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
-	(forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
-	(forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
-	(forall ee . Wrapper from (Both (Sum from) ee)) =>
-	(forall ee . Wrapper from (Identity ee)) =>
-	from o i -> from oo i -> from e i
+rf, yi_rf, yi_yi_rf, yi_yi_yi_rf :: forall from i o oo .
+ Category from =>
+ Limit Opposite from from =>
+ Covariant Functor from from (That (Sum from) o) =>
+ Covariant Functor from from (This (Sum from) (Sum from i i)) =>
+ (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
+ (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
+ (forall ee . Wrapper from (Both (Sum from) ee)) =>
+ (forall ee . Wrapper from (Identity ee)) =>
+ from o i -> from oo i -> from (Sum from o oo) i
 rf from_left from_right =
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
-	_i (map @Straight @Straight (wrapped (right @Opposite from_right))) `compose`
-	primitive @from @e @(Sum from o oo)
+ wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
+ wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
+ i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+ _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
 
 yi_rf = rf
 yi_yi_rf = rf
 yi_yi_yi_rf = rf
 
 rw_rf :: forall from e i o oo .
-	Category from =>
-	Limit Opposite from from =>
-	-- TODO: fix it later
-	Derivable from (Sum from o oo) (Sum from o oo) =>
-	Covariant Functor from from (That (Sum from) o) =>
-	Covariant Functor from from (This (Sum from) (Sum from i i)) =>
-	(forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
-	(forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
-	(forall ee . Wrapper from (Both (Sum from) ee)) =>
-	(forall ee . Wrapper from (Identity ee)) =>
-	(Supertype e ~ (Sum from o oo)) =>
-	Castable Straight from e =>
-	from o i -> from oo i -> from e i
+ Category from =>
+ Limit Opposite from from =>
+ Covariant Functor from from (That (Sum from) o) =>
+ Covariant Functor from from (This (Sum from) (Sum from i i)) =>
+ (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
+ (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
+ (forall ee . Wrapper from (Both (Sum from) ee)) =>
+ (forall ee . Wrapper from (Identity ee)) =>
+ (Supertype e ~ (Sum from o oo)) =>
+ Castable Straight from e =>
+ from o i -> from oo i -> from e i
 rw_rf from_left from_right = rf from_left from_right `compose` unwrap
 
 -- TODO: to test
@@ -834,19 +830,15 @@ rwr_rf from_left from_right = rwr /
 	i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
 	_i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
-dp :: forall eee u e ee t .
-	Derivable (->) eee (u (t e) (t ee)) =>
-	Mapping Straight Straight (->) (->) (Day Straight (->) u LM t t e ee) t =>
-	eee -> t (e `LM` ee)
+dp :: forall u e ee t .
+ Mapping Straight Straight (->) (->) (Day Straight (->) u LM t t e ee) t =>
+ u (t e) (t ee) -> t (e `LM` ee)
 dp = day @Straight @(->) @t @u @LM identity identity
-	`compose` primitive @(->) @eee @(u (t e) (t ee))
 
-ds :: forall eee u e ee t .
-	Derivable (->) eee (u (t e) (t ee)) =>
-	Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
-	eee -> t (e `ML` ee)
+ds :: forall u e ee t .
+ Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
+ u (t e) (t ee) -> t (e `ML` ee)
 ds = day @Straight @(->) @t @u @ML identity identity
-	`compose` primitive @(->) @eee @(u (t e) (t ee))
 
 dw :: forall u e ee t .
 	Mapping Straight Straight (->) (->)
@@ -863,18 +855,18 @@ dp_dp :: forall u e ee t tt .
 dp_dp = day @Straight @(->) @t @u @LM identity
 	(day @Straight @(->) @tt @LM @LM identity identity)
 
-yi_yi', yi_yi_yi', yi_yi_yi_yi', yi', yii', yiii', yiiii', yiiiii' ::
-	Castable Straight into i =>
-	into i (Supertype i)
-
+yi', yii', yiii', yiiii', yiiiii', yi_yi', yi_yi_yi', yi_yi_yi_yi' ::
+ Castable Straight into i =>
+ into i (Supertype i)
 yi' = unwrap
-yi_yi' = unwrap
-yi_yi_yi' = unwrap
-yi_yi_yi_yi' = unwrap
-yii' = unwrap
-yiii' = unwrap
-yiiii' = unwrap
-yiiiii' = unwrap
+
+yii' = yi'
+yiii' = yi'
+yiiii' = yi'
+yiiiii' = yi'
+yi_yi' = yi'
+yi_yi_yi' = yi'
+yi_yi_yi_yi' = yi'
 
 w_rw :: forall into a o .
 	Precategory into =>
@@ -1065,43 +1057,37 @@ a_yukl :: forall from t tt a o e .
 a_yukl = a `compose` fukl @from @tt @t
 
 fr_dp :: forall from t i o oo .
-	Category from =>
-	-- TODO: generalize
-	Derivable (->) (t o `LM` t oo) (t o `LM` t oo) =>
-	Limit Straight from (->) =>
-	Covariant Functor (->) (->) (That (LM) o) =>
-	Covariant Functor (->) (->) (This (LM) (LM i i)) =>
-	Covariant Monoidal Functor (->) LM LM t =>
-	Castable Straight (->) (Both (LM) (LM i i)) =>
-	Castable Straight (->) (That (LM) o oo) =>
-	Castable Opposite (->) (This (LM) i i) =>
-	Castable Opposite (->) (That (LM) i i) =>
-	Castable Straight (->) (Both (LM) i) =>
-	Castable Straight (->) (This (LM) (LM i i) o) =>
-	Castable Opposite (->) (This (LM) (LM i i) (LM i i)) =>
-	Wrapper (->) (That (LM) o (LM i i)) =>
-	(forall e . Wrapper (->) (Identity e)) =>
-	from i (t o) -> from i (t oo) -> i -> t (LM o oo)
+ Category from =>
+ Limit Straight from (->) =>
+ Covariant Functor (->) (->) (That (LM) o) =>
+ Covariant Functor (->) (->) (This (LM) (LM i i)) =>
+ Covariant Monoidal Functor (->) LM LM t =>
+ Castable Straight (->) (Both (LM) (LM i i)) =>
+ Castable Straight (->) (That (LM) o oo) =>
+ Castable Opposite (->) (This (LM) i i) =>
+ Castable Opposite (->) (That (LM) i i) =>
+ Castable Straight (->) (Both (LM) i) =>
+ Castable Straight (->) (This (LM) (LM i i) o) =>
+ Castable Opposite (->) (This (LM) (LM i i) (LM i i)) =>
+ Wrapper (->) (That (LM) o (LM i i)) =>
+ (forall e . Wrapper (->) (Identity e)) =>
+ from i (t o) -> from i (t oo) -> i -> t (LM o oo)
 fr_dp from_left from_right = dp `compose`
-	_i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
-	i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
-	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
-	wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
+ _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
+ i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
+ wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
+ wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
 lm_dp, yi_lm_dp :: forall o oo t .
-	-- TODO: generalize
-	Derivable (->) (t o `LM` t oo) (t o `LM` t oo) =>
-	Covariant Monoidal Functor (->) LM LM t =>
-	t o -> t oo -> t (o `LM` oo)
+ Covariant Monoidal Functor (->) LM LM t =>
+ t o -> t oo -> t (o `LM` oo)
 lm_dp from_left from_right = dp (lm from_left from_right)
 
 yi_lm_dp = lm_dp
 
 lm_ds :: forall o oo t .
-	-- TODO: generalize
-	Derivable (->) (t o `LM` t oo) (t o `LM` t oo) =>
-	Covariant Monoidal Functor (->) LM ML t =>
-	t o -> t oo -> t (o `ML` oo)
+ Covariant Monoidal Functor (->) LM ML t =>
+ t o -> t oo -> t (o `ML` oo)
 lm_ds from_left from_right = ds (lm from_left from_right)
 
 lm_dp_dp :: forall o oo t tt .
@@ -1118,8 +1104,6 @@ dp_yo x f = day @Straight @from @t @LM @LM identity f x
 
 -- TODO: generalize
 dp_yokl :: forall e ee from into t tt o .
-	-- TODO: generalize
-	Derivable (->) (t e `LM` t ee) (t e `LM` t ee) =>
 	Covariant Monoidal Functor (->) LM LM t =>
 	Covariant Yoneda from into t =>
 	Component Natural (->) into (T_TT_I t tt) t =>
@@ -1130,7 +1114,6 @@ dp_yokl = yokl @from @into `compose` dp
 
 -- TODO: generalize
 dp_yoklKL :: forall e ee from into t tt o .
-	Derivable (->) (t e `LM` t ee) (t e `LM` t ee) =>
 	Unlabelable into tt =>
 	Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
 	Covariant Monoidal Functor (->) LM LM t =>

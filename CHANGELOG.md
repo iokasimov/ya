@@ -621,9 +621,6 @@
 * Define `has` method
 * Define `but` expression
 * Define `Setoid` type class
-* Define `Derivable` type class
-* Define `primitive` method
-* Define `elaborate` method
 * Define `e` method and operator
 * Define `_j` operator
 * Define `j'` operator

@@ -359,49 +359,6 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	where mapping = rwr / \from ->
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo @Arrow unwrap)
 
-instance Derivable (->) (e `LM` ee) (e `LM` ee) where
-	primitive = identity
-	elaborate = identity
-
-instance Derivable (->) (e `ML` ee) (e `ML` ee) where
-	primitive = identity
-	elaborate = identity
-
-instance Derivable (->) (Straight LM e ee) (e `LM` ee) where
-	primitive = unwrap @Arrow
-	elaborate = wrap
-
-instance Derivable (->) (Straight ML e ee) (e `ML` ee) where
-	primitive = unwrap @Arrow
-	elaborate = wrap
-
-instance Derivable (->) ((That ML e `T_TT_I` t) ee) (e `ML` t ee) where
-	primitive = unwrap @Arrow `compose` unwrap @Arrow
-	elaborate = wrap `compose` wrap
-
-instance Derivable (->) (U_T_I_TT_I u t tt e) (u (t e) (tt e)) where
-	primitive = unwrap @Arrow
-	elaborate = wrap
-
-instance Derivable (->) ((U_I_I u `T_TT_I` t) e) (u (t e) (t e)) where
-	primitive = unwrap @Arrow `a` unwrap @Arrow
-	elaborate = wrap `a` wrap
-
-instance Derivable (->) (Labeled l (U_T_I_TT_I u t tt) e) (u (t e) (tt e)) where
-	primitive = unwrap @Arrow `a` unwrap @Arrow
-	elaborate = wrap `a`wrap
-
-instance Covariant Endo Semi Functor (->) t =>
-	Derivable (->) (R_U_I_T_I LM t e) (e `LM` t (R_U_I_T_I LM t e)) where
-	primitive = fio @(->) (fo @(->) wrap)
-		`compose` unwrap @Arrow @(U_I_T_II _ LM _ _)
-		`compose` unwrap @Arrow @(Recursive _)
-		`compose` unwrap @Arrow @(R_U_I_T_I LM _ _)
-	elaborate = wrap @(R_U_I_T_I LM _ _)
-		`compose` wrap @(Recursive _)
-		`compose` wrap @(U_I_T_II _ LM _ _)
-		`compose` fio @(->) (fo @(->) unwrap)
-
 instance Setoid () where
 	e _ _ = U_I_II (That ())
 
