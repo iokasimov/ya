@@ -720,3 +720,6 @@
 * Define `a'_a` operator
 * Define `a_a'` operator
 * Define `a'_a'` operator
+* Define `yi_rf'` operator
+* Define `yi_yi_rf'` operator
+* Define `yi_yi_yi_rf'` operator
