@@ -294,7 +294,7 @@
 * Define `yi_yokl` operator
 * Define `TI` type alias
 * Define `rwr_rf` operator
-* Define `rw_rf` operator
+* Define `rf'` operator
 * Define `yi_o` operator
 * Define `u_o` operator
 * Define `top` expression
