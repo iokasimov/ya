@@ -726,3 +726,6 @@
 * Define `cn'` operator
 * Define `cn'_dp` operator
 * Define `yi'_rf'` operator
+* Define `yi_cn'_dp` operator
+* Define `yi_yi_cn'_dp` operator
+* Define `yi_yi_yi_cn'_dp` operator
