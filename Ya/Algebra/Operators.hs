@@ -10,11 +10,11 @@ infixl 8 `yi'`, `vv`, `i_i`, `uu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj
 infixl 7 `yii'`, `vvv`, `i_i_i`, `uuu`, `yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo_yo`, `ooo_yokl`, `ooo_yukl`, `aaa`, `aaa'`
 infixl 6 `yiii'`, `yi'_yi'`, `vvvv`, `i_i_i_i`, `uuuu`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `yi_rf'`, `yi'_rf'`, `yi_cn'_dp`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_yi'_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `oooo_yukl`, `aaaa`, `aaaa'`
 infixl 5 `yiiii'`, `yii'_yi'`, `vvvvv`, `i_i_i_i_i`, `yiiii`, `uuuuu`, `yiokl`, `ooooo`, `ooooo_yo`, `ooooo_yokl`, `ooooo_yukl`, `aaaaa`, `aaaaa'`
-infixl 4 `yiiiii'`, `yi'_yi'_yi'`, `yiii'_yi'`, `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `uuuuuu`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yi_rf'`, `yi_yi_cn'_dp`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi'`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `aaaaaa'`
+infixl 4 `yiiiii'`, `yi'_yi'_yi'`, `yiii'_yi'`, `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `uuuuuu`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yi_rf'`, `yi_yi_cn'_dp`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi'`, `yi_yi_lm_dp`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `aaaaaa'`
 infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `uuuuuuu`, `ooooooo_yokl`, `ooooooo_yukl`, `aaaaaaa`, `aaaaaaa'`
-infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `uuuuuuuu`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rf'`, `yi_yi_yi_yi'`, `yi_yi_yi_cn'_dp`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `oooooooo_yukl`, `aaaaaaaa`, `aaaaaaaa'`
+infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `uuuuuuuu`, `yi_yi_yi_yi`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rf'`, `yi_yi_yi_yi'`, `yi_yi_yi_lm_dp`, `yi_yi_yi_cn'_dp`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `oooooooo_yukl`, `aaaaaaaa`, `aaaaaaaa'`
 infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `yiiiiiiii`, `uuuuuuuuu`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`, `aaaaaaaaa'`
-infixl 0 `i_i_i_i_i_i_i_i_i_i`, `uuuuuuuuuu`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
+infixl 0 `i_i_i_i_i_i_i_i_i_i`, `uuuuuuuuuu`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yi_lm_dp`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
 i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
 	i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i_i :: Category into => into e e
@@ -1123,12 +1123,15 @@ fr_dp from_left from_right = dp `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
-lm_dp, yi_lm_dp :: forall o oo t .
+lm_dp, yi_lm_dp, yi_yi_lm_dp, yi_yi_yi_lm_dp :: forall o oo t .
  Covariant Monoidal Functor (->) LM LM t =>
  t o -> t oo -> t (o `LM` oo)
 lm_dp from_left from_right = dp (lm from_left from_right)
 
 yi_lm_dp = lm_dp
+yi_yi_lm_dp = lm_dp
+yi_yi_yi_lm_dp = lm_dp
+yi_yi_yi_yi_lm_dp = lm_dp
 
 lm_ds :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
