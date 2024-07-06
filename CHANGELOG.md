@@ -732,3 +732,4 @@
 * Define `yi_yi_lm_dp` operator
 * Define `yi_yi_yi_lm_dp` operator
 * Define `yi_yi_yi_yi_lm_dp` operator
+* Define `yai_yai` operator
