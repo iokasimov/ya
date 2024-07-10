@@ -351,7 +351,7 @@ pass ::
 	t e -> t ()
 pass x = x `yu` ()
 
-same :: Setoid e => e `ARR` e `ARR` U_I_II ML (e `LM` e) e
+same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
 same = e
 
 type Cascading = Labeled (Straight LM () ())
@@ -371,4 +371,4 @@ rep index = W_I_II_II `a` U_I_UU_III_U_II_I `yi` \origin ->
   (\x -> tbt (U_I_II / \index' ->
     (but `yii` idx origin `yi'` index')
     `rf` but x
-    `yi` unwrap (index' `e` index)))
+    `yi` (index' `e` index)))

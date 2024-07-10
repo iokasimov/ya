@@ -360,14 +360,14 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 		map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo @Arrow unwrap)
 
 instance Setoid () where
-	e _ _ = U_I_II (That ())
+	e _ _ = That ()
 
 instance (Setoid e, Setoid ee) => Setoid (e `ML` ee) where
-	e (This x) (This xx) = U_I_II (unwrap (e x xx) `yoi` (`yio` This) `o` (`yoi` This) `yio` This)
-	e (That x) (That xx) = U_I_II (unwrap (e x xx) `yoi` (`yio` That) `o` (`yoi` That) `yio` That)
-	e x xx = U_I_II (This (These x xx))
+	e (This x) (This xx) = e x xx `yoi` (`yio` This) `o` (`yoi` This) `yio` This
+	e (That x) (That xx) = e x xx `yoi` (`yio` That) `o` (`yoi` That) `yio` That
+	e x xx = This (These x xx)
 
 instance (Setoid e, Setoid ee) => Setoid (e `LM` ee) where
-	e (These x xx) (These xxx xxxx) = case unwrap (e x xxx) `lm`unwrap (e xx xxxx) of
-		These (That x') (That xx') -> U_I_II (That (These x' xx'))
-		These _ _ -> U_I_II (This (x `lm` xx `yi_lm` xxx `lm` xxxx))
+	e (These x xx) (These xxx xxxx) = case (e x xxx) `lm`(e xx xxxx) of
+		These (That x') (That xx') -> (That (These x' xx'))
+		These _ _ -> (This (x `lm` xx `yi_lm` xxx `lm` xxxx))
