@@ -742,3 +742,4 @@
 * Define `yi_yi_yi'_yi'` operator
 * Define `yi_lm_ds` operator
 * Define `yi_yi_lm_ds` operator
+* Define `yiu` operator
