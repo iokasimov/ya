@@ -735,3 +735,6 @@
 * Define `yai_yai` operator
 * Define `yi_yi'_yi'_yi'` operator
 * Define `u'` operator
+* Define `Boolean` pattern synonym
+* Define `Progress` pattern synonym
+* Define `Probably` pattern synonym

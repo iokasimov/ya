@@ -41,6 +41,9 @@ pattern Focused e <- Identity e
 
 type Boolean = Straight ML () ()
 
+pattern Boolean :: () `ML` () `ARR` Boolean
+pattern Boolean e = U_I_II e
+
 pattern False :: () -> Boolean
 pattern False e = Straight (This e)
 
@@ -81,6 +84,9 @@ type Haltable t = JT t Halts
 
 type Progress = Straight ML
 
+pattern Progress :: e `ML` ee `ARR` Progress e ee
+pattern Progress x = U_I_II x
+
 pattern Interrupt :: e -> Progress e ee
 pattern Interrupt e <- Straight (This e) where Interrupt e = Straight (This e)
 
@@ -103,6 +109,9 @@ pattern Ok ee <- Straight (That ee) where Ok ee = Straight (That ee)
 {-# COMPLETE Error, Ok #-}
 
 type Probably = Straight ML
+
+pattern Probably :: e `ML` ee `ARR` Probably e ee
+pattern Probably x = U_I_II x
 
 type Reference = U_I_UU_III_U_II_I (->) LM
 
