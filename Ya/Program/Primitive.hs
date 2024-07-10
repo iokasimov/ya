@@ -309,33 +309,27 @@ label = T_'_I
 
 type Decision = ML () ()
 
-pattern No :: Decision
-pattern No <- This ()
-	where No = This ()
+pattern No :: () -> Decision
+pattern No e = This e
 
-pattern Yes :: Decision
-pattern Yes <- That ()
-	where Yes = That ()
+pattern Yes :: () -> Decision
+pattern Yes e = That e
 
 type Side = ML () ()
 
-pattern Left :: Side
-pattern Left <- This ()
-	where Left = This ()
+pattern Left :: () -> Side
+pattern Left e = This e
 
-pattern Right :: Side
-pattern Right <- That ()
-	where Right = That ()
+pattern Right :: () -> Side
+pattern Right e = That e
 
 type Vertical = ML () ()
 
-pattern Down :: Vertical
-pattern Down <- This ()
-	where Down = This ()
+pattern Down :: () -> Vertical
+pattern Down e = This e
 
-pattern Up :: Vertical
-pattern Up <- That ()
-	where Up = That ()
+pattern Up :: () -> Vertical
+pattern Up e = That e
 
 forever ::
 	Component Natural (->) (->) (t `T_TT_I` t) t =>
