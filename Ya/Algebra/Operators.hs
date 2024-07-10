@@ -8,9 +8,9 @@ import Ya.Algebra.Instances ()
 infixl 9 `_'`, `i`, `u`, `u'`, `v`, `o`, `o'`, `a`, `a'`, `_j`, `j'`, `j'_j'`, `a_a`, `a_a'`, `a'_a`, `a'_a'`, `o_a`, `o_o`, `a_o`, `o_yo`, `o'_yo`, `a_yo`, `o_yu`, `o_yi'_o`, `o_yokl`, `o_yukl`, `o_yoklKL`, `a_yokl`, `a_yukl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `yi'`, `vv`, `i_i`, `uu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn'`, `cn_dp`, `cn'_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_yoklKL`, `dp_dp_jt`, `dp_dp_jt_yokl`, `yi'_yi'_yi'_o`, `lm_dp_dp`, `rf'`, `u_o`, `oo`, `oo_a`, `oo_yo`, `oo_yokl`, `oo_yukl`, `oo_yoklKL`, `u_a`, `aa`, `aa'`, `u_o_a`, `u_o_yu`, `yi_yi'`
 infixl 7 `yii'`, `vvv`, `i_i_i`, `uuu`, `yai`, `yai_yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `yui`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo_yo`, `ooo_yokl`, `ooo_yukl`, `aaa`, `aaa'`
-infixl 6 `yiii'`, `yi'_yi'`, `vvvv`, `i_i_i_i`, `uuuu`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_rf`, `yi_rf'`, `yi'_rf'`, `yi_cn'_dp`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_yi'_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `oooo_yukl`, `aaaa`, `aaaa'`
+infixl 6 `yiii'`, `yi'_yi'`, `vvvv`, `i_i_i_i`, `uuuu`, `yi_yi`, `yiii`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_lm_ds`, `yi_rf`, `yi_rf'`, `yi'_rf'`, `yi_cn'_dp`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_yi'_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo_yo`, `oooo_yokl`, `oooo_yukl`, `aaaa`, `aaaa'`
 infixl 5 `yiiii'`, `yii'_yi'`, `vvvvv`, `i_i_i_i_i`, `yiiii`, `uuuuu`, `yiokl`, `ooooo`, `ooooo_yo`, `ooooo_yokl`, `ooooo_yukl`, `aaaaa`, `aaaaa'`
-infixl 4 `yiiiii'`, `yi'_yi'_yi'`, `yi_yi'_yi'`, `yiii'_yi'`, `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `uuuuuu`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_rf`, `yi_yi_rf'`, `yi_yi_cn'_dp`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi'`, `yi_yi_lm_dp`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `aaaaaa'`
+infixl 4 `yiiiii'`, `yi'_yi'_yi'`, `yi_yi'_yi'`, `yiii'_yi'`, `vvvvvv`, `i_i_i_i_i_i`, `yiiiii`, `uuuuuu`, `yi_yi_yo`, `yi_yi_yi`, `yi_yi_yu`, `yi_yi_lm`, `yi_yi_lm_ds`, `yi_yi_rf`, `yi_yi_rf'`, `yi_yi_cn'_dp`, `yi_yokl`, `yi_yokl_a`, `yoklKL`, `yoklKL_yokl`, `yoklKL_yoklKL`, `yi_yukl`, `yi_yokl_yoklKL`, `yi_yi_yi'`, `yi_yi_lm_dp`, `oooooo`, `oooooo_yo`, `oooooo_yokl`, `oooooo_yukl`, `aaaaaa`, `aaaaaa'`
 infixl 3 `vvvvvvv`, `i_i_i_i_i_i_i`, `yiiiiii`, `uuuuuuu`, `ooooooo_yokl`, `ooooooo_yukl`, `aaaaaaa`, `aaaaaaa'`
 infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `uuuuuuuu`, `yi_yi_yi_yi`, `yi_yi_yi'_yi'`, `yi_yi_yi_yu`, `yi_yi_yi_lm`, `yi_yi_yi_rf`, `yi_yi_yi_rf'`, `yi_yi_yi_yi'`, `yi_yi'_yi'_yi'`, `yi_yi_yi_lm_dp`, `yi_yi_yi_cn'_dp`, `yi_yi_yokl_a`, `yi_yi_yukl`, `yi_yoklKL`, `yi_yi_yokl_yoklKL`, `oooooooo_yokl`, `oooooooo_yukl`, `aaaaaaaa`, `aaaaaaaa'`
 infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `yiiiiiiii`, `uuuuuuuuu`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`, `aaaaaaaaa'`
@@ -1167,10 +1167,13 @@ yi_yi_lm_dp = lm_dp
 yi_yi_yi_lm_dp = lm_dp
 yi_yi_yi_yi_lm_dp = lm_dp
 
-lm_ds :: forall o oo t .
+lm_ds, yi_lm_ds, yi_yi_lm_ds :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
  t o -> t oo -> t (o `ML` oo)
 lm_ds from_left from_right = ds (lm from_left from_right)
+
+yi_lm_ds = lm_ds
+yi_yi_lm_ds = lm_ds
 
 lm_dp_dp :: forall o oo t tt .
 	Covariant Monoidal Functor (->) LM LM t =>
