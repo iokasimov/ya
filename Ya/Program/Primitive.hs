@@ -80,6 +80,11 @@ pattern Optionally e <- Straight e where Optionally e = Straight e
 
 type Halts = Straight ML ()
 
+type Maybe = Straight ML ()
+
+pattern Maybe :: () `ML` e -> Optional e
+pattern Maybe e = Straight e
+
 type Haltable t = JT t Halts
 
 type Progress = Straight ML

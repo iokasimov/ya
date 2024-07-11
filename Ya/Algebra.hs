@@ -236,18 +236,19 @@ instance
 
 -- TODO: try to use adjunctions here
 instance
-	( Covariant Monoidal Functor (->) LM LM tt
-	, Transformation Natural Functor (->) (->) (T_TT_I tt tt) tt
-	) => Mapping Straight Straight (->) (->)
-	(T_TT_I
-		(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
-		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	)
-	(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
-	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
-		wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
-		`yi` \old -> x old `yokl` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
-			-> yu (enter @tt) / Straight (f btw) `yo` from
+ ( Covariant Monoidal Functor (->) LM LM tt
+ , Transformation Natural Functor (->) (->) (T_TT_I tt tt) tt
+  , e ~ ee
+ ) => Mapping Straight Straight (->) (->)
+ (T_TT_I
+	 (T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
+	 (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
+ )
+ (T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
+ where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) ->
+  wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
+   `yi` \old -> x old `yokl` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
+    n -> yu (enter @tt) / Straight (f btw) `yo` from
 
 instance
 	( Covariant Endo Semi Functor (->) t

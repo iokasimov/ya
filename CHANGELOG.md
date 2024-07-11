@@ -743,3 +743,5 @@
 * Define `yi_lm_ds` operator
 * Define `yi_yi_lm_ds` operator
 * Define `yiu` operator
+* Define `Maybe` pattern synonym
+* Define `Maybe` type alias
