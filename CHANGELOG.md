@@ -745,3 +745,4 @@
 * Define `yiu` operator
 * Define `Maybe` pattern synonym
 * Define `Maybe` type alias
+* Define `fai'` operator
