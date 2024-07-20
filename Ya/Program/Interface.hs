@@ -8,36 +8,18 @@ import Ya.Algebra
 import Ya.Program.Primitive
 
 class Field e r where
-	has :: Attribute r e
+ has :: Attribute r e
 
-instance Field e e
-	where has = identity
+instance Field e e where
+ has = identity
 
-instance Field e (Only e)
- where has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(Only x) -> x `lm` Only
-
-instance Field e (e `LM` ee)
- where has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
+instance Field e (e `LM` ee) where
+ has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
   `i` inspect (has @e @ee) fs
   `i` \new -> old `lm` adjust (has @e @ee) (but new) fs
-
-instance {-# OVERLAPS #-} Field (Focused e) (Construction t e) where
- has = W_I_II_II `a` U_I_UU_III_U_II_I `i`
-  \(Root old xs) -> Focused old `lm` (\new -> Root (unwrap new) xs)
-
-instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t =>
- Field (t (Construction t e)) (Construction t e) where
-  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(Root x old) -> These
-   (wrap @(R_U_I_T_I _ _ _) `fo` old)
-   (\new -> Root x / unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` new)
-
-sub :: forall t tt e .
- Field (t e) (tt e) =>
- Attribute (tt e) (t e)
-sub = has @(t e) @(tt e)
 
 class Match e ee where
  match :: (e -> r) -> (ee -> r) -> (ee -> r)
@@ -54,10 +36,9 @@ instance Match e (es `ML` e) where
 instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
  match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
 
--- TODO: replace `Same` with `~`
 type family Vector x xs where
- Vector x (y `LM` xs) = (Same x y, Vector x xs)
- Vector x y = Same x y
+ Vector x (y `LM` xs) = (x ~ y, Vector x xs)
+ Vector x y = x ~ y
 
 class Literal datastructure item literal
  where as :: literal -> datastructure item
@@ -100,7 +81,7 @@ instance Stack (Construction Optional) where
   let new = Next x `rwr` old in These new x
 
 type Scrolling datastructure =
- Labeled datastructure (U_T_I_TT_I LM Only (Situation datastructure))
+ U_T_I_TT_I LM Only (Situation datastructure)
 
 type family Situation datastructure = result | result -> datastructure where
  Situation (Construction Singular) = U_T_I_TT_I LM Stream Stream
@@ -108,10 +89,10 @@ type family Situation datastructure = result | result -> datastructure where
  Situation (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
   (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
 
-instance Mapping Straight Straight Arrow Arrow (Construction Optional) (Labeled List (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List))) where
+instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
   from x `u` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `uu` T_TT_I `yo` from
-   `uuuuu` T_TT_I `a` U_I_I `uuuuuu` U_T_I_TT_I `o` label
+   `uuuuu` T_TT_I `a` U_I_I `uuuuuu` U_T_I_TT_I
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
@@ -131,20 +112,12 @@ class Scrollable datastructure item where
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
-  `i_i_i_i_i` enter @(State (Scrolling List _) `JT` Halts)
-    `yukl` State @(Scrolling List _) `i_i_i` pop `aa` sub @(Situation List) `o'` rep way `yokl` on @Halts
-    `yokl` State @(Scrolling List _) `aaa` put `oo_a` sub @Focused `o` unwrap @Attribute
-    `yokl` State @(Scrolling List _) `aaa` push `oo_a` sub @(Situation List) `o'` rep (not way)
+  `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
+    `yukl` State `i_i_i` pop `aa'` has @(Situation List _) `o'` rep way `yokl` on @Halts
+    `yokl` State `aaa` put `oo_a` unwrap @Attribute `o` has @(Focused _) `o` unwrap @Attribute
+    `yokl` State `aaa` push `oo_a` unwrap @Attribute `o` has @(Situation List _) `o'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
-
-instance {-# OVERLAPS #-} Field (Focused e)
- (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where
-  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> x `lm` T_'_I `a` U_T_I_TT_I `a` (`lm` xs)
-
-instance {-# OVERLAPS #-} Field ((U_I_I LM `T_TT_I` List) e)
- (Labeled List (U_T_I_TT_I LM Focused (U_I_I LM `T_TT_I` List)) e) where
-  has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(T_'_I (U_T_I_TT_I (These x xs))) -> xs `lm` T_'_I `a` U_T_I_TT_I `a` (x `lm`)
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List

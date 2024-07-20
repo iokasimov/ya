@@ -298,7 +298,6 @@
 * Define `yi_o` operator
 * Define `u_o` operator
 * Define `top` expression
-* Define `sub` expression
 * Define `rep` expression
 * Define `Forest` type family
 * Define `o_o` operator
