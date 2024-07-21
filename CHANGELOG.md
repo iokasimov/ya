@@ -747,3 +747,4 @@
 * Define `fai'` operator
 * Define `Future` pattern synonym
 * Define `Passed` pattern synonym
+* Define `drusba` expression

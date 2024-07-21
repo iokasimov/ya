@@ -213,6 +213,9 @@ type Initial o into a = o Opposite into U_ a a
 absurd :: Void -> a
 absurd x = case x of {}
 
+drusba :: a -> ()
+drusba _ = ()
+
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 
 class 
