@@ -391,13 +391,14 @@ fai from = unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wr
 
 fai' :: forall from into t a o i .
 	Contravariant Semi Functor from into (U_II_I t i) =>
-	Contravariant Semi Functor (->) into (U_II_I t i) =>
+	Contravariant Semi Functor into into (U_II_I t i) =>
 	Wrapper into (U_II_I t i a) =>
 	Wrapper into (U_II_I t i (Supertype a)) =>
 	Wrapper into (U_II_I t i o) =>
-	Wrapper (->) a =>
-	from a o -> into (t o i) (t (Supertype a) i)
-fai' from = fai wrap `compose` unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wr
+	Wrapper into a =>
+	from (Supertype a) o -> into (t o i) (t a i)
+fai' from = fai @into unwrap `compose` unwrap
+ `compose` fa @_ @_ @(U_II_I _ _) from `compose` wr
 
 fio_fo :: forall from into t tt e a o .
 	Covariant Semi Functor into into (U_I_II t e) =>
@@ -439,8 +440,8 @@ o' :: forall from into u i a o .
 o' x = unwrap `compose` yo @from @into @(U_I_II u _) (U_I_II x) `compose` fai @from yi'
 
 a, aa, aaa, aaaa, aaaaa, aaaaaa, aaaaaaa, aaaaaaaa, aaaaaaaaa, u_a :: forall from u e a o .
-	Contravariant Yoneda from (->) (U_II_I u e) =>
-	u a e -> from o a -> u o e
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ u a e -> from o a -> u o e
 a x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
 
 aa = a
@@ -477,6 +478,7 @@ aaaaaaaaa' = a'
 	-- u (uu a ee) e -> from a o -> u (uu o ee) e
 -- a_a x = fai @(->) @(->) fai (a @u x)
 
+-- TODO: generalize
 -- This is not `right` version, but I can use it as I want to
 a_a :: forall from into u a o e ee .
 	Category into =>
@@ -485,6 +487,7 @@ a_a :: forall from into u a o e ee .
 	u a e -> into ee (from o a) -> ee -> u o e
 a_a = a @into `compose` a @from
 
+-- TODO: generalize
 a'_a :: forall from into u a o e ee .
 	Category into =>
 	Contravariant Yoneda from (->) (Opposite u e) =>
@@ -493,6 +496,7 @@ a'_a :: forall from into u a o e ee .
 	u a e -> into (Supertype ee) (from o a) -> ee -> u o e
 a'_a = a' @into `compose` a @from
 
+-- TODO: generalize
 a_a' :: forall from into u a o e ee .
 	Category into =>
 	Contravariant Yoneda from (->) (Opposite u e) =>
@@ -501,6 +505,7 @@ a_a' :: forall from into u a o e ee .
 	u a e -> into ee (from (Supertype o) a) -> ee -> u o e
 a_a' = a @into `compose` a' @from
 
+-- TODO: generalize
 a'_a' :: forall from into u a o e ee .
 	Category into =>
 	Contravariant Yoneda from (->) (Opposite u e) =>
@@ -511,27 +516,33 @@ a'_a' :: forall from into u a o e ee .
 a'_a' = a' @into `compose` a' @from
 
 o_a, oo_a, u_o_a :: forall from u uu o e ee a .
-	Covariant Yoneda u (->) (Straight u e) =>
-	Contravariant Yoneda u (->) (Opposite u e) =>
-	Contravariant Semi Functor from u (Opposite uu ee) =>
-	Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
-	Wrapper u (U_II_I uu ee a) =>
-	Wrapper u (U_II_I uu ee o) =>
-	u e (uu o ee) -> from a o -> u e (uu a ee)
+ Covariant Yoneda u (->) (Straight u e) =>
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper from (U_I_II u e (uu a ee)) =>
+ Wrapper from (U_I_II u (uu o ee) (uu a ee)) =>
+ u e (uu o ee) -> from a o -> u e (uu a ee)
 o_a x = fai @(->) @(->) fai (o @u x)
 
-oo_a x = fai @(->) @(->) fai (o @u x)
-u_o_a x = fai @(->) @(->) fai (o @u x)
+oo_a = o_a
+u_o_a = o_a
 
 o_o :: forall from u uu o e ee a .
-	Covariant Yoneda u (->) (Straight u e) =>
-	Contravariant Yoneda from (->) (Opposite u e) =>
+	Covariant Yoneda u from (Straight u e) =>
+	Contravariant Yoneda (->) (->) (Opposite u e) =>
 	Covariant Semi Functor from u (Straight uu ee) =>
 	Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
+	Contravariant Semi Functor (->) (->) (Opposite from (u e (uu ee o))) =>
 	Wrapper u (Straight uu ee a) =>
 	Wrapper u (Straight uu ee o) =>
-	u e (uu ee a) -> from a o -> u e (uu ee o)
-o_o x = fai @(->) @(->) fio (o @u x)
+	Wrapper from (Straight uu ee o) =>
+	Wrapper from (Straight u e (uu ee o)) =>
+	Wrapper from (Straight u (uu ee a) (uu ee o)) =>
+	u e (uu ee a) -> from (from a o) (u e (uu ee o))
+o_o x = fai fio (o @u x)
 
 a_o :: forall from u uu o e ee a .
 	Covariant Yoneda u (->) (Straight u e) =>
