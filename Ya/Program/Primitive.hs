@@ -287,7 +287,7 @@ embed = component @Straight @(->) @(->) @g @(f `JT` g) @e
 joint :: forall f g e .
 	Component Natural (->) (->) (f `T_TT_I` g) (f `JT` g) =>
 	Castable Opposite (->) ((f `T_TT_I` g) e) =>
-	f (g e) -> (f `JT` g) e
+	f (g e) -> f `JT` g `TI` e
 joint = wrap @((f `T_TT_I` g) e)
 	`o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
@@ -295,9 +295,8 @@ try :: forall t e o .
 	Covariant Endo Semi Functor (->) t =>
 	Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
 	Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
-	t (Progress e o) -> (t `JT` Progress e) o
-try = wrap @((t `T_TT_I` Progress e) _)
-	`o` component @Straight @(->) @(->) @(t `T_TT_I` Progress e) @(t `JT` Progress e)
+	t (Progress e o) -> t `JT` Progress e `TI` o
+try = wrap @((t `T_TT_I` Progress e) _) `o` component @Straight @(->) @(->)
 
 type Way = ML () ()
 
@@ -308,6 +307,9 @@ pattern Backwards <- This ()
 pattern Forwards :: Way
 pattern Forwards <- That ()
 	where Forwards = That ()
+
+pattern Passed e = This e
+pattern Future e = That e
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I

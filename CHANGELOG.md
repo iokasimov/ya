@@ -686,7 +686,7 @@
 * Define `Stream` type alias
 * Define `Scrolled` type family
 * Define `not` expression
-* Define `Situation` type family
+* Define `Shafted` type family
 * Define `change` expression
 * Define `dp_yoklKL` operator
 * Define `j'_j'` operator
@@ -745,3 +745,5 @@
 * Define `Maybe` pattern synonym
 * Define `Maybe` type alias
 * Define `fai'` operator
+* Define `Future` pattern synonym
+* Define `Passed` pattern synonym
