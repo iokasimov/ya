@@ -81,12 +81,12 @@ instance Stack (Construction Optional) where
   let new = Next x `rwr` old in These new x
 
 type Scrolling datastructure =
- U_T_I_TT_I LM Only (Situation datastructure)
+ U_T_I_TT_I LM Only (Shafted datastructure)
 
-type family Situation datastructure = result | result -> datastructure where
- Situation (Construction Singular) = U_T_I_TT_I LM Stream Stream
- Situation (Optional `T_TT_I` Construction Optional) = U_I_I LM `T_TT_I` List
- Situation (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
+type family Shafted datastructure = result | result -> datastructure where
+ Shafted (Construction Singular) = U_T_I_TT_I LM Stream Stream
+ Shafted (Optional `T_TT_I` Construction Optional) = U_I_I LM `T_TT_I` List
+ Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
   (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
@@ -113,9 +113,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `aa'` has @(Situation List _) `o'` rep way `yokl` on @Halts
+    `yukl` State `i_i_i` pop `aa'` has @(Shafted List _) `o'` rep way `yokl` on @Halts
     `yokl` State `aaa` put `oo_a` unwrap @Attribute `o` has @(Focused _) `o` unwrap @Attribute
-    `yokl` State `aaa` push `oo_a` unwrap @Attribute `o` has @(Situation List _) `o'` rep (not way)
+    `yokl` State `aaa` push `oo_a` unwrap @Attribute `o` has @(Shafted List _) `o'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
