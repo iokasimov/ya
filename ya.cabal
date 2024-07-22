@@ -20,7 +20,7 @@ library
     Ya.Algebra.Definition
     Ya.Algebra.Instances
     Ya.Algebra.Operators
-    Ya.Program 
+    Ya.Program
     Ya.Program.Interface
     Ya.Program.Primitive
   default-extensions:
@@ -56,4 +56,4 @@ library
     TypeFamilyDependencies
     TypeOperators
   default-language: Haskell2010
-  ghc-options: -Wall -fno-warn-tabs -fno-warn-unticked-promoted-constructors -fprint-potential-instances
+  ghc-options: -Wall -fno-warn-tabs -fno-warn-unticked-promoted-constructors -fprint-potential-instances -Wno-missing-pattern-synonym-signatures
