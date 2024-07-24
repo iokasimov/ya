@@ -5,6 +5,7 @@
 module Ya.Program.Interface where
 
 import Ya.Algebra
+import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 class Field e r where
@@ -75,8 +76,8 @@ instance Stack List where
 
 instance Stack (Construction Optional) where
  pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
-  R_U_I_T_I (Yet x (Some xs)) -> These `i` R_U_I_T_I xs `i` Some x
-  R_U_I_T_I (Yet x (None _)) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
+  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> These `i` R_U_I_T_I xs `i` Some x
+  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
  push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
   let new = Next x `rwr` old in These new x
 

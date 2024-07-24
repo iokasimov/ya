@@ -22,6 +22,7 @@ library
     Ya.Algebra.Operators
     Ya.Program
     Ya.Program.Interface
+    Ya.Program.Patterns
     Ya.Program.Primitive
   default-extensions:
     DataKinds

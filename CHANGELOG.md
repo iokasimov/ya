@@ -410,9 +410,6 @@
 * Define `u` operator
 * Define `a_a` operator
 * Define `lm` operator
-* Define `Hierarchial` type class
-* Define `root` method
-* Define `subs` method
 * Define `ya_` operator
 * Define `U_I_1` data type
 * Define `fu` operator
@@ -702,7 +699,6 @@
 * Define `ARRRRRRR` type alias
 * Define `ARRRRRRRR` type alias
 * Define `put` expression
-* Define `sub` expression
 * Define `_'` operator
 * Define `yi'` operator
 * Define `yii'` operator
