@@ -72,11 +72,11 @@ top = W_I_II_II `compose` U_I_UU_III_U_II_I /
   -> old `lm` (\new -> Root new xs)
 
 -- TODO: maybe it should be a Reference, not an Attribute?
-subs :: forall tt t e .
+sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
  Attribute (Construction t e) (t (Construction t e))
-subs = W_I_II_II `compose` U_I_UU_III_U_II_I /
+sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
   (wrap @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `yii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
