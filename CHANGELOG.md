@@ -744,3 +744,4 @@
 * Define `Future` pattern synonym
 * Define `Passed` pattern synonym
 * Define `drusba` expression
+* Define `yioi` operator
