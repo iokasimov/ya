@@ -291,14 +291,11 @@
 * Define `rwr_rf` operator
 * Define `rf'` operator
 * Define `yi_ho` operator
-* Define `u_ho` operator
 * Define `top` expression
 * Define `rep` expression
 * Define `Forest` type family
 * Define `ho_ho` operator
 * Define `ho_yu` operator
-* Define `u_ho_a` operator
-* Define `u_ho_yu` operator
 * Define `transform` expression
 * Define `yi_rw` operator
 * Define `Node` pattern synonym
@@ -531,7 +528,6 @@
 * Define `rwr_rf` operator
 * Define `rw_rf` operator
 * Define `yi_ho` operator
-* Define `u_ho` operator
 * Define `top` expression
 * Define `sub` expression
 * Define `rep` expression
@@ -540,8 +536,6 @@
 * Define `ho_ho` operator
 * Define `ho_yu` operator
 * Define `section` expression
-* Define `u_ho_a` operator
-* Define `u_ho_yu` operator
 * Define `transform` expression
 * Define `yi_yi'` operator
 * Define `Node` pattern synonym
@@ -561,7 +555,6 @@
 * Define `switch` expression
 * Define `review` expression
 * Define `wr` operator
-* Define `u_a` operator
 * Define `Unlabeled` type family
 * Define `Unlabelable` type class
 * Define `unlabel` method

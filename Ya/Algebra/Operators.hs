@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 infixl 9 `_'`, `i`, `u`, `u'`, `v`, `ho`, `ho'`, `ha`, `ha'`, `_j`, `j'`, `j'_j'`, `ha_ha`, `ha_ha'`, `ha'_ha`, `ha'_ha'`, `ho_ha`, `ho_ho`, `ha_ho`, `ho_yo`, `ho'_yo`, `ho_yioi`, `ha_yo`, `ha_yioi`, `ho_yu`, `ho_yi'_ho`, `ho_yokl`, `ho_yukl`, `ho_yoklKL`, `ha_yokl`, `ha_yukl` --, `ho_rwr_yoi`, `ho_rwr_yio`
-infixl 8 `yi'`, `vv`, `i_i`, `uu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn'`, `cn_dp`, `cn'_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_yoklKL`, `dp_dp_jt`, `dp_dp_jt_yokl`, `yi'_yi'_yi'_o`, `lm_dp_dp`, `rf'`, `u_o`, `hoo`, `hoo'`, `hoo_ha`, `hoo_yo`, `hoo_yokl`, `hoo_yukl`, `hoo_yoklKL`, `u_ha`, `haa`, `haa'`, `u_o_ha`, `u_o_yu`, `yi_yi'`
+infixl 8 `yi'`, `vv`, `i_i`, `uu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn'`, `cn_dp`, `cn'_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_yoklKL`, `dp_dp_jt`, `dp_dp_jt_yokl`, `yi'_yi'_yi'_o`, `lm_dp_dp`, `rf'`, `hoo`, `hoo'`, `hoo_ha`, `hoo_yo`, `hoo_yokl`, `hoo_yukl`, `hoo_yoklKL`, `haa`, `haa'`, `yi_yi'`
 infixl 7 `yii'`, `vvv`, `i_i_i`, `uuu`, `yai`, `yai_yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `fai'`, `yui`, `yiu`, `yi_ho`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `hooo`, `hooo'`, `hooo_yo`, `hooo_yokl`, `hooo_yukl`, `haaa`, `haaa'` --, `rwr_yoi`, `rwr_yui`
 infixl 6 `yiii'`, `yi'_yi'`, `vvvv`, `i_i_i_i`, `uuuu`, `yi_yi`, `yiii`, `yioi`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_lm_ds`, `yi_rf`, `yi_rf'`, `yi'_rf'`, `yi_cn'_dp`, `fokl`, `fukl`, `yokl`, `yokl_ha`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_yi'_yokl`, `yi_cn_dp`, `yi_lm_dp`, `hoooo`, `hoooo'`, `hoooo_yo`, `hoooo_yokl`, `hoooo_yukl`, `haaaa`, `haaaa'`--, `yokl_rwr_yoi`, `yokl_rwr_yui`
 infixl 5 `yiiii'`, `yii'_yi'`, `vvvvv`, `i_i_i_i_i`, `yiiii`, `uuuuu`, `yiokl`, `hooooo`, `hooooo'`, `hooooo_yo`, `hooooo_yokl`, `hooooo_yukl`, `haaaaa`, `haaaaa'`
@@ -223,7 +223,7 @@ yokl x = component @Straight @(->) @into @(T_TT_I t tt)
 
 yi_yokl = yokl
 
-yukl, yukl_u, yukl_u_u, yukl_u_u_u, yukl_u_u_u_u, yukl_u_u_u_u_u, yukl_u_u_u_u_u_u, yi_yukl, yi_yi_yukl, yi_yi_yi_yukl
+yukl, yi_yukl, yi_yi_yukl, yi_yi_yi_yukl
  :: forall into tt t a o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) into (T_TT_I t tt) t =>
@@ -233,30 +233,6 @@ yukl, yukl_u, yukl_u_u, yukl_u_u_u, yukl_u_u_u_u, yukl_u_u_u_u_u, yukl_u_u_u_u_u
  Castable Opposite into (T_TT_I t tt o) =>
  t a -> into (Supertype (into () (tt o))) (t o)
 yukl x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
-yukl_u_u_u_u_u_u x = component @Straight @(->) @into @(T_TT_I t tt)
  `compose` wr @into @(T_TT_I t tt _)
  `compose` yoneda @Straight (fu @(->) () x)
  `compose` wr @into @(into () (tt o))
@@ -422,7 +398,7 @@ fio_fo :: forall from into t tt e a o .
  from a o -> into (t e (tt a)) (t e (tt o))
 fio_fo from = fio @into @into (fo @from @into from)
 
-ho, hoo, hooo, hoooo, hooooo, hoooooo, u_o, yi_ho :: forall from into u i a o .
+ho, hoo, hooo, hoooo, hooooo, hoooooo, yi_ho :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
@@ -436,7 +412,6 @@ hooo = ho
 hoooo = ho
 hooooo = ho
 hoooooo = ho
-u_o = ho
 yi_ho = ho
 
 ho', hoo', hooo', hoooo', hooooo', hoooooo' :: forall from into u i a o .
@@ -459,7 +434,7 @@ hoooo' = ho'
 hooooo' = ho'
 hoooooo' = ho'
 
-ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa, u_ha :: forall from u e a o .
+ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  u a e -> from o a -> u o e
 ha x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
@@ -472,7 +447,6 @@ haaaaaa = ha
 haaaaaaa = ha
 haaaaaaaa = ha
 haaaaaaaaa = ha
-u_ha = ha
 
 ha', haa', haaa', haaaa', haaaaa', haaaaaa', haaaaaaa', haaaaaaaa', haaaaaaaaa' :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
@@ -535,7 +509,7 @@ ha'_ha' :: forall from into u a o e ee .
  u a e -> into (Supertype ee) (from (Supertype o) a) -> ee -> u o e
 ha'_ha' = ha' @into `compose` ha' @from
 
-ho_ha, hoo_ha, u_o_ha :: forall from u uu o e ee a .
+ho_ha, hoo_ha  :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
  Contravariant Semi Functor from u (Opposite uu ee) =>
@@ -548,7 +522,6 @@ ho_ha, hoo_ha, u_o_ha :: forall from u uu o e ee a .
 ho_ha x = fai @(->) @(->) fai (ho @u x)
 
 hoo_ha = ho_ha
-u_o_ha = ho_ha
 
 ho_ho :: forall from u uu o e ee a .
  Covariant Yoneda u from (Straight u e) =>
@@ -624,14 +597,13 @@ ha_yioi :: forall from u t o e ee eee a .
  u (t ee a eee) e -> from o a -> u (t ee o eee) e
 ha_yioi x = fai (fioi @from) (ha @from x)
 
-ho_yu, u_o_yu :: forall u t o e a .
+ho_yu :: forall u t o e a .
  Covariant Yoneda (->) (->) (Straight u e) =>
  Contravariant Yoneda (->) (->) (Opposite u e) =>
  Covariant Endo Semi Functor (->) t =>
  Mapping Constant Straight (->) (->) t t =>
  Castable Opposite (->) (u () o) =>
  u e (t a) -> o -> u e (t o)
-u_o_yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
 ho_yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
 
 -- TODO: replace with `ho'`
