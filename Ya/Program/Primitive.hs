@@ -47,8 +47,8 @@ put new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
 change :: (state -> state) -> Transition state state
 change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
 
--- modify :: (state -> state) -> Transition state state
--- modify f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
+modify :: (state -> state) -> Transition state state
+modify f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
 
 auto :: Automation e e e
 auto = U_I_UU_II_III `i` \e -> e `lm` e
