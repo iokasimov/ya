@@ -24,7 +24,7 @@ instance
 				(x `yo`wrapped (map @Straight @Straight @(->) @(->)
 						@(R_U_I_T_I LM t `T_TT_I` Labeled l tt)
 						@(R_U_I_T_I LM t `TT_T_I` Labeled l tt) from)
-					`o` unwrap @(->) @(Labeled l tt _)
+					`ho` unwrap @(->) @(Labeled l tt _)
 				)
 			)
 
@@ -45,11 +45,11 @@ instance
 				((unwrap x `yo` from) `lm`
 					(wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 						(xs `yo`wrap @(R_U_I_T_I _ _ _)
-							`o` wrapped (map @Straight @Straight @(->) @(->)
+							`ho` wrapped (map @Straight @Straight @(->) @(->)
 									@(R_U_I_T_I LM t `T_TT_I` Fore tt)
 									@(R_U_I_T_I LM t `TT_T_I` Fore tt)
 									from)
-							`o` unwrap @(->) @(Fore _ _)
+							`ho` unwrap @(->) @(Fore _ _)
 							`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 						)
 					)
@@ -76,11 +76,11 @@ instance
 			`fc` wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 				(xs
 					`yo` wrap @(R_U_I_T_I _ _ _)
-						`o` wrapped (map @Straight @Straight @_ @(->)
+						`ho` wrapped (map @Straight @Straight @_ @(->)
 								@(R_U_I_T_I LM t `T_TT_I` Back tt)
 								@(R_U_I_T_I LM t `TT_T_I` Back tt)
 								from)
-						`o` unwrap @(->) @(Back _ _)
+						`ho` unwrap @(->) @(Back _ _)
 					`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 				)
 
@@ -195,7 +195,7 @@ instance Mapping Straight Straight (->) (->)
 instance Covariant Endo Semi Functor (->) t
 	=> Mapping Straight Straight (->) (->) t (T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
 	where mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `yi` \state ->
-		x `yo` from `o` These state `o` Straight
+		x `yo` from `ho` These state `ho` Straight
 
 instance (Covariant Monoidal Functor (->) LM LM t, e ~ ee)
 	=> Mapping Straight Straight (->) (->)
@@ -217,7 +217,7 @@ instance  {-# OVERLAPPABLE #-} Component Natural (->) (->) (T_TT_I t tt) t => Ma
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t => Mapping Straight Straight (->) (->)
 	(T_TT_I (Straight (->) e `T_TT_I` t) (Straight (->) e)) (Straight (->) e `T_TT_I` t)
 	where mapping = rwr / \from -> rwr `compose` rwr /
-		\(Straight f) e -> f e `yo` unwrap @Arrow `o` (`i` e) `o` from
+		\(Straight f) e -> f e `yo` unwrap @Arrow `ho` (`i` e) `ho` from
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 instance
@@ -309,7 +309,7 @@ instance Covariant Monoidal Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That ML e `T_TT_I` t) (That ML e `TT_T_I` t)
 	where mapping = rwr / \from -> rwr / \case
 		Straight (This e) -> yu enter (Straight `i` This e)
-		Straight (That x) -> x `yo` from `o` That  `o` Straight
+		Straight (That x) -> x `yo` from `ho` That  `ho` Straight
 
 instance Mapping Straight Straight (->) (->)
 		(Day Straight (->) LM LM
@@ -340,13 +340,13 @@ instance
 		(T_TT_I (That (->) a) t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T_TT_I (Straight f)) (T_TT_I (Straight g))) (Straight h) -> Straight / \x ->
-			dp (These (f x) (g x)) `yo` h `o` from
+			dp (These (f x) (g x)) `yo` h `ho` from
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That LM e `T_TT_I` t) (That LM e `TT_T_I` t)
 	where mapping = rwr / \from -> rwr / \case
-		Straight (These e x) -> x `yo` from `o` These e `o` Straight
+		Straight (These e x) -> x `yo` from `ho` These e `ho` Straight
 
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (t `T_TT_I` That (->) e) (t `TT_T_I` That (->) e)
@@ -364,8 +364,8 @@ instance Setoid () where
 	e _ _ = That ()
 
 instance (Setoid e, Setoid ee) => Setoid (e `ML` ee) where
-	e (This x) (This xx) = e x xx `yoi` (`yio` This) `o` (`yoi` This) `yio` This
-	e (That x) (That xx) = e x xx `yoi` (`yio` That) `o` (`yoi` That) `yio` That
+	e (This x) (This xx) = e x xx `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
+	e (That x) (That xx) = e x xx `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
 	e x xx = This (These x xx)
 
 instance (Setoid e, Setoid ee) => Setoid (e `LM` ee) where

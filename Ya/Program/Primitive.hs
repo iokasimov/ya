@@ -32,8 +32,8 @@ adjust attr f s = let (These h x) = attr `yi'_yi'` s in x `i`f h
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
 	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
-		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `o` (\(These y _) -> y))
-		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `o` (\(These _ y) -> y))
+		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
+		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 review :: Transition state state
 review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
@@ -98,14 +98,14 @@ joint :: forall f g e .
  Component Natural (->) (->) (f `T_TT_I` g) (f `JT` g) =>
  Castable Opposite (->) ((f `T_TT_I` g) e) =>
  f (g e) -> f `JT` g `TI` e
-joint = wrap @((f `T_TT_I` g) e) `o` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
+joint = wrap @((f `T_TT_I` g) e) `ho` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
  Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
  t (Progress e o) -> t `JT` Progress e `TI` o
-try = wrap @((t `T_TT_I` Progress e) _) `o` component @Straight @(->) @(->)
+try = wrap @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(->)
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I

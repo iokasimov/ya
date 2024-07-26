@@ -50,7 +50,7 @@ instance Literal (Construction Optional) item item where
 instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
-  (as @(Construction Optional) @item init `yoklKL`  push `o` State `o` Back)
+  (as @(Construction Optional) @item init `yoklKL`  push `ho` State `ho` Back)
   `yi'_yi'_yi'_o`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
@@ -59,8 +59,8 @@ instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  as (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
-   `yi_yi_yi` lx `yo` as @(Binary Tree) `o` unwrap @Arrow
-     `yi_lm` rx `yo` as @(Binary Tree) `o` unwrap @Arrow
+   `yi_yi_yi` lx `yo` as @(Binary Tree) `ho` unwrap @Arrow
+     `yi_lm` rx `yo` as @(Binary Tree) `ho` unwrap @Arrow
 
 class Stack datastructure where
  pop :: Transition `TI` datastructure item `TI` Optional item
@@ -114,9 +114,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `aa'` has @(Shafted List _) `o'` rep way `yokl` on @Halts
-    `yokl` State `aaa` put `oo_a` unwrap @Attribute `o` has @(Focused _) `o` unwrap @Attribute
-    `yokl` State `aaa` push `oo_a` unwrap @Attribute `o` has @(Shafted List _) `o'` rep (not way)
+    `yukl` State `i_i_i` pop `aa'` has @(Shafted List _) `ho'` rep way `yokl` on @Halts
+    `yokl` State `aaa` put `hoo_a` unwrap @Attribute `ho` has @(Focused _) `ho` unwrap @Attribute
+    `yokl` State `aaa` push `hoo_a` unwrap @Attribute `ho` has @(Shafted List _) `ho'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
