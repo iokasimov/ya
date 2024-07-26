@@ -745,3 +745,6 @@
 * Define `Passed` pattern synonym
 * Define `drusba` expression
 * Define `yioi` operator
+* Define `auto` expression
+* Define `o_yioi` operator
+* Define `a_yioi` operator

@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_'`, `i`, `u`, `u'`, `v`, `o`, `o'`, `a`, `a'`, `_j`, `j'`, `j'_j'`, `a_a`, `a_a'`, `a'_a`, `a'_a'`, `o_a`, `o_o`, `a_o`, `o_yo`, `o'_yo`, `a_yo`, `o_yu`, `o_yi'_o`, `o_yokl`, `o_yukl`, `o_yoklKL`, `a_yokl`, `a_yukl`, `o_rwr_yoi`, `o_rwr_yio`
+infixl 9 `_'`, `i`, `u`, `u'`, `v`, `o`, `o'`, `a`, `a'`, `_j`, `j'`, `j'_j'`, `a_a`, `a_a'`, `a'_a`, `a'_a'`, `o_a`, `o_o`, `a_o`, `o_yo`, `o'_yo`, `o_yioi`, `a_yo`, `a_yioi`, `o_yu`, `o_yi'_o`, `o_yokl`, `o_yukl`, `o_yoklKL`, `a_yokl`, `a_yukl`, `o_rwr_yoi`, `o_rwr_yio`
 infixl 8 `yi'`, `vv`, `i_i`, `uu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cn'`, `cn_dp`, `cn'_dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp_yo`, `dp_dp`, `yo_yo`, `fo_fo`, `fr_dp`, `lm_dp`, `lm_ds`, `fo_fo_fo`, `dp_dp_yo`, `dp_yokl`, `dp_yoklKL`, `dp_dp_jt`, `dp_dp_jt_yokl`, `yi'_yi'_yi'_o`, `lm_dp_dp`, `rf'`, `u_o`, `oo`, `oo'`, `oo_a`, `oo_yo`, `oo_yokl`, `oo_yukl`, `oo_yoklKL`, `u_a`, `aa`, `aa'`, `u_o_a`, `u_o_yu`, `yi_yi'`
 infixl 7 `yii'`, `vvv`, `i_i_i`, `uuu`, `yai`, `yai_yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio_yo`, `fai`, `fai'`, `yui`, `yiu`, `yi_o`, `ilj`, `rij`, `fio_fo`, `w_rw`, `rw_w`, `rwr_yoi`, `rwr_yui`, `ooo`, `ooo'`, `ooo_yo`, `ooo_yokl`, `ooo_yukl`, `aaa`, `aaa'`
 infixl 6 `yiii'`, `yi'_yi'`, `vvvv`, `i_i_i_i`, `uuuu`, `yi_yi`, `yiii`, `yioi`, `yi_yo`, `yi_yu`, `yi_lm`, `yi_lm_ds`, `yi_rf`, `yi_rf'`, `yi'_rf'`, `yi_cn'_dp`, `fokl`, `fukl`, `yokl`, `yokl_a`, `yokl_u`, `yukl`, `yolk`, `yokl_yoklKL`, `yokl_rwr_yoi`, `yokl_rwr_yui`, `yokl_yi'_yokl`, `yi_cn_dp`, `yi_lm_dp`, `oooo`, `oooo'`, `oooo_yo`, `oooo_yokl`, `oooo_yukl`, `aaaa`, `aaaa'`
@@ -16,8 +16,7 @@ infixl 2 `vvvvvvvv`, `i_i_i_i_i_i_i_i`, `yiiiiiii`, `yi_yi_yi_yo`, `uuuuuuuu`, `
 infixl 1 `vvvvvvvvv`, `i_i_i_i_i_i_i_i_i`, `yiiiiiiii`, `uuuuuuuuu`, `ooooooooo_yokl`, `ooooooooo_yukl`, `aaaaaaaaa`, `aaaaaaaaa'`
 infixl 0 `i_i_i_i_i_i_i_i_i_i`, `uuuuuuuuuu`, `yi_yi_yi_yi_yo`, `yi_yi_yi_yi_yi`, `yi_yi_yi_yi_lm`, `yi_yi_yi_yi_lm_dp`, `yi_yi_yi_yokl_a`, `yi_yi_yi_yukl`, `yi_yi_yi_yokl_yoklKL`, `yi_yi_yoklKL`
 
-i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i,
-	i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i_i :: Category into => into e e
+i, i_i, i_i_i, i_i_i_i, i_i_i_i_i, i_i_i_i_i_i, i_i_i_i_i_i_i, i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i, i_i_i_i_i_i_i_i_i_i :: Category into => into e e
 i_i_i_i_i_i_i_i_i_i = identity
 i_i_i_i_i_i_i_i_i = identity
 i_i_i_i_i_i_i_i = identity
@@ -383,6 +382,13 @@ fio :: forall from into t a o i .
 	from a o -> into (t i a) (t i o)
 fio from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wr
 
+fioi :: forall from into t a o i ii .
+	Covariant Semi Functor from into (W_III_I_II t ii i) =>
+	Wrapper into (W_III_I_II t ii i a) =>
+	Wrapper into (W_III_I_II t ii i o) =>
+	from a o -> into (t i a ii) (t i o ii)
+fioi from = unwrap `compose` fo @_ @_ @(W_III_I_II _ _ _) from `compose` wr
+
 foi :: forall from into t a o i .
 	Covariant Semi Functor from into (U_II_I t i) =>
 	Wrapper into (U_II_I t i a) =>
@@ -587,10 +593,19 @@ o'_yo :: forall from u t o e a .
  Contravariant Yoneda from (->) (Opposite u e) =>
  Contravariant Semi Functor from (->) (Opposite u (t a)) =>
  Covariant Endo Semi Functor from t =>
- Mapping Constant Straight from (->) t t =>
+ -- Mapping Constant Straight from (->) t t =>
  Castable Straight from e =>
  u (Supertype e) (t a) -> from a o -> u e (t o)
 o'_yo x = fai (fo @from) (o @from (fai @from yi' x))
+
+o_yioi :: forall from u t o e ee eee a .
+ Covariant Yoneda from (->) (Straight u e) =>
+ Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
+ Wrapper from (W_III_I_II t eee ee a) =>
+ Wrapper from (W_III_I_II t eee ee o) =>
+ u e (t ee a eee) -> from a o -> u e (t ee o eee)
+o_yioi x = fai (fioi @from) (o @from x)
 
 a_yo :: forall from u t o e a .
 	Covariant Yoneda from (->) (Straight u e) =>
@@ -599,6 +614,15 @@ a_yo :: forall from u t o e a .
 	Mapping Constant Straight from (->) t t =>
 	u (t a) e -> from o a -> u (t o) e
 a_yo x = fai (fo @from) (a @from x)
+
+a_yioi :: forall from u t o e ee eee a .
+ Covariant Yoneda from (->) (Straight u e) =>
+ Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
+ Wrapper from (W_III_I_II t eee ee a) =>
+ Wrapper from (W_III_I_II t eee ee o) =>
+ u (t ee a eee) e -> from o a -> u (t ee o eee) e
+a_yioi x = fai (fioi @from) (a @from x)
 
 o_yu, u_o_yu :: forall u t o e a .
 	Covariant Yoneda (->) (->) (Straight u e) =>
