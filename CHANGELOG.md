@@ -82,11 +82,9 @@
 * Define `W_I_II_II` data type
 * Define `Attribute` type alias
 * Define `ho` operator
-* Define `a` operator
+* Define `ha` operator
 * Define `W_I_I_II` data type
 * Define `U_I_UU_II_III` data type
-* Define `inspect` expression
-* Define `adjust` expression
 * Define `rw_rw` operator
 * Define `rw_w` operator
 * Define `w_rw` operator
@@ -168,7 +166,7 @@
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `u` operator
-* Define `a_a` operator
+* Define `ha_ha` operator
 * Define `lm` operator
 * Define `ya_` operator
 * Define `U_I_1` data type
@@ -197,8 +195,8 @@
 * Define `i_i_i_i_i` operator
 * Define `i_i_i_i` operator
 * Define `ho_a` operator
-* Define `a_ho` operator
-* Define `a_yokl` operator
+* Define `ha_ho` operator
+* Define `ha_yokl` operator
 * Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
@@ -276,9 +274,6 @@
 * Define `Labeled` type alias
 * Define `Straight` pattern synonym
 * Define `Opposite` pattern synonym
-* Define `cata` expression
-* Define `ana` expression
-* Define `day` expression
 * Define `yi_rf` operator
 * Define `yi_yi_rf` operator
 * Define `intro` expression
@@ -318,11 +313,9 @@
 * Define `W_III_I_II` data type
 * Define `Attribute` type alias
 * Define `ho` operator
-* Define `a` operator
+* Define `ha` operator
 * Define `W_I_I_II` data type
 * Define `U_I_UU_II_III` data type
-* Define `inspect` expression
-* Define `adjust` expression
 * Define `yi'_yi'` operator
 * Define `rw_w` operator
 * Define `w_rw` operator
@@ -376,7 +369,6 @@
 * Define `U_UU_UUU_V_I_II_III_UUUU` data type
 * Define `Flip` type family
 * Define `Flippable` type family
-* Define `absurd` expression
 * Define `empty` expression
 * Define `_lj` operator
 * Define `This` type alias
@@ -408,7 +400,7 @@
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `u` operator
-* Define `a_a` operator
+* Define `ha_ha` operator
 * Define `lm` operator
 * Define `ya_` operator
 * Define `U_I_1` data type
@@ -441,8 +433,8 @@
 * Define `i_i_i_i_i` operator
 * Define `i_i_i_i` operator
 * Define `ho_a` operator
-* Define `a_ho` operator
-* Define `a_yokl` operator
+* Define `ha_ho` operator
+* Define `ha_yokl` operator
 * Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
@@ -573,8 +565,6 @@
 * Define `Unlabeled` type family
 * Define `Unlabelable` type class
 * Define `unlabel` method
-* Define `a_` operator
-* Define `ho_` operator
 * Define `rwr_fio` operator
 * Define `ho_rwr_yio` operator
 * Define `pass` expression
@@ -590,10 +580,10 @@
 * Define `hoooo` operator
 * Define `hooooo` operator
 * Define `hoooooo` operator
-* Define `aaa` operator
-* Define `aaaa` operator
-* Define `aaaaa` operator
-* Define `aaaaaa` operator
+* Define `haaa` operator
+* Define `haaaa` operator
+* Define `haaaaa` operator
+* Define `haaaaaa` operator
 * Define `Same` type alias
 * Define `Same` pattern synonym
 * Define `State` pattern synonym
@@ -624,7 +614,7 @@
 * Define `yi_cn_dp` operator
 * Define `yi_lm_dp` operator
 * Define `fukl` operator
-* Define `a_yukl` operator
+* Define `ha_yukl` operator
 * Define `yokl_a` operator
 * Define `yi_yokl_a` operator
 * Define `yi_yi_yokl_a` operator
@@ -653,7 +643,7 @@
 * Define `yi_yi_yo` operator
 * Define `yi_yi_yi_yo` operator
 * Define `yi_yi_yi_yi_yo` operator
-* Define `a_yo` operator
+* Define `ha_yo` operator
 * Define `Match` type class
 * Define `hoo_yo` operator
 * Define `hooo_yo` operator
@@ -668,9 +658,9 @@
 * Define `hooooooo_yokl` operator
 * Define `hoooooooo_yokl` operator
 * Define `hooooooooo_yokl` operator
-* Define `aaaaaaa` operator
-* Define `aaaaaaaa` operator
-* Define `aaaaaaaaa` operator
+* Define `haaaaaaa` operator
+* Define `haaaaaaaa` operator
+* Define `haaaaaaaaa` operator
 * Define `hoo_yukl` operator
 * Define `hooo_yukl` operator
 * Define `hoooo_yukl` operator
@@ -710,11 +700,11 @@
 * Define `yiii'_yi'` operator
 * Define `ho'` operator
 * Define `ho'_yo` operator
-* Define `a'` operator
+* Define `ha'` operator
 * Define `as` method
-* Define `a'_a` operator
-* Define `a_a'` operator
-* Define `a'_a'` operator
+* Define `ha'_ha` operator
+* Define `ha_a'` operator
+* Define `ha'_a'` operator
 * Define `yi_rf'` operator
 * Define `yi_yi_rf'` operator
 * Define `yi_yi_yi_rf'` operator
@@ -747,4 +737,4 @@
 * Define `yioi` operator
 * Define `auto` expression
 * Define `ho_yioi` operator
-* Define `a_yioi` operator
+* Define `ha_yioi` operator

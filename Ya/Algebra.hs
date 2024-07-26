@@ -258,7 +258,7 @@ instance
 		(T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
 	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight f))) -> T_TTT_TT_I `compose` Straight / \old ->
 		component @Straight @(->) @(->) @(t `T_TT_I` t) @t
-			(T_TT_I (f old `yo` (\(Straight (These x y)) -> y `yo` Straight `a` These x `a` from)))
+			(T_TT_I (f old `yo` (\(Straight (These x y)) -> y `yo` Straight `ha` These x `ha` from)))
 
 instance Mapping Straight Straight (->) (->) (That LM e `T_TT_I` tt) (That LM e `TT_T_I` tt) =>
 	Mapping Straight Straight (->) (->)
@@ -274,7 +274,7 @@ instance Monoidal Straight Functor (->) LM LM t =>
 	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `i` f ()
 
 instance Mapping Straight Straight (->) (->) (That (->) ()) (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `a` U_I_UU_II_III `yi` \e -> These e (f () `u` from)
+	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `ha` U_I_UU_II_III `yi` \e -> These e (f () `u` from)
 
 instance Monoidal Straight Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That (->) ()) (T_TTT_TT_I (That (->) e) (That LM e) t)
@@ -317,7 +317,7 @@ instance Mapping Straight Straight (->) (->)
 			(That (W_I_I_II (U_I_UU_II_III (->) LM)) e) ee eee)
 		(That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \case
-		These (These ee eee) (Straight f) -> W_I_I_II `a` U_I_UU_II_III `yi` \old ->
+		These (These ee eee) (Straight f) -> W_I_I_II `ha` U_I_UU_II_III `yi` \old ->
 			let These new x = ee `yi'_yi'_yi'` old in
 			let These upd y = eee `yi'_yi'_yi'` new in
 			These upd (f (These x y) `u` from)

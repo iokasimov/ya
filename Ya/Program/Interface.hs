@@ -15,10 +15,10 @@ instance Field e e where
  has = identity
 
 instance Field e (e `LM` ee) where
- has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
+ has = W_I_II_II `ha` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- has = W_I_II_II `a` U_I_UU_III_U_II_I `i` \(These old fs) -> These
+ has = W_I_II_II `ha` U_I_UU_III_U_II_I `i` \(These old fs) -> These
   `i` inspect (has @e @ee) fs
   `i` \new -> old `lm` adjust (has @e @ee) (but new) fs
 
@@ -29,13 +29,13 @@ instance Match e e where
  match target _ = target
 
 instance Match e (e `ML` es) where
- match target rest = target `rf` rest `a` That
+ match target rest = target `rf` rest `ha` That
 
 instance Match e (es `ML` e) where
- match target rest = rest `a` This `rf` target
+ match target rest = rest `ha` This `rf` target
 
 instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
- match target rest = match `yi` target `yi` rest `a` This `rf` rest `a` That
+ match target rest = match `yi` target `yi` rest `ha` This `rf` rest `ha` That
 
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
@@ -58,7 +58,7 @@ instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
 
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
- as (These (These x lx) rx) = Root x `a` T_TT_I `a` U_I_I
+ as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
    `yi_yi_yi` lx `yo` as @(Binary Tree) `ho` unwrap @Arrow
      `yi_lm` rx `yo` as @(Binary Tree) `ho` unwrap @Arrow
 
@@ -67,18 +67,18 @@ class Stack datastructure where
  push :: item -> Transition `TI` datastructure item `TI` item
 
 instance Stack List where
- pop = W_I_I_II `a` U_I_UU_II_III `i` \case
+ pop = W_I_I_II `ha` U_I_UU_II_III `i` \case
   Empty @List _ -> These `i` Empty @List () `i` (None ())
   T_TT_I (Some (Construct (Yet x xs))) -> These `i` (T_TT_I / xs `yo` R_U_I_T_I) `i` Some x
- push x = W_I_I_II `a` U_I_UU_II_III `yi` \s -> These
-  `i` rewrap (Some `a` R_U_I_T_I `a` Yet x `a` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+ push x = W_I_I_II `ha` U_I_UU_II_III `yi` \s -> These
+  `i` rewrap (Some `ha` R_U_I_T_I `ha` Yet x `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
   `i` x
 
 instance Stack (Construction Optional) where
- pop = W_I_I_II `a` U_I_UU_II_III `yi` \case
+ pop = W_I_I_II `ha` U_I_UU_II_III `yi` \case
   R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> These `i` R_U_I_T_I xs `i` Some x
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> These `i_i` R_U_I_T_I `i` Yet x (None ()) `i_i` (None ())
- push x = W_I_I_II `a` U_I_UU_II_III `yi` \old ->
+ push x = W_I_I_II `ha` U_I_UU_II_III `yi` \old ->
   let new = Next x `rwr` old in These new x
 
 type Scrolling datastructure =
@@ -93,7 +93,7 @@ type family Shafted datastructure = result | result -> datastructure where
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
   from x `u` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `uu` T_TT_I `yo` from
-   `uuuuu` T_TT_I `a` U_I_I `uuuuuu` U_T_I_TT_I
+   `uuuuu` T_TT_I `ha` U_I_I `uuuuuu` U_T_I_TT_I
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
@@ -112,11 +112,11 @@ class Scrollable datastructure item where
    `TI` Scrolled datastructure item
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
- scroll way = unwrap @Arrow `a` tnj @(State (Scrolling List _))
+ scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `aa'` has @(Shafted List _) `ho'` rep way `yokl` on @Halts
-    `yokl` State `aaa` put `hoo_a` unwrap @Attribute `ho` has @(Focused _) `ho` unwrap @Attribute
-    `yokl` State `aaa` push `hoo_a` unwrap @Attribute `ho` has @(Shafted List _) `ho'` rep (not way)
+    `yukl` State `i_i_i` pop `haa'` has @(Shafted List _) `ho'` rep way `yokl` on @Halts
+    `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` has @(Focused _) `ho` unwrap @Attribute
+    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
@@ -131,16 +131,16 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
 			(R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
 			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
 					(fo @Arrow unwrap `compose` unwrap @Arrow / map @Straight @Straight @(->) @(->) @(List `T_TT_I` Cascading List) @List from
-						(T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `a` T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
+						(T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
 					)
 				))))))
 
 instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T_TT_I` Construction Optional)
 	where mapping = rwr / \from -> \case
 		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
-			T_TT_I `a` R_U_I_T_I
+			T_TT_I `ha` R_U_I_T_I
 				`i` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
 		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
-			T_TT_I `a` R_U_I_T_I
-				`a` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
+			T_TT_I `ha` R_U_I_T_I
+				`ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
 				`i` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))

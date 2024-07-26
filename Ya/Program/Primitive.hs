@@ -36,19 +36,19 @@ adjust attr f s = let (These h x) = attr `yi'_yi'` s in x `i`f h
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 review :: Transition state state
-review = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` old `i` old
+review = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
 switch :: state -> Transition state state
-switch new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
+switch new = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` new `i` old
 
 put :: state -> Transition state state
-put new = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` new `i` old
+put new = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` new `i` old
 
 change :: (state -> state) -> Transition state state
-change f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` old
+change f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` old
 
 modify :: (state -> state) -> Transition state state
-modify f = W_I_I_II `a` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
+modify f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
 
 auto :: Automation e e e
 auto = U_I_UU_II_III `i` \e -> e `lm` e
@@ -61,7 +61,7 @@ statefully state x = unwrap @Arrow (unwrap @Arrow x) state `yo` unwrap @Arrow
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
 	e -> Recursive (U_I_T_II t LM e)
-leaf x = Recursive `a` U_I_T_II `a` These x `yii` empty `yo` absurd
+leaf x = Recursive `ha` U_I_T_II `ha` These x `yii` empty `yo` absurd
 
 -- TODO: maybe it should be a Reference, not an Attribute?
 top :: forall tt t e .
@@ -138,7 +138,7 @@ rep :: forall t e .
  Setoid (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `ARR` Attribute `TI` t e `TI` e
-rep index = W_I_II_II `a` U_I_UU_III_U_II_I `yi` \origin ->
+rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
  (idx origin `yi'` index) `yi_lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `yi'` index') `rf` but x `yi` (index' `e` index)))
