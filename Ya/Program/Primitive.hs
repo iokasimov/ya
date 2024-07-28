@@ -53,11 +53,6 @@ modify f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
 auto :: Automation e e e
 auto = U_I_UU_II_III `i` \e -> e `lm` e
 
-statefully ::
-	Covariant Endo Semi Functor (->) t =>
-	e -> JT (State e) t o -> t (e `LM` o)
-statefully state x = unwrap @Arrow (unwrap @Arrow x) state `yo` unwrap @Arrow
-
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
 	e -> Recursive (U_I_T_II t LM e)

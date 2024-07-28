@@ -174,7 +174,6 @@
 * Define `Side` type alias
 * Define `Left` type alias
 * Define `Right` type alias
-* Define `statefully` expression
 * Define `ho_yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
