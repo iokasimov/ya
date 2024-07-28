@@ -72,6 +72,8 @@ type Reference = U_I_UU_III_U_II_I (->) LM
 
 type Attribute = W_I_II_II Reference
 
+pattern Attribute x = W_I_II_II @Reference x
+
 type Automation = U_I_UU_II_III (->) LM
 
 type Transition = W_I_I_II Automation

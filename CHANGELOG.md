@@ -730,3 +730,4 @@
 * Define `auto` expression
 * Define `ho_yioi` operator
 * Define `ha_yioi` operator
+* Define `Attribute` pattern synonym
