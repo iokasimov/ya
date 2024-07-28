@@ -17,12 +17,6 @@ not = That `rf` This
 provide :: U_I_II (->) e e
 provide = U_I_II identity
 
-inspect ::
-	Castable Straight Arrow (Reference origin target target) =>
-	Castable Straight Arrow (Attribute origin target) =>
-	Attribute origin target -> (origin -> target)
-inspect r s = let (These qt _) = r `yi'_yi'` s in qt
-
 adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
