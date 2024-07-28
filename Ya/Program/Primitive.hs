@@ -58,20 +58,18 @@ leaf :: forall t e .
 	e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `yii` empty `yo` absurd
 
--- TODO: maybe it should be a Reference, not an Attribute?
 top :: forall tt t e .
-	(tt ~ Construction t) =>
-	Attribute (Construction t e) e
-top = W_I_II_II `compose` U_I_UU_III_U_II_I /
+ (tt ~ Construction t) =>
+ Reference (Construction t e) e e
+top = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These old xs))))
   -> old `lm` (\new -> Root new xs)
 
--- TODO: maybe it should be a Reference, not an Attribute?
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
- Attribute (Construction t e) (t (Construction t e))
-sub = W_I_II_II `compose` U_I_UU_III_U_II_I /
+ Reference (Construction t e) (t (Construction t e)) (t (Construction t e))
+sub = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
   (wrap @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `yii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
