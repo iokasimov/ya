@@ -38,8 +38,8 @@ adjust attr f s = let (These h x) = attr `yi'_yi'` s in x `i`f h
 review :: Transition state state
 review = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` old `i` old
 
-switch :: state -> Transition state state
-switch new = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` new `i` old
+switch :: (e -> ee) -> Automation e ee e
+switch f = U_I_UU_II_III `i` \x -> f x `lm` x
 
 put :: state -> Transition state state
 put new = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` new `i` old
