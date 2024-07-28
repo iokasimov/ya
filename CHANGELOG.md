@@ -731,3 +731,4 @@
 * Define `ho_yioi` operator
 * Define `ha_yioi` operator
 * Define `Attribute` pattern synonym
+* Define `self` expression

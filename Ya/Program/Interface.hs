@@ -9,18 +9,18 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 class Field e r where
- has :: Attribute r e
+ has :: Reference r e e
 
 instance Field e e where
- has = identity
+ has = self
 
 instance Field e (e `LM` ee) where
- has = W_I_II_II `ha` U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
+ has = U_I_UU_III_U_II_I `i` \(These f fs) -> f `lm` (`lm` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- has = W_I_II_II `ha` U_I_UU_III_U_II_I `i` \(These old fs) -> These
-  `i` inspect (has @e @ee) fs
-  `i` \new -> old `lm` adjust (has @e @ee) (but new) fs
+ has = U_I_UU_III_U_II_I `i` \(These old fs) -> These
+  `i` (has @e @ee `yi'` fs `uuuu` this)
+  `i` \new -> old `lm` adjust (Attribute `yi` has @e @ee) (but new) fs
 
 class Match e ee where
  match :: (e -> r) -> (ee -> r) -> (ee -> r)
@@ -114,9 +114,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `haa'` has @(Shafted List _) `ho'` rep way `yokl` on @Halts
-    `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` has @(Focused _) `ho` unwrap @Attribute
-    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'` rep (not way)
+    `yukl` State `i_i_i` pop `haa'` (has @(Shafted List _) `u` Attribute) `ho'` rep way `yokl` on @Halts
+    `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` (has @(Focused _)  `u` Attribute) `ho` unwrap @Attribute
+    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` (has @(Shafted List _) `u` Attribute) `ho'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
