@@ -45,12 +45,15 @@ modify :: (state -> state) -> Transition state state
 modify f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
 
 auto :: Automation e e e
-auto = U_I_UU_II_III `i` \e -> e `lm` e
+auto = U_I_UU_II_III `i` \x -> x `lm` x
 
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
 	e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `yii` empty `yo` absurd
+
+self :: Reference e e e
+self = U_I_UU_III_U_II_I / \x -> x `lm` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
