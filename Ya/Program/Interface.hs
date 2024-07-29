@@ -19,7 +19,7 @@ instance Field e (e `LM` ee) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = U_I_UU_III_U_II_I `i` \(These old fs) -> These
-  `i` (has @e @ee `yi'` fs `uuuu` this)
+  `i` (has @e @ee `yi'` fs `huuuu` this)
   `i` \new -> old `lm` adjust (Attribute `yi` has @e @ee) (but new) fs
 
 class Match e ee where
@@ -92,8 +92,8 @@ type family Shafted datastructure = result | result -> datastructure where
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
-  from x `u` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `uu` T_TT_I `yo` from
-   `uuuuu` T_TT_I `ha` U_I_I `uuuuuu` U_T_I_TT_I
+  from x `hu` Singular `yi_yi_lm` Empty @List () `yi_lm` xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from
+   `huuuuu` T_TT_I `ha` U_I_I `huuuuuu` U_T_I_TT_I
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
@@ -114,9 +114,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `haa'` (has @(Shafted List _) `u` Attribute) `ho'` rep way `yokl` on @Halts
-    `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` (has @(Focused _)  `u` Attribute) `ho` unwrap @Attribute
-    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` (has @(Shafted List _) `u` Attribute) `ho'` rep (not way)
+    `yukl` State `i_i_i` pop `haa'` (has @(Shafted List _) `hu` Attribute) `ho'` rep way `yokl` on @Halts
+    `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` (has @(Focused _)  `hu` Attribute) `ho` unwrap @Attribute
+    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `ho'` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

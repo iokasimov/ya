@@ -165,7 +165,7 @@
 * Define `Backward` pattern synonym
 * Define `Only` type alias
 * Define `Only` pattern synonym
-* Define `u` operator
+* Define `hu` operator
 * Define `ha_ha` operator
 * Define `lm` operator
 * Define `ya_` operator
@@ -177,15 +177,15 @@
 * Define `ho_yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
-* Define `uu` operator
-* Define `uuu` operator
-* Define `uuuu` operator
-* Define `uuuuu` operator
-* Define `uuuuuu` operator
-* Define `uuuuuuu` operator
-* Define `uuuuuuuu` operator
-* Define `uuuuuuuuu` operator
-* Define `uuuuuuuuuu` operator
+* Define `huu` operator
+* Define `huuu` operator
+* Define `huuuu` operator
+* Define `huuuuu` operator
+* Define `huuuuuu` operator
+* Define `huuuuuuu` operator
+* Define `huuuuuuuu` operator
+* Define `huuuuuuuuu` operator
+* Define `huuuuuuuuuu` operator
 * Define `i_i_i_i_i_i_i_i_i_i` operator
 * Define `i_i_i_i_i_i_i_i_i` operator
 * Define `i_i_i_i_i_i_i_i` operator
@@ -395,7 +395,6 @@
 * Define `Backward` pattern synonym
 * Define `Only` type alias
 * Define `Only` pattern synonym
-* Define `u` operator
 * Define `ha_ha` operator
 * Define `lm` operator
 * Define `ya_` operator
@@ -412,15 +411,6 @@
 * Define `ho_yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
-* Define `u_u` operator
-* Define `u_u_u` operator
-* Define `u_u_u_u` operator
-* Define `u_u_u_u_u` operator
-* Define `u_u_u_u_u_u` operator
-* Define `u_u_u_u_u_u_u` operator
-* Define `u_u_u_u_u_u_u_u` operator
-* Define `u_u_u_u_u_u_u_u_u` operator
-* Define `u_u_u_u_u_u_u_u_u_u` operator
 * Define `i_i_i_i_i_i_i_i_i_i` operator
 * Define `i_i_i_i_i_i_i_i_i` operator
 * Define `i_i_i_i_i_i_i_i` operator
@@ -711,7 +701,7 @@
 * Define `yi_yi_yi_yi_lm_dp` operator
 * Define `yai_yai` operator
 * Define `yi_yi'_yi'_yi'` operator
-* Define `u'` operator
+* Define `hu'` operator
 * Define `Boolean` pattern synonym
 * Define `Progress` pattern synonym
 * Define `Probably` pattern synonym

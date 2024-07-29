@@ -109,7 +109,7 @@ until ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
-until x = x `yokl` until x `u` but `rf'`yu enter
+until x = x `yokl` until x `hu` but `rf'`yu enter
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
