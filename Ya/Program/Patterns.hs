@@ -138,9 +138,6 @@ pattern Stream xs = xs
 
 type Way = ML () ()
 
-pattern Backwards x = This x
-pattern Forwards x = That x
-
 pattern Passed x = This x
 pattern Future x = That x
 

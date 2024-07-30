@@ -161,8 +161,6 @@
 * Define `Scrollable` type class
 * Define `scroll` method
 * Define `Way` type alias
-* Define `Forward` pattern synonym
-* Define `Backward` pattern synonym
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `hu` operator
@@ -268,8 +266,6 @@
 * Define `Ok` pattern synonym
 * Define `Back` pattern synonym
 * Define `Forth` pattern synonym
-* Define `Backward` pattern synonym
-* Define `Forward` pattern synonym
 * Define `Labeled` type alias
 * Define `Straight` pattern synonym
 * Define `Opposite` pattern synonym
@@ -391,8 +387,6 @@
 * Define `Scrollable` type class
 * Define `scroll` method
 * Define `Horizontal` type alias
-* Define `Forward` pattern synonym
-* Define `Backward` pattern synonym
 * Define `Only` type alias
 * Define `Only` pattern synonym
 * Define `ha_ha` operator
@@ -492,9 +486,7 @@
 * Define `Error` pattern synonym
 * Define `Ok` pattern synonym
 * Define `Back` pattern synonym
-* Define `Forth` pattern synonym
-* Define `Backward` pattern synonym
-* Define `Forward` pattern synonym
+* Define `Fore` pattern synonym
 * Define `Labeled` type alias
 * Define `Straight` pattern synonym
 * Define `Opposite` pattern synonym
