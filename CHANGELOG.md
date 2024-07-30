@@ -233,8 +233,6 @@
 * Define `yokl_rwr_yu_` operator
 * Define `yokl_u` operator
 * Define `T___I` data type
-* Define `Backward` type alias
-* Define `Forward` type alias
 * Define `label` expression
 * Define `yokl_rw_yokl` operator
 * Define `ho_rw` operator
@@ -264,8 +262,6 @@
 * Define `Error` type alias
 * Define `Error` pattern synonym
 * Define `Ok` pattern synonym
-* Define `Back` pattern synonym
-* Define `Forth` pattern synonym
 * Define `Labeled` type alias
 * Define `Straight` pattern synonym
 * Define `Opposite` pattern synonym
@@ -454,8 +450,6 @@
 * Define `yokl_u_u_u_u_u` operator
 * Define `yokl_u_u_u_u_u_u` operator
 * Define `T___I` data type
-* Define `Backward` type alias
-* Define `Forward` type alias
 * Define `label` expression
 * Define `yokl_rw_yokl` operator
 * Define `ho_yi'` operator
@@ -485,6 +479,8 @@
 * Define `Errorful` type alias
 * Define `Error` pattern synonym
 * Define `Ok` pattern synonym
+* Define `Back` type alias
+* Define `Fore` type alias
 * Define `Back` pattern synonym
 * Define `Fore` pattern synonym
 * Define `Labeled` type alias

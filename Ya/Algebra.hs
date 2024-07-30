@@ -35,8 +35,8 @@ instance
 	, Covariant Monoidal Functor (->) LM LM tt
 	, Transformation Straight Functor (->) (->) (T_TT_I t tt) (TT_T_I t tt)
 	) => Mapping Straight Straight (->) (->)
-		(R_U_I_T_I LM t `T_TT_I` Fore tt)
-		(R_U_I_T_I LM t `TT_T_I` Fore tt)
+		(R_U_I_T_I LM t `T_TT_I` Labeled Fore tt)
+		(R_U_I_T_I LM t `TT_T_I` Labeled Fore tt)
 	where mapping = rwr / \from -> rwr /
 		\(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
 		 wrap /
@@ -44,12 +44,12 @@ instance
 				(wrap @(R_U_I_T_I _ _ _) `compose` wrap @(Recursive _) `compose` wrap @(U_I_T_II _ _ _ _))
 				((unwrap x `yo` from) `lm`
 					(wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
-						(xs `yo`wrap @(R_U_I_T_I _ _ _)
+						(xs `yo` wrap @(R_U_I_T_I _ _ _)
 							`ho` wrapped (map @Straight @Straight @(->) @(->)
-									@(R_U_I_T_I LM t `T_TT_I` Fore tt)
-									@(R_U_I_T_I LM t `TT_T_I` Fore tt)
+									@(R_U_I_T_I LM t `T_TT_I` Labeled Fore tt)
+									@(R_U_I_T_I LM t `TT_T_I` Labeled Fore tt)
 									from)
-							`ho` unwrap @(->) @(Fore _ _)
+							`ho` unwrap @(->) @(Labeled Fore _ _)
 							`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 						)
 					)
@@ -63,10 +63,10 @@ instance
 	, Covariant Monoidal Functor (->) LM LM tt
 	, Transformation Straight Functor (->) (->) (t `T_TT_I` tt) (t `TT_T_I` tt)
 	) => Mapping Straight Straight (->) (->)
-		(R_U_I_T_I LM t `T_TT_I` Back tt)
-		(R_U_I_T_I LM t `TT_T_I` Back tt)
+		(R_U_I_T_I LM t `T_TT_I` Labeled Back tt)
+		(R_U_I_T_I LM t `TT_T_I` Labeled Back tt)
 	where mapping = rwr / \from -> rwr
-		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(Back _ _) /
+		/ \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @(Labeled Back _ _) /
 			(\x' xs' -> wrap @(R_U_I_T_I _ _ _)
 				`compose` wrap @(Recursive _)
 				`compose` wrap @(U_I_T_II _ _ _ _)
@@ -77,10 +77,10 @@ instance
 				(xs
 					`yo` wrap @(R_U_I_T_I _ _ _)
 						`ho` wrapped (map @Straight @Straight @_ @(->)
-								@(R_U_I_T_I LM t `T_TT_I` Back tt)
-								@(R_U_I_T_I LM t `TT_T_I` Back tt)
+								@(R_U_I_T_I LM t `T_TT_I` Labeled Back tt)
+								@(R_U_I_T_I LM t `TT_T_I` Labeled Back tt)
 								from)
-						`ho` unwrap @(->) @(Back _ _)
+						`ho` unwrap @(->) @(Labeled Back _ _)
 					`yo_yo` unwrap @(->) @(R_U_I_T_I _ _ _)
 				)
 

@@ -108,19 +108,12 @@ type Constant = U_1_I
 
 type Labeled = T_'_I
 
--- TODO: move to `Primitive`
-type Fore = Labeled (Straight (->) () ())
+way :: forall label t e . t e -> Labeled label t e
+way = T_'_I
 
--- TODO: move to `Primitive`
-pattern Fore :: t e -> Fore t e
-pattern Fore e = T_'_I e
+type Fore = U_I_II (->) () ()
 
--- TODO: move to `Primitive`
-type Back = Labeled (Opposite (->) () ())
-
--- TODO: move to `Primitive`
-pattern Back :: t e -> Back t e
-pattern Back e = T_'_I e
+type Back = U_II_I (->) () ()
 
 type family Flip v where
 	Flip Straight = Opposite
