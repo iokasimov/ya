@@ -163,3 +163,7 @@ type Cascading = Labeled (Straight LM () ())
 
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = T_'_I e
+
+type Fore = U_I_II (->) () ()
+
+type Back = U_II_I (->) () ()

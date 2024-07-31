@@ -100,6 +100,9 @@ try = wrap @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(->)
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I
 
+way :: forall label t e . t e -> Labeled label t e
+way = T_'_I
+
 forever ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  t e -> t e

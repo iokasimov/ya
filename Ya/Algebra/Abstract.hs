@@ -108,13 +108,6 @@ type Constant = U_1_I
 
 type Labeled = T_'_I
 
-way :: forall label t e . t e -> Labeled label t e
-way = T_'_I
-
-type Fore = U_I_II (->) () ()
-
-type Back = U_II_I (->) () ()
-
 type family Flip v where
 	Flip Straight = Opposite
 	Flip Opposite = Straight
