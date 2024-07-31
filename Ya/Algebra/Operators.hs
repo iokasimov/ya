@@ -463,23 +463,13 @@ haaaaaaa' = ha'
 haaaaaaaa' = ha'
 haaaaaaaaa' = ha'
 
--- This it the `right` version of this operator, however I cannot use it as I need
--- ha_ha :: forall from u uu a o e ee .
- -- Contravariant Yoneda u (->) (Opposite u e) =>
- -- Contravariant Semi Functor from u (Opposite uu ee) =>
- -- Wrapper u (Opposite uu ee o) =>
- -- Wrapper u (Opposite uu ee a) =>
- -- u (uu a ee) e -> from a o -> u (uu o ee) e
--- ha_ha x = fai @(->) @(->) fai (a @u x)
-
--- TODO: generalize
--- This is not `right` version, but I can use it as I want to
-ha_ha :: forall from into u a o e ee .
- Category into =>
- Contravariant Yoneda from (->) (Opposite u e) =>
- Contravariant Yoneda into (->) (Opposite (->) (u o e)) =>
- u a e -> into ee (from o a) -> ee -> u o e
-ha_ha = ha @into `compose` ha @from
+ha_ha :: forall from u uu a o e ee .
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Wrapper u (Opposite uu ee a) =>
+ Wrapper u (Opposite uu ee o) =>
+ u (uu a ee) e -> from a o -> u (uu o ee) e
+ha_ha x = fai @(->) @(->) fai (ha @u x)
 
 -- TODO: generalize
 ha'_ha :: forall from into u a o e ee .
