@@ -385,7 +385,6 @@
 * Define `Horizontal` type alias
 * Define `Only` type alias
 * Define `Only` pattern synonym
-* Define `ha_ha` operator
 * Define `lm` operator
 * Define `ya_` operator
 * Define `U_I_1` data type
@@ -708,3 +707,4 @@
 * Define `ha_yioi` operator
 * Define `Attribute` pattern synonym
 * Define `self` expression
+* Define `fiu` operator

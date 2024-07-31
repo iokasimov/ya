@@ -398,6 +398,15 @@ fio_fo :: forall from into t tt e a o .
  from a o -> into (t e (tt a)) (t e (tt o))
 fio_fo from = fio @into @into (fo @from @into from)
 
+fiu :: forall from into t a o e .
+ Covariant Semi Functor into into (U_I_II t e) =>
+ Mapping Constant Straight into into (U_I_II t e) (U_I_II t e) =>
+ Castable Opposite (->) (into () o) =>
+ Castable Straight into (U_I_II t e o) =>
+ Castable Opposite into (U_I_II t e a) =>
+ Supertype (into () o) -> into (t e a) (t e o)
+fiu from = unwrap `compose` fu @_ @(U_I_II _ _) from `compose` wr
+
 ho, hoo, hooo, hoooo, hooooo, hoooooo, yi_ho :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
