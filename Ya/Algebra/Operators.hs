@@ -471,14 +471,16 @@ ha_ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from a o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai (ha @u x)
 
--- TODO: generalize
-ha'_ha :: forall from into u a o e ee .
- Category into =>
- Contravariant Yoneda from (->) (Opposite u e) =>
- Contravariant Yoneda into (->) (Opposite (->) (u o e)) =>
- Castable Straight into ee =>
- u a e -> into (Supertype ee) (from o a) -> ee -> u o e
-ha'_ha = ha' @into `compose` ha @from
+ha'_ha :: forall from u uu a (o :: *) e ee .
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Semi Functor u u (Opposite uu ee) =>
+ Wrapper u (Opposite uu ee a) =>
+ Wrapper u (Opposite uu ee (Supertype a)) =>
+ Wrapper u (Opposite uu ee o) =>
+ Wrapper u a =>
+ u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
+ha'_ha x = fai @(->) @(->) fai' (ha @u x)
 
 -- TODO: generalize
 ha_ha' :: forall from into u a o e ee .
