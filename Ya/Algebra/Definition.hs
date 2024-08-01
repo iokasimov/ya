@@ -218,7 +218,7 @@ drusba _ = ()
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 
-class 
+class
 	( x Straight into from t
 	, x Straight from into tt
 	, Transformation Straight x into from (T_TT_I t tt) Identity

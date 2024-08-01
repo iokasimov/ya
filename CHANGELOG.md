@@ -708,3 +708,4 @@
 * Define `Attribute` pattern synonym
 * Define `self` expression
 * Define `fiu` operator
+* Define `hv` operator
