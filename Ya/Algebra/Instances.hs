@@ -465,3 +465,8 @@ instance Monoidal Straight Functor (->) LM ML t
 	where mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
 		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
 		(map @Straight @Straight @(->) @(->) @t @t absurd empty)
+
+instance Mapping Straight Straight (->) (->)
+ (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
+ (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
+ where mapping = rwr / \from -> rwr `compose` rwr / \f x -> i_ (map @Straight @Straight from) (f x)
