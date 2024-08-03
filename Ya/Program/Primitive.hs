@@ -21,7 +21,7 @@ adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `yi'_yi'` s in x `i`f h
+adjust attr f s = let (These h x) = attr `yiz_yiz` s in x `i`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -112,7 +112,7 @@ until ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
-until x = x `yokl` until x `hu` but `rf'`yu enter
+until x = x `yokl` until x `hu` but `rfz`yu enter
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
@@ -134,4 +134,4 @@ rep :: forall t e .
 rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `yi'` index) `yi_lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `yi'` index') `rf` but x `yi` (index' `e` index)))
+ (idx origin `yiz` index) `yi_lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `yiz` index') `rf` but x `yi` (index' `e` index)))

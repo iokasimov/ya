@@ -19,7 +19,7 @@ instance Field e (e `LM` ee) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = U_I_UU_III_U_II_I `i` \(These old fs) -> These
-  `i` (has @e @ee `yi'` fs `huuuu` this)
+  `i` (has @e @ee `yiz` fs `huuuu` this)
   `i` \new -> old `lm` adjust (Attribute `yi` has @e @ee) (but new) fs
 
 class Match e ee where
@@ -51,7 +51,7 @@ instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
   (as @(Construction Optional) @item init `yoklKL`  push `ho` State `ho` way @Back)
-  `yi'_yi'_yi'_o`  Construct (Last last) `yi` this
+  `yiz_yiz_yiz_o`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  as x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
@@ -114,9 +114,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `i_i_i_i_i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i_i_i` pop `haa'` (has @(Shafted List _) `hu` Attribute) `ho'` rep way `yokl` on @Halts
+    `yukl` State `i_i_i` pop `haaz` (has @(Shafted List _) `hu` Attribute) `hoz` rep way `yokl` on @Halts
     `yokl` State `haaa` put `hoo_ha` unwrap @Attribute `ho` (has @(Focused _)  `hu` Attribute) `ho` unwrap @Attribute
-    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `ho'` rep (not way)
+    `yokl` State `haaa` push `hoo_ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `hoz` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
