@@ -577,7 +577,7 @@
 * Define `but` expression
 * Define `Setoid` type class
 * Define `e` method and operator
-* Define `_j` operator
+* Define `hd` operator
 * Define `j'` operator
 * Define `yoo` operator
 * Define `yi_cn_dp` operator
