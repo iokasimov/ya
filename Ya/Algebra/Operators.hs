@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_z`, `i`, `hu`, `huz`, `v`, `ho`, `hoz`, `ha`, `haz`, `hv`, `hd`, `j'`, `j'_j'`, `ha'ha`, `haz'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `hoz'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'yiz'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
+infixl 9 `_z`, `i`, `hu`, `huz`, `v`, `ho`, `hoz`, `ha`, `haz`, `hv`, `hd`, `hj`, `hj'hj`, `ha'ha`, `haz'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `hoz'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'yiz'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
 infixl 8 `yiz`, `vv`, `i'i`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cnz`, `cn'dp`, `cnz'dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `fr'dp`, `lm'dp`, `lm'ds`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'yoklKL`, `dp'dp'jt`, `dp'dp'jt'yokl`, `yiz'yiz'yiz'o`, `lm'dp'dp`, `rfz`, `hoo`, `hooz`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`, `haa`, `haaz`, `yi'yiz`
 infixl 7 `yiiz`, `vvv`, `i'i'i`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `faiz`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`, `hooo`, `hoooz`, `hooo'yo`, `hooo'yokl`, `hooo'yukl`, `haaa`, `haaaz` --, `rwr'yoi`, `rwr'yui`
 infixl 6 `yiiiz`, `yiz'yiz`, `vvvv`, `i'i'i'i`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `yiz'rfz`, `yi'cnz'dp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'yiz'yokl`, `yi'cn'dp`, `yi'lm'dp`, `hoooo`, `hooooz`, `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`, `haaaa`, `haaaaz`--, `yokl'rwr'yoi`, `yokl'rwr'yui`
@@ -716,20 +716,20 @@ hd from = unwrap @into @(U_I_II tt _ _)
  `compose` component @Straight @from @into @Identity @(U_I_II tt e `T_TT_I` U_II_I t e)
  `compose` wr @into
 
-j' :: forall from into t tt e a o .
+hj :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
  Castable Opposite from ((T_TT_I (U_II_I t e) (U_I_II tt e)) o) =>
  Castable Straight from (Identity o) =>
  Castable Opposite from (U_II_I t e a) =>
  Castable Opposite into (U_I_II tt e o) =>
  into a (tt e o) -> from (t a e) o
-j' from = unwrap @from
+hj from = unwrap @from
  `compose` component @Straight @into @from @(U_II_I t e `T_TT_I` U_I_II tt e) @Identity
  `compose` wr @from @((U_II_I t e `T_TT_I` U_I_II tt e) _)
  `compose` fo (wr @into @(U_I_II tt e _) `compose` from)
  `compose` wr @from @(U_II_I t e _)
 
-j'_j' :: forall from into t tt ttt tttt e ee a o .
+hj'hj :: forall from into t tt ttt tttt e ee a o .
  Adjoint Functor from from (U_II_I t ee) (U_I_II tttt ee) =>
  Adjoint Functor from into (U_II_I ttt e) (U_I_II tt e) =>
  Castable Opposite from (U_II_I t ee a) =>
@@ -744,7 +744,7 @@ j'_j' :: forall from into t tt ttt tttt e ee a o .
  Castable Opposite from ((T_TT_I (U_II_I ttt e) (U_I_II tt e)) (tttt ee o)) =>
  Castable Opposite from ((T_TT_I (U_II_I t ee) (U_I_II tttt ee)) o) =>
  into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
-j'_j' = j' @from @from `compose` j' @from @into
+hj'hj = hj @from @from `compose` hj @from @into
 
 -- TODO: define `j'_j'_j'`, `j'_j'_j'_j'`, `j'_j'_j'_j'_j',
 

@@ -578,7 +578,7 @@
 * Define `Setoid` type class
 * Define `e` method and operator
 * Define `hd` operator
-* Define `j'` operator
+* Define `hj` operator
 * Define `yoo` operator
 * Define `yi_cn_dp` operator
 * Define `yi_lm_dp` operator
@@ -645,7 +645,7 @@
 * Define `Shafted` type family
 * Define `change` expression
 * Define `dp_yoklKL` operator
-* Define `j'_j'` operator
+* Define `hj'hj` operator
 * Define `Literal` type class
 * Define `rw_rw_rw_ho` operator
 * Define `Binary` pattern synonym
