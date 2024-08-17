@@ -189,7 +189,7 @@ instance Mapping Straight Straight (->) (->)
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	)
 	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \from -> rwr `i'i'i` rwr `i'i` rwr `i` \(U_I_UU_II_III state) old ->
+	where mapping = rwr / \from -> rwr `yiii` rwr `yii` rwr `yi` \(U_I_UU_II_III state) old ->
 		(\(These s (Straight f)) -> from `fio` f `__yi` s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
@@ -217,7 +217,7 @@ instance  {-# OVERLAPPABLE #-} Component Natural (->) (->) (T_TT_I t tt) t => Ma
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor (->) t => Mapping Straight Straight (->) (->)
 	(T_TT_I (Straight (->) e `T_TT_I` t) (Straight (->) e)) (Straight (->) e `T_TT_I` t)
 	where mapping = rwr / \from -> rwr `compose` rwr /
-		\(Straight f) e -> f e `yo` unwrap @Arrow `ho` (`i` e) `ho` from
+		\(Straight f) e -> f e `yo` unwrap @Arrow `ho` (e `hu`) `ho` from
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 instance
@@ -266,12 +266,12 @@ instance Mapping Straight Straight (->) (->) (That LM e `T_TT_I` tt) (That LM e 
 		(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
 	where mapping = rwr / \from (T_TT_I (Straight (W_I_I_II (U_I_UU_II_III x)))) -> 
 		T_TTT_TT_I `compose` Straight / \old -> wrapped @(->)
-			`i` map @Straight @Straight @(->) @(->) @(That LM e `T_TT_I` tt) @(That LM e `TT_T_I` tt) from
-			`i'i` Straight (x old)
+			`yi` map @Straight @Straight @(->) @(->) @(That LM e `T_TT_I` tt) @(That LM e `TT_T_I` tt) from
+			`yi` Straight (x old)
 
 instance Monoidal Straight Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That (->) ()) (That (->) e `T_TT_I` t)
-	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `i` f ()
+	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `yi` f ()
 
 instance Mapping Straight Straight (->) (->) (That (->) ()) (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `ha` U_I_UU_II_III `yi` \e -> These e (f () `hu` from)
@@ -279,7 +279,7 @@ instance Mapping Straight Straight (->) (->) (That (->) ()) (That (W_I_I_II (U_I
 instance Monoidal Straight Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That (->) ()) (T_TTT_TT_I (That (->) e) (That LM e) t)
 	where mapping = rwr / \from (Straight f) -> T_TTT_TT_I `compose` Straight
-		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `i'i` f ()
+		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `yi` f ()
 
 instance
 	( Covariant Semi Functor from (->) t
@@ -308,7 +308,7 @@ instance Mapping Straight Straight (->) (->) (That ML e `T_TT_I` That ML e) (Tha
 instance Covariant Monoidal Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That ML e `T_TT_I` t) (That ML e `TT_T_I` t)
 	where mapping = rwr / \from -> rwr / \case
-		Straight (This e) -> yu enter (Straight `i` This e)
+		Straight (This e) -> yu enter (This e `hu` Straight)
 		Straight (That x) -> x `yo` from `ho` That  `ho` Straight
 
 instance Mapping Straight Straight (->) (->)
@@ -351,7 +351,7 @@ instance Covariant Monoidal Functor (->) LM LM t =>
 instance Covariant Endo Semi Functor (->) t =>
 	Mapping Straight Straight (->) (->) (t `T_TT_I` That (->) e) (t `TT_T_I` That (->) e)
 	where mapping = rwr / \from -> rwr / \x ->
-		Straight / \e -> x `yo` (from `compose` (`i` e) `compose` unwrap)
+		Straight / \e -> x `yo` (from `compose` (e `hu`) `compose` unwrap)
 
 -- TODO: generalize
 -- We need this instance to make `yokl'yoklKL` work

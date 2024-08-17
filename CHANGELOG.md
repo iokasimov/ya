@@ -26,9 +26,6 @@
 * Define `Precategory` type class
 * Define `Category` type class
 * Define `identity` method
-* Define `i` operator
-* Define `i_i` operator
-* Define `i_i_i` operator
 * Define `component` expression
 * Define `Functor` type alias
 * Define `Compositional` type class
@@ -89,7 +86,7 @@
 * Define `rw_w` operator
 * Define `w_rw` operator
 * Define `Field` type class
-* Define `itme` method
+* Define `item` method
 * Define `_yokl` operator
 * Define `Construction` type alias
 * Define `Root` patter synonym
@@ -184,13 +181,6 @@
 * Define `huuuuuuuu` operator
 * Define `huuuuuuuuu` operator
 * Define `huuuuuuuuuu` operator
-* Define `i_i_i_i_i_i_i_i_i_i` operator
-* Define `i_i_i_i_i_i_i_i_i` operator
-* Define `i_i_i_i_i_i_i_i` operator
-* Define `i_i_i_i_i_i_i` operator
-* Define `i_i_i_i_i_i` operator
-* Define `i_i_i_i_i` operator
-* Define `i_i_i_i` operator
 * Define `ho'ha` operator
 * Define `ha_ho` operator
 * Define `ha_yokl` operator
@@ -400,13 +390,6 @@
 * Define `ho'yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
-* Define `i'i'i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i'i` operator
-* Define `i'i'i'i'i'i` operator
-* Define `i'i'i'i'i` operator
-* Define `i'i'i'i` operator
 * Define `ho'ha` operator
 * Define `ha'ho` operator
 * Define `ha'yokl` operator

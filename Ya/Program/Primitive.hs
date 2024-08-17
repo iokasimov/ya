@@ -21,7 +21,7 @@ adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `__yi` s in x `i`f h
+adjust attr f s = let (These h x) = attr `__yi` s in x `yi`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -30,22 +30,22 @@ adjust attr f s = let (These h x) = attr `__yi` s in x `i`f h
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 review :: Transition state state
-review = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` old `i` old
+review = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` old `yi` old
 
 switch :: (e -> ee) -> Automation e ee e
-switch f = U_I_UU_II_III `i` \x -> f x `lm` x
+switch f = U_I_UU_II_III `yi` \x -> f x `lm` x
 
 put :: state -> Transition state state
-put new = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` new `i` old
+put new = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` new `yi` old
 
 change :: (state -> state) -> Transition state state
-change f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` old
+change f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` old
 
 modify :: (state -> state) -> Transition state state
-modify f = W_I_I_II `ha` U_I_UU_II_III `i` \old -> These `i` f old `i` f old
+modify f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` f old
 
 auto :: Automation e e e
-auto = U_I_UU_II_III `i` \x -> x `lm` x
+auto = U_I_UU_II_III `yi` \x -> x `lm` x
 
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>

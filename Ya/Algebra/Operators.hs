@@ -5,7 +5,6 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_z`, `i`, `hu`, `hu_`, `v`, `hv`, `hd`, `hj`, `hj'hj`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho_`, `_ho`, `___ho`, `ho'yo`, `ho_'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`
 infixl 8 `hoo`, `hoo_`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`
@@ -27,27 +26,16 @@ infixl 3 `haaaaaaa`, `haaaaaaa_`
 infixl 2 `haaaaaaaa`, `haaaaaaaa_`
 infixl 1 `haaaaaaaaa`, `haaaaaaaaa_`
 
-infixl 8 `_yi`, `__yi`, `vv`, `i'i`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `yo'yo`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `yi'_yi`
-infixl 7 `_yii`, `__yii`, `vvv`, `i'i'i`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `_yiii`, `__yiii`, `vvvv`, `i'i'i'i`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`
-infixl 5 `_yiiii`, `vvvvv`, `i'i'i'i'i`, `yiiii`, `huuuuu`, `yiokl`
-infixl 4 `_yiiiii`, `__yiiiii`, `vvvvvv`, `i'i'i'i'i'i`, `yiiiii`, `huuuuuu`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'yp`
-infixl 3 `vvvvvvv`, `i'i'i'i'i'i'i`, `yiiiiii`, `huuuuuuu`
-infixl 2 `vvvvvvvv`, `i'i'i'i'i'i'i'i`, `yiiiiiii`, `yi'yi'yi'yo`, `huuuuuuuu`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`
-infixl 1 `vvvvvvvvv`, `i'i'i'i'i'i'i'i'i`, `yiiiiiiii`, `huuuuuuuuu`
-infixl 0 `i'i'i'i'i'i'i'i'i'i`, `huuuuuuuuuu`, `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yokl'ha`, `yi'yi'yi'yukl`, `yi'yi'yi'yokl'yoklKL`, `yi'yi'yoklKL`
-
-i, i'i, i'i'i, i'i'i'i, i'i'i'i'i, i'i'i'i'i'i, i'i'i'i'i'i'i, i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i, i'i'i'i'i'i'i'i'i'i :: Category into => into e e
-i'i'i'i'i'i'i'i'i'i = identity
-i'i'i'i'i'i'i'i'i = identity
-i'i'i'i'i'i'i'i = identity
-i'i'i'i'i'i'i = identity
-i'i'i'i'i'i = identity
-i'i'i'i'i = identity
-i'i'i'i = identity
-i'i'i = identity
-i'i = identity
-i = identity
+infixl 9 `_z`, `hu`, `hu_`, `v`, `hv`, `hd`, `hj`, `hj'hj`
+infixl 8 `_yi`, `__yi`, `vv`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `yo'yo`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `yi'_yi`
+infixl 7 `_yii`, `__yii`, `vvv`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
+infixl 6 `_yiii`, `__yiii`, `vvvv`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`
+infixl 5 `_yiiii`, `vvvvv`, `yiiii`, `huuuuu`, `yiokl`
+infixl 4 `_yiiiii`, `__yiiiii`, `vvvvvv`, `yiiiii`, `huuuuuu`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'yp`
+infixl 3 `vvvvvvv`, `yiiiiii`, `huuuuuuu`
+infixl 2 `vvvvvvvv`, `yiiiiiii`, `yi'yi'yi'yo`, `huuuuuuuu`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`
+infixl 1 `vvvvvvvvv`, `yiiiiiiii`, `huuuuuuuuu`
+infixl 0 `huuuuuuuuuu`, `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yokl'ha`, `yi'yi'yi'yukl`, `yi'yi'yi'yokl'yoklKL`, `yi'yi'yoklKL`
 
 _z :: forall into e .
  Castable Straight into e =>
@@ -514,7 +502,7 @@ ha_, haa_, haaa_, haaaa_, haaaaa_, haaaaaa_, haaaaaaa_, haaaaaaaa_, haaaaaaaaa_ 
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Castable Straight from o =>
  u a e -> from (Supertype o) a -> u o e
-ha_ x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x) `compose` fai @from _yi
+ha_ x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x) `compose` fai @from unwrap
 
 haa_ = ha_
 haaa_ = ha_
