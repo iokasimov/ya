@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_z`, `i`, `hu`, `hu_`, `v`, `ho`, `___ho`, `ho_`, `ha`, `ha_`, `hv`, `hd`, `hj`, `hj'hj`, `ha'ha`, `ha_'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `ho_'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
+infixl 9 `_z`, `i`, `hu`, `hu_`, `v`, `ho`, `_ho`, `___ho`, `ho_`, `ha`, `ha_`, `hv`, `hd`, `hj`, `hj'hj`, `ha'ha`, `ha_'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `ho_'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
 infixl 8 `_yi`, `__yi`, `vv`, `i'i`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `yo'yo`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `hoo`, `hoo_`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`, `haa`, `haa_`, `yi'_yi`
 infixl 7 `_yii`, `__yii`, `vvv`, `i'i'i`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`, `hooo`, `hooo_`, `hooo'yo`, `hooo'yokl`, `hooo'yukl`, `haaa`, `haaa_` --, `rwr'yoi`, `rwr'yui`
 infixl 6 `_yiii`, `__yiii`, `vvvv`, `i'i'i'i`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`, `hoooo`, `hoooo_`, `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`, `haaaa`, `haaaa_`--, `yokl'rwr'yoi`, `yokl'rwr'yui`
@@ -424,7 +424,8 @@ hooooo = ho
 hoooooo = ho
 yi'ho = ho
 
-ho_, hoo_, hooo_, hoooo_, hooooo_, hoooooo_ :: forall from into u i a o .
+ho_, hoo_, hooo_, hoooo_, hooooo_, hoooooo_
+ :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
@@ -436,13 +437,28 @@ ho_, hoo_, hooo_, hoooo_, hooooo_, hoooooo_ :: forall from into u i a o .
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u i a -> into (from (Supertype a) o) (u i o)
-ho_ x = unwrap `compose` yo @from @into @(U_I_II u _) (U_I_II x) `compose` fai @from _yi
+ho_ x = yio @from @into @u x `compose` fai @from unwrap
 
 hoo_ = ho_
 hooo_ = ho_
 hoooo_ = ho_
 hooooo_ = ho_
 hoooooo_ = ho_
+
+_ho
+ :: forall from into (u :: * -> * -> *) i a o .
+ Precategory from =>
+ Precategory into =>
+ Covariant Yoneda from into (U_I_II u i) =>
+ Contravariant Semi Functor from (->) (U_II_I u a) =>
+ Covariant Semi Functor from into (U_I_II from o) =>
+ Castable Straight from i =>
+ Castable Straight into (U_I_II u i o) =>
+ Castable Opposite into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o (Supertype a)) =>
+ u (Supertype i) a -> into (from a o) (u i o)
+_ho = yio @from @into @u `compose` fai @from unwrap
 
 ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>

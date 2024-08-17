@@ -172,7 +172,7 @@
 * Define `Side` type alias
 * Define `Left` type alias
 * Define `Right` type alias
-* Define `ho_yokl` operator
+* Define `ho'yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
 * Define `huu` operator
@@ -191,7 +191,7 @@
 * Define `i_i_i_i_i_i` operator
 * Define `i_i_i_i_i` operator
 * Define `i_i_i_i` operator
-* Define `ho_a` operator
+* Define `ho'ha` operator
 * Define `ha_ho` operator
 * Define `ha_yokl` operator
 * Define `JT` type family
@@ -235,7 +235,7 @@
 * Define `T___I` data type
 * Define `label` expression
 * Define `yokl_rw_yokl` operator
-* Define `ho_rw` operator
+* Define `ho'rw` operator
 * Define `lm_dp` operator
 * Define `forever` expression
 * Define `this` expression
@@ -257,7 +257,7 @@
 * Define `Yes` pattern synonym
 * Define `Focused` type alias
 * Define `Focused` pattern synonym
-* Define `ho_rw_ho` operator
+* Define `ho'rw'ho` operator
 * Define `ds` operator
 * Define `Error` type alias
 * Define `Error` pattern synonym
@@ -276,7 +276,7 @@
 * Define `Haltable` type alias
 * Define `Statefully` type alias
 * Define `ARR` type alias
-* Define `ho_rwr_yoi` operator
+* Define `ho'rwr'yoi` operator
 * Define `yi_yokl` operator
 * Define `TI` type alias
 * Define `rwr_rf` operator
@@ -285,8 +285,8 @@
 * Define `top` expression
 * Define `rep` expression
 * Define `Forest` type family
-* Define `ho_ho` operator
-* Define `ho_yu` operator
+* Define `ho'ho` operator
+* Define `ho'yu` operator
 * Define `transform` expression
 * Define `yi_rw` operator
 * Define `Node` pattern synonym
@@ -397,7 +397,7 @@
 * Define `Brancheable` type class
 * Define `branch` method
 * Define `statefully` expression
-* Define `ho_yokl` operator
+* Define `ho'yokl` operator
 * Define `Constant` type alias
 * Define `cc` operator
 * Define `i'i'i'i'i'i'i'i'i'i` operator
@@ -407,7 +407,7 @@
 * Define `i'i'i'i'i'i` operator
 * Define `i'i'i'i'i` operator
 * Define `i'i'i'i` operator
-* Define `ho'a` operator
+* Define `ho'ha` operator
 * Define `ha'ho` operator
 * Define `ha'yokl` operator
 * Define `JT` type family
@@ -662,7 +662,7 @@
 * Define `hon` expression
 * Define `yii'_yi'` operator
 * Define `yiii'_yi'` operator
-* Define `ho'` operator
+* Define `ho_` operator
 * Define `ho'_yo` operator
 * Define `ha'` operator
 * Define `as` method
@@ -705,3 +705,4 @@
 * Define `fiu` operator
 * Define `hv` operator
 * Define `__yi` operator
+* Define `_ho` operator
