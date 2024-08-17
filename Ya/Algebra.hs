@@ -340,7 +340,7 @@ instance
 		(T_TT_I (That (->) a) t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T_TT_I (Straight f)) (T_TT_I (Straight g))) (Straight h) -> Straight / \x ->
-			dp (These (f x) (g x)) `yo` h `ho` from
+			yp (These (f x) (g x)) `yo` h `ho` from
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor (->) LM LM t =>
