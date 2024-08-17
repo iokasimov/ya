@@ -26,7 +26,7 @@ infixl 3 `haaaaaaa`, `haaaaaaa_`
 infixl 2 `haaaaaaaa`, `haaaaaaaa_`
 infixl 1 `haaaaaaaaa`, `haaaaaaaaa_`
 
-infixl 9 `_z`, `hu`, `hu_`, `v`, `hv`, `hd`, `hj`, `hj'hj`
+infixl 9 `_'`, `hu`, `hu_`, `v`, `hv`, `hd`, `hj`, `hj'hj`
 infixl 8 `_yi`, `__yi`, `vv`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `yo'yo`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `yi'_yi`
 infixl 7 `_yii`, `__yii`, `vvv`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
 infixl 6 `_yiii`, `__yiii`, `vvvv`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`
@@ -37,10 +37,10 @@ infixl 2 `vvvvvvvv`, `yiiiiiii`, `yi'yi'yi'yo`, `huuuuuuuu`, `yi'yi'yi'yi`, `yi'
 infixl 1 `vvvvvvvvv`, `yiiiiiiii`, `huuuuuuuuu`
 infixl 0 `huuuuuuuuuu`, `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yokl'ha`, `yi'yi'yi'yukl`, `yi'yi'yi'yokl'yoklKL`, `yi'yi'yoklKL`
 
-_z :: forall into e .
+_' :: forall into e .
  Castable Straight into e =>
  into e (Supertype e)
-_z = unwrap
+_' = unwrap
 
 yi, yii, yiii, yiiii, yiiiii, yiiiiii, yiiiiiii, yiiiiiiii
  , yi'yi, yi'yi'yi, yi'yi'yi'yi, yi'yi'yi'yi'yi
@@ -54,6 +54,7 @@ yiiiii = yi
 yiiiiii = yi
 yiiiiiii = yi
 yiiiiiiii = yi
+
 yi'yi = yi
 yi'yi'yi = yi
 yi'yi'yi'yi = yi
