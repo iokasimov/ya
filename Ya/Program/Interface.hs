@@ -19,7 +19,7 @@ instance Field e (e `LM` ee) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = U_I_UU_III_U_II_I `i` \(These old fs) -> These
-  `i` (has @e @ee `yiz` fs `huuuu` this)
+  `i` (has @e @ee `_yi` fs `huuuu` this)
   `i` \new -> old `lm` adjust (Attribute `yi` has @e @ee) (but new) fs
 
 class Match e ee where
@@ -51,7 +51,7 @@ instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
   (as @(Construction Optional) @item init `yoklKL`  push `ho` State `ho` way @Back)
-  `yiz'yiz'yiz'o`  Construct (Last last) `yi` this
+  `_yi'_yi'_yi'o`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  as x = Root x (T_TT_I (U_I_I (None () `lm` None ())))

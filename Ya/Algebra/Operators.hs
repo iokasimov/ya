@@ -5,14 +5,14 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_z`, `i`, `hu`, `huz`, `v`, `ho`, `hoz`, `ha`, `haz`, `hv`, `hd`, `hj`, `hj'hj`, `ha'ha`, `haz'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `hoz'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'yiz'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
-infixl 8 `yiz`, `vv`, `i'i`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cnz`, `cn'dp`, `cnz'dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `fr'dp`, `lm'dp`, `lm'ds`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'yoklKL`, `dp'dp'jt`, `dp'dp'jt'yokl`, `yiz'yiz'yiz'o`, `lm'dp'dp`, `rfz`, `hoo`, `hooz`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`, `haa`, `haaz`, `yi'yiz`
+infixl 9 `_z`, `i`, `hu`, `huz`, `v`, `ho`, `hoz`, `ha`, `haz`, `hv`, `hd`, `hj`, `hj'hj`, `ha'ha`, `haz'ha`, `ho'ha`, `ho'ho`, `ha'ho`, `ho'yo`, `hoz'yo`, `ho'yioi`, `ha'yo`, `ha'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`, `ha'yokl`, `ha'yukl` --, `ho'rwr'yoi`, `ho'rwr'yio`
+infixl 8 `_yi`, `vv`, `i'i`, `huu`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `dp`, `ds`, `fr`, `cn`, `cnz`, `cn'dp`, `cnz'dp`, `lm`, `rf`, `cc`, `fc`, `jt`, `dp'yo`, `dp'dp`, `yo'yo`, `fo'fo`, `fr'dp`, `lm'dp`, `lm'ds`, `fo'fo'fo`, `dp'dp'yo`, `dp'yokl`, `dp'yoklKL`, `dp'dp'jt`, `dp'dp'jt'yokl`, `_yi'_yi'_yi'o`, `lm'dp'dp`, `rfz`, `hoo`, `hooz`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`, `haa`, `haaz`, `yi'_yi`
 infixl 7 `yiiz`, `vvv`, `i'i'i`, `huuu`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `faiz`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`, `hooo`, `hoooz`, `hooo'yo`, `hooo'yokl`, `hooo'yukl`, `haaa`, `haaaz` --, `rwr'yoi`, `rwr'yui`
-infixl 6 `yiiiz`, `yiz'yiz`, `vvvv`, `i'i'i'i`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `yiz'rfz`, `yi'cnz'dp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'yiz'yokl`, `yi'cn'dp`, `yi'lm'dp`, `hoooo`, `hooooz`, `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`, `haaaa`, `haaaaz`--, `yokl'rwr'yoi`, `yokl'rwr'yui`
-infixl 5 `yiiiiz`, `yiiz'yiz`, `vvvvv`, `i'i'i'i'i`, `yiiii`, `huuuuu`, `yiokl`, `hooooo`, `hoooooz`, `hooooo'yo`, `hooooo'yokl`, `hooooo'yukl`, `haaaaa`, `haaaaaz`
-infixl 4 `yiiiiiz`, `yiz'yiz'yiz`, `yi'yiz'yiz`, `yiiiz'yiz`, `vvvvvv`, `i'i'i'i'i'i`, `yiiiii`, `huuuuuu`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'dp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'yiz`, `yi'yi'lm'dp`, `hoooooo`, `hooooooz`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`, `haaaaaa`, `haaaaaaz`
+infixl 6 `yiiiz`, `_yi'_yi`, `vvvv`, `i'i'i'i`, `huuuu`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'dp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'dp`, `yi'lm'dp`, `hoooo`, `hooooz`, `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`, `haaaa`, `haaaaz`--, `yokl'rwr'yoi`, `yokl'rwr'yui`
+infixl 5 `yiiiiz`, `yiiz'_yi`, `vvvvv`, `i'i'i'i'i`, `yiiii`, `huuuuu`, `yiokl`, `hooooo`, `hoooooz`, `hooooo'yo`, `hooooo'yokl`, `hooooo'yukl`, `haaaaa`, `haaaaaz`
+infixl 4 `yiiiiiz`, `_yi'_yi'_yi`, `yi'_yi'_yi`, `yiiiz'_yi`, `vvvvvv`, `i'i'i'i'i'i`, `yiiiii`, `huuuuuu`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'dp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'dp`, `hoooooo`, `hooooooz`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`, `haaaaaa`, `haaaaaaz`
 infixl 3 `vvvvvvv`, `i'i'i'i'i'i'i`, `yiiiiii`, `huuuuuuu`, `hooooooo'yokl`, `hooooooo'yukl`, `haaaaaaa`, `haaaaaaaz`
-infixl 2 `vvvvvvvv`, `i'i'i'i'i'i'i'i`, `yiiiiiii`, `yi'yi'yi'yo`, `huuuuuuuu`, `yi'yi'yi'yi`, `yi'yi'yiz'yiz`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'yiz`, `yi'yiz'yiz'yiz`, `yi'yi'yi'lm'dp`, `yi'yi'yi'cnz'dp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`, `hoooooooo'yokl`, `hoooooooo'yukl`, `haaaaaaaa`, `haaaaaaaaz`
+infixl 2 `vvvvvvvv`, `i'i'i'i'i'i'i'i`, `yiiiiiii`, `yi'yi'yi'yo`, `huuuuuuuu`, `yi'yi'yi'yi`, `yi'yi'_yi'_yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'dp`, `yi'yi'yi'cnz'dp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`, `hoooooooo'yokl`, `hoooooooo'yukl`, `haaaaaaaa`, `haaaaaaaaz`
 infixl 1 `vvvvvvvvv`, `i'i'i'i'i'i'i'i'i`, `yiiiiiiii`, `huuuuuuuuu`, `hooooooooo'yokl`, `hooooooooo'yukl`, `haaaaaaaaa`, `haaaaaaaaaz`
 infixl 0 `i'i'i'i'i'i'i'i'i'i`, `huuuuuuuuuu`, `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'dp`, `yi'yi'yi'yokl'ha`, `yi'yi'yi'yukl`, `yi'yi'yi'yokl'yoklKL`, `yi'yi'yoklKL`
 
@@ -435,7 +435,7 @@ hoz, hooz, hoooz, hooooz, hoooooz, hooooooz :: forall from into u i a o .
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u i a -> into (from (Supertype a) o) (u i o)
-hoz x = unwrap `compose` yo @from @into @(U_I_II u _) (U_I_II x) `compose` fai @from yiz
+hoz x = unwrap `compose` yo @from @into @(U_I_II u _) (U_I_II x) `compose` fai @from _yi
 
 hooz = hoz
 hoooz = hoz
@@ -461,7 +461,7 @@ haz, haaz, haaaz, haaaaz, haaaaaz, haaaaaaz, haaaaaaaz, haaaaaaaaz, haaaaaaaaaz 
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Castable Straight from o =>
  u a e -> from (Supertype o) a -> u o e
-haz x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x) `compose` fai @from yiz
+haz x = unwrap `compose` ya @from @(->) @(U_II_I u _) (U_II_I x) `compose` fai @from _yi
 
 haaz = haz
 haaaz = haz
@@ -557,7 +557,7 @@ hoz'yo :: forall from u t o e a .
  -- Mapping Constant Straight from (->) t t =>
  Castable Straight from e =>
  u (Supertype e) (t a) -> from a o -> u e (t o)
-hoz'yo x = fai (fo @from) (ho @from (fai @from yiz x))
+hoz'yo x = fai (fo @from) (ho @from (fai @from _yi x))
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
@@ -595,7 +595,7 @@ ho'yu :: forall u t o e a .
 ho'yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
 
 -- TODO: replace with `hoz`
-ho'yiz :: forall from u e a o .
+ho'_yi :: forall from u e a o .
  Covariant Endo Semi Functor from (That from a) =>
  Covariant Yoneda from (->) (U_I_II u e) =>
  Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
@@ -605,14 +605,14 @@ ho'yiz :: forall from u e a o .
  Wrapper from (U_I_II from a o) =>
  Wrapper from (U_I_II from a (Supertype o)) =>
  u e a -> from a o -> u e (Supertype o)
-ho'yiz x = fai @from (fio @from unwrap) (ho x)
+ho'_yi x = fai @from (fio @from unwrap) (ho x)
 
 -- TODO: replace with `hoz'ho`
-ho'yiz'ho :: forall from u e a o .
+ho'_yi'ho :: forall from u e a o .
  Covariant Yoneda from (->) (That u e) =>
  Castable Straight from a =>
  u e a -> from (Supertype a) o -> u e o
-ho'yiz'ho x xx = x `ho` unwrap @from `ho` xx
+ho'_yi'ho x xx = x `ho` unwrap @from `ho` xx
 
 hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu, huuuuuuuuuu :: forall from into a o .
  Precategory into =>
@@ -899,7 +899,7 @@ yi'rfz = rfz
 yi'yi'rfz = rfz
 yi'yi'yi'rfz = rfz
 
-yiz'rfz :: forall from e ee i o oo .
+_yi'rfz :: forall from e ee i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -913,7 +913,7 @@ yiz'rfz :: forall from e ee i o oo .
  Castable Straight from e =>
  Castable Straight from ee =>
  from o i -> from oo i -> from e i
-yiz'rfz from_left from_right = rfz from_left from_right `compose` yiz
+_yi'rfz from_left from_right = rfz from_left from_right `compose` _yi
 
 -- TODO: to test
 rwr'rf :: forall from into r o a aa .
@@ -965,18 +965,18 @@ dp'dp :: forall u e ee t tt .
 dp'dp = day @Straight @(->) @t @u @LM identity
  (day @Straight @(->) @tt @LM @LM identity identity)
 
-yiz, yiiz, yiiiz, yiiiiz, yiiiiiz, yi'yiz, yi'yi'yiz, yi'yi'yi'yiz ::
+_yi, yiiz, yiiiz, yiiiiz, yiiiiiz, yi'_yi, yi'yi'_yi, yi'yi'yi'_yi ::
  Castable Straight into i =>
  into i (Supertype i)
-yiz = unwrap
+_yi = unwrap
 
-yiiz = yiz
-yiiiz = yiz
-yiiiiz = yiz
-yiiiiiz = yiz
-yi'yiz = yiz
-yi'yi'yiz = yiz
-yi'yi'yi'yiz = yiz
+yiiz = _yi
+yiiiz = _yi
+yiiiiz = _yi
+yiiiiiz = _yi
+yi'_yi = _yi
+yi'yi'_yi = _yi
+yi'yi'yi'_yi = _yi
 
 w'rw :: forall into a o .
  Precategory into =>
@@ -992,36 +992,36 @@ rw'w :: forall into a o .
  into a o -> into (Supertype a) (Supertype o)
 rw'w into = unwrap @into `compose` into `compose` wr @into
 
-yiz'yiz, yiiz'yiz, yiiiz'yiz, yi'yiz'yiz, yi'yi'yiz'yiz :: forall into a .
+_yi'_yi, yiiz'_yi, yiiiz'_yi, yi'_yi'_yi, yi'yi'_yi'_yi :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  into a (Supertype (Supertype a))
-yiz'yiz = unwrap @into `compose` unwrap @into
+_yi'_yi = unwrap @into `compose` unwrap @into
 
-yiiz'yiz = yiz'yiz
-yiiiz'yiz = yiz'yiz
-yi'yiz'yiz = yiz'yiz
-yi'yi'yiz'yiz = yiz'yiz
+yiiz'_yi = _yi'_yi
+yiiiz'_yi = _yi'_yi
+yi'_yi'_yi = _yi'_yi
+yi'yi'_yi'_yi = _yi'_yi
 
-yiz'yiz'yiz, yi'yiz'yiz'yiz :: forall into a .
+_yi'_yi'_yi, yi'_yi'_yi'_yi :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  Castable Straight into (Supertype (Supertype a)) =>
  into a (Supertype (Supertype (Supertype a)))
-yiz'yiz'yiz = unwrap @into `compose` unwrap @into `compose` unwrap @into
+_yi'_yi'_yi = unwrap @into `compose` unwrap @into `compose` unwrap @into
 
-yi'yiz'yiz'yiz = yiz'yiz'yiz
+yi'_yi'_yi'_yi = _yi'_yi'_yi
 
 -- TODO: try to generalize
-yiz'yiz'yiz'o :: forall a e o oo .
+_yi'_yi'_yi'o :: forall a e o oo .
  Castable Straight (->) a =>
  Castable Straight (->) (Supertype a) =>
  Castable Straight (->) (Supertype (Supertype a)) =>
  ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
  a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
-yiz'yiz'yiz'o x e f = f (unwrap (unwrap (unwrap x)) e)
+_yi'_yi'_yi'o x e f = f (unwrap (unwrap (unwrap x)) e)
 
 -- TODO: define `rw'o`
 -- TODO: define `rw'rw'o`
@@ -1396,7 +1396,7 @@ rwr'yoi x = wr @into `compose` yoi (unwrap x)
 --  (rwr_yui @(->) @w @o @u @e @ee f)
 
 -- TODO: generalize
-yokl'yiz'yokl :: forall t tt ttt a aa o .
+yokl'_yi'yokl :: forall t tt ttt a aa o .
  Covariant Yoneda (->) (->) t =>
  Covariant Endo Semi Functor (->) t =>
  Covariant Endo Semi Functor (->) tt =>
@@ -1406,7 +1406,7 @@ yokl'yiz'yokl :: forall t tt ttt a aa o .
  Castable Straight (->) a =>
  (Supertype a ~ tt aa) =>
  t a -> (aa -> ttt o) -> t o
-yokl'yiz'yokl x = yokl @(->) @(->) @ttt @t
+yokl'_yi'yokl x = yokl @(->) @(->) @ttt @t
  (yokl @(->) @(->) @tt @t x unwrap)
 
 -- TODO: effects are executed in reverse order, we can use it
