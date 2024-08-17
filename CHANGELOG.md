@@ -704,3 +704,4 @@
 * Define `self` expression
 * Define `fiu` operator
 * Define `hv` operator
+* Define `__yi` operator

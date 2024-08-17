@@ -51,7 +51,7 @@ instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
   (as @(Construction Optional) @item init `yoklKL`  push `ho` State `ho` way @Back)
-  `_yi'_yi'_yi'o`  Construct (Last last) `yi` this
+  `___ho`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  as x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
@@ -114,9 +114,9 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `i'i'i'i'i` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yukl` State `i'i'i` pop `haaz` (has @(Shafted List _) `hu` Attribute) `hoz` rep way `yokl` on @Halts
+    `yukl` State `i'i'i` pop `haa_` (has @(Shafted List _) `hu` Attribute) `ho_` rep way `yokl` on @Halts
     `yokl` State `haaa` put `hoo'ha` unwrap @Attribute `ho` (has @(Focused _)  `hu` Attribute) `ho` unwrap @Attribute
-    `yokl` State `haaa` push `hoo'ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `hoz` rep (not way)
+    `yokl` State `haaa` push `hoo'ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `ho_` rep (not way)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

@@ -190,7 +190,7 @@ instance Mapping Straight Straight (->) (->)
 	)
 	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr `i'i'i` rwr `i'i` rwr `i` \(U_I_UU_II_III state) old ->
-		(\(These s (Straight f)) -> from `fio` f `_yi'_yi` s) (state old)
+		(\(These s (Straight f)) -> from `fio` f `__yi` s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
 	=> Mapping Straight Straight (->) (->) t (T_TTT_TT_I (Straight (->) e) (Straight LM e) t)

@@ -21,7 +21,7 @@ adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `_yi'_yi` s in x `i`f h
+adjust attr f s = let (These h x) = attr `__yi` s in x `i`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
