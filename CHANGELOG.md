@@ -689,3 +689,5 @@
 * Define `hv` operator
 * Define `__yi` operator
 * Define `_ho` operator
+* Define `__'` operator
+* Define `___'` operator
