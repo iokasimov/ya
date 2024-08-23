@@ -7,15 +7,35 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `_'`, `__'`, `___'`
 
-infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho_`, `_ho`, `___ho`, `ho'yo`, `ho_'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`
-infixl 8 `hoo`, `hoo_`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`
-infixl 7 `hooo`, `hooo_`, `hooo'yo`, `hooo'yokl`, `hooo'yukl`
-infixl 6 `hoooo`, `hoooo_`, `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`
-infixl 5 `hooooo`, `hooooo_`, `hooooo'yo`, `hooooo'yokl`, `hooooo'yukl`
-infixl 4 `hoooooo`, `hoooooo_`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`
+infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`
+ , `ho_`, `ho_'yo`
+ , `_ho`, `__ho`, `___ho`
+infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`
+ , `hoo_`
+ , `_hoo`
+ , `__hoo`
+infixl 7 `hooo`, `hooo'yo`, `hooo'yokl`, `hooo'yukl`
+ , `hooo_`
+ , `_hooo`
+ , `__hooo`
+infixl 6 `hoooo`,  `hoooo'yo`, `hoooo'yokl`, `hoooo'yukl`
+ , `hoooo_`
+ , `_hoooo`
+ , `__hoooo`
+infixl 5 `hooooo`, `hooooo'yo`, `hooooo'yokl`, `hooooo'yukl`
+ , `hooooo_`
+ , `_hooooo`
+ , `__hooooo`
+infixl 4 `hoooooo`, `hoooooo_`, `_hoooooo`, `__hoooooo`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`
 infixl 3 `hooooooo`, `hooooooo'yokl`, `hooooooo'yukl`
+ , `_hooooooo`
+ , `__hooooooo`
 infixl 2 `hoooooooo`, `hoooooooo'yokl`, `hoooooooo'yukl`
+ , `_hoooooooo`
+ , `__hoooooooo`
 infixl 1 `hooooooooo`, `hooooooooo'yokl`, `hooooooooo'yukl`
+ , `_hooooooooo`
+ , `__hooooooooo`
 
 infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha_`, `ha_'ha`, `ha'yo`, `ha'yioi`, `ha'yokl`, `ha'yukl`
 infixl 8 `haa`, `haa_`
@@ -510,6 +530,31 @@ _hoooooo = _ho
 _hooooooo = _ho
 _hoooooooo = _ho
 _hooooooooo = _ho
+
+__ho, __hoo, __hooo, __hoooo, __hooooo, __hoooooo, __hooooooo, __hoooooooo, __hooooooooo
+ :: forall from into u i a o .
+ Precategory from =>
+ Precategory into =>
+ Covariant Yoneda from into (U_I_II u i) =>
+ Contravariant Semi Functor from (->) (U_II_I u a) =>
+ Covariant Semi Functor from into (U_I_II from o) =>
+ Castable Straight from i =>
+ Castable Straight from (Supertype i) =>
+ Castable Straight into (U_I_II u i o) =>
+ Castable Opposite into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o (Supertype a)) =>
+ u (Supertype (Supertype i)) a -> into (from a o) (u i o)
+__ho = yio @from @into @u `compose` fai @from __'
+
+__hoo = __ho
+__hooo = __ho
+__hoooo = __ho
+__hooooo = __ho
+__hoooooo = __ho
+__hooooooo = __ho
+__hoooooooo = __ho
+__hooooooooo = __ho
 
 ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
@@ -1143,7 +1188,7 @@ _yi'_yi'_yi = _' @into `compose` _' @into `compose` _' @into
 
 yi'_yi'_yi'_yi = _yi'_yi'_yi
 
--- TODO: try to generalize
+-- TODO: it's wrong, we need to rewrite it
 ___ho :: forall a e o oo .
  Castable Straight (->) a =>
  Castable Straight (->) (Supertype a) =>

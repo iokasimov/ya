@@ -696,3 +696,4 @@
 * Define `__hu` operator
 * Define `___hu` operator
 * Define `hu__` operator
+* Define `__ho` operator
