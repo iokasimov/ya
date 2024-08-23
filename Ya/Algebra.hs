@@ -127,7 +127,7 @@ instance
 	, Monoidal Straight Functor (->) LM LM (R_U_I_T_I LM tt)
 	) => Mapping Straight Straight (->) (->) (Straight (->) ()) (t `T_TT_I` R_U_I_T_I LM tt)
 	where mapping = rwr / \from (Straight f) -> T_TT_I /
-		enter @t `yi'yu` enter @(R_U_I_T_I LM tt) `yo` from `compose` f
+		enter @t `yi'yu` (enter @(R_U_I_T_I LM tt) `yo` from `compose` f)
 
 -- TODO: try to avoid mapping twice datastructure here
 instance

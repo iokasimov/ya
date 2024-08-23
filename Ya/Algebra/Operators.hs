@@ -9,7 +9,9 @@ infixl 9 `_'`, `__'`, `___'`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yokl`, `ho'yukl`, `ho'yoklKL`
  , `ho_`, `ho_'yo`
- , `_ho`, `__ho`, `___ho`
+ , `_ho`
+ , `__ho`
+ , `___ho`
 infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yokl`, `hoo'yukl`, `hoo'yoklKL`
  , `hoo_`
  , `_hoo`
@@ -26,7 +28,10 @@ infixl 5 `hooooo`, `hooooo'yo`, `hooooo'yokl`, `hooooo'yukl`
  , `hooooo_`
  , `_hooooo`
  , `__hooooo`
-infixl 4 `hoooooo`, `hoooooo_`, `_hoooooo`, `__hoooooo`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`
+infixl 4 `hoooooo`, `hoooooo'yo`, `hoooooo'yokl`, `hoooooo'yukl`
+ , `hoooooo_`
+ , `_hoooooo`
+ , `__hoooooo`
 infixl 3 `hooooooo`, `hooooooo'yokl`, `hooooooo'yukl`
  , `_hooooooo`
  , `__hooooooo`
@@ -57,16 +62,44 @@ infixl 3 `huuuuuuu`
 infixl 2 `huuuuuuuu`
 infixl 1 `huuuuuuuuu`
 
-infixl 9 `v`, `hv`, `hd`, `hj`, `hj'hj`
-infixl 8 `_yi`, `__yi`, `vv`, `yi`, `yo`, `ya`, `yu`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `yo'yo`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `yi'_yi`
-infixl 7 `_yii`, `__yii`, `vvv`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yii`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `_yiii`, `__yiii`, `vvvv`, `yi'yi`, `yiii`, `yioi`, `yi'yo`, `yi'yu`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`
-infixl 5 `_yiiii`, `vvvvv`, `yiiii`, `yiokl`
-infixl 4 `_yiiiii`, `__yiiiii`, `vvvvvv`, `yiiiii`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'yp`
-infixl 3 `vvvvvvv`, `yiiiiii`
-infixl 2 `vvvvvvvv`, `yiiiiiii`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`
+infixl 9 `hd`
+
+infixl 9 `hj`, `hj'hj`
+
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`
+ , `_yi`
+ , `__yi`
+infixl 7 `yii`
+ , `_yii`
+ , `__yii`
+infixl 6 `yiii`
+ , `_yiii`
+ , `__yiii`
+infixl 5 `yiiii`
+ , `_yiiii`
+infixl 4 `yiiiii`
+ , `_yiiiii`
+ , `__yiiiii`
+infixl 3 `yiiiiii`
+infixl 2 `yiiiiiii`
+ 
+infixl 8 `yo`, `yo'yo`
+
+infixl 8 `ya`
+
+infixl 8 `yu`
+
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yokl`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yokl`, `lm'yp'yp`, `rfz`, `yi'_yi`
+infixl 7 `vvv`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
+infixl 6 `vvvv`, `yioi`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yokl`, `yokl'ha`, `yokl'u`, `yukl`, `yolk`, `yokl'yoklKL`, `yokl'_yi'yokl`, `yi'cn'yp`, `yi'lm'yp`
+infixl 5 `vvvvv`, `yiokl`
+infixl 4 `vvvvvv`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yokl`, `yi'yokl'ha`, `yoklKL`, `yoklKL'yokl`, `yoklKL'yoklKL`, `yi'yukl`, `yi'yokl'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'yp`
+infixl 3 `vvvvvvv`
+infixl 2 `vvvvvvvv`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yokl'ha`, `yi'yi'yukl`, `yi'yoklKL`, `yi'yi'yokl'yoklKL`
 infixl 1 `vvvvvvvvv`, `yiiiiiiii`
 infixl 0 `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yokl'ha`, `yi'yi'yi'yukl`, `yi'yi'yi'yokl'yoklKL`, `yi'yi'yoklKL`
+
+infixl 9 `v`
 
 _' :: forall into e .
  Castable Straight into e =>
