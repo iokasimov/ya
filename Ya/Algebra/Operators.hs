@@ -27,7 +27,7 @@ infixl 3 `haaaaaaa`, `haaaaaaa_`
 infixl 2 `haaaaaaaa`, `haaaaaaaa_`
 infixl 1 `haaaaaaaaa`, `haaaaaaaaa_`
 
-infixl 9 `hu`, `hu_`, `_hu`
+infixl 9 `hu`, `hu_`, `_hu`, `__hu`
 infixl 8 `huu`
 infixl 7 `huuu`
 infixl 6 `huuuu`
@@ -703,19 +703,32 @@ huuuuuuuu = hu
 huuuuuuuuu = hu
 huuuuuuuuuu = hu
 
-_hu :: forall from into a a' o .
+_hu :: forall from into a aa o .
  Precategory into =>
- ((Supertype (from () a)) ~ Supertype a') =>
+ ((Supertype (from () a)) ~ Supertype aa) =>
  Covariant Yoneda from into (U_1_I from ()) =>
  Castable Opposite into (U_I_II from a o) =>
  Castable Straight into (U_I_II from () o) =>
  Castable Straight into (U_1_I from () o) =>
  Castable Opposite (->) (from () a) =>
  Castable Straight into (from () o) =>
- Castable Straight (->) a' =>
- a' -> into (from a o) (Supertype (from () o))
-_hu x = _' `compose` _' `compose` yo @from @into @(U_1_I from ())
- (U_1_I @from @() (wrap @(from () _) (unwrap x)))
+ Castable Straight (->) aa =>
+ aa -> into (from a o) (Supertype (from () o))
+_hu = hu `compose` _'
+
+__hu :: forall from into a aa o .
+ Precategory into =>
+ (Supertype (from () a) ~ Supertype (Supertype aa)) =>
+ Covariant Yoneda from into (U_1_I from ()) =>
+ Castable Opposite into (U_I_II from a o) =>
+ Castable Straight into (U_I_II from () o) =>
+ Castable Straight into (U_1_I from () o) =>
+ Castable Opposite (->) (from () a) =>
+ Castable Straight into (from () o) =>
+ Castable Straight (->) (Supertype aa) =>
+ Castable Straight (->) aa =>
+ aa -> into (from a o) (Supertype (from () o))
+__hu = hu `compose` __'
 
 hu_ :: forall from into a o .
  Precategory into =>
