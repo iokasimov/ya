@@ -65,7 +65,7 @@
 * Define `yo` operator
 * Define `Dumb` type class
 * Define `ya` operator
-* Define `yokl` operator
+* Define `yuk` operator
 * Define `fo_fo_fo` operator
 * Define `Boolean` type alias
 * Define `False` pattern synonym
@@ -87,7 +87,7 @@
 * Define `w_rw` operator
 * Define `Field` type class
 * Define `item` method
-* Define `_yokl` operator
+* Define `_yuk` operator
 * Define `Construction` type alias
 * Define `Root` patter synonym
 * Define `Instruction` type alias
@@ -169,7 +169,7 @@
 * Define `Side` type alias
 * Define `Left` type alias
 * Define `Right` type alias
-* Define `ho'yokl` operator
+* Define `ho'yuk` operator
 * Define `Constant` type alias
 * Define `cc` operator
 * Define `huu` operator
@@ -183,7 +183,7 @@
 * Define `huuuuuuuuuu` operator
 * Define `ho'ha` operator
 * Define `ha_ho` operator
-* Define `ha_yokl` operator
+* Define `ha_yuk` operator
 * Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
@@ -199,7 +199,7 @@
 * Define `rf` operator
 * Define `dp_dp` operator
 * Define `yo_yo` operator
-* Define `dp_yokl` operator
+* Define `dp_yuk` operator
 * Define `yukl_u` operator
 * Define `yukl_u_u` operator
 * Define `yukl_u_u_u` operator
@@ -213,18 +213,18 @@
 * Define `yi_yi_yi_yukl` operator
 * Define `jt` operator
 * Define `dp_dp_jt` operator
-* Define `dp_dp_jt_yokl`hoperator
+* Define `dp_dp_jt_yuk`hoperator
 * Define `rij` operator
 * Define `lm_dp` operator
 * Define `lm_dp_dp` operator
 * Define `rwr_fo_` operator
 * Define `rwr_yo_` operator
-* Define `yokl_rwr_yo_` operator
-* Define `yokl_rwr_yu_` operator
-* Define `yokl_u` operator
+* Define `yuk` operator
+* Define `yuk` operator
+* Define `yuk` operator
 * Define `T___I` data type
 * Define `label` expression
-* Define `yokl_rw_yokl` operator
+* Define `yok_rw_yok` operator
 * Define `ho'rw` operator
 * Define `lm_dp` operator
 * Define `forever` expression
@@ -236,8 +236,8 @@
 * Define `Vertical` type alias
 * Define `Singular` type alias
 * Define `foklKL` operator
-* Define `yoklKL_yokl` operator
-* Define `yokl_yoklKL` operator
+* Define `yoklKL_yok` operator
+* Define `yok_yoklKL` operator
 * Define `constant` expression
 * Define `yi_yu` operator
 * Define `yi_yi_yu` operator
@@ -267,7 +267,7 @@
 * Define `Statefully` type alias
 * Define `ARR` type alias
 * Define `ho'rwr'yoi` operator
-* Define `yi_yokl` operator
+* Define `yi_yok` operator
 * Define `TI` type alias
 * Define `rwr_rf` operator
 * Define `rf'` operator
@@ -300,7 +300,7 @@
 * Define `Field` type class
 * Define `itme` method
 * Define `start` expression
-* Define `_yokl` operator
+* Define `_yok` operator
 * Define `Same` type family
 * Define `Construction` type alias
 * Define `Root` patter synonym
@@ -387,12 +387,12 @@
 * Define `Brancheable` type class
 * Define `branch` method
 * Define `statefully` expression
-* Define `ho'yokl` operator
+* Define `ho'yok` operator
 * Define `Constant` type alias
 * Define `cc` operator
 * Define `ho'ha` operator
 * Define `ha'ho` operator
-* Define `ha'yokl` operator
+* Define `ha'yok` operator
 * Define `JT` type family
 * Define `Optionally` pattern synonym
 * Define `rwr` operator
@@ -409,7 +409,7 @@
 * Define `rf` operator
 * Define `dp'dp` operator
 * Define `yo'yo` operator
-* Define `dp'yokl` operator
+* Define `dp'yok` operator
 * Define `dp'yo` operator
 * Define `dp'dp'yo` operator
 * Define `yi'yukl` operator
@@ -417,18 +417,18 @@
 * Define `yi'yi'yi'yukl` operator
 * Define `jt` operator
 * Define `dp'dp'jt` operator
-* Define `dp'dp'jt'yokl`hoperator
+* Define `dp'dp'jt'yok`hoperator
 * Define `rij` operator
 * Define `lm_dp` operator
 * Define `lm'dp'dp` operator
 * Define `rwr'fo'` operator
 * Define `rwr'yo_` operator
-* Define `yokl'rwr'yo_` operator
-* Define `yokl'rwr'yu_` operator
-* Define `yokl'u` operator
+* Define `yok'rwr'yo_` operator
+* Define `yok'rwr'yu_` operator
+* Define `yok'u` operator
 * Define `T___I` data type
 * Define `label` expression
-* Define `yokl'rw'yokl` operator
+* Define `yok'rw'yok` operator
 * Define `ho'yi'` operator
 * Define `lm'dp` operator
 * Define `forever` expression
@@ -440,8 +440,8 @@
 * Define `Vertical` type alias
 * Define `Singular` type alias
 * Define `foklKL` operator
-* Define `yoklKL'yokl` operator
-* Define `yokl'yoklKL` operator
+* Define `yoklKL'yok` operator
+* Define `yok'yoklKL` operator
 * Define `constant` expression
 * Define `yi'yu` operator
 * Define `yi'yi'yu` operator
@@ -477,7 +477,7 @@
 * Define `Haltable` type alias
 * Define `ARR` type alias
 * Define `ho'rwr'yoi` operator
-* Define `yi'yokl` operator
+* Define `yi'yok` operator
 * Define `TI` type alias
 * Define `rwr'rf` operator
 * Define `rw'rf` operator
@@ -540,9 +540,9 @@
 * Define `U_U_I_II_UU_I_II` data type
 * Define `cn` operator
 * Define `cn'dp` operator
-* Define `yi'yokl'yoklKL` operator
-* Define `yi'yi'yokl'yoklKL` operator
-* Define `yi'yi'yi'yokl'yoklKL` operator
+* Define `yi'yok'yoklKL` operator
+* Define `yi'yi'yok'yoklKL` operator
+* Define `yi'yi'yi'yok'yoklKL` operator
 * Define `hoo'ha` operator
 * Define `yii` operator
 * Define `yiii` operator
@@ -562,10 +562,10 @@
 * Define `yi'lm'dp` operator
 * Define `fukl` operator
 * Define `ha_yukl` operator
-* Define `yokl'a` operator
-* Define `yi'yokl'a` operator
-* Define `yi'yi'yokl'a` operator
-* Define `yi'yi'yi'yokl'ha` operator
+* Define `yok'a` operator
+* Define `yi'yok'a` operator
+* Define `yi'yi'yok'a` operator
+* Define `yi'yi'yi'yok'ha` operator
 * Define `Function'` type alias
 * Define `ho'yukl` operator
 * Define `yi'yoklKL` operator
@@ -597,14 +597,14 @@
 * Define `hoooo'yo` operator
 * Define `hooooo'yo` operator
 * Define `hoooooo'yo` operator
-* Define `yokl'hu` operator
-* Define `hooo'yokl` operator
-* Define `hoooo'yokl` operator
-* Define `hooooo'yokl` operator
-* Define `hoooooo'yokl` operator
-* Define `hooooooo'yokl` operator
-* Define `hoooooooo'yokl` operator
-* Define `hooooooooo'yokl` operator
+* Define `yok'hu` operator
+* Define `hooo'yok` operator
+* Define `hoooo'yok` operator
+* Define `hooooo'yok` operator
+* Define `hoooooo'yok` operator
+* Define `hooooooo'yok` operator
+* Define `hoooooooo'yok` operator
+* Define `hooooooooo'yok` operator
 * Define `haaaaaaa` operator
 * Define `haaaaaaaa` operator
 * Define `haaaaaaaaa` operator
@@ -622,7 +622,7 @@
 * Define `not` expression
 * Define `Shafted` type family
 * Define `change` expression
-* Define `dp'yoklKL` operator
+* Define `dp'yokKL` operator
 * Define `hj'hj` operator
 * Define `Literal` type class
 * Define `rw'rw'rw'ho` operator

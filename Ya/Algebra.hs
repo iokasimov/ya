@@ -231,7 +231,7 @@ instance
 	(T_TTT_TT_I (Straight (->) old) (Straight LM new) t)
 	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
 		wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
-		`yi` \old -> x old `yokl` \(Straight (These btw (T_TTT_TT_I (Straight f))))
+		`yi` \old -> x old `yok` \(Straight (These btw (T_TTT_TT_I (Straight f))))
 			-> f btw `yo'yo` from
 
 -- TODO: try to use adjunctions here
@@ -247,7 +247,7 @@ instance
  (T_TTT_TT_I (Straight (->) e) (Straight LM e) tt) where
   mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) ->
    wrap @(T_TTT_TT_I _ _ _ _) `compose` wrap @(Straight _ _ _)
-    `yi` \old -> x old `yokl` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
+    `yi` \old -> x old `yok` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
       -> yu (enter @tt) / Straight (f btw) `yo` from
 
 instance
@@ -330,7 +330,7 @@ instance
 		(T_TTT_TT_I (That (->) e) (That LM e) t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These (T_TTT_TT_I (Straight x)) (T_TTT_TT_I (Straight y))) (Straight f) ->
-			Straight / \old -> x old `yokl` \(Straight (These btw e)) -> from `compose` f `compose` These e `fo'fo` y btw
+			Straight / \old -> x old `yok` \(Straight (These btw e)) -> from `compose` f `compose` These e `fo'fo` y btw
 
 instance
 	( Component Natural (->) (->) (t `T_TT_I` t) t
@@ -354,7 +354,7 @@ instance Covariant Endo Semi Functor (->) t =>
 		Straight / \e -> x `yo` (from `compose` (e `hu`) `compose` unwrap)
 
 -- TODO: generalize
--- We need this instance to make `yokl'yoklKL` work
+-- We need this instance to make `yok'yoklKL` work
 instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
 	Mapping Straight Straight (->) (->) (T_TT_I t (T_'_I l tt)) t
 	where mapping = rwr / \from ->

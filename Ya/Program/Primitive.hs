@@ -106,13 +106,13 @@ way = T_'_I
 forever ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  t e -> t e
-forever x = x `yukl` forever x
+forever x = x `yuk` forever x
 
 until ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
-until x = x `yokl` until x `hu` but `rfz`yu enter
+until x = x `yok` until x `hu` but `rfz`yu enter
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
