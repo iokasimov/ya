@@ -83,11 +83,11 @@ infixl 4 `yiiiii`, `yiiiii'yok`
 infixl 3 `yiiiiii`, `yiiiiii'yok`
 infixl 2 `yiiiiiii`, `yiiiiiii'yok`
 infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
- 
+
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`
+infixl 7 `yok`, `yok'ha`, `yok'yokl`
 infixl 6 `yokk`
 infixl 5 `yokkk`
 infixl 4 `yokkkk`
@@ -119,7 +119,7 @@ infixl 6 `yioi`
 
 infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `rfz`
 infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yok'yokl`, `yok'_yi'yok`, `yi'cn'yp`, `yi'lm'yp`
+infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
@@ -1606,20 +1606,6 @@ rwr'yoi x = wr @into `compose` yoi (unwrap x)
 --  t (w u e o) -> Supertype (() -> ee) -> t o
 -- yokl_rwr_yui x f = yokl @(->) @_ @(w u ee) @t x
 --  (rwr_yui @(->) @w @o @u @e @ee f)
-
--- TODO: generalize
-yok'_yi'yok :: forall t tt ttt a aa o .
- Covariant Yoneda (->) (->) t =>
- Covariant Endo Semi Functor (->) t =>
- Covariant Endo Semi Functor (->) tt =>
- Covariant Endo Semi Functor (->) ttt =>
- Component Natural (->) (->) (T_TT_I t tt) t =>
- Component Natural (->) (->) (T_TT_I t ttt) t =>
- Castable Straight (->) a =>
- (Supertype a ~ tt aa) =>
- t a -> (aa -> ttt o) -> t o
-yok'_yi'yok x = yok @(->) @(->) @ttt @t
- (yok @(->) @(->) @tt @t x unwrap)
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
