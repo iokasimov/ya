@@ -106,7 +106,7 @@
 * Define `Nonempty` patter synonym
 * Define `Brancher` type family
 * Define `dp` operator
-* Define `yoklKL` operator
+* Define `yokl` operator
 * Define `Empty` patter synonym
 * Define `Progress` type alias
 * Define `Continue` patter synonym
@@ -320,7 +320,7 @@
 * Define `Nonempty` patter synonym
 * Define `Brancher` type family
 * Define `dp` operator
-* Define `yoklKL` operator
+* Define `yokl` operator
 * Define `Empty` patter synonym
 * Define `Progress` type alias
 * Define `Continue` patter synonym
@@ -440,8 +440,8 @@
 * Define `Vertical` type alias
 * Define `Singular` type alias
 * Define `foklKL` operator
-* Define `yoklKL'yok` operator
-* Define `yok'yoklKL` operator
+* Define `yokl'yok` operator
+* Define `yok'yokl` operator
 * Define `constant` expression
 * Define `yi'yu` operator
 * Define `yi'yi'yu` operator
@@ -472,7 +472,7 @@
 * Define `lm'ds` operator
 * Define `MLM` data type
 * Define `dw` operator
-* Define `yoklKL'yoklKL` operator
+* Define `yokl'yokl` operator
 * Define `Halting` type alias
 * Define `Haltable` type alias
 * Define `ARR` type alias
@@ -534,15 +534,15 @@
 * Define `Same` type alias
 * Define `Same` pattern synonym
 * Define `State` pattern synonym
-* Define `ho'yoklKL` operator
-* Define `hoo'yoklKL` operator
+* Define `ho'yokl` operator
+* Define `hoo'yokl` operator
 * Define `Automatable` type class
 * Define `U_U_I_II_UU_I_II` data type
 * Define `cn` operator
 * Define `cn'dp` operator
-* Define `yi'yok'yoklKL` operator
-* Define `yi'yi'yok'yoklKL` operator
-* Define `yi'yi'yi'yok'yoklKL` operator
+* Define `yi'yok'yokl` operator
+* Define `yi'yi'yok'yokl` operator
+* Define `yi'yi'yi'yok'yokl` operator
 * Define `hoo'ha` operator
 * Define `yii` operator
 * Define `yiii` operator
@@ -568,8 +568,8 @@
 * Define `yi'yi'yi'yok'ha` operator
 * Define `Function'` type alias
 * Define `ho'yukl` operator
-* Define `yi'yoklKL` operator
-* Define `yi'yi'yoklKL` operator
+* Define `yi'yokl` operator
+* Define `yi'yi'yokl` operator
 * Define `same` expression
 * Define `Cascading'` type alias
 * Define `Cascading'` pattern synonym

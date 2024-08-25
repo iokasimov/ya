@@ -7,12 +7,12 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `_'`, `__'`, `___'`
 
-infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yoklKL`
+infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho_`, `ho_'yo`
  , `_ho`
  , `__ho`
  , `___ho`
-infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yoklKL`
+infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo_`
  , `_hoo`
  , `__hoo`
@@ -89,17 +89,15 @@ infixl 8 `ya`
 
 infixl 8 `yu`
 
--- TODO: rename: `yoklKL` -> `yokl`
-
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yok`, `yp'yoklKL`, `yp'yp'jt`, `yp'yp'jt'yok`, `lm'yp'yp`, `rfz`, `yi'_yi`
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yok`, `yp'yokl`, `yp'yp'jt`, `yp'yp'jt'yok`, `lm'yp'yp`, `rfz`, `yi'_yi`
 infixl 7 `vvv`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yioi`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok`, `yok'ha`, `yok'u`, `yuk`, `yolk`, `yok'yoklKL`, `yok'_yi'yok`, `yi'cn'yp`, `yi'lm'yp`
+infixl 6 `vvvv`, `yioi`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok`, `yok'ha`, `yok'u`, `yuk`, `yolk`, `yok'yokl`, `yok'_yi'yok`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
-infixl 4 `vvvvvv`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yok`, `yi'yok'ha`, `yoklKL`, `yoklKL'yok`, `yoklKL'yoklKL`, `yi'yuk`, `yi'yok'yoklKL`, `yi'yi'_yi`, `yi'yi'lm'yp`
+infixl 4 `vvvvvv`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yok`, `yi'yok'ha`, `yokl`, `yokl'yok`, `yokl'yokl`, `yi'yuk`, `yi'yok'yokl`, `yi'yi'_yi`, `yi'yi'lm'yp`
 infixl 3 `vvvvvvv`
-infixl 2 `vvvvvvvv`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yok'ha`, `yi'yi'yuk`, `yi'yoklKL`, `yi'yi'yok'yoklKL`
+infixl 2 `vvvvvvvv`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yok'ha`, `yi'yi'yuk`, `yi'yokl`, `yi'yi'yok'yokl`
 infixl 1 `vvvvvvvvv`, `yiiiiiiii`
-infixl 0 `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yok'ha`, `yi'yi'yi'yuk`, `yi'yi'yi'yok'yoklKL`, `yi'yi'yoklKL`
+infixl 0 `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yok'ha`, `yi'yi'yi'yuk`, `yi'yi'yi'yok'yokl`, `yi'yi'yokl`
 
 infixl 9 `v`
 
@@ -351,7 +349,7 @@ yolk :: forall from into tt t a o .
 yolk = yoneda @Straight @from @into `compose` unwrap
  `compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
-yoklKL, yi'yoklKL, yi'yi'yoklKL :: forall from into tt t a o .
+yokl, yi'yokl, yi'yi'yokl :: forall from into tt t a o .
  Unlabelable into tt =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Covariant Yoneda from into t =>
@@ -359,14 +357,14 @@ yoklKL, yi'yoklKL, yi'yi'yoklKL :: forall from into tt t a o .
  Castable Straight into (TT_T_I t tt o) =>
  Castable Opposite into (T_TT_I t tt o) =>
  t a -> into (from a (tt o)) (Unlabeled tt (t o))
-yoklKL x = unlabel
+yokl x = unlabel
  `compose` unwrap @into @(TT_T_I t tt _)
  `compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
  `compose` wr @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
 
-yi'yoklKL = yoklKL
-yi'yi'yoklKL = yoklKL
+yi'yokl = yokl
+yi'yi'yokl = yokl
 
 yiokl :: forall from into tt t i a o .
  Component Natural from into (T_TT_I (U_I_II t i) tt) (U_I_II t i) =>
@@ -380,7 +378,7 @@ yiokl x = unwrap @into @(U_I_II t i o)
  `compose` wr @into @(T_TT_I (U_I_II t i) tt _)
  `compose` yoneda @Straight @from (U_I_II x)
 
-yok'yoklKL, yi'yok'yoklKL, yi'yi'yok'yoklKL, yi'yi'yi'yok'yoklKL
+yok'yokl, yi'yok'yokl, yi'yi'yok'yokl, yi'yi'yi'yok'yokl
  :: forall from into t tt ttt a o .
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
@@ -393,13 +391,13 @@ yok'yoklKL, yi'yok'yoklKL, yi'yi'yok'yoklKL, yi'yi'yi'yok'yoklKL
  Castable Straight from (TT_T_I ttt tt o) =>
  Castable Opposite into (T_TT_I t tt (ttt o)) =>
  t (ttt a) -> into (from a (tt o)) (t (ttt o))
-yok'yoklKL x = fai foklKL (yok @from @into x)
+yok'yokl x = fai foklKL (yok @from @into x)
 
-yi'yok'yoklKL = yok'yoklKL
-yi'yi'yok'yoklKL = yok'yoklKL
-yi'yi'yi'yok'yoklKL = yok'yoklKL
+yi'yok'yokl = yok'yokl
+yi'yi'yok'yokl = yok'yokl
+yi'yi'yi'yok'yokl = yok'yokl
 
-yoklKL'yok :: forall from into t tt ttt a o .
+yokl'yok :: forall from into t tt ttt a o .
  Unlabelable into ttt =>
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
@@ -412,9 +410,9 @@ yoklKL'yok :: forall from into t tt ttt a o .
  Castable Opposite into (T_TT_I t ttt o) =>
  Castable Opposite from (T_TT_I ttt tt o) =>
  t (ttt a) -> into (from a (tt o)) (Unlabeled ttt (t o))
-yoklKL'yok x = fai fokl (yoklKL @from @into x)
+yokl'yok x = fai fokl (yokl @from @into x)
 
-yoklKL'yoklKL :: forall from into t tt ttt a o .
+yokl'yokl :: forall from into t tt ttt a o .
  Unlabelable into ttt =>
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
@@ -428,7 +426,7 @@ yoklKL'yoklKL :: forall from into t tt ttt a o .
  Castable Opposite into (T_TT_I t ttt (tt o)) =>
  Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
  t (tt a) -> into (from a (ttt o)) (Unlabeled ttt (t (tt o)))
-yoklKL'yoklKL x = fai foklKL (yoklKL @from @into x)
+yokl'yokl x = fai foklKL (yokl @from @into x)
 
 fo'fo :: forall from into t tt a o .
  Covariant Semi Functor from into tt =>
@@ -1350,7 +1348,7 @@ yok'u x f = yok @_ @_ @tt x `compose` _i (fu @from f)
  -- t (u e a) -> u (from a o) (t o)
 -- yokl_o x = fai fio (yokl @from @u x)
 
-ho'yoklKL, hoo'yoklKL :: forall from u t tt a o e .
+ho'yokl, hoo'yokl :: forall from u t tt a o e .
  Unlabelable from tt =>
  Covariant Semi Functor from (->) (Straight u e) =>
  Covariant Endo Semi Functor from tt =>
@@ -1360,9 +1358,9 @@ ho'yoklKL, hoo'yoklKL :: forall from u t tt a o e .
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  (forall ee . Wrapper from (TT_T_I t tt ee)) =>
  u e (t a) -> from a (tt o) -> u e (Unlabeled tt (t o))
-ho'yoklKL x = fio @from unlabel `compose` fai foklKL (ho @from x)
+ho'yokl x = fio @from unlabel `compose` fai foklKL (ho @from x)
 
-hoo'yoklKL = ho'yoklKL
+hoo'yokl = ho'yokl
 
 ha'yuk :: forall from t tt a o e .
  Covariant Functor (->) (->) tt =>
@@ -1441,7 +1439,7 @@ yp'yok :: forall e ee from into t tt o .
 yp'yok = yok @from @into `compose` yp
 
 -- TODO: generalize
-yp'yoklKL :: forall e ee from into t tt o .
+yp'yokl :: forall e ee from into t tt o .
  Unlabelable into tt =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Covariant Monoidal Functor (->) LM LM t =>
@@ -1450,7 +1448,7 @@ yp'yoklKL :: forall e ee from into t tt o .
  Castable Opposite into (T_TT_I t tt o) =>
  Castable Straight into (TT_T_I t tt o) =>
  t e `LM` t ee -> into (from (e `LM` ee) (tt o)) (Unlabeled tt (t o))
-yp'yoklKL = yoklKL @from @into `compose` yp
+yp'yokl = yokl @from @into `compose` yp
 
 -- TODO: generalize
 yp'yp'yo :: forall from e ee r t tt .
