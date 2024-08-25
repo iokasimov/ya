@@ -59,8 +59,8 @@ instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
-   `yi'yi'yi` lx `yo` as @(Binary Tree) `ho` unwrap @Arrow
-     `yi'lm` rx `yo` as @(Binary Tree) `ho` unwrap @Arrow
+   `yii` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+    `lm` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
 
 class Stack datastructure where
  pop :: Transition `TI` datastructure item `TI` Optional item
@@ -92,8 +92,8 @@ type family Shafted datastructure = result | result -> datastructure where
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
-  from x `hu` Singular `yi'yi'lm` Empty @List () `yi'lm` xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from
-   `huuuuu` T_TT_I `ha` U_I_I `huuuuuu` U_T_I_TT_I
+  from x `hu` Singular `lm` (Empty @List () `yi'lm` xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from
+   `huuuuu` T_TT_I `ha` U_I_I) `huuuuuu` U_T_I_TT_I
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
