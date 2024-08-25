@@ -69,25 +69,31 @@ infixl 9 `hj`, `hj'hj`
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
  , `__yi`
-infixl 7 `yii`
+infixl 7 `yii`, `yii'yok`
  , `_yii`
  , `__yii`
-infixl 6 `yiii`
+infixl 6 `yiii`, `yiii'yok`
  , `_yiii`
  , `__yiii`
-infixl 5 `yiiii`
+infixl 5 `yiiii`, `yiiii'yok`
  , `_yiiii`
-infixl 4 `yiiiii`
+infixl 4 `yiiiii`, `yiiiii'yok`
  , `_yiiiii`
  , `__yiiiii`
-infixl 3 `yiiiiii`
-infixl 2 `yiiiiiii`
-infixl 1 `yiiiiiiii`
+infixl 3 `yiiiiii`, `yiiiiii'yok`
+infixl 2 `yiiiiiii`, `yiiiiiii'yok`
+infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
  
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
 infixl 7 `yok`, `yok'ha`
+infixl 6 `yokk`
+infixl 5 `yokkk`
+infixl 4 `yokkkk`
+infixl 3 `yokkkkk`
+infixl 2 `yokkkkkk`
+infixl 1 `yokkkkkkk`
 
 infixl 7 `yuk`
 
@@ -313,7 +319,9 @@ yai'yai :: forall from into t tt e ee a o .
  t (tt a e) ee -> into (from a o) (t (tt o e) ee)
 yai'yai x = fai fai (yai @from @into x)
 
-yok, yi'yok :: forall from into tt t a o .
+yok, yokk, yokkk, yokkkk, yokkkkk, yokkkkkk, yokkkkkkk
+ , yi'yok, yii'yok, yiii'yok, yiiii'yok, yiiiii'yok, yiiiiii'yok, yiiiiiii'yok, yiiiiiiii'yok
+ :: forall from into tt t a o .
  Component Natural (->) into (T_TT_I t tt) t =>
  Covariant Yoneda from into t =>
  Castable Opposite into (Straight from a (tt o)) =>
@@ -323,7 +331,20 @@ yok x = component @Straight @(->) @into @(T_TT_I t tt)
  `compose` wr @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
 
+yokk = yok
+yokkk = yok
+yokkkk = yok
+yokkkkk = yok
+yokkkkkk = yok
+yokkkkkkk = yok
 yi'yok = yok
+yii'yok = yok
+yiii'yok = yok
+yiiii'yok = yok
+yiiiii'yok = yok
+yiiiiii'yok = yok
+yiiiiiii'yok = yok
+yiiiiiiii'yok = yok
 
 yuk, yi'yuk
  :: forall into tt t a o .
@@ -1302,6 +1323,7 @@ yok'ha x f = yok x `compose` fio f
 
 yi'yok'ha = yok'ha
 
+-- TODO: rename
 yok'u :: forall from t tt a o e .
   Precategory from =>
   Covariant Yoneda from from t =>
