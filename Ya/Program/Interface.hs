@@ -114,9 +114,10 @@ class Scrollable datastructure item where
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
   `yiiiii` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yuk` State `yii` pop `haa_` (has @(Shafted List _) `hu` Attribute) `ho_` rep way `yok` on @Halts
-    `yok` State `haaa` put `hoo'ha` unwrap @Attribute `ho` (has @(Focused _)  `hu` Attribute) `ho` unwrap @Attribute
-    `yok` State `haaa` push `hoo'ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `ho_` rep (not way)
+    `yuk` (State `yii` pop `haa_` (has @(Shafted List _) `hu` Attribute) `ho_` rep way)
+    `yok` on @Halts
+    `yok` (State `haaa` put `hoo'ha` unwrap @Attribute `ho` (has @(Focused _)  `hu` Attribute) `ho` unwrap @Attribute)
+    `yok` (State `haaa` push `hoo'ha` unwrap @Attribute `ho` (has @(Shafted List _) `hu` Attribute) `ho_` rep (not way))
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

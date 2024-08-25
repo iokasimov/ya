@@ -66,7 +66,7 @@ infixl 9 `hd`
 
 infixl 9 `hj`, `hj'hj`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
  , `__yi`
 infixl 7 `yii`
@@ -82,21 +82,43 @@ infixl 4 `yiiiii`
  , `__yiiiii`
 infixl 3 `yiiiiii`
 infixl 2 `yiiiiiii`
+infixl 1 `yiiiiiiii`
  
 infixl 8 `yo`, `yo'yo`
+infixl 7 `yoo`
+
+infixl 7 `yok`, `yok'ha`
+
+infixl 7 `yuk`
+
+infixl 6 `yokl`, `yokl'yok`, `yokl'yokl`
 
 infixl 8 `ya`
 
 infixl 8 `yu`
 
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `yp`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `yp'yo`, `yp'yp`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `yp'yp'yo`, `yp'yok`, `yp'yokl`, `yp'yp'jt`, `yp'yp'jt'yok`, `lm'yp'yp`, `rfz`, `yi'_yi`
-infixl 7 `vvv`, `yai`, `yai'yai`, `fio`, `foi`, `yoi`, `yoo`, `yio`, `yio'yo`, `fai`, `fai_`, `yui`, `yiu`, `yi'ho`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yioi`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok`, `yok'ha`, `yok'u`, `yuk`, `yolk`, `yok'yokl`, `yok'_yi'yok`, `yi'cn'yp`, `yi'lm'yp`
+infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'yok`, `yp'yokl`, `yp'yp'jt`, `yp'yp'jt'yok`
+
+infixl 7 `yoi`
+
+infixl 7 `yai`, `yai'yai`
+
+infixl 7 `yui`
+
+infixl 7 `yio`, `yio'yo`
+
+infixl 7 `yiu`
+
+infixl 6 `yioi`
+
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `rfz`
+infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
+infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yok'yokl`, `yok'_yi'yok`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
-infixl 4 `vvvvvv`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yok`, `yi'yok'ha`, `yokl`, `yokl'yok`, `yokl'yokl`, `yi'yuk`, `yi'yok'yokl`, `yi'yi'_yi`, `yi'yi'lm'yp`
+infixl 4 `vvvvvv`, `yi'yi'yo`, `yi'yi'yi`, `yi'yi'yu`, `yi'yi'lm`, `yi'yi'lm'ds`, `yi'yi'rf`, `yi'yi'rfz`, `yi'yi'cnz'yp`, `yi'yi'_yi`, `yi'yi'lm'yp`
 infixl 3 `vvvvvvv`
-infixl 2 `vvvvvvvv`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yok'ha`, `yi'yi'yuk`, `yi'yokl`, `yi'yi'yok'yokl`
-infixl 1 `vvvvvvvvv`, `yiiiiiiii`
+infixl 2 `vvvvvvvv`, `yi'yi'yi'yo`, `yi'yi'yi'yi`, `yi'yi'yi'yu`, `yi'yi'yi'lm`, `yi'yi'yi'rf`, `yi'yi'yi'rfz`, `yi'yi'yi'_yi`, `yi'_yi'_yi'_yi`, `yi'yi'yi'lm'yp`, `yi'yi'yi'cnz'yp`, `yi'yi'yok'ha`, `yi'yi'yuk`, `yi'yi'yok'yokl`
+infixl 1 `vvvvvvvvv`
 infixl 0 `yi'yi'yi'yi'yo`, `yi'yi'yi'yi'yi`, `yi'yi'yi'yi'lm`, `yi'yi'yi'yi'lm'yp`, `yi'yi'yi'yok'ha`, `yi'yi'yi'yuk`, `yi'yi'yi'yok'yokl`, `yi'yi'yokl`
 
 infixl 9 `v`
