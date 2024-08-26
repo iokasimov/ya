@@ -17,14 +17,14 @@ instance
 	, Covariant Endo Semi Functor into t
 	) => Mapping Straight Straight into into (T_TT_I Identity t) (TT_T_I Identity t)
 	where mapping = rwr / \from -> rwr /
-		map @Straight @Straight @into @into (wr `compose` from) `compose` unwrap @into
+		map @Straight @Straight @into @into (wrap `compose` from) `compose` unwrap @into
 
 instance
 	( Covariant Semi Functor from into tt
 	, Covariant Endo Semi Functor into t
 	, forall e . Wrapper into (T_TT_I t tt e)
 	) => Mapping Straight Straight from into (T_TT_I t tt) (T_TT_I t tt)
-	where mapping = rwr / \from -> wr @into
+	where mapping = rwr / \from -> wrap @into
 		`compose` (map @Straight @Straight @into @into
 			`compose` map @Straight @Straight @from @into
 			) from
@@ -35,7 +35,7 @@ instance
 	, Covariant Endo Semi Functor into tt
 	, forall e . Wrapper into (TT_T_I t tt e)
 	) => Mapping Straight Straight from into (TT_T_I t tt) (TT_T_I t tt)
-	where mapping = rwr / \from -> wr @into
+	where mapping = rwr / \from -> wrap @into
 		`compose` (map @Straight @Straight @into @into
 			`compose` map @Straight @Straight @from @into
 			) from
@@ -45,7 +45,7 @@ instance
 	( Covariant Semi Functor from into t
 	, forall e . Wrapper into (T_'_I l t e)
 	) => Mapping Straight Straight from into (T_'_I l t) (T_'_I l t)
-	where mapping = rwr / \from -> wr @into @(T_'_I _ t _)
+	where mapping = rwr / \from -> wrap @into @(T_'_I _ t _)
 		`compose` map @Straight @Straight @from @into @t from
 		`compose` unwrap @into @(T_'_I _ t _)
 
@@ -57,11 +57,11 @@ instance
 	, forall ee . Wrapper into (Straight u e (t ee))
 	) => Mapping Straight Straight from into (Straight (U_I_T_II t u) e) (Straight (U_I_T_II t u) e)
 	where mapping = rwr / \from ->
-		wr @into @(Straight _ _ _)
-		`compose` wr @into @(U_I_T_II _ _ _ _)
+		wrap @into @(Straight _ _ _)
+		`compose` wrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(Straight _ _ _)
 		`compose` map @Straight @Straight @into @into (map @Straight @Straight @from @into from)
-		`compose` wr @into @(Straight _ _ _)
+		`compose` wrap @into @(Straight _ _ _)
 		`compose` unwrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(Straight _ _ _)
 
@@ -72,11 +72,11 @@ instance
 	, forall ee . Wrapper into (Opposite u (t e) ee)
 	) => Mapping Straight Straight from into (Opposite (U_I_T_II t u) e) (Opposite (U_I_T_II t u) e)
 	where mapping = rwr / \from -> 
-		wr @into @(Opposite _ _ _)
-		`compose` wr @into @(U_I_T_II _ _ _ _)
+		wrap @into @(Opposite _ _ _)
+		`compose` wrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(Opposite _ _ _)
 		`compose` map @Straight @Straight @from @into from
-		`compose` wr @into @(Opposite _ _ _)
+		`compose` wrap @into @(Opposite _ _ _)
 		`compose` unwrap @into @(U_I_T_II _ _ _ _)
 		`compose` unwrap @into @(Opposite _ _ _)
 
@@ -86,7 +86,7 @@ instance
 	, Covariant Endo Semi Functor into t
 	, forall e . Wrapper into (T_TTT_TT_I t h tt e)
 	) => Mapping Straight Straight from into (T_TTT_TT_I t h tt) (T_TTT_TT_I t h tt)
-	where mapping = rwr / \from -> wr @into
+	where mapping = rwr / \from -> wrap @into
 		`compose` (map @Straight @Straight @into @into
 			`compose` map @Straight @Straight @into @into
 			`compose` map @Straight @Straight @from @into
@@ -117,7 +117,7 @@ instance
 	, forall e . Wrapper (->) (T_TT_I (U_T_I_TT_I u t tt) ttt e)
 	) => Mapping Straight Straight from (->) (U_T_I_TT_I u t tt `T_TT_I` ttt) (U_T_I_TT_I u t tt `TT_T_I` ttt)
 	where mapping = rwr / \from -> rwr /
-		day @Straight @from @ttt @u @u (wr @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+		day @Straight @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
 			i_ (map @Straight @Straight @(->) @(->)
 				(wrapped (map @Straight @Straight @from @(->) @(t `T_TT_I` ttt) @(t `TT_T_I` ttt) from))) `compose`
 			_i (map @Straight @Straight @(->) @(->)
@@ -177,7 +177,7 @@ instance
 	) => Mapping Straight Straight from Arrow (U_I_I u `T_TT_I` t) (U_I_I u `TT_T_I` t)
 	where mapping = rwr / \from -> rwr /
 		day @Straight @from @t @u @u
-			(map @Straight @Straight from `compose` wr @from @(Both _ _)) identity
+			(map @Straight @Straight from `compose` wrap @from @(Both _ _)) identity
 		`compose` unwrap @Arrow @(U_I_I u _)
 
 instance
@@ -266,17 +266,17 @@ instance
 	, forall e ee . Wrapper into (Straight (U_I_T_II t u) e ee)
 	) => Mapping Straight Straight from into (R_U_I_T_I u t) (R_U_I_T_I u t)
 	where mapping = rwr / \from ->
-		wr @into @(R_U_I_T_I u t _)
-		`compose` wr @into @(Recursive _)
+		wrap @into @(R_U_I_T_I u t _)
+		`compose` wrap @into @(Recursive _)
 		`compose` unwrap @into @(Opposite _ _ _)
 		`compose` map @Straight @Straight @_ @_ from
-		`compose` wr @into @(Opposite _ _ _)
+		`compose` wrap @into @(Opposite _ _ _)
 		`compose` unwrap @into @(Straight _ _ _)
 		`compose` map @Straight @Straight @from @into @(U_I_II (U_I_T_II t u) _) @(U_I_II (U_I_T_II t u) _)
 			(unwrap @from
 			`compose` map @Straight @Straight @from @_ @(R_U_I_T_I u t) @(R_U_I_T_I u t) from
-			`compose` wr @from @(R_U_I_T_I u t _))
-		`compose` wr @into @(Straight _ _ _)
+			`compose` wrap @from @(R_U_I_T_I u t _))
+		`compose` wrap @into @(Straight _ _ _)
 		`compose` unwrap @into @(Recursive _)
 		`compose` unwrap @into @(R_U_I_T_I u t _)
 
