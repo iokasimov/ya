@@ -119,7 +119,7 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `hp`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
 infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
 infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
@@ -1001,7 +1001,7 @@ rij from = _' @from
  `compose` fo (wr @into @(U_I_II tt e _) `compose` from)
  `compose` wr @from @(U_I_II t ee _)
 
-fr :: forall into a o oo .
+hp :: forall into a o oo .
  Limit Straight into into =>
  Covariant Functor into into (That (Product into) o) =>
  Covariant Functor into into (This (Product into) (Product into a a)) =>
@@ -1010,7 +1010,7 @@ fr :: forall into a o oo .
  (forall e . Wrapper into (Both (Product into) e)) =>
  (forall e . Wrapper into (Identity e)) =>
  into a o -> into a oo -> into a (Product into o oo)
-fr from_left from_right =
+hp from_left from_right =
  _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
  i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
@@ -1102,9 +1102,9 @@ hs from_left from_right =
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
  _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
 
--- `dp`: u (t e) (t ee) -> t (uu e ee)
--- `rf`: from o i -> from oo i -> from (o `ML` oo) i
--- `fr`: into a o -> into a oo -> into a (o `LM` oo)
+-- `yp`: u (t e) (t ee) -> t (uu e ee)
+-- `hs`: from o i -> from oo i -> from (o `ML` oo) i
+-- `hp`: into a o -> into a oo -> into a (o `LM` oo)
 --     : u (from o i) (from oo i) -> from (uu o oo) i
 
 yi'hs = hs
