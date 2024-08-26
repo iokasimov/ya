@@ -66,7 +66,9 @@ infixl 9 `hd`
 
 infixl 9 `hj`, `hj'hj`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
+infixl 9 `hs`
+
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'hs`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
  , `__yi`
 infixl 7 `yii`, `yii'yok`
@@ -117,9 +119,9 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `rf`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `rfz`
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `fr`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
 infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'rf`, `yi'rfz`, `_yi'rfz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
+infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
@@ -1084,7 +1086,7 @@ lm from_left from_right = _' /
 
 yi'lm = lm
 
-rf, yi'rf :: forall from i o oo .
+hs, yi'hs :: forall from i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1094,15 +1096,20 @@ rf, yi'rf :: forall from i o oo .
  (forall ee . Wrapper from (Both (Sum from) ee)) =>
  (forall ee . Wrapper from (Identity ee)) =>
  from o i -> from oo i -> from (Sum from o oo) i
-rf from_left from_right =
+hs from_left from_right =
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
  _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
 
-yi'rf = rf
+-- `dp`: u (t e) (t ee) -> t (uu e ee)
+-- `rf`: from o i -> from oo i -> from (o `ML` oo) i
+-- `fr`: into a o -> into a oo -> into a (o `LM` oo)
+--     : u (from o i) (from oo i) -> from (uu o oo) i
 
-rfz, yi'rfz :: forall from e i o oo .
+yi'hs = hs
+
+hsz, yi'hsz :: forall from e i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1114,11 +1121,11 @@ rfz, yi'rfz :: forall from e i o oo .
  (Supertype e ~ (Sum from o oo)) =>
  Castable Straight from e =>
  from o i -> from oo i -> from e i
-rfz from_left from_right = rf from_left from_right `compose` _'
+hsz from_left from_right = hs from_left from_right `compose` _'
 
-yi'rfz = rfz
+yi'hsz = hsz
 
-_yi'rfz :: forall from e ee i o oo .
+_yi'hsz :: forall from e ee i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1132,10 +1139,10 @@ _yi'rfz :: forall from e ee i o oo .
  Castable Straight from e =>
  Castable Straight from ee =>
  from o i -> from oo i -> from e i
-_yi'rfz from_left from_right = rfz from_left from_right `compose` _yi
+_yi'hsz from_left from_right = hsz from_left from_right `compose` _yi
 
 -- TODO: to test
-rwr'rf :: forall from into r o a aa .
+rwr'hs :: forall from into r o a aa .
  Category from =>
  Limit Opposite from into =>
  Covariant Functor into into (That (Sum into) a) =>
@@ -1153,7 +1160,7 @@ rwr'rf :: forall from into r o a aa .
  Castable Opposite into r =>
  Castable Straight into o =>
  from a (Supertype r) -> from aa (Supertype r) -> into o r
-rwr'rf from_left from_right = rwr /
+rwr'hs from_left from_right = rwr /
  wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
  wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`

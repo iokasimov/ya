@@ -29,13 +29,13 @@ instance Match e e where
  match target _ = target
 
 instance Match e (e `ML` es) where
- match target rest = target `rf` rest `ha` That
+ match target rest = target `hs` rest `ha` That
 
 instance Match e (es `ML` e) where
- match target rest = rest `ha` This `rf` target
+ match target rest = rest `ha` This `hs` target
 
 instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
- match target rest = match `yi` target `yi` rest `ha` This `rf` rest `ha` That
+ match target rest = match `yi` target `yi` rest `ha` This `hs` rest `ha` That
 
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)

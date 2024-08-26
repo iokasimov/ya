@@ -12,7 +12,7 @@ on :: forall t e . t e `ARR` t e
 on = identity
 
 not :: e `ML` ee `ARR` ee `ML` e
-not = That `rf` This
+not = That `hs` This
 
 provide :: U_I_II (->) e e
 provide = U_I_II identity
@@ -112,7 +112,7 @@ until ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
-until x = x `yok` until x `hu` but `rfz`yu enter
+until x = x `yok` until x `hu` but `hsz`yu enter
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
@@ -134,4 +134,4 @@ rep :: forall t e .
 rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `_yi` index) `yi'lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `_yi` index') `rf` but x `yi` (index' `e` index)))
+ (idx origin `_yi` index) `yi'lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `_yi` index') `hs` but x `yi` (index' `e` index)))
