@@ -98,6 +98,12 @@ infixl 2 `yokkkkkk`
 infixl 1 `yokkkkkkk`
 
 infixl 7 `yuk`
+infixl 6 `yukk`
+infixl 5 `yukkk`
+infixl 4 `yukkkk`
+infixl 3 `yukkkkk`
+infixl 2 `yukkkkkk`
+infixl 1 `yukkkkkkk`
 
 infixl 6 `yokl`, `yokl'yok`, `yokl'yokl`
 
@@ -348,7 +354,7 @@ yiiiiii'yok = yok
 yiiiiiii'yok = yok
 yiiiiiiii'yok = yok
 
-yuk, yi'yuk
+yuk, yukk, yukkk, yukkkk, yukkkkk, yukkkkkk, yukkkkkkk, yi'yuk
  :: forall into tt t a o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) into (T_TT_I t tt) t =>
@@ -361,10 +367,14 @@ yuk x = component @Straight @(->) @into @(T_TT_I t tt)
  `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight (fu @(->) () x)
  `compose` wrap @into @(into () (tt o))
-yi'yuk x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wrap @into @(T_TT_I t tt _)
- `compose` yoneda @Straight (fu @(->) () x)
- `compose` wrap @into @(into () (tt o))
+
+yukk = yuk @into @tt
+yukkk = yuk @into @tt
+yukkkk = yuk @into @tt
+yukkkkk = yuk @into @tt
+yukkkkkk = yuk @into @tt
+yukkkkkkk = yuk @into @tt
+yi'yuk = yuk @into @tt
 
 -- TODO: try to generalize
 yolk :: forall from into tt t a o .
