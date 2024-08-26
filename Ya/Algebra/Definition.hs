@@ -244,6 +244,7 @@ deriving instance
 	, x v from Arrow t
 	) => Monoidal v x from u uu t
 
+-- TODO: Yoneda version?
 day :: forall v from t u uu a o e ee .
 	Mapping v Straight from (->) (Day v from u uu t t e ee) t =>
 	Castable Opposite Arrow (v from a o) =>
@@ -253,7 +254,7 @@ day :: forall v from t u uu a o e ee .
 		-> u (t e) (t ee) -> t o
 day from t x = map @v @Straight @from @(->)
 	@(Day v from u uu t t e ee) @t from
-	(U_V_UU_UUU_UUUU_T_TT_I_II_III (These x (wrap @(v from (uu e ee) a) t)))
+	(wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 monoidal_ :: forall v from into t u uu a o e ee .
 	Adjoint Functor (->) into
@@ -388,6 +389,3 @@ class Setoid e where
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
-
-wr :: Castable Opposite into i => into (Supertype i) i
-wr = let U_II_I x = cast in x

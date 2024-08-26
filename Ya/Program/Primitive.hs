@@ -68,7 +68,7 @@ sub :: forall tt t e .
  Reference (Construction t e) (t (Construction t e)) (t (Construction t e))
 sub = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
-  (wrap @(R_U_I_T_I _ _ _) `fo` old)
+  (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `yii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
 intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
@@ -88,14 +88,14 @@ joint :: forall f g e .
  Component Natural (->) (->) (f `T_TT_I` g) (f `JT` g) =>
  Castable Opposite (->) ((f `T_TT_I` g) e) =>
  f (g e) -> f `JT` g `TI` e
-joint = wrap @((f `T_TT_I` g) e) `ho` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
+joint = wrap @(->) @((f `T_TT_I` g) e) `ho` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
  Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
  t (Progress e o) -> t `JT` Progress e `TI` o
-try = wrap @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(->)
+try = wrap @(->) @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(->)
 
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I

@@ -179,14 +179,14 @@ fu :: forall into t a o .
  Mapping Constant Straight into into t t =>
  Castable Opposite (->) (into () o) =>
  Supertype (into () o) -> into (t a) (t o)
-fu = map @Constant @Straight @into @into `compose` wrap @(into () o)
+fu = map @Constant @Straight @into @into `compose` wrap @_ @(into () o)
 
 fokl :: forall from into t tt a o .
  Component Natural from into (T_TT_I t tt) t =>
  Castable Opposite into (T_TT_I t tt o) =>
  from a (tt o) -> into (t a) (t o)
 fokl from = component @Straight @from @into @(t `T_TT_I` tt) @t
- `compose` wr `compose` fo from
+ `compose` wrap `compose` fo from
 
 fukl :: forall into t tt a o .
  Component Natural into into (T_TT_I t tt) t =>
@@ -196,7 +196,7 @@ fukl :: forall into t tt a o .
  Castable Opposite into (T_TT_I t t o) =>
  Supertype (into () (tt o)) -> into (t a) (t o)
 fukl from = map @Straight @Straight @into @into @(t `T_TT_I` tt) @t identity
- `compose` wr `compose` fu @into from
+ `compose` wrap `compose` fu @into from
 
 foklKL :: forall from into t tt a o .
  Covariant Semi Functor from into t =>
@@ -248,7 +248,7 @@ yu, yi'yu :: forall into t a o .
  Castable Opposite into (into () o) =>
  Castable Opposite into (U_I_II into () o) =>
  t a -> into (Supertype (into () o)) (t o)
-yu x = yoneda @U_I_II (fu @(->) () x) `compose` wr @into @(into () o)
+yu x = yoneda @U_I_II (fu @(->) () x) `compose` wrap @into @(into () o)
 
 yi'yu = yu
 
@@ -260,7 +260,7 @@ yui :: forall into t e a o .
  Castable Straight into (U_II_I t e o) =>
  t a e -> into (Supertype (into () o)) (t o e)
 yui x = unwrap @into @(U_II_I t e _)
- `compose` yu @into (wrap @(U_II_I t e _) x)
+ `compose` yu @into (wrap @_ @(U_II_I t e _) x)
 
 yiu :: forall into t e a o .
  Covariant Yoneda into into (U_I_II t e) =>
@@ -270,7 +270,7 @@ yiu :: forall into t e a o .
  Castable Straight into (U_I_II t e o) =>
  t e a -> into (Supertype (into () o)) (t e o)
 yiu x = unwrap @into @(U_I_II t e _)
- `compose` yu @into (wrap @(U_I_II t e _) x)
+ `compose` yu @into (wrap @_ @(U_I_II t e _) x)
 
 yo'yo :: forall from into t tt a o .
  Precategory into =>
@@ -306,7 +306,7 @@ yai :: forall from into t e a o .
  Castable Opposite into (Opposite from a o) =>
  Castable Straight into (This t e o) =>
  t a e -> into (from o a) (t o e)
-yai x = compose unwrap (yoneda @Opposite @from @into @(This t e) (wr x))
+yai x = compose unwrap (yoneda @Opposite @from @into @(This t e) (wrap x))
 
 yai'yai :: forall from into t tt e ee a o .
  Precategory from =>
@@ -330,7 +330,7 @@ yok, yokk, yokkk, yokkkk, yokkkkk, yokkkkkk, yokkkkkkk
  Castable Opposite into (T_TT_I t tt o) =>
  t a -> into (from a (tt o)) (t o)
 yok x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
+ `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
 
 yokk = yok
@@ -358,13 +358,13 @@ yuk, yi'yuk
  Castable Opposite into (T_TT_I t tt o) =>
  t a -> into (Supertype (into () (tt o))) (t o)
 yuk x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
+ `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
+ `compose` wrap @into @(into () (tt o))
 yi'yuk x = component @Straight @(->) @into @(T_TT_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
+ `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight (fu @(->) () x)
- `compose` wr @into @(into () (tt o))
+ `compose` wrap @into @(into () (tt o))
 
 -- TODO: try to generalize
 yolk :: forall from into tt t a o .
@@ -387,7 +387,7 @@ yokl, yi'yokl :: forall from into tt t a o .
 yokl x = unlabel
  `compose` unwrap @into @(TT_T_I t tt _)
  `compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
- `compose` wr @into @(T_TT_I t tt _)
+ `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
 
 yi'yokl = yokl
@@ -401,7 +401,7 @@ yiokl :: forall from into tt t i a o .
  t i a -> into (from a (tt o)) (t i o)
 yiokl x = unwrap @into @(U_I_II t i o)
  `compose` component @Straight @from @into @(T_TT_I (U_I_II t i) tt)
- `compose` wr @into @(T_TT_I (U_I_II t i) tt _)
+ `compose` wrap @into @(T_TT_I (U_I_II t i) tt _)
  `compose` yoneda @Straight @from (U_I_II x)
 
 yok'yokl, yi'yok'yokl
@@ -470,28 +470,28 @@ fio :: forall from into t a o i .
  Wrapper into (U_I_II t i a) =>
  Wrapper into (U_I_II t i o) =>
  from a o -> into (t i a) (t i o)
-fio from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wr
+fio from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
 fioi :: forall from into t a o i ii .
  Covariant Semi Functor from into (W_III_I_II t ii i) =>
  Wrapper into (W_III_I_II t ii i a) =>
  Wrapper into (W_III_I_II t ii i o) =>
  from a o -> into (t i a ii) (t i o ii)
-fioi from = unwrap `compose` fo @_ @_ @(W_III_I_II _ _ _) from `compose` wr
+fioi from = unwrap `compose` fo @_ @_ @(W_III_I_II _ _ _) from `compose` wrap
 
 foi :: forall from into t a o i .
  Covariant Semi Functor from into (U_II_I t i) =>
  Wrapper into (U_II_I t i a) =>
  Wrapper into (U_II_I t i o) =>
  from a o -> into (t a i) (t o i)
-foi from = unwrap `compose` fo @_ @_ @(U_II_I _ _) from `compose` wr
+foi from = unwrap `compose` fo @_ @_ @(U_II_I _ _) from `compose` wrap
 
 fai :: forall from into t a o i .
  Contravariant Semi Functor from into (U_II_I t i) =>
  Wrapper into (U_II_I t i a) =>
  Wrapper into (U_II_I t i o) =>
  from a o -> into (t o i) (t a i)
-fai from = unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wr
+fai from = unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
 
 fai_ :: forall from into t a o i .
  Contravariant Semi Functor from into (U_II_I t i) =>
@@ -502,7 +502,7 @@ fai_ :: forall from into t a o i .
  Wrapper into a =>
  from (Supertype a) o -> into (t o i) (t a i)
 fai_ from = fai @into unwrap `compose` unwrap
- `compose` fa @_ @_ @(U_II_I _ _) from `compose` wr
+ `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
 
 fio'fo :: forall from into t tt e a o .
  Covariant Semi Functor into into (U_I_II t e) =>
@@ -519,7 +519,7 @@ fiu :: forall from into t a o e .
  Castable Straight into (U_I_II t e o) =>
  Castable Opposite into (U_I_II t e a) =>
  Supertype (into () o) -> into (t e a) (t e o)
-fiu from = unwrap `compose` fu @_ @(U_I_II _ _) from `compose` wr
+fiu from = unwrap `compose` fu @_ @(U_I_II _ _) from `compose` wrap
 
 ho, hoo, hooo, hoooo, hooooo, hoooooo, hooooooo, hoooooooo, hooooooooo, yi'ho :: forall from into u i a o .
  Precategory from =>
@@ -793,7 +793,7 @@ hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu, huuuuuuu
  Castable Opposite (->) (from () a) =>
  Castable Straight into (from () o) =>
  Supertype (from () a) -> into (from a o) (Supertype (from () o))
-hu x = _' `compose` _' `compose` yo @from @into @(U_1_I from ()) (U_1_I @from @() / wrap @(from () _) x)
+hu x = _' `compose` _' `compose` yo @from @into @(U_1_I from ()) (U_1_I @from @() / wrap @_ @(from () _) x)
 
 huu = hu
 huuu = hu
@@ -918,7 +918,7 @@ lj :: forall from into t tt a o .
 lj from = fo from
  `compose` _' @into
  `compose` component @Straight @from @into @Identity @(tt `T_TT_I` t)
- `compose` wr @into
+ `compose` wrap @into
 
 ilj :: forall from into t tt e ee a o .
  Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
@@ -931,7 +931,7 @@ ilj from = _' @into @(U_I_II tt _ _)
  `compose` fo (from `compose` _' @from @(U_I_II t _ _))
  `compose` _' @into @(T_TT_I _ _ _)
  `compose` component @Straight @from @into @Identity @(U_I_II tt ee `T_TT_I` U_I_II t e)
- `compose` wr @into
+ `compose` wrap @into
 
 hd :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
@@ -944,7 +944,7 @@ hd from = _' @into @(U_I_II tt _ _)
  `compose` fo (from `compose` _' @from @(U_II_I t _ _))
  `compose` _' @into @(T_TT_I _ _ _)
  `compose` component @Straight @from @into @Identity @(U_I_II tt e `T_TT_I` U_II_I t e)
- `compose` wr @into
+ `compose` wrap @into
 
 hj :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
@@ -955,9 +955,9 @@ hj :: forall from into t tt e a o .
  into a (tt e o) -> from (t a e) o
 hj from = _' @from
  `compose` component @Straight @into @from @(U_II_I t e `T_TT_I` U_I_II tt e) @Identity
- `compose` wr @from @((U_II_I t e `T_TT_I` U_I_II tt e) _)
- `compose` fo (wr @into @(U_I_II tt e _) `compose` from)
- `compose` wr @from @(U_II_I t e _)
+ `compose` wrap @from @((U_II_I t e `T_TT_I` U_I_II tt e) _)
+ `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
+ `compose` wrap @from @(U_II_I t e _)
 
 hj'hj :: forall from into t tt ttt tttt e ee a o .
  Adjoint Functor from from (U_II_I t ee) (U_I_II tttt ee) =>
@@ -985,7 +985,7 @@ rj :: forall from into t tt a o .
  into a (tt o) -> from (t a) o
 rj from = _' @from @(Identity _)
  `compose` component @Straight @into @from @(t `T_TT_I` tt) @Identity
- `compose` wr @from @((t `T_TT_I` tt) _)
+ `compose` wrap @from @((t `T_TT_I` tt) _)
  `compose` fo @into @from from
 
 rij :: forall from into t tt e ee a o .
@@ -997,9 +997,9 @@ rij :: forall from into t tt e ee a o .
  into a (tt e o) -> from (t ee a) o
 rij from = _' @from
  `compose` component @Straight @into @from @(U_I_II t ee `T_TT_I` U_I_II tt e) @Identity
- `compose` wr @from @((U_I_II t ee `T_TT_I` U_I_II tt e) _)
- `compose` fo (wr @into @(U_I_II tt e _) `compose` from)
- `compose` wr @from @(U_I_II t ee _)
+ `compose` wrap @from @((U_I_II t ee `T_TT_I` U_I_II tt e) _)
+ `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
+ `compose` wrap @from @(U_I_II t ee _)
 
 hp :: forall into a o oo .
  Limit Straight into into =>
@@ -1079,8 +1079,8 @@ lm, yi'lm :: forall o oo .
  Castable Straight (->) ((->) () (Product (->) o oo)) =>
  Supertype ((->) () o) -> Supertype ((->) () oo) -> Supertype ((->) () (Product (->) o oo))
 lm from_left from_right = _' /
- _i (map @Straight @Straight (wrapped (right @Straight (wr @_ @((->) () oo) from_right)))) `compose`
- i_ (map @Straight @Straight (wrapped (left @Straight (wr @_ @((->) () o) from_left)))) `compose`
+ _i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
+ i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 
@@ -1208,14 +1208,14 @@ w'rw :: forall into a o .
  Castable Opposite into o =>
  Castable Straight into a =>
  into (Supertype a) (Supertype o) -> into a o
-w'rw into = wr @into `compose` into `compose` _' @into
+w'rw into = wrap @into `compose` into `compose` _' @into
 
 rw'w :: forall into a o .
  Precategory into =>
  Castable Opposite into a =>
  Castable Straight into o =>
  into a o -> into (Supertype a) (Supertype o)
-rw'w into = _' @into `compose` into `compose` wr @into
+rw'w into = _' @into `compose` into `compose` wrap @into
 
 __yi, __yii, __yiii, __yiiii, __yiiiii :: forall into a .
  Precategory into =>
@@ -1476,7 +1476,7 @@ jt :: forall into f g e .
  Castable Opposite into ((f `T_TT_I` g) e) =>
  into (f (g e)) ((f `JT` g) e)
 jt = component @Straight @(->) @into @(f `T_TT_I` g) @(f `JT` g) @e
- `compose` wr @into @((f `T_TT_I` g) e)
+ `compose` wrap @into @((f `T_TT_I` g) e)
 
 -- TODO: generalize
 yp'yp'jt :: forall e ee t tt .
@@ -1535,7 +1535,7 @@ rwr'yoi :: forall from into w o u e ee .
  (Supertype (w u e o) ~ u e o) =>
  (Supertype (w u ee o) ~ u ee o) =>
  w u e o -> into (from e ee) (w u ee o)
-rwr'yoi x = wr @into `compose` yoi (unwrap x)
+rwr'yoi x = wrap @into `compose` yoi (unwrap x)
 
 -- -- TODO: generalize
 -- o_rwr_yoi :: forall from into w a o u e ee .
@@ -1626,7 +1626,7 @@ fc :: forall into t a o .
  t (into a o) -> into (t a) (t o)
 fc = unwrap @(->) @(That into (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
- (rj @(->) @(->) (wr @_ @(That _ _ _)) `compose` wr @_ @(That _ _ _))
+ (rj @(->) @(->) (wrap @_ @(That _ _ _)) `compose` wrap @_ @(That _ _ _))
  `compose` lj @(->) @(->) @(That LM (t a)) @(That into _)
  (monoidal_ @Straight @into @(->) @t @LM @LM identity (wrap identity)
  `compose` unwrap @(->) @(That LM (t a) (t (into a o))))

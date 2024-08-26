@@ -316,7 +316,7 @@ instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
 unwrap :: Castable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
 
-wrap :: Castable Opposite (->) i => Supertype i -> i
+wrap :: Castable Opposite into i => into (Supertype i) i
 wrap = let U_II_I x = cast in x
 
 -- Category: initial object

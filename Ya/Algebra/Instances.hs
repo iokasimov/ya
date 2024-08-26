@@ -189,7 +189,7 @@ instance
 		((U_I_I u `T_TT_I` t) `T_TT_I` tt)
 		((U_I_I u `T_TT_I` t) `TT_T_I` tt)
 	where mapping = rwr / \from -> rwr /
-		map @Straight @Straight @Arrow @Arrow (wrap @(T_TT_I (U_I_I u) t _)) `compose`
+		map @Straight @Straight @Arrow @Arrow (wrap @_ @(T_TT_I (U_I_I u) t _)) `compose`
 		wrapped (component @Straight @Arrow @Arrow @(T_TT_I (U_I_I u) tt) @(TT_T_I (U_I_I u) tt)) `compose`
 		map @Straight @Straight @Arrow @Arrow @(U_I_I u)
 			(wrapped / map @Straight @Straight @Arrow @Arrow @(T_TT_I t tt) @(TT_T_I t tt) from) `compose`
