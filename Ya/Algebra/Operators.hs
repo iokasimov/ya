@@ -66,6 +66,15 @@ infixl 9 `hd`
 
 infixl 9 `hj`, `hj'hj`
 
+infixl 9 `hp`
+infixl 8 `hpp`
+infixl 7 `hppp`
+infixl 5 `hpppp`
+infixl 4 `hppppp`
+infixl 3 `hpppppp`
+infixl 2 `hppppppp`
+infixl 1 `hpppppppp`
+
 infixl 9 `hs`
 infixl 8 `hss`
 infixl 7 `hsss`
@@ -132,7 +141,7 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `hp`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
+infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
 infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
 infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
 infixl 5 `vvvvv`, `yiokl`
@@ -1018,7 +1027,7 @@ rij from = _' @from
  `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
  `compose` wrap @from @(U_I_II t ee _)
 
-hp :: forall into a o oo .
+hp, hpp, hppp, hpppp, hppppp, hpppppp, hppppppp, hpppppppp, hppppppppp :: forall into a o oo .
  Limit Straight into into =>
  Covariant Functor into into (That (Product into) o) =>
  Covariant Functor into into (This (Product into) (Product into a a)) =>
@@ -1032,6 +1041,15 @@ hp from_left from_right =
  i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
+
+hpp = hp
+hppp = hp
+hpppp = hp
+hppppp = hp
+hpppppp = hp
+hppppppp = hp
+hpppppppp = hp
+hppppppppp = hp
 
 cn :: forall into a aa o oo .
  Cone Straight into into (Object Straight into) =>
