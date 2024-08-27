@@ -75,16 +75,16 @@ infixl 3 `hpppppp`
 infixl 2 `hppppppp`
 infixl 1 `hpppppppp`
 
-infixl 9 `hs`
-infixl 8 `hss`
-infixl 7 `hsss`
-infixl 5 `hssss`
-infixl 4 `hsssss`
-infixl 3 `hssssss`
-infixl 2 `hsssssss`
-infixl 1 `hssssssss`
+infixl 9 `la`
+infixl 8 `laa`
+infixl 7 `laaa`
+infixl 5 `laaaa`
+infixl 4 `laaaaa`
+infixl 3 `laaaaaa`
+infixl 2 `laaaaaaa`
+infixl 1 `laaaaaaaa`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'hs`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
  , `__yi`
 infixl 7 `yii`, `yii'yok`
@@ -1124,7 +1124,7 @@ lm from_left from_right = _' /
 
 yi'lm = lm
 
-hs, hss, hsss, hssss, hsssss, hssssss, hsssssss, hssssssss, hsssssssss, yi'hs :: forall from i o oo .
+la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa, laaaaaaaaa, yi'la :: forall from i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1134,21 +1134,21 @@ hs, hss, hsss, hssss, hsssss, hssssss, hsssssss, hssssssss, hsssssssss, yi'hs ::
  (forall ee . Wrapper from (Both (Sum from) ee)) =>
  (forall ee . Wrapper from (Identity ee)) =>
  from o i -> from oo i -> from (Sum from o oo) i
-hs from_left from_right =
+la from_left from_right =
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
  _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
 
-hss = hs
-hsss = hs
-hssss = hs
-hsssss = hs
-hssssss = hs
-hsssssss = hs
-hssssssss = hs
-hsssssssss = hs
-yi'hs = hs
+laa = la
+laaa = la
+laaaa = la
+laaaaa = la
+laaaaaa = la
+laaaaaaa = la
+laaaaaaaa = la
+laaaaaaaaa = la
+yi'la = la
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
@@ -1167,7 +1167,7 @@ hsz, yi'hsz :: forall from e i o oo .
  (Supertype e ~ (Sum from o oo)) =>
  Castable Straight from e =>
  from o i -> from oo i -> from e i
-hsz from_left from_right = hs from_left from_right `compose` _'
+hsz from_left from_right = la from_left from_right `compose` _'
 
 yi'hsz = hsz
 
