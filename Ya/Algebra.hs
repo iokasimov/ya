@@ -42,7 +42,7 @@ instance
 		 wrap /
 			day @Straight @Arrow @tt @LM @LM identity
 				(wrap @_ @(R_U_I_T_I _ _ _) `compose` wrap @_ @(Recursive _) `compose` wrap @_ @(U_I_T_II _ _ _ _))
-				((unwrap x `yo` from) `lm`
+				((unwrap x `yo` from) `lu`
 					(wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
 						(xs `yo` wrap @(->) @(R_U_I_T_I _ _ _)
 							`ho` wrapped (map @Straight @Straight @(->) @(->)
@@ -369,6 +369,6 @@ instance (Setoid e, Setoid ee) => Setoid (e `ML` ee) where
 	e x xx = This (These x xx)
 
 instance (Setoid e, Setoid ee) => Setoid (e `LM` ee) where
-	e (These x xx) (These xxx xxxx) = case (e x xxx) `lm`(e xx xxxx) of
-		These (That x') (That xx') -> (That (These x' xx'))
-		These _ _ -> (This (x `lm` xx `yi'lm` xxx `lm` xxxx))
+	e (These x xx) (These xxx xxxx) = case (e x xxx) `lu`(e xx xxxx) of
+		These (That x') (That xx') -> That (These x' xx')
+		These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))

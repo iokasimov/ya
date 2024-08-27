@@ -33,7 +33,7 @@ review :: Transition state state
 review = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` old `yi` old
 
 switch :: (e -> ee) -> Automation e ee e
-switch f = U_I_UU_II_III `yi` \x -> f x `lm` x
+switch f = U_I_UU_II_III `yi` \x -> f x `lu` x
 
 put :: state -> Transition state state
 put new = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` new `yi` old
@@ -45,7 +45,7 @@ modify :: (state -> state) -> Transition state state
 modify f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` f old
 
 auto :: Automation e e e
-auto = U_I_UU_II_III `yi` \x -> x `lm` x
+auto = U_I_UU_II_III `yi` \x -> x `lu` x
 
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
@@ -53,14 +53,14 @@ leaf :: forall t e .
 leaf x = Recursive `ha` U_I_T_II `ha` These x `yii` empty `yo` absurd
 
 self :: Reference e e e
-self = U_I_UU_III_U_II_I / \x -> x `lm` identity
+self = U_I_UU_III_U_II_I / \x -> x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
  Reference (Construction t e) e e
 top = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These old xs))))
-  -> old `lm` (\new -> Root new xs)
+  -> old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
@@ -134,4 +134,4 @@ rep :: forall t e .
 rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `yi` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `_yi` index) `yi'lm` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `_yi` index') `la` but x `yi` (index' `e` index)))
+ (idx origin `_yi` index) `yi'lu` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `_yi` index') `la` but x `yi` (index' `e` index)))

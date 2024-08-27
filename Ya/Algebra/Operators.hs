@@ -84,7 +84,9 @@ infixl 3 `laaaaaa`
 infixl 2 `laaaaaaa`
 infixl 1 `laaaaaaaa`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
+infixl 8 `lu`, `lu'yp`, `lu'ds`, `lu'yp'yp`
+
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`, `yi'lu`, `yi'lu'ds`
  , `_yi`
  , `__yi`
 infixl 7 `yii`, `yii'yok`
@@ -143,9 +145,9 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fr'yp`, `lm'yp`, `lm'ds`, `lm'yp'yp`, `hsz`
+infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `cc`, `fc`, `jt`, `fr'yp`, `hsz`
 infixl 7 `vvv`, `ilj`, `rij`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
+infixl 6 `vvvv`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lu'yp`
 infixl 5 `vvvvv`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
@@ -1098,7 +1100,7 @@ cnz'yp from_left from_right = yp `compose` cn from_left from_right `compose` _'
 yi'cnz'yp = cnz'yp
 
 -- TODO: try to generalize
-lm, yi'lm :: forall o oo .
+lu, yi'lu :: forall o oo .
  Limit Straight (->) (->) =>
  Covariant Functor (->) (->) (That (Product (->)) o) =>
  Covariant Functor (->) (->) (This (Product (->)) (Product (->) () ())) =>
@@ -1115,13 +1117,13 @@ lm, yi'lm :: forall o oo .
  Castable Opposite (->) ((->) () oo) =>
  Castable Straight (->) ((->) () (Product (->) o oo)) =>
  Supertype ((->) () o) -> Supertype ((->) () oo) -> Supertype ((->) () (Product (->) o oo))
-lm from_left from_right = _' /
+lu from_left from_right = _' /
  _i (map @Straight @Straight (wrapped (right @Straight (wrap @_ @((->) () oo) from_right)))) `compose`
  i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @((->) () o) from_left)))) `compose`
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 
-yi'lm = lm
+yi'lu = lu
 
 la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa, yi'la :: forall from i o oo .
  Category from =>
@@ -1459,25 +1461,25 @@ fr'yp from_left from_right = yp `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
-lm'yp, yi'lm'yp :: forall o oo t .
+lu'yp, yi'lu'yp :: forall o oo t .
  Covariant Monoidal Functor (->) LM LM t =>
  t o -> t oo -> t (o `LM` oo)
-lm'yp from_left from_right = yp (lm from_left from_right)
+lu'yp from_left from_right = yp (lu from_left from_right)
 
-yi'lm'yp = lm'yp
+yi'lu'yp = lu'yp
 
-lm'ds, yi'lm'ds :: forall o oo t .
+lu'ds, yi'lu'ds :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
  t o -> t oo -> t (o `ML` oo)
-lm'ds from_left from_right = ds (lm from_left from_right)
+lu'ds from_left from_right = ds (lu from_left from_right)
 
-yi'lm'ds = lm'ds
+yi'lu'ds = lu'ds
 
-lm'yp'yp :: forall o oo t tt .
+lu'yp'yp :: forall o oo t tt .
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
  t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
-lm'yp'yp from_left from_right = yp'yp @LM (lm from_left from_right)
+lu'yp'yp from_left from_right = yp'yp @LM (lu from_left from_right)
 
 -- TODO: generalize
 yp'yo :: forall from e ee r t .
@@ -1682,4 +1684,4 @@ cc :: forall t e ee .
 cc e ee = monoidal_
  @Straight @(->) @(->) @t @LM @LM identity
  (wrap identity)
- (e `lm` ee)
+ (e `lu` ee)

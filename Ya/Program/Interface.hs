@@ -15,12 +15,12 @@ instance Field e e where
  has = self
 
 instance Field e (e `LM` ee) where
- has = U_I_UU_III_U_II_I `yi` \(These f fs) -> f `lm` (`lm` fs)
+ has = U_I_UU_III_U_II_I `yi` \(These f fs) -> f `lu` (`lu` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = U_I_UU_III_U_II_I `yi` \(These old fs) -> These
   `yi` (has @e @ee `_yi` fs `huuuu` this)
-  `yi` \new -> old `lm` adjust (Attribute `yi` has @e @ee) (but new) fs
+  `yi` \new -> old `lu` adjust (Attribute `yi` has @e @ee) (but new) fs
 
 class Match e ee where
  match :: (e -> r) -> (ee -> r) -> (ee -> r)
@@ -54,13 +54,13 @@ instance Literal (Construction Optional) item init =>
   `___ho`  Construct (Last last) `yi` this
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
- as x = Root x (T_TT_I (U_I_I (None () `lm` None ())))
+ as x = Root x (T_TT_I (U_I_I (None () `lu` None ())))
 
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
    `yii` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-    `lm` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+    `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
 
 class Stack datastructure where
  pop :: Transition `TI` datastructure item `TI` Optional item
@@ -92,7 +92,7 @@ type family Shafted datastructure = result | result -> datastructure where
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
-  from x `hu` Singular `lm` (Empty @List () `yi'lm` xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from
+  from x `hu` Singular `lu` (Empty @List () `lu` (xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from)
    `huuuuu` T_TT_I `ha` U_I_I) `huuuuuu` U_T_I_TT_I
 
 type family Orientation datastructure where
