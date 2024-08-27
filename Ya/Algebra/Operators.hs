@@ -113,6 +113,8 @@ infixl 3 `yokkkkk`
 infixl 2 `yokkkkkk`
 infixl 1 `yokkkkkkk`
 
+infixl 6 `yiok`
+
 infixl 7 `yuk`
 infixl 6 `yukk`
 infixl 5 `yukkk`
@@ -141,10 +143,10 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `fo`, `fa`, `fu`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fo'fo`, `fr'yp`, `lm'yp`, `lm'ds`, `fo'fo'fo`, `lm'yp'yp`, `hsz`
-infixl 7 `vvv`, `fio`, `foi`, `fai`, `fai_`, `ilj`, `rij`, `fio'fo`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `fokl`, `fukl`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
-infixl 5 `vvvvv`, `yiokl`
+infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `lm`, `cc`, `fc`, `jt`, `fr'yp`, `lm'yp`, `lm'ds`, `lm'yp'yp`, `hsz`
+infixl 7 `vvv`, `ilj`, `rij`, `w'rw`, `rw'w`
+infixl 6 `vvvv`, `yi'lm`, `yi'lm'ds`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lm'yp`
+infixl 5 `vvvvv`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
 infixl 2 `vvvvvvvv`
@@ -203,30 +205,30 @@ fu :: forall into t a o .
  Supertype (into () o) -> into (t a) (t o)
 fu = map @Constant @Straight @into @into `compose` wrap @_ @(into () o)
 
-fokl :: forall from into t tt a o .
+fok :: forall from into t tt a o .
  Component Natural from into (T_TT_I t tt) t =>
  Castable Opposite into (T_TT_I t tt o) =>
  from a (tt o) -> into (t a) (t o)
-fokl from = component @Straight @from @into @(t `T_TT_I` tt) @t
+fok from = component @Straight @from @into @(t `T_TT_I` tt) @t
  `compose` wrap `compose` fo from
 
-fukl :: forall into t tt a o .
+fuk :: forall into t tt a o .
  Component Natural into into (T_TT_I t tt) t =>
  Mapping Constant Straight into into t t =>
  Castable Opposite into (T_TT_I t tt o) =>
  Castable Opposite (->) (into () (tt o)) =>
  Castable Opposite into (T_TT_I t t o) =>
  Supertype (into () (tt o)) -> into (t a) (t o)
-fukl from = map @Straight @Straight @into @into @(t `T_TT_I` tt) @t identity
+fuk from = map @Straight @Straight @into @into @(t `T_TT_I` tt) @t identity
  `compose` wrap `compose` fu @into from
 
-foklKL :: forall from into t tt a o .
+fokl :: forall from into t tt a o .
  Covariant Semi Functor from into t =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Castable Opposite into (T_TT_I t tt o) =>
  Castable Straight into (TT_T_I t tt o) =>
  from a (tt o) -> into (t a) (tt (t o))
-foklKL from = wrapped
+fokl from = wrapped
  (component @Straight @from @into @(t `T_TT_I` tt) @(t `TT_T_I` tt))
  `compose` fo from
 
@@ -418,18 +420,19 @@ yokl x = unlabel
 
 yi'yokl = yokl
 
-yiokl :: forall from into tt t i a o .
+yiok :: forall from into tt t i a o .
  Component Natural from into (T_TT_I (U_I_II t i) tt) (U_I_II t i) =>
  Covariant Yoneda from into (U_I_II t i) =>
  Castable Opposite into (U_I_II from a (tt o)) =>
  Castable Straight into (U_I_II t i o) =>
  Castable Opposite into (T_TT_I (U_I_II t i) tt o) =>
  t i a -> into (from a (tt o)) (t i o)
-yiokl x = unwrap @into @(U_I_II t i o)
+yiok x = unwrap @into @(U_I_II t i o)
  `compose` component @Straight @from @into @(T_TT_I (U_I_II t i) tt)
  `compose` wrap @into @(T_TT_I (U_I_II t i) tt _)
  `compose` yoneda @Straight @from (U_I_II x)
 
+-- TODO: label inner effect
 yok'yokl, yi'yok'yokl
  :: forall from into t tt ttt a o .
  Covariant Yoneda from into t =>
@@ -443,7 +446,7 @@ yok'yokl, yi'yok'yokl
  Castable Straight from (TT_T_I ttt tt o) =>
  Castable Opposite into (T_TT_I t tt (ttt o)) =>
  t (ttt a) -> into (from a (tt o)) (t (ttt o))
-yok'yokl x = fai foklKL (yok @from @into x)
+yok'yokl x = fai fokl (yok @from @into x)
 
 yi'yok'yokl = yok'yokl
 
@@ -460,7 +463,7 @@ yokl'yok :: forall from into t tt ttt a o .
  Castable Opposite into (T_TT_I t ttt o) =>
  Castable Opposite from (T_TT_I ttt tt o) =>
  t (ttt a) -> into (from a (tt o)) (Unlabeled ttt (t o))
-yokl'yok x = fai fokl (yokl @from @into x)
+yokl'yok x = fai fok (yokl @from @into x)
 
 yokl'yokl :: forall from into t tt ttt a o .
  Unlabelable into ttt =>
@@ -476,7 +479,7 @@ yokl'yokl :: forall from into t tt ttt a o .
  Castable Opposite into (T_TT_I t ttt (tt o)) =>
  Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
  t (tt a) -> into (from a (ttt o)) (Unlabeled ttt (t (tt o)))
-yokl'yokl x = fai foklKL (yokl @from @into x)
+yokl'yokl x = fai fokl (yokl @from @into x)
 
 fo'fo :: forall from into t tt a o .
  Covariant Semi Functor from into tt =>
@@ -1304,7 +1307,7 @@ ho'yok, hoo'yok, hooo'yok, hoooo'yok, hooooo'yok, hoooooo'yok, hooooooo'yok, hoo
  Covariant Yoneda from (->) (Straight u e) =>
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  u e (t a) -> from a (tt o) -> u e (t o)
-ho'yok x = fai fokl (ho @from x)
+ho'yok x = fai fok (ho @from x)
 
 hoo'yok = ho'yok
 hooo'yok = ho'yok
@@ -1325,15 +1328,15 @@ ho'yuk, hoo'yuk, hooo'yuk, hoooo'yuk, hooooo'yuk, hoooooo'yuk, hooooooo'yuk, hoo
  Castable Opposite (->) (from () (tt o)) =>
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  from e (t a) -> Supertype (from () (tt o)) -> from e (t o)
-ho'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hoo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hoooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hooooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hoooooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hooooooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hoooooooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
-hooooooooo'yuk x = fai (fukl @from @t @tt) (ho @from x)
+ho'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hoo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hoooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hooooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hoooooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hooooooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hoooooooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
+hooooooooo'yuk x = fai (fuk @from @t @tt) (ho @from x)
 
 ha'yok :: forall from u t tt a o e .
  Covariant Functor (->) (->) tt =>
@@ -1346,7 +1349,7 @@ ha'yok :: forall from u t tt a o e .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  u (t o) e -> from a (tt o) -> u (t a) e
-ha'yok x = fai fokl (ha @from x)
+ha'yok x = fai fok (ha @from x)
 
 -- TODO: try to gereralize
 yok'ha, yi'yok'ha :: forall from t tt a o e .
@@ -1418,7 +1421,7 @@ ho'yokl, hoo'yokl :: forall from u t tt a o e .
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  (forall ee . Wrapper from (TT_T_I t tt ee)) =>
  u e (t a) -> from a (tt o) -> u e (Unlabeled tt (t o))
-ho'yokl x = fio @from unlabel `compose` fai foklKL (ho @from x)
+ho'yokl x = fio @from unlabel `compose` fai fokl (ho @from x)
 
 hoo'yokl = ho'yokl
 
@@ -1434,7 +1437,7 @@ ha'yuk :: forall from t tt a o e .
  Castable Opposite from (T_TT_I tt tt o) =>
  Castable Opposite (->) (from () (t o)) =>
  Supertype (from () (t o)) -> from e (tt a) -> from e (tt o)
-ha'yuk = ha `compose` fukl @from @tt @t
+ha'yuk = ha `compose` fuk @from @tt @t
 
 fr'yp :: forall from t i o oo .
  Category from =>
