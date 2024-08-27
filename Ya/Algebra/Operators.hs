@@ -114,7 +114,7 @@ infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`, `yok'yokl`
+infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'yokl`, `kyo`
 infixl 6 `yokk`
 infixl 5 `yokkk`
 infixl 4 `yokkkk`
@@ -154,7 +154,7 @@ infixl 6 `yioi`
 
 infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `cc`, `fc`, `jt`, `fr'yp`, `hsz`
 infixl 7 `vvv`, `ilj`, `rij`, `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yok'u`, `yolk`, `yi'cn'yp`, `yi'lu'yp`
+infixl 6 `vvvv`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yi'cn'yp`, `yi'lu'yp`
 infixl 5 `vvvvv`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
@@ -404,13 +404,13 @@ yukkkkkkk = yuk @into @tt
 yi'yuk = yuk @into @tt
 
 -- TODO: try to generalize
-yolk :: forall from into tt t a o .
+kyo :: forall from into tt t a o .
  Precategory into =>
  Component Natural (->) (->) t (T_TT_I t tt) =>
  Covariant Yoneda from into t =>
  Castable Opposite into (Straight from (tt a) o) =>
  t a -> into (from (tt a) o) (t o)
-yolk = yoneda @Straight @from @into `compose` unwrap
+kyo = yoneda @Straight @from @into `compose` unwrap
  `compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
 yokl, yi'yokl :: forall from into tt t a o .
@@ -1390,8 +1390,7 @@ yok'ha x f = yok x `compose` fio f
 
 yi'yok'ha = yok'ha
 
--- TODO: rename
-yok'u :: forall from t tt a o e .
+yok'hu :: forall from t tt a o e .
   Precategory from =>
   Covariant Yoneda from from t =>
   Mapping Straight Straight from from (U_I_II from e) (U_I_II from e) =>
@@ -1407,7 +1406,7 @@ yok'u :: forall from t tt a o e .
   Castable Opposite from (U_I_II from e a) =>
   Castable Opposite (->) (from () (tt o)) =>
   t e -> Supertype (from () (tt o)) -> from (from e a) (t o)
-yok'u x f = yok @_ @_ @tt x `compose` _i (fu @from f)
+yok'hu x f = yok @_ @_ @tt x `compose` _i (fu @from f)
 
 -- yokl_o :: forall from u t tt a o e .
  -- Category from =>
