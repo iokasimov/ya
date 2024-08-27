@@ -75,14 +75,13 @@ infixl 3 `hpppppp`
 infixl 2 `hppppppp`
 infixl 1 `hpppppppp`
 
-infixl 9 `la`
-infixl 8 `laa`
-infixl 7 `laaa`
-infixl 5 `laaaa`
-infixl 4 `laaaaa`
-infixl 3 `laaaaaa`
-infixl 2 `laaaaaaa`
-infixl 1 `laaaaaaaa`
+infixl 8 `la`
+infixl 7 `laa`
+infixl 5 `laaa`
+infixl 4 `laaaa`
+infixl 3 `laaaaa`
+infixl 2 `laaaaaa`
+infixl 1 `laaaaaaa`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
@@ -1124,7 +1123,7 @@ lm from_left from_right = _' /
 
 yi'lm = lm
 
-la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa, laaaaaaaaa, yi'la :: forall from i o oo .
+la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa, yi'la :: forall from i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1147,7 +1146,6 @@ laaaaa = la
 laaaaaa = la
 laaaaaaa = la
 laaaaaaaa = la
-laaaaaaaaa = la
 yi'la = la
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
