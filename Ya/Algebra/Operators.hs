@@ -67,6 +67,13 @@ infixl 9 `hd`
 infixl 9 `hj`, `hj'hj`
 
 infixl 9 `hs`
+infixl 8 `hss`
+infixl 7 `hsss`
+infixl 5 `hssss`
+infixl 4 `hsssss`
+infixl 3 `hssssss`
+infixl 2 `hsssssss`
+infixl 1 `hssssssss`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'hs`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
@@ -1096,7 +1103,7 @@ lm from_left from_right = _' /
 
 yi'lm = lm
 
-hs, yi'hs :: forall from i o oo .
+hs, hss, hsss, hssss, hsssss, hssssss, hsssssss, hssssssss, hsssssssss, yi'hs :: forall from i o oo .
  Category from =>
  Limit Opposite from from =>
  Covariant Functor from from (That (Sum from) o) =>
@@ -1112,12 +1119,20 @@ hs from_left from_right =
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
  _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
 
+hss = hs
+hsss = hs
+hssss = hs
+hsssss = hs
+hssssss = hs
+hsssssss = hs
+hssssssss = hs
+hsssssssss = hs
+yi'hs = hs
+
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
 -- `hp`: into a o -> into a oo -> into a (o `LM` oo)
 --     : u (from o i) (from oo i) -> from (uu o oo) i
-
-yi'hs = hs
 
 hsz, yi'hsz :: forall from e i o oo .
  Category from =>
