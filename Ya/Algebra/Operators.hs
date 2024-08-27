@@ -85,6 +85,13 @@ infixl 2 `laaaaaaa`
 infixl 1 `laaaaaaaa`
 
 infixl 8 `lu`, `lu'yp`, `lu'ds`, `lu'yp'yp`
+infixl 7 `luu`
+infixl 5 `luuu`
+infixl 5 `luuuu`
+infixl 4 `luuuuu`
+infixl 3 `luuuuuu`
+infixl 2 `luuuuuuu`
+infixl 1 `luuuuuuuu`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`, `yi'lu`, `yi'lu'ds`
  , `_yi`
@@ -1100,7 +1107,7 @@ cnz'yp from_left from_right = yp `compose` cn from_left from_right `compose` _'
 yi'cnz'yp = cnz'yp
 
 -- TODO: try to generalize
-lu, yi'lu :: forall o oo .
+lu, luu, luuu, luuuu, luuuuu, luuuuuu, luuuuuuu, luuuuuuuu, yi'lu :: forall o oo .
  Limit Straight (->) (->) =>
  Covariant Functor (->) (->) (That (Product (->)) o) =>
  Covariant Functor (->) (->) (This (Product (->)) (Product (->) () ())) =>
@@ -1123,6 +1130,13 @@ lu from_left from_right = _' /
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity) `compose`
  wrapped (map @Straight @Straight @(->) @(->) @Identity @(Both (Product (->))) identity)
 
+luu = lu
+luuu = lu
+luuuu = lu
+luuuuu = lu
+luuuuuu = lu
+luuuuuuu = lu
+luuuuuuuu = lu
 yi'lu = lu
 
 la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa, yi'la :: forall from i o oo .
