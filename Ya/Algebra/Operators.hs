@@ -66,22 +66,23 @@ infixl 9 `hd`
 
 infixl 9 `hj`, `hj'hj`
 
-infixl 9 `hp`
-infixl 8 `hpp`
-infixl 7 `hppp`
-infixl 5 `hpppp`
-infixl 4 `hppppp`
-infixl 3 `hpppppp`
-infixl 2 `hppppppp`
-infixl 1 `hpppppppp`
+infixl 8 `lo`
+infixl 7 `loo`
+infixl 6 `looo`
+infixl 5 `loooo`
+infixl 4 `looooo`
+infixl 3 `loooooo`
+infixl 2 `looooooo`
+infixl 1 `loooooooo`
 
 infixl 8 `la`
 infixl 7 `laa`
 infixl 5 `laaa`
-infixl 4 `laaaa`
-infixl 3 `laaaaa`
-infixl 2 `laaaaaa`
-infixl 1 `laaaaaaa`
+infixl 5 `laaaa`
+infixl 4 `laaaaa`
+infixl 3 `laaaaaa`
+infixl 2 `laaaaaaa`
+infixl 1 `laaaaaaaa`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_yi`, `yi'ho`
  , `_yi`
@@ -1029,7 +1030,7 @@ rij from = _' @from
  `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
  `compose` wrap @from @(U_I_II t ee _)
 
-hp, hpp, hppp, hpppp, hppppp, hpppppp, hppppppp, hpppppppp, hppppppppp :: forall into a o oo .
+lo, loo, looo, loooo, looooo, loooooo, looooooo, loooooooo :: forall into a o oo .
  Limit Straight into into =>
  Covariant Functor into into (That (Product into) o) =>
  Covariant Functor into into (This (Product into) (Product into a a)) =>
@@ -1038,20 +1039,19 @@ hp, hpp, hppp, hpppp, hppppp, hpppppp, hppppppp, hpppppppp, hppppppppp :: forall
  (forall e . Wrapper into (Both (Product into) e)) =>
  (forall e . Wrapper into (Identity e)) =>
  into a o -> into a oo -> into a (Product into o oo)
-hp from_left from_right =
+lo from_left from_right =
  _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
  i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
 
-hpp = hp
-hppp = hp
-hpppp = hp
-hppppp = hp
-hpppppp = hp
-hppppppp = hp
-hpppppppp = hp
-hppppppppp = hp
+loo = lo
+looo = lo
+loooo = lo
+looooo = lo
+loooooo = lo
+looooooo = lo
+loooooooo = lo
 
 cn :: forall into a aa o oo .
  Cone Straight into into (Object Straight into) =>
@@ -1137,7 +1137,7 @@ la from_left from_right =
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
  i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
- _i (map @Straight @Straight (wrapped (right @Opposite from_right))) -- `compose`
+ _i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
 laa = la
 laaa = la
@@ -1150,7 +1150,7 @@ yi'la = la
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
--- `hp`: into a o -> into a oo -> into a (o `LM` oo)
+-- `lo`: into a o -> into a oo -> into a (o `LM` oo)
 --     : u (from o i) (from oo i) -> from (uu o oo) i
 
 hsz, yi'hsz :: forall from e i o oo .
