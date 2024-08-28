@@ -92,8 +92,8 @@ instance
 		(Day Straight (->) LM LM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These e ee) (Straight f) ->
-			let These e_ e__ = _yi'_yi'_yi e in
-			let These ee_ ee__ = _yi'_yi'_yi ee in
+			let These e_ e__ = ___' e in
+			let These ee_ ee__ = ___' ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f / These e_ ee_)
 				(day @Straight @Arrow @t @LM @LM identity
@@ -153,8 +153,8 @@ instance
 	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These e ee) (Straight f) ->
-			let These e_ e__ = _yi'_yi'_yi e in
-			let These ee_ ee__ = _yi'_yi'_yi ee in
+			let These e_ e__ = ___' e in
+			let These ee_ ee__ = ___' ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
 				(day @Straight @Arrow @t @LM @MLM identity
@@ -174,7 +174,7 @@ instance Monoidal Straight Functor (->) LM ML t =>
 instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
 	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	(Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) -> 
+	where mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
 		wrap @_ @(Opposite _ _ _)
 		`compose` wrap @_ @(W_I_I_II _ _ _)
 		`compose` wrap @_ @(U_I_UU_II_III (->) _ _ _ _)
@@ -318,8 +318,8 @@ instance Mapping Straight Straight (->) (->)
 		(That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These ee eee) (Straight f) -> W_I_I_II `ha` U_I_UU_II_III `yi` \old ->
-			let These new x = ee `_yi'_yi'_yi` old in
-			let These upd y = eee `_yi'_yi'_yi` new in
+			let These new x = ee `___'` old in
+			let These upd y = eee `___'` new in
 			These upd (f (These x y) `hu` from)
 
 instance

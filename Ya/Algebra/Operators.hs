@@ -1300,16 +1300,6 @@ __yiii = __yi
 __yiiii = __yi
 __yiiiii = __yi
 
-_yi'_yi'_yi, yi'_yi'_yi'_yi :: forall into a .
- Precategory into =>
- Castable Straight into a =>
- Castable Straight into (Supertype a) =>
- Castable Straight into (Supertype (Supertype a)) =>
- into a (Supertype (Supertype (Supertype a)))
-_yi'_yi'_yi = _' @into `compose` _' @into `compose` _' @into
-
-yi'_yi'_yi'_yi = _yi'_yi'_yi
-
 -- TODO: it's wrong, we need to rewrite it
 ___ho :: forall a e o oo .
  Castable Straight (->) a =>
