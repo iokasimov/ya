@@ -133,6 +133,11 @@ infixl 2 `yukkkkkk`
 infixl 1 `yukkkkkkk`
 
 infixl 6 `yokl`, `yokl'yok`, `yokl'yokl`
+infixl 5 `yokll`
+infixl 4 `yoklll`
+infixl 3 `yokllll`
+infixl 2 `yoklllll`
+infixl 1 `yokllllll`
 
 infixl 8 `ya`
 
@@ -413,7 +418,7 @@ kyo :: forall from into tt t a o .
 kyo = yoneda @Straight @from @into `compose` unwrap
  `compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
-yokl, yi'yokl :: forall from into tt t a o .
+yokl, yokll, yoklll, yokllll, yoklllll, yokllllll, yi'yokl :: forall from into tt t a o .
  Unlabelable into tt =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Covariant Yoneda from into t =>
@@ -426,6 +431,12 @@ yokl x = unlabel
  `compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
  `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
+
+yokll = yokl
+yoklll = yokl
+yokllll = yokl
+yoklllll = yokl
+yokllllll = yokl
 
 yi'yokl = yokl
 
