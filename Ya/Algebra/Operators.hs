@@ -42,7 +42,7 @@ infixl 1 `hooooooooo`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `_'hooooooooo`
  , `_'_'hooooooooo`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'_`, `ha'_'ha`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'_`, `ha'_'ha`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
 infixl 8 `haa`, `haa'_`
 infixl 7 `haaa`, `haaa'_`
 infixl 6 `haaaa`, `haaaa'_`
@@ -748,6 +748,7 @@ ho'ho :: forall from u uu o e ee a .
  u e (uu ee a) -> from (from a o) (u e (uu ee o))
 ho'ho x = fai fio (ho @u x)
 
+-- TODO: fix an argument position
 ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
@@ -757,6 +758,16 @@ ha'ho :: forall from u uu o e ee a .
  Wrapper u (U_II_I uu ee o) =>
  u (uu o ee) e -> from a o -> u (uu a ee) e
 ha'ho x = fai @(->) @(->) foi (ha @u x)
+
+ha'hu :: forall from u uu o e ee a .
+ Covariant Semi Functor u u (U_I_II uu ee) =>
+ Mapping Constant Straight u u (U_I_II uu ee) (U_I_II uu ee) =>
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Castable Opposite (->) (u () o) =>
+ u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
+ha'hu x = fai @(->) @(->) fiu (ha @u x)
 
 ho'yo, hoo'yo, hooo'yo, hoooo'yo, hooooo'yo, hoooooo'yo :: forall from u t o e a .
  Covariant Yoneda from (->) (Straight u e) =>
@@ -1424,7 +1435,7 @@ yok'hu :: forall from t tt a o e .
   Castable Opposite from (U_I_II from e a) =>
   Castable Opposite (->) (from () (tt o)) =>
   t e -> Supertype (from () (tt o)) -> from (from e a) (t o)
-yok'hu x f = yok @_ @_ @tt x `compose` _i (fu @from f)
+yok'hu x f = yok @_ @_ @tt x `compose` fiu @from f
 
 -- yokl_o :: forall from u t tt a o e .
  -- Category from =>
