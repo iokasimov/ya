@@ -85,28 +85,32 @@ infixl 2 `laaaaaaa`
 infixl 1 `laaaaaaaa`
 
 infixl 8 `lu`, `lu'yp`, `lu'ds`, `lu'yp'yp`
-infixl 7 `luu`
-infixl 5 `luuu`
-infixl 5 `luuuu`
-infixl 4 `luuuuu`
-infixl 3 `luuuuuu`
-infixl 2 `luuuuuuu`
-infixl 1 `luuuuuuuu`
+infixl 7 `luu`, `luu'yp`
+infixl 5 `luuu`, `luuu'yp`
+infixl 5 `luuuu`, `luuuu'yp`
+infixl 4 `luuuuu`, `luuuuu'yp`
+infixl 3 `luuuuuu`, `luuuuuu'yp`
+infixl 2 `luuuuuuu`, `luuuuuuu'yp`
+infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_'yi`, `yi'ho`, `yi'lu`, `yi'lu'ds`
  , `_'yi`
  , `_'_'yi`
+ , `_'_'_'yi`
 infixl 7 `yii`, `yii'yok`
  , `_'yii`
  , `_'_'yii`
+ , `_'_'_'yii`
 infixl 6 `yiii`, `yiii'yok`
  , `_'yiii`
  , `_'_'yiii`
 infixl 5 `yiiii`, `yiiii'yok`
  , `_'yiiii`
+ , `_'_'_'yiiii`
 infixl 4 `yiiiii`, `yiiiii'yok`
  , `_'yiiiii`
  , `_'_'yiiiii`
+ , `_'_'_'yiiiii`
 infixl 3 `yiiiiii`, `yiiiiii'yok`
 infixl 2 `yiiiiiii`, `yiiiiiii'yok`
 infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
@@ -1300,6 +1304,19 @@ _'_'yiii = _'_'yi
 _'_'yiiii = _'_'yi
 _'_'yiiiii = _'_'yi
 
+_'_'_'yi, _'_'_'yii, _'_'_'yiii, _'_'_'yiiii, _'_'_'yiiiii :: forall into a .
+ Precategory into =>
+ Castable Straight into a =>
+ Castable Straight into (Supertype a) =>
+ Castable Straight into (Supertype (Supertype a)) =>
+ into a (Supertype (Supertype (Supertype a)))
+_'_'_'yi = _' @into `compose` _' @into `compose` _' @into
+
+_'_'_'yii = _'_'_'yi
+_'_'_'yiii = _'_'_'yi
+_'_'_'yiiii = _'_'_'yi
+_'_'_'yiiiii = _'_'_'yi
+
 -- TODO: it's wrong, we need to rewrite it
 _'_'_'ho :: forall a e o oo .
  Castable Straight (->) a =>
@@ -1475,10 +1492,18 @@ fr'yp from_left from_right = yp `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
  wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
 
-lu'yp, yi'lu'yp :: forall o oo t .
+lu'yp, luu'yp, luuu'yp, luuuu'yp, luuuuu'yp, luuuuuu'yp, luuuuuuu'yp, luuuuuuuu'yp, yi'lu'yp :: forall o oo t .
  Covariant Monoidal Functor (->) LM LM t =>
  t o -> t oo -> t (o `LM` oo)
 lu'yp from_left from_right = yp (lu from_left from_right)
+
+luu'yp = lu'yp
+luuu'yp = lu'yp
+luuuu'yp = lu'yp
+luuuuu'yp = lu'yp
+luuuuuu'yp = lu'yp
+luuuuuuu'yp = lu'yp
+luuuuuuuu'yp = lu'yp
 
 yi'lu'yp = lu'yp
 
