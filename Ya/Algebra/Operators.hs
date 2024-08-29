@@ -752,12 +752,11 @@ ho'ho x = fai fio (ho @u x)
 ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
- Covariant Semi Functor from u (Opposite uu ee) =>
- Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
- Wrapper u (U_II_I uu ee a) =>
- Wrapper u (U_II_I uu ee o) =>
- u (uu o ee) e -> from a o -> u (uu a ee) e
-ha'ho x = fai @(->) @(->) foi (ha @u x)
+ Covariant Semi Functor from u (U_I_II uu ee) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ u (uu ee o) e -> from a o -> u (uu ee a) e
+ha'ho x = fai @(->) @(->) fio (ha @u x)
 
 ha'hu :: forall from u uu o e ee a .
  Covariant Semi Functor u u (U_I_II uu ee) =>
