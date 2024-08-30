@@ -574,6 +574,16 @@ fiu :: forall from into t a o e .
  Supertype (into () o) -> into (t e a) (t e o)
 fiu from = unwrap `compose` fu @_ @(U_I_II _ _) from `compose` wrap
 
+fiu'_ :: forall from into t a o e .
+ Covariant Semi Functor into into (U_I_II t e) =>
+ Mapping Constant Straight into into (U_I_II t e) (U_I_II t e) =>
+ Castable Opposite (->) (into () o) =>
+ Castable Opposite (->) (Supertype (into () o)) =>
+ Castable Straight into (U_I_II t e o) =>
+ Castable Opposite into (U_I_II t e a) =>
+ Supertype (Supertype (into () o)) -> into (t e a) (t e o)
+fiu'_ from = unwrap `compose` fu @_ @(U_I_II _ _) (wrap from) `compose` wrap
+
 ho, hoo, hooo, hoooo, hooooo, hoooooo, hooooooo, hoooooooo, hooooooooo, yi'ho :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
