@@ -42,15 +42,15 @@ infixl 1 `hooooooooo`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `_'hooooooooo`
  , `_'_'hooooooooo`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'_`, `ha'_'ha`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
-infixl 8 `haa`, `haa'_`
-infixl 7 `haaa`, `haaa'_`
-infixl 6 `haaaa`, `haaaa'_`
-infixl 5 `haaaaa`, `haaaaa'_`
-infixl 4 `haaaaaa`, `haaaaaa'_`
-infixl 3 `haaaaaaa`, `haaaaaaa'_`
-infixl 2 `haaaaaaaa`, `haaaaaaaa'_`
-infixl 1 `haaaaaaaaa`, `haaaaaaaaa'_`
+infixl 9 `ha`, `ha'_`, `_'ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'_'ha`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
+infixl 8 `haa`, `haa'_`, `_'haa`, `_'_'haa`,  `_'_'_'haa`
+infixl 7 `haaa`, `haaa'_`, `_'haaa`, `_'_'haaa`, `_'_'_'haaa`
+infixl 6 `haaaa`, `haaaa'_`, `_'haaaa`, `_'_'haaaa`, `_'_'_'haaaa`
+infixl 5 `haaaaa`, `haaaaa'_`, `_'haaaaa`, `_'_'haaaaa`, `_'_'_'haaaaa`
+infixl 4 `haaaaaa`, `haaaaaa'_`, `_'haaaaaa`, `_'_'haaaaaa`, `_'_'_'haaaaaa`
+infixl 3 `haaaaaaa`, `haaaaaaa'_`, `_'haaaaaaa`, `_'_'haaaaaaa`, `_'_'_'haaaaaaa`
+infixl 2 `haaaaaaaa`, `haaaaaaaa'_`, `_'haaaaaaaa`, `_'_'haaaaaaaa`, `_'_'_'haaaaaaaa`
+infixl 1 `haaaaaaaaa`, `haaaaaaaaa'_`, `_'haaaaaaaaa`, `_'_'haaaaaaaaa`, `_'_'_'haaaaaaaaa`
 
 infixl 9 `hu`, `hu'_`, `hu'_'_`, `_'hu`, `_'_'hu`, `_'_'_'hu`
 infixl 8 `huu`
@@ -669,7 +669,7 @@ _'_'hooooooooo = _'_'ho
 ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  u a e -> from o a -> u o e
-ha x = _' `compose` ya @from @(->) @(U_II_I u _) (U_II_I x)
+ha x = yai @from @(->) @u x
 
 haa = ha
 haaa = ha
@@ -684,7 +684,7 @@ ha'_, haa'_, haaa'_, haaaa'_, haaaaa'_, haaaaaa'_, haaaaaaa'_, haaaaaaaa'_, haaa
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Castable Straight from o =>
  u a e -> from (Supertype o) a -> u o e
-ha'_ x = _' `compose` ya @from @(->) @(U_II_I u _) (U_II_I x) `compose` fai @from _'
+ha'_ x = yai @from @(->) @u x `compose` fai @from _'
 
 haa'_ = ha'_
 haaa'_ = ha'_
@@ -694,6 +694,57 @@ haaaaaa'_ = ha'_
 haaaaaaa'_ = ha'_
 haaaaaaaa'_ = ha'_
 haaaaaaaaa'_ = ha'_
+
+_'ha, _'haa, _'haaa, _'haaaa, _'haaaaa, _'haaaaaa, _'haaaaaaa, _'haaaaaaaa, _'haaaaaaaaa :: forall from u e a o .
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ Contravariant Semi Functor from (->) (U_II_I u e) =>
+ Castable Straight from a =>
+ u (Supertype a) e -> from o a -> u o e
+_'ha = yai @from @(->) @u `compose` fai @from _'
+
+_'haa = _'ha
+_'haaa = _'ha
+_'haaaa = _'ha
+_'haaaaa = _'ha
+_'haaaaaa = _'ha
+_'haaaaaaa = _'ha
+_'haaaaaaaa = _'ha
+_'haaaaaaaaa = _'ha
+
+_'_'ha, _'_'haa, _'_'haaa, _'_'haaaa, _'_'haaaaa, _'_'haaaaaa, _'_'haaaaaaa, _'_'haaaaaaaa, _'_'haaaaaaaaa :: forall from u e a o .
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ Contravariant Semi Functor from (->) (U_II_I u e) =>
+ Castable Straight from (Supertype a) =>
+ Castable Straight from a =>
+ u (Supertype (Supertype a)) e -> from o a -> u o e
+_'_'ha = yai @from @(->) @u `compose` fai @from _'_'
+
+_'_'haa = _'_'ha
+_'_'haaa = _'_'ha
+_'_'haaaa = _'_'ha
+_'_'haaaaa = _'_'ha
+_'_'haaaaaa = _'_'ha
+_'_'haaaaaaa = _'_'ha
+_'_'haaaaaaaa = _'_'ha
+_'_'haaaaaaaaa = _'_'ha
+
+_'_'_'ha, _'_'_'haa, _'_'_'haaa, _'_'_'haaaa, _'_'_'haaaaa, _'_'_'haaaaaa, _'_'_'haaaaaaa, _'_'_'haaaaaaaa, _'_'_'haaaaaaaaa :: forall from u e a o .
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ Contravariant Semi Functor from (->) (U_II_I u e) =>
+ Castable Straight from (Supertype (Supertype a)) =>
+ Castable Straight from (Supertype a) =>
+ Castable Straight from a =>
+ u (Supertype (Supertype (Supertype a))) e -> from o a -> u o e
+_'_'_'ha = yai @from @(->) @u `compose` fai @from _'_'_'
+
+_'_'_'haa = _'_'_'ha
+_'_'_'haaa = _'_'_'ha
+_'_'_'haaaa = _'_'_'ha
+_'_'_'haaaaa = _'_'_'ha
+_'_'_'haaaaaa = _'_'_'ha
+_'_'_'haaaaaaa = _'_'_'ha
+_'_'_'haaaaaaaa = _'_'_'ha
+_'_'_'haaaaaaaaa = _'_'_'ha
 
 ha'ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
@@ -748,7 +799,6 @@ ho'ho :: forall from u uu o e ee a .
  u e (uu ee a) -> from (from a o) (u e (uu ee o))
 ho'ho x = fai fio (ho @u x)
 
--- TODO: fix an argument position
 ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
