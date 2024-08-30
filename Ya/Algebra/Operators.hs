@@ -554,8 +554,7 @@ fai'_ :: forall from into t a o i .
  Wrapper into (U_II_I t i o) =>
  Wrapper into a =>
  from (Supertype a) o -> into (t o i) (t a i)
-fai'_ from = fai @into unwrap `compose` unwrap
- `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
+fai'_ from = fai @into unwrap `compose` fai from
 
 fio'fo :: forall from into t tt e a o .
  Covariant Semi Functor into into (U_I_II t e) =>
@@ -827,6 +826,17 @@ ha'hu :: forall from u uu o e ee a .
  Castable Opposite (->) (u () o) =>
  u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
 ha'hu x = fai @(->) @(->) fiu (ha @u x)
+
+ha'hu'_ :: forall from u uu o e ee a .
+ Covariant Semi Functor u u (U_I_II uu ee) =>
+ Mapping Constant Straight u u (U_I_II uu ee) (U_I_II uu ee) =>
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Castable Opposite (->) (Supertype (u () o)) =>
+ Castable Opposite (->) (u () o) =>
+ u (uu ee o) e -> Supertype (Supertype (u () o)) -> u (uu ee a) e
+ha'hu'_ x = fai @(->) @(->) fiu'_ (ha @u x)
 
 ho'yo, hoo'yo, hooo'yo, hoooo'yo, hooooo'yo, hoooooo'yo :: forall from u t o e a .
  Covariant Yoneda from (->) (Straight u e) =>
