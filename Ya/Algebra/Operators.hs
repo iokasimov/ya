@@ -63,14 +63,14 @@ infixl 1 `hooooooooo`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `_'hooooooooo`
  , `_'_'hooooooooo`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'_`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
  , `ha'_`, `ha'_'ha`
  , `_'ha`
 infixl 8 `haa`
  , `haa'_`
  , `_'haa`
  , `_'_'haa`
- ,  `_'_'_'haa`
+ , `_'_'_'haa`
 infixl 7 `haaa`
  , `haaa'_`
  , `_'haaa`
@@ -137,7 +137,7 @@ infixl 3 `laaaaaa`
 infixl 2 `laaaaaaa`
 infixl 1 `laaaaaaaa`
 
-infixl 8 `lu`, `lu'yp`, `lu'ds`, `lu'yp'yp`
+infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`
 infixl 7 `luu`, `luu'yp`
 infixl 5 `luuu`, `luuu'yp`
 infixl 5 `luuuu`, `luuuu'yp`
@@ -146,7 +146,7 @@ infixl 3 `luuuuuu`, `luuuuuu'yp`
 infixl 2 `luuuuuuu`, `luuuuuuu'yp`
 infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_'yi`, `yi'ho`, `yi'lu`, `yi'lu'ds`
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_'yi`, `yi'ho`, `yi'lu`, `yi'lu'ys`
  , `_'yi`
  , `_'_'yi`
  , `_'_'_'yi`
@@ -214,7 +214,7 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ds`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `cc`, `fc`, `jt`, `fr'yp`, `hsz`
+infixl 8 `vv`, `lj`, `rj`, `ro`, `ra`, `ys`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `cc`, `fc`, `jt`, `fr'yp`, `hsz`
 infixl 7 `vvv`, `ilj`, `rij`, `w'rw`, `rw'w`
 infixl 6 `vvvv`, `yi'hsz`, `_'yi'hsz`, `yi'cnz'yp`, `yi'cn'yp`, `yi'lu'yp`
 infixl 5 `vvvvv`
@@ -1431,10 +1431,10 @@ yp :: forall u e ee t .
  u (t e) (t ee) -> t (e `LM` ee)
 yp = day @Straight @(->) @t @u @LM identity identity
 
-ds :: forall u e ee t .
+ys :: forall u e ee t .
  Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
  u (t e) (t ee) -> t (e `ML` ee)
-ds = day @Straight @(->) @t @u @ML identity identity
+ys = day @Straight @(->) @t @u @ML identity identity
 
 dw :: forall u e ee t .
  Mapping Straight Straight (->) (->)
@@ -1692,12 +1692,12 @@ luuuuuuuu'yp = lu'yp
 
 yi'lu'yp = lu'yp
 
-lu'ds, yi'lu'ds :: forall o oo t .
+lu'ys, yi'lu'ys :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
  t o -> t oo -> t (o `ML` oo)
-lu'ds from_left from_right = ds (lu from_left from_right)
+lu'ys from_left from_right = ys (lu from_left from_right)
 
-yi'lu'ds = lu'ds
+yi'lu'ys = lu'ys
 
 lu'yp'yp :: forall o oo t tt .
  Covariant Monoidal Functor (->) LM LM t =>
