@@ -172,12 +172,12 @@ infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
 infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'yokl`, `kyo`
-infixl 6 `yokk`
-infixl 5 `yokkk`
-infixl 4 `yokkkk`
-infixl 3 `yokkkkk`
-infixl 2 `yokkkkkk`
-infixl 1 `yokkkkkkk`
+infixl 6 `yokk`, `yokk'yokl`
+infixl 5 `yokkk`, `yokkk'yokl`
+infixl 4 `yokkkk`, `yokkkk'yokl`
+infixl 3 `yokkkkk`, `yokkkkk'yokl`
+infixl 2 `yokkkkkk`, `yokkkkkk'yokl`
+infixl 1 `yokkkkkkk`, `yokkkkkkk'yokl`
 
 infixl 6 `yiok`
 
@@ -510,7 +510,7 @@ yiok x = unwrap @into @(U_I_II t i o)
  `compose` yoneda @Straight @from (U_I_II x)
 
 -- TODO: label inner effect
-yok'yokl, yi'yok'yokl
+yok'yokl, yokk'yokl, yokkk'yokl, yokkkk'yokl, yokkkkk'yokl, yokkkkkk'yokl, yokkkkkkk'yokl, yi'yok'yokl
  :: forall from into t tt ttt a o .
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
@@ -524,6 +524,13 @@ yok'yokl, yi'yok'yokl
  Castable Opposite into (T_TT_I t tt (ttt o)) =>
  t (ttt a) -> into (from a (tt o)) (t (ttt o))
 yok'yokl x = fai fokl (yok @from @into x)
+
+yokk'yokl = yok'yokl
+yokkk'yokl = yok'yokl
+yokkkk'yokl = yok'yokl
+yokkkkk'yokl = yok'yokl
+yokkkkkk'yokl = yok'yokl
+yokkkkkkk'yokl = yok'yokl
 
 yi'yok'yokl = yok'yokl
 
