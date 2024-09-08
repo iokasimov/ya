@@ -127,6 +127,14 @@ infixl 1 `huuuuuuuuu`
 infixl 9 `hd`
 
 infixl 9 `hj`, `hj'hj`
+infixl 8 `hjj`
+infixl 7 `hjjj`
+infixl 6 `hjjjj`
+infixl 5 `hjjjjj`
+infixl 4 `hjjjjjj`
+infixl 3 `hjjjjjjj`
+infixl 2 `hjjjjjjjj`
+infixl 1 `hjjjjjjjjj`
 
 infixl 8 `lo`
 infixl 7 `loo`
@@ -139,7 +147,7 @@ infixl 1 `loooooooo`
 
 infixl 8 `la`
 infixl 7 `laa`
-infixl 5 `laaa`
+infixl 6 `laaa`
 infixl 5 `laaaa`
 infixl 4 `laaaaa`
 infixl 3 `laaaaaa`
@@ -148,7 +156,7 @@ infixl 1 `laaaaaaaa`
 
 infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`
 infixl 7 `luu`, `luu'yp`
-infixl 5 `luuu`, `luuu'yp`
+infixl 6 `luuu`, `luuu'yp`
 infixl 5 `luuuu`, `luuuu'yp`
 infixl 4 `luuuuu`, `luuuuu'yp`
 infixl 3 `luuuuuu`, `luuuuuu'yp`
@@ -1228,7 +1236,7 @@ hd from = _' @into @(U_I_II tt _ _)
  `compose` component @Straight @from @into @Identity @(U_I_II tt e `T_TT_I` U_II_I t e)
  `compose` wrap @into
 
-hj :: forall from into t tt e a o .
+hj, hjj, hjjj, hjjjj, hjjjjj, hjjjjjj, hjjjjjjj, hjjjjjjjj, hjjjjjjjjj :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
  Castable Opposite from ((T_TT_I (U_II_I t e) (U_I_II tt e)) o) =>
  Castable Straight from (Identity o) =>
@@ -1240,6 +1248,15 @@ hj from = _' @from
  `compose` wrap @from @((U_II_I t e `T_TT_I` U_I_II tt e) _)
  `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
  `compose` wrap @from @(U_II_I t e _)
+
+hjj = hj
+hjjj = hj
+hjjjj = hj
+hjjjjj = hj
+hjjjjjj = hj
+hjjjjjjj = hj
+hjjjjjjjj = hj
+hjjjjjjjjj = hj
 
 hj'hj :: forall from into t tt ttt tttt e ee a o .
  Adjoint Functor from from (U_II_I t ee) (U_I_II tttt ee) =>
