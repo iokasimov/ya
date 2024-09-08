@@ -5,116 +5,116 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `_'`, `_'_'`, `_'_'_'`
+infixl 9 `_'`, `__'`, `___'`
 
-infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'_'yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
- , `ho'_`, `ho'_'yo`
- , `ho'_'_`
- , `ho'_'_'_`
- , `_'ho`
- , `_'_'ho`
- , `_'_'_'ho`
- , `_'ho'_`
+infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_'yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
+ , `ho_`, `ho_'yo`
+ , `ho__`
+ , `ho___`
+ , `_ho`
+ , `__ho`
+ , `___ho`
+ , `_ho_`
 infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
- , `hoo'_`
- , `hoo'_'_`
- , `hoo'_'_'_`
- , `_'hoo`
- , `_'_'hoo`
- , `_'hoo'_`
+ , `hoo_`
+ , `hoo__`
+ , `hoo___`
+ , `_hoo`
+ , `__hoo`
+ , `_hoo_`
 infixl 7 `hooo`, `hooo'yo`, `hooo'yok`, `hooo'yuk`
- , `hooo'_`
- , `hooo'_'_`
- , `hooo'_'_'_`
- , `_'hooo`
- , `_'_'hooo`
- , `_'hooo'_`
+ , `hooo_`
+ , `hooo__`
+ , `hooo___`
+ , `_hooo`
+ , `__hooo`
+ , `_hooo_`
 infixl 6 `hoooo`,  `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`
- , `hoooo'_`
- , `hoooo'_'_`
- , `hoooo'_'_'_`
- , `_'hoooo`
- , `_'_'hoooo`
- , `_'hoooo'_`
+ , `hoooo_`
+ , `hoooo__`
+ , `hoooo___`
+ , `_hoooo`
+ , `__hoooo`
+ , `_hoooo_`
 infixl 5 `hooooo`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`
- , `hooooo'_`
- , `hooooo'_'_`
- , `hooooo'_'_'_`
- , `_'hooooo`
- , `_'_'hooooo`
- , `_'hooooo'_`
+ , `hooooo_`
+ , `hooooo__`
+ , `hooooo___`
+ , `_hooooo`
+ , `__hooooo`
+ , `_hooooo_`
 infixl 4 `hoooooo`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`
- , `hoooooo'_`
- , `hoooooo'_'_`
- , `hoooooo'_'_'_`
- , `_'hoooooo`
- , `_'_'hoooooo`
- , `_'hoooooo'_`
+ , `hoooooo_`
+ , `hoooooo__`
+ , `hoooooo___`
+ , `_hoooooo`
+ , `__hoooooo`
+ , `_hoooooo_`
 infixl 3 `hooooooo`, `hooooooo'yok`, `hooooooo'yuk`
- , `hooooooo'_`
- , `hooooooo'_'_`
- , `hooooooo'_'_'_`
- , `_'hooooooo`
- , `_'_'hooooooo`
- , `_'hooooooo'_`
+ , `hooooooo_`
+ , `hooooooo__`
+ , `hooooooo___`
+ , `_hooooooo`
+ , `__hooooooo`
+ , `_hooooooo_`
 infixl 2 `hoooooooo`, `hoooooooo'yok`, `hoooooooo'yuk`
- , `hoooooooo'_`
- , `hoooooooo'_'_`
- , `hoooooooo'_'_'_`
- , `_'hoooooooo`
- , `_'_'hoooooooo`
- , `_'hoooooooo'_`
+ , `hoooooooo_`
+ , `hoooooooo__`
+ , `hoooooooo___`
+ , `_hoooooooo`
+ , `__hoooooooo`
+ , `_hoooooooo_`
 infixl 1 `hooooooooo`, `hooooooooo'yok`, `hooooooooo'yuk`
- , `hooooooooo'_`
- , `hooooooooo'_'_`
- , `hooooooooo'_'_'_`
- , `_'hooooooooo`
- , `_'_'hooooooooo`
- , `_'hooooooooo'_`
+ , `hooooooooo_`
+ , `hooooooooo__`
+ , `hooooooooo___`
+ , `_hooooooooo`
+ , `__hooooooooo`
+ , `_hooooooooo_`
 
 infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'_`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
- , `ha'_`, `ha'_'ha`
- , `_'ha`
+ , `ha'_`, `ha'_ha`
+ , `_ha`
 infixl 8 `haa`
  , `haa'_`
- , `_'haa`
- , `_'_'haa`
- , `_'_'_'haa`
+ , `_haa`
+ , `__haa`
+ , `___haa`
 infixl 7 `haaa`
  , `haaa'_`
- , `_'haaa`
- , `_'_'haaa`
- , `_'_'_'haaa`
+ , `_haaa`
+ , `__haaa`
+ , `___haaa`
 infixl 6 `haaaa`
  , `haaaa'_`
- , `_'haaaa`
- , `_'_'haaaa`
- , `_'_'_'haaaa`
+ , `_haaaa`
+ , `__haaaa`
+ , `___haaaa`
 infixl 5 `haaaaa`
  , `haaaaa'_`
- , `_'haaaaa`
- , `_'_'haaaaa`
- , `_'_'_'haaaaa`
+ , `_haaaaa`
+ , `__haaaaa`
+ , `___haaaaa`
 infixl 4 `haaaaaa`
- , `haaaaaa'_`, `_'haaaaaa`
- , `_'_'haaaaaa`
- , `_'_'_'haaaaaa`
+ , `haaaaaa'_`, `_haaaaaa`
+ , `__haaaaaa`
+ , `___haaaaaa`
 infixl 3 `haaaaaaa`
- , `haaaaaaa'_`, `_'haaaaaaa`
- , `_'_'haaaaaaa`
- , `_'_'_'haaaaaaa`
+ , `haaaaaaa'_`, `_haaaaaaa`
+ , `__haaaaaaa`
+ , `___haaaaaaa`
 infixl 2 `haaaaaaaa`
  , `haaaaaaaa'_`
- , `_'haaaaaaaa`
- , `_'_'haaaaaaaa`
- , `_'_'_'haaaaaaaa`
+ , `_haaaaaaaa`
+ , `__haaaaaaaa`
+ , `___haaaaaaaa`
 infixl 1 `haaaaaaaaa`
  , `haaaaaaaaa'_`
- , `_'haaaaaaaaa`
- , `_'_'haaaaaaaaa`
- , `_'_'_'haaaaaaaaa`
+ , `_haaaaaaaaa`
+ , `__haaaaaaaaa`
+ , `___haaaaaaaaa`
 
-infixl 9 `hu`, `hu'_`, `hu'_'_`, `_'hu`, `_'_'hu`, `_'_'_'hu`
+infixl 9 `hu`, `hu'_`, `hu'__`, `_hu`, `__hu`, `___hu`
 infixl 8 `huu`
 infixl 7 `huuu`
 infixl 6 `huuuu`
@@ -165,22 +165,22 @@ infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'_'yi`, `yi'ho`, `yi'lu`, `yi'lu'ys`
  , `_'yi`
- , `_'_'yi`
- , `_'_'_'yi`
+ , `__'yi`
+ , `___'yi`
 infixl 7 `yii`, `yii'yok`
  , `_'yii`
- , `_'_'yii`
- , `_'_'_'yii`
+ , `__'yii`
+ , `___'yii`
 infixl 6 `yiii`, `yiii'yok`
  , `_'yiii`
- , `_'_'yiii`
+ , `__'yiii`
 infixl 5 `yiiii`, `yiiii'yok`
  , `_'yiiii`
- , `_'_'_'yiiii`
+ , `___'yiiii`
 infixl 4 `yiiiii`, `yiiiii'yok`
  , `_'yiiiii`
- , `_'_'yiiiii`
- , `_'_'_'yiiiii`
+ , `__'yiiiii`
+ , `___'yiiiii`
 infixl 3 `yiiiiii`, `yiiiiii'yok`
 infixl 2 `yiiiiiii`, `yiiiiiii'yok`
 infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
@@ -247,20 +247,20 @@ _' :: forall into e .
  into e (Supertype e)
 _' = unwrap
 
-_'_' :: forall into e .
+__' :: forall into e .
  Precategory into =>
  Castable Straight into e =>
  Castable Straight into (Supertype e) =>
  into e (Supertype (Supertype e))
-_'_' = unwrap `compose` unwrap
+__' = unwrap `compose` unwrap
 
-_'_'_' :: forall into e .
+___' :: forall into e .
  Precategory into =>
  Castable Straight into e =>
  Castable Straight into (Supertype e) =>
  Castable Straight into (Supertype (Supertype e)) =>
  into e (Supertype (Supertype (Supertype e)))
-_'_'_' = unwrap `compose` unwrap `compose` unwrap
+___' = unwrap `compose` unwrap `compose` unwrap
 
 yi, yii, yiii, yiiii, yiiiii, yiiiiii, yiiiiiii, yiiiiiiii
  , yi'yi
@@ -679,7 +679,7 @@ hoooooooo = ho
 hooooooooo = ho
 yi'ho = ho
 
-ho'_, hoo'_, hooo'_, hoooo'_, hooooo'_, hoooooo'_, hooooooo'_, hoooooooo'_, hooooooooo'_
+ho_, hoo_, hooo_, hoooo_, hooooo_, hoooooo_, hooooooo_, hoooooooo_, hooooooooo_
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -692,18 +692,18 @@ ho'_, hoo'_, hooo'_, hoooo'_, hooooo'_, hoooooo'_, hooooooo'_, hoooooooo'_, hooo
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u i a -> into (from (Supertype a) o) (u i o)
-ho'_ x = yio @from @into @u x `compose` fai @from _'
+ho_ x = yio @from @into @u x `compose` fai @from _'
 
-hoo'_ = ho'_
-hooo'_ = ho'_
-hoooo'_ = ho'_
-hooooo'_ = ho'_
-hoooooo'_ = ho'_
-hooooooo'_ = ho'_
-hoooooooo'_ = ho'_
-hooooooooo'_ = ho'_
+hoo_ = ho_
+hooo_ = ho_
+hoooo_ = ho_
+hooooo_ = ho_
+hoooooo_ = ho_
+hooooooo_ = ho_
+hoooooooo_ = ho_
+hooooooooo_ = ho_
 
-ho'_'_, hoo'_'_, hooo'_'_, hoooo'_'_, hooooo'_'_, hoooooo'_'_, hooooooo'_'_, hoooooooo'_'_, hooooooooo'_'_
+ho__, hoo__, hooo__, hoooo__, hooooo__, hoooooo__, hooooooo__, hoooooooo__, hooooooooo__
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -718,18 +718,18 @@ ho'_'_, hoo'_'_, hooo'_'_, hoooo'_'_, hooooo'_'_, hoooooo'_'_, hooooooo'_'_, hoo
  Wrapper into (U_II_I from o (Supertype a)) =>
  Wrapper into (U_II_I from o (Supertype (Supertype a))) =>
  u i a -> into (from (Supertype (Supertype a)) o) (u i o)
-ho'_'_ x = yio @from @into @u x `compose` fai @from _'_'
+ho__ x = yio @from @into @u x `compose` fai @from __'
 
-hoo'_'_ = ho'_'_
-hooo'_'_ = ho'_'_
-hoooo'_'_ = ho'_'_
-hooooo'_'_ = ho'_'_
-hoooooo'_'_ = ho'_'_
-hooooooo'_'_ = ho'_'_
-hoooooooo'_'_ = ho'_'_
-hooooooooo'_'_ = ho'_'_
+hoo__ = ho__
+hooo__ = ho__
+hoooo__ = ho__
+hooooo__ = ho__
+hoooooo__ = ho__
+hooooooo__ = ho__
+hoooooooo__ = ho__
+hooooooooo__ = ho__
 
-ho'_'_'_, hoo'_'_'_, hooo'_'_'_, hoooo'_'_'_, hooooo'_'_'_, hoooooo'_'_'_, hooooooo'_'_'_, hoooooooo'_'_'_, hooooooooo'_'_'_
+ho___, hoo___, hooo___, hoooo___, hooooo___, hoooooo___, hooooooo___, hoooooooo___, hooooooooo___
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -744,18 +744,18 @@ ho'_'_'_, hoo'_'_'_, hooo'_'_'_, hoooo'_'_'_, hooooo'_'_'_, hoooooo'_'_'_, hoooo
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype (Supertype (Supertype a)))) =>
  u i a -> into (from (Supertype (Supertype (Supertype a))) o) (u i o)
-ho'_'_'_ x = yio @from @into @u x `compose` fai @from _'_'_'
+ho___ x = yio @from @into @u x `compose` fai @from ___'
 
-hoo'_'_'_ = ho'_'_'_
-hooo'_'_'_ = ho'_'_'_
-hoooo'_'_'_ = ho'_'_'_
-hooooo'_'_'_ = ho'_'_'_
-hoooooo'_'_'_ = ho'_'_'_
-hooooooo'_'_'_ = ho'_'_'_
-hoooooooo'_'_'_ = ho'_'_'_
-hooooooooo'_'_'_ = ho'_'_'_
+hoo___ = ho___
+hooo___ = ho___
+hoooo___ = ho___
+hooooo___ = ho___
+hoooooo___ = ho___
+hooooooo___ = ho___
+hoooooooo___ = ho___
+hooooooooo___ = ho___
 
-_'ho, _'hoo, _'hooo, _'hoooo, _'hooooo, _'hoooooo, _'hooooooo, _'hoooooooo, _'hooooooooo
+_ho, _hoo, _hooo, _hoooo, _hooooo, _hoooooo, _hooooooo, _hoooooooo, _hooooooooo
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -768,18 +768,18 @@ _'ho, _'hoo, _'hooo, _'hoooo, _'hooooo, _'hoooooo, _'hooooooo, _'hoooooooo, _'ho
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u (Supertype i) a -> into (from a o) (u i o)
-_'ho = yio @from @into @u `compose` fai @from _'
+_ho = yio @from @into @u `compose` fai @from _'
 
-_'hoo = _'ho
-_'hooo = _'ho
-_'hoooo = _'ho
-_'hooooo = _'ho
-_'hoooooo = _'ho
-_'hooooooo = _'ho
-_'hoooooooo = _'ho
-_'hooooooooo = _'ho
+_hoo = _ho
+_hooo = _ho
+_hoooo = _ho
+_hooooo = _ho
+_hoooooo = _ho
+_hooooooo = _ho
+_hoooooooo = _ho
+_hooooooooo = _ho
 
-_'_'ho, _'_'hoo, _'_'hooo, _'_'hoooo, _'_'hooooo, _'_'hoooooo, _'_'hooooooo, _'_'hoooooooo, _'_'hooooooooo
+__ho, __hoo, __hooo, __hoooo, __hooooo, __hoooooo, __hooooooo, __hoooooooo, __hooooooooo
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -793,18 +793,18 @@ _'_'ho, _'_'hoo, _'_'hooo, _'_'hoooo, _'_'hooooo, _'_'hoooooo, _'_'hooooooo, _'_
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u (Supertype (Supertype i)) a -> into (from a o) (u i o)
-_'_'ho = yio @from @into @u `compose` fai @from _'_'
+__ho = yio @from @into @u `compose` fai @from __'
 
-_'_'hoo = _'_'ho
-_'_'hooo = _'_'ho
-_'_'hoooo = _'_'ho
-_'_'hooooo = _'_'ho
-_'_'hoooooo = _'_'ho
-_'_'hooooooo = _'_'ho
-_'_'hoooooooo = _'_'ho
-_'_'hooooooooo = _'_'ho
+__hoo = __ho
+__hooo = __ho
+__hoooo = __ho
+__hooooo = __ho
+__hoooooo = __ho
+__hooooooo = __ho
+__hoooooooo = __ho
+__hooooooooo = __ho
 
-_'ho'_, _'hoo'_, _'hooo'_, _'hoooo'_, _'hooooo'_, _'hoooooo'_, _'hooooooo'_, _'hoooooooo'_, _'hooooooooo'_
+_ho_, _hoo_, _hooo_, _hoooo_, _hooooo_, _hoooooo_, _hooooooo_, _hoooooooo_, _hooooooooo_
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -821,16 +821,16 @@ _'ho'_, _'hoo'_, _'hooo'_, _'hoooo'_, _'hooooo'_, _'hoooooo'_, _'hooooooo'_, _'h
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u (Supertype i) a -> into (from (Supertype a) o) (u i o)
-_'ho'_ = fai (fai @from @into _') `compose` yio @from @into @u `compose` fai @from _'
+_ho_ = fai (fai @from @into _') `compose` yio @from @into @u `compose` fai @from _'
 
-_'hoo'_ = _'ho'_
-_'hooo'_ = _'ho'_
-_'hoooo'_ = _'ho'_
-_'hooooo'_ = _'ho'_
-_'hoooooo'_ = _'ho'_
-_'hooooooo'_ = _'ho'_
-_'hoooooooo'_ = _'ho'_
-_'hooooooooo'_ = _'ho'_
+_hoo_ = _ho_
+_hooo_ = _ho_
+_hoooo_ = _ho_
+_hooooo_ = _ho_
+_hoooooo_ = _ho_
+_hooooooo_ = _ho_
+_hoooooooo_ = _ho_
+_hooooooooo_ = _ho_
 
 ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
@@ -861,56 +861,56 @@ haaaaaaa'_ = ha'_
 haaaaaaaa'_ = ha'_
 haaaaaaaaa'_ = ha'_
 
-_'ha, _'haa, _'haaa, _'haaaa, _'haaaaa, _'haaaaaa, _'haaaaaaa, _'haaaaaaaa, _'haaaaaaaaa :: forall from u e a o .
+_ha, _haa, _haaa, _haaaa, _haaaaa, _haaaaaa, _haaaaaaa, _haaaaaaaa, _haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Contravariant Semi Functor from (->) (U_II_I u e) =>
  Castable Straight from a =>
  u (Supertype a) e -> from o a -> u o e
-_'ha = yai @from @(->) @u `compose` fai @from _'
+_ha = yai @from @(->) @u `compose` fai @from _'
 
-_'haa = _'ha
-_'haaa = _'ha
-_'haaaa = _'ha
-_'haaaaa = _'ha
-_'haaaaaa = _'ha
-_'haaaaaaa = _'ha
-_'haaaaaaaa = _'ha
-_'haaaaaaaaa = _'ha
+_haa = _ha
+_haaa = _ha
+_haaaa = _ha
+_haaaaa = _ha
+_haaaaaa = _ha
+_haaaaaaa = _ha
+_haaaaaaaa = _ha
+_haaaaaaaaa = _ha
 
-_'_'ha, _'_'haa, _'_'haaa, _'_'haaaa, _'_'haaaaa, _'_'haaaaaa, _'_'haaaaaaa, _'_'haaaaaaaa, _'_'haaaaaaaaa :: forall from u e a o .
+__ha, __haa, __haaa, __haaaa, __haaaaa, __haaaaaa, __haaaaaaa, __haaaaaaaa, __haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Contravariant Semi Functor from (->) (U_II_I u e) =>
  Castable Straight from (Supertype a) =>
  Castable Straight from a =>
  u (Supertype (Supertype a)) e -> from o a -> u o e
-_'_'ha = yai @from @(->) @u `compose` fai @from _'_'
+__ha = yai @from @(->) @u `compose` fai @from __'
 
-_'_'haa = _'_'ha
-_'_'haaa = _'_'ha
-_'_'haaaa = _'_'ha
-_'_'haaaaa = _'_'ha
-_'_'haaaaaa = _'_'ha
-_'_'haaaaaaa = _'_'ha
-_'_'haaaaaaaa = _'_'ha
-_'_'haaaaaaaaa = _'_'ha
+__haa = __ha
+__haaa = __ha
+__haaaa = __ha
+__haaaaa = __ha
+__haaaaaa = __ha
+__haaaaaaa = __ha
+__haaaaaaaa = __ha
+__haaaaaaaaa = __ha
 
-_'_'_'ha, _'_'_'haa, _'_'_'haaa, _'_'_'haaaa, _'_'_'haaaaa, _'_'_'haaaaaa, _'_'_'haaaaaaa, _'_'_'haaaaaaaa, _'_'_'haaaaaaaaa :: forall from u e a o .
+___ha, ___haa, ___haaa, ___haaaa, ___haaaaa, ___haaaaaa, ___haaaaaaa, ___haaaaaaaa, ___haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Contravariant Semi Functor from (->) (U_II_I u e) =>
  Castable Straight from (Supertype (Supertype a)) =>
  Castable Straight from (Supertype a) =>
  Castable Straight from a =>
  u (Supertype (Supertype (Supertype a))) e -> from o a -> u o e
-_'_'_'ha = yai @from @(->) @u `compose` fai @from _'_'_'
+___ha = yai @from @(->) @u `compose` fai @from ___'
 
-_'_'_'haa = _'_'_'ha
-_'_'_'haaa = _'_'_'ha
-_'_'_'haaaa = _'_'_'ha
-_'_'_'haaaaa = _'_'_'ha
-_'_'_'haaaaaa = _'_'_'ha
-_'_'_'haaaaaaa = _'_'_'ha
-_'_'_'haaaaaaaa = _'_'_'ha
-_'_'_'haaaaaaaaa = _'_'_'ha
+___haa = ___ha
+___haaa = ___ha
+___haaaa = ___ha
+___haaaaa = ___ha
+___haaaaaa = ___ha
+___haaaaaaa = ___ha
+___haaaaaaaa = ___ha
+___haaaaaaaaa = ___ha
 
 ha'ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
@@ -926,7 +926,7 @@ hv :: forall from u a o .
  u a o -> from () a -> Supertype (u () o)
 hv x from = _' (x `ha` from)
 
-ha'_'ha :: forall from u uu a o e ee .
+ha'_ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
  Contravariant Semi Functor from u (Opposite uu ee) =>
  Contravariant Semi Functor u u (Opposite uu ee) =>
@@ -935,7 +935,7 @@ ha'_'ha :: forall from u uu a o e ee .
  Wrapper u (Opposite uu ee a) =>
  Wrapper u a =>
  u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
-ha'_'ha x = fai @(->) @(->) fai'_ (ha @u x)
+ha'_ha x = fai @(->) @(->) fai'_ (ha @u x)
 
 ho'ha, hoo'ha  :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
@@ -1009,7 +1009,7 @@ hoooo'yo = ho'yo
 hooooo'yo = ho'yo
 hoooooo'yo = ho'yo
 
-ho'_'yo :: forall from u t o e a .
+ho_'yo :: forall from u t o e a .
  Covariant Yoneda from (->) (Straight u e) =>
  Contravariant Yoneda from (->) (Opposite u e) =>
  Contravariant Semi Functor from (->) (Opposite u (t a)) =>
@@ -1017,7 +1017,7 @@ ho'_'yo :: forall from u t o e a .
  -- Mapping Constant Straight from (->) t t =>
  Castable Straight from e =>
  u (Supertype e) (t a) -> from a o -> u e (t o)
-ho'_'yo x = fai (fo @from) (ho @from (fai @from _'yi x))
+ho_'yo x = fai (fo @from) (ho @from (fai @from _'yi x))
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
@@ -1054,8 +1054,8 @@ ho'yu :: forall u t o e a .
  u e (t a) -> o -> u e (t o)
 ho'yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
 
--- TODO: replace with `ho'_`
-ho'_'yi :: forall from u e a o .
+-- TODO: replace with `ho_`
+ho_'yi :: forall from u e a o .
  Covariant Endo Semi Functor from (That from a) =>
  Covariant Yoneda from (->) (U_I_II u e) =>
  Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
@@ -1065,14 +1065,14 @@ ho'_'yi :: forall from u e a o .
  Wrapper from (U_I_II from a o) =>
  Wrapper from (U_I_II from a (Supertype o)) =>
  u e a -> from a o -> u e (Supertype o)
-ho'_'yi x = fai @from (fio @from _') (ho x)
+ho_'yi x = fai @from (fio @from _') (ho x)
 
--- TODO: replace with `ho_'ho`
-ho'_'yi'ho :: forall from u e a o .
+-- TODO: replace with `ho_ho`
+ho_'yi'ho :: forall from u e a o .
  Covariant Yoneda from (->) (That u e) =>
  Castable Straight from a =>
  u e a -> from (Supertype a) o -> u e o
-ho'_'yi'ho x xx = x `ho` _' @from `ho` xx
+ho_'yi'ho x xx = x `ho` _' @from `ho` xx
 
 hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu, huuuuuuuuuu :: forall from into a o .
  Precategory into =>
@@ -1095,7 +1095,7 @@ huuuuuuuu = hu
 huuuuuuuuu = hu
 huuuuuuuuuu = hu
 
-_'hu :: forall from into a aa o .
+_hu :: forall from into a aa o .
  Precategory into =>
  ((Supertype (from () a)) ~ Supertype aa) =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1106,9 +1106,9 @@ _'hu :: forall from into a aa o .
  Castable Straight into (from () o) =>
  Castable Straight (->) aa =>
  aa -> into (from a o) (Supertype (from () o))
-_'hu = hu `compose` _'
+_hu = hu `compose` _'
 
-_'_'hu :: forall from into a aa o .
+__hu :: forall from into a aa o .
  Precategory into =>
  (Supertype (from () a) ~ Supertype (Supertype aa)) =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1121,9 +1121,9 @@ _'_'hu :: forall from into a aa o .
  Castable Straight from (Supertype aa) =>
  Castable Straight from aa =>
  aa -> into (from a o) (Supertype (from () o))
-_'_'hu = hu `yai` _'_' @from
+__hu = hu `yai` __' @from
 
-_'_'_'hu :: forall from into a aa o .
+___hu :: forall from into a aa o .
  Precategory into =>
  (Supertype (from () a) ~ Supertype (Supertype (Supertype aa))) =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1137,7 +1137,7 @@ _'_'_'hu :: forall from into a aa o .
  Castable Straight from (Supertype (Supertype aa)) =>
  Castable Straight from aa =>
  aa -> into (from a o) (Supertype (from () o))
-_'_'_'hu = hu `yai` _'_'_' @from
+___hu = hu `yai` ___' @from
 
 hu'_ :: forall from into a o .
  Precategory into =>
@@ -1156,7 +1156,7 @@ hu'_ :: forall from into a o .
  Supertype (from () a) -> into (from (Supertype a) o) (Supertype (from () o))
 hu'_ x = hu @from @into @a x `yai'yai` _' @from @a
 
-hu'_'_ :: forall from into a o .
+hu'__ :: forall from into a o .
  Precategory into =>
  Precategory from =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1172,7 +1172,7 @@ hu'_'_ :: forall from into a o .
  Castable Straight into (U_1_I from () o) =>
  Contravariant Yoneda from (->) (U_II_I into (Supertype (from () o))) =>
  Supertype (from () a) -> into (from (Supertype (Supertype a)) o) (Supertype (from () o))
-hu'_'_ x = hu @from @into @a x `yai'yai` _'_' @from @a
+hu'__ x = hu @from @into @a x `yai'yai` __' @from @a
 
 v :: (a -> o) -> a -> e -> o
 v from x y = from (constant x y)
@@ -1538,39 +1538,39 @@ rw'w :: forall into a o .
  into a o -> into (Supertype a) (Supertype o)
 rw'w into = _' @into `compose` into `compose` wrap @into
 
-_'_'yi, _'_'yii, _'_'yiii, _'_'yiiii, _'_'yiiiii :: forall into a .
+__'yi, __'yii, __'yiii, __'yiiii, __'yiiiii :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  into a (Supertype (Supertype a))
-_'_'yi = _' @into `compose` _' @into
+__'yi = _' @into `compose` _' @into
 
-_'_'yii = _'_'yi
-_'_'yiii = _'_'yi
-_'_'yiiii = _'_'yi
-_'_'yiiiii = _'_'yi
+__'yii = __'yi
+__'yiii = __'yi
+__'yiiii = __'yi
+__'yiiiii = __'yi
 
-_'_'_'yi, _'_'_'yii, _'_'_'yiii, _'_'_'yiiii, _'_'_'yiiiii :: forall into a .
+___'yi, ___'yii, ___'yiii, ___'yiiii, ___'yiiiii :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  Castable Straight into (Supertype (Supertype a)) =>
  into a (Supertype (Supertype (Supertype a)))
-_'_'_'yi = _' @into `compose` _' @into `compose` _' @into
+___'yi = _' @into `compose` _' @into `compose` _' @into
 
-_'_'_'yii = _'_'_'yi
-_'_'_'yiii = _'_'_'yi
-_'_'_'yiiii = _'_'_'yi
-_'_'_'yiiiii = _'_'_'yi
+___'yii = ___'yi
+___'yiii = ___'yi
+___'yiiii = ___'yi
+___'yiiiii = ___'yi
 
 -- TODO: it's wrong, we need to rewrite it
-_'_'_'ho :: forall a e o oo .
+___ho :: forall a e o oo .
  Castable Straight (->) a =>
  Castable Straight (->) (Supertype a) =>
  Castable Straight (->) (Supertype (Supertype a)) =>
  ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
  a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
-_'_'_'ho x e f = f (_' (_' (_' x)) e)
+___ho x e f = f (_' (_' (_' x)) e)
 
 -- TODO: define `rw'o`
 -- TODO: define `rw'rw'o`
