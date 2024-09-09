@@ -19,56 +19,56 @@ infixl 8 `hoo`, `hoo'ha`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo_`
  , `hoo__`
  , `hoo___`
- , `_hoo`
+ , `_hoo`, `_hoo'ha`
  , `__hoo`
  , `_hoo_`
 infixl 7 `hooo`, `hooo'yo`, `hooo'yok`, `hooo'yuk`
  , `hooo_`
  , `hooo__`
  , `hooo___`
- , `_hooo`
+ , `_hooo`, `_hooo'ha`
  , `__hooo`
  , `_hooo_`
 infixl 6 `hoooo`,  `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`
  , `hoooo_`
  , `hoooo__`
  , `hoooo___`
- , `_hoooo`
+ , `_hoooo`, `_hoooo'ha`
  , `__hoooo`
  , `_hoooo_`
 infixl 5 `hooooo`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`
  , `hooooo_`
  , `hooooo__`
  , `hooooo___`
- , `_hooooo`
+ , `_hooooo`, `_hooooo'ha`
  , `__hooooo`
  , `_hooooo_`
 infixl 4 `hoooooo`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`
  , `hoooooo_`
  , `hoooooo__`
  , `hoooooo___`
- , `_hoooooo`
+ , `_hoooooo`, `_hoooooo'ha`
  , `__hoooooo`
  , `_hoooooo_`
 infixl 3 `hooooooo`, `hooooooo'yok`, `hooooooo'yuk`
  , `hooooooo_`
  , `hooooooo__`
  , `hooooooo___`
- , `_hooooooo`
+ , `_hooooooo`, `_hooooooo'ha`
  , `__hooooooo`
  , `_hooooooo_`
 infixl 2 `hoooooooo`, `hoooooooo'yok`, `hoooooooo'yuk`
  , `hoooooooo_`
  , `hoooooooo__`
  , `hoooooooo___`
- , `_hoooooooo`
+ , `_hoooooooo`, `_hoooooooo'ha`
  , `__hoooooooo`
  , `_hoooooooo_`
 infixl 1 `hooooooooo`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `hooooooooo_`
  , `hooooooooo__`
  , `hooooooooo___`
- , `_hooooooooo`
+ , `_hooooooooo`, `_hooooooooo'ha`
  , `__hooooooooo`
  , `_hooooooooo_`
 
@@ -951,7 +951,8 @@ ho'ha x = fai @(->) @(->) fai (ho @u x)
 
 hoo'ha = ho'ha
 
-_ho'ha :: forall from u uu o e ee a .
+_ho'ha, _hoo'ha , _hooo'ha , _hoooo'ha , _hooooo'ha , _hoooooo'ha , _hooooooo'ha , _hoooooooo'ha , _hooooooooo'ha
+ :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
  Contravariant Semi Functor from u (Opposite uu ee) =>
@@ -963,6 +964,15 @@ _ho'ha :: forall from u uu o e ee a .
  Wrapper u e =>
  u (Supertype e) (uu o ee) -> from a o -> u e (uu a ee)
 _ho'ha x = fai @(->) @(->) fai (_ho @u x)
+
+_hoo'ha = _ho'ha
+_hooo'ha = _ho'ha
+_hoooo'ha = _ho'ha
+_hooooo'ha = _ho'ha
+_hoooooo'ha = _ho'ha
+_hooooooo'ha = _ho'ha
+_hoooooooo'ha = _ho'ha
+_hooooooooo'ha = _ho'ha
 
 ho'ho :: forall from u uu o e ee a .
  Covariant Yoneda u from (Straight u e) =>
