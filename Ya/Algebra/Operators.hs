@@ -11,7 +11,7 @@ infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yo
  , `ho_`, `ho_yo`
  , `ho__`
  , `ho___`
- , `_ho`
+ , `_ho`, `_ho'ha`
  , `__ho`
  , `___ho`
  , `_ho_`
@@ -950,6 +950,19 @@ ho'ha, hoo'ha  :: forall from u uu o e ee a .
 ho'ha x = fai @(->) @(->) fai (ho @u x)
 
 hoo'ha = ho'ha
+
+_ho'ha :: forall from u uu o e ee a .
+ Covariant Yoneda u (->) (Straight u e) =>
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper from (U_I_II u e (uu a ee)) =>
+ Wrapper from (U_I_II u (uu o ee) (uu a ee)) =>
+ Wrapper u e =>
+ u (Supertype e) (uu o ee) -> from a o -> u e (uu a ee)
+_ho'ha x = fai @(->) @(->) fai (_ho @u x)
 
 ho'ho :: forall from u uu o e ee a .
  Covariant Yoneda u from (Straight u e) =>
