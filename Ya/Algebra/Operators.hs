@@ -155,13 +155,13 @@ infixl 2 `laaaaaaa`
 infixl 1 `laaaaaaaa`
 
 infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`
-infixl 7 `luu`, `luu'yp`
-infixl 6 `luuu`, `luuu'yp`
-infixl 5 `luuuu`, `luuuu'yp`
-infixl 4 `luuuuu`, `luuuuu'yp`
-infixl 3 `luuuuuu`, `luuuuuu'yp`
-infixl 2 `luuuuuuu`, `luuuuuuu'yp`
-infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`
+infixl 7 `luu`, `luu'yp`, `luu'ys`
+infixl 6 `luuu`, `luuu'yp`, `luuu'ys`
+infixl 5 `luuuu`, `luuuu'yp`, `luuuu'ys`
+infixl 4 `luuuuu`, `luuuuu'yp`, `luuuuu'ys`
+infixl 3 `luuuuuu`, `luuuuuu'yp`, `luuuuuu'ys`
+infixl 2 `luuuuuuu`, `luuuuuuu'yp`, `luuuuuuu'ys`
+infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`, `luuuuuuuu'ys`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi_yi`, `yi'ho`, `yi'lu`, `yi'lu'ys`
  , `_yi`
@@ -188,7 +188,7 @@ infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'yokl`, `kyo`
+infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'yokl`, `yko`
 infixl 6 `yokk`, `yokk'yokl`
 infixl 5 `yokkk`, `yokkk'yokl`
 infixl 4 `yokkkk`, `yokkkk'yokl`
@@ -483,13 +483,13 @@ yukkkkkkk = yuk @into @tt
 yi'yuk = yuk @into @tt
 
 -- TODO: try to generalize
-kyo :: forall from into tt t a o .
+yko :: forall from into tt t a o .
  Precategory into =>
  Component Natural (->) (->) t (T_TT_I t tt) =>
  Covariant Yoneda from into t =>
  Castable Opposite into (Straight from (tt a) o) =>
  t a -> into (from (tt a) o) (t o)
-kyo = yoneda @Straight @from @into `compose` unwrap
+yko = yoneda @Straight @from @into `compose` unwrap
  `compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
 yokl, yokll, yoklll, yokllll, yoklllll, yokllllll, yi'yokl :: forall from into tt t a o .
@@ -1753,10 +1753,19 @@ luuuuuuuu'yp = lu'yp
 
 yi'lu'yp = lu'yp
 
-lu'ys, yi'lu'ys :: forall o oo t .
+lu'ys, luu'ys, luuu'ys, luuuu'ys, luuuuu'ys, luuuuuu'ys, luuuuuuu'ys, luuuuuuuu'ys, yi'lu'ys
+ :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
  t o -> t oo -> t (o `ML` oo)
 lu'ys from_left from_right = ys (lu from_left from_right)
+
+luu'ys = lu'ys
+luuu'ys = lu'ys
+luuuu'ys = lu'ys
+luuuuu'ys = lu'ys
+luuuuuu'ys = lu'ys
+luuuuuuu'ys = lu'ys
+luuuuuuuu'ys = lu'ys
 
 yi'lu'ys = lu'ys
 
