@@ -15,31 +15,28 @@ infixl 8 `hoo`, `hoo'ha`, `hoo'ha_`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo_`
  , `hoo__`
  , `hoo___`
-infixl 7 `hooo`, `hooo'ha_`, `hooo'yo`, `hooo'yok`, `hooo'yuk`
+infixl 7 `hooo`, `hooo'ha`, `hooo'ha_`, `hooo'yo`, `hooo'yok`, `hooo'yuk`
  , `hooo_`
  , `hooo__`
  , `hooo___`
-infixl 6 `hoooo`, `hoooo'ha_`, `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`
+infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha_`, `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`
  , `hoooo_`
  , `hoooo__`
  , `hoooo___`
-infixl 5 `hooooo`, `hooooo'ha_`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`
+infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha_`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`
  , `hooooo_`
  , `hooooo__`
  , `hooooo___`
-infixl 4 `hoooooo`, `hoooooo'ha_`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`
+infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha_`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`
  , `hoooooo_`
  , `hoooooo__`
  , `hoooooo___`
-infixl 3 `hooooooo`, `hooooooo'ha_`, `hooooooo'yok`, `hooooooo'yuk`
- , `hooooooo_`
- , `hooooooo__`
- , `hooooooo___`
-infixl 2 `hoooooooo`, `hoooooooo'ha_`, `hoooooooo'yok`, `hoooooooo'yuk`
+infixl 3 `hooooooo`, `hooooooo_`, `hooooooo__`, `hooooooo___`, `hooooooo'ha`, `hooooooo'ha_`, `hooooooo'yok`, `hooooooo'yuk`
+infixl 2 `hoooooooo`, `hoooooooo'ha`, `hoooooooo'ha_`, `hoooooooo'yok`, `hoooooooo'yuk`
  , `hoooooooo_`
  , `hoooooooo__`
  , `hoooooooo___`
-infixl 1 `hooooooooo`, `hooooooooo'ha_`, `hooooooooo'yok`, `hooooooooo'yuk`
+infixl 1 `hooooooooo`, `hooooooooo'ha`, `hooooooooo'ha_`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `hooooooooo_`
  , `hooooooooo__`
  , `hooooooooo___`
@@ -786,7 +783,8 @@ ha_ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai_ (ha @u x)
 
-ho'ha, hoo'ha  :: forall from u uu o e ee a .
+ho'ha, hoo'ha, hooo'ha, hoooo'ha, hooooo'ha, hoooooo'ha, hooooooo'ha, hoooooooo'ha, hooooooooo'ha
+ :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
  Contravariant Semi Functor from u (Opposite uu ee) =>
@@ -799,6 +797,13 @@ ho'ha, hoo'ha  :: forall from u uu o e ee a .
 ho'ha x = fai @(->) @(->) fai (ho @u x)
 
 hoo'ha = ho'ha
+hooo'ha = ho'ha
+hoooo'ha = ho'ha
+hooooo'ha = ho'ha
+hoooooo'ha = ho'ha
+hooooooo'ha = ho'ha
+hoooooooo'ha = ho'ha
+hooooooooo'ha = ho'ha
 
 ho'ha_, hoo'ha_, hooo'ha_, hoooo'ha_, hooooo'ha_, hoooooo'ha_, hooooooo'ha_, hoooooooo'ha_, hooooooooo'ha_
  :: forall from u uu o e ee a .
