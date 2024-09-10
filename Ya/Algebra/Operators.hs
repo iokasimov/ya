@@ -285,7 +285,7 @@ yoi :: forall from into t e a o .
  Castable Opposite into (Straight from a o) =>
  Castable Straight into (This t e o) =>
  t a e -> into (from a o) (t o e)
-yoi x = compose unwrap (yoneda @Straight @from @into @(This t e) (wrap x))
+yoi = fio @into unwrap `compose` yo @from @into @(This t e) `compose` wrap
 
 yio :: forall from into t e a o .
  Precategory into =>
@@ -293,7 +293,7 @@ yio :: forall from into t e a o .
  Castable Opposite into (Straight from a o) =>
  Castable Straight into (That t e o) =>
  t e a -> into (from a o) (t e o)
-yio x = compose unwrap (yoneda @Straight @from @into @(That t e) (wrap x))
+yio = fio @into unwrap `compose` yo @from @into @(That t e) `compose` wrap
 
 yioi :: forall from into w e eee a o .
  Precategory into =>
@@ -574,13 +574,12 @@ fai from = unwrap `compose` fa @_ @_ @(U_II_I _ _) from `compose` wrap
 
 fai_ :: forall from into t a o i .
  Contravariant Semi Functor from into (U_II_I t i) =>
- Contravariant Semi Functor into into (U_II_I t i) =>
  Wrapper into (U_II_I t i a) =>
  Wrapper into (U_II_I t i (Supertype a)) =>
  Wrapper into (U_II_I t i o) =>
- Wrapper into a =>
+ Wrapper from a =>
  from (Supertype a) o -> into (t o i) (t a i)
-fai_ from = fai @into unwrap `compose` fai from
+fai_ from = fai (from `compose` unwrap)
 
 fio'fo :: forall from into t tt e a o .
  Covariant Semi Functor into into (U_I_II t e) =>
@@ -784,6 +783,7 @@ ha_ha :: forall from u uu a o e ee .
  Wrapper u (Opposite uu ee o) =>
  Wrapper u (Opposite uu ee a) =>
  Wrapper u a =>
+ Wrapper from a =>
  u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai_ (ha @u x)
 
