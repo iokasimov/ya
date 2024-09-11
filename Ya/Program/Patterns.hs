@@ -70,6 +70,8 @@ pattern Probably x = U_I_II @ML x
 
 type Reference = U_I_UU_III_U_II_I (->) LM
 
+pattern Reference x = U_I_UU_III_U_II_I @(->) @LM x
+
 type Attribute = W_I_II_II Reference
 
 pattern Attribute x = W_I_II_II @Reference x
