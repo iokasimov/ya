@@ -109,24 +109,25 @@ infixl 3 `luuuuuu`, `luuuuuu'yp`, `luuuuuu'ys`
 infixl 2 `luuuuuuu`, `luuuuuuu'yp`, `luuuuuuu'ys`
 infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`, `luuuuuuuu'ys`
 
-infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi_yi`, `yi'ho`, `yi'lu`, `yi'lu'ys`
- , `_yi`
- , `__yi`
- , `___yi`
+infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'ho`, `yi'lu`, `yi'lu'ys`
+ , `yi_`
+ , `yi__`
+ , `yi___`
 infixl 7 `yii`, `yii'yok`
- , `_yii`
- , `__yii`
- , `___yii`
+ , `yii_`
+ , `yii__`
+ , `yii___`
 infixl 6 `yiii`, `yiii'yok`
- , `_yiii`
- , `__yiii`
+ , `yiii_`
+ , `yiii__`
 infixl 5 `yiiii`, `yiiii'yok`
- , `_yiiii`
- , `___yiiii`
+ , `yiiii_`
+ , `yiiii__`
+ , `yiiii___`
 infixl 4 `yiiiii`, `yiiiii'yok`
- , `_yiiiii`
- , `__yiiiii`
- , `___yiiiii`
+ , `yiiiii_`
+ , `yiiiii__`
+ , `yiiiii___`
 infixl 3 `yiiiiii`, `yiiiiii'yok`
 infixl 2 `yiiiiiii`, `yiiiiiii'yok`
 infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
@@ -891,7 +892,7 @@ ho_yo :: forall from u t o e a .
  -- Mapping Constant Straight from (->) t t =>
  Castable Straight from e =>
  u (Supertype e) (t a) -> from a o -> u e (t o)
-ho_yo x = fai (fo @from) (ho @from (fai @from _yi x))
+ho_yo x = fai (fo @from) (ho @from (fai @from yi_ x))
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
@@ -1290,7 +1291,7 @@ _yi'hsz :: forall from e ee i o oo .
  Castable Straight from e =>
  Castable Straight from ee =>
  from o i -> from oo i -> from e i
-_yi'hsz from_left from_right = hsz from_left from_right `compose` _yi
+_yi'hsz from_left from_right = hsz from_left from_right `compose` yi_
 
 -- TODO: to test
 rwr'hs :: forall from into r o a aa .
@@ -1342,17 +1343,15 @@ yp'yp :: forall u e ee t tt .
 yp'yp = day @Straight @(->) @t @u @LM identity
  (day @Straight @(->) @tt @LM @LM identity identity)
 
-_yi, _yii, _yiii, _yiiii, _yiiiii
- , yi_yi ::
+yi_, yii_, yiii_, yiiii_, yiiiii_ ::
  Castable Straight into i =>
  into i (Supertype i)
-_yi = _'
+yi_ = _'
 
-_yii = _yi
-_yiii = _yi
-_yiiii = _yi
-_yiiiii = _yi
-yi_yi = _yi
+yii_ = yi_
+yiii_ = yi_
+yiiii_ = yi_
+yiiiii_ = yi_
 
 w'rw :: forall into a o .
  Precategory into =>
@@ -1368,30 +1367,30 @@ rw'w :: forall into a o .
  into a o -> into (Supertype a) (Supertype o)
 rw'w into = _' @into `compose` into `compose` wrap @into
 
-__yi, __yii, __yiii, __yiiii, __yiiiii :: forall into a .
+yi__, yii__, yiii__, yiiii__, yiiiii__ :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  into a (Supertype (Supertype a))
-__yi = _' @into `compose` _' @into
+yi__ = _' @into `compose` _' @into
 
-__yii = __yi
-__yiii = __yi
-__yiiii = __yi
-__yiiiii = __yi
+yii__ = yi__
+yiii__ = yi__
+yiiii__ = yi__
+yiiiii__ = yi__
 
-___yi, ___yii, ___yiii, ___yiiii, ___yiiiii :: forall into a .
+yi___, yii___, yiii___, yiiii___, yiiiii___ :: forall into a .
  Precategory into =>
  Castable Straight into a =>
  Castable Straight into (Supertype a) =>
  Castable Straight into (Supertype (Supertype a)) =>
  into a (Supertype (Supertype (Supertype a)))
-___yi = _' @into `compose` _' @into `compose` _' @into
+yi___ = _' @into `compose` _' @into `compose` _' @into
 
-___yii = ___yi
-___yiii = ___yi
-___yiiii = ___yi
-___yiiiii = ___yi
+yii___ = yi___
+yiii___ = yi___
+yiiii___ = yi___
+yiiiii___ = yi___
 
 -- TODO: it's wrong, we need to rewrite it
 ___ho :: forall a e o oo .
