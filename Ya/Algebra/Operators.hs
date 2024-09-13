@@ -84,14 +84,14 @@ infixl 3 `hjjjjjjj`
 infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
-infixl 8 `lo`
-infixl 7 `loo`
-infixl 6 `looo`
-infixl 5 `loooo`
-infixl 4 `looooo`
-infixl 3 `loooooo`
-infixl 2 `looooooo`
-infixl 1 `loooooooo`
+infixl 8 `lo`, `lo'yp`
+infixl 7 `loo`, `loo'yp`
+infixl 6 `looo`, `looo'yp`
+infixl 5 `loooo`, `loooo'yp`
+infixl 4 `looooo`, `looooo'yp`
+infixl 3 `loooooo`, `loooooo'yp`
+infixl 2 `looooooo`, `looooooo'yp`
+infixl 1 `loooooooo`, `loooooooo'yp`
 
 infixl 8 `la`
 infixl 7 `laa`
@@ -649,6 +649,8 @@ ho_, hoo_, hooo_, hoooo_, hooooo_, hoooooo_, hooooooo_, hoooooooo_, hooooooooo_
  u i a -> into (from (Supertype a) o) (u i o)
 ho_ x = yio @from @into @u x `compose` fai @from _'
 
+-- ha_ x = yai @from @(->) @u x `compose` fai @from _'
+
 -- ha_: u a i -> into (from (Supertype o) a) (u o i)
 -- ho_: u i a -> into (from (Supertype a) o) (u i o)
 -- hu_: Supertype (from () a) -> into (from (Supertype a) o) (Supertype (from () o))
@@ -1164,6 +1166,20 @@ loooooo = lo
 looooooo = lo
 loooooooo = lo
 
+lo'yp, loo'yp, looo'yp, loooo'yp, looooo'yp, loooooo'yp, looooooo'yp, loooooooo'yp
+ :: forall t a aa o oo .
+ Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
+ Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product Arrow o oo))
+lo'yp from_left from_right = yp `compose` lo from_left from_right
+
+loo'yp = lo'yp
+looo'yp = lo'yp
+loooo'yp = lo'yp
+looooo'yp = lo'yp
+loooooo'yp = lo'yp
+looooooo'yp = lo'yp
+loooooooo'yp = lo'yp
+
 cn :: forall into a aa o oo .
  Cone Straight into into (Object Straight into) =>
  Functor Straight into into (That (Product into) o) =>
@@ -1175,6 +1191,8 @@ cn :: forall into a aa o oo .
  Wrapper into (This (Product into) aa a) =>
  into a o -> into aa oo -> into (Product into a aa) (Product into o oo)
 cn from_left from_right = fio from_right `compose` foi from_left
+
+-- into a o -> into a oo -> into a (Product into o oo)
 
 cnz :: forall into e a aa o oo .
  Cone Straight into into (Object Straight into) =>
