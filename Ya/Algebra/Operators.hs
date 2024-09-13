@@ -11,37 +11,37 @@ infixl 9 `he`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`, `ho_yo`
- , `ho__`
- , `ho___`
+ , `ho'he'he`
+ , `ho'he'he'he`
 infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo'he`
- , `hoo__`
- , `hoo___`
+ , `hoo'he'he`
+ , `hoo'he'he'he`
 infixl 7 `hooo`, `hooo'ha`, `hooo'ha'he`, `hooo'yo`, `hooo'yok`, `hooo'yuk`
  , `hooo'he`
- , `hooo__`
- , `hooo___`
+ , `hooo'he'he`
+ , `hooo'he'he'he`
 infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha'he`, `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`
  , `hoooo'he`
- , `hoooo__`
- , `hoooo___`
+ , `hoooo'he'he`
+ , `hoooo'he'he'he`
 infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha'he`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`
  , `hooooo'he`
- , `hooooo__`
- , `hooooo___`
+ , `hooooo'he'he`
+ , `hooooo'he'he'he`
 infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha'he`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`
  , `hoooooo'he`
- , `hoooooo__`
- , `hoooooo___`
-infixl 3 `hooooooo`, `hooooooo'he`, `hooooooo__`, `hooooooo___`, `hooooooo'ha`, `hooooooo'ha'he`, `hooooooo'yok`, `hooooooo'yuk`
+ , `hoooooo'he'he`
+ , `hoooooo'he'he'he`
+infixl 3 `hooooooo`, `hooooooo'he`, `hooooooo'he'he`, `hooooooo'he'he'he`, `hooooooo'ha`, `hooooooo'ha'he`, `hooooooo'yok`, `hooooooo'yuk`
 infixl 2 `hoooooooo`, `hoooooooo'ha`, `hoooooooo'ha'he`, `hoooooooo'yok`, `hoooooooo'yuk`
  , `hoooooooo'he`
- , `hoooooooo__`
- , `hoooooooo___`
+ , `hoooooooo'he'he`
+ , `hoooooooo'he'he'he`
 infixl 1 `hooooooooo`, `hooooooooo'ha`, `hooooooooo'ha'he`, `hooooooooo'yok`, `hooooooooo'yuk`
  , `hooooooooo'he`
- , `hooooooooo__`
- , `hooooooooo___`
+ , `hooooooooo'he'he`
+ , `hooooooooo'he'he'he`
 
 infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'he`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
  , `ha'he`, `ha_ha`
@@ -664,57 +664,59 @@ hooooooo'he = ho'he
 hoooooooo'he = ho'he
 hooooooooo'he = ho'he
 
-ho__, hoo__, hooo__, hoooo__, hooooo__, hoooooo__, hooooooo__, hoooooooo__, hooooooooo__
+ho'he'he, hoo'he'he, hooo'he'he, hoooo'he'he, hooooo'he'he, hoooooo'he'he, hooooooo'he'he, hoooooooo'he'he, hooooooooo'he'he
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
  Contravariant Semi Functor from into (U_II_I from o) =>
  Covariant Semi Functor from into (U_I_II from o) =>
- Castable Straight from a =>
- Castable Straight from (Supertype a) =>
- Castable Straight into (U_I_II u i o) =>
- Castable Opposite into (U_I_II from a o) =>
+ Wrapper from a =>
+ Wrapper from (Supertype a) =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  Wrapper into (U_II_I from o (Supertype (Supertype a))) =>
  u i a -> into (from (Supertype (Supertype a)) o) (u i o)
-ho__ x = yio @from @into @u x `compose` fai @from __'
+ho'he'he x = yio @from @into @u x `compose` he @from `compose` he @from
 
-hoo__ = ho__
-hooo__ = ho__
-hoooo__ = ho__
-hooooo__ = ho__
-hoooooo__ = ho__
-hooooooo__ = ho__
-hoooooooo__ = ho__
-hooooooooo__ = ho__
+hoo'he'he = ho'he'he
+hooo'he'he = ho'he'he
+hoooo'he'he = ho'he'he
+hooooo'he'he = ho'he'he
+hoooooo'he'he = ho'he'he
+hooooooo'he'he = ho'he'he
+hoooooooo'he'he = ho'he'he
+hooooooooo'he'he = ho'he'he
 
-ho___, hoo___, hooo___, hoooo___, hooooo___, hoooooo___, hooooooo___, hoooooooo___, hooooooooo___
+ho'he'he'he, hoo'he'he'he, hooo'he'he'he, hoooo'he'he'he, hooooo'he'he'he, hoooooo'he'he'he, hooooooo'he'he'he, hoooooooo'he'he'he, hooooooooo'he'he'he
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
  Contravariant Semi Functor from into (U_II_I from o) =>
  Covariant Semi Functor from into (U_I_II from o) =>
- Castable Straight from a =>
- Castable Straight from (Supertype a) =>
- Castable Straight from (Supertype (Supertype a)) =>
- Castable Straight into (U_I_II u i o) =>
- Castable Opposite into (U_I_II from a o) =>
+ Wrapper from a =>
+ Wrapper from (Supertype a) =>
+ Wrapper from (Supertype (Supertype a)) =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
  Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o (Supertype a)) =>
+ Wrapper into (U_II_I from o (Supertype (Supertype a))) =>
  Wrapper into (U_II_I from o (Supertype (Supertype (Supertype a)))) =>
  u i a -> into (from (Supertype (Supertype (Supertype a))) o) (u i o)
-ho___ x = yio @from @into @u x `compose` fai @from ___'
+ho'he'he'he x = yio @from @into @u x `compose` he @from `compose` he @from `compose` he @from
 
-hoo___ = ho___
-hooo___ = ho___
-hoooo___ = ho___
-hooooo___ = ho___
-hoooooo___ = ho___
-hooooooo___ = ho___
-hoooooooo___ = ho___
-hooooooooo___ = ho___
+hoo'he'he'he = ho'he'he'he
+hooo'he'he'he = ho'he'he'he
+hoooo'he'he'he = ho'he'he'he
+hooooo'he'he'he = ho'he'he'he
+hoooooo'he'he'he = ho'he'he'he
+hooooooo'he'he'he = ho'he'he'he
+hoooooooo'he'he'he = ho'he'he'he
+hooooooooo'he'he'he = ho'he'he'he
 
 __ho, __hoo, __hooo, __hoooo, __hooooo, __hoooooo, __hooooooo, __hoooooooo, __hooooooooo
  :: forall from into u i a o .
