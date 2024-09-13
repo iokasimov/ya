@@ -7,6 +7,8 @@ import Ya.Algebra.Instances ()
 
 infixl 9 `_'`, `__'`, `___'`
 
+infixl 9 `he`
+
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha_`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho_`, `ho_yo`
  , `ho__`
@@ -222,6 +224,14 @@ yiiiiii = yi
 yiiiiiii = yi
 yiiiiiiii = yi
 yi'yi = yi
+
+he :: forall from into u a o .
+ Contravariant Semi Functor from into (U_II_I u o) =>
+ Wrapper into (U_II_I u o a) =>
+ Wrapper into (U_II_I u o (Supertype a)) =>
+ Wrapper from a =>
+ into (u (Supertype a) o) (u a o)
+he = fai @from unwrap
 
 fo :: forall from into t a o .
  Covariant Semi Functor from into t =>
