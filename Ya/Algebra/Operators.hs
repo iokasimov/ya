@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'he'ho`, `he'he'he'ho`
+infixl 9 `he`, `he'he`, `he'he'he`, `he'ho`, `he'he'ho`, `he'he'he'ho`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`, `ho_yo`
@@ -60,7 +60,7 @@ infixl 2 `haaaaaaaa`
 infixl 1 `haaaaaaaaa`
  , `haaaaaaaaa'he`
 
-infixl 9 `hu`, `hu'he`, `hu__`
+infixl 9 `hu`, `hu'he`, `hu'he'he`
 infixl 8 `huu`
 infixl 7 `huuu`
 infixl 6 `huuuu`
@@ -738,7 +738,21 @@ hooooooo'he'he'he = ho'he'he'he
 hoooooooo'he'he'he = ho'he'he'he
 hooooooooo'he'he'he = ho'he'he'he
 
-__ho, __hoo, __hooo, __hoooo, __hooooo, __hoooooo, __hooooooo, __hoooooooo, __hooooooooo
+he'ho
+ :: forall from into u i a o .
+ Precategory from =>
+ Precategory into =>
+ Covariant Yoneda from into (U_I_II u i) =>
+ Contravariant Semi Functor from (->) (U_II_I u a) =>
+ Covariant Semi Functor from into (U_I_II from o) =>
+ Wrapper from i =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ u (Supertype i) a -> into (from a o) (u i o)
+he'ho = yio @from @into @u `compose` he @from
+
+he'he'ho
  :: forall from into u i a o .
  Precategory from =>
  Precategory into =>
@@ -752,16 +766,24 @@ __ho, __hoo, __hooo, __hoooo, __hooooo, __hoooooo, __hooooooo, __hoooooooo, __ho
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u (Supertype (Supertype i)) a -> into (from a o) (u i o)
-__ho = yio @from @into @u `compose` fai @from __'
+he'he'ho = yio @from @into @u `compose` fai @from __'
 
-__hoo = __ho
-__hooo = __ho
-__hoooo = __ho
-__hooooo = __ho
-__hoooooo = __ho
-__hooooooo = __ho
-__hoooooooo = __ho
-__hooooooooo = __ho
+he'he'he'ho
+ :: forall from into u i a o .
+ Precategory from =>
+ Precategory into =>
+ Covariant Yoneda from into (U_I_II u i) =>
+ Contravariant Semi Functor from (->) (U_II_I u a) =>
+ Covariant Semi Functor from into (U_I_II from o) =>
+ Wrapper from i =>
+ Wrapper from (Supertype i) =>
+ Wrapper from (Supertype (Supertype i)) =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o (Supertype a)) =>
+ u (Supertype (Supertype (Supertype i))) a -> into (from a o) (u i o)
+he'he'he'ho = yio @from @into @u `compose` fai @from ___'
 
 ha, haa, haaa, haaaa, haaaaa, haaaaaa, haaaaaaa, haaaaaaaa, haaaaaaaaa :: forall from u e a o .
  Contravariant Yoneda from (->) (U_II_I u e) =>
@@ -1021,7 +1043,7 @@ hu'he :: forall from into a o .
  Supertype (from () a) -> into (from (Supertype a) o) (Supertype (from () o))
 hu'he x = hu @from @into @a x `yai'yai` _' @from @a
 
-hu__ :: forall from into a o .
+hu'he'he :: forall from into a o .
  Precategory into =>
  Precategory from =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1037,7 +1059,7 @@ hu__ :: forall from into a o .
  Castable Straight into (U_1_I from () o) =>
  Contravariant Yoneda from (->) (U_II_I into (Supertype (from () o))) =>
  Supertype (from () a) -> into (from (Supertype (Supertype a)) o) (Supertype (from () o))
-hu__ x = hu @from @into @a x `yai'yai` __' @from @a
+hu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
 
 v :: (a -> o) -> a -> e -> o
 v from x y = from (constant x y)
@@ -1443,13 +1465,13 @@ yiiii___ = yi___
 yiiiii___ = yi___
 
 -- TODO: it's wrong, we need to rewrite it
-___ho :: forall a e o oo .
- Castable Straight (->) a =>
- Castable Straight (->) (Supertype a) =>
- Castable Straight (->) (Supertype (Supertype a)) =>
- ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
- a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
-___ho x e f = f (_' (_' (_' x)) e)
+-- he'he'he'ho :: forall a e o oo .
+--  Castable Straight (->) a =>
+--  Castable Straight (->) (Supertype a) =>
+--  Castable Straight (->) (Supertype (Supertype a)) =>
+--  ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
+--  a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
+-- he'he'he'ho x e f = f (_' (_' (_' x)) e)
 
 -- TODO: define `rw'o`
 -- TODO: define `rw'rw'o`
