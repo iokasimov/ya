@@ -32,9 +32,6 @@ adjust attr f s = let (These h x) = attr `__'` s in x `yi`f h
 review :: Transition state state
 review = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` old `yi` old
 
-switch :: (e -> ee) -> Automation e ee e
-switch f = U_I_UU_II_III `yi` \x -> f x `lu` x
-
 put :: state -> Transition state state
 put new = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` new `yi` old
 
@@ -46,6 +43,9 @@ modify f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` f old
 
 auto :: Automation e e e
 auto = U_I_UU_II_III `yi` \x -> x `lu` x
+
+switch :: (e -> ee) -> Automation e ee e
+switch f = U_I_UU_II_III `yi` \x -> f x `lu` x
 
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>

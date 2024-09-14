@@ -50,8 +50,9 @@ instance Literal (Construction Optional) item item where
 instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
-  (as @(Construction Optional) @item init `yokl`  push `ho` State `ho` way @Back)
-  `___ho`  Construct (Last last) `yi` this
+  this `yi` (unwrap `compose` unwrap `compose` unwrap)
+   (as @(Construction Optional) @item init `yokl`  push `ho` State `ho` way @Back)
+   (Construct (Last last))
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
  as x = Root x (T_TT_I (U_I_I (None () `lu` None ())))
