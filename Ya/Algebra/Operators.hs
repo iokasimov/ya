@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 infixl 9 `he`, `he'he`, `he'he'he`, `he'ho`, `he'he'ho`, `he'he'he'ho`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
- , `ho'he`, `ho_yo`
+ , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
 infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
@@ -110,24 +110,10 @@ infixl 2 `luuuuuuu`, `luuuuuuu'yp`, `luuuuuuu'ys`
 infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`, `luuuuuuuu'ys`
 
 infixl 8 `yi`, `yi'yi`, `yi'yo`, `yi'yu`, `yi'yok`, `yi'yok'ha`, `yi'la`, `yi'yok'yokl`, `yi'yokl`, `yi'yuk`, `yi'ho`, `yi'lu`, `yi'lu'ys`
- , `yi_`
- , `yi__`
- , `yi___`
 infixl 7 `yii`, `yii'yok`
- , `yii_`
- , `yii__`
- , `yii___`
 infixl 6 `yiii`, `yiii'yok`
- , `yiii_`
- , `yiii__`
 infixl 5 `yiiii`, `yiiii'yok`
- , `yiiii_`
- , `yiiii__`
- , `yiiii___`
 infixl 4 `yiiiii`, `yiiiii'yok`
- , `yiiiii_`
- , `yiiiii__`
- , `yiiiii___`
 infixl 3 `yiiiiii`, `yiiiiii'yok`
 infixl 2 `yiiiiiii`, `yiiiiiii'yok`
 infixl 1 `yiiiiiiii`, `yiiiiiiii'yok`
@@ -814,6 +800,22 @@ haaaaaaa'he = ha'he
 haaaaaaaa'he = ha'he
 haaaaaaaaa'he = ha'he
 
+ha'he'he, haa'he'he, haaa'he'he, haaaa'he'he, haaaaa'he'he, haaaaaa'he'he, haaaaaaa'he'he, haaaaaaaa'he'he, haaaaaaaaa'he'he :: forall from u e a o .
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ Wrapper from o =>
+ Wrapper from (Supertype o) =>
+ u a e -> from (Supertype (Supertype o)) a -> u o e
+ha'he'he x = yai @from @(->) @u x `compose` he @from `compose` he @from
+
+haa'he'he = ha'he'he
+haaa'he'he = ha'he'he
+haaaa'he'he = ha'he'he
+haaaaa'he'he = ha'he'he
+haaaaaa'he'he = ha'he'he
+haaaaaaa'he'he = ha'he'he
+haaaaaaaa'he'he = ha'he'he
+haaaaaaaaa'he'he = ha'he'he
+
 ha'ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
  Contravariant Semi Functor from u (Opposite uu ee) =>
@@ -940,15 +942,15 @@ hoooo'yo = ho'yo
 hooooo'yo = ho'yo
 hoooooo'yo = ho'yo
 
-ho_yo :: forall from u t o e a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
- Contravariant Semi Functor from (->) (Opposite u (t a)) =>
- Covariant Endo Semi Functor from t =>
+-- ho_yo :: forall from u t o e a .
+ -- Covariant Yoneda from (->) (Straight u e) =>
+ -- Contravariant Yoneda from (->) (Opposite u e) =>
+ -- Contravariant Semi Functor from (->) (Opposite u (t a)) =>
+ -- Covariant Endo Semi Functor from t =>
  -- Mapping Constant Straight from (->) t t =>
- Castable Straight from e =>
- u (Supertype e) (t a) -> from a o -> u e (t o)
-ho_yo x = fai (fo @from) (ho @from (fai @from yi_ x))
+ -- Castable Straight from e =>
+ -- u (Supertype e) (t a) -> from a o -> u e (t o)
+-- ho_yo x = fai (fo @from) (ho @from (fai @from yi_ x))
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
@@ -1363,7 +1365,7 @@ _yi'hsz :: forall from e ee i o oo .
  Castable Straight from e =>
  Castable Straight from ee =>
  from o i -> from oo i -> from e i
-_yi'hsz from_left from_right = hsz from_left from_right `compose` yi_
+_yi'hsz from_left from_right = hsz from_left from_right `compose` unwrap
 
 -- TODO: to test
 rwr'hs :: forall from into r o a aa .
@@ -1414,16 +1416,6 @@ yp'yp :: forall u e ee t tt .
  u (t (tt e)) (t (tt ee)) -> t (tt (e `LM` ee))
 yp'yp = day @Straight @(->) @t @u @LM identity
  (day @Straight @(->) @tt @LM @LM identity identity)
-
-yi_, yii_, yiii_, yiiii_, yiiiii_ ::
- Castable Straight into i =>
- into i (Supertype i)
-yi_ = _'
-
-yii_ = yi_
-yiii_ = yi_
-yiiii_ = yi_
-yiiiii_ = yi_
 
 w'rw :: forall into a o .
  Precategory into =>
