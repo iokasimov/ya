@@ -1007,7 +1007,7 @@ ho_yi'ho :: forall from u e a o .
  u e a -> from (Supertype a) o -> u e o
 ho_yi'ho x xx = x `ho` _' @from `ho` xx
 
-hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu, huuuuuuuuuu :: forall from into a o .
+hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu :: forall from into a o .
  Precategory into =>
  Covariant Yoneda from into (U_1_I from ()) =>
  Castable Opposite into (U_I_II from a o) =>
@@ -1026,9 +1026,9 @@ huuuuuu = hu
 huuuuuuu = hu
 huuuuuuuu = hu
 huuuuuuuuu = hu
-huuuuuuuuuu = hu
 
-hu'he :: forall from into a o .
+hu'he, huu'he, huuu'he, huuuu'he, huuuuu'he, huuuuuu'he, huuuuuuu'he, huuuuuuuu'he, huuuuuuuuu'he
+ :: forall from into a o .
  Precategory into =>
  Precategory from =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1044,6 +1044,23 @@ hu'he :: forall from into a o .
  Contravariant Yoneda from (->) (U_II_I into (Supertype (from () o))) =>
  Supertype (from () a) -> into (from (Supertype a) o) (Supertype (from () o))
 hu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuuuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+huuuuuuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
+
+-- huu'he = hu'he
+-- huuu'he = hu'he
+-- huuuu'he = hu'he
+-- huuuuu'he = hu'he
+-- huuuuuu'he = hu'he
+-- huuuuuuu'he = hu'he
+-- huuuuuuuu'he = hu'he
+-- huuuuuuuuu'he = hu'he
 
 hu'he'he :: forall from into a o .
  Precategory into =>
