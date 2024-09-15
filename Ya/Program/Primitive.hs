@@ -21,7 +21,7 @@ adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `__'` s in x `yi`f h
+adjust attr f s = let (These h x) = attr `__'` s in x `li`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -30,27 +30,27 @@ adjust attr f s = let (These h x) = attr `__'` s in x `yi`f h
 		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 review :: Transition state state
-review = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` old `yi` old
+review = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` old `li` old
 
 put :: state -> Transition state state
-put new = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` new `yi` old
+put new = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` new `li` old
 
 change :: (state -> state) -> Transition state state
-change f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` old
+change f = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` f old `li` old
 
 modify :: (state -> state) -> Transition state state
-modify f = W_I_I_II `ha` U_I_UU_II_III `yi` \old -> These `yi` f old `yi` f old
+modify f = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` f old `li` f old
 
 auto :: Automation e e e
-auto = U_I_UU_II_III `yi` \x -> x `lu` x
+auto = U_I_UU_II_III `li` \x -> x `lu` x
 
 switch :: (e -> ee) -> Automation e ee e
-switch f = U_I_UU_II_III `yi` \x -> f x `lu` x
+switch f = U_I_UU_II_III `li` \x -> f x `lu` x
 
 leaf :: forall t e .
 	Monoidal Straight Functor (->) LM ML t =>
 	e -> Recursive (U_I_T_II t LM e)
-leaf x = Recursive `ha` U_I_T_II `ha` These x `yii` empty `yo` absurd
+leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` absurd
 
 self :: Reference e e e
 self = U_I_UU_III_U_II_I / \x -> x `lu` identity
@@ -69,7 +69,7 @@ sub :: forall tt t e .
 sub = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
-  (\new -> Root x `yii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
+  (\new -> Root x `lii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
 intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x
@@ -131,7 +131,7 @@ rep :: forall t e .
  Setoid (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `ARR` Attribute `TI` t e `TI` e
-rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `yi` \origin ->
+rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `_'` index) `yi'lu` (\x -> tbt (U_I_II / \index' -> (but `yii` idx origin `_'` index') `la` but x `yi` (index' `e` index)))
+ (idx origin `_'` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `_'` index') `la` but x `li` (index' `e` index)))

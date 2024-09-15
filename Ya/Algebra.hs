@@ -127,7 +127,7 @@ instance
 	, Monoidal Straight Functor (->) LM LM (R_U_I_T_I LM tt)
 	) => Mapping Straight Straight (->) (->) (Straight (->) ()) (t `T_TT_I` R_U_I_T_I LM tt)
 	where mapping = rwr / \from (Straight f) -> T_TT_I /
-		enter @t `yi'yu` (enter @(R_U_I_T_I LM tt) `yo` from `compose` f)
+		enter @t `yu` (enter @(R_U_I_T_I LM tt) `yo` from `compose` f)
 
 -- TODO: try to avoid mapping twice datastructure here
 instance
@@ -189,12 +189,12 @@ instance Mapping Straight Straight (->) (->)
 		(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	)
 	(Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \from -> rwr `yiii` rwr `yii` rwr `yi` \(U_I_UU_II_III state) old ->
-		(\(These s (Straight f)) -> from `fio` f `yi__` s) (state old)
+	where mapping = rwr / \from -> rwr `liii` rwr `lii` rwr `li` \(U_I_UU_II_III state) old ->
+		(\(These s (Straight f)) -> unwrap (unwrap (from `fio` f)) s) (state old)
 
 instance Covariant Endo Semi Functor (->) t
 	=> Mapping Straight Straight (->) (->) t (T_TTT_TT_I (Straight (->) e) (Straight LM e) t)
-	where mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `yi` \state ->
+	where mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `li` \state ->
 		x `yo` from `ho` These state `ho` Straight
 
 instance (Covariant Monoidal Functor (->) LM LM t, e ~ ee)
@@ -231,7 +231,7 @@ instance
 	(T_TTT_TT_I (Straight (->) old) (Straight LM new) t)
 	where mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
 		wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(Straight _ _ _)
-		`yi` \old -> x old `yok` \(Straight (These btw (T_TTT_TT_I (Straight f))))
+		`li` \old -> x old `yok` \(Straight (These btw (T_TTT_TT_I (Straight f))))
 			-> f btw `yo'yo` from
 
 -- TODO: try to use adjunctions here
@@ -247,7 +247,7 @@ instance
  (T_TTT_TT_I (Straight (->) e) (Straight LM e) tt) where
   mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) ->
    wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(Straight _ _ _)
-    `yi` \old -> x old `yok` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
+    `li` \old -> x old `yok` \(Straight (These btw (Straight (W_I_I_II (U_I_UU_II_III f)))))
       -> yu (enter @tt) / Straight (f btw) `yo` from
 
 instance
@@ -266,20 +266,20 @@ instance Mapping Straight Straight (->) (->) (That LM e `T_TT_I` tt) (That LM e 
 		(T_TTT_TT_I (Straight (->) e) (Straight LM e) tt)
 	where mapping = rwr / \from (T_TT_I (Straight (W_I_I_II (U_I_UU_II_III x)))) -> 
 		T_TTT_TT_I `compose` Straight / \old -> wrapped @(->)
-			`yi` map @Straight @Straight @(->) @(->) @(That LM e `T_TT_I` tt) @(That LM e `TT_T_I` tt) from
-			`yi` Straight (x old)
+			`li` map @Straight @Straight @(->) @(->) @(That LM e `T_TT_I` tt) @(That LM e `TT_T_I` tt) from
+			`li` Straight (x old)
 
 instance Monoidal Straight Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That (->) ()) (That (->) e `T_TT_I` t)
-	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `yi` f ()
+	where mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `li` f ()
 
 instance Mapping Straight Straight (->) (->) (That (->) ()) (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
-	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `ha` U_I_UU_II_III `yi` \e -> These e (f () `hu` from)
+	where mapping = rwr / \from -> rwr / \f -> W_I_I_II `ha` U_I_UU_II_III `li` \e -> These e (f () `hu` from)
 
 instance Monoidal Straight Functor (->) LM LM t =>
 	Mapping Straight Straight (->) (->) (That (->) ()) (T_TTT_TT_I (That (->) e) (That LM e) t)
 	where mapping = rwr / \from (Straight f) -> T_TTT_TT_I `compose` Straight
-		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `yi` f ()
+		/ \old -> yu enter `compose` Straight `compose` These old `compose` from `li` f ()
 
 instance
 	( Covariant Semi Functor from (->) t
@@ -317,7 +317,7 @@ instance Mapping Straight Straight (->) (->)
 			(That (W_I_I_II (U_I_UU_II_III (->) LM)) e) ee eee)
 		(That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \case
-		These (These ee eee) (Straight f) -> W_I_I_II `ha` U_I_UU_II_III `yi` \old ->
+		These (These ee eee) (Straight f) -> W_I_I_II `ha` U_I_UU_II_III `li` \old ->
 			let These new x = ee `___'` old in
 			let These upd y = eee `___'` new in
 			These upd (f (These x y) `hu` from)
