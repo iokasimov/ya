@@ -127,7 +127,8 @@ pass x = x `yu` ()
 same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
 same = e
 
-rep :: forall t e .
+rep :: forall r t e .
+ (r ~ Representation t) =>
  Setoid (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `ARR` Attribute `TI` t e `TI` e
