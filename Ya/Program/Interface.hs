@@ -19,7 +19,7 @@ instance Field e (e `LM` ee) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
  has = Attribute `ha` Reference `li` \(These old fs) -> These
-  `li` (has @e @ee `__'` fs `huuuu` this)
+  `li` (has @e @ee `he'he` fs `huuuu` this)
   `li` \new -> old `lu` adjust (has @e @ee) (but new) fs
 
 class Match e ee where

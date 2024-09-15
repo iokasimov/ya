@@ -21,7 +21,7 @@ adjust ::
 	Castable Straight Arrow (Reference origin target target) =>
 	Castable Straight Arrow (Attribute origin target) =>
 	Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `__'` s in x `li`f h
+adjust attr f s = let (These h x) = attr `he'he` s in x `li`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -135,4 +135,4 @@ rep :: forall r t e .
 rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `_'` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `_'` index') `la` but x `li` (index' `q` index)))
+ (idx origin `he` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `he` index') `la` but x `li` (index' `q` index)))

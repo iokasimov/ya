@@ -92,8 +92,8 @@ instance
 		(Day Straight (->) LM LM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These e ee) (Straight f) ->
-			let These e_ e__ = ___' e in
-			let These ee_ ee__ = ___' ee in
+			let These e_ e__ = he'he'he e in
+			let These ee_ ee__ = he'he'he ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f / These e_ ee_)
 				(day @Straight @Arrow @t @LM @LM identity
@@ -153,8 +153,8 @@ instance
 	) => Mapping Straight Straight (->) (->) (Day Straight (->) LM MLM (R_U_I_T_I LM t) (R_U_I_T_I LM t) e ee) (R_U_I_T_I LM t)
 	where mapping = rwr / \from -> rwr / \case
 		These (These e ee) (Straight f) ->
-			let These e_ e__ = ___' e in
-			let These ee_ ee__ = ___' ee in
+			let These e_ e__ = he'he'he e in
+			let These ee_ ee__ = he'he'he ee in
 			Recursive `compose` U_I_T_II / These
 				(from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
 				(day @Straight @Arrow @t @LM @MLM identity
@@ -318,8 +318,8 @@ instance Mapping Straight Straight (->) (->)
 		(That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
 	where mapping = rwr / \from -> rwr / \case
 		These (These ee eee) (Straight f) -> W_I_I_II `ha` U_I_UU_II_III `li` \old ->
-			let These new x = ee `___'` old in
-			let These upd y = eee `___'` new in
+			let These new x = ee `he'he'he` old in
+			let These upd y = eee `he'he'he` new in
 			These upd (f (These x y) `hu` from)
 
 instance
