@@ -5,7 +5,6 @@ import Ya.Algebra
 
 type Same e = e
 
-pattern Same :: e -> Same e
 pattern Same e = e
 
 type Only = Identity
@@ -140,7 +139,10 @@ pattern Stream xs = xs
 
 type Way = ML () ()
 
+pattern Back :: forall r e ee . (r ~ e `ML` ee) => e -> r
 pattern Back x = This x
+
+pattern Fore :: forall r ee e . (r ~ e `ML` ee) => ee -> r
 pattern Fore x = That x
 
 pattern Passed x = This x
