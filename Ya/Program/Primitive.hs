@@ -125,7 +125,7 @@ pass ::
 pass x = x `yu` ()
 
 same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
-same = e
+same = q
 
 rep :: forall r t e .
  (r ~ Representation t) =>
@@ -135,4 +135,4 @@ rep :: forall r t e .
 rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `_'` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `_'` index') `la` but x `li` (index' `e` index)))
+ (idx origin `_'` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `_'` index') `la` but x `li` (index' `q` index)))
