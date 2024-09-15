@@ -736,6 +736,23 @@ he'ho
  u (Supertype i) a -> into (from a o) (u i o)
 he'ho = yio @from @into @u `compose` he @from
 
+he'hu
+ :: forall from into u i a o .
+ Precategory from =>
+ Category into =>
+ Covariant Yoneda into into (U_I_II u i) =>
+ Mapping Constant Straight (->) (->) (U_I_II u i) (U_I_II u i) =>
+ Mapping Straight Straight (->) (->) (U_I_II u i) (U_I_II u i) =>
+ Contravariant Semi Functor from (->) (U_II_I u a) =>
+ Covariant Semi Functor from into (U_I_II from o) =>
+ Wrapper from i =>
+ Wrapper into (into () o) =>
+ Wrapper into (U_I_II into () o) =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
+ u (Supertype i) a -> into (Supertype (into () o)) (u i o)
+he'hu = yiu @into @u `compose` he @from
+
 he'he'ho
  :: forall from into u i a o .
  Precategory from =>
@@ -915,6 +932,16 @@ ha'hu :: forall from u uu o e ee a .
  u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
 ha'hu x = fai @(->) @(->) fiu (ha @u x)
 
+-- ha'he'hu :: forall from u uu o e ee a .
+ -- Covariant Semi Functor u u (U_I_II uu ee) =>
+ -- Mapping Constant Straight u u (U_I_II uu ee) (U_I_II uu ee) =>
+ -- Contravariant Yoneda u (->) (Opposite u e) =>
+ -- Wrapper u (U_I_II uu ee a) =>
+ -- Wrapper u (U_I_II uu ee o) =>
+ -- Castable Opposite (->) (u () o) =>
+ -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
+-- ha'he'hu x = fai @(->) @(->) fiu (ha'he @u x)
+
 ha'hu'he :: forall from u uu o e ee a .
  Covariant Semi Functor u u (U_I_II uu ee) =>
  Mapping Constant Straight u u (U_I_II uu ee) (U_I_II uu ee) =>
@@ -1060,7 +1087,8 @@ huuuuuuuuu'he x = hu @from @into @a x `yai'yai` _' @from @a
 -- huuuuuuuu'he = hu'he
 -- huuuuuuuuu'he = hu'he
 
-hu'he'he :: forall from into a o .
+hu'he'he, huu'he'he, huuu'he'he, huuuu'he'he, huuuuu'he'he, huuuuuu'he'he, huuuuuuu'he'he, huuuuuuuu'he'he, huuuuuuuuu'he'he
+ :: forall from into a o .
  Precategory into =>
  Precategory from =>
  Covariant Yoneda from into (U_1_I from ()) =>
@@ -1077,6 +1105,14 @@ hu'he'he :: forall from into a o .
  Contravariant Yoneda from (->) (U_II_I into (Supertype (from () o))) =>
  Supertype (from () a) -> into (from (Supertype (Supertype a)) o) (Supertype (from () o))
 hu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuuuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuuuuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
+huuuuuuuuu'he'he x = hu @from @into @a x `yai'yai` __' @from @a
 
 v :: (a -> o) -> a -> e -> o
 v from x y = from (constant x y)
