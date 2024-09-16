@@ -18,16 +18,16 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 adjust ::
-	Castable Straight Arrow (Reference origin target target) =>
-	Castable Straight Arrow (Attribute origin target) =>
-	Attribute origin target -> (target -> target) -> (origin -> origin)
+ Castable Straight Arrow (Reference origin target target) =>
+ Castable Straight Arrow (Attribute origin target) =>
+ Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `he'he` s in x `li`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
-	-- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
-		-- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
-		-- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
+ -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
+  -- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
+  -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 review :: Transition state state
 review = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` old `li` old
@@ -48,8 +48,8 @@ switch :: (e -> ee) -> Automation e ee e
 switch f = U_I_UU_II_III `li` \x -> f x `lu` x
 
 leaf :: forall t e .
-	Monoidal Straight Functor (->) LM ML t =>
-	e -> Recursive (U_I_T_II t LM e)
+ Monoidal Straight Functor (->) LM ML t =>
+ e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` absurd
 
 self :: Reference e e e

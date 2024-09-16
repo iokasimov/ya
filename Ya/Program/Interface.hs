@@ -123,26 +123,26 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
 -- TODO: think about alternative implementations
-instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
-	where mapping = rwr / \from -> \case
-		T_TT_I (T_TT_I (U_I_II (This ())))
-			-> T_TT_I (U_I_II (This ()))
-		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (This ())))) _)))))))
-			-> T_TT_I (U_I_II (This ()))
-		T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (That
-			(R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
-			-> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
-					(fo @Arrow unwrap `compose` unwrap @Arrow / map @Straight @Straight @(->) @(->) @(List `T_TT_I` Cascading List) @List from
-						(T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
-					)
-				))))))
+instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List where
+ mapping = rwr / \from -> \case
+  T_TT_I (T_TT_I (U_I_II (This ())))
+   -> T_TT_I (U_I_II (This ()))
+  T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (This ())))) _)))))))
+   -> T_TT_I (U_I_II (This ()))
+  T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (That
+   (R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
+   -> T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
+     (fo @Arrow unwrap `compose` unwrap @Arrow / map @Straight @Straight @(->) @(->) @(List `T_TT_I` Cascading List) @List from
+      (T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T_TT_I / xx `yo` R_U_I_T_I) xxx))))))))
+     )
+    ))))))
 
-instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T_TT_I` Construction Optional)
-	where mapping = rwr / \from -> \case
-		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
-			T_TT_I `ha` R_U_I_T_I
-				`li` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
-		R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
-			T_TT_I `ha` R_U_I_T_I
-				`ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
-				`li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
+instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T_TT_I` Construction Optional) where
+ mapping = rwr / \from -> \case
+  R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
+   T_TT_I `ha` R_U_I_T_I
+    `li` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
+  R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
+   T_TT_I `ha` R_U_I_T_I
+    `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
+    `li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))

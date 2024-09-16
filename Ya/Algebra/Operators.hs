@@ -207,36 +207,6 @@ liiiiii = li
 liiiiiii = li
 liiiiiiii = li
 
--- he :: forall from into u a o .
- -- Contravariant Semi Functor from into (U_II_I u o) =>
- -- Wrapper into (U_II_I u o a) =>
- -- Wrapper into (U_II_I u o (Supertype a)) =>
- -- Wrapper from a =>
- -- into (u (Supertype a) o) (u a o)
--- he = fai @from unwrap
-
--- he'he :: forall from into u a o .
- -- Contravariant Semi Functor from into (U_II_I u o) =>
- -- Wrapper into (U_II_I u o a) =>
- -- Wrapper into (U_II_I u o (Supertype a)) =>
- -- Wrapper into (U_II_I u o (Supertype (Supertype a))) =>
- -- Wrapper from a =>
- -- Wrapper from (Supertype a) =>
- -- into (u (Supertype (Supertype a)) o) (u a o)
--- he'he = he @from `compose` he @from
-
--- he'he'he :: forall from into u a o .
- -- Contravariant Semi Functor from into (U_II_I u o) =>
- -- Wrapper into (U_II_I u o a) =>
- -- Wrapper into (U_II_I u o (Supertype a)) =>
- -- Wrapper into (U_II_I u o (Supertype (Supertype a))) =>
- -- Wrapper into (U_II_I u o (Supertype (Supertype (Supertype a)))) =>
- -- Wrapper from a =>
- -- Wrapper from (Supertype a) =>
- -- Wrapper from (Supertype (Supertype a)) =>
- -- into (u (Supertype (Supertype (Supertype a))) o) (u a o)
--- he'he'he = he @from `compose` he @from `compose` he @from
-
 fo :: forall from into t a o .
  Covariant Semi Functor from into t =>
  from a o -> into (t a) (t o)
