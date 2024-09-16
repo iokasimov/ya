@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
--- infixl 9 `he`, `he'he`, `he'he'he`, `he'ho`, `he'he'ho`, `he'he'he'ho`
+infixl 9 `he`, `he'he`, `he'he'he` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
 
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
@@ -194,10 +194,6 @@ he'he'he :: forall into e .
  Castable Straight into (Supertype (Supertype e)) =>
  into e (Supertype (Supertype (Supertype e)))
 he'he'he = unwrap `compose` unwrap `compose` unwrap
-
--- _' = he
--- __' = he'he
--- ___' = he'he'he
 
 li, lii, liii, liiii, liiiii, liiiiii, liiiiiii, liiiiiiii
  :: Category into => into e e
@@ -644,8 +640,6 @@ yi'ho = ho
 
 ho'he, hoo'he, hooo'he, hoooo'he, hooooo'he, hoooooo'he, hooooooo'he, hoooooooo'he, hooooooooo'he
  :: forall from into u i a o .
- Precategory from =>
- Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
  Contravariant Semi Functor from into (U_II_I from o) =>
  Covariant Semi Functor from into (U_I_II from o) =>
@@ -655,13 +649,7 @@ ho'he, hoo'he, hooo'he, hoooo'he, hooooo'he, hoooooo'he, hooooooo'he, hoooooooo'
  Wrapper into (U_II_I from o a) =>
  Wrapper into (U_II_I from o (Supertype a)) =>
  u i a -> into (from (Supertype a) o) (u i o)
-ho'he x = yio @from @into @u x `compose` fai @from unwrap
-
--- ha_ x = yai @from @(->) @u x `compose` fai @from _'
-
--- ha_: u a i -> into (from (Supertype o) a) (u o i)
--- ho_: u i a -> into (from (Supertype a) o) (u i o)
--- hu_: Supertype (from () a) -> into (from (Supertype a) o) (Supertype (from () o))
+ho'he = fai @into (fai @from he) `compose` yio @from @into @u
 
 hoo'he = ho'he
 hooo'he = ho'he
@@ -674,8 +662,6 @@ hooooooooo'he = ho'he
 
 ho'he'he, hoo'he'he, hooo'he'he, hoooo'he'he, hooooo'he'he, hoooooo'he'he, hooooooo'he'he, hoooooooo'he'he, hooooooooo'he'he
  :: forall from into u i a o .
- Precategory from =>
- Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
  Contravariant Semi Functor from into (U_II_I from o) =>
  Covariant Semi Functor from into (U_I_II from o) =>
@@ -687,7 +673,7 @@ ho'he'he, hoo'he'he, hooo'he'he, hoooo'he'he, hooooo'he'he, hoooooo'he'he, hoooo
  Wrapper into (U_II_I from o (Supertype a)) =>
  Wrapper into (U_II_I from o (Supertype (Supertype a))) =>
  u i a -> into (from (Supertype (Supertype a)) o) (u i o)
-ho'he'he x = yio @from @into @u x `compose` fai @from (he `compose` he)
+ho'he'he = fai @into (fai @from (he `compose` he)) `compose` yio @from @into @u
 
 hoo'he'he = ho'he'he
 hooo'he'he = ho'he'he
@@ -819,21 +805,26 @@ haaaaaaa'he = ha'he
 haaaaaaaa'he = ha'he
 haaaaaaaaa'he = ha'he
 
--- ha'he'he, haa'he'he, haaa'he'he, haaaa'he'he, haaaaa'he'he, haaaaaa'he'he, haaaaaaa'he'he, haaaaaaaa'he'he, haaaaaaaaa'he'he :: forall from u e a o .
- -- Contravariant Yoneda from (->) (U_II_I u e) =>
- -- Wrapper from o =>
- -- Wrapper from (Supertype o) =>
- -- u a e -> from (from (Supertype (Supertype o)) a) (u o e)
--- ha'he'he x = yai @from @from @u x `compose` fai @from he `compose` fai @from he
+ha'he'he, haa'he'he, haaa'he'he, haaaa'he'he, haaaaa'he'he, haaaaaa'he'he, haaaaaaa'he'he, haaaaaaaa'he'he, haaaaaaaaa'he'he
+ :: forall from into u e a o .
+ Contravariant Yoneda from into (U_II_I u e) =>
+ Contravariant Semi Functor from into (U_II_I from a) =>
+ Wrapper from o =>
+ Wrapper into (U_II_I from a o) =>
+ Wrapper into (U_II_I u e o) =>
+ Wrapper into (U_II_I from a (Supertype (Supertype o))) =>
+ Wrapper from (Supertype o) =>
+ u a e -> into (from (Supertype (Supertype o)) a) (u o e)
+ha'he'he = fai @into (fai @from (he `compose` he)) `compose` yai @from @into @u
 
--- haa'he'he = ha'he'he
--- haaa'he'he = ha'he'he
--- haaaa'he'he = ha'he'he
--- haaaaa'he'he = ha'he'he
--- haaaaaa'he'he = ha'he'he
--- haaaaaaa'he'he = ha'he'he
--- haaaaaaaa'he'he = ha'he'he
--- haaaaaaaaa'he'he = ha'he'he
+haa'he'he = ha'he'he
+haaa'he'he = ha'he'he
+haaaa'he'he = ha'he'he
+haaaaa'he'he = ha'he'he
+haaaaaa'he'he = ha'he'he
+haaaaaaa'he'he = ha'he'he
+haaaaaaaa'he'he = ha'he'he
+haaaaaaaaa'he'he = ha'he'he
 
 ha'ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
