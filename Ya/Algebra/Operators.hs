@@ -121,7 +121,7 @@ infixl 1 `liiiiiiii`, `liiiiiiii'yok`
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'yokl`, `yko`
+infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'he`, `yok'yokl`, `yko`
 infixl 6 `yokk`, `yokk'yokl`
 infixl 5 `yokkk`, `yokkk'yokl`
 infixl 4 `yokkkk`, `yokkkk'yokl`
@@ -372,6 +372,19 @@ liiiii'yok = yok
 liiiiii'yok = yok
 liiiiiii'yok = yok
 liiiiiiii'yok = yok
+
+yok'he
+ :: forall from into tt t a o .
+ Component Natural (->) into (T_TT_I t tt) t =>
+ Covariant Yoneda from into t =>
+ Contravariant Semi Functor from into (U_II_I from (tt o)) =>
+ Wrapper into (U_I_II from a (tt o)) =>
+ Wrapper into (U_II_I from (tt o) a) =>
+ Wrapper into (U_II_I from (tt o) (Supertype a)) =>
+ Wrapper into (T_TT_I t tt o) =>
+ Castable Straight from a =>
+ t a -> into (from (Supertype a) (tt o)) (t o)
+yok'he x = yok @from @into x `compose` fai @from he
 
 yuk, yukk, yukkk, yukkkk, yukkkkk, yukkkkkk, yukkkkkkk, yi'yuk
  :: forall into tt t a o .

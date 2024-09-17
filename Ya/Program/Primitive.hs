@@ -113,7 +113,7 @@ until ::
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
 -- TODO: use a new `yok'he` operator here
-until x = x `yok` unwrap @Arrow `hoo` ((until x `hu` but) `la` (yu enter))
+until x = x `yok'he` (until x `hu` but) `la` yu enter
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
