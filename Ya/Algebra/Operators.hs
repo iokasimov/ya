@@ -373,7 +373,7 @@ liiiiii'yok = yok
 liiiiiii'yok = yok
 liiiiiiii'yok = yok
 
-yok'he
+yok'he, yokk'he, yokkk'he, yokkkk'he, yokkkkk'he, yokkkkkk'he, yokkkkkkk'he
  :: forall from into tt t a o .
  Component Natural (->) into (T_TT_I t tt) t =>
  Covariant Yoneda from into t =>
@@ -385,6 +385,13 @@ yok'he
  Castable Straight from a =>
  t a -> into (from (Supertype a) (tt o)) (t o)
 yok'he x = yok @from @into x `compose` fai @from he
+
+yokk'he = yok'he
+yokkk'he = yok'he
+yokkkk'he = yok'he
+yokkkkk'he = yok'he
+yokkkkkk'he = yok'he
+yokkkkkkk'he = yok'he
 
 yuk, yukk, yukkk, yukkkk, yukkkkk, yukkkkkk, yukkkkkkk, yi'yuk
  :: forall into tt t a o .
