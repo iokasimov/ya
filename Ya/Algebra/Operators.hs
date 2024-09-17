@@ -5,8 +5,6 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `he`, `he'he`, `he'he'he` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
-
 infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
@@ -82,6 +80,8 @@ infixl 3 `hjjjjjjj`
 infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
+infixl 9 `he`, `he'he`, `he'he'he` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
+
 infixl 8 `lo`, `lo'yp`
 infixl 7 `loo`, `loo'yp`
 infixl 6 `looo`, `looo'yp`
@@ -152,6 +152,8 @@ infixl 8 `yu`
 
 infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'yok`, `yp'yokl`, `yp'yp'jt`, `yp'yp'jt'yok`
 
+infixl 8 `ys`
+
 infixl 7 `yoi`
 
 infixl 7 `yai`, `yai'yai`
@@ -164,9 +166,9 @@ infixl 7 `yiu`
 
 infixl 6 `yioi`
 
-infixl 8 `vv` -- ,`lj`, `rj`, `ro`, `ra`, `ys`, `cn`, `cnz`, `cn'yp`, `cnz'yp`, `cc`, `fc`, `jt`, `fr'yp`, `hsz`
-infixl 7 `vvv`--, `ilj`, `rij` , `w'rw`, `rw'w`
-infixl 6 `vvvv`, `yi'hsz`, `_yi'hsz`, `yi'cnz'yp`, `yi'cn'yp`, `li'lu'yp`
+infixl 8 `vv`
+infixl 7 `vvv`
+infixl 6 `vvvv`
 infixl 5 `vvvvv`
 infixl 4 `vvvvvv`
 infixl 3 `vvvvvvv`
@@ -174,26 +176,6 @@ infixl 2 `vvvvvvvv`
 infixl 1 `vvvvvvvvv`
 
 infixl 9 `v`
-
-he :: forall into e .
- Castable Straight into e =>
- into e (Supertype e)
-he = unwrap
-
-he'he :: forall into e .
- Precategory into =>
- Castable Straight into e =>
- Castable Straight into (Supertype e) =>
- into e (Supertype (Supertype e))
-he'he = unwrap `compose` unwrap
-
-he'he'he :: forall into e .
- Precategory into =>
- Castable Straight into e =>
- Castable Straight into (Supertype e) =>
- Castable Straight into (Supertype (Supertype e)) =>
- into e (Supertype (Supertype (Supertype e)))
-he'he'he = unwrap `compose` unwrap `compose` unwrap
 
 li, lii, liii, liiii, liiiii, liiiiii, liiiiiii, liiiiiiii
  :: Category into => into e e
@@ -1180,6 +1162,57 @@ hj'hj :: forall from into t tt ttt tttt e ee a o .
  into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
 hj'hj = hj @from @from `compose` hj @from @into
 
+he :: forall into e .
+ Castable Straight into e =>
+ into e (Supertype e)
+he = unwrap
+
+he'he :: forall into e .
+ Precategory into =>
+ Castable Straight into e =>
+ Castable Straight into (Supertype e) =>
+ into e (Supertype (Supertype e))
+he'he = unwrap `compose` unwrap
+
+he'he'he :: forall into e .
+ Precategory into =>
+ Castable Straight into e =>
+ Castable Straight into (Supertype e) =>
+ Castable Straight into (Supertype (Supertype e)) =>
+ into e (Supertype (Supertype (Supertype e)))
+he'he'he = unwrap `compose` unwrap `compose` unwrap
+
+he'ya :: forall from into t a o e .
+ Precategory into =>
+ (Supertype e ~ t a) =>
+ Contravariant Yoneda from into t =>
+ Wrapper into (U_II_I from a o) =>
+ Wrapper (->) e =>
+ e -> into (from o a) (t o)
+he'ya = ya @from @into `compose` unwrap
+
+he'yo :: forall from into t a o e .
+ Precategory into =>
+ (Supertype e ~ t a) =>
+ Covariant Yoneda from into t =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper (->) e =>
+ e -> into (from a o) (t o)
+he'yo = yo @from @into `compose` unwrap
+
+he'yu :: forall into t a o e .
+ Precategory into =>
+ (Supertype e ~ t a) =>
+ Covariant Yoneda into into t =>
+ Mapping Straight Straight (->) (->) t t =>
+ Wrapper (->) (into () o) =>
+ Wrapper into (into () o) =>
+ Castable Opposite into (U_I_II into () o) =>
+ -- Castable Opposite into (U_I_II from a o) =>
+ Wrapper (->) e =>
+ e -> into (Supertype (into () o)) (t o)
+he'yu = yu @into `compose` unwrap
+
 -- TODO: define `j'_j'_j'`, `j'_j'_j'_j'`, `j'_j'_j'_j'_j',
 
 rj :: forall from into t tt a o .
@@ -1279,14 +1312,14 @@ cn'yp from_left from_right = yp `compose` cn from_left from_right
 yi'cn'yp = cn'yp
 
 -- TODO: try to generalize
-cnz'yp, yi'cnz'yp :: forall e t a aa o oo .
- Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
- Castable Straight (->) e =>
- (Supertype e ~ Product (->) a aa) =>
- Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
-cnz'yp from_left from_right = yp `compose` cn from_left from_right `compose` he
+-- cnz'yp, yi'cnz'yp :: forall e t a aa o oo .
+--  Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
+--  Castable Straight (->) e =>
+--  (Supertype e ~ Product (->) a aa) =>
+--  Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
+-- cnz'yp from_left from_right = yp `compose` cn from_left from_right `compose` he
 
-yi'cnz'yp = cnz'yp
+-- yi'cnz'yp = cnz'yp
 
 -- TODO: try to generalize
 lu, luu, luuu, luuuu, luuuuu, luuuuuu, luuuuuuu, luuuuuuuu :: forall o oo .
@@ -1348,38 +1381,6 @@ laaaaaaaa = la
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
 -- `lo`: into a o -> into a oo -> into a (o `LM` oo)
 --     : u (from o i) (from oo i) -> from (uu o oo) i
-
-hsz, yi'hsz :: forall from e i o oo .
- Category from =>
- Limit Opposite from from =>
- Covariant Functor from from (That (Sum from) o) =>
- Covariant Functor from from (This (Sum from) (Sum from i i)) =>
- (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
- (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
- (forall ee . Wrapper from (Both (Sum from) ee)) =>
- (forall ee . Wrapper from (Identity ee)) =>
- (Supertype e ~ (Sum from o oo)) =>
- Castable Straight from e =>
- from o i -> from oo i -> from e i
-hsz from_left from_right = la from_left from_right `compose` he
-
-yi'hsz = hsz
-
-_yi'hsz :: forall from e ee i o oo .
- Category from =>
- Limit Opposite from from =>
- Covariant Functor from from (That (Sum from) o) =>
- Covariant Functor from from (This (Sum from) (Sum from i i)) =>
- (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
- (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
- (forall ee . Wrapper from (Both (Sum from) ee)) =>
- (forall ee . Wrapper from (Identity ee)) =>
- (Supertype e ~ ee) =>
- (Supertype ee ~ (Sum from o oo)) =>
- Castable Straight from e =>
- Castable Straight from ee =>
- from o i -> from oo i -> from e i
-_yi'hsz from_left from_right = hsz from_left from_right `compose` unwrap
 
 -- TODO: to test
 rwr'hs :: forall from into r o a aa .

@@ -21,7 +21,7 @@ instance
   \(T_TT_I x) -> wrap @_ @(Labeled l _ _) /
    map @Straight @Straight @(->) @(->) @tt (wrap @_ @(T_TT_I t _ _))
    (wrapped (component @Straight @(->) @(->) @(t `T_TT_I` tt) @(t `TT_T_I` tt))
-    (x `yo`wrapped (map @Straight @Straight @(->) @(->)
+    (x `yo` wrapped (map @Straight @Straight @(->) @(->)
       @(R_U_I_T_I LM t `T_TT_I` Labeled l tt)
       @(R_U_I_T_I LM t `TT_T_I` Labeled l tt) from)
      `ho` unwrap @(->) @(Labeled l tt _)
