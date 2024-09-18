@@ -121,13 +121,13 @@ infixl 1 `liiiiiiii`, `liiiiiiii'yok`
 infixl 8 `yo`, `yo'yo`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'he`, `yok'yokl`, `yko`
-infixl 6 `yokk`, `yokk'yokl`
-infixl 5 `yokkk`, `yokkk'yokl`
-infixl 4 `yokkkk`, `yokkkk'yokl`
-infixl 3 `yokkkkk`, `yokkkkk'yokl`
-infixl 2 `yokkkkkk`, `yokkkkkk'yokl`
-infixl 1 `yokkkkkkk`, `yokkkkkkk'yokl`
+infixl 7 `yok`, `yok'ha`, `yok'hu`, `yok'he`, `yok'he'he`, `yok'yokl`, `yko`
+infixl 6 `yokk`, `yokk'he`,  `yokk'he'he`, `yokk'yokl`
+infixl 5 `yokkk`, `yokkk'he`,  `yokkk'he'he`, `yokkk'yokl`
+infixl 4 `yokkkk`, `yokkkk'he`,  `yokkkk'he'he`, `yokkkk'yokl`
+infixl 3 `yokkkkk`, `yokkkkk'he`,  `yokkkkk'he'he`, `yokkkkk'yokl`
+infixl 2 `yokkkkkk`, `yokkkkkk'he`,  `yokkkkkk'he'he`, `yokkkkkk'yokl`
+infixl 1 `yokkkkkkk`, `yokkkkkkk'he`,  `yokkkkkkk'he'he`, `yokkkkkkk'yokl`
 
 infixl 6 `yiok`
 
@@ -392,6 +392,27 @@ yokkkk'he = yok'he
 yokkkkk'he = yok'he
 yokkkkkk'he = yok'he
 yokkkkkkk'he = yok'he
+
+yok'he'he, yokk'he'he, yokkk'he'he, yokkkk'he'he, yokkkkk'he'he, yokkkkkk'he'he, yokkkkkkk'he'he
+ :: forall from into tt t a o .
+ Component Natural (->) into (T_TT_I t tt) t =>
+ Covariant Yoneda from into t =>
+ Contravariant Semi Functor from into (U_II_I from (tt o)) =>
+ Wrapper into (U_I_II from a (tt o)) =>
+ Wrapper into (U_II_I from (tt o) a) =>
+ Wrapper into (U_II_I from (tt o) (Supertype (Supertype a))) =>
+ Wrapper into (T_TT_I t tt o) =>
+ Castable Straight from a =>
+ Castable Straight from (Supertype a) =>
+ t a -> into (from (Supertype (Supertype a)) (tt o)) (t o)
+yok'he'he x = yok @from @into x `compose` fai @from he'he
+
+yokk'he'he = yok'he'he
+yokkk'he'he = yok'he'he
+yokkkk'he'he = yok'he'he
+yokkkkk'he'he = yok'he'he
+yokkkkkk'he'he = yok'he'he
+yokkkkkkk'he'he = yok'he'he
 
 yuk, yukk, yukkk, yukkkk, yukkkkk, yukkkkkk, yukkkkkkk, yi'yuk
  :: forall into tt t a o .
