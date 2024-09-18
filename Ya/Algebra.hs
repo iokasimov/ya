@@ -311,6 +311,13 @@ instance Covariant Monoidal Functor (->) LM LM t =>
   Straight (This e) -> yu enter (This e `hu` Straight)
   Straight (That x) -> x `yo` from `ho` That  `ho` Straight
 
+instance
+ ( Monoidal Straight Functor (->) LM LM t
+ , Mapping Straight Straight (->) (->) (T_TT_I t t) t
+ ) => Mapping Straight Straight (->) (->) (t `T_TT_I` Labeled (Straight ML () ()) (That ML e)) t where
+ mapping = rwr / \from -> \(T_TT_I x) ->
+  x `yok'he'he` (map @Straight @Straight from (T_TT_I x) `hu` but `la` yu (enter @t) `ha` from)
+
 instance Mapping Straight Straight (->) (->)
   (Day Straight (->) LM LM
    (That (W_I_I_II (U_I_UU_II_III (->) LM)) e)
