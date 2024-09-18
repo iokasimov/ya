@@ -108,12 +108,6 @@ forever ::
  t e -> t e
 forever x = x `yuk` forever x
 
-until ::
- Component Natural (->) (->) (t `T_TT_I` t) t =>
- Monoidal Straight Functor (->) LM LM t =>
- t (U_I_II ML e ee) -> t ee
-until x = x `yok'he` until x `hu` but `la` intro
-
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
  t e -> tt e
