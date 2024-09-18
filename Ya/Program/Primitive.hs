@@ -100,8 +100,8 @@ try = wrap @(->) @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(-
 label :: forall l t e . t e -> T_'_I l t e
 label = T_'_I
 
-way :: forall label t e . t e -> Labeled label t e
-way = T_'_I
+by :: forall label t e . t e -> Labeled label t e
+by = T_'_I
 
 forever ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
@@ -112,7 +112,7 @@ until ::
  Component Natural (->) (->) (t `T_TT_I` t) t =>
  Monoidal Straight Functor (->) LM LM t =>
  t (U_I_II ML e ee) -> t ee
-until x = x `yok'he` until x `hu` but `la` yu enter
+until x = x `yok'he` until x `hu` but `la` intro
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
