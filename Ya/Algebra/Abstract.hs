@@ -36,6 +36,8 @@ newtype U_T_I_TT_I u t tt i = U_T_I_TT_I (u (t i) (tt i))
 
 newtype U_I_UU_II_III u uu i ii iii = U_I_UU_II_III (u i (uu ii iii))
 
+newtype U_I_UU_II_I u uu i ii = U_I_UU_II_I (u i (uu ii i))
+
 newtype U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii x = U_UU_UUU_V_III_I_II_UUUU
  (u (uu (v uuu x i) (v uuu x ii)) (v uuu x (uuuu i ii)))
 
@@ -128,6 +130,7 @@ type family Supertype e where
  Supertype (U_T_I_II t u i ii) = u (t i) ii
  Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
  Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
+ Supertype (U_I_UU_II_I u uu i ii) = u i (uu ii i)
  Supertype (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii) = 
   u (uu (v uuu iii i) (v uuu iii ii)) (v uuu iii (uuuu i ii))
  Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
@@ -142,6 +145,7 @@ type family Supertype e where
  Supertype (W_I_I_II w i ii) = w i i ii
  Supertype (W_III_I_II w iii i ii) = w i ii iii
  Supertype (Arrow () ii) = ii
+ -- TODO: try to use `he` as function application
  Supertype (Arrow i ii) = Arrow i ii
  Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
@@ -228,6 +232,12 @@ instance Castable Opposite (->) (U_I_UU_II_III u uu i ii iii)
 
 instance Castable Straight (->) (U_I_UU_II_III u uu i ii iii)
  where cast = U_I_II (\(U_I_UU_II_III x) -> x)
+
+instance Castable Opposite (->) (U_I_UU_II_I u uu i ii)
+ where cast = U_II_I U_I_UU_II_I
+
+instance Castable Straight (->) (U_I_UU_II_I u uu i ii)
+ where cast = U_I_II (\(U_I_UU_II_I x) -> x)
 
 instance Castable Straight (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
  where cast = U_I_II (\(U_UU_UUU_V_III_I_II_UUUU x) -> x)

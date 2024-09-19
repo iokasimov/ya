@@ -348,24 +348,26 @@ instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 
 type family JT effect where
  JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
- JT (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+ JT (U_I_II (U_I_UU_II_I (->) LM) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
 
--- type family Unjointed effect unknown e where
---  Unjointed (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) state) unknown e =
---   state -> unknown (state `LM` e)
+type family Unjointed effect unknown e where
+ Unjointed (U_I_II (U_I_UU_II_I (->) LM) state) unknown e =
+  state -> unknown (state `LM` e)
 
 class Unjointable effect unknown where
  tnj :: effect `JT` unknown `TI` result `ARR` effect `TI` unknown result
 
-instance Unjointable (U_I_II (W_I_I_II (U_I_UU_II_III (->) LM)) e) (U_I_II ML ee) where
- tnj (T_TTT_TT_I (U_I_II f)) = U_I_II (W_I_I_II
-  (U_I_UU_II_III (\e -> case unwrap (f e) of { This x -> These e (U_I_II (This x)); That (U_I_II (These y x)) -> These y (U_I_II (That x))})))
+instance Unjointable (U_I_II (U_I_UU_II_I (->) LM) e) (U_I_II ML ee) where
+ tnj (T_TTT_TT_I (U_I_II f)) = U_I_II (U_I_UU_II_I (\e -> case unwrap (f e) of { This x -> These (U_I_II (This x)) e; That (U_I_II (These y x)) -> These (U_I_II (That x)) y }))
 
 this :: e `LM` ee -> e
 this (These x _) = x
 
 that :: e `LM` ee -> ee
 that (These _ x) = x
+
+swap :: e `LM` ee `ARR` ee `LM` e
+swap (These x y) = These y x
 
 constant :: e -> ee -> e
 constant x _ = x

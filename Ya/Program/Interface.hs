@@ -41,46 +41,23 @@ type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
  Vector x y = x ~ y
 
-class Literal datastructure item literal
- where as :: literal -> datastructure item
-
-instance Literal (Construction Optional) item item where
- as x = Construct `li` Last x
-
-instance Literal (Construction Optional) item init =>
- Literal (Construction Optional) item (init `LM` item) where
- as (These init last) =
-  this `li` (unwrap `compose` unwrap `compose` unwrap)
-   (as @(Construction Optional) @item init `yokl`  push `ho` State `ho` by @Back)
-   (Construct (Last last))
-
-instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
- as x = Root x (T_TT_I (U_I_I (None () `lu` None ())))
-
-instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
- Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
- as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
-   `lii` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-    `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-
 class Stack datastructure where
- pop :: Transition `TI` datastructure item `TI` Optional item
- push :: item -> Transition `TI` datastructure item `TI` item
+ pop :: Automation `TI` datastructure item `TI` Optional item `TI` datastructure item
+ push :: item -> Automation `TI` datastructure item `TI` item `TI` datastructure item
 
+-- TODO: refactor, it's hard to read
 instance Stack List where
- pop = W_I_I_II `ha` U_I_UU_II_III `li` \case
-  Empty @List _ -> These `li` Empty @List () `li` (None ())
-  T_TT_I (Some (Construct (Yet x xs))) -> These `li` (T_TT_I / xs `yo` R_U_I_T_I) `li` Some x
- push x = W_I_I_II `ha` U_I_UU_II_III `li` \s -> These
-  `li` rewrap (Some `ha` R_U_I_T_I `ha` Yet x `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
-  `li` x
+ pop = \case
+  Empty @List _ -> These `li` (None ()) `li` Empty @List ()
+  T_TT_I (Some (Construct (Yet x xs))) -> These `li` Some x `li` (T_TT_I / xs `yo` R_U_I_T_I)
+ push item s = item `lu` rewrap (Some `ha` R_U_I_T_I `ha` Yet item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 
+-- TODO: refactor, it's hard to read
 instance Stack (Construction Optional) where
- pop = W_I_I_II `ha` U_I_UU_II_III `li` \case
-  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> These `li` R_U_I_T_I xs `li` Some x
-  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> These `lii` R_U_I_T_I `li` Yet x (None ()) `lii` (None ())
- push x = W_I_I_II `ha` U_I_UU_II_III `li` \old ->
-  let new = Next x `rwr` old in These new x
+ pop = \case
+  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> Some x `lu` R_U_I_T_I xs
+  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> None () `lu` R_U_I_T_I (Yet x (None ()))
+ push x = \old -> These x (Next x `rwr` old)
 
 type Scrolling datastructure =
  U_T_I_TT_I LM Only (Shafted datastructure)
@@ -108,17 +85,20 @@ type family Scrolled datastructure where
 
 class Scrollable datastructure item where
  scroll :: Orientation datastructure
-  `ARR` Transition
+  `ARR` Automation
    `TI` Scrolling datastructure item
    `TI` Scrolled datastructure item
+   `TI` Scrolling datastructure item
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
- scroll way = unwrap @Arrow `ha` tnj @(State (Scrolling List _))
-  `liiiii` enter @(State `TI` Scrolling List _ `JT` Halts)
-    `yuk` (State `lii` pop `haa'he` has @(Shafted List _) `ho'he` rep way)
-    `yok` on @Halts
-    `yok` (State `haaa` put `hoo'ha` unwrap @Attribute `ho` has @(Focused _)   `ho` unwrap @Attribute)
-    `yok` (State `haaa` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
+ scroll way x@(U_T_I_TT_I (These (Identity x') _)) =
+  (but (These (None ()) x) `la` (unwrap `ho` swap `ho` foi @Arrow @Arrow Some)) `haa` unwrap @Arrow
+   `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
+   `yuk` (State `lii` Transition pop `haa'he` has @(Shafted List item) `ho'he` rep way)
+   `yok` on @Halts
+   `yok` (State `haaa` put `ho` Transition `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
+   `yok` (State `haaa` push `ho` Transition `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
+   )`he'he` x
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
@@ -146,3 +126,25 @@ instance Mapping Straight Straight (->) (->) (Construction Optional) (Constructi
    T_TT_I `ha` R_U_I_T_I
     `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
     `li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
+
+class Literal datastructure item literal
+ where as :: literal -> datastructure item
+
+instance Literal (Construction Optional) item item where
+ as x = Construct `li` Last x
+
+instance Literal (Construction Optional) item init =>
+ Literal (Construction Optional) item (init `LM` item) where
+ as (These init last) =
+  that `li` (unwrap `compose` unwrap)
+   (as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State `ho` by @Back)
+   (Construct (Last last))
+
+instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
+ as x = Root x (T_TT_I (U_I_I (None () `lu` None ())))
+
+instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
+ Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
+ as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
+   `lii` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+    `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)

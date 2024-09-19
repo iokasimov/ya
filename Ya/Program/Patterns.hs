@@ -75,11 +75,11 @@ type Attribute = W_I_II_II Reference
 
 pattern Attribute x = W_I_II_II @Reference x
 
-type Automation = U_I_UU_II_III (->) LM
+type Automation e ee eee = e `ARR` ee `LM` eee
 
-type Transition = W_I_I_II Automation
+type Transition = U_I_UU_II_I (->) LM
 
-pattern Transition x = W_I_I_II @Automation x
+pattern Transition x = U_I_UU_II_I @(->) @LM x
 
 type State = U_I_II Transition
 

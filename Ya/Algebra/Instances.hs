@@ -191,36 +191,37 @@ instance Covariant Yoneda Arrow Arrow tt =>
  mapping = rwr / \from -> rwr / \(U_II_I (These x e)) ->
   yoneda @Straight x (U_II_I `compose` (\x_ -> These (from x_) e))
 
+-- TODO: to fix
 instance Mapping Straight Straight (->) (->)
- (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
- (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e) where
- mapping = rwr / \from -> rwr `compose` rwr `compose` rwr / \f x ->
-  _i (map @Straight @Straight from) (f x)
+ (U_I_II (U_I_UU_II_I (->) LM) e)
+ (U_I_II (U_I_UU_II_I (->) LM) e) where
+ mapping = rwr / \from -> rwr `compose` rwr / \f x ->
+  i_ (map @Straight @Straight from) (f x)
 
--- TODO: it doesn't work correctly
+-- TODO: it doesn't work correctly?
 instance Mapping Straight Straight
- (W_I_I_II (U_I_UU_II_III (->) LM)) (->)
- (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e)
- (Straight (W_I_I_II (U_I_UU_II_III (->) LM)) e) where
- mapping = rwr / \(W_I_I_II (U_I_UU_II_III from))
-  -> rwr `compose` rwr `compose` rwr / \trstn e ->
-   let These e' old = trstn e in
-   let These _ new = from old in
-   These e' new
+ (U_I_UU_II_I (->) LM) (->)
+ (U_I_II (U_I_UU_II_I (->) LM) e)
+ (U_I_II (U_I_UU_II_I (->) LM) e) where
+ mapping = rwr / \(U_I_UU_II_I from)
+  -> rwr `compose` rwr / \trstn e ->
+   let These old e' = trstn e in
+   let These new _ = from old in
+   These new e'
 
--- TODO: it doesn't work correctly
+-- TODO: it doesn't work correctly?
 instance Mapping Opposite Straight
- (W_I_I_II (U_I_UU_II_III (->) LM)) (->)
- (Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e)
- (Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) e) where
- mapping = rwr / \(W_I_I_II (U_I_UU_II_III from))
-  -> rwr `compose` rwr `compose` rwr / \trstn new ->
-   let These new' old = from new in
-   let These old' e = trstn old in
-   These new' e
+ (U_I_UU_II_I (->) LM) (->)
+ (U_II_I (U_I_UU_II_I (->) LM) e)
+ (U_II_I (U_I_UU_II_I (->) LM) e) where
+ mapping = rwr / \(U_I_UU_II_I from)
+  -> rwr `compose` rwr / \trstn new ->
+   let These old new' = from new in
+   let These e old' = trstn old in
+   These e new'
 
-instance Category (W_I_I_II (U_I_UU_II_III (->) LM)) where
- identity = W_I_I_II (U_I_UU_II_III (\e -> These e e))
+instance Category (U_I_UU_II_I (->) LM) where
+ identity = U_I_UU_II_I (\e -> These e e)
 
 instance Mapping Straight Straight Arrow Arrow
  (UU_V_U_I_II_T_II Straight Arrow Arrow t e)
@@ -233,14 +234,14 @@ instance Mapping Opposite Straight Arrow Arrow
  mapping = rwr / \from -> rwr (`compose` (rwr (compose from)))
 
 -- TODO: implement `mapping` method
-instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->)
- (UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) ee) e)
- (UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) ee) e)
+-- instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->)
+--  (UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) ee) e)
+--  (UU_V_U_I_II_T_II Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) ee) e)
 
 -- TODO: implement `mapping` method
-instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->)
- (UU_V_U_I_II_T_II Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) ee) e)
- (UU_V_U_I_II_T_II Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Opposite (W_I_I_II (U_I_UU_II_III (->) LM)) ee) e)
+-- instance Mapping Opposite Straight (U_I_UU_II_I (->) LM)) (->)
+--  (UU_V_U_I_II_T_II Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Opposite (U_I_UU_II_I (->) LM)) ee) e)
+--  (UU_V_U_I_II_T_II Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (Opposite (U_I_UU_II_I (->) LM)) ee) e)
 
 instance
  ( forall e . Covariant Semi Functor from into (Straight (U_I_T_II t u) e)
@@ -454,7 +455,7 @@ instance Monoidal Straight Functor (->) LM ML t
   (map @Straight @Straight @(->) @(->) @t @t absurd empty)
   (map @Straight @Straight @(->) @(->) @t @t absurd empty)
 
-instance Mapping Straight Straight (->) (->)
- (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
- (W_III_I_II (U_I_UU_II_III (->) LM) e ee) where
- mapping = rwr / \from -> rwr `compose` rwr / \f x -> i_ (map @Straight @Straight from) (f x)
+-- instance Mapping Straight Straight (->) (->)
+--  (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
+--  (W_III_I_II (U_I_UU_II_III (->) LM) e ee) where
+--  mapping = rwr / \from -> rwr `compose` rwr / \f x -> i_ (map @Straight @Straight from) (f x)
