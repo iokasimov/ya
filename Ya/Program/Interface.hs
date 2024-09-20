@@ -96,9 +96,11 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
    `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
    `yuk` (State `lii` Transition pop `haa'he` has @(Shafted List item) `ho'he` rep way)
    `yok` on @Halts
-   `yok` (State `haaa` put `ho` Transition `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
-   `yok` (State `haaa` push `ho` Transition `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
+   `yok` (State `haaa` Transition `ha` put `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
+   `yok` (State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
    )`he'he` x
+
+
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

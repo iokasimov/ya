@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho_yi'ho`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -705,6 +705,94 @@ hooooooo'he'he'he = ho'he'he'he
 hoooooooo'he'he'he = ho'he'he'he
 hooooooooo'he'he'he = ho'he'he'he
 
+ho'ho :: forall from u uu o e ee a .
+ Covariant Yoneda u from (Straight u e) =>
+ Contravariant Yoneda (->) (->) (Opposite u e) =>
+ Covariant Semi Functor from u (Straight uu ee) =>
+ Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
+ Contravariant Semi Functor (->) (->) (Opposite from (u e (uu ee o))) =>
+ Wrapper u (Straight uu ee a) =>
+ Wrapper u (Straight uu ee o) =>
+ Wrapper from (Straight uu ee o) =>
+ Wrapper from (Straight u e (uu ee o)) =>
+ Wrapper from (Straight u (uu ee a) (uu ee o)) =>
+ u e (uu ee a) -> from (from a o) (u e (uu ee o))
+ho'ho x = fai fio (ho @u x)
+
+ho'ha, hoo'ha, hooo'ha, hoooo'ha, hooooo'ha, hoooooo'ha, hooooooo'ha, hoooooooo'ha, hooooooooo'ha
+ :: forall from u uu o e ee a .
+ Covariant Yoneda u (->) (Straight u e) =>
+ Contravariant Yoneda u (->) (Opposite u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper from (U_I_II u e (uu a ee)) =>
+ Wrapper from (U_I_II u (uu o ee) (uu a ee)) =>
+ u e (uu o ee) -> from a o -> u e (uu a ee)
+ho'ha x = fai @(->) @(->) fai (ho @u x)
+
+hoo'ha = ho'ha
+hooo'ha = ho'ha
+hoooo'ha = ho'ha
+hooooo'ha = ho'ha
+hoooooo'ha = ho'ha
+hooooooo'ha = ho'ha
+hoooooooo'ha = ho'ha
+hooooooooo'ha = ho'ha
+
+ho'ha'he, hoo'ha'he, hooo'ha'he, hoooo'ha'he, hooooo'ha'he, hoooooo'ha'he, hooooooo'ha'he, hoooooooo'ha'he, hooooooooo'ha'he
+ :: forall from u uu o e ee a .
+ Covariant Yoneda u (->) (Straight u e) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee (Supertype a)) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper from a =>
+ u e (uu o ee) -> from (Supertype a) o -> u e (uu a ee)
+ho'ha'he x = fai fai_ (ho @u x)
+
+hoo'ha'he = ho'ha'he
+hooo'ha'he = ho'ha'he
+hoooo'ha'he = ho'ha'he
+hooooo'ha'he = ho'ha'he
+hoooooo'ha'he = ho'ha'he
+hooooooo'ha'he = ho'ha'he
+hoooooooo'ha'he = ho'ha'he
+hooooooooo'ha'he = ho'ha'he
+
+ho'yo, hoo'yo, hooo'yo, hoooo'yo, hooooo'yo, hoooooo'yo :: forall from u t o e a .
+ Covariant Yoneda from (->) (Straight u e) =>
+ Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Endo Semi Functor from t =>
+ Mapping Constant Straight from (->) t t =>
+ u e (t a) -> from a o -> u e (t o)
+ho'yo x = fai (fo @from) (ho @from x)
+
+hoo'yo = ho'yo
+hooo'yo = ho'yo
+hoooo'yo = ho'yo
+hooooo'yo = ho'yo
+hoooooo'yo = ho'yo
+
+ho'yu :: forall u t o e a .
+ Covariant Yoneda (->) (->) (Straight u e) =>
+ Contravariant Yoneda (->) (->) (Opposite u e) =>
+ Covariant Endo Semi Functor (->) t =>
+ Mapping Constant Straight (->) (->) t t =>
+ Castable Opposite (->) (u () o) =>
+ u e (t a) -> o -> u e (t o)
+ho'yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
+
+ho'yioi :: forall from u t o e ee eee a .
+ Covariant Yoneda from (->) (Straight u e) =>
+ Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
+ Wrapper from (W_III_I_II t eee ee a) =>
+ Wrapper from (W_III_I_II t eee ee o) =>
+ u e (t ee a eee) -> from a o -> u e (t ee o eee)
+ho'yioi x = fai (fioi @from) (ho @from x)
+
 -- he'ho
  -- :: forall from into u i a o .
  -- Precategory from =>
@@ -845,62 +933,6 @@ ha_ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai_ (ha @u x)
 
-ho'ha, hoo'ha, hooo'ha, hoooo'ha, hooooo'ha, hoooooo'ha, hooooooo'ha, hoooooooo'ha, hooooooooo'ha
- :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
- Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
- Wrapper u (U_II_I uu ee a) =>
- Wrapper u (U_II_I uu ee o) =>
- Wrapper from (U_I_II u e (uu a ee)) =>
- Wrapper from (U_I_II u (uu o ee) (uu a ee)) =>
- u e (uu o ee) -> from a o -> u e (uu a ee)
-ho'ha x = fai @(->) @(->) fai (ho @u x)
-
-hoo'ha = ho'ha
-hooo'ha = ho'ha
-hoooo'ha = ho'ha
-hooooo'ha = ho'ha
-hoooooo'ha = ho'ha
-hooooooo'ha = ho'ha
-hoooooooo'ha = ho'ha
-hooooooooo'ha = ho'ha
-
-ho'ha'he, hoo'ha'he, hooo'ha'he, hoooo'ha'he, hooooo'ha'he, hoooooo'ha'he, hooooooo'ha'he, hoooooooo'ha'he, hooooooooo'ha'he
- :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
- Wrapper u (U_II_I uu ee a) =>
- Wrapper u (U_II_I uu ee (Supertype a)) =>
- Wrapper u (U_II_I uu ee o) =>
- Wrapper from a =>
- u e (uu o ee) -> from (Supertype a) o -> u e (uu a ee)
-ho'ha'he x = fai fai_ (ho @u x)
-
-hoo'ha'he = ho'ha'he
-hooo'ha'he = ho'ha'he
-hoooo'ha'he = ho'ha'he
-hooooo'ha'he = ho'ha'he
-hoooooo'ha'he = ho'ha'he
-hooooooo'ha'he = ho'ha'he
-hoooooooo'ha'he = ho'ha'he
-hooooooooo'ha'he = ho'ha'he
-
-ho'ho :: forall from u uu o e ee a .
- Covariant Yoneda u from (Straight u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
- Covariant Semi Functor from u (Straight uu ee) =>
- Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
- Contravariant Semi Functor (->) (->) (Opposite from (u e (uu ee o))) =>
- Wrapper u (Straight uu ee a) =>
- Wrapper u (Straight uu ee o) =>
- Wrapper from (Straight uu ee o) =>
- Wrapper from (Straight u e (uu ee o)) =>
- Wrapper from (Straight u (uu ee a) (uu ee o)) =>
- u e (uu ee a) -> from (from a o) (u e (uu ee o))
-ho'ho x = fai fio (ho @u x)
-
 ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
@@ -941,39 +973,6 @@ ha'hu'he :: forall from u uu o e ee a .
  u (uu ee o) e -> Supertype (Supertype (u () o)) -> u (uu ee a) e
 ha'hu'he x = fai @(->) @(->) fiu'_ (ha @u x)
 
-ho'yo, hoo'yo, hooo'yo, hoooo'yo, hooooo'yo, hoooooo'yo :: forall from u t o e a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
- Covariant Endo Semi Functor from t =>
- Mapping Constant Straight from (->) t t =>
- u e (t a) -> from a o -> u e (t o)
-ho'yo x = fai (fo @from) (ho @from x)
-
-hoo'yo = ho'yo
-hooo'yo = ho'yo
-hoooo'yo = ho'yo
-hooooo'yo = ho'yo
-hoooooo'yo = ho'yo
-
--- ho_yo :: forall from u t o e a .
- -- Covariant Yoneda from (->) (Straight u e) =>
- -- Contravariant Yoneda from (->) (Opposite u e) =>
- -- Contravariant Semi Functor from (->) (Opposite u (t a)) =>
- -- Covariant Endo Semi Functor from t =>
- -- Mapping Constant Straight from (->) t t =>
- -- Castable Straight from e =>
- -- u (Supertype e) (t a) -> from a o -> u e (t o)
--- ho_yo x = fai (fo @from) (ho @from (fai @from yi_ x))
-
-ho'yioi :: forall from u t o e ee eee a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
- Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
- Wrapper from (W_III_I_II t eee ee a) =>
- Wrapper from (W_III_I_II t eee ee o) =>
- u e (t ee a eee) -> from a o -> u e (t ee o eee)
-ho'yioi x = fai (fioi @from) (ho @from x)
-
 ha'yo :: forall from u t o e a .
  Covariant Yoneda from (->) (Straight u e) =>
  Contravariant Yoneda from (->) (Opposite u e) =>
@@ -991,34 +990,25 @@ ha'yioi :: forall from u t o e ee eee a .
  u (t ee a eee) e -> from o a -> u (t ee o eee) e
 ha'yioi x = fai (fioi @from) (ha @from x)
 
-ho'yu :: forall u t o e a .
- Covariant Yoneda (->) (->) (Straight u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
- Covariant Endo Semi Functor (->) t =>
- Mapping Constant Straight (->) (->) t t =>
- Castable Opposite (->) (u () o) =>
- u e (t a) -> o -> u e (t o)
-ho'yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
+-- -- TODO: replace with `ho_`
+-- ho_yi :: forall from u e a o .
+--  Covariant Endo Semi Functor from (That from a) =>
+--  Covariant Yoneda from (->) (U_I_II u e) =>
+--  Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
+--  Contravariant Yoneda from (->) (U_II_I (->) (u e (Supertype o))) =>
+--  Castable Straight (->) (U_I_II u e o) =>
+--  Castable Straight from o =>
+--  Wrapper from (U_I_II from a o) =>
+--  Wrapper from (U_I_II from a (Supertype o)) =>
+--  u e a -> from a o -> u e (Supertype o)
+-- ho_yi x = fai @from (fio @from he) (ho x)
 
--- TODO: replace with `ho_`
-ho_yi :: forall from u e a o .
- Covariant Endo Semi Functor from (That from a) =>
- Covariant Yoneda from (->) (U_I_II u e) =>
- Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
- Contravariant Yoneda from (->) (U_II_I (->) (u e (Supertype o))) =>
- Castable Straight (->) (U_I_II u e o) =>
- Castable Straight from o =>
- Wrapper from (U_I_II from a o) =>
- Wrapper from (U_I_II from a (Supertype o)) =>
- u e a -> from a o -> u e (Supertype o)
-ho_yi x = fai @from (fio @from he) (ho x)
-
--- TODO: replace with `ho_ho`
-ho_yi'ho :: forall from u e a o .
- Covariant Yoneda from (->) (That u e) =>
- Castable Straight from a =>
- u e a -> from (Supertype a) o -> u e o
-ho_yi'ho x xx = x `ho` he @from `ho` xx
+-- -- TODO: replace with `ho_ho`
+-- ho_yi'ho :: forall from u e a o .
+--  Covariant Yoneda from (->) (That u e) =>
+--  Castable Straight from a =>
+--  u e a -> from (Supertype a) o -> u e o
+-- ho_yi'ho x xx = x `ho` he @from `ho` xx
 
 hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu :: forall from into a o .
  Precategory into =>
