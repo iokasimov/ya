@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -39,7 +39,7 @@ infixl 1 `hooooooooo`, `hooooooooo'ha`, `hooooooooo'ha'he`, `hooooooooo'yok`, `h
  , `hooooooooo'he'he`
  , `hooooooooo'he'he'he`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'he`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'ho'hu`, `ha'hu`, `ha'hu'he`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
  , `ha'he`, `ha_ha`
 infixl 8 `haa`
  , `haa'he`
@@ -720,6 +720,20 @@ ho'ho :: forall from u uu o e ee a .
  u e (uu ee a) -> from (from a o) (u e (uu ee o))
 ho'ho x = fai fio (ho @u x)
 
+ho'ho'hu :: forall from into u uu uuu o e ee eee a .
+ Precategory from =>
+ Covariant Yoneda uuu (->) (U_I_II u e) =>
+ Covariant Semi Functor from uuu (U_I_II uu ee) =>
+ Covariant Endo Semi Functor from (U_I_II uuu eee) =>
+ Mapping Constant Straight from from (Straight uuu eee) (Straight uuu eee) =>
+ Wrapper uuu (U_I_II uu ee (uuu eee a)) =>
+ Wrapper uuu (U_I_II uu ee (uuu eee o)) =>
+ Wrapper from (U_I_II uuu eee o) =>
+ Wrapper from (U_I_II uuu eee a) =>
+ Wrapper (->) (from () o) =>
+ u e (uu ee (uuu eee a)) -> Supertype (from () o) -> u e (uu ee (uuu eee o))
+ho'ho'hu = fai (fio @from `compose` fiu) `compose` ho @uuu
+
 ho'hu :: forall from u uu o e ee a .
  Precategory from =>
  Covariant Yoneda u from (Straight u e) =>
@@ -959,6 +973,20 @@ ha'ho :: forall from u uu o e ee a .
  Wrapper u (U_I_II uu ee o) =>
  u (uu ee o) e -> from a o -> u (uu ee a) e
 ha'ho x = fai @(->) @(->) fio (ha @u x)
+
+ha'ho'hu :: forall from into u uu uuu o e ee eee a .
+ Precategory from =>
+ Contravariant Yoneda uuu (->) (U_II_I u e) =>
+ Covariant Semi Functor from uuu (U_I_II uu ee) =>
+ Covariant Endo Semi Functor from (U_I_II uuu eee) =>
+ Mapping Constant Straight from from (Straight uuu eee) (Straight uuu eee) =>
+ Wrapper uuu (U_I_II uu ee (uuu eee a)) =>
+ Wrapper uuu (U_I_II uu ee (uuu eee o)) =>
+ Wrapper from (U_I_II uuu eee o) =>
+ Wrapper from (U_I_II uuu eee a) =>
+ Wrapper (->) (from () o) =>
+ u (uu ee (uuu eee o)) e -> Supertype (from () o) -> u (uu ee (uuu eee a)) e
+ha'ho'hu = fai (fio @from `compose` fiu) `compose` ha @uuu
 
 ha'hu :: forall from u uu o e ee a .
  Covariant Semi Functor u u (U_I_II uu ee) =>
