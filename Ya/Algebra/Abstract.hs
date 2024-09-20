@@ -145,8 +145,6 @@ type family Supertype e where
  Supertype (W_I_I_II w i ii) = w i i ii
  Supertype (W_III_I_II w iii i ii) = w i ii iii
  Supertype (Arrow () ii) = ii
- -- TODO: try to use `he` as function application
- Supertype (Arrow i ii) = Arrow i ii
  Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
 class Castable direction morphism e where
