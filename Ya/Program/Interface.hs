@@ -94,13 +94,11 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way x@(U_T_I_TT_I (These (Identity x') _)) =
   (but (These (None ()) x) `la` (unwrap `ho` swap `ho` foi @Arrow @Arrow Some)) `haa` unwrap @Arrow
    `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
-   `yuk` (State `lii` Transition pop `haa'he` has @(Shafted List item) `ho'he` rep way)
+   `yuk` (State `lii` Transition `li` pop `haa'he` has @(Shafted List item) `ho'he` rep way)
    `yok` on @Halts
-   `yok` (State `haaa` Transition `ha` put `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
+   `yok` (State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
    `yok` (State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
    )`he'he` x
-
-
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

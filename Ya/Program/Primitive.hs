@@ -29,26 +29,8 @@ adjust attr f s = let (These h x) = attr `he'he` s in x `li`f h
   -- ((T_TT_I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
   -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
--- review :: Transition state state
--- review = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` old `li` old
-
-put :: new -> Automation old old new
-put new old = old `lu` new
-
--- change :: (state -> state) -> Transition state state
--- change f = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` f old `li` old
-
--- modify :: (state -> state) -> Transition state state
--- modify f = W_I_I_II `ha` U_I_UU_II_III `li` \old -> These `li` f old `li` f old
-
--- auto :: Automation e e e
--- auto = U_I_UU_II_III `li` \x -> x `lu` x
-
 auto :: Automation e e e
 auto x = x `lu` x
-
-switch :: (e -> ee) -> Automation e e ee
-switch f x = x `lu` f x
 
 leaf :: forall t e .
  Monoidal Straight Functor (->) LM ML t =>
