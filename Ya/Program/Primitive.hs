@@ -35,7 +35,7 @@ auto x = x `lu` x
 leaf :: forall t e .
  Monoidal Straight Functor (->) LM ML t =>
  e -> Recursive (U_I_T_II t LM e)
-leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` absurd
+leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` initial @(->)
 
 self :: Reference e e e
 self = U_I_UU_III_U_II_I / \x -> x `lu` identity
@@ -89,30 +89,40 @@ by :: forall label t e . t e -> Labeled label t e
 by = T_'_I
 
 -- TODO: replace with `by @Repeat`
-forever ::
- Component Natural (->) (->) (t `T_TT_I` t) t =>
- t e -> t e
-forever x = x `yuk` forever x
+-- forever ::
+ -- Component Natural (->) (->) (t `T_TT_I` t) t =>
+ -- Component Natural (->) (->) Identity (U_I_II into a) =>
+ -- t e -> t e
+-- forever x = x `yuk` forever x
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
  t e -> tt e
 transform = component @Straight @Arrow
 
-pass ::
- Covariant Endo Semi Functor (->) t =>
- t e -> t ()
-pass x = x `yu` ()
+-- pass ::
+ -- Component Natural (->) (->) Identity (U_I_II into ()) =>
+ -- Covariant Endo Semi Functor (->) t =>
+ -- t e -> t ()
+-- pass x = x `yu` ()
 
 same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
 same = q
 
-rep :: forall r t e .
- (r ~ Representation t) =>
- Setoid (Representation t) =>
- Covariant (Representable (->)) (->) (->) t =>
- Representation t `ARR` Attribute `TI` t e `TI` e
-rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
- let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
- let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- (idx origin `he` index) `lu` (\x -> tbt (U_I_II / \index' -> (but `lii` idx origin `he` index') `la` but x `li` (index' `q` index)))
+-- rep :: forall r t e .
+ -- (r ~ Representation t) =>
+ -- Setoid (Representation t) =>
+ -- Covariant (Representable (->)) (->) (->) t =>
+ -- Representation t `ARR` Attribute `TI` t e `TI` e
+-- rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
+ -- let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
+ -- let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
+ -- (idx origin `he` index)
+  -- `lu`
+  -- (\x -> tbt
+   -- (U_I_II / \index' ->
+    -- constant (idx origin `he` index')
+    -- `la` (\_ -> x)
+    -- `li` (index' `q` index)
+   -- )
+  -- )

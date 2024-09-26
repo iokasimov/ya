@@ -116,24 +116,23 @@ type Natural = Straight
 
 type Dinatural = Opposite
 
-type Covariant t = t Straight
+type Covariant t = t U_I_II
 
-type Contravariant t = t Opposite
+type Contravariant t = t U_II_I
+
+type Constant t = t U_1_I
 
 type Kleisli u t = U_I_T_II t u
 
-class (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+class (Category from, forall o . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t o)) =>
  Yoneda v from into t where
- yoneda :: forall a r .
+ yoneda :: forall a o .
   Category from =>
   Precategory into =>
   (Supertype (v from a a) ~ from a a) =>
-  Castable Opposite Arrow (v from a a) =>
-  Castable Opposite into (v from a r) =>
-  t a -> into (Supertype (v from a r)) (t r)
- yoneda x = unwrap
-  (map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t r) identity x)
-  `compose` wrap @into @(v from a r)
+  Castable Opposite (->) (v from a a) =>
+  t a -> into (v from a o) (t o)
+ yoneda x = unwrap (map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t o) identity x)
 
 deriving instance
  (Category from, forall r . Mapping v Straight from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
@@ -160,6 +159,7 @@ deriving instance
 
 type family Co x where Co (x Straight) = x Opposite
 
+-- TODO: We should not use this star syntax, it's deprecated
 data family Object (v :: (* -> * -> *) -> * -> * -> *) (diagram :: * -> * -> *) e ee
 data instance Object Straight Arrow e ee = These e ee
 data instance Object Opposite Arrow e ee = This e | That ee
@@ -188,12 +188,12 @@ left :: forall v from into a o e .
  Supertype (v from a o) -> Supertype (v into (This (Object v into) e a) (Identity o))
 left from = map @v @v @from @into @(This (Object v into) e) @Identity @a @o from
 
-right :: forall v from into a t e .
+right :: forall v from into a o e .
  Cone v from into (Object v into) =>
- Castable Opposite Arrow (v from a t) =>
- Castable Straight Arrow (v into (That (Object v into) e a) (Identity t)) =>
- Supertype (v from a t) -> Supertype (v into (That (Object v into) e a) (Identity t))
-right from = map @v @v @from @into @(That (Object v into) e) @Identity @a @t from
+ Castable Opposite Arrow (v from a o) =>
+ Castable Straight Arrow (v into (U_I_II (Object v into) e a) (Identity o)) =>
+ Supertype (v from a o) -> Supertype (v into (U_I_II (Object v into) e a) (Identity o))
+right from = map @v @v @from @into @(U_I_II (Object v into) e) @Identity @a @o from
 
 type Limit v from into =
  ( Cone v from into (Object v into)
@@ -204,16 +204,19 @@ type Product into = Object Straight into
 
 type Sum into = Object Opposite into
 
-type Terminal o into a = o Straight into U_ a a
+-- TODO: maybe we can unify `Initial`/`Terminal` typeclasses into one `Morphism`?
 
-type Initial o into a = o Opposite into U_ a a
+class Initial into where
+ initial :: into Void e
 
--- TODO: generalize via colimits
-absurd :: Void -> a
-absurd x = case x of {}
+instance Initial (->) where
+ initial x = case x of {}
 
-drusba :: a -> ()
-drusba _ = ()
+class Terminal into where
+ terminal :: into e ()
+
+instance Terminal (->) where
+ terminal _ = ()
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 
@@ -369,8 +372,16 @@ that (These _ x) = x
 swap :: e `LM` ee `ARR` ee `LM` e
 swap (These x y) = These y x
 
-constant :: e -> ee -> e
-constant x _ = x
+constant :: forall from into a o .
+ Category from =>
+ Precategory into =>
+ Mapping Straight Straight from into Identity (U_I_II from a) =>
+ Castable Straight into (U_I_II from a o) =>
+ Castable Opposite into (Identity o) =>
+ into o (from a o)
+constant = unwrap @_ @(U_I_II from a _)
+ `compose` map @Straight @Straight @from @into identity
+ `compose` wrap @into @(Identity o)
 
 but :: e -> ee -> e
 but x _ = x

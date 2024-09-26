@@ -18,8 +18,8 @@ instance Field e (e `LM` ee) where
  has = Attribute `ha` Reference `li` \(These f fs) -> f `lu` (`lu` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- has = Attribute `ha` Reference `li` \(These old fs) -> These
-  `li` (has @e @ee `he'he` fs `huuuu` this)
+ has = Attribute `ha` Reference `he` \(These old fs) -> These
+  `li` this (has @e @ee `he'he` fs)
   `li` \new -> old `lu` adjust (has @e @ee) (but new) fs
 
 class Match e ee where
@@ -70,8 +70,7 @@ type family Shafted datastructure = result | result -> datastructure where
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
  mapping = rewrap / \from (Root x xs) ->
-  from x `hu` Singular `lu` (Empty @List () `lu` (xs `yo` R_U_I_T_I `huu` T_TT_I `yo` from)
-   `huuuuu` T_TT_I `ha` U_I_I) `huuuuuu` U_T_I_TT_I
+  U_T_I_TT_I (Singular (from x) `lu` T_TT_I (U_I_I (Empty @List () `lu` (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
@@ -90,15 +89,16 @@ class Scrollable datastructure item where
    `TI` Scrolled datastructure item
    `TI` Scrolling datastructure item
 
-instance Scrollable (Optional `T_TT_I` Construction Optional) item where
- scroll way x@(U_T_I_TT_I (These (Identity x') _)) =
-  (but (These (None ()) x) `la` (unwrap `ho` swap `ho` foi @Arrow @Arrow Some)) `haa` unwrap @Arrow
-   `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
-   `yuk` (State `lii` Transition `li` pop `haa'he` has @(Shafted List item) `ho'he` rep way)
-   `yok` on @Halts
-   `yok` (State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
-   `yok` (State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
-   )`he'he` x
+-- instance Scrollable (Optional `T_TT_I` Construction Optional) item where
+ -- scroll way x@(U_T_I_TT_I (These (Identity x') _)) =
+  -- (but (These (None ()) x) `la` (unwrap `ho` swap `ho` foi @Arrow @Arrow Some)) `haa` unwrap @Arrow
+   -- `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
+   -- `yuk` (State `lii` Transition `li` pop `haa'he` has @(Shafted List item) `ho'he` rep way)
+   -- `yok` on @Halts
+   -- `yok` (State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
+   -- -- `yok` (State `haaa` Transition `ho'ho'hu` auto `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
+   -- `yok` (State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
+   -- )`he'he` x
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 

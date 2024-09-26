@@ -106,7 +106,7 @@ type This = U_II_I
 
 type That = U_I_II
 
-type Constant = U_1_I
+type Thot = U_1_I
 
 type Labeled = T_'_I
 
@@ -122,6 +122,7 @@ type family Supertype e where
  Supertype (T_'_I e t i) = t i
  Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
  Supertype (U_I_I u i) = u i i
+ -- Supertype (U_1_I u ii i) = i
  Supertype (U_1_I u _ i) = u () i
  Supertype (U_I_1 u i _) = u i ()
  Supertype (U_I_II u i ii) = u i ii
@@ -144,7 +145,9 @@ type family Supertype e where
  Supertype (W_II_II_I w i ii) = w ii ii i
  Supertype (W_I_I_II w i ii) = w i i ii
  Supertype (W_III_I_II w iii i ii) = w i ii iii
- Supertype (Arrow () ii) = ii
+ -- Supertype (Arrow () ii) = ii
+ -- TODO: try to use `he` as function application
+ Supertype (Arrow i ii) = Arrow i ii
  Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
 class Castable direction morphism e where
@@ -309,11 +312,17 @@ instance Castable Straight (->) (W_III_I_II w iii i ii)
 instance Castable Opposite (->) (W_III_I_II w iii i ii)
  where cast = U_II_I W_III_I_II
 
-instance Castable Opposite (->) (() -> i)
- where cast = U_II_I (\x _ -> x)
+-- instance Castable Opposite (->) (() -> i)
+--  where cast = U_II_I (\x _ -> x)
 
-instance Castable Straight (->) (() -> i)
- where cast = U_I_II (\f -> f ())
+-- instance Castable Straight (->) (() -> i)
+--  where cast = U_I_II (\f -> f ())
+
+instance Castable Opposite (->) (Arrow i ii)
+ where cast = U_II_I (\f -> f)
+
+instance Castable Straight (->) (Arrow i ii)
+ where cast = U_I_II (\f -> f)
 
 instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
  where cast = U_II_I U_U_I_II_UU_I_II

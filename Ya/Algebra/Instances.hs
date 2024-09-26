@@ -186,10 +186,10 @@ instance
    (wrapped / map @Straight @Straight @Arrow @Arrow @(T_TT_I t tt) @(TT_T_I t tt) from) `compose`
   unwrap @Arrow
 
-instance Covariant Yoneda Arrow Arrow tt =>
- Mapping Straight Straight Arrow Arrow (This LM e `T_TT_I` tt) (This LM e `TT_T_I` tt) where
- mapping = rwr / \from -> rwr / \(U_II_I (These x e)) ->
-  yoneda @Straight x (U_II_I `compose` (\x_ -> These (from x_) e))
+-- instance Covariant Yoneda Arrow Arrow tt =>
+--  Mapping Straight Straight Arrow Arrow (U_II_I LM e `T_TT_I` tt) (U_II_I LM e `TT_T_I` tt) where
+--  mapping = rwr / \from -> rwr / \(U_II_I (These x e)) ->
+--   yoneda @Straight x (U_II_I `compose` (\x_ -> These (from x_) e))
 
 -- TODO: to fix
 instance Mapping Straight Straight (->) (->)
@@ -281,12 +281,15 @@ instance Mapping Opposite Straight Arrow Arrow (Opposite Arrow o) (Opposite Arro
 instance Category Arrow where
  identity = \x -> x
 
-instance Mapping Straight Straight Arrow into t tt
- => Mapping Constant Straight Arrow into t tt where
- mapping (U_1_I x) = mapping (Straight (\_ -> x ()))
+instance Mapping U_I_II Straight Arrow into t tt
+ => Mapping U_1_I Straight Arrow into t tt where
+  mapping (U_1_I f) = mapping (Straight (f `compose` terminal))
 
-instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e) where
- mapping = rwr / \from (U_1_I x) -> U_1_I / \_ -> from / x ()
+-- instance Mapping Straight Straight Arrow Arrow (U_1_I (->) e) (U_1_I (->) e) where
+--  mapping = rwr / \from (U_1_I x) -> U_1_I / from x
+
+instance Mapping Straight Straight Arrow Arrow Identity (U_I_II (->) e) where
+ mapping = rwr / \from (Identity x) -> U_I_II / \_ -> from x
 
 instance Mapping Straight Straight Arrow Arrow Identity (Both LM) where
  mapping (Straight from) = Straight / \(Identity x) -> U_I_I (These (from x) (from x))
@@ -362,7 +365,7 @@ instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM Identity I
  mapping = rwr / \from -> rwr / \case
   These (These (Identity e) (Identity ee)) (Straight f) -> from (f (These e ee))
 
-instance Mapping Straight Straight (->) (->) (Straight (->) ()) Identity where
+instance Mapping Straight Straight (->) (->) (U_I_II (->) ()) Identity where
  mapping = rwr / \from (Straight f) -> Identity (from (f ()))
 
 instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (This ML e) (This ML e) ee eee) (This ML e) where
@@ -452,8 +455,8 @@ instance Mapping Straight Straight (->) (->)
 instance Monoidal Straight Functor (->) LM ML t
  => Mapping Straight Straight (->) (->) (U_I_II (->) Void) (U_I_I LM `T_TT_I` t) where
  mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
-  (map @Straight @Straight @(->) @(->) @t @t absurd empty)
-  (map @Straight @Straight @(->) @(->) @t @t absurd empty)
+  (map @Straight @Straight @(->) @(->) @t @t initial empty)
+  (map @Straight @Straight @(->) @(->) @t @t initial empty)
 
 -- instance Mapping Straight Straight (->) (->)
 --  (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
