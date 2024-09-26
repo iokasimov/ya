@@ -81,6 +81,14 @@ infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
 infixl 9 `he`, `he'he`, `he'he'he` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
+infixl 8 `hee`, `hee'he`, `hee'he'he`
+infixl 7 `heee`, `heee'he`, `heee'he'he`
+infixl 6 `heeee`, `heeee'he`, `heeee'he'he`
+infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`
+infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`
+infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`
+infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`
+infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`
 
 -- infixl 8 `lo`, `lo'yp`
 -- infixl 7 `loo`, `loo'yp`
@@ -731,7 +739,7 @@ ho'ho :: forall from u uu o e ee a .
  u e (uu ee a) -> from (from a o) (u e (uu ee o))
 ho'ho x = fai fio (ho @u x)
 
-ho'ho'hu :: forall from into u uu uuu o e ee eee a .
+ho'ho'hu :: forall from u uu uuu o e ee eee a .
  Category from =>
  Covariant Yoneda uuu (->) (U_I_II u e) =>
  Covariant Semi Functor from uuu (U_I_II uu ee) =>
@@ -1072,7 +1080,7 @@ ha'yioi x = fai (fioi @from) (ha @from x)
 -- ho_yi'ho x xx = x `ho` he @from `ho` xx
 
 hu, huu, huuu, huuuu, huuuuu, huuuuuu, huuuuuuu, huuuuuuuu, huuuuuuuuu ::
- forall from into t i a o .
+ forall into t i a o .
  Covariant Yoneda into into (U_I_II t i) =>
  Mapping Straight Straight into into Identity (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
@@ -1254,25 +1262,54 @@ hj'hj :: forall from into t tt ttt tttt e ee a o .
  into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
 hj'hj = hj @from @from `compose` hj @from @into
 
-he :: forall into e .
+he, hee, heee, heeee, heeeee, heeeeee, heeeeeee, heeeeeeee, heeeeeeeee :: forall into e .
  Castable Straight into e =>
  into e (Supertype e)
 he = unwrap
 
-he'he :: forall into e .
+hee = he
+heee = he
+heeee = he
+heeeee = he
+heeeeee = he
+heeeeeee = he
+heeeeeeee = he
+heeeeeeeee = he
+
+he'he, hee'he, heee'he, heeee'he, heeeee'he, heeeeee'he, heeeeeee'he, heeeeeeee'he, heeeeeeeee'he
+ :: forall into e .
  Precategory into =>
  Castable Straight into e =>
  Castable Straight into (Supertype e) =>
  into e (Supertype (Supertype e))
 he'he = unwrap `compose` unwrap
 
-he'he'he :: forall into e .
+hee'he = he'he
+heee'he = he'he
+heeee'he = he'he
+heeeee'he = he'he
+heeeeee'he = he'he
+heeeeeee'he = he'he
+heeeeeeee'he = he'he
+heeeeeeeee'he = he'he
+
+he'he'he, hee'he'he, heee'he'he, heeee'he'he, heeeee'he'he, heeeeee'he'he, heeeeeee'he'he, heeeeeeee'he'he, heeeeeeeee'he'he :: forall into e .
  Precategory into =>
  Castable Straight into e =>
  Castable Straight into (Supertype e) =>
  Castable Straight into (Supertype (Supertype e)) =>
  into e (Supertype (Supertype (Supertype e)))
 he'he'he = unwrap `compose` unwrap `compose` unwrap
+
+hee'he'he = he'he'he
+heee'he'he = he'he'he
+heeee'he'he = he'he'he
+heeeee'he'he = he'he'he
+heeeeee'he'he = he'he'he
+heeeeeee'he'he = he'he'he
+heeeeeeee'he'he = he'he'he
+heeeeeeeee'he'he = he'he'he
+
 
 he'ya :: forall from into t a o e .
  Precategory into =>
@@ -1815,7 +1852,7 @@ yp'yok :: forall e ee from into t tt o .
  Covariant Yoneda from into t =>
  Component Natural into into (T_TT_I t tt) t =>
  Castable Opposite into (Straight from (e `LM` ee) (tt o)) =>
- (forall e . Wrapper into (T_TT_I t tt e)) =>
+ (forall eee . Wrapper into (T_TT_I t tt eee)) =>
  t e `LM` t ee -> into (from (e `LM` ee) (tt o)) (t o)
 yp'yok = yok @from @into `compose` yp
 
