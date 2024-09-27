@@ -109,20 +109,15 @@ transform = component @Straight @Arrow
 same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
 same = q
 
--- rep :: forall r t e .
- -- (r ~ Representation t) =>
- -- Setoid (Representation t) =>
- -- Covariant (Representable (->)) (->) (->) t =>
- -- Representation t `ARR` Attribute `TI` t e `TI` e
--- rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
- -- let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
- -- let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
- -- (idx origin `he` index)
-  -- `lu`
-  -- (\x -> tbt
-   -- (U_I_II / \index' ->
-    -- constant (idx origin `he` index')
-    -- `la` (\_ -> x)
-    -- `li` (index' `q` index)
-   -- )
-  -- )
+rep :: forall r t e .
+ (r ~ Representation t) =>
+ Setoid (Representation t) =>
+ Covariant (Representable (->)) (->) (->) t =>
+ Representation t `ARR` Attribute `TI` t e `TI` e
+rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
+ let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
+ let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
+ idx origin `he` index `lu`
+  (\x -> tbt `ha` U_I_II  `he`
+   (\index' -> constant (idx origin `he` index') `la` constant x `li` index' `q` index)
+  )

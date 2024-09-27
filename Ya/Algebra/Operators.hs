@@ -117,7 +117,7 @@ infixl 3 `luuuuuu`, `luuuuuu'yp`, `luuuuuu'ys`
 infixl 2 `luuuuuuu`, `luuuuuuu'yp`, `luuuuuuu'ys`
 infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`, `luuuuuuuu'ys`
 
--- infixl 8 `li`, `li'yu`, `li'yok`, `li'yok'ha`, `li'yok'yokl`, `li'yokl`
+infixl 8 `li`, `li'yu`, `li'yok`, `li'yok'ha`, `li'yok'yokl`, `li'yokl`
 infixl 7 `lii`, `lii'yok`
 infixl 6 `liii`, `liii'yok`
 infixl 5 `liiii`, `liiii'yok`
@@ -867,7 +867,7 @@ ho'yioi x = fai (fioi @from) (ho @from x)
  -- Wrapper into (U_I_II from a o) =>
  -- Wrapper into (U_II_I from o a) =>
  -- u (Supertype i) a -> into (from a o) (u i o)
--- he'ho = yio @from @into @u `compose` he @from
+-- he'ho x = yio @from @into @u x `compose` fai (he @into)
 
 -- he'hu
  -- :: forall from into u i a o .
