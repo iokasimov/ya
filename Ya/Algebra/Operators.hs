@@ -5,32 +5,32 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi` --, `ho'yu`, `ho'yok`-- , `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
-infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yok`--, `hoo'yuk`, `hoo'yokl`
+infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo'he`
  , `hoo'he'he`
  , `hoo'he'he'he`
-infixl 7 `hooo`, `hooo'ha`, `hooo'ha'he`, `hooo'yo`, `hooo'yok`-- , `hooo'yuk`
+infixl 7 `hooo`, `hooo'ha`, `hooo'ha'he`, `hooo'yo`, `hooo'yok`, `hooo'yuk`, `hooo'yokl`
  , `hooo'he`
  , `hooo'he'he`
  , `hooo'he'he'he`
-infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha'he`, `hoooo'yo`, `hoooo'yok`--, `hoooo'yuk`
+infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha'he`, `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`, `hoooo'yokl`
  , `hoooo'he`
  , `hoooo'he'he`
  , `hoooo'he'he'he`
-infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha'he`, `hooooo'yo`, `hooooo'yok`--, `hooooo'yuk`
+infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha'he`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`, `hooooo'yokl`
  , `hooooo'he`
  , `hooooo'he'he`
  , `hooooo'he'he'he`
-infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha'he`, `hoooooo'yo`, `hoooooo'yok`--, `hoooooo'yuk`
+infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha'he`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`, `hoooooo'yokl`
  , `hoooooo'he`
  , `hoooooo'he'he`
  , `hoooooo'he'he'he`
-infixl 3 `hooooooo`, `hooooooo'he`, `hooooooo'he'he`, `hooooooo'he'he'he`, `hooooooo'ha`, `hooooooo'ha'he`, `hooooooo'yok`--, `hooooooo'yuk`
-infixl 2 `hoooooooo`, `hoooooooo'ha`, `hoooooooo'ha'he`, `hoooooooo'yok`-- , `hoooooooo'yuk`
+infixl 3 `hooooooo`, `hooooooo'he`, `hooooooo'he'he`, `hooooooo'he'he'he`, `hooooooo'ha`, `hooooooo'ha'he`, `hooooooo'yok`, `hooooooo'yuk`, `hooooooo'yokl`
+infixl 2 `hoooooooo`, `hoooooooo'ha`, `hoooooooo'ha'he`, `hoooooooo'yok`, `hoooooooo'yuk`, `hoooooooo'yokl`
  , `hoooooooo'he`
  , `hoooooooo'he'he`
  , `hoooooooo'he'he'he`
@@ -1746,7 +1746,7 @@ li'yok'ha = yok'ha
  -- t (u e a) -> u (from a o) (t o)
 -- yokl_o x = fai fio (yokl @from @u x)
 
-ho'yokl, hoo'yokl :: forall from u t tt a o e .
+ho'yokl, hoo'yokl, hooo'yokl, hoooo'yokl, hooooo'yokl, hoooooo'yokl, hooooooo'yokl, hoooooooo'yokl, hooooooooo'yokl :: forall from u t tt a o e .
  Unlabelable from tt =>
  Covariant Semi Functor from (->) (Straight u e) =>
  Covariant Endo Semi Functor from tt =>
@@ -1760,6 +1760,13 @@ ho'yokl, hoo'yokl :: forall from u t tt a o e .
 ho'yokl x = fio @from unlabel `compose` fai fokl (ho @from x)
 
 hoo'yokl = ho'yokl
+hooo'yokl = ho'yokl
+hoooo'yokl = ho'yokl
+hooooo'yokl = ho'yokl
+hoooooo'yokl = ho'yokl
+hooooooo'yokl = ho'yokl
+hoooooooo'yokl = ho'yokl
+hooooooooo'yokl = ho'yokl
 
 -- ha'yuk :: forall from t tt a o e .
 --  Covariant Functor (->) (->) tt =>
