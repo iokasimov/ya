@@ -9,23 +9,23 @@ infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'y
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
-infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
+infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yu`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo'he`
  , `hoo'he'he`
  , `hoo'he'he'he`
-infixl 7 `hooo`, `hooo'ha`, `hooo'ha'he`, `hooo'yo`, `hooo'yok`, `hooo'yuk`, `hooo'yokl`
+infixl 7 `hooo`, `hooo'ha`, `hooo'ha'he`, `hooo'yo`, `hooo'yu`, `hooo'yok`, `hooo'yuk`, `hooo'yokl`
  , `hooo'he`
  , `hooo'he'he`
  , `hooo'he'he'he`
-infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha'he`, `hoooo'yo`, `hoooo'yok`, `hoooo'yuk`, `hoooo'yokl`
+infixl 6 `hoooo`, `hoooo'ha`, `hoooo'ha'he`, `hoooo'yo`, `hoooo'yu`, `hoooo'yok`, `hoooo'yuk`, `hoooo'yokl`
  , `hoooo'he`
  , `hoooo'he'he`
  , `hoooo'he'he'he`
-infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha'he`, `hooooo'yo`, `hooooo'yok`, `hooooo'yuk`, `hooooo'yokl`
+infixl 5 `hooooo`, `hooooo'ha`, `hooooo'ha'he`, `hooooo'yo`, `hooooo'yu`, `hooooo'yok`, `hooooo'yuk`, `hooooo'yokl`
  , `hooooo'he`
  , `hooooo'he'he`
  , `hooooo'he'he'he`
-infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha'he`, `hoooooo'yo`, `hoooooo'yok`, `hoooooo'yuk`, `hoooooo'yokl`
+infixl 4 `hoooooo`, `hoooooo'ha`, `hoooooo'ha'he`, `hoooooo'yo`, `hoooooo'yu`, `hoooooo'yok`, `hoooooo'yuk`, `hoooooo'yokl`
  , `hoooooo'he`
  , `hoooooo'he'he`
  , `hoooooo'he'he'he`
@@ -828,15 +828,23 @@ hoooo'yo = ho'yo
 hooooo'yo = ho'yo
 hoooooo'yo = ho'yo
 
-ho'yu :: forall u t o e a .
+ho'yu, hoo'yu, hooo'yu, hoooo'yu, hooooo'yu, hoooooo'yu, hooooooo'yu, hoooooooo'yu, hooooooooo'yu  :: forall u t o e a .
  Covariant Yoneda (->) (->) (Straight u e) =>
  Contravariant Yoneda (->) (->) (Opposite u e) =>
  Mapping Straight Straight (->) (->) Identity (U_I_II (->) a) =>
  Covariant Endo Semi Functor (->) t =>
  Constant Semi Functor (->) (->) t =>
- Castable Opposite (->) (u () o) =>
  u e (t a) -> o -> u e (t o)
 ho'yu x = fai @(->) @(->) (fu @(->)) (ho @(->) x)
+
+hoo'yu = ho'yu
+hooo'yu = ho'yu
+hoooo'yu = ho'yu
+hooooo'yu = ho'yu
+hoooooo'yu = ho'yu
+hooooooo'yu = ho'yu
+hoooooooo'yu = ho'yu
+hooooooooo'yu = ho'yu
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
