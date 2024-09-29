@@ -18,7 +18,7 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 adjust ::
- Castable Straight Arrow (Reference origin target target) =>
+ Castable Straight Arrow (Reference LM origin target target) =>
  Castable Straight Arrow (Attribute origin target) =>
  Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `he'he` s in x `li`f h
@@ -37,12 +37,12 @@ leaf :: forall t e .
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` initial @(->)
 
-self :: Reference e e e
+self :: Reference LM e e e
 self = U_I_UU_III_U_II_I / \x -> x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
- Reference (Construction t e) e e
+ Reference LM (Construction t e) e e
 top = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These old xs))))
   -> old `lu` (\new -> Root new xs)
@@ -50,7 +50,7 @@ top = U_I_UU_III_U_II_I /
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
- Reference (Construction t e) (t (Construction t e)) (t (Construction t e))
+ Reference LM (Construction t e) (t (Construction t e)) (t (Construction t e))
 sub = U_I_UU_III_U_II_I /
  \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)

@@ -67,13 +67,13 @@ type Probably = U_I_II ML
 
 pattern Probably x = U_I_II @ML x
 
-type Reference = U_I_UU_III_U_II_I (->) LM
+type Reference = U_I_UU_III_U_II_I (->)
 
-pattern Reference x = U_I_UU_III_U_II_I @(->) @LM x
+pattern Reference x = U_I_UU_III_U_II_I @(->) x
 
-type Attribute = W_I_II_II Reference
+type Attribute = W_I_II_II (Reference LM)
 
-pattern Attribute x = W_I_II_II @Reference x
+pattern Attribute x = W_I_II_II @(Reference LM) x
 
 type Automation e ee eee = e `ARR` ee `LM` eee
 
