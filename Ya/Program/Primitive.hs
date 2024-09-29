@@ -21,7 +21,7 @@ adjust ::
  Castable Straight Arrow (Reference LM origin target target) =>
  Castable Straight Arrow (Attribute origin target) =>
  Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `he'he` s in x `li`f h
+adjust attr f s = let (These h x) = attr `he` s in x `li`f h
 
 -- TODO: should be moved later
 -- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T_TT_I` Construction t)
@@ -38,21 +38,19 @@ leaf :: forall t e .
 leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` initial @(->)
 
 self :: Reference LM e e e
-self = U_I_UU_III_U_II_I / \x -> x `lu` identity
+self x = x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
  Reference LM (Construction t e) e e
-top = U_I_UU_III_U_II_I /
- \(R_U_I_T_I (Recursive (U_I_T_II (These old xs))))
-  -> old `lu` (\new -> Root new xs)
+top (R_U_I_T_I (Recursive (U_I_T_II (These old xs)))) =
+  old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
  Reference LM (Construction t e) (t (Construction t e)) (t (Construction t e))
-sub = U_I_UU_III_U_II_I /
- \(R_U_I_T_I (Recursive (U_I_T_II (These x old)))) -> These
+sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `lii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
@@ -99,12 +97,6 @@ transform :: forall tt t e .
  t e -> tt e
 transform = component @Straight @Arrow
 
--- pass ::
- -- Component Natural (->) (->) Identity (U_I_II into ()) =>
- -- Covariant Endo Semi Functor (->) t =>
- -- t e -> t ()
--- pass x = x `yu` ()
-
 same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
 same = q
 
@@ -113,7 +105,7 @@ rep :: forall r t e .
  Setoid (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `ARR` Attribute `TI` t e `TI` e
-rep index = W_I_II_II `ha` U_I_UU_III_U_II_I `li` \origin ->
+rep index = U_I_UU_II_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
  idx origin `he` index `lu`

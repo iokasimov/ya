@@ -171,10 +171,10 @@ instance (Initial (->), Monoidal Straight Functor (->) LM ML t) =>
  mapping = rwr / \_ _ -> T_TT_I (empty @t `yo` initial @(->))
 
 -- TODO: generalize this instance
-instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM ))(->)
+instance Mapping Opposite Straight (U_I_UU_II_U_II_I (->) LM )(->)
  (U_II_I (U_I_UU_II_I (->) LM) e)
  (U_II_I (U_I_UU_II_I (->) LM) e) where
- mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
+ mapping = rwr / \(U_I_UU_II_U_II_I from) ->
   rwr `compose` rwr `identity` \state old ->
    let (These new f) = from old in f `fio` state new
 

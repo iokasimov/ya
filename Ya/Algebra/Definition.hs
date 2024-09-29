@@ -389,12 +389,12 @@ but x _ = x
 type MLM = U_U_I_II_UU_I_II ML LM
 
 instance Wrapper (->) x
- => Castable Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
- cast = U_I_II (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (unwrap x) wrap)))
+ => Castable Straight (U_I_UU_II_U_II_I (->) LM) x where
+ cast = U_I_II (U_I_UU_II_U_II_I (\x -> These (unwrap x) wrap))
 
 instance Wrapper (->) x
- => Castable Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) x where
- cast = U_II_I (W_I_II_II (U_I_UU_III_U_II_I (\x -> These (wrap x) unwrap)))
+ => Castable Opposite (U_I_UU_II_U_II_I (->) LM) x where
+ cast = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
 class Setoid e where
  q :: e `ARR` e `ARR` e `LM` e `ML` e

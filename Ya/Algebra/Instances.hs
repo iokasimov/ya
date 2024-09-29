@@ -315,51 +315,51 @@ instance Mapping Straight Straight Arrow Arrow Identity (Straight ML e) where
 instance Mapping Straight Straight Arrow Arrow Identity (Opposite ML e) where
  mapping (Straight from) = Straight / \(Identity x) -> U_II_I (This (from x))
 
-instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) Arrow
- (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) origin)
- (Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) origin) where
- mapping = rwr / \into -> rwr `compose` rwr `compose` rwr / \from origin ->
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) Arrow
+ (Straight (U_I_UU_II_U_II_I (->) LM) origin)
+ (Straight (U_I_UU_II_U_II_I (->) LM) origin) where
+ mapping = rwr / \into -> rwr `compose` rwr / \from origin ->
   let These source source_origin = from origin in
   let These target target_source = (unwrap `compose` unwrap) into source in
   These target (source_origin `compose` target_source)
 
-instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) Arrow
- (Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) origin)
- (Opposite (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) origin) where
+instance Mapping Opposite Straight (U_I_UU_II_U_II_I (->) LM) Arrow
+ (Opposite (U_I_UU_II_U_II_I (->) LM) origin)
+ (Opposite (U_I_UU_II_U_II_I (->) LM) origin) where
  mapping = rwr / \from -> rwr `compose` rwr `compose` rwr / \into origin ->
   let These source source_origin = (unwrap `compose` unwrap) from origin in
   let These target target_source = into source in
   These target (source_origin `compose` target_source)
 
-instance Category (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) where
- identity = W_I_II_II `compose` U_I_UU_III_U_II_I / \x -> These x identity
+instance Category (U_I_UU_II_U_II_I (->) LM) where
+ identity = U_I_UU_II_U_II_I / \x -> These x identity
 
-instance Mapping Straight Straight
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (This LM e) Identity where
- mapping = rwr `compose` rwr `compose` rwr /
-  \from (U_II_I (These old e)) -> These 
-   (Identity (wrapped (left @Straight @(->) identity) (from old)))
-   (\(Identity new) -> U_II_I (These ((wrapped (right @Straight @(->) identity) (from old)) new) e))
+-- instance Mapping Straight Straight
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (This LM e) Identity where
+ -- mapping = rwr `compose` rwr `compose` rwr /
+  -- \from (U_II_I (These old e)) -> These 
+   -- (Identity (wrapped (left @Straight @(->) identity) (from old)))
+   -- (\(Identity new) -> U_II_I (These ((wrapped (right @Straight @(->) identity) (from old)) new) e))
 
-instance Mapping Straight Straight
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (That LM e) Identity where
- mapping = rwr `compose` rwr `compose` rwr /
-  \from (Straight (These e old)) -> These 
-   / Identity (wrapped (left @Straight @(->) identity) (from old))
-   / \(Identity new) -> Straight (These e ((wrapped (right @Straight @(->) identity) (from old)) new))
+-- instance Mapping Straight Straight
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (That LM e) Identity where
+ -- mapping = rwr `compose` rwr `compose` rwr /
+  -- -- \from (Straight (These e old)) -> These 
+   -- / Identity (wrapped (left @Straight @(->) identity) (from old))
+   -- / \(Identity new) -> Straight (These e ((wrapped (right @Straight @(->) identity) (from old)) new))
 
-instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) Identity (Both LM) where
- mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) (Identity old) -> U_I_I / These
-  (wrapped (left @Straight @(->) identity) (from old))
-  (wrapped (left @Straight @(->) identity) (from old))
+-- instance Mapping Straight Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) Identity (Both LM) where
+ -- mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) (Identity old) -> U_I_I / These
+  -- (wrapped (left @Straight @(->) identity) (from old))
+  -- (wrapped (left @Straight @(->) identity) (from old))
 
-instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (This (->) e) (This (->) e) where
- mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
-  map @Opposite @Straight / (\(These x _) -> x) `compose` from
+-- instance Mapping Opposite Straight (W_I_II_II (U_I_UU_III_U_II_I (->) LM)) (->) (This (->) e) (This (->) e) where
+ -- mapping = rwr / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
+  -- map @Opposite @Straight / (\(These x _) -> x) `compose` from
 
 instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM Identity Identity e ee) Identity where
  mapping = rwr / \from -> rwr / \case
@@ -427,26 +427,26 @@ instance Mapping Straight Straight (->) (->) (U_I_I LM) (U_I_II (->) (ML () ()))
   This () -> from x
   That () -> from y
 
-instance Mapping Straight Straight
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (U_I_I LM) (U_I_II (->) (ML () ())) where
- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_I (These x y)) -> These
-  / U_I_II (\case { This () -> this (from x); That () -> this (from y) })
-  / \(U_I_II f) -> U_I_I (These
-   / that (from x) (f (This ()))
-   / that (from x) (f (That ()))
-   )
+-- instance Mapping Straight Straight
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (U_I_I LM) (U_I_II (->) (ML () ())) where
+ -- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_I (These x y)) -> These
+  -- / U_I_II (\case { This () -> this (from x); That () -> this (from y) })
+  -- / \(U_I_II f) -> U_I_I (These
+   -- / that (from x) (f (This ()))
+   -- / that (from x) (f (That ()))
+   -- )
 
-instance Mapping Straight Straight
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- (U_I_II (->) (ML () ())) (U_I_I LM) where
- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_II f) -> These
-  / U_I_I (These / this (from (f (This ()))) / this (from (f (That ()))))
-  / \(U_I_I (These x y)) -> U_I_II / \case
-   This () -> that (from (f (This ()))) x
-   That () -> that (from (f (That ()))) y
+-- instance Mapping Straight Straight
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
+ -- (U_I_II (->) (ML () ())) (U_I_I LM) where
+ -- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_II f) -> These
+  -- / U_I_I (These / this (from (f (This ()))) / this (from (f (That ()))))
+  -- / \(U_I_I (These x y)) -> U_I_II / \case
+   -- This () -> that (from (f (This ()))) x
+   -- That () -> that (from (f (That ()))) y
 
 -- TODO: implement
 instance Mapping Straight Straight (->) (->)

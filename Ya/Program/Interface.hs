@@ -15,10 +15,10 @@ instance Field e e where
  has = Attribute self
 
 instance Field e (e `LM` ee) where
- has = Attribute `ha` Reference `li` \(These f fs) -> f `lu` (`lu` fs)
+ has = Attribute `li` \(These f fs) -> f `lu` (`lu` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- has = Attribute `ha` Reference `he` \(These old fs) -> These
+ has = Attribute `he` \(These old fs) -> These
   `li` this (has @e @ee `he'he` fs)
   `li` \new -> old `lu` adjust (has @e @ee) (but new) fs
 
