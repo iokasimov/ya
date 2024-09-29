@@ -89,11 +89,10 @@ by :: forall label t e . t e -> Labeled label t e
 by = T_'_I
 
 -- TODO: replace with `by @Repeat`
--- forever ::
- -- Component Natural (->) (->) (t `T_TT_I` t) t =>
- -- Component Natural (->) (->) Identity (U_I_II into a) =>
- -- t e -> t e
--- forever x = x `yuk` forever x
+repeat ::
+ Component Natural (->) (->) (t `T_TT_I` t) t =>
+ t e -> t e
+repeat x = x `yuk` repeat x
 
 transform :: forall tt t e .
  Component Straight (->) (->) t tt =>
