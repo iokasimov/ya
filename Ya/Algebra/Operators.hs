@@ -1563,26 +1563,23 @@ rwr'hs from_left from_right = rwr /
  _i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
 yp :: forall u e ee t .
- Mapping Straight Straight (->) (->) (Day Straight (->) u LM t t e ee) t =>
+ Covariant Monoidal Functor (->) u LM t =>
  u (t e) (t ee) -> t (e `LM` ee)
 yp = day @Straight @(->) @t @u @LM identity identity
 
 ys :: forall u e ee t .
- Mapping Straight Straight (->) (->) (Day Straight (->) u ML t t e ee) t =>
+ Covariant Monoidal Functor (->) u ML t =>
  u (t e) (t ee) -> t (e `ML` ee)
 ys = day @Straight @(->) @t @u @ML identity identity
 
 dw :: forall u e ee t .
- Mapping Straight Straight (->) (->)
- (Day Straight (->) u MLM t t e ee) t =>
+ Covariant Monoidal Functor (->) u MLM t =>
  u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
 dw = day @Straight @(->) @t @u @MLM identity he
 
 yp'yp :: forall u e ee t tt .
- Mapping Straight Straight (->) (->)
- (Day Straight (->) u LM t t (tt e) (tt ee)) t =>
- Mapping Straight Straight (->) (->)
- (Day Straight (->) LM LM tt tt e ee) tt =>
+ Covariant Monoidal Functor (->) u LM t =>
+ Covariant Monoidal Functor (->) LM LM tt =>
  u (t (tt e)) (t (tt ee)) -> t (tt (e `LM` ee))
 yp'yp = day @Straight @(->) @t @u @LM identity
  (day @Straight @(->) @tt @LM @LM identity identity)
