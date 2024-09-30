@@ -1442,12 +1442,12 @@ cn from_left from_right = fio from_right `compose` foi from_left
 -- cnz from_left from_right = fio from_right `compose` foi from_left `compose` _' @into
 
 -- TODO: try to generalize
-cn'yp, yi'cn'yp :: forall t a aa o oo .
- Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
- Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (->) a aa) (t (Product Arrow o oo))
-cn'yp from_left from_right = yp `compose` cn from_left from_right
+-- cn'yp, yi'cn'yp :: forall t a aa o oo .
+ -- Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
+ -- Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (->) a aa) (t (Product Arrow o oo))
+-- cn'yp from_left from_right = yp `compose` cn from_left from_right
 
-yi'cn'yp = cn'yp
+-- yi'cn'yp = cn'yp
 
 -- TODO: try to generalize
 -- cnz'yp, yi'cnz'yp :: forall e t a aa o oo .
