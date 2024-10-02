@@ -171,3 +171,13 @@ type Retry = (Straight ML () ())
 type Fore = U_I_II (->) () ()
 
 type Back = U_II_I (->) () ()
+
+type Forward = T_'_I Fore
+
+pattern Forward :: t e -> Forward t e
+pattern Forward e = T_'_I e
+
+type Reverse = T_'_I Back
+
+pattern Reverse :: t e -> Reverse t e
+pattern Reverse e = T_'_I e
