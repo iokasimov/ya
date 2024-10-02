@@ -9,7 +9,7 @@ infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'y
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
-infixl 8 `hoo`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yu`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
+infixl 8 `hoo`, `hoo'ho`, `hoo'ha`, `hoo'ha'he`, `hoo'yo`, `hoo'yu`, `hoo'yok`, `hoo'yuk`, `hoo'yokl`
  , `hoo'he`
  , `hoo'he'he`
  , `hoo'he'he'he`
@@ -464,15 +464,13 @@ yi'yuk = yuk @into @tt
 --  `compose` component @Straight @(->) @(->) @t @(T_TT_I t tt)
 
 yokl, yokll, yoklll, yokllll, yoklllll, yokllllll, li'yokl :: forall from into tt t a o .
- Unlabelable into tt =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Covariant Yoneda from into t =>
  Castable Opposite into (Straight from a (tt o)) =>
  Castable Straight into (TT_T_I t tt o) =>
  Castable Opposite into (T_TT_I t tt o) =>
- t a -> into (from a (tt o)) (Unlabeled tt (t o))
-yokl x = unlabel
- `compose` unwrap @into @(TT_T_I t tt _)
+ t a -> into (from a (tt o)) (tt (t o))
+yokl x = unwrap @into @(TT_T_I t tt _)
  `compose` component @Straight @from @into @(T_TT_I t tt) @(TT_T_I t tt)
  `compose` wrap @into @(T_TT_I t tt _)
  `compose` yoneda @Straight @from x
@@ -526,34 +524,32 @@ yokkkkkkk'yokl = yok'yokl
 li'yok'yokl = yok'yokl
 
 yokl'yok :: forall from into t tt ttt a o .
- Unlabelable into ttt =>
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Endo Semi Functor (->) (U_II_I into (Unlabeled ttt (t o))) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t o))) =>
  Component Natural from from (T_TT_I ttt tt) ttt =>
  Component Natural from into (T_TT_I t ttt) (TT_T_I t ttt) =>
  Castable Opposite into (That from (ttt a) (ttt o)) =>
  Castable Straight into (TT_T_I t ttt o) =>
  Castable Opposite into (T_TT_I t ttt o) =>
  Castable Opposite from (T_TT_I ttt tt o) =>
- t (ttt a) -> into (from a (tt o)) (Unlabeled ttt (t o))
+ t (ttt a) -> into (from a (tt o)) (ttt (t o))
 yokl'yok x = fai fok (yokl @from @into x)
 
 yokl'yokl :: forall from into t tt ttt a o .
- Unlabelable into ttt =>
  Covariant Yoneda from into t =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
  Component Natural from into (T_TT_I t ttt) (TT_T_I t ttt) =>
  Component Natural from from (T_TT_I tt ttt) (TT_T_I tt ttt) =>
- Contravariant Endo Semi Functor (->) (U_II_I into (Unlabeled ttt (t (tt o)))) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
  Castable Opposite from (T_TT_I tt ttt o) =>
  Castable Straight from (TT_T_I tt ttt o) =>
  Castable Straight into (TT_T_I t ttt (tt o)) =>
  Castable Opposite into (T_TT_I t ttt (tt o)) =>
  Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
- t (tt a) -> into (from a (ttt o)) (Unlabeled ttt (t (tt o)))
+ t (tt a) -> into (from a (ttt o)) (ttt (t (tt o)))
 yokl'yokl x = fai fokl (yokl @from @into x)
 
 fo'fo :: forall from into t tt a o .
@@ -726,7 +722,7 @@ hooooooo'he'he'he = ho'he'he'he
 hoooooooo'he'he'he = ho'he'he'he
 hooooooooo'he'he'he = ho'he'he'he
 
-ho'ho :: forall from u uu o e ee a .
+ho'ho, hoo'ho :: forall from u uu o e ee a .
  Covariant Yoneda u from (Straight u e) =>
  Contravariant Yoneda (->) (->) (Opposite u e) =>
  Covariant Semi Functor from u (Straight uu ee) =>
@@ -739,6 +735,8 @@ ho'ho :: forall from u uu o e ee a .
  Wrapper from (Straight u (uu ee a) (uu ee o)) =>
  u e (uu ee a) -> from (from a o) (u e (uu ee o))
 ho'ho x = fai fio (ho @u x)
+
+hoo'ho = ho'ho
 
 ho'ho'hu :: forall from u uu uuu o e ee eee a .
  Category from =>
@@ -1653,14 +1651,13 @@ yp'yok = yok @from @into `compose` yp
 
 -- TODO: try to generalize
 yp'yokl :: forall e ee from into t tt o .
- Unlabelable into tt =>
  Component Natural from into (T_TT_I t tt) (TT_T_I t tt) =>
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Yoneda from into t =>
  Castable Opposite into (Straight from (e `LM` ee) (tt o)) =>
  Castable Opposite into (T_TT_I t tt o) =>
  Castable Straight into (TT_T_I t tt o) =>
- t e `LM` t ee -> into (from (e `LM` ee) (tt o)) (Unlabeled tt (t o))
+ t e `LM` t ee -> into (from (e `LM` ee) (tt o)) (tt (t o))
 yp'yokl = yokl @from @into `compose` yp
 
 -- TODO: try to generalize
