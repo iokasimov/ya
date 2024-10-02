@@ -46,7 +46,7 @@ instance
          @(Labeled (U_I_II (->) () ()) (R_U_I_T_I LM t) `TT_T_I` tt)
          from)
       )
-     ) `ypp'yo` wrap @(->) @(Labeled _ _ _)
+     ) `yp'yo` wrap @(->) @(Labeled _ _ _)
          `ha` wrap @(->) @(R_U_I_T_I _ _ _)
          `ha` wrap @(->) @(Recursive _)
          `ha` wrap @(->) @(U_I_T_II _ _ _ _)
