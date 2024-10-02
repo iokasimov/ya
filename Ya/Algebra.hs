@@ -13,20 +13,18 @@ instance
  ( Covariant Endo Semi Functor (->) t
  , Covariant Monoidal Functor (->) LM LM tt
  , Component Natural (->) (->) (t `T_TT_I` tt) (t `TT_T_I` tt)
- , Component Natural (->) (->) (R_U_I_T_I LM t `T_TT_I` Labeled l tt) (R_U_I_T_I LM t `TT_T_I` Labeled l tt)
+ , Component Natural (->) (->) (Labeled l (R_U_I_T_I LM t) `T_TT_I` tt) (Labeled l (R_U_I_T_I LM t) `TT_T_I` tt)
  ) => Mapping Straight Straight (->) (->)
-  ((t `T_TT_I` R_U_I_T_I LM t) `T_TT_I` Labeled l tt)
-  ((t `T_TT_I` R_U_I_T_I LM t) `TT_T_I` Labeled l tt) where
- mapping = rwr / \from -> rwr /
-  \(T_TT_I x) -> wrap @_ @(Labeled l _ _) /
-   map @Straight @Straight @(->) @(->) @tt (wrap @_ @(T_TT_I t _ _))
-   (wrapped (component @Straight @(->) @(->) @(t `T_TT_I` tt) @(t `TT_T_I` tt))
-    (x `yo` wrapped (map @Straight @Straight @(->) @(->)
-      @(R_U_I_T_I LM t `T_TT_I` Labeled l tt)
-      @(R_U_I_T_I LM t `TT_T_I` Labeled l tt) from)
-     `ho` unwrap @(->) @(Labeled l tt _)
-    )
-   )
+  (Labeled l (t `T_TT_I` R_U_I_T_I LM t) `T_TT_I` tt)
+  (Labeled l (t `T_TT_I` R_U_I_T_I LM t) `TT_T_I` tt) where
+ mapping = rwr / \from -> rwr / \x -> unwrap (unwrap x)
+   `yo` wrapped (map @Straight @Straight @(->) @(->)
+            @(Labeled l (R_U_I_T_I LM t) `T_TT_I` tt)
+            @(Labeled l (R_U_I_T_I LM t) `TT_T_I` tt) from)
+          `ha` wrap @Arrow @(Labeled l (R_U_I_T_I LM t) (tt _))
+   `yi` wrapped (map @Straight @Straight @(->) @(->) @(t `T_TT_I` tt) @(t `TT_T_I` tt) unwrap)
+   `yo` wrap @Arrow @(Labeled l _ _)
+   `ha` wrap @Arrow @(T_TT_I t (R_U_I_T_I LM t) _)
 
 -- TODO: reduce a number of transformations here
 instance
@@ -35,53 +33,51 @@ instance
  , Covariant Monoidal Functor (->) LM LM tt
  , Transformation Straight Functor (->) (->) (T_TT_I t tt) (TT_T_I t tt)
  ) => Mapping Straight Straight (->) (->)
-  (R_U_I_T_I LM t `T_TT_I` Labeled (U_I_II (->) () ()) tt)
-  (R_U_I_T_I LM t `TT_T_I` Labeled (U_I_II (->) () ()) tt) where
+  (Labeled (U_I_II (->) () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
+  (Labeled (U_I_II (->) () ()) (R_U_I_T_I LM t) `TT_T_I` tt) where
  mapping = rwr / \from -> rwr /
-  \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
-   wrap /
-   day @Straight @Arrow @tt @LM @LM identity
-    (wrap @_ @(R_U_I_T_I _ _ _) `compose` wrap @_ @(Recursive _) `compose` wrap @_ @(U_I_T_II _ _ _ _))
-    ((unwrap x `yo` from) `lu`
-     (wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
+  \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
+    x `yo` from `lu`
+     (wrapped (map @Straight @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt) (unwrap @(->) @(R_U_I_T_I _ _ _) `ha` unwrap @(->) @(Labeled _ _ _)))
       (xs `yo` wrap @(->) @(R_U_I_T_I _ _ _)
+       `ho` wrap @(->) @(Labeled (U_I_II (->) () ()) _ _)
        `ho` wrapped (map @Straight @Straight @(->) @(->)
-         @(R_U_I_T_I LM t `T_TT_I` Labeled (U_I_II (->) () ()) tt)
-         @(R_U_I_T_I LM t `TT_T_I` Labeled (U_I_II (->) () ()) tt)
+         @(Labeled (U_I_II (->) () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
+         @(Labeled (U_I_II (->) () ()) (R_U_I_T_I LM t) `TT_T_I` tt)
          from)
-       `ho` unwrap @(->) @(Labeled (U_I_II (->) () ()) _ _)
-       `yo'yo` unwrap @(->) @(R_U_I_T_I _ _ _)
       )
-     )
-    )
+     ) `ypp'yo` wrap @(->) @(Labeled _ _ _)
+         `ha` wrap @(->) @(R_U_I_T_I _ _ _)
+         `ha` wrap @(->) @(Recursive _)
+         `ha` wrap @(->) @(U_I_T_II _ _ _ _)
 
 -- TODO: reduce a number of transformations here
--- TODO: mayba we really can use a special instance of Monoidal Functor that could let us to run effects backwards? 
 instance
  ( Covariant Endo Semi Functor (->) t
  , Covariant Endo Semi Functor (->) tt
  , Covariant Monoidal Functor (->) LM LM tt
  , Transformation Straight Functor (->) (->) (t `T_TT_I` tt) (t `TT_T_I` tt)
  ) => Mapping Straight Straight (->) (->)
-  (R_U_I_T_I LM t `T_TT_I` Labeled (U_II_I (->) () ()) tt)
-  (R_U_I_T_I LM t `TT_T_I` Labeled (U_II_I (->) () ()) tt) where
+  (Labeled (U_II_I (->) () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
+  (Labeled (U_II_I (->) () ()) (R_U_I_T_I LM t) `TT_T_I` tt) where
  mapping = rwr / \from -> rwr
-  / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) -> wrap @_ @(Labeled (U_II_I (->) () ()) _ _) /
-   (\x' xs' -> wrap @_ @(R_U_I_T_I _ _ _)
-    `compose` wrap @_ @(Recursive _)
-    `compose` wrap @_ @(U_I_T_II _ _ _ _)
-    / These x' xs'
-   )
-   `fo` (unwrap x `yo` from)
-   `fc` wrapped (component @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt))
+  / \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
+   (These
+    `hoo'ho` wrap @(->) @(U_I_T_II _ _ _ _)
+    `ho` wrap @(->) @(Recursive _)
+    `ho` wrap @(->) @(R_U_I_T_I _ _ _)
+    `ho` wrap @(->) @(Labeled _ _ _))
+   `fo` (x `yo` from)
+   `fc` wrapped (map @Straight @Straight @(->) @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt)
+         (unwrap @(->) @(R_U_I_T_I _ _ _) `ha` unwrap @(->) @(Labeled _ _ _))
+        )
     (xs
      `yo` wrap @(->) @(R_U_I_T_I _ _ _)
-      `ho` wrapped (map @Straight @Straight @_ @(->)
-        @(R_U_I_T_I LM t `T_TT_I` Labeled (U_II_I (->) () ()) tt)
-        @(R_U_I_T_I LM t `TT_T_I` Labeled (U_II_I (->) () ()) tt)
+     `ho` wrap @(->) @(Labeled _ _ _)
+     `ho` wrapped (map @Straight @Straight @(->) @(->)
+        @(Labeled (U_II_I (->) () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
+        @(Labeled (U_II_I (->) () ()) (R_U_I_T_I LM t) `TT_T_I` tt)
         from)
-      `ho` unwrap @(->) @(Labeled (U_II_I (->) () ()) _ _)
-     `yo'yo` unwrap @(->) @(R_U_I_T_I _ _ _)
     )
 
 -- TODO: try to simplify
