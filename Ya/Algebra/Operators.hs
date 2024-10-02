@@ -80,15 +80,15 @@ infixl 3 `hjjjjjjj`
 infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
-infixl 9 `he`, `he'he`, `he'he'he` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
-infixl 8 `hee`, `hee'he`, `hee'he'he`
-infixl 7 `heee`, `heee'he`, `heee'he'he`
-infixl 6 `heeee`, `heeee'he`, `heeee'he'he`
-infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`
-infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`
-infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`
-infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`
-infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`
+infixl 9 `he`, `he'he`, `he'he'he`, `he'la` --, `he'ho`, `he'he'ho`, `he'he'he'ho`
+infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'la`
+infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'la`
+infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'la`
+infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'la`
+infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'la`
+infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`
+infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`
+infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`
 
 -- infixl 8 `lo`, `lo'yp`
 -- infixl 7 `loo`, `loo'yp`
@@ -1556,6 +1556,29 @@ laaaaa = la
 laaaaaa = la
 laaaaaaa = la
 laaaaaaaa = la
+
+he'la, hee'la, heee'la, heeee'la, heeeee'la, heeeeee'la, heeeeeee'la, heeeeeeee'la, heeeeeeeee'la  :: forall from i o oo ooo .
+ Category from =>
+ Limit Opposite from from =>
+ Covariant Functor from from (That (Sum from) o) =>
+ Covariant Functor from from (This (Sum from) (Sum from i i)) =>
+ (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
+ (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
+ (forall ee . Wrapper from (Both (Sum from) ee)) =>
+ (forall ee . Wrapper from (Identity ee)) =>
+ (Supertype ooo ~ Sum from o oo) =>
+ Wrapper from ooo =>
+ from o i -> from oo i -> from ooo i
+he'la l r = la l r `compose` he
+
+hee'la = he'la
+heee'la = he'la
+heeee'la = he'la
+heeeee'la = he'la
+heeeeee'la = he'la
+heeeeeee'la = he'la
+heeeeeeee'la = he'la
+heeeeeeeee'la = he'la
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
