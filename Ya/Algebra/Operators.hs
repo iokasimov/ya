@@ -126,6 +126,15 @@ infixl 3 `liiiiii`, `liiiiii'yok`
 infixl 2 `liiiiiii`, `liiiiiii'yok`
 infixl 1 `liiiiiiii`, `liiiiiiii'yok`
 
+infixl 8 `yi`
+infixl 7 `yii`
+infixl 6 `yiii`
+infixl 5 `yiiii`
+infixl 4 `yiiiii`
+infixl 3 `yiiiiii`
+infixl 2 `yiiiiiii`
+infixl 1 `yiiiiiiii`
+
 infixl 8 `yo`, `yo'yo`, `yo'yp`
 infixl 7 `yoo`
 
@@ -241,6 +250,23 @@ fokl :: forall from into t tt a o .
 fokl from = wrapped
  (component @Straight @from @into @(t `T_TT_I` tt) @(t `TT_T_I` tt))
  `compose` fo from
+
+yi, yii, yiii, yiiii, yiiiii,  yiiiiii, yiiiiiii, yiiiiiiii
+ :: forall from into a o .
+ Precategory into =>
+ Covariant Yoneda from into Identity =>
+ Castable Opposite into (U_I_II from a o) =>
+ Castable Straight into (Identity o) =>
+ a -> into (from a o) o
+yi x = unwrap `compose` yoneda @Straight (Identity x) `compose` wrap
+
+yii = yi
+yiii = yi
+yiiii = yi
+yiiiii = yi
+yiiiiii = yi
+yiiiiiii = yi
+yiiiiiiii = yi
 
 yo, yoo, yi'yo :: forall from into t a o .
  Precategory into =>
