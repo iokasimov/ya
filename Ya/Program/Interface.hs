@@ -64,13 +64,13 @@ type Scrolling datastructure =
 
 type family Shafted datastructure = result | result -> datastructure where
  Shafted (Construction Singular) = U_T_I_TT_I LM Stream Stream
- Shafted (Optional `T_TT_I` Construction Optional) = U_I_I LM `T_TT_I` List
+ Shafted (Optional `T_TT_I` Construction Optional) = U_T_I_TT_I LM (Reverse List) (Forward List)
  Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
   (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
 
-instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_I_I LM `T_TT_I` List)) where
+instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
  mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (Singular (from x) `lu` T_TT_I (U_I_I (Empty @List () `lu` (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
+  U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
 
 type family Orientation datastructure where
  Orientation Stream = () `ML` ()
@@ -90,14 +90,13 @@ class Scrollable datastructure item where
    `TI` Scrolling datastructure item
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
- scroll way x@(U_T_I_TT_I (These (Identity x') _)) =
-  (but (These (None ()) x) `la` (unwrap `ho` swap `ho` foi @Arrow @Arrow Some)) `haa` unwrap @Arrow
-   `liiii` (enter @(State `TI` Scrolling List item `JT` Halts)
-   `yuk` (State `lii` Transition `li` pop `haa'he` has @(Shafted List item) `ho'he` rep way)
-   `yok` on @Halts
-   `yok` (State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
-   -- `yok` (State `haaa` Transition `ho'ho'hu` auto `hoo'ha` unwrap @Attribute `ho` has @(Focused _)  `ho` unwrap @Attribute)
-   `yok` (State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List _) `ho'he` rep (not way))
+ scroll way x =
+  let direction = is `huu` has @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` has @(Forward List item) `ho'he` identity @Attribute in
+  (but (These (None ()) x) `la` unwrap `ho` swap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
+   `heee` (enter @(State `TI` Scrolling List item `JT` Halts)
+   `yukk` State `heee` Transition `he` pop `haa'he` has @(Shafted List item) `ho'he` direction way `yokk` on @Halts
+   `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused item) `ho` unwrap @Attribute
+   `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List item) `ho'he` direction (not way)
    )`he'he` x
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
