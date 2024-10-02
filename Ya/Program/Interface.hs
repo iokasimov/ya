@@ -137,7 +137,7 @@ instance Literal (Construction Optional) item init =>
  Literal (Construction Optional) item (init `LM` item) where
  as (These init last) =
   that `li` (unwrap `compose` unwrap)
-   (as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State `ho` by @Back)
+   (Reverse `he` as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State)
    (Construct (Last last))
 
 instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
