@@ -3,9 +3,13 @@ module Ya.Program.Patterns where
 
 import Ya.Algebra
 
-type Same e = e
+type Same = Identity
 
-pattern Same e = e
+pattern Same e = Identity e
+
+type Once = Identity
+
+pattern Once e = Identity e
 
 type Only = Identity
 
@@ -18,6 +22,10 @@ pattern Singular e = Identity e
 type Focused = Identity
 
 pattern Focused e = Identity e
+
+type Apparently = Identity
+
+pattern Apparently e = Identity e
 
 type Boolean = Straight ML () ()
 
@@ -166,7 +174,20 @@ type Cascading = Labeled (Straight LM () ())
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = T_'_I e
 
-type Retry = (Straight ML () ())
+type Repeating = Labeled (U_I_I LM ())
+
+pattern Again :: t e -> Repeating t e
+pattern Again e = T_'_I e
+
+type Retrying = Labeled (U_I_II ML () ())
+
+pattern Retry :: t e -> Retrying t e
+pattern Retry e = T_'_I e
+
+type Trying = Labeled (U_II_I ML () ())
+
+pattern Try :: t e -> Trying t e
+pattern Try e = T_'_I e
 
 type Fore = U_I_II (->) () ()
 
