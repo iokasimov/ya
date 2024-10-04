@@ -50,21 +50,21 @@ type family Leftovers datastructure where
  Leftovers (Optional `T_TT_I` Construction Optional) = List
 
 class Stack datastructure where
- pop :: Automation `TI` datastructure item `TI` Popped datastructure item `TI` Leftovers datastructure item
+ pop :: Automation `TI` datastructure item `TI` Supertype (Popped datastructure item) `TI` Leftovers datastructure item
  push :: item -> Automation `TI` datastructure item `TI` item `TI` datastructure item
 
 -- TODO: refactor, it's hard to read
 instance Stack List where
  pop = \case
-  Empty @List _ -> None () `lu` Empty @List ()
-  T_TT_I (Some (Construct (Yet x xs))) -> Some x `lu` (T_TT_I / xs `yo` R_U_I_T_I)
+  Empty @List _ -> This () `lu` Empty @List ()
+  T_TT_I (Some (Construct (Yet x xs))) -> That x `lu` (T_TT_I / xs `yo` R_U_I_T_I)
  push item s = item `lu` rewrap (Some `ha` R_U_I_T_I `ha` Yet item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stack (Construction Optional) where
  pop = \case
-  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> Identity x `lu` T_TT_I (Some (R_U_I_T_I xs))
-  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> Identity x `lu` Empty @List ()
+  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> x `lu` T_TT_I (Some (R_U_I_T_I xs))
+  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
  push x = \old -> These x (Next x `rwr` old)
 
 type Scrolling datastructure =
@@ -102,7 +102,7 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
   let direction = is `huu` has @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` has @(Forward List item) `ho'he` identity @Attribute in
   (but (These (None ()) x) `la` unwrap `ho` swap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
    `heee` (enter @(State `TI` Scrolling List item `JT` Halts)
-   `yukk` State `heee` Transition `he` pop `haa'he` has @(Shafted List item) `ho'he` direction way `yokk` on @Maybe
+   `yukk` State `heee` Transition `he` pop `haa'he` has @(Shafted List item) `ho'he` direction way `yokk` Maybe
    `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused item) `ho` unwrap @Attribute
    `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List item) `ho'he` direction (not way)
    )`he'he` x
