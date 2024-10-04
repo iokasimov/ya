@@ -73,6 +73,7 @@ joint :: forall f g e .
  f (g e) -> f `JT` g `TI` e
 joint = wrap @(->) @((f `T_TT_I` g) e) `ho` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JT` g) @e
 
+-- Define a special `Mapping` instance instead and use `Try` label constructor for it
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JT` Progress e) =>
@@ -85,6 +86,16 @@ label = T_'_I
 
 by :: forall label t e . t e -> Labeled label t e
 by = T_'_I
+
+frame ::
+ Castable Opposite (->) e =>
+ Supertype e -> e
+frame = wrap
+
+prompt ::
+ Castable Opposite (->) e =>
+ Supertype e -> e
+prompt = wrap
 
 -- TODO: replace with `by @Repeat`
 repeat ::
