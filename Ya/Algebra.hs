@@ -312,9 +312,16 @@ instance
  ( Monoidal Straight Functor (->) LM LM t
  , Mapping Straight Straight (->) (->) (T_TT_I t t) t
  , Mapping Straight Straight (->) (->) Identity (U_I_II (->) e)
- ) => Mapping Straight Straight (->) (->) (t `T_TT_I` Labeled (Straight ML () ()) (That ML e)) t where
+ ) => Mapping Straight Straight (->) (->) (t `T_TT_I` T_'_I (U_I_II ML () ()) (U_I_II ML e)) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
-  x `yok'he'he` (constant (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from)
+  x `yok'he'he` constant (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
+
+instance
+ ( Mapping U_I_II U_I_II (->) (->) t t
+ , Mapping U_I_II U_I_II (->) (->) (T_TT_I t t) t
+ ) => Mapping Straight Straight (->) (->) (t `T_TT_I` T_'_I (U_I_I LM ()) Identity) t where
+ mapping = rwr / \from -> \(T_TT_I x) ->
+  x `yok'he'he` constant @Arrow (map @Straight @Straight @_ @_ @_ @t from (T_TT_I x))
 
 instance Mapping Straight Straight (->) (->)
   (Day Straight (->) LM LM
