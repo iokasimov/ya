@@ -1401,28 +1401,28 @@ rj from = he @from @(Identity _)
  -- `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
  -- `compose` wrap @from @(U_I_II t ee _)
 
--- lo, loo, looo, loooo, looooo, loooooo, looooooo, loooooooo :: forall into a o oo .
---  Limit Straight into into =>
---  Covariant Functor into into (U_I_II (Product into) o) =>
---  Covariant Functor into into (U_II_I (Product into) (Product into a a)) =>
---  (forall e ee . Wrapper into (U_I_II (Product into) e ee)) =>
---  (forall e ee . Wrapper into (U_II_I (Product into) e ee)) =>
---  (forall e . Wrapper into (Both (Product into) e)) =>
---  (forall e . Wrapper into (Identity e)) =>
---  into a o -> into a oo -> into a (Product into o oo)
--- lo from_left from_right =
---  _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
---  i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
---  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
---  wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
+lo, loo, looo, loooo, looooo, loooooo, looooooo, loooooooo :: forall into a o oo .
+ Limit Straight into into =>
+ Covariant Functor into into (U_I_II (Product into) o) =>
+ Covariant Functor into into (U_II_I (Product into) (Product into a a)) =>
+ (forall e ee . Wrapper into (U_I_II (Product into) e ee)) =>
+ (forall e ee . Wrapper into (U_II_I (Product into) e ee)) =>
+ (forall e . Wrapper into (Both (Product into) e)) =>
+ (forall e . Wrapper into (Identity e)) =>
+ into a o -> into a oo -> into a (Product into o oo)
+lo from_left from_right =
+ _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
+ i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
+ wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
+ wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
 
--- loo = lo
--- looo = lo
--- loooo = lo
--- looooo = lo
--- loooooo = lo
--- looooooo = lo
--- loooooooo = lo
+loo = lo
+looo = lo
+loooo = lo
+looooo = lo
+loooooo = lo
+looooooo = lo
+loooooooo = lo
 
 -- lo'yp, loo'yp, looo'yp, loooo'yp, looooo'yp, loooooo'yp, looooooo'yp, loooooooo'yp
  -- :: forall t a aa o oo .
