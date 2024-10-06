@@ -383,6 +383,9 @@ constant = unwrap @_ @(U_I_II from a _)
  `compose` map @Straight @Straight @from @into identity
  `compose` wrap @into @(Identity o)
 
+is :: Category ARR => e `ARR` e
+is = identity
+
 but :: e -> ee -> e
 but x _ = x
 

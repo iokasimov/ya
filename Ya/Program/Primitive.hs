@@ -5,9 +5,6 @@ module Ya.Program.Primitive where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-is :: e `ARR` e
-is = identity
-
 on :: forall t e . t e `ARR` t e
 on = identity
 
