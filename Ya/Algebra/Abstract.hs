@@ -381,5 +381,9 @@ wrap = let U_II_I x = cast in x
 -- Category: initial object
 data Void
 
+type Unit = ()
+
+pattern Unit = ()
+
 type family Equals a b where
   Equals a b = a ~ b
