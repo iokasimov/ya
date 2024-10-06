@@ -1401,18 +1401,18 @@ rj from = he @from @(Identity _)
 
 lo, loo, looo, loooo, looooo, loooooo, looooooo, loooooooo :: forall into a o oo .
  Limit Straight into into =>
- Covariant Functor into into (U_I_II (Product into) o) =>
- Covariant Functor into into (U_II_I (Product into) (Product into a a)) =>
- (forall e ee . Wrapper into (U_I_II (Product into) e ee)) =>
- (forall e ee . Wrapper into (U_II_I (Product into) e ee)) =>
- (forall e . Wrapper into (Both (Product into) e)) =>
+ Covariant Functor into into (U_I_II Product o) =>
+ Covariant Functor into into (U_II_I Product (Product a a)) =>
+ (forall e ee . Wrapper into (U_I_II Product e ee)) =>
+ (forall e ee . Wrapper into (U_II_I Product e ee)) =>
+ (forall e . Wrapper into (Both Product e)) =>
  (forall e . Wrapper into (Identity e)) =>
- into a o -> into a oo -> into a (Product into o oo)
+ into a o -> into a oo -> into a (Product o oo)
 lo from_left from_right =
- _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
- i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
- wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity) `compose`
- wrapped (map @Straight @Straight @into @into @Identity @(Both (Product into)) identity)
+ _i (map @Straight @Straight @into @into (wrapped (right @Straight from_right))) `compose`
+ i_ (map @Straight @Straight @into @into (wrapped (left @Straight from_left))) `compose`
+ wrapped (map @Straight @Straight @into @into @Identity @(Both Product) identity) `compose`
+ wrapped (map @Straight @Straight @into @into @Identity @(Both Product) identity)
 
 loo = lo
 looo = lo
@@ -1437,15 +1437,15 @@ loooooooo = lo
 -- loooooooo'yp = lo'yp
 
 cn :: forall into a aa o oo .
- Cone Straight into into (Object Straight into) =>
- Functor Straight into into (That (Product into) o) =>
- Functor Straight into into (That (Product into) aa) =>
- Functor Straight into into (This (Product into) aa) =>
- Wrapper into (That (Product into) o aa) =>
- Wrapper into (That (Product into) o oo) =>
- Wrapper into (This (Product into) aa o) =>
- Wrapper into (This (Product into) aa a) =>
- into a o -> into aa oo -> into (Product into a aa) (Product into o oo)
+ Cone Straight into into Product =>
+ Functor Straight into into (That Product o) =>
+ Functor Straight into into (That Product aa) =>
+ Functor Straight into into (This Product aa) =>
+ Wrapper into (That Product o aa) =>
+ Wrapper into (That Product o oo) =>
+ Wrapper into (This Product aa o) =>
+ Wrapper into (This Product aa a) =>
+ into a o -> into aa oo -> into (Product a aa) (Product o oo)
 cn from_left from_right = fio from_right `compose` foi from_left
 
 -- into a o -> into a oo -> into a (Product into o oo)
@@ -1515,13 +1515,13 @@ cn from_left from_right = fio from_right `compose` foi from_left
 
 lu, luu, luuu, luuuu, luuuuu, luuuuuu, luuuuuuu, luuuuuuuu :: forall o oo .
  Limit Straight (->) (->) =>
- Mapping Straight Straight (->) (->) Identity (U_I_I (Product (->))) =>
- Covariant Yoneda (->) (->) (U_I_II (Product (->)) o) =>
- Covariant Yoneda (->) (->) (U_II_I (Product (->)) ()) =>
- Wrapper (->) (U_I_I (Product (->)) ()) =>
+ Mapping Straight Straight (->) (->) Identity (U_I_I Product) =>
+ Covariant Yoneda (->) (->) (U_I_II Product o) =>
+ Covariant Yoneda (->) (->) (U_II_I Product ()) =>
+ Wrapper (->) (U_I_I Product ()) =>
  Wrapper (->) (Identity ()) =>
- o -> oo -> Product (->) o oo
-lu l r = wrapped (map @Straight @Straight @(->) @(->) @Identity @(U_I_I (Product (->))) identity) () `yui` l `yiu` r
+ o -> oo -> Product o oo
+lu l r = wrapped (map @Straight @Straight @(->) @(->) @Identity @(U_I_I Product) identity) () `yui` l `yiu` r
 
 luu = lu
 luuu = lu
@@ -1534,18 +1534,18 @@ luuuuuuuu = lu
 la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa :: forall from i o oo .
  Category from =>
  Limit Opposite from from =>
- Covariant Functor from from (That (Sum from) o) =>
- Covariant Functor from from (This (Sum from) (Sum from i i)) =>
- (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
- (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
- (forall ee . Wrapper from (Both (Sum from) ee)) =>
+ Covariant Endo Semi Functor from (U_I_II Sum o) =>
+ Covariant Endo Semi Functor from (U_II_I Sum (Sum i i)) =>
+ (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
+ (forall ee eee . Wrapper from (U_II_I Sum ee eee)) =>
+ (forall ee . Wrapper from (U_I_I Sum ee)) =>
  (forall ee . Wrapper from (Identity ee)) =>
- from o i -> from oo i -> from (Sum from o oo) i
-la from_left from_right =
- wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
- wrapped (map @Opposite @Opposite @from @from @Identity @(Both (Sum from)) identity) `compose`
- i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
- _i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+ from o i -> from oo i -> from (Sum o oo) i
+la l r =
+ wrapped (map @Opposite @Opposite @from @from @Identity @(Both Sum) identity) `compose`
+ wrapped (map @Opposite @Opposite @from @from @Identity @(Both Sum) identity) `compose`
+ i_ (map @Straight @Straight @from @from(wrapped (left @Opposite l))) `compose`
+ _i (map @Straight @Straight @from @from(wrapped (right @Opposite r)))
 
 laa = la
 laaa = la
@@ -1558,13 +1558,13 @@ laaaaaaaa = la
 he'la, hee'la, heee'la, heeee'la, heeeee'la, heeeeee'la, heeeeeee'la, heeeeeeee'la, heeeeeeeee'la  :: forall from i o oo ooo .
  Category from =>
  Limit Opposite from from =>
- Covariant Functor from from (That (Sum from) o) =>
- Covariant Functor from from (This (Sum from) (Sum from i i)) =>
- (forall ee eee . Wrapper from (That (Sum from) ee eee)) =>
- (forall ee eee . Wrapper from (This (Sum from) ee eee)) =>
- (forall ee . Wrapper from (Both (Sum from) ee)) =>
+ Covariant Functor from from (That Sum o) =>
+ Covariant Functor from from (This Sum (Sum i i)) =>
+ (forall ee eee . Wrapper from (That Sum ee eee)) =>
+ (forall ee eee . Wrapper from (This Sum ee eee)) =>
+ (forall ee . Wrapper from (Both Sum ee)) =>
  (forall ee . Wrapper from (Identity ee)) =>
- (Supertype ooo ~ Sum from o oo) =>
+ (Supertype ooo ~ Sum o oo) =>
  Wrapper from ooo =>
  from o i -> from oo i -> from ooo i
 he'la l r = la l r `compose` he
@@ -1584,29 +1584,29 @@ heeeeeeeee'la = he'la
 --     : u (from o i) (from oo i) -> from (uu o oo) i
 
 -- TODO: to test
-rwr'hs :: forall from into r o a aa .
- Category from =>
- Limit Opposite from into =>
- Covariant Functor into into (That (Sum into) a) =>
- Covariant Functor into into (This (Sum into) (Sum into (Supertype r) (Supertype r))) =>
- Castable Opposite into (Both (Sum into) (Sum into (Supertype r) (Supertype r))) =>
- Castable Opposite into (That (Sum into) a aa) =>
- Castable Straight into (That (Sum into) (Supertype r) (Supertype r)) =>
- Castable Straight into (This (Sum into) (Supertype r) (Supertype r)) =>
- Castable Opposite into (Both (Sum into) (Supertype r)) =>
- Castable Straight into (That (Sum into) a (Sum into (Supertype r) (Supertype r))) =>
- Castable Opposite into (This (Sum into) (Sum into (Supertype r) (Supertype r)) a) =>
- Castable Straight into (This (Sum into) (Sum into (Supertype r) (Supertype r)) (Sum into (Supertype r) (Supertype r))) =>
- (Supertype o ~ Sum into a aa) =>
- (forall eeee . Wrapper into (Identity eeee)) =>
- Castable Opposite into r =>
- Castable Straight into o =>
- from a (Supertype r) -> from aa (Supertype r) -> into o r
-rwr'hs from_left from_right = rwr /
- wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
- wrapped (map @Opposite @Opposite @from @into @Identity @(Both (Sum into)) identity) `compose`
- i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
- _i (map @Straight @Straight (wrapped (right @Opposite from_right)))
+-- rwr'hs :: forall from into r o a aa .
+ -- Category from =>
+ -- Limit Opposite from into =>
+ -- Covariant Functor into into (That Sum a) =>
+ -- Covariant Functor into into (This Sum (Sum (Supertype r) (Supertype r))) =>
+ -- Castable Opposite into (Both Sum (Sum (Supertype r) (Supertype r))) =>
+ -- Castable Opposite into (That Sum a aa) =>
+ -- Castable Straight into (That Sum (Supertype r) (Supertype r)) =>
+ -- Castable Straight into (This Sum (Supertype r) (Supertype r)) =>
+ -- Castable Opposite into (Both Sum (Supertype r)) =>
+ -- Castable Straight into (That Sum a (Sum (Supertype r) (Supertype r))) =>
+ -- Castable Opposite into (This Sum (Sum (Supertype r) (Supertype r)) a) =>
+ -- Castable Straight into (This Sum (Sum (Supertype r) (Supertype r)) (Sum (Supertype r) (Supertype r))) =>
+ -- (Supertype o ~ Sum a aa) =>
+ -- (forall eeee . Wrapper into (Identity eeee)) =>
+ -- Castable Opposite into r =>
+ -- Castable Straight into o =>
+ -- from a (Supertype r) -> from aa (Supertype r) -> into o r
+-- rwr'hs from_left from_right = rwr /
+ -- wrapped (map @Opposite @Opposite @from @into @Identity @(Both Sum) identity) `compose`
+ -- wrapped (map @Opposite @Opposite @from @into @Identity @(Both Sum) identity) `compose`
+ -- i_ (map @Straight @Straight (wrapped (left @Opposite from_left))) `compose`
+ -- _i (map @Straight @Straight (wrapped (right @Opposite from_right)))
 
 -- TODO: try to generalize
 yp :: forall u e ee t .
@@ -1918,33 +1918,33 @@ hooooooooo'yokl = ho'yokl
 --  Supertype (U_1_I from a (t o)) -> from e (tt a) -> from e (tt o)
 -- ha'yuk = ha `compose` fuk @from @tt @t
 
-fr'yp :: forall from t i o oo .
- Category from =>
- Limit Straight from (->) =>
- Covariant Functor (->) (->) (That (LM) o) =>
- Covariant Functor (->) (->) (This (LM) (LM i i)) =>
- Covariant Monoidal Functor (->) LM LM t =>
- Castable Straight (->) (Both (LM) (LM i i)) =>
- Castable Straight (->) (That (LM) o oo) =>
- Castable Opposite (->) (This (LM) i i) =>
- Castable Opposite (->) (That (LM) i i) =>
- Castable Straight (->) (Both (LM) i) =>
- Castable Straight (->) (This (LM) (LM i i) o) =>
- Castable Opposite (->) (This (LM) (LM i i) (LM i i)) =>
- Wrapper (->) (That (LM) o (LM i i)) =>
- (forall e . Wrapper (->) (Identity e)) =>
- from i (t o) -> from i (t oo) -> i -> t (LM o oo)
-fr'yp from_left from_right = yp `compose`
- _i (map @Straight @Straight (wrapped (right @Straight from_right))) `compose`
- i_ (map @Straight @Straight (wrapped (left @Straight from_left))) `compose`
- wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity) `compose`
- wrapped (map @Straight @Straight @from @(->) @Identity @(Both (LM)) identity)
+-- fr'yp :: forall from t i o oo .
+ -- Category from =>
+ -- Limit Straight from from =>
+ -- Covariant Functor (->) (->) (U_I_II (LM) o) =>
+ -- Covariant Functor from (->) (U_II_I (LM) (LM i i)) =>
+ -- Covariant Monoidal Functor (->) LM LM t =>
+ -- Castable Straight (->) (U_I_I LM (LM i i)) =>
+ -- Castable Straight (->) (U_I_II LM o oo) =>
+ -- Castable Opposite from (U_II_I LM i i) =>
+ -- Castable Opposite (->) (U_I_II LM i i) =>
+ -- Castable Straight (->) (U_I_I LM i) =>
+ -- Castable Straight (->) (U_II_I LM (LM i i) o) =>
+ -- Castable Opposite (->) (U_II_I LM (LM i i) (LM i i)) =>
+ -- Wrapper (->) (U_I_II (LM) o (LM i i)) =>
+ -- (forall e . Wrapper from (Identity e)) =>
+ -- from i (t o) -> from i (t oo) -> i -> t (LM o oo)
+-- fr'yp from_left from_right = yp `compose`
+ -- _i (map @Straight @Straight @from (wrapped (right @Straight from_right))) `compose`
+ -- i_ (map @Straight @Straight @from (wrapped (left @Straight from_left))) `compose`
+ -- wrapped (map @Straight @Straight @from @(->) @Identity @(U_I_I LM) identity) `compose`
+ -- wrapped (map @Straight @Straight @from @(->) @Identity @(U_I_I LM) identity)
 
 -- TODO: generalize
 lu'yp, luu'yp, luuu'yp, luuuu'yp, luuuuu'yp, luuuuuu'yp, luuuuuuu'yp, luuuuuuuu'yp :: forall o oo t .
  Covariant Monoidal Functor (->) LM LM t =>
- Covariant Yoneda (->) (->) (U_I_II (Product (->)) (t o)) =>
- Covariant Yoneda (->) (->) (U_II_I (Product (->)) ()) =>
+ Covariant Yoneda (->) (->) (U_I_II Product (t o)) =>
+ Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  t o -> t oo -> t (o `LM` oo)
 lu'yp from_left from_right = yp (lu from_left from_right)
 
@@ -1959,8 +1959,8 @@ luuuuuuuu'yp = lu'yp
 lu'ys, luu'ys, luuu'ys, luuuu'ys, luuuuu'ys, luuuuuu'ys, luuuuuuu'ys, luuuuuuuu'ys
  :: forall o oo t .
  Covariant Monoidal Functor (->) LM ML t =>
- Covariant Yoneda (->) (->) (U_I_II (Product (->)) (t o)) =>
- Covariant Yoneda (->) (->) (U_II_I (Product (->)) ()) =>
+ Covariant Yoneda (->) (->) (U_I_II Product (t o)) =>
+ Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  t o -> t oo -> t (o `ML` oo)
 lu'ys from_left from_right = ys (lu from_left from_right)
 
@@ -1976,8 +1976,8 @@ lu'yp'yp :: forall o oo t tt .
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
  -- Mapping Straight Straight into (->) Identity (U_I_I (Product into)) =>
- Covariant Yoneda (->) (->) (U_I_II (Product (->)) (t (tt o))) =>
- Covariant Yoneda (->) (->) (U_II_I (Product (->)) ()) =>
+ Covariant Yoneda (->) (->) (U_I_II Product (t (tt o))) =>
+ Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
 lu'yp'yp from_left from_right = yp'yp @LM (lu from_left from_right)
 
@@ -1986,8 +1986,8 @@ lu'yip'yp
  Covariant Monoidal Functor (->) LM LM tt =>
  Covariant Monoidal Functor (->) LM LM (U_I_II t e) =>
  Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Yoneda (->) (->) (U_II_I (Product (->)) ()) =>
- Covariant Yoneda (->) (->) (U_I_II (Product (->)) (t e (tt o))) =>
+ Covariant Yoneda (->) (->) (U_II_I Product ()) =>
+ Covariant Yoneda (->) (->) (U_I_II Product (t e (tt o))) =>
  t e (tt o) -> t e (tt oo) -> t e (tt (o `LM` oo))
 lu'yip'yp from_left from_right = yip'yp (lu from_left from_right)
 

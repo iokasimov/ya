@@ -159,50 +159,53 @@ deriving instance
 
 type family Co x where Co (x Straight) = x Opposite
 
--- TODO: We should not use this star syntax, it's deprecated
-data family Object (v :: (* -> * -> *) -> * -> * -> *) (diagram :: * -> * -> *) e ee
-data instance Object Straight Arrow e ee = These e ee
-data instance Object Opposite Arrow e ee = This e | That ee
+data family Object o e ee
+data instance Object Unit e ee = These e ee
+data instance Object Void e ee = This e | That ee
 
-type LM = Object Straight Arrow
-type ML = Object Opposite Arrow
+type LM = Object Unit
+type ML = Object Void
 
 type family Neutral p where
- Neutral LM = ()
+ Neutral LM = Unit
  Neutral ML = Void
 
+type family Aught p where
+ Aught Straight = Unit
+ Aught Opposite = Void
+
 class
- ( forall e . Mapping v v from into (This u e) Identity
- , forall e . Mapping v v from into (That u e) Identity
+ ( forall e . Mapping v v from into (U_II_I u e) Identity
+ , forall e . Mapping v v from into (U_I_II u e) Identity
  ) => Cone v from into u
 
 deriving instance
- ( forall e . Mapping v v from into (This u e) Identity
- , forall e . Mapping v v from into (That u e) Identity
+ ( forall e . Mapping v v from into (U_II_I u e) Identity
+ , forall e . Mapping v v from into (U_I_II u e) Identity
  ) => Cone v from into u
 
 left :: forall v from into a o e .
- Cone v from into (Object v into) =>
+ Cone v from into (Object (Aught v)) =>
  Castable Opposite Arrow (v from a o) =>
- Castable Straight Arrow (v into ((This (Object v into)) e a) (Identity o)) =>
- Supertype (v from a o) -> Supertype (v into (This (Object v into) e a) (Identity o))
-left from = map @v @v @from @into @(This (Object v into) e) @Identity @a @o from
+ Castable Straight Arrow (v into ((U_II_I (Object (Aught v))) e a) (Identity o)) =>
+ Supertype (v from a o) -> Supertype (v into (U_II_I (Object (Aught v)) e a) (Identity o))
+left from = map @v @v @from @into @(U_II_I (Object (Aught v)) e) @Identity @a @o from
 
 right :: forall v from into a o e .
- Cone v from into (Object v into) =>
+ Cone v from into (Object (Aught v)) =>
  Castable Opposite Arrow (v from a o) =>
- Castable Straight Arrow (v into (U_I_II (Object v into) e a) (Identity o)) =>
- Supertype (v from a o) -> Supertype (v into (U_I_II (Object v into) e a) (Identity o))
-right from = map @v @v @from @into @(U_I_II (Object v into) e) @Identity @a @o from
+ Castable Straight Arrow (v into (U_I_II (Object (Aught v)) e a) (Identity o)) =>
+ Supertype (v from a o) -> Supertype (v into (U_I_II (Object (Aught v)) e a) (Identity o))
+right from = map @v @v @from @into @(U_I_II (Object (Aught v)) e) @Identity @a @o from
 
 type Limit v from into =
- ( Cone v from into (Object v into)
- , Mapping v v from into Identity (Both (Object v into))
+ ( Cone v from into (Object (Aught v))
+ , Mapping v v from into Identity (Both (Object (Aught v)))
  )
 
-type Product into = Object Straight into
+type Product = Object Unit
 
-type Sum into = Object Opposite into
+type Sum = Object Void
 
 -- TODO: maybe we can unify `Initial`/`Terminal` typeclasses into one `Morphism`?
 
@@ -260,23 +263,23 @@ day from t x = map @v @Straight @from @(->)
 
 monoidal_ :: forall v from into t u uu a o e ee .
  Adjoint Functor (->) into
-  (That LM (u (t e) (t ee)))
-  (That into (u (t e) (t ee))) =>
+  (U_I_II LM (u (t e) (t ee)))
+  (U_I_II into (u (t e) (t ee))) =>
  Monoidal v Functor from u uu t =>
  Castable Opposite Arrow (v from a o) =>
- Castable Opposite into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) a) =>
- Castable Straight into ((That into (u (t e) (t ee)) `T_TT_I` That LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
- Castable Straight into (That into (u (t e) (t ee)) (t o)) =>
+ Castable Opposite into ((U_I_II into (u (t e) (t ee)) `T_TT_I` U_I_II LM (u (t e) (t ee))) a) =>
+ Castable Straight into ((U_I_II into (u (t e) (t ee)) `T_TT_I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+ Castable Straight into (U_I_II into (u (t e) (t ee)) (t o)) =>
  Castable Opposite into (Identity (v from (uu e ee) a)) =>
  Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal_ from =
- unwrap @into @(That into _ _)
+ unwrap @into @(U_I_II into _ _)
  `compose` map @Straight @Straight @(->) @into
-  @(That into (u (t e) (t ee))) @(That into (u (t e) (t ee)))
+  @(U_I_II into (u (t e) (t ee))) @(U_I_II into (u (t e) (t ee)))
   ((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
-  `compose` unwrap @(->) @(That LM _ _))
+  `compose` unwrap @(->) @(U_I_II LM _ _))
  `compose` unwrap @into @(T_TT_I _ _ _)
- `compose` component @Straight @(->) @into @Identity @(That into _ `T_TT_I` That LM _)
+ `compose` component @Straight @(->) @into @Identity @(U_I_II into _ `T_TT_I` U_I_II LM _)
  `compose` wrap @into
 
 -- TODO: generalize

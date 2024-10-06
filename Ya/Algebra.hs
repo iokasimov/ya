@@ -314,7 +314,7 @@ instance
  , Mapping Straight Straight (->) (->) Identity (U_I_II (->) e)
  ) => Mapping Straight Straight (->) (->) (t `T_TT_I` T_'_I (U_I_II ML () ()) (U_I_II ML e)) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
-  x `yok'he'he` constant (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
+  x `yok'he'he` constant @Arrow (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
 
 instance
  ( Mapping U_I_II U_I_II (->) (->) t t
