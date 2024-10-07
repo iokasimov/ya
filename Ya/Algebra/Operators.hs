@@ -90,14 +90,14 @@ infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`
 infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`
 infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`
 
--- infixl 8 `lo`, `lo'yp`
--- infixl 7 `loo`, `loo'yp`
--- infixl 6 `looo`, `looo'yp`
--- infixl 5 `loooo`, `loooo'yp`
--- infixl 4 `looooo`, `looooo'yp`
--- infixl 3 `loooooo`, `loooooo'yp`
--- infixl 2 `looooooo`, `looooooo'yp`
--- infixl 1 `loooooooo`, `loooooooo'yp`
+infixl 8 `lo`, `lo'yp`
+infixl 7 `loo`, `loo'yp`
+infixl 6 `looo`, `looo'yp`
+infixl 5 `loooo`, `loooo'yp`
+infixl 4 `looooo`, `looooo'yp`
+infixl 3 `loooooo`, `loooooo'yp`
+infixl 2 `looooooo`, `looooooo'yp`
+infixl 1 `loooooooo`, `loooooooo'yp`
 
 infixl 8 `la`
 infixl 7 `laa`
@@ -1440,19 +1440,33 @@ loooooo = lo
 looooooo = lo
 loooooooo = lo
 
--- lo'yp, loo'yp, looo'yp, loooo'yp, looooo'yp, loooooo'yp, looooooo'yp, loooooooo'yp
- -- :: forall t a aa o oo .
- -- Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
- -- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product Arrow o oo))
+lo'yp, loo'yp, looo'yp, loooo'yp, looooo'yp, loooooo'yp, looooooo'yp, loooooooo'yp
+ :: forall t a o oo .
+ Covariant Monoidal Functor (->) LM LM t =>
+ Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product o oo))
+lo'yp from_left from_right = yp `compose` lo from_left from_right
+
+loo'yp = lo'yp
+looo'yp = lo'yp
+loooo'yp = lo'yp
+looooo'yp = lo'yp
+loooooo'yp = lo'yp
+looooooo'yp = lo'yp
+loooooooo'yp = lo'yp
+
+-- lo'yip'yp, loo'yip'yp, looo'yip'yp, loooo'yip'yp, looooo'yip'yp, loooooo'yip'yp, looooooo'yip'yp, loooooooo'yip'yp
+ -- :: forall t a o oo .
+ -- Covariant Monoidal Functor (->) LM LM t =>
+ -- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product o oo))
 -- lo'yp from_left from_right = yp `compose` lo from_left from_right
 
--- loo'yp = lo'yp
--- looo'yp = lo'yp
--- loooo'yp = lo'yp
--- looooo'yp = lo'yp
--- loooooo'yp = lo'yp
--- looooooo'yp = lo'yp
--- loooooooo'yp = lo'yp
+-- loo'yip'yp = lo'yp
+-- looo'yip'yp = lo'yp
+-- loooo'yip'yp = lo'yp
+-- looooo'yip'yp = lo'yp
+-- loooooo'yip'yp = lo'yp
+-- looooooo'yip'yp = lo'yp
+-- loooooooo'yip'yp = lo'yp
 
 cn :: forall into a aa o oo .
  Cone Straight into into Product =>
