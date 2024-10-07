@@ -117,7 +117,7 @@ infixl 3 `luuuuuu`, `luuuuuu'yp`, `luuuuuu'ys`
 infixl 2 `luuuuuuu`, `luuuuuuu'yp`, `luuuuuuu'ys`
 infixl 1 `luuuuuuuu`, `luuuuuuuu'yp`, `luuuuuuuu'ys`
 
-infixl 8 `li`, `li'yu`, `li'yok`, `li'yok'ha`, `li'yok'yokl`, `li'yokl`
+infixl 8 `li`, `li'yu`, `li'yok`, `li'yok'yokl`, `li'yokl`
 infixl 7 `lii`, `lii'yok`
 infixl 6 `liii`, `liii'yok`
 infixl 5 `liiii`, `liiii'yok`
@@ -138,7 +138,7 @@ infixl 1 `yiiiiiiii`
 infixl 8 `yo`, `yo'yo`, `yo'yp`
 infixl 7 `yoo`
 
-infixl 7 `yok`, `yok'ha`, `yok'he`, `yok'he'he`, `yok'yokl` --, `yko`
+infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl` --, `yko`
 infixl 6 `yokk`, `yokk'he`,  `yokk'he'he`, `yokk'yokl`
 infixl 5 `yokkk`, `yokkk'he`,  `yokkk'he'he`, `yokkk'yokl`
 infixl 4 `yokkkk`, `yokkkk'he`,  `yokkkk'he'he`, `yokkkk'yokl`
@@ -890,7 +890,8 @@ he'ho
  Wrapper into (U_II_I u o (Supertype i)) =>
  Wrapper into (U_I_II u (Supertype i) o) =>
  u (Supertype i) a -> into (from a o) (u i o)
-he'ho x = fai (he @into) `compose` yio @from @into @u x 
+he'ho x = fai @into he
+ `compose` yio @from @into @u x
 
 he'ho'he
  :: forall from into u i a o .
@@ -1837,7 +1838,7 @@ ha'yok :: forall from u t tt a o e .
 ha'yok x = fai fok (ha @from x)
 
 -- TODO: try to gereralize
-yok'ha, li'yok'ha :: forall from t tt a o e .
+yok'ho :: forall from t tt a o e .
  Covariant Functor (->) (->) tt =>
  Contravariant Functor (->) (->) (Opposite from (t o)) =>
  Covariant Functor from from (Straight from e) =>
@@ -1857,9 +1858,23 @@ yok'ha, li'yok'ha :: forall from t tt a o e .
  Wrapper from (U_II_I from o e) =>
  Wrapper from (U_I_II from e a) =>
  t e -> from a (tt o) -> from (from e a) (t o)
-yok'ha x f = yok x `compose` fio f
+yok'ho x f = yok x `compose` fio f
 
-li'yok'ha = yok'ha
+-- TODO: try to gereralize
+yok'ha :: forall into t tt a o e .
+ Category into =>
+ Covariant Yoneda into into t =>
+ Covariant Functor into into t =>
+ Covariant Functor into into tt =>
+ Contravariant Functor into into (U_II_I into (tt o)) =>
+ Contravariant Yoneda into (->) (U_II_I into (tt o)) =>
+ Mapping Straight Straight into into (T_TT_I t tt) t =>
+ (forall ee . Wrapper into ((t `T_TT_I` tt) ee)) =>
+ Wrapper into (U_I_II into e (tt o)) =>
+ Wrapper into (U_II_I into (tt o) e) =>
+ Wrapper into (U_II_I into (tt o) a) =>
+ t e -> into e a -> into (into a (tt o)) (t o)
+yok'ha x f = yok @into @into x `compose` fai @into f
 
 -- yok'hu :: forall from t tt a o e .
   -- Precategory from =>
