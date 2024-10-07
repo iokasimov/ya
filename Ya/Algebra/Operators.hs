@@ -80,7 +80,7 @@ infixl 3 `hjjjjjjj`
 infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'la`, `he'ho` --, `he'he'ho`, `he'he'he'ho`
+infixl 9 `he`, `he'he`, `he'he'he`, `he'la`, `he'ho`, `he'ho'he`  --, `he'he'ho`, `he'he'he'ho`
 infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'la`
 infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'la`
 infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'la`
@@ -891,6 +891,24 @@ he'ho
  Wrapper into (U_I_II u (Supertype i) o) =>
  u (Supertype i) a -> into (from a o) (u i o)
 he'ho x = fai (he @into) `compose` yio @from @into @u x 
+
+he'ho'he
+ :: forall from into u i a o .
+ Covariant Yoneda from into (U_I_II u (Supertype i)) =>
+ Contravariant Semi Functor from into (U_II_I u o) =>
+ Contravariant Semi Functor from into (U_II_I from o) =>
+ Wrapper from a =>
+ Wrapper from i =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I u o i) =>
+ Wrapper into (U_II_I u o (Supertype i)) =>
+ Wrapper into (U_II_I from o (Supertype a)) =>
+ Wrapper into (U_I_II u (Supertype i) o) =>
+ u (Supertype i) a -> into (from (Supertype a) o) (u i o)
+he'ho'he x = fai @from @into he
+ `compose` yio @from @into @u x
+ `compose` fai @from @into he
 
 -- he'hu
  -- :: forall from into u i a o .
