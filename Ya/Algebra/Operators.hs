@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -862,7 +862,8 @@ hoooo'yo = ho'yo
 hooooo'yo = ho'yo
 hoooooo'yo = ho'yo
 
-ho'yu, hoo'yu, hooo'yu, hoooo'yu, hooooo'yu, hoooooo'yu, hooooooo'yu, hoooooooo'yu, hooooooooo'yu  :: forall u t o e a .
+ho'yu, hoo'yu, hooo'yu, hoooo'yu, hooooo'yu, hoooooo'yu, hooooooo'yu, hoooooooo'yu, hooooooooo'yu
+ :: forall u t o e a .
  Covariant Yoneda (->) (->) (Straight u e) =>
  Contravariant Yoneda (->) (->) (Opposite u e) =>
  Mapping Straight Straight (->) (->) Identity (U_I_II (->) a) =>
@@ -879,6 +880,25 @@ hoooooo'yu = ho'yu
 hooooooo'yu = ho'yu
 hoooooooo'yu = ho'yu
 hooooooooo'yu = ho'yu
+
+ho'yui, hoo'yui, hooo'yui, hoooo'yui, hooooo'yui, hoooooo'yui, hooooooo'yui, hoooooooo'yui, hooooooooo'yui
+ :: forall u t o e a .
+ Covariant Yoneda (->) (->) (Straight u e) =>
+ Contravariant Yoneda (->) (->) (Opposite u e) =>
+ Mapping Straight Straight (->) (->) Identity (U_I_II (->) a) =>
+ Covariant Endo Semi Functor (->) (U_II_I t e) =>
+ Constant Semi Functor (->) (->) (U_II_I t e) =>
+ u e (t a e) -> o -> u e (t o e)
+ho'yui x = fai @(->) @(->) (fui @(->)) (ho @(->) x)
+
+hoo'yui = ho'yui
+hooo'yui = ho'yui
+hoooo'yui = ho'yui
+hooooo'yui = ho'yui
+hoooooo'yui = ho'yui
+hooooooo'yui = ho'yui
+hoooooooo'yui = ho'yui
+hooooooooo'yui = ho'yui
 
 ho'yioi :: forall from u t o e ee eee a .
  Covariant Yoneda from (->) (Straight u e) =>
