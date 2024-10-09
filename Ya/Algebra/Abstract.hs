@@ -108,12 +108,6 @@ pattern Opposite x <- U_II_I x
 pattern In :: u e ee -> U_II_I u ee e
 pattern In x = U_II_I x
 
-type This = U_II_I
-
-type That = U_I_II
-
-type Thot = U_1_I
-
 type Labeled = T_'_I
 
 type family Flip v where

@@ -142,20 +142,20 @@ instance Mapping Straight Straight (->) (->) Identity (Straight (->) e `T_TT_I` 
 instance Mapping Straight Straight (->) (->) (Opposite LM e `T_TT_I` Straight (->) e) Identity where
  mapping = rwr / \from -> rwr / \(Opposite (These (Straight f) e)) -> from (f e)
 
-instance Mapping Straight Straight Arrow Arrow (That LM e) (That LM e) where
+instance Mapping Straight Straight Arrow Arrow (U_I_II LM e) (U_I_II LM e) where
  mapping = rwr / \from -> rwr / \case
   These e x -> These e (from x)
 
-instance Mapping Straight Straight Arrow Arrow (This LM o) (This LM o) where
+instance Mapping Straight Straight Arrow Arrow (U_II_I LM o) (U_II_I LM o) where
  mapping = rwr / \from -> rwr / \case
   These x e -> These (from x) e
 
-instance Mapping Straight Straight Arrow Arrow (That ML o) (That ML o) where
+instance Mapping Straight Straight Arrow Arrow (U_I_II ML o) (U_I_II ML o) where
  mapping = rwr / \from -> rwr / \case
   That x -> That (from x)
   This e -> This e
 
-instance Mapping Straight Straight Arrow Arrow (This ML o) (This ML o) where
+instance Mapping Straight Straight Arrow Arrow (U_II_I ML o) (U_II_I ML o) where
  mapping = rwr / \from -> rwr / \case
   This x -> This (from x)
   That e -> That e
@@ -368,12 +368,12 @@ instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM Identity I
 instance Mapping Straight Straight (->) (->) (U_I_II (->) ()) Identity where
  mapping = rwr / \from (Straight f) -> Identity (from (f ()))
 
-instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (This ML e) (This ML e) ee eee) (This ML e) where
+instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e) where
  mapping = rwr / \from -> rwr / \case
   These (These (U_II_I (This ee)) (U_II_I (This eee))) (Straight f) -> This (from (f (These ee eee)))
   These (These (U_II_I (That e)) _) _ -> That e
 
-instance Mapping Straight Straight (->) (->) (Straight (->) ()) (This ML e) where
+instance Mapping Straight Straight (->) (->) (Straight (->) ()) (U_II_I ML e) where
  mapping = rwr / \from (Straight f) -> U_II_I (This (from (f ())))
 
 instance Mapping Straight Straight (->) (->) (Day Straight (->) LM LM (Straight ML e) (Straight ML e) ee eee) (Straight ML e) where
@@ -404,17 +404,17 @@ instance Mapping Straight Straight (->) (->)
   These (These _ (Straight (That eee))) (Straight f) -> That (from (f (That eee)))
   These (These _ (Straight (This eee))) (Straight _) -> This eee
 
-instance Mapping Straight Straight (->) (->) (Straight (->) Void) (This ML ()) where
+instance Mapping Straight Straight (->) (->) (Straight (->) Void) (U_II_I ML ()) where
  mapping = rwr / \_ _ -> U_II_I (That ())
 
 instance Mapping Straight Straight (->) (->)
-  (Day Straight (->) LM ML (This ML e) (This ML e) ee eee) (This ML e) where
+  (Day Straight (->) LM ML (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e) where
  mapping = rwr / \from -> rwr / \case
   These (These (U_II_I (This ee)) _) (Straight f) -> This (from (f (This ee)))
   These (These _ (U_II_I (This eee))) (Straight f) -> This (from (f (That eee)))
   These (These _ (U_II_I (That eee))) _ -> That eee
 
-instance Mapping Straight Straight (->) (->) (That (->) Void) (That ML ()) where
+instance Mapping Straight Straight (->) (->) (U_I_II (->) Void) (U_I_II ML ()) where
  mapping = rwr / \_ _ -> Straight (This ())
 
 instance Mapping Straight Straight (->) (->) (U_I_II (->) (ML () ())) (U_I_I LM) where
@@ -450,7 +450,7 @@ instance Mapping Straight Straight (->) (->) (U_I_I LM) (U_I_II (->) (ML () ()))
 
 -- TODO: implement
 instance Mapping Straight Straight (->) (->)
-  (Day That (->) LM ML (U_I_I LM `T_TT_I` t) (U_I_I LM `T_TT_I` t) ee eee) (U_I_I LM `T_TT_I` t)
+  (Day U_I_II (->) LM ML (U_I_I LM `T_TT_I` t) (U_I_I LM `T_TT_I` t) ee eee) (U_I_I LM `T_TT_I` t)
 
 instance Monoidal Straight Functor (->) LM ML t
  => Mapping Straight Straight (->) (->) (U_I_II (->) Void) (U_I_I LM `T_TT_I` t) where
