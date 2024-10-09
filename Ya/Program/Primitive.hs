@@ -108,7 +108,7 @@ to :: forall tt t e .
  t e -> tt e
 to = component @Straight @Arrow
 
-same :: Setoid e => e `ARR` e `ARR` e `LM` e `ML`  e
+same :: Setoid e => e `LM` e `ARR` e `LM` e `ML`  e
 same = q
 
 rep :: forall r t e .
@@ -121,5 +121,5 @@ rep index = U_I_UU_II_U_II_I `li` \origin ->
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
  idx origin `he` index `lu`
   (\x -> tbt `ha` U_I_II  `he`
-   (\index' -> constant (idx origin `he` index') `la` constant x `li` index' `q` index)
+   (\index' -> constant (idx origin `he` index') `la` constant x `li` q (index' `lu` index))
   )

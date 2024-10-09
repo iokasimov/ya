@@ -373,14 +373,14 @@ instance {-# OVERLAPS #-} Component Natural (->) (->) (T_TT_I t tt) t =>
   map @Straight @Straight @(->) @(->) @(T_TT_I t tt) @t from `compose` rwr @_ @(->) (fo @Arrow unwrap)
 
 instance Setoid () where
- q _ _ = That ()
+ q _ = That ()
 
 instance (Setoid e, Setoid ee) => Setoid (e `ML` ee) where
- q (This x) (This xx) = q x xx `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
- q (That x) (That xx) = q x xx `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
- q x xx = This (These x xx)
+ q (These (This x) (This xx)) = q (x `lu` xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
+ q (These (That x) (That xx)) = q (x `lu` xx) `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
+ q (These x xx) = This (These x xx)
 
 instance (Setoid e, Setoid ee) => Setoid (e `LM` ee) where
- q (These x xx) (These xxx xxxx) = case (q x xxx) `lu`(q xx xxxx) of
+ q (These (These x xx) (These xxx xxxx)) = case q (x `lu` xxx) `lu`q (xx `lu` xxxx) of
   These (That x') (That xx') -> That (These x' xx')
   These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))

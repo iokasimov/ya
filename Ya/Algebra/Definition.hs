@@ -398,7 +398,7 @@ instance Wrapper (->) x
  cast = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
 class Setoid e where
- q :: e `ARR` e `ARR` e `LM` e `ML` e
+ q :: e `LM` e `ARR` e `LM` e `ML` e
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
