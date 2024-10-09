@@ -2,6 +2,10 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
+infixl 8 `T_I`
+
+type T_I t i = t i
+
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
 newtype Identity i = Identity i

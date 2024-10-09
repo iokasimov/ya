@@ -50,8 +50,8 @@ type family Leftovers datastructure where
  Leftovers (Optional `T_TT_I` Construction Optional) = List
 
 class Stack datastructure where
- pop :: Automation `TI` datastructure item `TI` Supertype (Popped datastructure item) `TI` Leftovers datastructure item
- push :: item -> Automation `TI` datastructure item `TI` item `TI` datastructure item
+ pop :: Automation `T_I` datastructure item `T_I` Supertype (Popped datastructure item) `T_I` Leftovers datastructure item
+ push :: item -> Automation `T_I` datastructure item `T_I` item `T_I` datastructure item
 
 -- TODO: refactor, it's hard to read
 instance Stack List where
@@ -93,15 +93,15 @@ type family Scrolled datastructure where
 class Scrollable datastructure item where
  scroll :: Orientation datastructure
   `ARR` Automation
-   `TI` Scrolling datastructure item
-   `TI` Scrolled datastructure item
-   `TI` Scrolling datastructure item
+   `T_I` Scrolling datastructure item
+   `T_I` Scrolled datastructure item
+   `T_I` Scrolling datastructure item
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way x =
   let direction = is `huu` at @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` at @(Forward List item) `ho'he` identity @Attribute in
   (but (These (None ()) x) `la` unwrap `ho` swap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
-   `heee` (enter @(State `TI` Scrolling List item `JNT` Halts)
+   `heee` (enter @(State `T_I` Scrolling List item `JNT` Halts)
    `yukk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` direction way `yokk` Maybe
    `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` at @(Focused item) `ho` unwrap @Attribute
    `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` at @(Shafted List item) `ho'he` direction (not way)
