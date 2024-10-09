@@ -29,6 +29,9 @@ adjust attr f s = let (These h x) = attr `he` s in x `li`f h
 auto :: Automation e e e
 auto x = x `lu` x
 
+switch :: ee -> Automation e e ee
+switch = (auto `ho'hu`)
+
 leaf :: forall t e .
  Monoidal Straight Functor (->) LM ML t =>
  e -> Recursive (U_I_T_II t LM e)
