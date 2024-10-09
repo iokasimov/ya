@@ -5,9 +5,6 @@ module Ya.Program.Primitive where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-on :: forall t e . t e `ARR` t e
-on = identity
-
 not :: e `ML` ee `ARR` ee `ML` e
 not = That `la` This
 
