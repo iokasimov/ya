@@ -5,7 +5,7 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `TI`, `LM`, `ML`, `JT`
+infixl 8 `TI`, `LM`, `ML`, `JNT`
 infixl 7 `TII`
 
 infixr 7 `ARR`
@@ -352,16 +352,16 @@ instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
 instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
  => Unlabelable into (Labeled label t) where unlabel = unwrap
 
-type family JT effect where
- JT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
- JT (U_I_II (U_I_UU_II_I (->) LM) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
+type family JNT effect where
+ JNT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
+ JNT (U_I_II (U_I_UU_II_I (->) LM) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
 
 type family Unjointed effect unknown e where
  Unjointed (U_I_II (U_I_UU_II_I (->) LM) state) unknown e =
   state -> unknown (state `LM` e)
 
 class Unjointable effect unknown where
- tnj :: effect `JT` unknown `TI` result `ARR` effect `TI` unknown result
+ tnj :: effect `JNT` unknown `TI` result `ARR` effect `TI` unknown result
 
 instance Unjointable (U_I_II (U_I_UU_II_I (->) LM) e) (U_I_II ML ee) where
  tnj (T_TTT_TT_I (U_I_II f)) = U_I_II (U_I_UU_II_I (\e -> case unwrap (f e) of { This x -> These (U_I_II (This x)) e; That (U_I_II (These y x)) -> These (U_I_II (That x)) y }))

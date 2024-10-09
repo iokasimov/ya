@@ -53,7 +53,7 @@ type Maybe = U_I_II ML ()
 
 pattern Maybe x = U_I_II @ML @() x
 
-type Haltable t = JT t Halts
+type Haltable t = JNT t Halts
 
 type Progress = U_I_II ML
 

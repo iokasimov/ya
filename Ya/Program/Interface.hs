@@ -101,7 +101,7 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way x =
   let direction = is `huu` at @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` at @(Forward List item) `ho'he` identity @Attribute in
   (but (These (None ()) x) `la` unwrap `ho` swap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
-   `heee` (enter @(State `TI` Scrolling List item `JT` Halts)
+   `heee` (enter @(State `TI` Scrolling List item `JNT` Halts)
    `yukk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` direction way `yokk` Maybe
    `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` at @(Focused item) `ho` unwrap @Attribute
    `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` at @(Shafted List item) `ho'he` direction (not way)

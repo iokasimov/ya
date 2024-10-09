@@ -2070,18 +2070,18 @@ lu'yip'yp
 lu'yip'yp from_left from_right = yip'yp (lu from_left from_right)
 
 jt :: forall into f g e .
- Component Natural (->) into (f `T_TT_I` g) (f `JT` g) =>
+ Component Natural (->) into (f `T_TT_I` g) (f `JNT` g) =>
  Castable Opposite into ((f `T_TT_I` g) e) =>
- into (f (g e)) ((f `JT` g) e)
-jt = component @Straight @(->) @into @(f `T_TT_I` g) @(f `JT` g) @e
+ into (f (g e)) ((f `JNT` g) e)
+jt = component @Straight @(->) @into @(f `T_TT_I` g) @(f `JNT` g) @e
  `compose` wrap @into @((f `T_TT_I` g) e)
 
 -- TODO: generalize
 yp'yp'jt :: forall e ee t tt .
- Component Natural (->) (->) (t `T_TT_I` tt) (t `JT` tt) =>
+ Component Natural (->) (->) (t `T_TT_I` tt) (t `JNT` tt) =>
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
- t (tt e) `LM` t (tt ee) -> (t `JT` tt) (e `LM` ee)
+ t (tt e) `LM` t (tt ee) -> (t `JNT` tt) (e `LM` ee)
 yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
  (day @Straight @(->) @tt @LM @LM identity identity)
 
@@ -2089,14 +2089,14 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- yp'yp'jt'yok :: forall from into e ee t tt ttt o .
  -- Covariant Yoneda from into t =>
  -- Covariant Semi Functor into into ttt =>
- -- Covariant Yoneda from into (t `JT` tt) =>
- -- Component Natural (->) (->) (t `T_TT_I` tt) (t `JT` tt) =>
- -- Component Natural (->) into (T_TT_I (t `JT` tt) ttt) (t `JT` tt) =>
+ -- Covariant Yoneda from into (t `JNT` tt) =>
+ -- Component Natural (->) (->) (t `T_TT_I` tt) (t `JNT` tt) =>
+ -- Component Natural (->) into (T_TT_I (t `JNT` tt) ttt) (t `JNT` tt) =>
  -- Covariant Monoidal Functor (->) LM LM t =>
  -- Covariant Monoidal Functor (->) LM LM tt =>
  -- Castable Opposite into (Straight from (e `LM` ee) (ttt o)) =>
- -- (forall e . Wrapper into (T_TT_I (JT t tt) ttt e)) =>
- -- t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `JT` tt) o)
+ -- (forall e . Wrapper into (T_TT_I (JNT t tt) ttt e)) =>
+ -- t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `JNT` tt) o)
 -- yp'yp'jt'yok = yok @from @into `compose` yp'yp'jt
 
 -- TODO: generalize
