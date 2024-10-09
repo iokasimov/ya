@@ -397,8 +397,8 @@ instance Wrapper (->) x
  => Castable Opposite (U_I_UU_II_U_II_I (->) LM) x where
  cast = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
-class Setoid e where
- q :: e `LM` e `ARR` e `LM` e `ML` e
+class Setoid into e where
+ q :: into (e `LM` e) (e `LM` e `ML` e)
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x

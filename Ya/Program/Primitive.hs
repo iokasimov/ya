@@ -108,12 +108,12 @@ to :: forall tt t e .
  t e -> tt e
 to = component @Straight @Arrow
 
-same :: Setoid e => e `LM` e `ARR` e `LM` e `ML`  e
+same :: Setoid Arrow e => e `LM` e `ARR` e `LM` e `ML`  e
 same = q
 
 rep :: forall r t e .
  (r ~ Representation t) =>
- Setoid (Representation t) =>
+ Setoid Arrow (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `ARR` Attribute `T_I` t e `T_I` e
 rep index = U_I_UU_II_U_II_I `li` \origin ->
