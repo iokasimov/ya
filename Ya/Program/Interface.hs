@@ -9,18 +9,18 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 class Field e r where
- has :: Attribute r e
+ at :: Attribute r e
 
 instance Field e e where
- has = Attribute self
+ at = Attribute self
 
 instance Field e (e `LM` ee) where
- has = Attribute `li` \(These f fs) -> f `lu` (`lu` fs)
+ at = Attribute `li` \(These f fs) -> f `lu` (`lu` fs)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- has = Attribute `he` \(These old fs) -> These
-  `li` this (has @e @ee `he'he` fs)
-  `li` \new -> old `lu` adjust (has @e @ee) (but new) fs
+ at = Attribute `he` \(These old fs) -> These
+  `li` this (at @e @ee `he'he` fs)
+  `li` \new -> old `lu` adjust (at @e @ee) (but new) fs
 
 class Match e ee where
  match :: (e -> r) -> (ee -> r) -> (ee -> r)
@@ -99,12 +99,12 @@ class Scrollable datastructure item where
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way x =
-  let direction = is `huu` has @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` has @(Forward List item) `ho'he` identity @Attribute in
+  let direction = is `huu` at @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` at @(Forward List item) `ho'he` identity @Attribute in
   (but (These (None ()) x) `la` unwrap `ho` swap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
    `heee` (enter @(State `TI` Scrolling List item `JT` Halts)
-   `yukk` State `heee` Transition `he` pop `haa'he` has @(Shafted List item) `ho'he` direction way `yokk` Maybe
-   `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` has @(Focused item) `ho` unwrap @Attribute
-   `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` has @(Shafted List item) `ho'he` direction (not way)
+   `yukk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` direction way `yokk` Maybe
+   `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` at @(Focused item) `ho` unwrap @Attribute
+   `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` at @(Shafted List item) `ho'he` direction (not way)
    )`he'he` x
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
