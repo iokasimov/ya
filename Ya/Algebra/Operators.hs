@@ -645,6 +645,15 @@ fiu :: forall from into t a o e .
  o -> into (t e a) (t e o)
 fiu from = unwrap `compose` fu @from @into @(U_I_II _ _) from `compose` wrap
 
+fui :: forall from into t a o e .
+ Covariant Functor from into (U_II_I t e) =>
+ Mapping Straight Straight from (->) Identity (U_I_II from a) =>
+ Wrapper into (U_II_I t e a) =>
+ Wrapper into (U_II_I t e o) =>
+ Wrapper into (Identity o) =>
+ o -> into (t a e) (t o e)
+fui from = unwrap `compose` fu @from @into @(U_II_I _ _) from `compose` wrap
+
 -- TODO: remove
 -- fiu'_ :: forall from into t a o e .
 --  Covariant Semi Functor into into (U_I_II t e) =>
