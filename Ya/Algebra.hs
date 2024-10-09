@@ -174,6 +174,29 @@ instance Mapping Opposite Straight (U_I_UU_II_U_II_I (->) LM )(->)
   rwr `compose` rwr `identity` \state old ->
    let (These new f) = from old in f `fio` state new
 
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) (U_I_UU_II_U_II_I (->) LM) (U_I_II LM e) (U_I_II LM e) where
+ mapping = rwr / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_I_II (These e x)) ->
+   let s = from x in U_I_II (These e (this s)) `lu` fo (that s)
+
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) (U_I_UU_II_U_II_I (->) LM) (U_II_I LM e) (U_II_I LM e) where
+ mapping = rwr / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_II_I (These x e)) ->
+   let s = from x in U_II_I (These (this s) e) `lu` fo (that s)
+
+-- TODO: I'm not really sure about this instance... it could easily lead to an error!
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) (U_I_UU_II_U_II_I (->) LM) Identity (U_I_I LM) where
+ mapping = rwr / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(Identity x) ->
+   let s = from x in U_I_I (this s `lu`this s) `lu` (\(U_I_I (These _ _)) -> Identity (that s (this s)))
+
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) (U_I_UU_II_U_II_I (->) LM) (U_I_II LM e) Identity where
+ mapping = rwr / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_I_II (These e x)) ->
+   let s = from x in Identity (this s) `lu` (U_I_II `compose` (e `lu`) `compose` that s `compose` unwrap)
+
+instance Mapping Straight Straight (U_I_UU_II_U_II_I (->) LM) (U_I_UU_II_U_II_I (->) LM) (U_II_I LM e) Identity where
+ mapping = rwr / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_II_I (These x e)) ->
+   let s = from x in Identity (this s) `lu` (U_II_I `compose` (`lu` e) `compose` that s `compose` unwrap)
+
+-- TODO: I should alse test how attributes behave on sums
+
 instance Mapping Straight Straight (->) (->)
  (T_TT_I
   (U_I_II (U_I_UU_II_I (->) LM) e)
