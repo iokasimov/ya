@@ -79,6 +79,7 @@ type Reference u i ii iii = i `ARR` u ii (iii `ARR` i)
 
 type Attribute = U_I_UU_II_U_II_I (->) LM
 
+pattern Attribute :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Attribute e ee
 pattern Attribute x = U_I_UU_II_U_II_I @(->) @LM x
 
 type Automation e ee eee = e `ARR` ee `LM` eee
