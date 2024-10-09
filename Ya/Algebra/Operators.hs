@@ -80,15 +80,17 @@ infixl 3 `hjjjjjjj`
 infixl 2 `hjjjjjjjj`
 infixl 1 `hjjjjjjjjj`
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'la`, `he'ho`, `he'ho'he`  --, `he'he'ho`, `he'he'he'ho`
-infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'la`
-infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'la`
-infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'la`
-infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'la`
-infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'la`
-infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`
-infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`
-infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`
+--, `he'he'ho`, `he'he'he'ho`
+
+infixl 9 `he`, `he'he`, `he'he'he`, `he'la`, `he'ho`, `he'ho'he`
+infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'la`, `hee'ho`, `hee'ho'he`
+infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'la`, `heee'ho`, `heee'ho'he`
+infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'la`, `heeee'ho`, `heeee'ho'he`
+infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'la`, `heeeee'ho`, `heeeee'ho'he`
+infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'la`, `heeeeee'ho`, `heeeeee'ho'he`
+infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`, `heeeeeee'ho`, `heeeeeee'ho'he`
+infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
+infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
 
 infixl 8 `lo`, `lo'yp`
 infixl 7 `loo`, `loo'yp`
@@ -909,7 +911,7 @@ ho'yioi :: forall from u t o e ee eee a .
  u e (t ee a eee) -> from a o -> u e (t ee o eee)
 ho'yioi x = fai (fioi @from) (ho @from x)
 
-he'ho
+he'ho, hee'ho, heee'ho, heeee'ho, heeeee'ho, heeeeee'ho, heeeeeee'ho, heeeeeeee'ho, heeeeeeeee'ho
  :: forall from into u i a o .
  Covariant Yoneda from into (U_I_II u (Supertype i)) =>
  Contravariant Semi Functor into into (U_II_I u o) =>
@@ -922,7 +924,16 @@ he'ho
 he'ho x = fai @into he
  `compose` yio @from @into @u x
 
-he'ho'he
+hee'ho= he'ho
+heee'ho= he'ho
+heeee'ho= he'ho
+heeeee'ho= he'ho
+heeeeee'ho= he'ho
+heeeeeee'ho= he'ho
+heeeeeeee'ho= he'ho
+heeeeeeeee'ho= he'ho
+
+he'ho'he, hee'ho'he, heee'ho'he, heeee'ho'he, heeeee'ho'he, heeeeee'ho'he, heeeeeee'ho'he, heeeeeeee'ho'he, heeeeeeeee'ho'he
  :: forall from into u i a o .
  Covariant Yoneda from into (U_I_II u (Supertype i)) =>
  Contravariant Semi Functor from into (U_II_I u o) =>
@@ -939,6 +950,15 @@ he'ho'he
 he'ho'he x = fai @from @into he
  `compose` yio @from @into @u x
  `compose` fai @from @into he
+
+hee'ho'he = he'ho'he
+heee'ho'he = he'ho'he
+heeee'ho'he = he'ho'he
+heeeee'ho'he = he'ho'he
+heeeeee'ho'he = he'ho'he
+heeeeeee'ho'he = he'ho'he
+heeeeeeee'ho'he = he'ho'he
+heeeeeeeee'ho'he = he'ho'he
 
 -- he'hu
  -- :: forall from into u i a o .
