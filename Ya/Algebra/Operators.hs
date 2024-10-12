@@ -68,7 +68,7 @@ infixl 3 `huuuuuuu`
 infixl 2 `huuuuuuuu`
 infixl 1 `huuuuuuuuu`
 
-infixl 9 `hd`
+infixl 9 `hd`, `hd'q`
 
 infixl 9 `hj`, `hj'hj`
 infixl 8 `hjj`
@@ -180,10 +180,10 @@ infixl 7 `yoi`
 infixl 7 `yai`, `yai'yai`
 
 infixl 7 `yui`
+infixl 7 `yiu`
 
 infixl 7 `yio`, `yio'yo`, `yio'yp`
 
-infixl 7 `yiu`
 
 -- infixl 6 `yioi`
 
@@ -1332,6 +1332,16 @@ hd from = he @into @(U_I_II tt _ _)
  `compose` he @into @(T_TT_I _ _ _)
  `compose` component @Straight @from @into @Identity @(U_I_II tt e `T_TT_I` U_II_I t e)
  `compose` wrap @into
+
+hd'q :: forall into a .
+ Adjoint Functor into into (U_II_I LM a) (U_I_II into a) =>
+ Castable Straight into ((U_I_II into a `T_TT_I` U_II_I LM a) a) =>
+ Castable Straight into (U_I_II into a (a `LM` a `ML` a)) =>
+ Castable Straight into (U_II_I LM a a) =>
+ Castable Opposite into (Identity a) =>
+ Setoid into a =>
+ into a (into a (a `LM` a `ML` a))
+hd'q = hd (q @into)
 
 hj, hjj, hjjj, hjjjj, hjjjjj, hjjjjjj, hjjjjjjj, hjjjjjjjj, hjjjjjjjjj :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
