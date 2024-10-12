@@ -197,6 +197,16 @@ infixl 7 `yiu`
 -- infixl 2 `vvvvvvvv`
 -- infixl 1 `vvvvvvvvv`
 
+infixl 9 `q`
+infixl 8 `qq`
+infixl 7 `qqq`
+infixl 6 `qqqq`
+infixl 5 `qqqqq`
+infixl 4 `qqqqqq`
+infixl 3 `qqqqqqq`
+infixl 2 `qqqqqqqq`
+infixl 1 `qqqqqqqqq`
+
 li, lii, liii, liiii, liiiii, liiiiii, liiiiiii, liiiiiiii
  :: Category into => into e e
 li = identity
@@ -2347,3 +2357,18 @@ fc = unwrap @(->) @(U_I_II into (t a) _)
 --  @Straight @(->) @(->) @t @LM @LM identity
 --  (wrap identity)
 --  (e `lu` ee)
+
+q, qq, qqq, qqqq, qqqqq, qqqqqq, qqqqqqq, qqqqqqqq, qqqqqqqqq ::
+ forall into e .
+ Setoid into e =>
+ into (e `LM` e) (e `LM` e `ML` e)
+q = equality
+
+qq = q
+qqq = q
+qqqq = q
+qqqqq = q
+qqqqqq = q
+qqqqqqq = q
+qqqqqqqq = q
+qqqqqqqqq = q

@@ -15,7 +15,6 @@ infixr 3 `ARRRRRR`
 infixr 2 `ARRRRRRR`
 infixr 1 `ARRRRRRRR`
 
-infixl 9 `q`
 infixl 0 /
 
 type ARR = (->)
@@ -398,7 +397,7 @@ instance Wrapper (->) x
  cast = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
 class Setoid into e where
- q :: into (e `LM` e) (e `LM` e `ML` e)
+ equality :: into (e `LM` e) (e `LM` e `ML` e)
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
