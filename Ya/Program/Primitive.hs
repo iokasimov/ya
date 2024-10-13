@@ -67,7 +67,7 @@ embed = component @Straight @(->) @(->) @g @(f `JNT` g) @e
 joint :: forall f g e .
  Component Natural (->) (->) (f `T_TT_I` g) (f `JNT` g) =>
  Castable Opposite (->) ((f `T_TT_I` g) e) =>
- f (g e) -> f `JNT` g `T_I` e
+ f (g e) -> (f `JNT` g) `T_I` e
 joint = wrap @(->) @((f `T_TT_I` g) e) `ho` component @Straight @(->) @(->) @(f `T_TT_I` g) @(f `JNT` g) @e
 
 -- Define a special `Mapping` instance instead and use `Try` label constructor for it
@@ -75,7 +75,7 @@ try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T_TT_I` Progress e) (t `JNT` Progress e) =>
  Castable Opposite (->) ((t `T_TT_I` Progress e) e) =>
- t (Progress e o) -> t `JNT` Progress e `T_I` o
+ t (Progress e o) -> (t `JNT` Progress e) `T_I` o
 try = wrap @(->) @((t `T_TT_I` Progress e) _) `ho` component @Straight @(->) @(->)
 
 label :: forall l t e . t e -> T_'_I l t e

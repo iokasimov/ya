@@ -5,7 +5,9 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `LM`, `ML`, `JNT`
+infixl 8 `LM`, `ML`
+
+infixr 7 `JNT`
 
 infixr 7 `ARR`
 infixr 6 `ARRR`
