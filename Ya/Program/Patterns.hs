@@ -75,12 +75,21 @@ type Probably = U_I_II ML
 
 pattern Probably x = U_I_II @ML x
 
+type Perhaps = U_I_II ML
+
+pattern Perhaps x = U_I_II @ML x
+
 type Reference u i ii iii = i `ARR` u ii (iii `ARR` i)
 
 type Attribute = U_I_UU_II_U_II_I (->) LM
 
 pattern Attribute :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Attribute e ee
 pattern Attribute x = U_I_UU_II_U_II_I @(->) @LM x
+
+type Directive = U_I_UU_II_U_II_I (->) ML
+
+pattern Directive :: forall ee e . (e `ARR` ML ee (ee -> e)) -> Directive e ee
+pattern Directive x = U_I_UU_II_U_II_I @(->) @ML x
 
 type Automation e ee eee = e `ARR` ee `LM` eee
 
@@ -166,9 +175,6 @@ pattern Left x = This x
 pattern Right x = That x
 
 type Vertical = ML () ()
-
-pattern Down x = This x
-pattern Up x = That x
 
 type Cascading = Labeled (Straight LM () ())
 
