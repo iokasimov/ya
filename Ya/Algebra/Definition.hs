@@ -354,12 +354,6 @@ type family Unjointed effect unknown e where
  Unjointed (U_I_II (U_I_UU_II_I (->) LM) state) unknown e =
   state -> unknown (state `LM` e)
 
-class Unjointable effect unknown where
- tnj :: effect `JNT` unknown `T_I` result `ARR` effect `T_I` unknown result
-
-instance Unjointable (U_I_II (U_I_UU_II_I (->) LM) e) (U_I_II ML ee) where
- tnj (T_TTT_TT_I (U_I_II f)) = U_I_II (U_I_UU_II_I (\e -> case unwrap (f e) of { This x -> These (U_I_II (This x)) e; That (U_I_II (These y x)) -> These (U_I_II (That x)) y }))
-
 this :: e `LM` ee -> e
 this (These x _) = x
 
