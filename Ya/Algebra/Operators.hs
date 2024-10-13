@@ -137,7 +137,7 @@ infixl 3 `yiiiiii`
 infixl 2 `yiiiiiii`
 infixl 1 `yiiiiiiii`
 
-infixl 8 `yo`, `yo'yo`, `yo'yp`
+infixl 8 `yo`, `yo'yo`, `yo'ha`, `yo'yp`
 infixl 7 `yoo`
 
 infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl` --, `yko`
@@ -354,6 +354,19 @@ yo'yo :: forall from into t tt a o .
  Castable Opposite into (U_I_II from (tt a) (tt o)) =>
  t (tt a) -> into (from a o) (t (tt o))
 yo'yo x = fai fo (yo @from @into x)
+
+-- TODO: try to gereralize
+yo'ha :: forall into t tt a o e .
+ Category into =>
+ Covariant Yoneda into into t =>
+ Covariant Functor into into t =>
+ Contravariant Functor into into (U_II_I into o) =>
+ Contravariant Yoneda into (->) (U_II_I into o) =>
+ Wrapper into (U_I_II into e o) =>
+ Wrapper into (U_II_I into o e) =>
+ Wrapper into (U_II_I into o a) =>
+ t e -> into e a -> into (into a o) (t o)
+yo'ha x f = yo @into @into x `compose` fai @into f
 
 yio'yo :: forall from into t tt e a o .
  Precategory into =>
