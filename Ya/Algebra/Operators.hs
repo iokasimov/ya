@@ -172,7 +172,7 @@ infixl 8 `yu`
 infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
-infixl 8 `ys`
+infixl 8 `ys`, `ys'yo`
 infixl 8 `yis`
 
 infixl 7 `yoi`
@@ -1796,6 +1796,12 @@ ys :: forall u e ee t .
  Covariant Monoidal Functor (->) u ML t =>
  u (t e) (t ee) -> t (e `ML` ee)
 ys = day @Straight @(->) @t @u @ML identity identity
+
+-- TODO: try to generalize
+ys'yo :: forall from e ee u r t .
+ Covariant Monoidal Functor from u ML t =>
+ u (t e) (t ee) -> from (e `ML` ee) r -> t r
+ys'yo x f = day @Straight @from @t @u @ML identity f x
 
 -- TODO: try to generalize
 yis :: forall u e ee eee t .
