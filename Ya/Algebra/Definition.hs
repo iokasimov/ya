@@ -350,10 +350,6 @@ type family JNT effect where
  JNT (U_I_II (->) e) = T_TT_I (U_I_II (->) e)
  JNT (U_I_II (U_I_UU_II_I (->) LM) e) = T_TTT_TT_I (U_I_II (->) e) (U_I_II LM e)
 
-type family Unjointed effect unknown e where
- Unjointed (U_I_II (U_I_UU_II_I (->) LM) state) unknown e =
-  state -> unknown (state `LM` e)
-
 this :: e `LM` ee -> e
 this (These x _) = x
 
