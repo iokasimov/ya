@@ -92,14 +92,14 @@ infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`, `heeeeeee'h
 infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
 infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
 
-infixl 8 `lo`, `lo'yp`
-infixl 7 `loo`, `loo'yp`
-infixl 6 `looo`, `looo'yp`
-infixl 5 `loooo`, `loooo'yp`
-infixl 4 `looooo`, `looooo'yp`
-infixl 3 `loooooo`, `loooooo'yp`
-infixl 2 `looooooo`, `looooooo'yp`
-infixl 1 `loooooooo`, `loooooooo'yp`
+infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
+infixl 7 `loo`, `loo'yp`, `loo'ys`, `loo'ys'la`
+infixl 6 `looo`, `looo'yp`, `looo'ys`, `looo'ys'la`
+infixl 5 `loooo`, `loooo'yp`, `loooo'ys`, `loooo'ys'la`
+infixl 4 `looooo`, `looooo'yp`, `looooo'ys`, `looooo'ys'la`
+infixl 3 `loooooo`, `loooooo'yp`, `loooooo'ys`, `loooooo'ys'la`
+infixl 2 `looooooo`, `looooooo'yp`, `looooooo'ys`, `looooooo'ys'la`
+infixl 1 `loooooooo`, `loooooooo'yp`, `loooooooo'ys`, `loooooooo'ys'la`
 
 infixl 8 `la`
 infixl 7 `laa`
@@ -1509,6 +1509,34 @@ looooo'yp = lo'yp
 loooooo'yp = lo'yp
 looooooo'yp = lo'yp
 loooooooo'yp = lo'yp
+
+lo'ys, loo'ys, looo'ys, loooo'ys, looooo'ys, loooooo'ys, looooooo'ys, loooooooo'ys
+ :: forall t a o oo .
+ Covariant Monoidal Functor (->) LM ML t =>
+ Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Sum o oo))
+lo'ys from_left from_right = ys `compose` lo from_left from_right
+
+loo'ys = lo'ys
+looo'ys = lo'ys
+loooo'ys = lo'ys
+looooo'ys = lo'ys
+loooooo'ys = lo'ys
+looooooo'ys = lo'ys
+loooooooo'ys = lo'ys
+
+lo'ys'la, loo'ys'la, looo'ys'la, loooo'ys'la, looooo'ys'la, loooooo'ys'la, looooooo'ys'la, loooooooo'ys'la
+ :: forall t a ooo .
+ Covariant Monoidal Functor (->) LM ML t =>
+ Arrow a (t ooo) -> Arrow a (t ooo) -> Arrow a (t ooo)
+lo'ys'la from_left from_right = (\x -> ys'yo x (identity @ARR `la` identity)) `compose` lo from_left from_right
+
+loo'ys'la = lo'ys'la
+looo'ys'la = lo'ys'la
+loooo'ys'la = lo'ys'la
+looooo'ys'la = lo'ys'la
+loooooo'ys'la = lo'ys'la
+looooooo'ys'la = lo'ys'la
+loooooooo'ys'la = lo'ys'la
 
 -- lo'yip'yp, loo'yip'yp, looo'yip'yp, loooo'yip'yp, looooo'yip'yp, loooooo'yip'yp, looooooo'yip'yp, loooooooo'yip'yp
  -- :: forall t a o oo .
