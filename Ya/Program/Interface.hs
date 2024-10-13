@@ -22,20 +22,26 @@ instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
   `li` this (at @e @ee `he'he` fs)
   `li` \new -> old `lu` adjust (at @e @ee) (but new) fs
 
-class Match e ee where
- match :: (e -> r) -> (ee -> r) -> (ee -> r)
+type family Handpicked a r where
+ Handpicked a (a `ML` aa) = a `ML`()
+ Handpicked a (aa `ML` a) = a `ML` ()
+ Handpicked a (aa `ML` aaa) = Handpicked a aa
 
-instance Match e e where
- match target _ = target
+class Matchable a r where
+ match :: r -> Handpicked a r
 
-instance Match e (e `ML` es) where
- match target rest = target `la` rest `ha` That
+instance Matchable a (a `ML` aa) where
+ match = This `la` That `ha` but Unit
 
-instance Match e (es `ML` e) where
- match target rest = rest `ha` This `la` target
+instance Matchable a (aa `ML` a) where
+ match = That `ha` but Unit `la` This
 
-instance {-# OVERLAPS #-} Match e ee => Match e (ee `ML` es) where
- match target rest = match `li` target `li` rest `ha` This `la` rest `ha` That
+instance {-# OVERLAPS #-}
+ ( Matchable a aa
+ , Handpicked a (aa `ML` aaa) ~ a `ML` ()
+ , Handpicked a aa ~ a `ML` ()
+ ) => Matchable a (aa `ML` aaa) where
+ match = match @a @aa `la` That `ha` but Unit
 
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
