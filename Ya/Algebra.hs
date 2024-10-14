@@ -21,10 +21,10 @@ instance
    `yo` wrapped (map @Straight @Straight @AR @AR
             @(Labeled l (R_U_I_T_I LM t) `T_TT_I` tt)
             @(Labeled l (R_U_I_T_I LM t) `TT_T_I` tt) from)
-          `ha` wrap @Arrow @(Labeled l (R_U_I_T_I LM t) (tt _))
+          `ha` wrap @AR @(Labeled l (R_U_I_T_I LM t) (tt _))
    `yi` wrapped (map @Straight @Straight @AR @AR @(t `T_TT_I` tt) @(t `TT_T_I` tt) unwrap)
-   `yo` wrap @Arrow @(Labeled l _ _)
-   `ha` wrap @Arrow @(T_TT_I t (R_U_I_T_I LM t) _)
+   `yo` wrap @AR @(Labeled l _ _)
+   `ha` wrap @AR @(T_TT_I t (R_U_I_T_I LM t) _)
 
 -- TODO: reduce a number of transformations here
 instance
@@ -92,7 +92,7 @@ instance
    let These ee_ ee__ = he'he'he ee in
    Recursive `compose` U_I_T_II / These
     (from `compose` f / These e_ ee_)
-    (day @Straight @Arrow @t @LM @LM identity
+    (day @Straight @AR @t @LM @LM identity
      (unwrap
       `compose` day @Straight @AR
        @(R_U_I_T_I LM t) @LM @LM
@@ -114,8 +114,8 @@ instance
  ) => Mapping Straight Straight AR AR (Day Straight AR LM LM (t `T_TT_I` R_U_I_T_I LM t) (t `T_TT_I` R_U_I_T_I LM t) e ee) (t `T_TT_I` R_U_I_T_I LM t) where
  mapping = rwr / \from -> rwr / \case
   These (These (T_TT_I e) (T_TT_I ee)) (Straight f) ->
-    day @Straight @Arrow @t @LM @LM identity
-     (day @Straight @Arrow @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f))
+    day @Straight @AR @t @LM @LM identity
+     (day @Straight @AR @(R_U_I_T_I LM t) @LM @LM identity (from `compose` f))
       (These e ee)
 
 instance
@@ -133,11 +133,11 @@ instance
  ) => Mapping Straight Straight AR AR (Day Straight AR LM MLM (t `T_TT_I` R_U_I_T_I LM t) (t `T_TT_I` R_U_I_T_I LM t) e ee) (t `T_TT_I` R_U_I_T_I LM t) where
  mapping = rwr / \from -> rwr / \case
   These (These (T_TT_I e) (T_TT_I ee)) (Straight f) ->
-    (day @Straight @Arrow @t @LM @MLM identity
+    (day @Straight @AR @t @LM @MLM identity
      (\case
       U_U_I_II_UU_I_II (This (This x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That x) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
+      U_U_I_II_UU_I_II (That x) -> day @Straight @AR @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f) x
      )
       (These e ee)
     )
@@ -153,11 +153,11 @@ instance
    let These ee_ ee__ = he'he'he ee in
    Recursive `compose` U_I_T_II / These
     (from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
-    (day @Straight @Arrow @t @LM @MLM identity
-     (unwrap @Arrow `compose` \case
+    (day @Straight @AR @t @LM @MLM identity
+     (unwrap @AR `compose` \case
       U_U_I_II_UU_I_II (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That (These x xx)) -> day @Straight @Arrow @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
+      U_U_I_II_UU_I_II (That (These x xx)) -> day @Straight @AR @(R_U_I_T_I LM t) @LM @MLM identity (from `compose` f)
        (These (R_U_I_T_I x) (R_U_I_T_I xx))
      )
      / These e__ ee__)
@@ -227,7 +227,7 @@ instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
    `compose` swap
    `compose` x)
 
--- x: ee -> Object Straight Arrow a ee
+-- x: ee -> Object Straight AR a ee
 
 instance  {-# OVERLAPPABLE #-} Component Natural ARR AR (T_TT_I t tt) t => Mapping Straight Straight AR AR
  (T_TT_I (Straight AR e `T_TT_I` t) tt) (Straight AR e `T_TT_I` t) where
@@ -237,7 +237,7 @@ instance  {-# OVERLAPPABLE #-} Component Natural ARR AR (T_TT_I t tt) t => Mappi
 instance {-# OVERLAPS #-} Covariant Endo Semi Functor AR t => Mapping Straight Straight AR AR
  (T_TT_I (Straight AR e `T_TT_I` t) (Straight AR e)) (Straight AR e `T_TT_I` t) where
  mapping = rwr / \from -> rwr `compose` rwr /
-  \(Straight f) e -> f e `yo` unwrap @Arrow `ho` (`li` e) `ho` from
+  \(Straight f) e -> f e `yo` unwrap @AR `ho` (`li` e) `ho` from
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 instance
@@ -337,14 +337,14 @@ instance
  , Mapping Straight Straight AR AR Identity (U_I_II AR e)
  ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_II ML () ()) (U_I_II ML e)) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
-  x `yok'he'he` constant @Arrow (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
+  x `yok'he'he` constant @AR (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
 
 instance
  ( Mapping U_I_II U_I_II AR AR t t
  , Mapping U_I_II U_I_II AR AR (T_TT_I t t) t
  ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_I LM ()) Identity) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
-  x `yok'he'he` constant @Arrow (map @Straight @Straight @_ @_ @_ @t from (T_TT_I x))
+  x `yok'he'he` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T_TT_I x))
 
 instance Mapping Straight Straight AR AR
   (Day Straight AR LM LM
@@ -393,17 +393,17 @@ instance Covariant Endo Semi Functor AR t =>
 instance {-# OVERLAPS #-} Component Natural AR AR (T_TT_I t tt) t =>
  Mapping Straight Straight AR AR (T_TT_I t (T_'_I l tt)) t where
  mapping = rwr / \from ->
-  map @Straight @Straight @AR @AR @(T_TT_I t tt) @t from `compose` rwr @_ @AR (fo @Arrow unwrap)
+  map @Straight @Straight @AR @AR @(T_TT_I t tt) @t from `compose` rwr @_ @AR (fo @AR unwrap)
 
-instance Setoid Arrow () where
+instance Setoid AR () where
  equality _ = That ()
 
-instance (Setoid Arrow e, Setoid Arrow ee) => Setoid Arrow (e `ML` ee) where
+instance (Setoid AR e, Setoid AR ee) => Setoid AR (e `ML` ee) where
  equality (These (This x) (This xx)) = equality (x `lu` xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
  equality (These (That x) (That xx)) = equality (x `lu` xx) `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
  equality (These x xx) = This (These x xx)
 
-instance (Setoid Arrow e, Setoid Arrow ee) => Setoid Arrow (e `LM` ee) where
+instance (Setoid AR e, Setoid AR ee) => Setoid AR (e `LM` ee) where
  equality (These (These x xx) (These xxx xxxx)) = case equality (x `lu` xxx) `lu`equality (xx `lu` xxxx) of
   These (That x') (That xx') -> That (These x' xx')
   These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))
