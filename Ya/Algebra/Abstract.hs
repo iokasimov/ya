@@ -6,6 +6,16 @@ infixl 8 `T_I`
 
 type T_I t i = t i
 
+infixl 8 `WR`
+infixl 8 `WRR`
+infixl 7 `WRRR`
+infixl 6 `WRRRR`
+
+type WR t i = t i
+type WRR t i = t i
+type WRRR t i = t i
+type WRRRR t i = t i
+
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
 newtype Identity i = Identity i
