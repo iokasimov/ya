@@ -377,6 +377,24 @@ instance
   These (These (T_TT_I (Straight f)) (T_TT_I (Straight g))) (Straight h) -> Straight / \x ->
    yp (These (f x) (g x)) `yo` h `ho` from
 
+instance Monoidal Straight Functor AR LM LM t =>
+ Mapping Straight Straight AR AR (U_I_II AR Unit) (TT_T_I (U_I_II ML e) t) where
+ mapping = rwr / \from (Straight f) -> TT_T_I (yu enter (U_I_II (That (from (f Unit)))))
+
+-- TODO: Finish, it's for Halts transformer
+instance Monoidal Straight Functor AR LM LM t =>
+ Mapping Straight Straight AR AR
+  (Day Straight AR LM LM (TT_T_I (U_I_II ML e) t) (TT_T_I (U_I_II ML e) t) ee eee)
+  (TT_T_I (U_I_II ML e) t) where
+ mapping = rwr / \from -> rwr / \case
+
+-- TODO: Finish, it's for Halts transformer
+instance
+ Mapping Straight Straight AR AR
+  (TT_T_I (U_I_II ML e) t `T_TT_I` TT_T_I (U_I_II ML e) t)
+  (TT_T_I (U_I_II ML e) t) where
+ mapping = rwr / \from -> rwr / \case
+
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor AR LM LM t =>
  Mapping Straight Straight AR AR (U_I_II LM e `T_TT_I` t) (U_I_II LM e `TT_T_I` t) where
