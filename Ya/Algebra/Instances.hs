@@ -365,16 +365,16 @@ instance Mapping Straight Straight AR AR (Day Straight AR LM LM Identity Identit
  mapping = rwr / \from -> rwr / \case
   These (These (Identity e) (Identity ee)) (Straight f) -> from (f (These e ee))
 
-instance Mapping Straight Straight AR AR (U_I_II AR ()) Identity where
- mapping = rwr / \from (Straight f) -> Identity (from (f ()))
+instance Mapping Straight Straight AR AR (U_I_II AR Unit) Identity where
+ mapping = rwr / \from (Straight f) -> Identity (from (f Unit))
 
 instance Mapping Straight Straight AR AR (Day Straight AR LM LM (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e) where
  mapping = rwr / \from -> rwr / \case
   These (These (U_II_I (This ee)) (U_II_I (This eee))) (Straight f) -> This (from (f (These ee eee)))
   These (These (U_II_I (That e)) _) _ -> That e
 
-instance Mapping Straight Straight AR AR (U_I_II AR ()) (U_II_I ML e) where
- mapping = rwr / \from (Straight f) -> U_II_I (This (from (f ())))
+instance Mapping Straight Straight AR AR (U_I_II AR Unit) (U_II_I ML e) where
+ mapping = rwr / \from (Straight f) -> U_II_I (This (from (f Unit)))
 
 instance Mapping Straight Straight AR AR (Day Straight AR LM LM (U_I_II ML e) (U_I_II ML e) ee eee) (U_I_II ML e) where
  mapping = rwr / \from -> rwr / \case
@@ -394,8 +394,8 @@ instance Mapping Straight Straight AR AR
   These (These (U_I_II (This e)) (U_I_II (This _))) (U_I_II _) ->
    This e
 
-instance Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II ML e) where
- mapping = rwr / \from (Straight f) -> Straight (That (from (f ())))
+instance Mapping Straight Straight AR AR (U_I_II AR Unit) (U_I_II ML e) where
+ mapping = rwr / \from (Straight f) -> Straight (That (from (f Unit)))
 
 instance Mapping Straight Straight AR AR
   (Day Straight AR LM ML (U_I_II ML e) (U_I_II ML e) ee eee) (U_I_II ML e) where
@@ -404,8 +404,8 @@ instance Mapping Straight Straight AR AR
   These (These _ (U_I_II (That eee))) (U_I_II f) -> That (from (f (That eee)))
   These (These _ (U_I_II (This eee))) (U_I_II _) -> This eee
 
-instance Mapping Straight Straight AR AR (U_I_II AR Void) (U_II_I ML ()) where
- mapping = rwr / \_ _ -> U_II_I (That ())
+instance Mapping Straight Straight AR AR (U_I_II AR Void) (U_II_I ML Unit) where
+ mapping = rwr / \_ _ -> U_II_I (That Unit)
 
 instance Mapping Straight Straight AR AR
   (Day Straight AR LM ML (U_II_I ML e) (U_II_I ML e) ee eee) (U_II_I ML e) where
@@ -414,39 +414,39 @@ instance Mapping Straight Straight AR AR
   These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
   These (These _ (U_II_I (That eee))) _ -> That eee
 
-instance Mapping Straight Straight AR AR (U_I_II AR Void) (U_I_II ML ()) where
- mapping = rwr / \_ _ -> U_I_II (This ())
+instance Mapping Straight Straight AR AR (U_I_II AR Void) (U_I_II ML Unit) where
+ mapping = rwr / \_ _ -> U_I_II (This Unit)
 
-instance Mapping Straight Straight AR AR (U_I_II AR (ML () ())) (U_I_I LM) where
+instance Mapping Straight Straight AR AR (U_I_II AR (ML Unit Unit)) (U_I_I LM) where
  mapping = rwr / \from -> rwr / \f -> These
-  (from `compose` f / This ())
-  (from `compose` f / That ())
+  (from `compose` f / This Unit)
+  (from `compose` f / That Unit)
 
-instance Mapping Straight Straight AR AR (U_I_I LM) (U_I_II AR (ML () ())) where
+instance Mapping Straight Straight AR AR (U_I_I LM) (U_I_II AR (ML Unit Unit)) where
  mapping = rwr / \from -> rwr / \(These x y) -> \case
-  This () -> from x
-  That () -> from y
+  This _ -> from x
+  That _ -> from y
 
 -- instance Mapping Straight Straight
  -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
  -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- -- (U_I_I LM) (U_I_II (->) (ML () ())) where
+ -- (U_I_I LM) (U_I_II (->) (ML Unit Unit)) where
  -- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_I (These x y)) -> These
-  -- / U_I_II (\case { This () -> this (from x); That () -> this (from y) })
+  -- / U_I_II (\case { This Unit -> this (from x); That Unit -> this (from y) })
   -- / \(U_I_II f) -> U_I_I (These
-   -- / that (from x) (f (This ()))
-   -- / that (from x) (f (That ()))
+   -- / that (from x) (f (This Unit))
+   -- / that (from x) (f (That Unit))
    -- )
 
 -- instance Mapping Straight Straight
  -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
  -- (W_I_II_II (U_I_UU_III_U_II_I (->) LM))
- -- (U_I_II (->) (ML () ())) (U_I_I LM) where
+ -- (U_I_II (->) (ML Unit Unit)) (U_I_I LM) where
  -- mapping = rwr `compose` rwr `compose` rwr / \from (U_I_II f) -> These
-  -- / U_I_I (These / this (from (f (This ()))) / this (from (f (That ()))))
+  -- / U_I_I (These / this (from (f (This Unit))) / this (from (f (That Unit))))
   -- / \(U_I_I (These x y)) -> U_I_II / \case
-   -- This () -> that (from (f (This ()))) x
-   -- That () -> that (from (f (That ()))) y
+   -- This Unit -> that (from (f (This Unit))) x
+   -- That Unit -> that (from (f (That Unit))) y
 
 -- TODO: implement
 instance Mapping Straight Straight AR AR
