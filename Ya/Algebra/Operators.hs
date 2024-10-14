@@ -137,7 +137,7 @@ infixl 3 `yiiiiii`
 infixl 2 `yiiiiiii`
 infixl 1 `yiiiiiiii`
 
-infixl 8 `yo`, `yo'yo`, `yo'ha`, `yo'yp`
+infixl 8 `yo`, `yo'yo`, `yo'ha`, `yo'hj`, `yo'yp`
 infixl 7 `yoo`
 
 infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl` --, `yko`
@@ -367,6 +367,22 @@ yo'ha :: forall into t tt a o e .
  Wrapper into (U_II_I into o a) =>
  t e -> into e a -> into (into a o) (t o)
 yo'ha x f = yo @into @into x `compose` fai @into f
+
+yo'hj :: forall from into t tt ttt e a o .
+ Precategory into =>
+ Adjoint Functor from from (U_II_I ttt e) (U_I_II tt e) =>
+ Covariant Functor from from (U_I_II tt e) =>
+ Covariant Yoneda from into t =>
+ (forall ee . Wrapper from ((T_TT_I (U_I_II tt e) (U_II_I ttt e)) ee)) =>
+ (forall ee . Wrapper from ((T_TT_I (U_II_I ttt e) (U_I_II tt e)) ee)) =>
+ (forall ee . Wrapper from (Identity ee)) =>
+ Castable Opposite from (U_II_I ttt e a) =>
+ Castable Opposite from (U_I_II tt e o) =>
+ Castable Opposite into (U_I_II from (ttt a e) o) =>
+ Castable Opposite into (U_I_II from (tt e a) o) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into (t o)) =>
+ t (ttt a e) -> into (from a (tt e o)) (t o)
+yo'hj x = fai hj (yo @from @into x)
 
 yio'yo :: forall from into t tt e a o .
  Precategory into =>
