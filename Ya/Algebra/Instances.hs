@@ -448,15 +448,14 @@ instance Mapping Straight Straight AR AR (U_I_I LM) (U_I_II AR (ML Unit Unit)) w
    -- This Unit -> that (from (f (This Unit))) x
    -- That Unit -> that (from (f (That Unit))) y
 
--- TODO: implement
-instance Mapping Straight Straight AR AR
-  (Day U_I_II AR LM ML (U_I_I LM `T_TT_I` t) (U_I_I LM `T_TT_I` t) ee eee) (U_I_I LM `T_TT_I` t)
+-- instance Mapping Straight Straight AR AR
+  -- (Day U_I_II AR LM ML (U_I_I LM `T_TT_I` t) (U_I_I LM `T_TT_I` t) ee eee) (U_I_I LM `T_TT_I` t)
 
-instance Monoidal Straight Functor AR LM ML t
- => Mapping Straight Straight AR AR (U_I_II AR Void) (U_I_I LM `T_TT_I` t) where
- mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
-  (map @Straight @Straight @AR @AR @t @t initial empty)
-  (map @Straight @Straight @AR @AR @t @t initial empty)
+-- instance Monoidal Straight Functor AR LM ML t
+ -- => Mapping Straight Straight AR AR (U_I_II AR Void) (U_I_I LM `T_TT_I` t) where
+ -- mapping = rwr / \_ _ -> T_TT_I `compose` U_I_I / These
+  -- (map @Straight @Straight @AR @AR @t @t initial empty)
+  -- (map @Straight @Straight @AR @AR @t @t initial empty)
 
 -- instance Mapping Straight Straight (->) (->)
 --  (W_III_I_II (U_I_UU_II_III (->) LM) e ee)
