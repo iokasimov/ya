@@ -9,6 +9,7 @@ infixl 8 `LM`, `ML`
 
 infixr 7 `JNT`
 
+infixr 8 `AR`
 infixr 7 `ARR`
 infixr 6 `ARRR`
 infixr 5 `ARRRR`
@@ -19,6 +20,7 @@ infixr 1 `ARRRRRRRR`
 
 infixl 0 /
 
+type AR = (->)
 type ARR = (->)
 type ARRR = (->)
 type ARRRR = (->)
