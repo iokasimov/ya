@@ -221,6 +221,11 @@ instance Terminal (->) where
 
 type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
 
+
+-- TODO add these constraints:
+-- , forall ee . Wrapper into (T_TT_I (U_I_II tt e) (U_II_I t e) ee)
+-- , forall ee . Wrapper into (T_TT_I (U_II_I t e) (U_I_II tt e) ee)
+
 class
  ( x Straight into from t
  , x Straight from into tt

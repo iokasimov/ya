@@ -211,8 +211,10 @@ instance Mapping Straight Straight AR AR
 
 instance Covariant Endo Semi Functor AR t
  => Mapping Straight Straight AR AR t (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
- mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `li` \state ->
+ mapping = rwr / \from x -> T_TTT_TT_I `compose` U_I_II `identity` \state ->
   x `yo` from `ho` (`lu` state) `ho` U_II_I
+
+-- hd (fo )
 
 instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
  => Mapping Straight Straight AR AR
@@ -292,8 +294,21 @@ instance Monoidal Straight Functor AR LM LM t =>
  Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II AR e `T_TT_I` t) where
  mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `li` f ()
 
-instance Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II (U_I_UU_II_I AR LM) e) where
- mapping = rwr / \from -> rwr / \f -> U_I_UU_II_I `li` \e -> from `li` f () `lu` e
+instance
+ ( Covariant Yoneda into into Identity
+ , Covariant Endo Semi Functor into (U_I_II into e)
+ , Adjoint Functor into into (U_II_I t e) (U_I_II tt e)
+ , forall ee . Wrapper into (U_II_I t e ee)
+ , forall ee . Wrapper into (U_I_II into () ee)
+ , forall ee . Wrapper into (U_I_II tt e (t ee e))
+ , forall ee . Wrapper into (U_I_UU_II_I tt t e ee)
+ , forall ee . Wrapper into (U_I_II (U_I_UU_II_I tt t) e ee)
+ , forall ee . Wrapper into (T_TT_I (U_I_II tt e) (U_II_I t e) ee)
+ , forall ee . Wrapper into (T_TT_I (U_II_I t e) (U_I_II tt e) ee)
+ , forall ee . Wrapper into (Identity ee)
+ ) => Mapping Straight Straight into into (U_I_II into ()) (U_I_II (U_I_UU_II_I tt t) e) where
+ mapping = rwr `identity` \from ->
+  rwr / wrap @into @(U_I_UU_II_I _ _ _ _) `compose` hd @into @into identity `compose` from `compose` yi ()
 
 instance Monoidal Straight Functor AR LM LM t =>
  Mapping Straight Straight AR AR (U_I_II AR ()) (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
@@ -345,13 +360,14 @@ instance
  mapping = rwr / \from -> \(T_TT_I x) ->
   x `yok'he'he` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T_TT_I x))
 
+-- TODO: generalize using adjunctions
 instance Mapping Straight Straight AR AR
   (Day Straight AR LM LM
    (U_I_II (U_I_UU_II_I AR LM) e)
    (U_I_II (U_I_UU_II_I AR LM) e) ee eee)
   (U_I_II (U_I_UU_II_I AR LM) e) where
  mapping = rwr / \from -> rwr / \case
-  These (These ee eee) (Straight f) -> U_I_UU_II_I `li` \old ->
+  These (These ee eee) (U_I_II f) -> U_I_UU_II_I `li` \old ->
    let These x new = ee `he'he` old in
    let These y upd  = eee `he'he` new in
    These (from `li` f (These x y)) upd
