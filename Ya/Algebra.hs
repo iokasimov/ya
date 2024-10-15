@@ -33,17 +33,17 @@ instance
  , Covariant Monoidal Functor AR LM LM tt
  , Transformation Straight Functor AR AR (T_TT_I t tt) (TT_T_I t tt)
  ) => Mapping Straight Straight AR AR
-  (Labeled (U_I_II AR () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
-  (Labeled (U_I_II AR () ()) (R_U_I_T_I LM t) `TT_T_I` tt) where
+  (Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `T_TT_I` tt)
+  (Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt) where
  mapping = rwr / \from -> rwr /
   \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
     x `yo` from `lu`
      (wrapped (map @Straight @Straight @AR @_ @(t `T_TT_I` tt) @(t `TT_T_I` tt) (unwrap @AR @(R_U_I_T_I _ _ _) `ha` unwrap @AR @(Labeled _ _ _)))
       (xs `yo` wrap @AR @(R_U_I_T_I _ _ _)
-       `ho` wrap @AR @(Labeled (U_I_II AR () ()) _ _)
+       `ho` wrap @AR @(Labeled (U_I_II AR Unit Unit) _ _)
        `ho` wrapped (map @Straight @Straight @AR @AR
-         @(Labeled (U_I_II AR () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
-         @(Labeled (U_I_II AR () ()) (R_U_I_T_I LM t) `TT_T_I` tt)
+         @(Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `T_TT_I` tt)
+         @(Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt)
          from)
       )
      ) `yp'yo` wrap @AR @(Labeled _ _ _)
@@ -58,8 +58,8 @@ instance
  , Covariant Monoidal Functor AR LM LM tt
  , Transformation Straight Functor AR AR (t `T_TT_I` tt) (t `TT_T_I` tt)
  ) => Mapping Straight Straight AR AR
-  (Labeled (U_II_I AR () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
-  (Labeled (U_II_I AR () ()) (R_U_I_T_I LM t) `TT_T_I` tt) where
+  (Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `T_TT_I` tt)
+  (Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt) where
  mapping = rwr / \from -> rwr
   / \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
    (These
@@ -75,8 +75,8 @@ instance
      `yo` wrap @AR @(R_U_I_T_I _ _ _)
      `ho` wrap @AR @(Labeled _ _ _)
      `ho` wrapped (map @Straight @Straight @AR @AR
-        @(Labeled (U_II_I AR () ()) (R_U_I_T_I LM t) `T_TT_I` tt)
-        @(Labeled (U_II_I AR () ()) (R_U_I_T_I LM t) `TT_T_I` tt)
+        @(Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `T_TT_I` tt)
+        @(Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt)
         from)
     )
 
@@ -103,10 +103,10 @@ instance
 
 instance
  (Initial AR, Monoidal Straight Functor AR LM ML t) =>
- Mapping Straight Straight AR AR (Straight AR ()) (R_U_I_T_I LM t) where
+ Mapping Straight Straight AR AR (Straight AR Unit) (R_U_I_T_I LM t) where
  mapping = rwr / \from (Straight f) ->
   R_U_I_T_I `compose` Recursive `compose` U_I_T_II
-   / These (from / f ()) (empty @t `yo` initial @AR)
+   / These (from / f Unit) (empty @t `yo` initial @AR)
 
 instance
  ( Mapping Straight Straight AR AR (Day Straight AR LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
@@ -121,7 +121,7 @@ instance
 instance
  ( Monoidal Straight Functor AR LM LM t
  , Monoidal Straight Functor AR LM LM (R_U_I_T_I LM tt)
- ) => Mapping Straight Straight AR AR (Straight AR ()) (t `T_TT_I` R_U_I_T_I LM tt) where
+ ) => Mapping Straight Straight AR AR (Straight AR Unit) (t `T_TT_I` R_U_I_T_I LM tt) where
  mapping = rwr / \from (Straight f) -> T_TT_I /
   enter @t `yu` (enter @(R_U_I_T_I LM tt) `yo` from `compose` f)
 
@@ -291,29 +291,46 @@ instance Mapping Straight Straight AR AR (U_II_I LM e `T_TT_I` tt) (U_II_I LM e 
    `li` U_II_I (x old)
 
 instance Monoidal Straight Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II AR e `T_TT_I` t) where
- mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `li` f ()
+ Mapping Straight Straight AR AR (U_I_II AR Unit) (U_I_II AR e `T_TT_I` t) where
+ mapping = rwr / \from -> rwr / \f -> Straight / \_ -> yu enter `compose` from `li` f Unit
 
 instance
  ( Covariant Yoneda into into Identity
  , Covariant Endo Semi Functor into (U_I_II into e)
  , Adjoint Functor into into (U_II_I t e) (U_I_II tt e)
  , forall ee . Wrapper into (U_II_I t e ee)
- , forall ee . Wrapper into (U_I_II into () ee)
+ , forall ee . Wrapper into (U_I_II into Unit ee)
  , forall ee . Wrapper into (U_I_II tt e (t ee e))
  , forall ee . Wrapper into (U_I_UU_II_I tt t e ee)
  , forall ee . Wrapper into (U_I_II (U_I_UU_II_I tt t) e ee)
  , forall ee . Wrapper into (T_TT_I (U_I_II tt e) (U_II_I t e) ee)
  , forall ee . Wrapper into (T_TT_I (U_II_I t e) (U_I_II tt e) ee)
  , forall ee . Wrapper into (Identity ee)
- ) => Mapping Straight Straight into into (U_I_II into ()) (U_I_II (U_I_UU_II_I tt t) e) where
- mapping = rwr `identity` \from ->
-  rwr / wrap @into @(U_I_UU_II_I _ _ _ _) `compose` hd @into @into identity `compose` from `compose` yi ()
+ ) => Mapping Straight Straight into into (U_I_II into Unit) (U_I_II (U_I_UU_II_I tt t) e) where
+ mapping = rwr `identity` \from -> rwr
+  / wrap @into @(U_I_UU_II_I _ _ _ _)
+   `compose` hd @into @into identity
+   `compose` from
+   `compose` yi Unit
 
-instance Monoidal Straight Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II AR ()) (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
- mapping = rwr / \from (U_I_II f) -> T_TTT_TT_I `compose` U_I_II
-  / \old -> yu enter `compose` U_II_I `compose` (`lu` old) `compose` from `li` f ()
+instance
+ ( Covariant Yoneda into into Identity
+ , Covariant Monoidal Functor into tt tt t
+ , Covariant Endo Semi Functor into t
+ , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
+ , Component Natural into into Identity (U_I_II into Unit)
+ , Component Natural into into (U_I_II into Unit) t
+ , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (U_I_II into Unit ee)
+ , forall ee . Wrapper into (T_TT_I (U_I_II ttt e) (U_II_I tt e) ee)
+ , forall ee . Wrapper into (T_TTT_TT_I (U_I_II ttt e) (U_II_I tt e) t ee)
+ ) => Mapping Straight Straight into into (U_I_II into Unit) (T_TTT_TT_I (U_I_II ttt e) (U_II_I tt e) t) where
+ mapping = rwr / \from -> rwr
+  / fj @into @into
+   (component @Straight @into @into @(U_I_II into Unit) @t
+    `compose` component @Straight @into @into @Identity @(U_I_II into Unit)
+    `compose` wrap @into
+   ) `compose` from `compose` yi Unit
 
 instance
  ( Covariant Semi Functor from AR t
@@ -325,7 +342,7 @@ instance
  ( Covariant Endo Semi Functor AR t
  , forall e . Covariant Endo Semi Functor AR (U_I_II AR e)
  ) => Mapping U_1_I Straight AR AR t (UU_V_U_I_II_T_II U_1_I AR AR t r) where
- mapping = rwr / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e ()) `fo` x)
+ mapping = rwr / \_ x -> UU_V_U_I_II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo` x)
 
 instance
  ( Contravariant Semi Functor from AR t
@@ -349,14 +366,14 @@ instance
  ( Monoidal Straight Functor AR LM LM t
  , Mapping Straight Straight AR AR (T_TT_I t t) t
  , Mapping Straight Straight AR AR Identity (U_I_II AR e)
- ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_II ML () ()) (U_I_II ML e)) t where
+ ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_II ML Unit Unit) (U_I_II ML e)) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
   x `yok'he'he` constant @AR (map @Straight @Straight from (T_TT_I x)) `la` yu (enter @t) `ha` from
 
 instance
  ( Mapping U_I_II U_I_II AR AR t t
  , Mapping U_I_II U_I_II AR AR (T_TT_I t t) t
- ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_I LM ()) Identity) t where
+ ) => Mapping Straight Straight AR AR (t `T_TT_I` T_'_I (U_I_I LM Unit) Identity) t where
  mapping = rwr / \from -> \(T_TT_I x) ->
   x `yok'he'he` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T_TT_I x))
 
@@ -432,8 +449,8 @@ instance {-# OVERLAPS #-} Component Natural AR AR (T_TT_I t tt) t =>
  mapping = rwr / \from ->
   map @Straight @Straight @AR @AR @(T_TT_I t tt) @t from `compose` rwr @_ @AR (fo @AR unwrap)
 
-instance Setoid AR () where
- equality _ = That ()
+instance Setoid AR Unit where
+ equality _ = That Unit
 
 instance (Setoid AR e, Setoid AR ee) => Setoid AR (e `ML` ee) where
  equality (These (This x) (This xx)) = equality (x `lu` xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
