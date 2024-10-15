@@ -1326,28 +1326,28 @@ ra :: forall into hom t i .
  into (t i) (hom i (Representation t))
 ra = he `compose` map @Opposite @Straight @into @into @t @(Opposite hom (Representation t)) identity
 
-lj :: forall from into t tt a o .
+fj :: forall from into t tt a o .
  Adjoint Functor from into t tt =>
- Castable Straight into ((T_TT_I tt t) a) =>
+ Castable Straight into (T_TT_I tt t a) =>
  Castable Opposite into (Identity a) =>
  from (t a) o -> into a (tt o)
-lj from = fo from
+fj from = fo from
  `compose` he @into
  `compose` component @Straight @from @into @Identity @(tt `T_TT_I` t)
  `compose` wrap @into
 
-ilj :: forall from into t tt e ee a o .
- Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
- Castable Straight into ((T_TT_I (U_I_II tt ee) (U_I_II t e)) a) =>
- Castable Straight into (U_I_II tt ee o) =>
- Castable Opposite into (Identity a) =>
- Castable Straight from (U_I_II t e a) =>
- from (t e a) o -> into a (tt ee o)
-ilj from = he @into @(U_I_II tt _ _)
- `compose` fo (from `compose` he @from @(U_I_II t _ _))
- `compose` he @into @(T_TT_I _ _ _)
- `compose` component @Straight @from @into @Identity @(U_I_II tt ee `T_TT_I` U_I_II t e)
- `compose` wrap @into
+-- ilj :: forall from into t tt e ee a o .
+ -- Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
+ -- Castable Straight into ((T_TT_I (U_I_II tt ee) (U_I_II t e)) a) =>
+ -- Castable Straight into (U_I_II tt ee o) =>
+ -- Castable Opposite into (Identity a) =>
+ -- Castable Straight from (U_I_II t e a) =>
+ -- from (t e a) o -> into a (tt ee o)
+-- ilj from = he @into @(U_I_II tt _ _)
+ -- `compose` fo (from `compose` he @from @(U_I_II t _ _))
+ -- `compose` he @into @(T_TT_I _ _ _)
+ -- `compose` component @Straight @from @into @Identity @(U_I_II tt ee `T_TT_I` U_I_II t e)
+ -- `compose` wrap @into
 
 hd :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
@@ -2418,7 +2418,7 @@ fc :: forall into t a o .
 fc = unwrap @(->) @(U_I_II into (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
  (rj @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
- `compose` lj @(->) @(->) @(U_I_II LM (t a)) @(U_I_II into _)
+ `compose` fj @(->) @(->) @(U_I_II LM (t a)) @(U_I_II into _)
  (monoidal_ @Straight @into @(->) @t @LM @LM identity (wrap identity)
  `compose` unwrap @(->) @(U_I_II LM (t a) (t (into a o))))
 
