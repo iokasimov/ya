@@ -353,7 +353,7 @@ instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
 type family JNT effect where
  JNT (U_I_II AR e) = T_TT_I (U_I_II AR e)
  JNT (U_I_II ML e) = TT_T_I (U_I_II ML e)
- JNT (U_I_II (U_I_UU_II_I AR LM) e) = T_TTT_TT_I (U_I_II AR e) (U_I_II LM e)
+ JNT (U_I_II (U_I_UU_II_I AR LM) e) = T_TTT_TT_I (U_I_II AR e) (U_II_I LM e)
 
 this :: e `LM` ee -> e
 this (These x _) = x

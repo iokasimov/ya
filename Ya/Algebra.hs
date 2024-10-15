@@ -210,21 +210,20 @@ instance Mapping Straight Straight AR AR
      from `foi` f s
 
 instance Covariant Endo Semi Functor AR t
- => Mapping Straight Straight AR AR t (T_TTT_TT_I (Straight AR e) (Straight LM e) t) where
+ => Mapping Straight Straight AR AR t (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
  mapping = rwr / \from x -> T_TTT_TT_I `compose` Straight `li` \state ->
-  x `yo` from `ho` These state `ho` Straight
+  x `yo` from `ho` (`lu` state) `ho` U_II_I
 
 instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
  => Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) ee)
-  (T_TTT_TT_I (U_I_II ARR e) (U_I_II LM e) t) where
- mapping = rwr / \from (U_I_II (U_I_UU_II_I x)) -> 
+  (T_TTT_TT_I (U_I_II ARR e) (U_II_I LM e) t) where
+ mapping = rwr / \from (U_I_II (U_I_UU_II_I x)) ->
   wrap @_ @(T_TTT_TT_I _ _ _ _)
   `compose` wrap @_ @(U_I_II _ _ _)
   `identity` (yu enter
    `compose` map @Straight @Straight from
-   `compose` wrap @_ @(U_I_II _ _ _)
-   `compose` swap
+   `compose` wrap @_ @(U_II_I _ _ _)
    `compose` x)
 
 -- x: ee -> Object Straight AR a ee
@@ -245,13 +244,13 @@ instance
  , Transformation Natural Functor AR AR (T_TT_I t t) t
  ) => Mapping Straight Straight AR AR
  (T_TT_I
-  (T_TTT_TT_I (Straight AR old) (Straight LM btw) t)
-  (T_TTT_TT_I (Straight AR btw) (Straight LM new) t)
+  (T_TTT_TT_I (U_I_II AR old) (U_II_I LM btw) t)
+  (T_TTT_TT_I (U_I_II AR btw) (U_II_I LM new) t)
  )
- (T_TTT_TT_I (Straight AR old) (Straight LM new) t) where
- mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight x))) -> 
-  wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(Straight _ _ _)
-  `li` \old -> x old `yok` \(Straight (These btw (T_TTT_TT_I (Straight f))))
+ (T_TTT_TT_I (U_I_II AR old) (U_II_I LM new) t) where
+ mapping = rwr / \from (T_TT_I (T_TTT_TT_I (U_I_II x))) -> 
+  wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(U_I_II _ _ _)
+  `li` \old -> x old `yok` \(U_II_I (These (T_TTT_TT_I (U_I_II f)) btw))
    -> f btw `yo'yo` from
 
 -- TODO: try to use adjunctions here
@@ -261,33 +260,33 @@ instance
  , e ~ ee
  ) => Mapping Straight Straight AR AR
  (T_TT_I
-  (T_TTT_TT_I (Straight AR e) (Straight LM e) tt)
+  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) tt)
   (U_I_II (U_I_UU_II_I AR LM) ee)
  )
- (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) tt) where
+ (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) tt) where
   mapping = rwr / \from (T_TT_I (T_TTT_TT_I (U_I_II x))) ->
    wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(U_I_II _ _ _)
-    `li` \old -> x old `yok` \(U_I_II (These btw (U_I_II (U_I_UU_II_I f))))
-      -> yu (enter @tt) / U_I_II (swap (f btw)) `yo` from
+    `li` \old -> x old `yok` \(U_II_I (These (U_I_II (U_I_UU_II_I f)) btw))
+      -> yu (enter @tt) / U_II_I (f btw) `yo` from
 
 instance
  ( Covariant Endo Semi Functor AR t
  , Mapping Straight Straight AR AR (t `T_TT_I` t) t
  ) => Mapping Straight Straight AR AR
-  (T_TT_I (T_TTT_TT_I (Straight AR e) (Straight LM e) t) t)
-  (T_TTT_TT_I (Straight AR e) (Straight LM e) t) where
- mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight f))) -> T_TTT_TT_I `compose` Straight / \old ->
+  (T_TT_I (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) t)
+  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
+ mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight f))) -> T_TTT_TT_I `compose` U_I_II / \old ->
   component @Straight @AR @AR @(t `T_TT_I` t) @t
-   (T_TT_I (f old `yo` (\(Straight (These x y)) -> y `yo` Straight `ha` These x `ha` from)))
+   (T_TT_I (f old `yo` (\(U_II_I (These y x)) -> y `yo` U_II_I `ha` (`lu` x) `ha` from)))
 
-instance Mapping Straight Straight AR AR (U_I_II LM e `T_TT_I` tt) (U_I_II LM e `TT_T_I` tt) =>
+instance Mapping Straight Straight AR AR (U_II_I LM e `T_TT_I` tt) (U_II_I LM e `TT_T_I` tt) =>
  Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) e `T_TT_I` tt)
-  (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) tt) where
- mapping = rwr / \from (T_TT_I (U_I_II (U_I_UU_II_I x))) -> 
+  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) tt) where
+ mapping = rwr / \from (T_TT_I (U_I_II (U_I_UU_II_I x))) ->
   T_TTT_TT_I `compose` U_I_II / \old -> wrapped @AR
-   `li` map @Straight @Straight @AR @AR @(U_I_II LM e `T_TT_I` tt) @(U_I_II LM e `TT_T_I` tt) from
-   `li` Straight (let These e r = x old in These r e)
+   `li` map @Straight @Straight @AR @AR @(U_II_I LM e `T_TT_I` tt) @(U_II_I LM e `TT_T_I` tt) from
+   `li` U_II_I (x old)
 
 instance Monoidal Straight Functor AR LM LM t =>
  Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II AR e `T_TT_I` t) where
@@ -297,9 +296,9 @@ instance Mapping Straight Straight AR AR (U_I_II AR ()) (U_I_II (U_I_UU_II_I AR 
  mapping = rwr / \from -> rwr / \f -> U_I_UU_II_I `li` \e -> from `li` f () `lu` e
 
 instance Monoidal Straight Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II AR ()) (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) t) where
- mapping = rwr / \from (Straight f) -> T_TTT_TT_I `compose` Straight
-  / \old -> yu enter `compose` Straight `compose` These old `compose` from `li` f ()
+ Mapping Straight Straight AR AR (U_I_II AR ()) (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
+ mapping = rwr / \from (U_I_II f) -> T_TTT_TT_I `compose` U_I_II
+  / \old -> yu enter `compose` U_II_I `compose` (`lu` old) `compose` from `li` f ()
 
 instance
  ( Covariant Semi Functor from AR t
@@ -361,11 +360,15 @@ instance
  ( Component Natural AR AR (t `T_TT_I` t) t
  , Covariant Yoneda AR AR t
  ) => Mapping Straight Straight AR AR
-  (Day Straight AR LM LM (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) t) (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) t) ee eee)
-  (T_TTT_TT_I (U_I_II AR e) (U_I_II LM e) t) where
+  (Day Straight AR LM LM
+   (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t)
+   (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t)
+   ee eee)
+  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
  mapping = rwr / \from -> rwr / \case
-  These (These (T_TTT_TT_I (Straight x)) (T_TTT_TT_I (Straight y))) (Straight f) ->
-   Straight / \old -> x old `yok` \(Straight (These btw e)) -> from `compose` f `compose` These e `fo'fo` y btw
+  These (These (T_TTT_TT_I (U_I_II x)) (T_TTT_TT_I (U_I_II y))) (U_I_II f) ->
+   U_I_II / \old -> x old `yok` \(U_II_I (These e btw)) ->
+    from `compose` f `compose` (e `lu`) `fo'fo` y btw
 
 instance
  ( Component Natural AR AR (t `T_TT_I` t) t
