@@ -261,20 +261,30 @@ instance
   (U_I_II (U_I_UU_II_I AR LM) ee)
  )
  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) tt) where
-  mapping = rwr / \from (T_TT_I (T_TTT_TT_I (U_I_II x))) ->
-   wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(U_I_II _ _ _)
-    `li` \old -> x old `yok` \(U_II_I (These (U_I_II (U_I_UU_II_I f)) btw))
+  mapping = rwr / \from -> rwr `compose` rwr / \(U_I_II x) ->
+    \old -> x old `yok` \(U_II_I (These (U_I_II (U_I_UU_II_I f)) btw))
       -> yu (enter @tt) / U_II_I (f btw) `yo` from
 
 instance
- ( Covariant Endo Semi Functor AR t
- , Mapping Straight Straight AR AR (t `T_TT_I` t) t
- ) => Mapping Straight Straight AR AR
-  (T_TT_I (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) t)
-  (T_TTT_TT_I (U_I_II AR e) (U_II_I LM e) t) where
- mapping = rwr / \from (T_TT_I (T_TTT_TT_I (Straight f))) -> T_TTT_TT_I `compose` U_I_II / \old ->
-  component @Straight @AR @AR @(t `T_TT_I` t) @t
-   (T_TT_I (f old `yo` (\(U_II_I (These y x)) -> y `yo` U_II_I `ha` (`lu` x) `ha` from)))
+ ( Covariant Functor into into t
+ , Covariant Endo Semi Functor into (ttt e)
+ , Mapping Straight Straight into into (t `T_TT_I` t) t
+ , Mapping Straight Straight into into (tt e `T_TT_I` t) (tt e `TT_T_I` t)
+ , forall ee . Wrapper into (T_TTT_TT_I (ttt e) (tt e) t ee)
+ , forall ee . Wrapper into (T_TT_I (tt e) t ee)
+ , forall ee . Wrapper into (TT_T_I (tt e) t ee)
+ , forall ee . Wrapper into (T_TT_I t t ee)
+ , forall ee . Wrapper into (T_TT_I (T_TTT_TT_I (ttt e) (tt e) t) t ee)
+ ) => Mapping Straight Straight into into
+  (T_TTT_TT_I (ttt e) (tt e) t `T_TT_I` t)
+  (T_TTT_TT_I (ttt e) (tt e) t) where
+ mapping = rwr / \from -> rwr /
+  map @Straight @Straight @into @into @(ttt e)
+   (component @Straight @into @into @(t `T_TT_I` t) @t `compose` wrap @into
+    `compose` map @Straight @Straight @into @into @t
+     (wrapped (map @Straight @Straight @into @into @(tt e `T_TT_I` t) @(tt e `TT_T_I` t) from))
+    )
+  `compose` unwrap @into
 
 instance Mapping Straight Straight AR AR (U_II_I LM e `T_TT_I` tt) (U_II_I LM e `TT_T_I` tt) =>
  Mapping Straight Straight AR AR
@@ -483,7 +493,13 @@ instance
 instance Covariant Monoidal Functor AR LM LM t =>
  Mapping Straight Straight AR AR (U_I_II LM e `T_TT_I` t) (U_I_II LM e `TT_T_I` t) where
  mapping = rwr / \from -> rwr / \case
-  Straight (These e x) -> x `yo` from `ho` These e `ho` Straight
+  U_I_II (These e x) -> x `yo` from `ho` These e `ho` U_I_II
+
+-- TODO: generalize with limits
+instance Covariant Monoidal Functor AR LM LM t =>
+ Mapping Straight Straight AR AR (U_II_I LM e `T_TT_I` t) (U_II_I LM e `TT_T_I` t) where
+ mapping = rwr / \from -> rwr / \case
+  U_II_I (These x e) -> x `yo` from `ho` (`lu` e) `ho` U_II_I
 
 instance Covariant Endo Semi Functor AR t =>
  Mapping Straight Straight AR AR (t `T_TT_I` U_I_II AR e) (t `TT_T_I` U_I_II AR e) where
