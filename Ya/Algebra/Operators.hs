@@ -1326,6 +1326,16 @@ ra :: forall into hom t i .
  into (t i) (hom i (Representation t))
 ra = he `compose` map @Opposite @Straight @into @into @t @(Opposite hom (Representation t)) identity
 
+fd :: forall from into t tt a o .
+ Adjoint Functor from into t tt =>
+ Castable Opposite from ((T_TT_I t tt) o) =>
+ Castable Straight from (Identity o) =>
+ into a (tt o) -> from (t a) o
+fd from = he @from @(Identity _)
+ `compose` component @Straight @into @from @(t `T_TT_I` tt) @Identity
+ `compose` wrap @from @((t `T_TT_I` tt) _)
+ `compose` fo @into @from from
+
 fj :: forall from into t tt a o .
  Adjoint Functor from into t tt =>
  Castable Straight into (T_TT_I tt t a) =>
@@ -1493,16 +1503,6 @@ he'yu :: forall into t a o e .
 he'yu = yu @into
 
 -- TODO: define `j'_j'_j'`, `j'_j'_j'_j'`, `j'_j'_j'_j'_j',
-
-rj :: forall from into t tt a o .
- Adjoint Functor from into t tt =>
- Castable Opposite from ((T_TT_I t tt) o) =>
- Castable Straight from (Identity o) =>
- into a (tt o) -> from (t a) o
-rj from = he @from @(Identity _)
- `compose` component @Straight @into @from @(t `T_TT_I` tt) @Identity
- `compose` wrap @from @((t `T_TT_I` tt) _)
- `compose` fo @into @from from
 
 lo, loo, looo, loooo, looooo, loooooo, looooooo, loooooooo :: forall into a o oo .
  Category into =>
@@ -2417,7 +2417,7 @@ fc :: forall into t a o .
  t (into a o) -> into (t a) (t o)
 fc = unwrap @(->) @(U_I_II into (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
- (rj @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
+ (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
  `compose` fj @(->) @(->) @(U_I_II LM (t a)) @(U_I_II into _)
  (monoidal_ @Straight @into @(->) @t @LM @LM identity (wrap identity)
  `compose` unwrap @(->) @(U_I_II LM (t a) (t (into a o))))
