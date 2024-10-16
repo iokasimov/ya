@@ -239,14 +239,16 @@ instance
  , Transformation Natural Functor AR AR (T_TT_I t t) t
  ) => Mapping Straight Straight AR AR
  (T_TT_I
-  (T_TTT_TT_I (U_I_II AR old) (U_II_I LM btw) t)
-  (T_TTT_TT_I (U_I_II AR btw) (U_II_I LM new) t)
+  ((U_I_II AR old `T_TTT_TT_I` U_II_I LM btw) t)
+  ((U_I_II AR btw `T_TTT_TT_I` U_II_I LM new) t)
  )
  (T_TTT_TT_I (U_I_II AR old) (U_II_I LM new) t) where
- mapping = rwr / \from (T_TT_I (T_TTT_TT_I (U_I_II x))) -> 
-  wrap @_ @(T_TTT_TT_I _ _ _ _) `compose` wrap @_ @(U_I_II _ _ _)
-  `li` \old -> x old `yok` \(U_II_I (These (T_TTT_TT_I (U_I_II f)) btw))
-   -> f btw `yo'yo` from
+ mapping = rwr / \from -> rwr `compose` rwr /
+  \(U_I_II x) -> component @Straight @AR @AR @(t `T_TT_I` t) @t
+  `compose` wrap @AR @(T_TT_I _ _ _)
+  `compose` map @Straight @Straight @AR @AR @t @t
+   (fd @AR @AR (unwrap `compose` fo from))
+  `compose` x
 
 -- TODO: try to use adjunctions here
 instance
