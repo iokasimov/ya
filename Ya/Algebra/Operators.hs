@@ -82,15 +82,15 @@ infixl 1 `hjjjjjjjjj`
 
 --, `he'he'ho`, `he'he'he'ho`
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'la`, `he'ho`, `he'ho'he`
-infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'la`, `hee'ho`, `hee'ho'he`
-infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'la`, `heee'ho`, `heee'ho'he`
-infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'la`, `heeee'ho`, `heeee'ho'he`
-infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'la`, `heeeee'ho`, `heeeee'ho'he`
-infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'la`, `heeeeee'ho`, `heeeeee'ho'he`
-infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'la`, `heeeeeee'ho`, `heeeeeee'ho'he`
-infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'la`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
-infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'la`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
+infixl 9 `he`, `he'he`, `he'he'he`, `he'he'he'he`, `he'la`, `he'ho`, `he'ho'he`
+infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'he'he'he`, `hee'la`, `hee'ho`, `hee'ho'he`
+infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'he'he'he`, `heee'la`, `heee'ho`, `heee'ho'he`
+infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'he'he'he`, `heeee'la`, `heeee'ho`, `heeee'ho'he`
+infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'he'he'he`, `heeeee'la`, `heeeee'ho`, `heeeee'ho'he`
+infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'he'he'he`, `heeeeee'la`, `heeeeee'ho`, `heeeeee'ho'he`
+infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'he'he'he`, `heeeeeee'la`, `heeeeeee'ho`, `heeeeeee'ho'he`
+infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'he'he'he`, `heeeeeeee'la`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
+infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'he'he'he`, `heeeeeeeee'la`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
 
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `loo`, `loo'yp`, `loo'ys`, `loo'ys'la`
@@ -1331,7 +1331,7 @@ fd :: forall from into t tt a o .
  Castable Opposite from ((T_TT_I t tt) o) =>
  Castable Straight from (Identity o) =>
  into a (tt o) -> from (t a) o
-fd from = he @from @(Identity _)
+fd from = unwrap @from @(Identity _)
  `compose` component @Straight @into @from @(t `T_TT_I` tt) @Identity
  `compose` wrap @from @((t `T_TT_I` tt) _)
  `compose` fo @into @from from
@@ -1342,7 +1342,7 @@ fj :: forall from into t tt a o .
  Castable Opposite into (Identity a) =>
  from (t a) o -> into a (tt o)
 fj from = fo from
- `compose` he @into
+ `compose` unwrap @into
  `compose` component @Straight @from @into @Identity @(tt `T_TT_I` t)
  `compose` wrap @into
 
@@ -1469,6 +1469,23 @@ heeeeeee'he'he = he'he'he
 heeeeeeee'he'he = he'he'he
 heeeeeeeee'he'he = he'he'he
 
+he'he'he'he, hee'he'he'he, heee'he'he'he, heeee'he'he'he, heeeee'he'he'he, heeeeee'he'he'he, heeeeeee'he'he'he, heeeeeeee'he'he'he, heeeeeeeee'he'he'he :: forall into e .
+ Precategory into =>
+ Castable Straight into e =>
+ Castable Straight into (Supertype e) =>
+ Castable Straight into (Supertype (Supertype e)) =>
+ Castable Straight into (Supertype (Supertype (Supertype e))) =>
+ into e (Supertype (Supertype (Supertype (Supertype e))))
+he'he'he'he = unwrap `compose` unwrap `compose` unwrap `compose` unwrap
+
+hee'he'he'he = he'he'he'he
+heee'he'he'he = he'he'he'he
+heeee'he'he'he = he'he'he'he
+heeeee'he'he'he = he'he'he'he
+heeeeee'he'he'he = he'he'he'he
+heeeeeee'he'he'he = he'he'he'he
+heeeeeeee'he'he'he = he'he'he'he
+heeeeeeeee'he'he'he = he'he'he'he
 
 he'ya :: forall from into t a o e .
  Precategory into =>
