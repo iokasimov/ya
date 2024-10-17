@@ -351,6 +351,16 @@ instance
    )
   `compose` unwrap @into
 
+instance
+ ( Monoidal Straight Functor AR LM LM t
+ , Covariant Endo Semi Functor AR tt
+ ) => Mapping Straight Straight AR AR tt (tt `TT_T_I` t) where
+ mapping = rwr / \from -> wrap @AR @((tt `TT_T_I` t) _)
+  `compose` component @Straight @AR @AR @(U_I_II AR Unit) @t
+  `compose` component @Straight @AR @AR @Identity @(U_I_II AR Unit)
+  `compose` wrap @AR
+  `compose` map @Straight @Straight @AR @AR @tt @tt from
+
 instance Mapping Straight Straight AR AR (U_II_I LM e `T_TT_I` tt) (U_II_I LM e `TT_T_I` tt) =>
  Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) e `T_TT_I` tt)
