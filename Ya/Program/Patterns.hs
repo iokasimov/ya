@@ -67,6 +67,10 @@ type Error = U_I_II ML
 
 pattern Error x = U_I_II (This x)
 
+pattern Wrong x = U_I_II (This x)
+
+pattern Close x = U_I_II (This x)
+
 pattern Valid x = U_I_II (That x)
 
 pattern Ok x = U_I_II (That x)
