@@ -56,8 +56,8 @@ type family Leftovers datastructure where
  Leftovers (Optional `T_TT_I` Construction Optional) = List
 
 class Stack datastructure where
- pop :: Automation `T_I` datastructure item `T_I` Supertype (Popped datastructure item) `T_I` Leftovers datastructure item
- push :: item -> Automation `T_I` datastructure item `T_I` item `T_I` datastructure item
+ pop :: Automation `WR` datastructure item `WR` Supertype (Popped datastructure item) `WR` Leftovers datastructure item
+ push :: item -> Automation `WR` datastructure item `WR` item `WR` datastructure item
 
 -- TODO: refactor, it's hard to read
 instance Stack List where
@@ -110,19 +110,23 @@ type family Scrolled datastructure where
 class Scrollable datastructure item where
  scroll :: Orientation datastructure
   `ARR` Automation
-   `T_I` Scrolling datastructure item
-   `T_I` Scrolled datastructure item
-   `T_I` Scrolling datastructure item
+   `WR` Scrolling datastructure item
+   `WR` Scrolled datastructure item
+   `WR` Scrolling datastructure item
 
 instance Scrollable (Optional `T_TT_I` Construction Optional) item where
- scroll way x =
-  let direction = is `huu` at @(Reverse List item) `ho` unwrap @Attribute `laaa` is `huu` at @(Forward List item) `ho'he` identity @Attribute in
-  (but (These (None ()) x) `la` unwrap `ho` foi @_ @Arrow Some) `haa` unwrap @Arrow
-   `heee` (enter @(State `T_I` Scrolling List item `JNT` Halts)
-   `yukk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` direction way `yokk` Maybe
-   `yokk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` unwrap @Attribute `ho` at @(Focused item) `ho` unwrap @Attribute
-   `yokk` State `haaa` Transition `ha` push `hoo'ha` unwrap @Attribute `ho` at @(Shafted List item) `ho'he` direction (not way)
-   )`he'he` x
+ scroll way x = is
+  `li` is `hu` (None () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
+  `li` unwrap (flow `he'he` x) where
+
+  flow = enter @(State `WR` Scrolling List item `JNT` Halts)
+   `yukkk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` path way `yokkk` Maybe
+   `yokkk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` at @(Focused item) `he'ho'he` Attribute self
+   `yokkk` State `haaa` Transition `ha` push `hoo'ha` at @(Shafted List item) `he'ho'he` path (not way)
+
+  path = is `huu` at @(Reverse List item) `ho'he` Attribute self
+   `laaaa` is `huu` at @(Forward List item) `ho'he` Attribute self
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
