@@ -150,10 +150,7 @@ type family Binary t where
 pattern Binary xs = T_TT_I (U_I_I xs)
 
 type family Rose t where
- Rose t = t (Construction Optional)
-
-type family Generic t where
- Generic t = t (Construction Optional)
+ Rose t = t (Optional `T_TT_I` Construction Optional)
 
 type family Forest tree where
  Forest (Construction t) = t `T_TT_I` Construction t

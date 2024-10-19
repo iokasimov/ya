@@ -82,8 +82,8 @@ type family Shafted datastructure = result | result -> datastructure where
  Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
   (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
  Shafted (Construction List) = U_T_I_TT_I LM
-  (U_T_I_TT_I LM (List `T_TT_I` Construction List) (Shafted List))
-  (List `T_TT_I` (Scrolling List `T_TT_I` Construction List))
+  (U_T_I_TT_I LM (List `T_TT_I` Rose Tree) (Shafted List))
+  (List `T_TT_I` (Scrolling List `T_TT_I` Rose Tree))
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
  mapping = rewrap / \from (Root x xs) ->
@@ -101,12 +101,15 @@ type family Orientation datastructure where
  Orientation Stream = () `ML` ()
  Orientation (Optional `T_TT_I` Construction Optional) = () `ML` ()
  Orientation (Construction (U_I_I LM `T_TT_I` Optional)) = () `ML` () `ML` ()
+ Orientation (Construction List) = (Unit `ML` Unit) `ML` (Unit `ML` Unit)
 
 type family Scrolled datastructure where
  Scrolled Stream = Only
  Scrolled (Optional `T_TT_I` Construction Optional) = Optional
  Scrolled (Construction (U_I_I LM `T_TT_I` Optional)) = Optional
+ Scrolled (Construction List) = Optional
 
+-- TODO: maybe to add `path` method here? Check `Scrolling `WR` Rose Tree` first
 class Scrollable datastructure item where
  scroll :: Orientation datastructure
   `ARR` Automation
