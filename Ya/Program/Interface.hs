@@ -1,7 +1,5 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
-{-# LANGUAGE UndecidableInstances #-}
-{-# LANGUAGE UndecidableSuperClasses #-}
 module Ya.Program.Interface where
 
 import Ya.Algebra
@@ -77,13 +75,10 @@ type Scrolling datastructure =
  U_T_I_TT_I LM Only (Shafted datastructure)
 
 type family Shafted datastructure = result | result -> datastructure where
- Shafted (Construction Singular) = U_T_I_TT_I LM Stream Stream
- Shafted (Optional `T_TT_I` Construction Optional) = U_T_I_TT_I LM (Reverse List) (Forward List)
- Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_T_I_TT_I LM
-  (U_I_I LM `T_TT_I` Optional) (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
- Shafted (Construction List) = U_T_I_TT_I LM
-  (U_T_I_TT_I LM (List `T_TT_I` Rose Tree) (Shafted List))
-  (List `T_TT_I` (Scrolling List `T_TT_I` Rose Tree))
+ Shafted (Construction Singular) = Stream `LM_T_I_TT_I` Stream
+ Shafted (Optional `T_TT_I` Construction Optional) = Reverse List `LM_T_I_TT_I` Forward List
+ Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_I_I LM `T_TT_I` Optional `LM_T_I_TT_I` (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
+ Shafted (Construction List) = List `T_TT_I` Rose Tree `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Rose Tree)
 
 type family Scroller datastructure where
  Scroller Stream = () `ML` ()
@@ -102,12 +97,8 @@ instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT
   U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
- (U_T_I_TT_I LM Only (U_T_I_TT_I LM
-  (U_T_I_TT_I LM (List `T_TT_I` Construction List) (U_T_I_TT_I LM (Reverse List) (Forward List)))
-  (List `T_TT_I` (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List)) `T_TT_I` Construction List)))) where
- mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (These (Only (from x))
-   (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I ((xs `yo` fo from `compose` R_U_I_T_I) )) (U_T_I_TT_I (These (Reverse (Empty @List Unit)) (Forward (Empty @List Unit)))))) (T_TT_I (Empty @List Unit)))))
+ (U_T_I_TT_I LM Only (List `T_TT_I` Construction List `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` (Reverse List `LM_T_I_TT_I` Forward List) `T_TT_I` Construction List))) where
+  mapping = rewrap / \from (Root x xs) -> U_T_I_TT_I (Only `he` from x `lu` U_T_I_TT_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from `lu` T_TT_I `he` Empty @List Unit))
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Rose Tree` first
 class Scrollable datastructure item where
