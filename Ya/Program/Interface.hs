@@ -96,6 +96,12 @@ instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT
  mapping = rewrap / \from (Root x xs) ->
   U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
 
+instance
+ Mapping Straight Straight Arrow Arrow (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) (Construction Optional) where
+ mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
+  let f = State `ha` Transition `ha` push `ha` from in
+  that (l `yokl` f `yukkkk` r `yokl` f `heeeeee'he` Construct `ha` Last `he` from x)
+
 instance Mapping Straight Straight Arrow Arrow (Construction List)
  (U_T_I_TT_I LM Only (List `T_TT_I` Construction List `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` (Reverse List `LM_T_I_TT_I` Forward List) `T_TT_I` Construction List))) where
   mapping = rewrap / \from (Root x xs) -> U_T_I_TT_I (Only `he` from x `lu` U_T_I_TT_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from `lu` T_TT_I `he` Empty @List Unit))
