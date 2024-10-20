@@ -14,13 +14,13 @@ class Field e r where
 instance Field e e where
  at = Attribute self
 
-instance Field e (e `LM` ee) where
- at = Attribute `li` \(These f fs) -> f `lu` (`lu` fs)
+instance Field e (ee `LM` e) where
+ at = Attribute `li` \(These x xx) -> xx `lu` (x `lu`)
 
-instance {-# OVERLAPS #-} Field e ee => Field e (eee `LM` ee) where
- at = Attribute `he` \(These old fs) -> These
-  `li` this (at @e @ee `he'he` fs)
-  `li` \new -> old `lu` adjust (at @e @ee) (but new) fs
+instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
+ at = Attribute `he` \(These x xs) -> These
+  `li` this (at @e @ee `he'he` x)
+  `li` \new -> adjust (at @e @ee) (but new) x `lu` xs
 
 type family Handpicked a r where
  Handpicked a (a `ML` aa) = a `ML`()
