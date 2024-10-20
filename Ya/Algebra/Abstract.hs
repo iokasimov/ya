@@ -7,9 +7,12 @@ infixl 8 `T_I`
 type T_I t i = t i
 
 infixl 8 `WR`
-infixl 8 `WRR`
-infixl 7 `WRRR`
-infixl 6 `WRRRR`
+infixl 7 `WRR`
+infixl 6 `WRRR`
+infixl 5 `WRRRR`
+
+infixl 6 `T_TT_I`
+infixl 6 `TT_T_I`
 
 type WR t i = t i
 type WRR t i = t i
