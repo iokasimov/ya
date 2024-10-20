@@ -142,6 +142,7 @@ pattern Empty :: forall t e . (Brancher t ~ Optional)
  => () -> T_TT_I Optional (Construction Optional) e
 pattern Empty x = T_TT_I (None x)
 
+-- I think this type alias should be a `Rose Tree`
 type Tree = Construction
 
 type family Binary t where

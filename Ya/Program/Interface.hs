@@ -85,18 +85,6 @@ type family Shafted datastructure = result | result -> datastructure where
   (U_T_I_TT_I LM (List `T_TT_I` Rose Tree) (Shafted List))
   (List `T_TT_I` (Scrolling List `T_TT_I` Rose Tree))
 
-instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
- mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
-
-instance Mapping Straight Straight Arrow Arrow (Construction List)
- (U_T_I_TT_I LM Only (U_T_I_TT_I LM
-  (U_T_I_TT_I LM (List `T_TT_I` Construction List) (U_T_I_TT_I LM (Reverse List) (Forward List)))
-  (List `T_TT_I` (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List)) `T_TT_I` Construction List)))) where
- mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (These (Only (from x))
-   (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I ((xs `yo` fo from `compose` R_U_I_T_I) )) (U_T_I_TT_I (These (Reverse (Empty @List Unit)) (Forward (Empty @List Unit)))))) (T_TT_I (Empty @List Unit)))))
-
 type family Scroller datastructure where
  Scroller Stream = () `ML` ()
  Scroller (Optional `T_TT_I` Construction Optional) = () `ML` ()
@@ -108,6 +96,18 @@ type family Scrolled datastructure where
  Scrolled (Optional `T_TT_I` Construction Optional) = Optional
  Scrolled (Construction (U_I_I LM `T_TT_I` Optional)) = Optional
  Scrolled (Construction List) = Optional
+
+instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
+ mapping = rewrap / \from (Root x xs) ->
+  U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from))))
+
+instance Mapping Straight Straight Arrow Arrow (Construction List)
+ (U_T_I_TT_I LM Only (U_T_I_TT_I LM
+  (U_T_I_TT_I LM (List `T_TT_I` Construction List) (U_T_I_TT_I LM (Reverse List) (Forward List)))
+  (List `T_TT_I` (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List)) `T_TT_I` Construction List)))) where
+ mapping = rewrap / \from (Root x xs) ->
+  U_T_I_TT_I (These (Only (from x))
+   (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I ((xs `yo` fo from `compose` R_U_I_T_I) )) (U_T_I_TT_I (These (Reverse (Empty @List Unit)) (Forward (Empty @List Unit)))))) (T_TT_I (Empty @List Unit)))))
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Rose Tree` first
 class Scrollable datastructure item where
