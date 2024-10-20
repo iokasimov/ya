@@ -97,11 +97,11 @@ instance Mapping Straight Straight Arrow Arrow (Construction List)
   U_T_I_TT_I (These (Only (from x))
    (U_T_I_TT_I (These (U_T_I_TT_I (These (T_TT_I ((xs `yo` fo from `compose` R_U_I_T_I) )) (U_T_I_TT_I (These (Reverse (Empty @List Unit)) (Forward (Empty @List Unit)))))) (T_TT_I (Empty @List Unit)))))
 
-type family Orientation datastructure where
- Orientation Stream = () `ML` ()
- Orientation (Optional `T_TT_I` Construction Optional) = () `ML` ()
- Orientation (Construction (U_I_I LM `T_TT_I` Optional)) = () `ML` () `ML` ()
- Orientation (Construction List) = (Unit `ML` Unit) `ML` (Unit `ML` Unit)
+type family Scroller datastructure where
+ Scroller Stream = () `ML` ()
+ Scroller (Optional `T_TT_I` Construction Optional) = () `ML` ()
+ Scroller (Construction (U_I_I LM `T_TT_I` Optional)) = () `ML` () `ML` ()
+ Scroller (Construction List) = (Unit `ML` Unit) `ML` (Unit `ML` Unit)
 
 type family Scrolled datastructure where
  Scrolled Stream = Only
@@ -111,7 +111,7 @@ type family Scrolled datastructure where
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Rose Tree` first
 class Scrollable datastructure item where
- scroll :: Orientation datastructure
+ scroll :: Scroller datastructure
   `ARR` Automation
    `WR` Scrolling datastructure item
    `WR` Scrolled datastructure item
