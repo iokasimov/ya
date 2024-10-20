@@ -18,6 +18,9 @@ infixr 3 `ARRRRRR`
 infixr 2 `ARRRRRRR`
 infixr 1 `ARRRRRRRR`
 
+infixl 3 `LM_T_I_TT_I`
+infixl 3 `ML_T_I_TT_I`
+
 infixl 0 /
 
 type AR = (->)
@@ -401,3 +404,6 @@ class Setoid into e where
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
+
+type LM_T_I_TT_I = U_T_I_TT_I LM
+type ML_T_I_TT_I = U_T_I_TT_I ML
