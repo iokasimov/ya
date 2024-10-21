@@ -77,8 +77,8 @@ type Scrolling datastructure =
 type family Shafted datastructure = result | result -> datastructure where
  Shafted (Construction Singular) = Stream `LM_T_I_TT_I` Stream
  Shafted (Optional `T_TT_I` Construction Optional) = Reverse List `LM_T_I_TT_I` Forward List
- Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_I_I LM `T_TT_I` Optional `LM_T_I_TT_I` (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Binary Tree))
- Shafted (Construction List) = List `T_TT_I` Rose Tree `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Rose Tree)
+ Shafted (Construction (U_I_I LM `T_TT_I` Optional)) = U_I_I LM `T_TT_I` Optional `LM_T_I_TT_I` (List `T_TT_I` U_I_I ML `T_TT_I` U_T_I_TT_I LM Only (Optional `T_TT_I` Construction (U_I_I LM `T_TT_I` Optional)))
+ Shafted (Construction List) = List `T_TT_I` Tree `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)
 
 type family Scroller datastructure where
  Scroller Stream = () `ML` ()
@@ -106,7 +106,7 @@ instance Mapping Straight Straight Arrow Arrow (Construction List)
  (U_T_I_TT_I LM Only (List `T_TT_I` Construction List `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` (Reverse List `LM_T_I_TT_I` Forward List) `T_TT_I` Construction List))) where
   mapping = rewrap / \from (Root x xs) -> U_T_I_TT_I (Only `he` from x `lu` U_T_I_TT_I (T_TT_I (xs `yo` R_U_I_T_I) `yo` from `lu` T_TT_I `he` Empty @List Unit))
 
--- TODO: maybe to add `path` method here? Check `Scrolling `WR` Rose Tree` first
+-- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
  scroll :: Scroller datastructure
   `ARR` Automation
@@ -135,24 +135,24 @@ instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) ite
   `la` is `ho'he` foi @_ @Arrow Some
   `li` unwrap (flow `he'he` x) where
 
-  flow :: forall item . State `WR` Scrolling (Rose Tree) item `JNT` Halts `WRRR` item
-  flow = enter @(State `WR` Scrolling (Rose Tree) item `JNT` Halts)
+  flow :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  flow = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yukkk` State `heee` Transition `he` auto
-   `haa'he` at @(Shafted (Rose Tree) item)
-    `ho'he` at @((List `T_TT_I` Rose Tree) item)
+   `haa'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` Tree) item)
     `ho'he'he'he` Attribute self `yokkk` Maybe
    `yokkk` but (State `heee` Transition `he` auto `haa'he` at @(Focused item))
-    `lo'yp` is @(Nonempty List `WR` Rose Tree _) `ho` to @(Scrolling List) `ho` intro
+    `lo'yp` is @(Nonempty List `WR` Tree _) `ho` to @(Scrolling List) `ho` intro
    `yokkk` State `haaaa` Transition
    `haaa` (\(These e (U_T_I_TT_I (These ee eee))) xs ->
     push (U_T_I_TT_I (e `lu` T_TT_I eee)) xs `yui` unwrap ee)
-   `hooo'ha'he` at @(Shafted (Rose Tree) item)
-    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Rose Tree)) item)
+   `hooo'ha'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
     `ho'he` Attribute self
    `yokkk` State `haaaa` Transition
    `haaa` (\(Root e ee) _ -> Only e `lu` (T_TT_I (ee `yo` R_U_I_T_I)))
-   `hooo'ha'he` at @(Shafted (Rose Tree) item)
-    `ho'he` at @((List `T_TT_I` Rose Tree) item)
+   `hooo'ha'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` Tree) item)
    `yokkk` State `haaaa` Transition `haaa` switch `ha` unwrap @AR
    `hooo'ha'he` at @(Focused item) `ho'he` Attribute self
 

@@ -143,15 +143,15 @@ pattern Empty :: forall t e . (Brancher t ~ Optional)
 pattern Empty x = T_TT_I (None x)
 
 -- I think this type alias should be a `Rose Tree`
-type Tree = Construction
+type Tree = Construction List
 
 type family Binary t where
- Binary t = t (U_I_I LM `T_TT_I` Optional)
+ Binary Tree = Construction (U_I_I LM `T_TT_I` Optional)
 
 pattern Binary xs = T_TT_I (U_I_I xs)
 
-type family Rose t where
- Rose t = t (Optional `T_TT_I` Construction Optional)
+-- type family Rose t where
+ -- Rose t = t (Optional `T_TT_I` Construction Optional)
 
 type family Forest tree where
  Forest (Construction t) = t `T_TT_I` Construction t
