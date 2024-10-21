@@ -128,6 +128,34 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
   path = is `huu` at @(Reverse List item) `ho'he` Attribute self
    `laaaa` is `huu` at @(Forward List item) `ho'he` Attribute self
 
+-- TODO: let's start with an easiest one - go deep down
+instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) item where
+ scroll _ x = is
+  `li` is `hu` (None () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
+  `li` unwrap (flow `he'he` x) where
+
+  flow :: forall item . State `WR` Scrolling (Rose Tree) item `JNT` Halts `WRRR` item
+  flow = enter @(State `WR` Scrolling (Rose Tree) item `JNT` Halts)
+   `yukkk` State `heee` Transition `he` auto
+   `haa'he` at @(Shafted (Rose Tree) item)
+    `ho'he` at @((List `T_TT_I` Rose Tree) item)
+    `ho'he'he'he` Attribute self `yokkk` Maybe
+   `yokkk` but (State `heee` Transition `he` auto `haa'he` at @(Focused item))
+    `lo'yp` is @(Nonempty List `WR` Rose Tree _) `ho` to @(Scrolling List) `ho` intro
+   `yokkk` State `haaaa` Transition
+   `haaa` (\(These e (U_T_I_TT_I (These ee eee))) xs ->
+    push (U_T_I_TT_I (e `lu` T_TT_I eee)) xs `yui` unwrap ee)
+   `hooo'ha'he` at @(Shafted (Rose Tree) item)
+    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Rose Tree)) item)
+    `ho'he` Attribute self
+   `yokkk` State `haaaa` Transition
+   `haaa` (\(Root e ee) _ -> Only e `lu` (T_TT_I (ee `yo` R_U_I_T_I)))
+   `hooo'ha'he` at @(Shafted (Rose Tree) item)
+    `ho'he` at @((List `T_TT_I` Rose Tree) item)
+   `yokkk` State `haaaa` Transition `haaa` switch `ha` unwrap @AR
+   `hooo'ha'he` at @(Focused item) `ho'he` Attribute self
+
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
 -- TODO: think about alternative implementations
