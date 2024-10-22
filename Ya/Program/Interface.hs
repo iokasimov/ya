@@ -71,8 +71,7 @@ instance Stack (Construction Optional) where
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
  push x = \old -> These x (Next x `rwr` old)
 
-type Scrolling datastructure =
- U_T_I_TT_I LM Only (Shafted datastructure)
+type Scrolling datastructure = Only `LM_T_I_TT_I` Shafted datastructure
 
 type family Shafted datastructure = result | result -> datastructure where
  Shafted (Construction Singular) = Stream `LM_T_I_TT_I` Stream
@@ -130,13 +129,13 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
 
 -- TODO: let's start with an easiest one - go deep down
 instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) item where
- scroll _ x = is
+ scroll way x = is
   `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
-  `li` unwrap (flow `he'he` x) where
+  `li` unwrap ((is `hu` flow_deep `la` is `hu` flow_lift `li` way) `he'he` x) where
 
-  flow :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
-  flow = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+  flow_deep :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  flow_deep = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yukkk` State `heee` Transition `he` auto
    `haa'he` at @(Shafted Tree item)
     `ho'he` at @((List `T_TT_I` Tree) item)
@@ -155,6 +154,26 @@ instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) ite
     `ho'he` at @((List `T_TT_I` Tree) item)
    `yokkk` State `haaaa` Transition `haaa` switch `ha` unwrap @AR
    `hooo'ha'he` at @(Focused item) `ho'he` Attribute self
+
+  flow_lift :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  flow_lift = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+   `yukkk` State `heee` Transition `he` auto
+   `haa'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
+    `ho'he'he'he` Attribute self `yokkk` Maybe
+   `yokkk` State `haaa` Transition `ha` (\nl _ -> pop nl)
+   `hoo'ha'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
+    `ho'he` Attribute self
+   `yokkk` State `haaa` Transition
+   `ha` (\(U_T_I_TT_I (These e ee)) focus -> (unwrap focus `lu`unwrap ee) `lu` e)
+   `hoo'ha'he` at @(Focused item)
+   `yokkk` State `haaa` Transition
+   `ha` (\(These e ee) children -> e `lu` List `ha` Some `ha` to @(Nonempty List)
+    `he` U_T_I_TT_I (Only (Root e (children `yo` unwrap @AR)) `lu`ee ))
+   `hoo'ha'he` at @(Shafted Tree item)
+    `ho'he` at @((List `T_TT_I` Tree) item)
+    `ho'he` Attribute self
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
