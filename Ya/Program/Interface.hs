@@ -69,7 +69,7 @@ instance Stack (Construction Optional) where
  pop = \case
   R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> x `lu` T_TT_I (Some (R_U_I_T_I xs))
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
- push x = \old -> These x (Next x `rwr` old)
+ push x = \old -> These x (Next x `rewrap` old)
 
 type Scrolling datastructure = Only `LM_T_I_TT_I` Shafted datastructure
 
@@ -178,7 +178,7 @@ instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) ite
 
 -- TODO: think about alternative implementations
 instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List where
- mapping = rwr / \from -> \case
+ mapping = rewrap / \from -> \case
   T_TT_I (T_TT_I (U_I_II (This ())))
    -> T_TT_I (U_I_II (This ()))
   T_TT_I (T_TT_I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T_TT_I (U_I_II (This ())))) _)))))))
@@ -192,7 +192,7 @@ instance Mapping Straight Straight (->) (->) (List `T_TT_I` Cascading List) List
     ))))))
 
 instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T_TT_I` Construction Optional) where
- mapping = rwr / \from -> \case
+ mapping = rewrap / \from -> \case
   R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
    T_TT_I `ha` R_U_I_T_I
     `li` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))

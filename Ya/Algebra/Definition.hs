@@ -296,18 +296,11 @@ empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identit
 enter :: forall t . Monoidal Straight Functor (->) LM LM t => t ()
 enter = component @Straight @(->) @(->) @(Straight (->) ()) @t (U_I_II identity)
 
-rwr :: forall o into a .
+rewrap :: forall o into a .
  Precategory into =>
  Castable Opposite into o =>
  Castable Straight into a =>
  into (Supertype a) (Supertype o) -> into a o
-rwr f = wrap `compose` f `compose` unwrap
-
-rewrap :: forall o a .
- Precategory (->) =>
- Castable Opposite (->) o => 
- Castable Straight (->) a =>
- (Supertype a -> Supertype o) -> a -> o
 rewrap f = wrap `compose` f `compose` unwrap
 
 wrapped :: forall into a o .
