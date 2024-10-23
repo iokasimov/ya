@@ -407,3 +407,19 @@ class Setoid into e where
 
 type LM_T_I_TT_I = U_T_I_TT_I LM
 type ML_T_I_TT_I = U_T_I_TT_I ML
+
+class Objective into st t where
+ objective :: into t st
+
+instance {-# OVERLAPPABLE #-}
+ ( Category into
+ , Castable Straight into t
+ , Objective into st (Supertype t)
+ ) => Objective into st t where
+ objective = objective @into `compose` unwrap @into
+
+instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `ML` ee) (eee `ML` eeee) where
+ objective = identity
+
+instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `LM` ee) (eee `LM` eeee) where
+ objective = identity
