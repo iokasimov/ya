@@ -82,15 +82,15 @@ infixl 1 `hjjjjjjjjj`
 
 --, `he'he'ho`, `he'he'he'ho`
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'he'he'he`, `he'la`, `he'ho`, `he'ho'he`
-infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'he'he'he`, `hee'la`, `hee'ho`, `hee'ho'he`
-infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'he'he'he`, `heee'la`, `heee'ho`, `heee'ho'he`
-infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'he'he'he`, `heeee'la`, `heeee'ho`, `heeee'ho'he`
-infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'he'he'he`, `heeeee'la`, `heeeee'ho`, `heeeee'ho'he`
-infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'he'he'he`, `heeeeee'la`, `heeeeee'ho`, `heeeeee'ho'he`
-infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'he'he'he`, `heeeeeee'la`, `heeeeeee'ho`, `heeeeeee'ho'he`
-infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'he'he'he`, `heeeeeeee'la`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
-infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'he'he'he`, `heeeeeeeee'la`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
+infixl 9 `he`, `he'he`, `he'he'he`, `he'he'he'he`, `he'ho`, `he'ho'he`
+infixl 8 `hee`, `hee'he`, `hee'he'he`, `hee'he'he'he`, `hee'ho`, `hee'ho'he`
+infixl 7 `heee`, `heee'he`, `heee'he'he`, `heee'he'he'he`, `heee'ho`, `heee'ho'he`
+infixl 6 `heeee`, `heeee'he`, `heeee'he'he`, `heeee'he'he'he`, `heeee'ho`, `heeee'ho'he`
+infixl 5 `heeeee`, `heeeee'he`, `heeeee'he'he`, `heeeee'he'he'he`, `heeeee'ho`, `heeeee'ho'he`
+infixl 4 `heeeeee`, `heeeeee'he`, `heeeeee'he'he`, `heeeeee'he'he'he`, `heeeeee'ho`, `heeeeee'ho'he`
+infixl 3 `heeeeeee`, `heeeeeee'he`, `heeeeeee'he'he`, `heeeeeee'he'he'he`, `heeeeeee'ho`, `heeeeeee'ho'he`
+infixl 2 `heeeeeeee`, `heeeeeeee'he`, `heeeeeeee'he'he`, `heeeeeeee'he'he'he`, `heeeeeeee'ho`, `heeeeeeee'ho'he`
+infixl 1 `heeeeeeeee`, `heeeeeeeee'he`, `heeeeeeeee'he'he`, `heeeeeeeee'he'he'he`, `heeeeeeeee'ho`, `heeeeeeeee'ho'he`
 
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `loo`, `loo'yp`, `loo'ys`, `loo'ys'la`
@@ -1723,29 +1723,6 @@ laaaaa = la
 laaaaaa = la
 laaaaaaa = la
 laaaaaaaa = la
-
-he'la, hee'la, heee'la, heeee'la, heeeee'la, heeeeee'la, heeeeeee'la, heeeeeeee'la, heeeeeeeee'la  :: forall from i o oo ooo .
- Category from =>
- Limit Opposite from from =>
- Covariant Endo Semi Functor from (U_I_II Sum o) =>
- Covariant Endo Semi Functor from (U_II_I Sum i) =>
- (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
- (forall ee eee . Wrapper from (U_II_I Sum ee eee)) =>
- (forall ee . Wrapper from (Both Sum ee)) =>
- (forall ee . Wrapper from (Identity ee)) =>
- (Supertype ooo ~ Sum o oo) =>
- Wrapper from ooo =>
- from o i -> from oo i -> from ooo i
-he'la l r = la l r `compose` he
-
-hee'la = he'la
-heee'la = he'la
-heeee'la = he'la
-heeeee'la = he'la
-heeeeee'la = he'la
-heeeeeee'la = he'la
-heeeeeeee'la = he'la
-heeeeeeeee'la = he'la
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
