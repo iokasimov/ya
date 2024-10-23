@@ -2286,41 +2286,41 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- yp'yp'jt'yok = yok @from @into `compose` yp'yp'jt
 
 -- TODO: generalize
-rwr'foi :: forall into w o u e ee .
- Covariant Endo Semi Functor into (U_II_I u o) =>
- Castable Straight into (U_II_I u o ee) =>
- Castable Opposite into (U_II_I u o e) =>
- Castable Opposite into (w u ee o) =>
- Castable Straight into (w u e o) =>
- (Supertype (w u e o) ~ u e o) =>
- (Supertype (w u ee o) ~ u ee o) =>
- into e ee -> into (w u e o) (w u ee o)
-rwr'foi = rwr `compose` i_ `compose` fo
+-- rwr'foi :: forall into w o u e ee .
+ -- Covariant Endo Semi Functor into (U_II_I u o) =>
+ -- Castable Straight into (U_II_I u o ee) =>
+ -- Castable Opposite into (U_II_I u o e) =>
+ -- Castable Opposite into (w u ee o) =>
+ -- Castable Straight into (w u e o) =>
+ -- (Supertype (w u e o) ~ u e o) =>
+ -- (Supertype (w u ee o) ~ u ee o) =>
+ -- into e ee -> into (w u e o) (w u ee o)
+-- rwr'foi = rwr `compose` i_ `compose` fo
 
 -- TODO: generalize
-rwr'fio :: forall into w o u e ee .
- Covariant Endo Semi Functor into (U_I_II u o) =>
- Castable Straight into (U_I_II u o ee) =>
- Castable Opposite into (U_I_II u o e) =>
- Castable Opposite into (w u o ee) =>
- Castable Straight into (w u o e) =>
- (Supertype (w u o e) ~ u o e) =>
- (Supertype (w u o ee) ~ u o ee) =>
- into e ee -> into (w u o e) (w u o ee)
-rwr'fio = rwr `compose` _i `compose` fo
+-- rwr'fio :: forall into w o u e ee .
+ -- Covariant Endo Semi Functor into (U_I_II u o) =>
+ -- Castable Straight into (U_I_II u o ee) =>
+ -- Castable Opposite into (U_I_II u o e) =>
+ -- Castable Opposite into (w u o ee) =>
+ -- Castable Straight into (w u o e) =>
+ -- (Supertype (w u o e) ~ u o e) =>
+ -- (Supertype (w u o ee) ~ u o ee) =>
+ -- into e ee -> into (w u o e) (w u o ee)
+-- rwr'fio = rwr `compose` _i `compose` fo
 
 -- TODO: try to simplify
-rwr'yoi :: forall from into w o u e ee .
- Precategory into =>
- Covariant Yoneda from into (U_II_I u o) =>
- Castable Opposite into (w u ee o) =>
- Castable Straight (->) (w u e o) =>
- Castable Straight into (U_II_I u o ee) =>
- Castable Opposite into (U_I_II from e ee) =>
- (Supertype (w u e o) ~ u e o) =>
- (Supertype (w u ee o) ~ u ee o) =>
- w u e o -> into (from e ee) (w u ee o)
-rwr'yoi x = wrap @into `compose` yoi (unwrap x)
+-- rwr'yoi :: forall from into w o u e ee .
+ -- Precategory into =>
+ -- Covariant Yoneda from into (U_II_I u o) =>
+ -- Castable Opposite into (w u ee o) =>
+ -- Castable Straight (->) (w u e o) =>
+ -- Castable Straight into (U_II_I u o ee) =>
+ -- Castable Opposite into (U_I_II from e ee) =>
+ -- (Supertype (w u e o) ~ u e o) =>
+ -- (Supertype (w u ee o) ~ u ee o) =>
+ -- w u e o -> into (from e ee) (w u ee o)
+-- rwr'yoi x = wrap @into `compose` yoi (unwrap x)
 
 -- -- TODO: generalize
 -- o_rwr_''yoi :: forall from into w a o u e ee .
