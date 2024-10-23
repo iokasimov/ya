@@ -92,6 +92,11 @@ type Attribute = U_I_UU_II_U_II_I (->) LM
 pattern Attribute :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Attribute e ee
 pattern Attribute x = U_I_UU_II_U_II_I @(->) @LM x
 
+type Scope = U_I_UU_II_U_II_I (->) LM
+
+pattern Scope :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Scope e ee
+pattern Scope x = U_I_UU_II_U_II_I @(->) @LM x
+
 type Directive = U_I_UU_II_U_II_I (->) ML
 
 pattern Directive :: forall ee e . (e `ARR` ML ee (ee -> e)) -> Directive e ee
