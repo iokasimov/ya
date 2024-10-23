@@ -117,7 +117,7 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
  scroll way x = is
   `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
-  `li` unwrap (flow `he'he` x) where
+  `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
    `yukkk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` path way `yokkk` Maybe
@@ -127,12 +127,11 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
   path = is `huu` at @(Reverse List item) `ho'he` Attribute self
    `laaaa` is `huu` at @(Forward List item) `ho'he` Attribute self
 
--- TODO: let's start with an easiest one - go deep down
 instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) item where
  scroll way x = is
   `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
-  `li` unwrap ((is `hu` flow_deep `la` is `hu` flow_lift `li` way) `he'he` x) where
+  `li` (is `hu` flow_deep `la` is `hu` flow_lift `li` way) `he'he` x where
 
   flow_deep :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
   flow_deep = enter @(State `WR` Scrolling Tree item `JNT` Halts)

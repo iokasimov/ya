@@ -39,6 +39,8 @@ pattern Selfsame x = U_I_II (That x)
 
 type Provided = U_I_II (->)
 
+type Supplied = U_II_I LM
+
 type Optional = U_I_II ML ()
 
 pattern None x = U_I_II (This x)
