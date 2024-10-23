@@ -2087,7 +2087,6 @@ yok'ha x f = yok @into @into x `compose` fai @into f
 -- yokl_o x = fai fio (yokl @from @u x)
 
 ho'yokl, hoo'yokl, hooo'yokl, hoooo'yokl, hooooo'yokl, hoooooo'yokl, hooooooo'yokl, hoooooooo'yokl, hooooooooo'yokl :: forall from u t tt a o e .
- Unlabelable from tt =>
  Covariant Semi Functor from (->) (Straight u e) =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
@@ -2095,9 +2094,8 @@ ho'yokl, hoo'yokl, hooo'yokl, hoooo'yokl, hooooo'yokl, hoooooo'yokl, hooooooo'yo
  Covariant Yoneda from (->) (Straight u e) =>
  (forall ee . Wrapper from (T_TT_I t tt ee)) =>
  (forall ee . Wrapper from (TT_T_I t tt ee)) =>
- -- Wrapper from (Identity e) =>
- u e (t a) -> from a (tt o) -> u e (Unlabeled tt (t o))
-ho'yokl x = fio @from unlabel `compose` fai fokl (ho @from x)
+ u e (t a) -> from a (tt o) -> u e (tt (t o))
+ho'yokl x = fai fokl (ho @from x)
 
 hoo'yokl = ho'yokl
 hooo'yokl = ho'yokl

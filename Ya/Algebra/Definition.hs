@@ -345,19 +345,6 @@ ana :: forall into t e .
  into e (t e) -> into e (Recursive t)
 ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
 
-type family Unlabeled t where
- Unlabeled (Labeled label t) = t
- Unlabeled t = t
-
-class Unlabelable into t where
- unlabel :: into (t e) (Unlabeled t e)
-
-instance {-# OVERLAPPABLE #-} (Category into, Unlabeled t ~ t)
- => Unlabelable into t where unlabel = identity
-
-instance {-# OVERLAPS #-} (forall e . Wrapper into (Labeled label t e))
- => Unlabelable into (Labeled label t) where unlabel = unwrap
-
 type family JNT effect where
  JNT (U_I_II AR e) = T_TT_I (U_I_II AR e)
  JNT (U_I_II ML e) = TT_T_I (U_I_II ML e)
