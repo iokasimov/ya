@@ -461,7 +461,6 @@ yok'he, yokk'he, yokkk'he, yokkkk'he, yokkkkk'he, yokkkkkk'he, yokkkkkkk'he
  Wrapper into (U_I_II from a (tt o)) =>
  Wrapper into (U_II_I from (tt o) a) =>
  Wrapper into (U_II_I from (tt o) (Supertype a)) =>
- -- (forall e . Wrapper into (Identity e) =>
  (forall e . Wrapper into (T_TT_I t tt e)) =>
  Wrapper into (T_TT_I t tt o) =>
  Castable Straight from a =>
@@ -1703,18 +1702,21 @@ luuuuuuuu = lu
  -- from e o -> from e oo -> Product o oo
 -- ho'lu l r = wrapped (map @Straight @Straight @(->) @(->) @Identity @(U_I_I Product) identity) () `yui` l `yiu` r
 
-la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa :: forall from i o oo .
+la, laa, laaa, laaaa, laaaaa, laaaaaa, laaaaaaa, laaaaaaaa :: forall from i a o oo .
  Category from =>
  Limit Opposite from from =>
+ Objective from (o `ML` oo) a =>
  Covariant Endo Semi Functor from (U_I_II Sum o) =>
  Covariant Endo Semi Functor from (U_II_I Sum i) =>
  (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
  (forall ee eee . Wrapper from (U_II_I Sum ee eee)) =>
  (forall ee . Wrapper from (U_I_I Sum ee)) =>
  (forall ee . Wrapper from (Identity ee)) =>
- from o i -> from oo i -> from (Sum o oo) i
+ from o i -> from oo i -> from a i
 la l r = wrapped (map @Opposite @Opposite @from @from @Identity @(Both Sum) identity)
- `compose` foi @from @from l `compose` fio @from @from r
+ `compose` foi @from @from l
+ `compose` fio @from @from r
+ `compose` objective @_ @(o `ML` oo)
 
 laa = la
 laaa = la
