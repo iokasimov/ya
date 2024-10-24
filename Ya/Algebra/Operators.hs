@@ -1107,11 +1107,12 @@ ha'ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from a o -> u (uu o ee) e
 ha'ha x = fai @(->) @(->) fai (ha @u x)
 
-hv :: forall from u a o .
- Contravariant Yoneda from (->) (U_II_I u o) =>
- Castable Straight (->) (u () o) =>
- u a o -> from () a -> Supertype (u () o)
-hv x from = he (x `ha` from)
+hv :: forall from into a o e .
+ Category into =>
+ Terminal into =>
+ Contravariant Yoneda into (->) (U_II_I into o) =>
+ into () o -> into e a -> into e o
+hv x = ha (x `compose` terminal)
 
 ha_ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
