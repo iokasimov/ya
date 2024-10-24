@@ -7,18 +7,18 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 class Field e r where
- at :: Attribute r e
+ at :: Reference LM r e e
 
 instance Field e e where
- at = Attribute self
+ at = self
 
 instance Field e (ee `LM` e) where
- at = Attribute `li` \(These x xx) -> xx `lu` (x `lu`)
+ at (These x xx) = xx `lu` (x `lu`)
 
 instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
- at = Attribute `he` \(These x xs) -> These
-  `li` this (at @e @ee `he'he` x)
-  `li` \new -> adjust (at @e @ee) (but new) x `lu` xs
+ at (These x xs) = These
+  `li` this (at @e @ee `he` x)
+  `li` \new -> adjust (Attribute (at @e @ee)) (but new) x `lu` xs
 
 -- type family Handpicked a r where
  -- Handpicked a (a `ML` aa) = a `ML`()
@@ -47,7 +47,7 @@ type family Excluded a r where
  Excluded a (aa `ML` aaa) = Excluded a aa `ML` aaa
 
 class Matchable a r where
- match :: r -> Handpicked a r
+ match :: r `ARR` a `ML` Excluded a r
 
 instance Matchable a (a `ML` aa) where
  match = This `la` That
@@ -171,12 +171,12 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
   `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
-   `yukkk` State `heee` Transition `he` pop `haa'he` at @(Shafted List item) `ho'he` path way `yokkk` Maybe
-   `yokkk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` at @(Focused item) `he'ho'he` Attribute self
-   `yokkk` State `haaa` Transition `ha` push `hoo'ha` at @(Shafted List item) `he'ho'he` path (not way)
+   `yukkk` State `heee` Transition `he` pop `haa'he` Scope @(Shafted List item) at `ho'he` path way `yokkk` Maybe
+   `yokkk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   `yokkk` State `haaa` Transition `ha` push `hoo'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
-  path = is `huu` at @(Reverse List item) `ho'he` Attribute self
-   `laaaa` is `huu` at @(Forward List item) `ho'he` Attribute self
+  path = is `huu` Scope @(Reverse List item) at `ho'he` Scope self
+   `laaaa` is `huu` Scope @(Forward List item) at `ho'he` Scope self
 
 instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) item where
  scroll way x = is
@@ -184,46 +184,48 @@ instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) ite
   `la` is `ho'he` foi @_ @Arrow Some
   `li` (is `hu` flow_deep `la` is `hu` flow_lift `li` way) `he'he` x where
 
+-- TODO: define instances to compose attributes like: attr `ha` attr
+
   flow_deep :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
   flow_deep = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yukkk` State `heee` Transition `he` auto
-   `haa'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` Tree) item)
-    `ho'he'he'he` Attribute self `yokkk` Maybe
-   `yokkk` but (State `heee` Transition `he` auto `haa'he` at @(Focused item))
+   `haa'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` Tree) item) at
+    `ho'he'he'he` Scope self `yokkk` Maybe
+   `yokkk` but (State `heee` Transition `he` auto `haa'he` Scope @(Focused item) at)
     `lo'yp` is @(Nonempty List `WR` Tree _) `ho` to @(Scrolling List) `ho` intro
    `yokkk` State `haaaa` Transition
    `haaa` (\(These e (U_T_I_TT_I (These ee eee))) xs ->
     push (U_T_I_TT_I (e `lu` T_TT_I eee)) xs `yui` unwrap ee)
-   `hooo'ha'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
-    `ho'he` Attribute self
+   `hooo'ha'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
+    `ho'he` Scope self
    `yokkk` State `haaaa` Transition
    `haaa` (\(Root e ee) _ -> Only e `lu` (T_TT_I (ee `yo` R_U_I_T_I)))
-   `hooo'ha'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` Tree) item)
+   `hooo'ha'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` Tree) item) at
    `yokkk` State `haaaa` Transition `haaa` switch `ha` unwrap @AR
-   `hooo'ha'he` at @(Focused item) `ho'he` Attribute self
+   `hooo'ha'he` Scope @(Focused item) at `ho'he` Scope self
 
   flow_lift :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
   flow_lift = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yukkk` State `heee` Transition `he` auto
-   `haa'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
-    `ho'he'he'he` Attribute self `yokkk` Maybe
+   `haa'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
+    `ho'he'he'he` Scope self `yokkk` Maybe
    `yokkk` State `haaa` Transition `ha` (\nl _ -> pop nl)
-   `hoo'ha'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item)
-    `ho'he` Attribute self
+   `hoo'ha'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
+    `ho'he` Scope self
    `yokkk` State `haaa` Transition
    `ha` (\(U_T_I_TT_I (These e ee)) focus -> (unwrap focus `lu`unwrap ee) `lu` e)
-   `hoo'ha'he` at @(Focused item)
+   `hoo'ha'he` Scope @(Focused item) at
    `yokkk` State `haaa` Transition
    `ha` (\(These e ee) children -> e `lu` List `ha` Some `ha` to @(Nonempty List)
     `he` U_T_I_TT_I (Only (Root e (children `yo` unwrap @AR)) `lu`ee ))
-   `hoo'ha'he` at @(Shafted Tree item)
-    `ho'he` at @((List `T_TT_I` Tree) item)
-    `ho'he` Attribute self
+   `hoo'ha'he` Scope @(Shafted Tree item) at
+    `ho'he` Scope @((List `T_TT_I` Tree) item) at
+    `ho'he` Scope self
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T_TT_I` Optional)) item where
 
