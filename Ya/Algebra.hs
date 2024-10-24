@@ -63,7 +63,7 @@ instance
  mapping = rewrap / \from -> rewrap
   / \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
    (These
-    `hoo'ho` wrap @AR @(U_I_T_II _ _ _ _)
+    `ho_'ho` wrap @AR @(U_I_T_II _ _ _ _)
     `ho` wrap @AR @(Recursive _)
     `ho` wrap @AR @(R_U_I_T_I _ _ _)
     `ho` wrap @AR @(Labeled _ _ _))

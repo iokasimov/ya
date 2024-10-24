@@ -32,7 +32,7 @@ switch = (auto `ho'hu`)
 leaf :: forall t e .
  Monoidal Straight Functor (->) LM ML t =>
  e -> Recursive (U_I_T_II t LM e)
-leaf x = Recursive `ha` U_I_T_II `ha` These x `lii` empty `yo` initial @(->)
+leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial @(->)
 
 self :: Reference LM e e e
 self x = x `lu` identity
@@ -49,7 +49,7 @@ sub :: forall tt t e .
  Reference LM (Construction t e) (t (Construction t e)) (t (Construction t e))
 sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
-  (\new -> Root x `lii` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
+  (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
 intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x

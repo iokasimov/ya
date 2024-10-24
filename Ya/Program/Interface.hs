@@ -12,80 +12,80 @@ class Field e r where
 instance Field e e where
  at = self
 
-instance Field e (ee `LM` e) where
+instance Field e (__ `LM` e) where
  at (These x xx) = xx `lu` (x `lu`)
 
-instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
+instance {-# OVERLAPS #-} Field e __ => Field e (__ `LM` __e) where
  at (These x xs) = These
-  `li` this (at @e @ee `he` x)
-  `li` \new -> adjust (Attribute (at @e @ee)) (but new) x `lu` xs
+  `li` this (at @e @__ `he` x)
+  `li` \new -> adjust (Attribute (at @e @__)) (but new) x `lu` xs
 
 -- type family Handpicked a r where
- -- Handpicked a (a `ML` aa) = a `ML`()
- -- Handpicked a (aa `ML` a) = a `ML` ()
- -- Handpicked a (aa `ML` aaa) = Handpicked a aa
+ -- Handpicked a (a `ML` a_) = a `ML`()
+ -- Handpicked a (a_ `ML` a) = a `ML` ()
+ -- Handpicked a (a_ `ML` a__) = Handpicked a a_
 
 -- class Matchable a r where
  -- match :: r -> Handpicked a r
 
--- instance Matchable a (a `ML` aa) where
+-- instance Matchable a (a `ML` a_) where
  -- match = This `la` That `ha` but Unit
 
--- instance Matchable a (aa `ML` a) where
+-- instance Matchable a (a_ `ML` a) where
  -- match = That `ha` but Unit `la` This
 
 -- instance {-# OVERLAPS #-}
- -- ( Matchable a aa
- -- , Handpicked a (aa `ML` aaa) ~ a `ML` ()
- -- , Handpicked a aa ~ a `ML` ()
- -- ) => Matchable a (aa `ML` aaa) where
- -- match = match @a @aa `la` That `ha` but Unit
+ -- ( Matchable a a_
+ -- , Handpicked a (a_ `ML` a__) ~ a `ML` ()
+ -- , Handpicked a a_ ~ a `ML` ()
+ -- ) => Matchable a (a_ `ML` a__) where
+ -- match = match @a @a_ `la` That `ha` but Unit
 
 type family Excluded a r where
- Excluded a (a `ML` aa) = aa
- Excluded a (aa `ML` a) = aa
- Excluded a (aa `ML` aaa) = Excluded a aa `ML` aaa
+ Excluded a (a `ML` a_) = a_
+ Excluded a (a_ `ML` a) = a_
+ Excluded a (a_ `ML` a__) = Excluded a a_ `ML` a__
 
 class Matchable a r where
  match :: r `ARR` a `ML` Excluded a r
 
-instance Matchable a (a `ML` aa) where
+instance Matchable a (a `ML` a_) where
  match = This `la` That
 
-instance Matchable a (aa `ML` a) where
+instance Matchable a (a_ `ML` a) where
  match = That `la` This
 
-instance (Excluded a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
- => Matchable a (a `ML` aa `ML` aaa) where
+instance (Excluded a (a `ML` a_ `ML` a__) ~ (a_ `ML` a__))
+ => Matchable a (a `ML` a_ `ML` a__) where
  match = This
   `la` That `ha` This
   `la` That `ha` That
 
-instance (Excluded a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
- => Matchable a (aa `ML` a `ML` aaa) where
+instance (Excluded a (a_ `ML` a `ML` a__) ~ (a_ `ML` a__))
+ => Matchable a (a_ `ML` a `ML` a__) where
  match = is
   `li` That `ha` This
   `la` This
   `la` That `ha` That
 
-instance (Excluded a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
+instance (Excluded a (a `ML` a_ `ML` a__ `ML` a___) ~ (a_ `ML` a__ `ML` a___))
+ => Matchable a (a `ML` a_ `ML` a__ `ML` a___) where
  match = is
   `li` This
   `la` That `ha` This `ha` This
   `la` That `ha` This `ha` That
   `la` That `ha` That
 
-instance (Excluded a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
+instance (Excluded a (a_ `ML` a `ML` a__ `ML` a___) ~ (a_ `ML` a__ `ML` a___))
+ => Matchable a (a_ `ML` a `ML` a__ `ML` a___) where
  match = is
   `li` That `ha` This `ha` This
   `la` This
   `la` That `ha` This `ha` That
   `la` That `ha` That
 
-instance (Excluded a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
+instance (Excluded a (a_ `ML` a__ `ML` a `ML` a___) ~ (a_ `ML` a__ `ML` a___))
+ => Matchable a (a_ `ML` a__ `ML` a `ML` a___) where
  match = is
   `li` That `ha` This `ha` This
   `la` That `ha` This `ha` That
@@ -150,7 +150,7 @@ instance
  Mapping Straight Straight Arrow Arrow (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
   let f = State `ha` Transition `ha` push `ha` from in
-  that (l `yokl` f `yukkkk` r `yokl` f `heeeeee'he` Construct `ha` Last `he` from x)
+  that (l `yokl` f `yuk___` r `yokl` f `he_____'he` Construct `ha` Last `he` from x)
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
  (U_T_I_TT_I LM Only (List `T_TT_I` Construction List `LM_T_I_TT_I` List `T_TT_I` (Only `LM_T_I_TT_I` (Reverse List `LM_T_I_TT_I` Forward List) `T_TT_I` Construction List))) where
@@ -171,59 +171,59 @@ instance Scrollable (Optional `T_TT_I` Construction Optional) item where
   `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
-   `yukkk` State `heee` Transition `he` pop `haa'he` Scope @(Shafted List item) at `ho'he` path way `yokkk` Maybe
-   `yokkk` State `haaa` Transition `ha` (auto `ho'hu`) `hoo'ha` Scope @(Focused item) at `he'ho'he` Scope self
-   `yokkk` State `haaa` Transition `ha` push `hoo'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
+   `yuk__` State `he__` Transition `he` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Maybe
+   `yok__` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   `yok__` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
-  path = is `huu` Scope @(Reverse List item) at `ho'he` Scope self
-   `laaaa` is `huu` Scope @(Forward List item) at `ho'he` Scope self
+  path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
+   `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
 
 instance Scrollable (Construction (Optional `T_TT_I` Construction Optional)) item where
  scroll way x = is
   `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
-  `li` (is `hu` flow_deep `la` is `hu` flow_lift `li` way) `he'he` x where
+  `li` (is `hu` flow_d__p `la` is `hu` flow_lift `li` way) `he'he` x where
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
-  flow_deep :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
-  flow_deep = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yukkk` State `heee` Transition `he` auto
-   `haa'he` Scope @(Shafted Tree item) at
+  flow_d__p :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  flow_d__p = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+   `yuk__` State `he__` Transition `he` auto
+   `ha_'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` Tree) item) at
-    `ho'he'he'he` Scope self `yokkk` Maybe
-   `yokkk` but (State `heee` Transition `he` auto `haa'he` Scope @(Focused item) at)
+    `ho'he'he'he` Scope self `yok__` Maybe
+   `yok__` but (State `he__` Transition `he` auto `ha_'he` Scope @(Focused item) at)
     `lo'yp` is @(Nonempty List `WR` Tree _) `ho` to @(Scrolling List) `ho` intro
-   `yokkk` State `haaaa` Transition
-   `haaa` (\(These e (U_T_I_TT_I (These ee eee))) xs ->
-    push (U_T_I_TT_I (e `lu` T_TT_I eee)) xs `yui` unwrap ee)
-   `hooo'ha'he` Scope @(Shafted Tree item) at
+   `yok__` State `ha___` Transition
+   `ha__` (\(These e (U_T_I_TT_I (These __ __e))) xs ->
+    push (U_T_I_TT_I (e `lu` T_TT_I __e)) xs `yui` unwrap __)
+   `ho__'ha'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
     `ho'he` Scope self
-   `yokkk` State `haaaa` Transition
-   `haaa` (\(Root e ee) _ -> Only e `lu` (T_TT_I (ee `yo` R_U_I_T_I)))
-   `hooo'ha'he` Scope @(Shafted Tree item) at
+   `yok__` State `ha___` Transition
+   `ha__` (\(Root e __) _ -> Only e `lu` (T_TT_I (__ `yo` R_U_I_T_I)))
+   `ho__'ha'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` Tree) item) at
-   `yokkk` State `haaaa` Transition `haaa` switch `ha` unwrap @AR
-   `hooo'ha'he` Scope @(Focused item) at `ho'he` Scope self
+   `yok__` State `ha___` Transition `ha__` switch `ha` unwrap @AR
+   `ho__'ha'he` Scope @(Focused item) at `ho'he` Scope self
 
   flow_lift :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
   flow_lift = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yukkk` State `heee` Transition `he` auto
-   `haa'he` Scope @(Shafted Tree item) at
+   `yuk__` State `he__` Transition `he` auto
+   `ha_'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
-    `ho'he'he'he` Scope self `yokkk` Maybe
-   `yokkk` State `haaa` Transition `ha` (\nl _ -> pop nl)
-   `hoo'ha'he` Scope @(Shafted Tree item) at
+    `ho'he'he'he` Scope self `yok__` Maybe
+   `yok__` State `ha__` Transition `ha` (\nl _ -> pop nl)
+   `ho_'ha'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` (Only `LM_T_I_TT_I` Shafted List `T_TT_I` Tree)) item) at
     `ho'he` Scope self
-   `yokkk` State `haaa` Transition
-   `ha` (\(U_T_I_TT_I (These e ee)) focus -> (unwrap focus `lu`unwrap ee) `lu` e)
-   `hoo'ha'he` Scope @(Focused item) at
-   `yokkk` State `haaa` Transition
-   `ha` (\(These e ee) children -> e `lu` List `ha` Some `ha` to @(Nonempty List)
-    `he` U_T_I_TT_I (Only (Root e (children `yo` unwrap @AR)) `lu`ee ))
-   `hoo'ha'he` Scope @(Shafted Tree item) at
+   `yok__` State `ha__` Transition
+   `ha` (\(U_T_I_TT_I (These e __)) focus -> (unwrap focus `lu`unwrap __) `lu` e)
+   `ho_'ha'he` Scope @(Focused item) at
+   `yok__` State `ha__` Transition
+   `ha` (\(These e __) children -> e `lu` List `ha` Some `ha` to @(Nonempty List)
+    `he` U_T_I_TT_I (Only (Root e (children `yo` unwrap @AR)) `lu`__ ))
+   `ho_'ha'he` Scope @(Shafted Tree item) at
     `ho'he` Scope @((List `T_TT_I` Tree) item) at
     `ho'he` Scope self
 
@@ -273,5 +273,5 @@ instance Literal (Construction (U_I_I LM `T_TT_I` Optional)) item item where
 instance (Literal (Construction (U_I_I LM `T_TT_I` Optional)) item lst, Literal (Construction (U_I_I LM `T_TT_I` Optional)) item rst) =>
  Literal (Construction (U_I_I LM `T_TT_I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
  as (These (These x lx) rx) = Root x `ha` T_TT_I `ha` U_I_I
-   `lii` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+   `li_` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
     `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
