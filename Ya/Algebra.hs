@@ -12,17 +12,17 @@ import Ya.Algebra.Operators as Exports
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Monoidal Functor AR LM LM tt
- , Component Natural AR AR (t `T'TT'I` tt) (t `TT_T_I` tt)
- , Component Natural AR AR (Labeled l (R_U_I_T_I LM t) `T'TT'I` tt) (Labeled l (R_U_I_T_I LM t) `TT_T_I` tt)
+ , Component Natural AR AR (t `T'TT'I` tt) (t `TT'T'I` tt)
+ , Component Natural AR AR (Labeled l (R_U_I_T_I LM t) `T'TT'I` tt) (Labeled l (R_U_I_T_I LM t) `TT'T'I` tt)
  ) => Mapping Straight Straight AR AR
   (Labeled l (t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` tt)
-  (Labeled l (t `T'TT'I` R_U_I_T_I LM t) `TT_T_I` tt) where
+  (Labeled l (t `T'TT'I` R_U_I_T_I LM t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap / \x -> unwrap (unwrap x)
    `yo` wrapped (map @Straight @Straight @AR @AR
             @(Labeled l (R_U_I_T_I LM t) `T'TT'I` tt)
-            @(Labeled l (R_U_I_T_I LM t) `TT_T_I` tt) from)
+            @(Labeled l (R_U_I_T_I LM t) `TT'T'I` tt) from)
           `ha` wrap @AR @(Labeled l (R_U_I_T_I LM t) (tt _))
-   `yi` wrapped (map @Straight @Straight @AR @AR @(t `T'TT'I` tt) @(t `TT_T_I` tt) unwrap)
+   `yi` wrapped (map @Straight @Straight @AR @AR @(t `T'TT'I` tt) @(t `TT'T'I` tt) unwrap)
    `yo` wrap @AR @(Labeled l _ _)
    `ha` wrap @AR @(T'TT'I t (R_U_I_T_I LM t) _)
 
@@ -31,19 +31,19 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Monoidal Functor AR LM LM tt
- , Transformation Straight Functor AR AR (T'TT'I t tt) (TT_T_I t tt)
+ , Transformation Straight Functor AR AR (T'TT'I t tt) (TT'T'I t tt)
  ) => Mapping Straight Straight AR AR
   (Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `T'TT'I` tt)
-  (Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt) where
+  (Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap /
   \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
     x `yo` from `lu`
-     (wrapped (map @Straight @Straight @AR @_ @(t `T'TT'I` tt) @(t `TT_T_I` tt) (unwrap @AR @(R_U_I_T_I _ _ _) `ha` unwrap @AR @(Labeled _ _ _)))
+     (wrapped (map @Straight @Straight @AR @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _) `ha` unwrap @AR @(Labeled _ _ _)))
       (xs `yo` wrap @AR @(R_U_I_T_I _ _ _)
        `ho` wrap @AR @(Labeled (U_I_II AR Unit Unit) _ _)
        `ho` wrapped (map @Straight @Straight @AR @AR
          @(Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `T'TT'I` tt)
-         @(Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt)
+         @(Labeled (U_I_II AR Unit Unit) (R_U_I_T_I LM t) `TT'T'I` tt)
          from)
       )
      ) `yp'yo` wrap @AR @(Labeled _ _ _)
@@ -56,10 +56,10 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Monoidal Functor AR LM LM tt
- , Transformation Straight Functor AR AR (t `T'TT'I` tt) (t `TT_T_I` tt)
+ , Transformation Straight Functor AR AR (t `T'TT'I` tt) (t `TT'T'I` tt)
  ) => Mapping Straight Straight AR AR
   (Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `T'TT'I` tt)
-  (Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt) where
+  (Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap
   / \(T_'_I (R_U_I_T_I (Recursive (U_I_T_II (These x xs))))) ->
    (These
@@ -68,7 +68,7 @@ instance
     `ho` wrap @AR @(R_U_I_T_I _ _ _)
     `ho` wrap @AR @(Labeled _ _ _))
    `fo` (x `yo` from)
-   `fc` wrapped (map @Straight @Straight @AR @_ @(t `T'TT'I` tt) @(t `TT_T_I` tt)
+   `fc` wrapped (map @Straight @Straight @AR @_ @(t `T'TT'I` tt) @(t `TT'T'I` tt)
          (unwrap @AR @(R_U_I_T_I _ _ _) `ha` unwrap @AR @(Labeled _ _ _))
         )
     (xs
@@ -76,7 +76,7 @@ instance
      `ho` wrap @AR @(Labeled _ _ _)
      `ho` wrapped (map @Straight @Straight @AR @AR
         @(Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `T'TT'I` tt)
-        @(Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT_T_I` tt)
+        @(Labeled (U_II_I AR Unit Unit) (R_U_I_T_I LM t) `TT'T'I` tt)
         from)
     )
 
@@ -269,10 +269,10 @@ instance
  ( Covariant Functor into into t
  , Covariant Endo Semi Functor into (ttt e)
  , Mapping Straight Straight into into (t `T'TT'I` t) t
- , Mapping Straight Straight into into (tt e `T'TT'I` t) (tt e `TT_T_I` t)
+ , Mapping Straight Straight into into (tt e `T'TT'I` t) (tt e `TT'T'I` t)
  , forall ee . Wrapper into (T_TTT'TT'I (ttt e) (tt e) t ee)
  , forall ee . Wrapper into (T'TT'I (tt e) t ee)
- , forall ee . Wrapper into (TT_T_I (tt e) t ee)
+ , forall ee . Wrapper into (TT'T'I (tt e) t ee)
  , forall ee . Wrapper into (T'TT'I t t ee)
  , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I (ttt e) (tt e) t) t ee)
  ) => Mapping Straight Straight into into
@@ -282,7 +282,7 @@ instance
   map @Straight @Straight @into @into @(ttt e)
    (component @Straight @into @into @(t `T'TT'I` t) @t `compose` wrap @into
     `compose` map @Straight @Straight @into @into @t
-     (wrapped (map @Straight @Straight @into @into @(tt e `T'TT'I` t) @(tt e `TT_T_I` t) from))
+     (wrapped (map @Straight @Straight @into @into @(tt e `T'TT'I` t) @(tt e `TT'T'I` t) from))
     )
   `compose` unwrap @into
 
@@ -295,28 +295,28 @@ instance
  , Covariant Endo Semi Functor into ttt
  , Covariant Endo Semi Functor into tttt
  , Mapping Straight Straight into into (tttt `T'TT'I` tttt) tttt
- , Mapping Straight Straight into into (tt `T'TT'I` tttt) (tt `TT_T_I` tttt)
- , Mapping Straight Straight into into (t `T'TT'I` tttt) (t `TT_T_I` tttt)
+ , Mapping Straight Straight into into (tt `T'TT'I` tttt) (tt `TT'T'I` tttt)
+ , Mapping Straight Straight into into (t `T'TT'I` tttt) (t `TT'T'I` tttt)
  , forall ee . Wrapper into (T'TT'I tt tttt ee)
- , forall ee . Wrapper into (TT_T_I tt tttt ee)
+ , forall ee . Wrapper into (TT'T'I tt tttt ee)
  , forall ee . Wrapper into (T'TT'I t tttt ee)
- , forall ee . Wrapper into (TT_T_I t tttt ee)
+ , forall ee . Wrapper into (TT'T'I t tttt ee)
  , forall ee . Wrapper into (T'TT'I tttt tttt ee)
- , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT_T_I t tttt)) tttt ee)
- , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT_T_I t tttt) ee)
+ , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT'T'I t tttt)) tttt ee)
+ , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT'T'I t tttt) ee)
  ) => Mapping Straight Straight into into
-  (T_TTT'TT'I ttt tt (TT_T_I t tttt) `T'TT'I` tttt)
-  (T_TTT'TT'I ttt tt (TT_T_I t tttt)) where
+  (T_TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` tttt)
+  (T_TTT'TT'I ttt tt (TT'T'I t tttt)) where
  mapping = rewrap / \from -> rewrap /
   map @Straight @Straight @into @into @ttt @ttt
-   (wrap @into @(TT_T_I _ _ _)
+   (wrap @into @(TT'T'I _ _ _)
     `compose` component @Straight @into @into @(tttt `T'TT'I` tttt) @tttt
     `compose` wrap @into @(T'TT'I tttt tttt _)
     `compose` map @Straight @Straight @into @into @tttt
-     (wrapped (component @Straight @into @into @(t `T'TT'I` tttt) @(t `TT_T_I` tttt)))
-    `compose` unwrap @into @(TT_T_I t tttt _)
-    `compose` map @Straight @Straight @into @into @(TT_T_I t tttt) @(TT_T_I t tttt)
-     (wrapped (map @Straight @Straight @into @into @(tt `T'TT'I` tttt) @(tt `TT_T_I` tttt) from))
+     (wrapped (component @Straight @into @into @(t `T'TT'I` tttt) @(t `TT'T'I` tttt)))
+    `compose` unwrap @into @(TT'T'I t tttt _)
+    `compose` map @Straight @Straight @into @into @(TT'T'I t tttt) @(TT'T'I t tttt)
+     (wrapped (map @Straight @Straight @into @into @(tt `T'TT'I` tttt) @(tt `TT'T'I` tttt) from))
    )
   `compose` unwrap @into
 
@@ -328,46 +328,46 @@ instance
  , Covariant Endo Semi Functor into ttt
  , Covariant Endo Semi Functor into tttt
  , Component Natural into into (t `T'TT'I` t) t
- , Component Natural into into (tt `T'TT'I` t) (tt `TT_T_I` t)
- , Component Natural into into (t `T'TT'I` tttt) (t `TT_T_I` tttt)
+ , Component Natural into into (tt `T'TT'I` t) (tt `TT'T'I` t)
+ , Component Natural into into (t `T'TT'I` tttt) (t `TT'T'I` tttt)
  , forall ee . Wrapper into (T'TT'I tt t ee)
- , forall ee . Wrapper into (TT_T_I tt t ee)
+ , forall ee . Wrapper into (TT'T'I tt t ee)
  , forall ee . Wrapper into (T'TT'I t tttt ee)
- , forall ee . Wrapper into (TT_T_I t tttt ee)
+ , forall ee . Wrapper into (TT'T'I t tttt ee)
  , forall ee . Wrapper into (T'TT'I t t ee)
- , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT_T_I t tttt)) t ee)
- , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT_T_I t tttt) ee)
+ , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT'T'I t tttt)) t ee)
+ , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT'T'I t tttt) ee)
  ) => Mapping Straight Straight into into
-  (T_TTT'TT'I ttt tt (TT_T_I t tttt) `T'TT'I` t)
-  (T_TTT'TT'I ttt tt (TT_T_I t tttt)) where
+  (T_TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` t)
+  (T_TTT'TT'I ttt tt (TT'T'I t tttt)) where
  mapping = rewrap / \from -> rewrap /
   map @Straight @Straight @into @into @ttt @ttt
-   (wrap @into @(TT_T_I _ _ _)
+   (wrap @into @(TT'T'I _ _ _)
     `compose` map @Straight @Straight @into @into @tttt
      (component @Straight @into @into @(t `T'TT'I` t) @t `compose` wrap @into @(T'TT'I _ _ _))
-    `compose` unwrap @into @(TT_T_I t tttt _)
-    `compose` map @Straight @Straight @into @into @(TT_T_I t tttt) @(TT_T_I t tttt)
-     (wrapped (map @Straight @Straight @into @into @(tt `T'TT'I` t) @(tt `TT_T_I` t) from))
+    `compose` unwrap @into @(TT'T'I t tttt _)
+    `compose` map @Straight @Straight @into @into @(TT'T'I t tttt) @(TT'T'I t tttt)
+     (wrapped (map @Straight @Straight @into @into @(tt `T'TT'I` t) @(tt `TT'T'I` t) from))
    )
   `compose` unwrap @into
 
 instance
  ( Monoidal Straight Functor AR LM LM t
  , Covariant Endo Semi Functor AR tt
- ) => Mapping Straight Straight AR AR tt (tt `TT_T_I` t) where
- mapping = rewrap / \from -> wrap @AR @((tt `TT_T_I` t) _)
+ ) => Mapping Straight Straight AR AR tt (tt `TT'T'I` t) where
+ mapping = rewrap / \from -> wrap @AR @((tt `TT'T'I` t) _)
   `compose` component @Straight @AR @AR @(U_I_II AR Unit) @t
   `compose` component @Straight @AR @AR @Identity @(U_I_II AR Unit)
   `compose` wrap @AR
   `compose` map @Straight @Straight @AR @AR @tt @tt from
 
-instance Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` tt) (U_II_I LM e `TT_T_I` tt) =>
+instance Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` tt) (U_II_I LM e `TT'T'I` tt) =>
  Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` tt)
   (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
  mapping = rewrap / \from (T'TT'I (U_I_II (U_I_UU_II_I x))) ->
   T_TTT'TT'I `compose` U_I_II / \old -> wrapped @AR
-   `li` map @Straight @Straight @AR @AR @(U_II_I LM e `T'TT'I` tt) @(U_II_I LM e `TT_T_I` tt) from
+   `li` map @Straight @Straight @AR @AR @(U_II_I LM e `T'TT'I` tt) @(U_II_I LM e `TT'T'I` tt) from
    `li` U_II_I (x old)
 
 instance Monoidal Straight Functor AR LM LM t =>
@@ -416,54 +416,54 @@ instance
 instance
  ( Covariant Endo Semi Functor into t
  , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
- , Component Natural from into (U_II_I tt e `T'TT'I` t) (U_II_I tt e `TT_T_I` t)
+ , Component Natural from into (U_II_I tt e `T'TT'I` t) (U_II_I tt e `TT'T'I` t)
  , forall ee . Wrapper into (Identity ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (U_I_II ttt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) t ee)
- , forall ee . Wrapper into (TT_T_I (U_II_I tt e) t ee)
+ , forall ee . Wrapper into (TT'T'I (U_II_I tt e) t ee)
  , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
  ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t) where
  mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
-  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` t) @(U_II_I tt e `TT_T_I` t) from))
+  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` t) @(U_II_I tt e `TT'T'I` t) from))
 
 instance
  ( Covariant Semi Functor from into t
  , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
- , Component Natural from into (U_II_I tt e `T'TT'I` TT_T_I t tttt) (U_II_I tt e `TT_T_I` TT_T_I t tttt)
- , Component Natural from into (U_II_I tt e `T'TT'I` TT_T_I t tttt) (U_II_I tt e `TT_T_I` TT_T_I t tttt)
- , Component Natural from into t (TT_T_I t tttt)
+ , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I t tttt) (U_II_I tt e `TT'T'I` TT'T'I t tttt)
+ , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I t tttt) (U_II_I tt e `TT'T'I` TT'T'I t tttt)
+ , Component Natural from into t (TT'T'I t tttt)
  , forall ee . Wrapper into (Identity ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (U_I_II ttt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
- , forall ee . Wrapper into (TT_T_I (U_II_I tt e) (TT_T_I t tttt) ee)
- , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT_T_I t tttt) ee)
- , forall ee . Wrapper into (TT_T_I (U_II_I tt e) tttt ee)
- , forall ee . Wrapper into (TT_T_I t tttt ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT_T_I t tttt) ee)
- ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT_T_I t tttt)) where
+ , forall ee . Wrapper into (TT'T'I (U_II_I tt e) (TT'T'I t tttt) ee)
+ , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT'T'I t tttt) ee)
+ , forall ee . Wrapper into (TT'T'I (U_II_I tt e) tttt ee)
+ , forall ee . Wrapper into (TT'T'I t tttt ee)
+ , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt) ee)
+ ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt)) where
  mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
-  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT_T_I t tttt) @(U_II_I tt e `TT_T_I` TT_T_I t tttt) from))
-  `compose` component @Straight @from @into @t @(t `TT_T_I` tttt)
+  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT'T'I t tttt) @(U_II_I tt e `TT'T'I` TT'T'I t tttt) from))
+  `compose` component @Straight @from @into @t @(t `TT'T'I` tttt)
 
 instance
  ( Covariant Semi Functor from into t
  , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
- , Component Natural from into (U_II_I tt e `T'TT'I` TT_T_I tttt t) (U_II_I tt e `TT_T_I` TT_T_I tttt t)
- , Component Natural from into (U_II_I tt e `T'TT'I` TT_T_I tttt t) (U_II_I tt e `TT_T_I` TT_T_I tttt t)
- , Component Natural from into t (TT_T_I tttt t)
+ , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I tttt t) (U_II_I tt e `TT'T'I` TT'T'I tttt t)
+ , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I tttt t) (U_II_I tt e `TT'T'I` TT'T'I tttt t)
+ , Component Natural from into t (TT'T'I tttt t)
  , forall ee . Wrapper into (Identity ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (U_I_II ttt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
- , forall ee . Wrapper into (TT_T_I (U_II_I tt e) (TT_T_I tttt t) ee)
- , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT_T_I tttt t) ee)
- , forall ee . Wrapper into (TT_T_I (U_II_I tt e) tttt ee)
- , forall ee . Wrapper into (TT_T_I tttt t ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT_T_I tttt t) ee)
- ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT_T_I tttt t)) where
+ , forall ee . Wrapper into (TT'T'I (U_II_I tt e) (TT'T'I tttt t) ee)
+ , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT'T'I tttt t) ee)
+ , forall ee . Wrapper into (TT'T'I (U_II_I tt e) tttt ee)
+ , forall ee . Wrapper into (TT'T'I tttt t ee)
+ , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t) ee)
+ ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t)) where
  mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
-  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT_T_I tttt t) @(U_II_I tt e `TT_T_I` TT_T_I tttt t) from))
-  `compose` component @Straight @from @into @t @(tttt `TT_T_I` t)
+  `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT'T'I tttt t) @(U_II_I tt e `TT'T'I` TT'T'I tttt t) from))
+  `compose` component @Straight @from @into @t @(tttt `TT'T'I` t)
 
 instance
  ( Covariant Semi Functor from AR t
@@ -490,7 +490,7 @@ instance Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` U_I_II ML e) (U_I
   T'TT'I (Straight (This e)) -> Straight (This e)
 
 instance Covariant Monoidal Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` t) (U_I_II ML e `TT_T_I` t) where
+ Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` t) (U_I_II ML e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   Straight (This e) -> yu enter (Straight `li` This e)
   Straight (That x) -> x `yo` from `ho` That  `ho` Straight
@@ -547,14 +547,14 @@ instance
    yp (These (f x) (g x)) `yo` h `ho` from
 
 instance Monoidal Straight Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II AR Unit) (TT_T_I (U_I_II ML e) t) where
- mapping = rewrap / \from (Straight f) -> TT_T_I (yu enter (U_I_II (That (from (f Unit)))))
+ Mapping Straight Straight AR AR (U_I_II AR Unit) (TT'T'I (U_I_II ML e) t) where
+ mapping = rewrap / \from (Straight f) -> TT'T'I (yu enter (U_I_II (That (from (f Unit)))))
 
 -- TODO: Finish, it's for Halts transformer
 instance Monoidal Straight Functor AR LM LM t =>
  Mapping Straight Straight AR AR
-  (Day Straight AR LM LM (TT_T_I (U_I_II ML e) t) (TT_T_I (U_I_II ML e) t) ee eee)
-  (TT_T_I (U_I_II ML e) t) where
+  (Day Straight AR LM LM (TT'T'I (U_I_II ML e) t) (TT'T'I (U_I_II ML e) t) ee eee)
+  (TT'T'I (U_I_II ML e) t) where
  mapping = rewrap / \from -> rewrap / \case
 
 -- 1. t (tt (t (tt _)))
@@ -566,38 +566,38 @@ instance
  , Covariant Endo Semi Functor into tt
  , Component Natural into into (t `T'TT'I` t) t
  , Component Natural into into (tt `T'TT'I` tt) tt
- , Component Natural into into (tt `T'TT'I` t) (tt `TT_T_I` t)
- , forall e . Wrapper into (((tt `T'TT'I` t) `T'TT'I` (tt `TT_T_I` t)) e)
- , forall e . Wrapper into (((tt `TT_T_I` t) `T'TT'I` (tt `TT_T_I` t)) e)
- , forall e . Wrapper into ((tt `T'TT'I` t) ((tt `TT_T_I` t) e))
+ , Component Natural into into (tt `T'TT'I` t) (tt `TT'T'I` t)
+ , forall e . Wrapper into (((tt `T'TT'I` t) `T'TT'I` (tt `TT'T'I` t)) e)
+ , forall e . Wrapper into (((tt `TT'T'I` t) `T'TT'I` (tt `TT'T'I` t)) e)
+ , forall e . Wrapper into ((tt `T'TT'I` t) ((tt `TT'T'I` t) e))
  , forall e . Wrapper into ((t `T'TT'I` t) e)
- , forall e . Wrapper into ((tt `TT_T_I` t) e)
+ , forall e . Wrapper into ((tt `TT'T'I` t) e)
  , forall e . Wrapper into ((tt `T'TT'I` t) e)
  , forall e . Wrapper into ((tt `T'TT'I` tt) e)
- ) => Mapping Straight Straight into into (TT_T_I tt t `T'TT'I` TT_T_I tt t) (TT_T_I tt t) where
+ ) => Mapping Straight Straight into into (TT'T'I tt t `T'TT'I` TT'T'I tt t) (TT'T'I tt t) where
  mapping = rewrap / \from -> rewrap
   / component @Straight @into @into @(t `T'TT'I` t) @t `compose` wrap @into
   `compose` map @Straight @Straight @into @into @t @t
   (map @Straight @Straight @into @into @t @t
     (map @Straight @Straight @into @into @(tt `T'TT'I` tt) @tt from `compose` wrap @into)
-    `compose` wrapped (component @Straight @into @into @(tt `T'TT'I` t) @(tt `TT_T_I` t))
+    `compose` wrapped (component @Straight @into @into @(tt `T'TT'I` t) @(tt `TT'T'I` t))
     `compose` map @Straight @Straight @into @into @tt @tt unwrap
-   ) `compose` unwrap @into @(TT_T_I _ _ _)
+   ) `compose` unwrap @into @(TT'T'I _ _ _)
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II LM e `T'TT'I` t) (U_I_II LM e `TT_T_I` t) where
+ Mapping Straight Straight AR AR (U_I_II LM e `T'TT'I` t) (U_I_II LM e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   U_I_II (These e x) -> x `yo` from `ho` These e `ho` U_I_II
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` t) (U_II_I LM e `TT_T_I` t) where
+ Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` t) (U_II_I LM e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   U_II_I (These x e) -> x `yo` from `ho` (`lu` e) `ho` U_II_I
 
 instance Covariant Endo Semi Functor AR t =>
- Mapping Straight Straight AR AR (t `T'TT'I` U_I_II AR e) (t `TT_T_I` U_I_II AR e) where
+ Mapping Straight Straight AR AR (t `T'TT'I` U_I_II AR e) (t `TT'T'I` U_I_II AR e) where
  mapping = rewrap / \from -> rewrap / \x ->
   Straight / \e -> x `yo` (from `compose` (`li` e) `compose` unwrap)
 

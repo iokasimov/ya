@@ -12,7 +12,7 @@ infixl 6 `WRRR`
 infixl 5 `WRRRR`
 
 infixl 6 `T'TT'I`
-infixl 6 `TT_T_I`
+infixl 6 `TT'T'I`
 
 type WR t i = t i
 type WRR t i = t i
@@ -59,15 +59,15 @@ instance Castable Straight (->) (T'TT'I f g i)
 instance Castable Opposite (->) (T'TT'I f g i)
  where cast = U_II_I T'TT'I
 
-newtype TT_T_I t tt i = TT_T_I (tt (t i))
+newtype TT'T'I t tt i = TT'T'I (tt (t i))
 
-type instance Supertype (TT_T_I t tt i) = tt (t i)
+type instance Supertype (TT'T'I t tt i) = tt (t i)
 
-instance Castable Straight (->) (TT_T_I f g i)
- where cast = U_I_II (\(TT_T_I x) -> x)
+instance Castable Straight (->) (TT'T'I f g i)
+ where cast = U_I_II (\(TT'T'I x) -> x)
 
-instance Castable Opposite (->) (TT_T_I f g i)
- where cast = U_II_I TT_T_I
+instance Castable Opposite (->) (TT'T'I f g i)
+ where cast = U_II_I TT'T'I
 
 newtype T_'_I e t i = T_'_I (t i)
 
