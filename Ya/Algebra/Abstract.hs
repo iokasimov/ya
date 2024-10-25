@@ -19,27 +19,99 @@ type WRR t i = t i
 type WRRR t i = t i
 type WRRRR t i = t i
 
-newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
+type family Supertype e
+
+class Castable direction morphism e where
+ cast :: direction morphism e (Supertype e)
+
+class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
+deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
 
 newtype Identity i = Identity i
+
+type instance Supertype (Identity i) = i
+
+instance Castable Straight (->) (Identity i)
+ where cast = U_I_II (\(Identity x) -> x)
+
+instance Castable Opposite (->) (Identity i)
+ where cast = U_II_I Identity
+
+newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
+
+type instance Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
+
+instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
+ where cast = U_II_I U_U_I_II_UU_I_II
+
+instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
+ where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
 newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T_TT_I t tt i = T_TT_I (t (tt i))
 
+type instance Supertype (T_TT_I t tt i) = t (tt i)
+
+instance Castable Straight (->) (T_TT_I f g i)
+ where cast = U_I_II (\(T_TT_I x) -> x)
+
+instance Castable Opposite (->) (T_TT_I f g i)
+ where cast = U_II_I T_TT_I
+
 newtype TT_T_I t tt i = TT_T_I (tt (t i))
+
+type instance Supertype (TT_T_I t tt i) = tt (t i)
+
+instance Castable Straight (->) (TT_T_I f g i)
+ where cast = U_I_II (\(TT_T_I x) -> x)
+
+instance Castable Opposite (->) (TT_T_I f g i)
+ where cast = U_II_I TT_T_I
 
 newtype T_'_I e t i = T_'_I (t i)
 
 newtype T_TTT_TT_I t ttt tt i = T_TTT_TT_I (t (tt (ttt i)))
 
+type instance Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
+
+instance Castable Straight (->) (T_TTT_TT_I f g h i)
+ where cast = U_I_II (\(T_TTT_TT_I x) -> x)
+
+instance Castable Opposite (->) (T_TTT_TT_I f g h i)
+ where cast = U_II_I T_TTT_TT_I
+
 data U_ u i ii
 
 newtype U_I_I u i = U_I_I (u i i)
 
+type instance Supertype (U_I_I u i) = u i i
+
+instance Castable Straight (->) (U_I_I u i)
+ where cast = U_I_II (\(U_I_I x) -> x)
+
+instance Castable Opposite (->) (U_I_I u i)
+ where cast = U_II_I U_I_I
+
 newtype U_I_II u i ii = U_I_II (u i ii)
 
+type instance Supertype (U_I_II u i ii) = u i ii
+
+instance Castable Straight (->) (U_I_II u i ii)
+ where cast = U_I_II (\(U_I_II x) -> x)
+
+instance Castable Opposite (->) (U_I_II u i ii)
+ where cast = U_II_I U_I_II
+
 newtype U_II_I u i ii = U_II_I (u ii i)
+
+type instance Supertype (U_II_I u ii i) = u i ii
+
+instance Castable Straight (->) (U_II_I u i ii)
+ where cast = U_I_II (\(U_II_I x) -> x)
+
+instance Castable Opposite (->) (U_II_I u i ii)
+ where cast = U_II_I U_II_I
 
 newtype U_1_I u _' i = U_1_I (u () i)
 
@@ -127,22 +199,6 @@ type family Flip v where
  Flip Straight = Opposite
  Flip Opposite = Straight
 
-type family Supertype e
-
-class Castable direction morphism e where
- cast :: direction morphism e (Supertype e)
-
-class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
-deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
-
-type instance Supertype (Identity i) = i
-
-instance Castable Straight (->) (Identity i)
- where cast = U_I_II (\(Identity x) -> x)
-
-instance Castable Opposite (->) (Identity i)
- where cast = U_II_I Identity
-
 type instance Supertype (U_1_I u _ i) = u () i
 
 instance Castable Straight (->) (U_1_I u i ii)
@@ -159,46 +215,6 @@ instance Castable Straight (->) (U_I_1 u i ii)
 instance Castable Opposite (->) (U_I_1 u i ii)
  where cast = U_II_I U_I_1
 
-type instance Supertype (U_I_I u i) = u i i
-
-instance Castable Straight (->) (U_I_I u i)
- where cast = U_I_II (\(U_I_I x) -> x)
-
-instance Castable Opposite (->) (U_I_I u i)
- where cast = U_II_I U_I_I
-
-type instance Supertype (U_I_II u i ii) = u i ii
-
-instance Castable Straight (->) (U_I_II u i ii)
- where cast = U_I_II (\(U_I_II x) -> x)
-
-instance Castable Opposite (->) (U_I_II u i ii)
- where cast = U_II_I U_I_II
-
-type instance Supertype (U_II_I u ii i) = u i ii
-
-instance Castable Straight (->) (U_II_I u i ii)
- where cast = U_I_II (\(U_II_I x) -> x)
-
-instance Castable Opposite (->) (U_II_I u i ii)
- where cast = U_II_I U_II_I
-
-type instance Supertype (T_TT_I t tt i) = t (tt i)
-
-instance Castable Straight (->) (T_TT_I f g i)
- where cast = U_I_II (\(T_TT_I x) -> x)
-
-instance Castable Opposite (->) (T_TT_I f g i)
- where cast = U_II_I T_TT_I
-
-type instance Supertype (TT_T_I t tt i) = tt (t i)
-
-instance Castable Straight (->) (TT_T_I f g i)
- where cast = U_I_II (\(TT_T_I x) -> x)
-
-instance Castable Opposite (->) (TT_T_I f g i)
- where cast = U_II_I TT_T_I
-
 type instance Supertype (T_'_I e t i) = t i
 
 instance Castable Straight (->) (T_'_I e t i)
@@ -206,14 +222,6 @@ instance Castable Straight (->) (T_'_I e t i)
 
 instance Castable Opposite (->) (T_'_I e t i)
  where cast = U_II_I T_'_I
-
-type instance Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
-
-instance Castable Straight (->) (T_TTT_TT_I f g h i)
- where cast = U_I_II (\(T_TTT_TT_I x) -> x)
-
-instance Castable Opposite (->) (T_TTT_TT_I f g h i)
- where cast = U_II_I T_TTT_TT_I
 
 type instance Supertype (U_I_T_II t u i ii) = u i (t ii)
 
@@ -361,12 +369,6 @@ instance Castable Straight (->) (W_III_I_II w iii i ii)
 instance Castable Opposite (->) (W_III_I_II w iii i ii)
  where cast = U_II_I W_III_I_II
 
--- instance Castable Opposite (->) (() -> i)
---  where cast = U_II_I (\x _ -> x)
-
--- instance Castable Straight (->) (() -> i)
---  where cast = U_I_II (\f -> f ())
-
 type instance Supertype (Arrow i ii) = Arrow i ii
 
 instance Castable Opposite (->) (Arrow i ii)
@@ -374,14 +376,6 @@ instance Castable Opposite (->) (Arrow i ii)
 
 instance Castable Straight (->) (Arrow i ii)
  where cast = U_I_II (\f -> f)
-
-type instance Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
-
-instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
- where cast = U_II_I U_U_I_II_UU_I_II
-
-instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
- where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
 unwrap :: Castable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x
