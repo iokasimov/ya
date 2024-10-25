@@ -149,8 +149,9 @@ pattern Empty :: forall t e . (Brancher t ~ Optional)
  => () -> T'TT'I Optional (Construction Optional) e
 pattern Empty x = T'TT'I (None x)
 
--- I think this type alias should be a `Rose Tree`
 type Tree = Construction List
+
+pattern Tree x xs = R_U_I_T_I (Recursive (U_I_T_II (These x (T'TT'I (Some (Construct xs))))))
 
 type family Binary t where
  Binary Tree = Construction (U_I_I LM `T'TT'I` Optional)
