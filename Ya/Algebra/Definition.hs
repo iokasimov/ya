@@ -142,9 +142,9 @@ deriving instance
 type family Representation t where
  Representation Identity = ()
  Representation (U_I_II Arrow a) = a
- Representation (T_TT_I t tt) =
+ Representation (T'TT'I t tt) =
   Representation t `LM` Representation tt
- Representation (T_TTT_TT_I t ttt tt) =
+ Representation (T_TTT'TT'I t ttt tt) =
   Representation t `LM` Representation tt `LM` Representation ttt
  Representation (U_I_I LM) = () `ML` ()
 
@@ -222,25 +222,25 @@ class Terminal into where
 instance Terminal (->) where
  terminal _ = ()
 
-type Day = U_V_UU_UUU_UUUU_T_TT_I_II_III LM
+type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III LM
 
 
 -- TODO add these constraints:
--- , forall ee . Wrapper into (T_TT_I (U_I_II tt e) (U_II_I t e) ee)
--- , forall ee . Wrapper into (T_TT_I (U_II_I t e) (U_I_II tt e) ee)
+-- , forall ee . Wrapper into (T'TT'I (U_I_II tt e) (U_II_I t e) ee)
+-- , forall ee . Wrapper into (T'TT'I (U_II_I t e) (U_I_II tt e) ee)
 
 class
  ( x Straight into from t
  , x Straight from into tt
- , Transformation Straight x into from (T_TT_I t tt) Identity
- , Transformation Straight x from into Identity (T_TT_I tt t)
+ , Transformation Straight x into from (T'TT'I t tt) Identity
+ , Transformation Straight x from into Identity (T'TT'I tt t)
  ) => Adjoint x from into t tt
 
 deriving instance
  ( x Straight into from t
  , x Straight from into tt
- , Transformation Straight x into from (T_TT_I t tt) Identity
- , Transformation Straight x from into Identity (T_TT_I tt t)
+ , Transformation Straight x into from (T'TT'I t tt) Identity
+ , Transformation Straight x from into Identity (T'TT'I tt t)
  ) => Adjoint x from into t tt
 
 class
@@ -273,8 +273,8 @@ monoidal_ :: forall v from into t u uu a o e ee .
   (U_I_II into (u (t e) (t ee))) =>
  Monoidal v Functor from u uu t =>
  Castable Opposite Arrow (v from a o) =>
- Castable Opposite into ((U_I_II into (u (t e) (t ee)) `T_TT_I` U_I_II LM (u (t e) (t ee))) a) =>
- Castable Straight into ((U_I_II into (u (t e) (t ee)) `T_TT_I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+ Castable Opposite into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
+ Castable Straight into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
  Castable Straight into (U_I_II into (u (t e) (t ee)) (t o)) =>
  Castable Opposite into (Identity (v from (uu e ee) a)) =>
  Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
@@ -284,8 +284,8 @@ monoidal_ from =
   @(U_I_II into (u (t e) (t ee))) @(U_I_II into (u (t e) (t ee)))
   ((map @v @Straight @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
   `compose` unwrap @(->) @(U_I_II LM _ _))
- `compose` unwrap @into @(T_TT_I _ _ _)
- `compose` component @Straight @(->) @into @Identity @(U_I_II into _ `T_TT_I` U_I_II LM _)
+ `compose` unwrap @into @(T'TT'I _ _ _)
+ `compose` component @Straight @(->) @into @Identity @(U_I_II into _ `T'TT'I` U_I_II LM _)
  `compose` wrap @into
 
 -- TODO: generalize
@@ -339,9 +339,9 @@ ana :: forall into t e .
 ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
 
 type family JNT effect where
- JNT (U_I_II AR e) = T_TT_I (U_I_II AR e)
+ JNT (U_I_II AR e) = T'TT'I (U_I_II AR e)
  JNT (U_I_II ML e) = TT_T_I (U_I_II ML e)
- JNT (U_I_II (U_I_UU_II_I AR LM) e) = T_TTT_TT_I (U_I_II AR e) (U_II_I LM e)
+ JNT (U_I_II (U_I_UU_II_I AR LM) e) = T_TTT'TT'I (U_I_II AR e) (U_II_I LM e)
 
 this :: e `LM` ee -> e
 this (These x _) = x

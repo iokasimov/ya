@@ -11,7 +11,7 @@ infixl 7 `WRR`
 infixl 6 `WRRR`
 infixl 5 `WRRRR`
 
-infixl 6 `T_TT_I`
+infixl 6 `T'TT'I`
 infixl 6 `TT_T_I`
 
 type WR t i = t i
@@ -49,15 +49,15 @@ instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
 
 newtype Recursive f = Recursive (f (Recursive f))
 
-newtype T_TT_I t tt i = T_TT_I (t (tt i))
+newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
-type instance Supertype (T_TT_I t tt i) = t (tt i)
+type instance Supertype (T'TT'I t tt i) = t (tt i)
 
-instance Castable Straight (->) (T_TT_I f g i)
- where cast = U_I_II (\(T_TT_I x) -> x)
+instance Castable Straight (->) (T'TT'I f g i)
+ where cast = U_I_II (\(T'TT'I x) -> x)
 
-instance Castable Opposite (->) (T_TT_I f g i)
- where cast = U_II_I T_TT_I
+instance Castable Opposite (->) (T'TT'I f g i)
+ where cast = U_II_I T'TT'I
 
 newtype TT_T_I t tt i = TT_T_I (tt (t i))
 
@@ -71,15 +71,15 @@ instance Castable Opposite (->) (TT_T_I f g i)
 
 newtype T_'_I e t i = T_'_I (t i)
 
-newtype T_TTT_TT_I t ttt tt i = T_TTT_TT_I (t (tt (ttt i)))
+newtype T_TTT'TT'I t ttt tt i = T_TTT'TT'I (t (tt (ttt i)))
 
-type instance Supertype (T_TTT_TT_I t ttt tt i) = t (tt (ttt i))
+type instance Supertype (T_TTT'TT'I t ttt tt i) = t (tt (ttt i))
 
-instance Castable Straight (->) (T_TTT_TT_I f g h i)
- where cast = U_I_II (\(T_TTT_TT_I x) -> x)
+instance Castable Straight (->) (T_TTT'TT'I f g h i)
+ where cast = U_I_II (\(T_TTT'TT'I x) -> x)
 
-instance Castable Opposite (->) (T_TTT_TT_I f g h i)
- where cast = U_II_I T_TTT_TT_I
+instance Castable Opposite (->) (T_TTT'TT'I f g h i)
+ where cast = U_II_I T_TTT'TT'I
 
 data U_ u i ii
 
@@ -132,8 +132,8 @@ newtype U_I_UU_II_U_II_I u uu i ii = U_I_UU_II_U_II_I (u i (uu ii (u ii i)))
 newtype U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii x = U_UU_UUU_V_III_I_II_UUUU
  (u (uu (v uuu x i) (v uuu x ii)) (v uuu x (uuuu i ii)))
 
-newtype U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii =
- U_V_UU_UUU_UUUU_T_TT_I_II_III (u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii))
+newtype U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii =
+ U_V_UU_UUU_UUUU_T'TT'I_II_III (u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii))
 
 newtype UU_V_U_I_II_T_II v u uu t i ii =
  UU_V_U_I_II_T_II (uu (v u ii i) (t i))
@@ -280,14 +280,14 @@ instance Castable Straight (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii i
 instance Castable Opposite (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
  where cast = U_II_I U_UU_UUU_V_III_I_II_UUUU
 
-type instance Supertype (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii) =
+type instance Supertype (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii) =
   u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
 
-instance Castable Straight (->) (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
- where cast = U_I_II (\(U_V_UU_UUU_UUUU_T_TT_I_II_III x) -> x)
+instance Castable Straight (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
+ where cast = U_I_II (\(U_V_UU_UUU_UUUU_T'TT'I_II_III x) -> x)
 
-instance Castable Opposite (->) (U_V_UU_UUU_UUUU_T_TT_I_II_III u v uu uuu uuuu t tt i ii iii_)
- where cast = U_II_I U_V_UU_UUU_UUUU_T_TT_I_II_III
+instance Castable Opposite (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
+ where cast = U_II_I U_V_UU_UUU_UUUU_T'TT'I_II_III
 
 type instance Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 

@@ -128,40 +128,40 @@ pattern Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
 pattern Load x = R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
-type List = Optional `T_TT_I` Construction Optional
+type List = Optional `T'TT'I` Construction Optional
 
-pattern List xs = T_TT_I @Optional @(Construction Optional) xs
+pattern List xs = T'TT'I @Optional @(Construction Optional) xs
 
 pattern Next x xs = Recursive (U_I_T_II (These x (Some xs)))
 
 pattern Last x = Recursive (U_I_T_II (These x (None ())))
 
 type family Brancher datastructure where
- Brancher (T_TT_I t (Construction t)) = t
+ Brancher (T'TT'I t (Construction t)) = t
 
 type family Nonempty datastructure where
- Nonempty (T_TT_I Optional (Construction Optional)) = Construction Optional
+ Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
 pattern Nonempty :: forall t i . Construction (Brancher t) i -> Construction (Brancher t) i
 pattern Nonempty xs = xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
- => () -> T_TT_I Optional (Construction Optional) e
-pattern Empty x = T_TT_I (None x)
+ => () -> T'TT'I Optional (Construction Optional) e
+pattern Empty x = T'TT'I (None x)
 
 -- I think this type alias should be a `Rose Tree`
 type Tree = Construction List
 
 type family Binary t where
- Binary Tree = Construction (U_I_I LM `T_TT_I` Optional)
+ Binary Tree = Construction (U_I_I LM `T'TT'I` Optional)
 
-pattern Binary xs = T_TT_I (U_I_I xs)
+pattern Binary xs = T'TT'I (U_I_I xs)
 
 -- type family Rose t where
- -- Rose t = t (Optional `T_TT_I` Construction Optional)
+ -- Rose t = t (Optional `T'TT'I` Construction Optional)
 
 type family Forest tree where
- Forest (Construction t) = t `T_TT_I` Construction t
+ Forest (Construction t) = t `T'TT'I` Construction t
 
 type Stream = Construction Only
 
