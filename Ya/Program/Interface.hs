@@ -122,13 +122,13 @@ instance Stack (Construction Optional) where
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
  push x = \old -> These x (Next x `rewrap` old)
 
-type Scrolling datastructure = Only `LM_T_I_TT_I` Shafted datastructure
+type Scrolling datastructure = Only `LM'T'I'TT'I` Shafted datastructure
 
 type family Shafted datastructure = result | result -> datastructure where
- Shafted (Construction Singular) = Stream `LM_T_I_TT_I` Stream
- Shafted (Optional `T'TT'I` Construction Optional) = Reverse List `LM_T_I_TT_I` Forward List
- Shafted (Construction (U_I_I LM `T'TT'I` Optional)) = U_I_I LM `T'TT'I` Optional `LM_T_I_TT_I` (List `T'TT'I` U_I_I ML `T'TT'I` U_T_I_TT_I LM Only (Optional `T'TT'I` Construction (U_I_I LM `T'TT'I` Optional)))
- Shafted (Construction List) = List `T'TT'I` Tree `LM_T_I_TT_I` List `T'TT'I` (Only `LM_T_I_TT_I` Shafted List `T'TT'I` Tree)
+ Shafted (Construction Singular) = Stream `LM'T'I'TT'I` Stream
+ Shafted (Optional `T'TT'I` Construction Optional) = Reverse List `LM'T'I'TT'I` Forward List
+ Shafted (Construction (U_I_I LM `T'TT'I` Optional)) = U_I_I LM `T'TT'I` Optional `LM'T'I'TT'I` (List `T'TT'I` U_I_I ML `T'TT'I` U_T_I_TT_I LM Only (Optional `T'TT'I` Construction (U_I_I LM `T'TT'I` Optional)))
+ Shafted (Construction List) = List `T'TT'I` Tree `LM'T'I'TT'I` List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
 type family Scroller datastructure where
  Scroller Stream = () `ML` ()
@@ -153,7 +153,7 @@ instance
   that (l `yokl` f `yuk___` r `yokl` f `he_____'he` Construct `ha` Last `he` from x)
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
- (U_T_I_TT_I LM Only (List `T'TT'I` Construction List `LM_T_I_TT_I` List `T'TT'I` (Only `LM_T_I_TT_I` (Reverse List `LM_T_I_TT_I` Forward List) `T'TT'I` Construction List))) where
+ (U_T_I_TT_I LM Only (List `T'TT'I` Construction List `LM'T'I'TT'I` List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
   mapping = rewrap / \from (Root x xs) -> U_T_I_TT_I (Only `he` from x `lu` U_T_I_TT_I (T'TT'I (xs `yo` R_U_I_T_I) `yo` from `lu` T'TT'I `he` Empty @List Unit))
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
@@ -198,7 +198,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
    `ha__` (\(These e (U_T_I_TT_I (These __ __e))) xs ->
     push (U_T_I_TT_I (e `lu` T'TT'I __e)) xs `yui` unwrap __)
    `ho__'ha'he` Scope @(Shafted Tree item) at
-    `ho'he` Scope @((List `T'TT'I` (Only `LM_T_I_TT_I` Shafted List `T'TT'I` Tree)) item) at
+    `ho'he` Scope @((List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
     `ho'he` Scope self
    `yok__` State `ha___` Transition
    `ha__` (\(Root e __) _ -> Only e `lu` (T'TT'I (__ `yo` R_U_I_T_I)))
@@ -211,11 +211,11 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
   flow_lift = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yuk__` State `he__` Transition `he` auto
    `ha_'he` Scope @(Shafted Tree item) at
-    `ho'he` Scope @((List `T'TT'I` (Only `LM_T_I_TT_I` Shafted List `T'TT'I` Tree)) item) at
+    `ho'he` Scope @((List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
     `ho'he'he'he` Scope self `yok__` Maybe
    `yok__` State `ha__` Transition `ha` (\nl _ -> pop nl)
    `ho_'ha'he` Scope @(Shafted Tree item) at
-    `ho'he` Scope @((List `T'TT'I` (Only `LM_T_I_TT_I` Shafted List `T'TT'I` Tree)) item) at
+    `ho'he` Scope @((List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
     `ho'he` Scope self
    `yok__` State `ha__` Transition
    `ha` (\(U_T_I_TT_I (These e __)) focus -> (unwrap focus `lu`unwrap __) `lu` e)

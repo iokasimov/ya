@@ -18,8 +18,8 @@ infixr 3 `ARRRRRR`
 infixr 2 `ARRRRRRR`
 infixr 1 `ARRRRRRRR`
 
-infixl 3 `LM_T_I_TT_I`
-infixl 3 `ML_T_I_TT_I`
+infixl 3 `LM'T'I'TT'I`
+infixl 3 `ML'T'I'TT'I`
 
 infixl 0 /
 
@@ -385,8 +385,8 @@ class Setoid into e where
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type LM_T_I_TT_I = U_T_I_TT_I LM
-type ML_T_I_TT_I = U_T_I_TT_I ML
+type LM'T'I'TT'I = U_T_I_TT_I LM
+type ML'T'I'TT'I = U_T_I_TT_I ML
 
 class Objective into st t where
  objective :: into t st
