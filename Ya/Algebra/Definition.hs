@@ -144,7 +144,7 @@ type family Representation t where
  Representation (U_I_II Arrow a) = a
  Representation (T'TT'I t tt) =
   Representation t `LM` Representation tt
- Representation (T_TTT'TT'I t ttt tt) =
+ Representation (T'TTT'TT'I t ttt tt) =
   Representation t `LM` Representation tt `LM` Representation ttt
  Representation (U_I_I LM) = () `ML` ()
 
@@ -341,7 +341,7 @@ ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
 type family JNT effect where
  JNT (U_I_II AR e) = T'TT'I (U_I_II AR e)
  JNT (U_I_II ML e) = TT'T'I (U_I_II ML e)
- JNT (U_I_II (U_I_UU_II_I AR LM) e) = T_TTT'TT'I (U_I_II AR e) (U_II_I LM e)
+ JNT (U_I_II (U_I_UU_II_I AR LM) e) = T'TTT'TT'I (U_I_II AR e) (U_II_I LM e)
 
 this :: e `LM` ee -> e
 this (These x _) = x

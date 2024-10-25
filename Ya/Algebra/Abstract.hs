@@ -71,15 +71,15 @@ instance Castable Opposite (->) (TT'T'I f g i)
 
 newtype T_'_I e t i = T_'_I (t i)
 
-newtype T_TTT'TT'I t ttt tt i = T_TTT'TT'I (t (tt (ttt i)))
+newtype T'TTT'TT'I t ttt tt i = T'TTT'TT'I (t (tt (ttt i)))
 
-type instance Supertype (T_TTT'TT'I t ttt tt i) = t (tt (ttt i))
+type instance Supertype (T'TTT'TT'I t ttt tt i) = t (tt (ttt i))
 
-instance Castable Straight (->) (T_TTT'TT'I f g h i)
- where cast = U_I_II (\(T_TTT'TT'I x) -> x)
+instance Castable Straight (->) (T'TTT'TT'I f g h i)
+ where cast = U_I_II (\(T'TTT'TT'I x) -> x)
 
-instance Castable Opposite (->) (T_TTT'TT'I f g h i)
- where cast = U_II_I T_TTT'TT'I
+instance Castable Opposite (->) (T'TTT'TT'I f g h i)
+ where cast = U_II_I T'TTT'TT'I
 
 data U_ u i ii
 

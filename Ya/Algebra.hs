@@ -212,9 +212,9 @@ instance Mapping Straight Straight AR AR
 instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
  => Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) ee)
-  (T_TTT'TT'I (U_I_II ARR e) (U_II_I LM e) t) where
+  (T'TTT'TT'I (U_I_II ARR e) (U_II_I LM e) t) where
  mapping = rewrap / \from (U_I_II (U_I_UU_II_I x)) ->
-  wrap @_ @(T_TTT'TT'I _ _ _ _)
+  wrap @_ @(T'TTT'TT'I _ _ _ _)
   `compose` wrap @_ @(U_I_II _ _ _)
   `identity` (yu enter
    `compose` map @Straight @Straight from
@@ -239,10 +239,10 @@ instance
  , Transformation Natural Functor AR AR (T'TT'I t t) t
  ) => Mapping Straight Straight AR AR
  (T'TT'I
-  ((U_I_II AR old `T_TTT'TT'I` U_II_I LM btw) t)
-  ((U_I_II AR btw `T_TTT'TT'I` U_II_I LM new) t)
+  ((U_I_II AR old `T'TTT'TT'I` U_II_I LM btw) t)
+  ((U_I_II AR btw `T'TTT'TT'I` U_II_I LM new) t)
  )
- (T_TTT'TT'I (U_I_II AR old) (U_II_I LM new) t) where
+ (T'TTT'TT'I (U_I_II AR old) (U_II_I LM new) t) where
  mapping = rewrap / \from -> rewrap `compose` rewrap /
   \(U_I_II x) -> component @Straight @AR @AR @(t `T'TT'I` t) @t
   `compose` wrap @AR @(T'TT'I _ _ _)
@@ -257,10 +257,10 @@ instance
  , e ~ ee
  ) => Mapping Straight Straight AR AR
  (T'TT'I
-  (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt)
+  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt)
   (U_I_II (U_I_UU_II_I AR LM) ee)
  )
- (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
+ (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
     \old -> x old `yok` \(U_II_I (These (U_I_II (U_I_UU_II_I f)) btw))
       -> yu (enter @tt) / U_II_I (f btw) `yo` from
@@ -270,14 +270,14 @@ instance
  , Covariant Endo Semi Functor into (ttt e)
  , Mapping Straight Straight into into (t `T'TT'I` t) t
  , Mapping Straight Straight into into (tt e `T'TT'I` t) (tt e `TT'T'I` t)
- , forall ee . Wrapper into (T_TTT'TT'I (ttt e) (tt e) t ee)
+ , forall ee . Wrapper into (T'TTT'TT'I (ttt e) (tt e) t ee)
  , forall ee . Wrapper into (T'TT'I (tt e) t ee)
  , forall ee . Wrapper into (TT'T'I (tt e) t ee)
  , forall ee . Wrapper into (T'TT'I t t ee)
- , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I (ttt e) (tt e) t) t ee)
+ , forall ee . Wrapper into (T'TT'I (T'TTT'TT'I (ttt e) (tt e) t) t ee)
  ) => Mapping Straight Straight into into
-  (T_TTT'TT'I (ttt e) (tt e) t `T'TT'I` t)
-  (T_TTT'TT'I (ttt e) (tt e) t) where
+  (T'TTT'TT'I (ttt e) (tt e) t `T'TT'I` t)
+  (T'TTT'TT'I (ttt e) (tt e) t) where
  mapping = rewrap / \from -> rewrap /
   map @Straight @Straight @into @into @(ttt e)
    (component @Straight @into @into @(t `T'TT'I` t) @t `compose` wrap @into
@@ -302,11 +302,11 @@ instance
  , forall ee . Wrapper into (T'TT'I t tttt ee)
  , forall ee . Wrapper into (TT'T'I t tttt ee)
  , forall ee . Wrapper into (T'TT'I tttt tttt ee)
- , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT'T'I t tttt)) tttt ee)
- , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT'T'I t tttt) ee)
+ , forall ee . Wrapper into (T'TT'I (T'TTT'TT'I ttt tt (TT'T'I t tttt)) tttt ee)
+ , forall ee . Wrapper into (T'TTT'TT'I ttt tt (TT'T'I t tttt) ee)
  ) => Mapping Straight Straight into into
-  (T_TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` tttt)
-  (T_TTT'TT'I ttt tt (TT'T'I t tttt)) where
+  (T'TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` tttt)
+  (T'TTT'TT'I ttt tt (TT'T'I t tttt)) where
  mapping = rewrap / \from -> rewrap /
   map @Straight @Straight @into @into @ttt @ttt
    (wrap @into @(TT'T'I _ _ _)
@@ -335,11 +335,11 @@ instance
  , forall ee . Wrapper into (T'TT'I t tttt ee)
  , forall ee . Wrapper into (TT'T'I t tttt ee)
  , forall ee . Wrapper into (T'TT'I t t ee)
- , forall ee . Wrapper into (T'TT'I (T_TTT'TT'I ttt tt (TT'T'I t tttt)) t ee)
- , forall ee . Wrapper into (T_TTT'TT'I ttt tt (TT'T'I t tttt) ee)
+ , forall ee . Wrapper into (T'TT'I (T'TTT'TT'I ttt tt (TT'T'I t tttt)) t ee)
+ , forall ee . Wrapper into (T'TTT'TT'I ttt tt (TT'T'I t tttt) ee)
  ) => Mapping Straight Straight into into
-  (T_TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` t)
-  (T_TTT'TT'I ttt tt (TT'T'I t tttt)) where
+  (T'TTT'TT'I ttt tt (TT'T'I t tttt) `T'TT'I` t)
+  (T'TTT'TT'I ttt tt (TT'T'I t tttt)) where
  mapping = rewrap / \from -> rewrap /
   map @Straight @Straight @into @into @ttt @ttt
    (wrap @into @(TT'T'I _ _ _)
@@ -364,9 +364,9 @@ instance
 instance Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` tt) (U_II_I LM e `TT'T'I` tt) =>
  Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` tt)
-  (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
+  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
  mapping = rewrap / \from (T'TT'I (U_I_II (U_I_UU_II_I x))) ->
-  T_TTT'TT'I `compose` U_I_II / \old -> wrapped @AR
+  T'TTT'TT'I `compose` U_I_II / \old -> wrapped @AR
    `li` map @Straight @Straight @AR @AR @(U_II_I LM e `T'TT'I` tt) @(U_II_I LM e `TT'T'I` tt) from
    `li` U_II_I (x old)
 
@@ -403,8 +403,8 @@ instance
  , forall ee . Wrapper into (Identity ee)
  , forall ee . Wrapper into (U_I_II into Unit ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
- ) => Mapping Straight Straight into into (U_I_II into Unit) (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t) where
+ , forall ee . Wrapper into (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
+ ) => Mapping Straight Straight into into (U_I_II into Unit) (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t) where
  mapping = rewrap / \from -> rewrap
   / fj @into @into
    (component @Straight @into @into @(U_I_II into Unit) @t
@@ -422,9 +422,9 @@ instance
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) t ee)
  , forall ee . Wrapper into (TT'T'I (U_II_I tt e) t ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
- ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t) where
- mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
+ , forall ee . Wrapper into (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
+ ) => Mapping Straight Straight from into t (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t) where
+ mapping = rewrap / \from -> wrap @into @(T'TTT'TT'I _ _ _ _)
   `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` t) @(U_II_I tt e `TT'T'I` t) from))
 
 instance
@@ -440,9 +440,9 @@ instance
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT'T'I t tttt) ee)
  , forall ee . Wrapper into (TT'T'I (U_II_I tt e) tttt ee)
  , forall ee . Wrapper into (TT'T'I t tttt ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt) ee)
- ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt)) where
- mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
+ , forall ee . Wrapper into (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt) ee)
+ ) => Mapping Straight Straight from into t (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I t tttt)) where
+ mapping = rewrap / \from -> wrap @into @(T'TTT'TT'I _ _ _ _)
   `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT'T'I t tttt) @(U_II_I tt e `TT'T'I` TT'T'I t tttt) from))
   `compose` component @Straight @from @into @t @(t `TT'T'I` tttt)
 
@@ -459,9 +459,9 @@ instance
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (TT'T'I tttt t) ee)
  , forall ee . Wrapper into (TT'T'I (U_II_I tt e) tttt ee)
  , forall ee . Wrapper into (TT'T'I tttt t ee)
- , forall ee . Wrapper into (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t) ee)
- ) => Mapping Straight Straight from into t (T_TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t)) where
- mapping = rewrap / \from -> wrap @into @(T_TTT'TT'I _ _ _ _)
+ , forall ee . Wrapper into (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t) ee)
+ ) => Mapping Straight Straight from into t (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) (TT'T'I tttt t)) where
+ mapping = rewrap / \from -> wrap @into @(T'TTT'TT'I _ _ _ _)
   `compose` fj (wrapped (map @Straight @Straight @from @into @(U_II_I tt e `T'TT'I` TT'T'I tttt t) @(U_II_I tt e `TT'T'I` TT'T'I tttt t) from))
   `compose` component @Straight @from @into @t @(tttt `TT'T'I` t)
 
@@ -527,12 +527,12 @@ instance
  , Covariant Yoneda AR AR t
  ) => Mapping Straight Straight AR AR
   (Day Straight AR LM LM
-   (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) t)
-   (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) t)
+   (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) t)
+   (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) t)
    ee eee)
-  (T_TTT'TT'I (U_I_II AR e) (U_II_I LM e) t) where
+  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) t) where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (T_TTT'TT'I (U_I_II x)) (T_TTT'TT'I (U_I_II y))) (U_I_II f) ->
+  These (These (T'TTT'TT'I (U_I_II x)) (T'TTT'TT'I (U_I_II y))) (U_I_II f) ->
    U_I_II / \old -> x old `yok` \(U_II_I (These e btw)) ->
     from `compose` f `compose` (e `lu`) `fo'fo` y btw
 
