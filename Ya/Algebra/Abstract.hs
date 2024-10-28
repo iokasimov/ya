@@ -2,9 +2,9 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
-infixl 8 `T_I`
+infixl 8 `T'I`
 
-type T_I t i = t i
+type T'I t i = t i
 
 infixl 8 `WR`
 infixl 7 `WRR`

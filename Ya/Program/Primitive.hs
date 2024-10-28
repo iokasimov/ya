@@ -67,7 +67,7 @@ embed = component @Straight @(->) @(->) @g @(f `JNT` g) @e
 joint :: forall f g e .
  Component Natural (->) (->) (f `T'TT'I` g) (f `JNT` g) =>
  Castable Opposite (->) ((f `T'TT'I` g) e) =>
- f (g e) -> (f `JNT` g) `T_I` e
+ f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 -- Define a special `Mapping` instance instead and use `Try` label constructor for it
@@ -75,7 +75,7 @@ try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
  Castable Opposite (->) ((t `T'TT'I` Progress e) e) =>
- t (Progress e o) -> (t `JNT` Progress e) `T_I` o
+ t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @Straight @(->) @(->)
 
 label :: forall l t e . t e -> T_'_I l t e
@@ -112,7 +112,7 @@ rep :: forall r t e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
- Representation t `ARR` Attribute `T_I` t e `T_I` e
+ Representation t `ARR` Attribute `T'I` t e `T'I` e
 rep index = U_I_UU_II_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
