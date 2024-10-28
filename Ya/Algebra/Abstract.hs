@@ -12,6 +12,8 @@ infixl 6 `WRRR`
 infixl 5 `WRRRR`
 
 infixl 6 `T'TT'I`
+infixl 7 `T'TT'I_`
+
 infixl 6 `TT'T'I`
 
 type WR t i = t i
@@ -50,6 +52,8 @@ instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
 newtype Recursive f = Recursive (f (Recursive f))
 
 newtype T'TT'I t tt i = T'TT'I (t (tt i))
+
+type T'TT'I_ = T'TT'I
 
 type instance Supertype (T'TT'I t tt i) = t (tt i)
 
