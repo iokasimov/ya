@@ -110,6 +110,7 @@ pattern Transition x = U_I_UU_II_I @(->) @LM x
 
 type State = U_I_II Transition
 
+pattern State :: forall e o . Transition e o -> State e o
 pattern State x = U_I_II @Transition x
 
 type Construction = R_U_I_T_I LM
