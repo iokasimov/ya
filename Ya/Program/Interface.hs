@@ -47,7 +47,7 @@ type family Excluded a r where
  Excluded a (a_ `ML` a__) = Excluded a a_ `ML` a__
 
 class Matchable a r where
- match :: r `ARR` a `ML` Excluded a r
+ match :: r `AR_` a `ML` Excluded a r
 
 instance Matchable a (a `ML` a_) where
  match = This `la` That
@@ -166,7 +166,7 @@ instance Mapping Straight Straight Arrow Arrow (Construction List)
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
  scroll :: Scroller datastructure
-  `ARR` Automation
+  `AR_` Automation
    `WR` Scrolling datastructure item
    `WR` Scrolled datastructure item
    `WR` Scrolling datastructure item

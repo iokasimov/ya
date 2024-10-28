@@ -1612,7 +1612,7 @@ lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo___
  :: forall t a o__ .
  Covariant Monoidal Functor (->) LM ML t =>
  Arrow a (t o__) -> Arrow a (t o__) -> Arrow a (t o__)
-lo'ys'la from__eft from_right = (\x -> ys'yo x (identity @ARR `la` identity)) `compose` lo from__eft from_right
+lo'ys'la from__eft from_right = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo from__eft from_right
 
 lo_'ys'la = lo'ys'la
 lo__'ys'la = lo'ys'la

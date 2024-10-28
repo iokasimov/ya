@@ -85,24 +85,24 @@ type Perhaps = U_I_II ML
 
 pattern Perhaps x = U_I_II @ML x
 
-type Reference u i ii iii = i `ARR` u ii (iii `ARR` i)
+type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
 type Attribute = U_I_UU_II_U_II_I (->) LM
 
-pattern Attribute :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Attribute e ee
+pattern Attribute :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Attribute e ee
 pattern Attribute x = U_I_UU_II_U_II_I @(->) @LM x
 
 type Scope = U_I_UU_II_U_II_I (->) LM
 
-pattern Scope :: forall ee e . (e `ARR` LM ee (ee -> e)) -> Scope e ee
+pattern Scope :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Scope e ee
 pattern Scope x = U_I_UU_II_U_II_I @(->) @LM x
 
 type Directive = U_I_UU_II_U_II_I (->) ML
 
-pattern Directive :: forall ee e . (e `ARR` ML ee (ee -> e)) -> Directive e ee
+pattern Directive :: forall ee e . (e `AR_` ML ee (ee -> e)) -> Directive e ee
 pattern Directive x = U_I_UU_II_U_II_I @(->) @ML x
 
-type Automation e ee eee = e `ARR` ee `LM` eee
+type Automation e ee eee = e `AR_` ee `LM` eee
 
 type Transition = U_I_UU_II_I (->) LM
 

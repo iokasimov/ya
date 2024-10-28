@@ -10,13 +10,13 @@ infixl 8 `LM`, `ML`
 infixr 7 `JNT`
 
 infixr 8 `AR`
-infixr 7 `ARR`
-infixr 6 `ARRR`
-infixr 5 `ARRRR`
-infixr 4 `ARRRRR`
-infixr 3 `ARRRRRR`
-infixr 2 `ARRRRRRR`
-infixr 1 `ARRRRRRRR`
+infixr 7 `AR_`
+infixr 6 `AR__`
+infixr 5 `AR___`
+infixr 4 `AR____`
+infixr 3 `AR_____`
+infixr 2 `AR______`
+infixr 1 `AR_______`
 
 infixl 3 `LM'T'I'TT'I`
 infixl 3 `ML'T'I'TT'I`
@@ -24,13 +24,13 @@ infixl 3 `ML'T'I'TT'I`
 infixl 0 /
 
 type AR = (->)
-type ARR = (->)
-type ARRR = (->)
-type ARRRR = (->)
-type ARRRRR = (->)
-type ARRRRRR = (->)
-type ARRRRRRR = (->)
-type ARRRRRRRR = (->)
+type AR_ = (->)
+type AR__ = (->)
+type AR___ = (->)
+type AR____ = (->)
+type AR_____ = (->)
+type AR______ = (->)
+type AR_______ = (->)
 
 class Dumb x
 instance Dumb x
@@ -349,7 +349,7 @@ this (These x _) = x
 that :: e `LM` ee -> ee
 that (These _ x) = x
 
-swap :: e `LM` ee `ARR` ee `LM` e
+swap :: e `LM` ee `AR_` ee `LM` e
 swap (These x y) = These y x
 
 constant :: forall from into a o .
@@ -363,7 +363,7 @@ constant = unwrap @_ @(U_I_II from a _)
  `compose` map @Straight @Straight @from @into identity
  `compose` wrap @into @(Identity o)
 
-is :: Category ARR => e `ARR` e
+is :: Category AR_ => e `AR_` e
 is = identity
 
 but :: e -> ee -> e

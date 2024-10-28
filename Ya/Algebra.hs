@@ -212,7 +212,7 @@ instance Mapping Straight Straight AR AR
 instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
  => Mapping Straight Straight AR AR
   (U_I_II (U_I_UU_II_I AR LM) ee)
-  (T'TTT'TT'I (U_I_II ARR e) (U_II_I LM e) t) where
+  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) t) where
  mapping = rewrap / \from (U_I_II (U_I_UU_II_I x)) ->
   wrap @_ @(T'TTT'TT'I _ _ _ _)
   `compose` wrap @_ @(U_I_II _ _ _)
@@ -223,7 +223,7 @@ instance (Covariant Monoidal Functor AR LM LM t, e ~ ee)
 
 -- x: ee -> Object Straight AR a ee
 
-instance  {-# OVERLAPPABLE #-} Component Natural ARR AR (T'TT'I t tt) t => Mapping Straight Straight AR AR
+instance  {-# OVERLAPPABLE #-} Component Natural AR AR (T'TT'I t tt) t => Mapping Straight Straight AR AR
  (T'TT'I (Straight AR e `T'TT'I` t) tt) (Straight AR e `T'TT'I` t) where
  mapping = rewrap / \from -> rewrap `compose` rewrap /
   \(Straight f) e -> map @Straight @Straight @AR @AR @(t `T'TT'I` tt) @t from (T'TT'I (f e))

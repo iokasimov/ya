@@ -5,7 +5,7 @@ module Ya.Program.Primitive where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-not :: e `ML` ee `ARR` ee `ML` e
+not :: e `ML` ee `AR_` ee `ML` e
 not = That `la` This
 
 provide :: U_I_II (->) e e
@@ -105,14 +105,14 @@ to :: forall tt t e .
  t e -> tt e
 to = component @Straight @Arrow
 
-same :: Setoid Arrow e => e `LM` e `ARR` e `LM` e `ML`  e
+same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `ML`  e
 same = q
 
 rep :: forall r t e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
- Representation t `ARR` Attribute `T'I` t e `T'I` e
+ Representation t `AR_` Attribute `T'I` t e `T'I` e
 rep index = U_I_UU_II_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
