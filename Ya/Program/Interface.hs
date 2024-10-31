@@ -127,14 +127,7 @@ type Shafted e = Reverse e `LM'T'I'TT'I` Forward e
 type family Scrolling datastructure = result | result -> datastructure where
  Scrolling (Construction Singular) = Only `LM'T'I'TT'I` (Stream `LM'T'I'TT'I` Stream)
  Scrolling (Optional `T'TT'I` Construction Optional) = Only `LM'T'I'TT'I` Shafted List
- Scrolling (Construction List) = Scrolling List `T'TT'I` Tree `LM'T'I'TT'I` Reverse List `T'TT'I_` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)
-
- -- Only `LM'T'I'TT'I` (Forward List `T'TT'I` Tree `LM'T'I'TT'I` Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree))
-
--- List `T'TT'I` ???
--- Scrolling List `T'TT'I` Tree
-
--- Scrolling (Construction (U_I_I LM `T'TT'I` Optional)) = Only `LM'T'I'TT'I` (U_I_I LM `T'TT'I` Optional `LM'T'I'TT'I` (List `T'TT'I` U_I_I ML `T'TT'I` U_T_I_TT_I LM Only (Optional `T'TT'I` Construction (U_I_I LM `T'TT'I` Optional))))
+ Scrolling (Construction List) = Scrolling List `T'TT'I` Tree `LM'T'I'TT'I` Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
 type family Scroller datastructure where
  Scroller Stream = () `ML` ()
@@ -159,9 +152,9 @@ instance
   that (l `yokl` f `yuk___` r `yokl` f `he_____'he` Construct `ha` Last `he` from x)
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
- (U_T_I_TT_I LM Only (Forward List `T'TT'I` Construction List `LM'T'I'TT'I` Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
-  mapping = rewrap / \from (Root x xs) -> U_T_I_TT_I
-   (Only `he` from x `lu` U_T_I_TT_I (T'TT'I (Forward (xs `yo` R_U_I_T_I)) `yo` from `lu` T'TT'I `ha` T_'_I `he` Empty @List Unit))
+ ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
+  mapping = rewrap / \from x -> U_T_I_TT_I
+   (T'TT'I (U_T_I_TT_I ((Only `he__` x `yo` from) `lu` U_T_I_TT_I (Reverse `he` Empty @List Unit `lu`Forward `he` Empty @List Unit))) `lu` T'TT'I (Reverse `he` Empty @List Unit))
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
