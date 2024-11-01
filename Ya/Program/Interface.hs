@@ -156,6 +156,16 @@ instance Mapping Straight Straight Arrow Arrow (Construction List)
   mapping = rewrap / \from x -> U_T_I_TT_I
    (T'TT'I (U_T_I_TT_I ((Only `he__` x `yo` from) `lu` U_T_I_TT_I (Reverse `he` Empty @List Unit `lu`Forward `he` Empty @List Unit))) `lu` T'TT'I (Reverse `he` Empty @List Unit))
 
+instance Mapping Straight Straight Arrow Arrow
+ ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
+ ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
+ mapping = rewrap / \from (U_T_I_TT_I (These sl xs)) ->
+  T'TT'I `he` that ((unwrap xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `lu`)) `he_'he` unwrap sl) `yo` from where
+
+   restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = U_T_I_TT_I
+    `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
+     `lu` unwrap shafted
+
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
  scroll :: Scroller datastructure
@@ -178,54 +188,54 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
    `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
 
--- instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
- -- scroll way x = is
-  -- `li` is `hu` (None () `lu` x)
-  -- `la` is `ho'he` foi @_ @Arrow Some
-  -- `li` (is `hu` flow_d__p `la` is `hu` flow_lift `li` way) `he'he` x where
-
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
-  -- flow_d__p :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
-  -- flow_d__p = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   -- `yuk__` State `he__` Transition `he` auto
-   -- `ha_'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Forward List `T'TT'I` Tree) item) at
-    -- `ho'he'he'he'he` Scope self `yok__` Maybe
-   -- `yok__` but (State `he__` Transition `he` auto `ha_'he` Scope @(Focused item) at)
-    -- `lo'yp` is @(Nonempty List `WR` Tree _) `ho` to @(Scrolling List) `ho` intro
-   -- `yok__` State `ha___` Transition
-   -- `ha__` (\(These e (U_T_I_TT_I (These __ __e))) xs ->
-    -- push (U_T_I_TT_I (e `lu` T'TT'I __e)) xs `yui` unwrap __)
-   -- `ho__'ha'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
-    -- `ho'he'he` Scope self
-   -- `yok__` State `ha___` Transition
-   -- `ha__` (\(Root e __) _ -> Only e `lu` (T'TT'I (Forward (__ `yo` R_U_I_T_I))))
-   -- `ho__'ha'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Forward List `T'TT'I` Tree) item) at
-   -- `yok__` State `ha___` Transition `ha__` switch `ha` unwrap @AR
-   -- `ho__'ha'he` Scope @(Focused item) at `ho'he` Scope self
+instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
+ scroll way x = is
+  `li` is `hu` (None () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
+  `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he` x where
 
-  -- flow_lift :: forall item . State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
-  -- flow_lift = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   -- `yuk__` State `he__` Transition `he` auto
-   -- `ha_'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
-    -- `ho'he'he'he'he` Scope self `yok__` Maybe
-   -- `yok__` State `ha__` Transition `ha` (\nl _ -> pop nl)
-   -- `ho_'ha'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
-    -- `ho'he'he` Scope self
-   -- `yok__` State `ha__` Transition
-   -- `ha` (\(U_T_I_TT_I (These e __)) focus -> (unwrap focus `lu`unwrap __) `lu` e)
-   -- `ho_'ha'he` Scope @(Focused item) at
-   -- `yok__` State `ha__` Transition
-   -- `ha` (\(These e __) children -> e `lu` List `ha` Some `ha` to @(Nonempty List)
-    -- `he` U_T_I_TT_I (Only (Root e (children `yo` unwrap @AR)) `lu`__ ))
-   -- `ho_'ha'he` Scope @(Shafted Tree item) at
-    -- `ho'he` Scope @((Forward List `T'TT'I` Tree) item) at
-    -- `ho'he'he` Scope self
+  horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  horizontally way = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+   `yuk__` State `he__` Transition `he` scroll way
+   `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
+    `ho'he` Scope @(Scrolling List `T'I` Tree item) at
+   `yok__` is @(Optional _) `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
+
+  vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+   `yuk____` State `he____` Transition `he` auto
+   `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
+   `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) self)
+        `lo` Scope @(Shafted List `T'I` Tree item) at)
+   `yok____` State `ha____` Transition
+   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `he` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
+   `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
+   `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
+   `yok____'he`  Maybe
+   `yok____` State `ha____` Transition
+   `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
+   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
+     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
+
+  vertical_up :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WRRR` item
+  vertical_up _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
+   `yuk___` State `he__` Transition `he` pop
+   `ha_'he` Scope @((Reverse List `T'TT'I_` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
+   `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
+   `yok___` Maybe
+   `yok___` State `ha__` Transition
+   `ha_` (\(U_T_I_TT_I (These e (T'TT'I ee))) sl ->
+     unwrap e `lu` restoring (U_T_I_TT_I (These e (T'TT'I ee))) sl
+    )
+   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
+     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
+
+
+  restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = U_T_I_TT_I
+    `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
+     `lu` unwrap shafted
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T'TT'I` Optional)) item where
 
