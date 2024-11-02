@@ -211,10 +211,10 @@ type Sum = Object Void
 -- TODO: maybe we can unify `Initial`/`Terminal` typeclasses into one `Morphism`?
 
 class Initial into where
- initial :: into Void e
+ initial' :: into Void e
 
 instance Initial (->) where
- initial x = case x of {}
+ initial' x = case x of {}
 
 class Terminal into where
  terminal :: into e ()

@@ -106,7 +106,7 @@ instance
  Mapping Straight Straight AR AR (Straight AR Unit) (R_U_I_T_I LM t) where
  mapping = rewrap / \from (Straight f) ->
   R_U_I_T_I `compose` Recursive `compose` U_I_T_II
-   / These (from / f Unit) (empty @t `yo` initial @AR)
+   / These (from / f Unit) (empty @t `yo` initial' @AR)
 
 instance
  ( Mapping Straight Straight AR AR (Day Straight AR LM LM t t (R_U_I_T_I LM t e) (R_U_I_T_I LM t ee)) t
@@ -164,7 +164,7 @@ instance
 
 instance (Initial AR, Monoidal Straight Functor AR LM ML t) =>
  Mapping Straight Straight AR AR (Straight AR Void) (t `T'TT'I` R_U_I_T_I LM tt) where
- mapping = rewrap / \_ _ -> T'TT'I (empty @t `yo` initial @AR)
+ mapping = rewrap / \_ _ -> T'TT'I (empty @t `yo` initial' @AR)
 
 -- TODO: generalize this instance
 instance Mapping Opposite Straight (U_I_UU_II_U_II_I AR LM )AR
