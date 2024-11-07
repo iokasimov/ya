@@ -7,9 +7,9 @@ infixl 8 `T'I`
 type T'I t i = t i
 
 infixl 8 `WR`
-infixl 7 `WRR`
-infixl 6 `WRRR`
-infixl 5 `WRRRR`
+infixl 7 `WR_`
+infixl 6 `WR__`
+infixl 5 `WR___`
 
 infixl 6 `T'TT'I`
 infixl 7 `T'TT'I_`
@@ -17,9 +17,9 @@ infixl 7 `T'TT'I_`
 infixl 6 `TT'T'I`
 
 type WR t i = t i
-type WRR t i = t i
-type WRRR t i = t i
-type WRRRR t i = t i
+type WR_ t i = t i
+type WR__ t i = t i
+type WR___ t i = t i
 
 type family Supertype e
 
