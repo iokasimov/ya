@@ -11,10 +11,8 @@ infixl 7 `WR_`
 infixl 6 `WR__`
 infixl 5 `WR___`
 
-infixl 6 `T'TT'I`
+infixl 6 `T'TT'I`, `TT'T'I`
 infixl 7 `T'TT'I_`
-
-infixl 6 `TT'T'I`
 
 type WR t i = t i
 type WR_ t i = t i

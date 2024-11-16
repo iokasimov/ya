@@ -159,9 +159,6 @@ type family Binary t where
 
 pattern Binary xs = T'TT'I (U_I_I xs)
 
--- type family Rose t where
- -- Rose t = t (Optional `T'TT'I` Construction Optional)
-
 type family Forest tree where
  Forest (Construction t) = t `T'TT'I` Construction t
 

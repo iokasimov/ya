@@ -27,7 +27,7 @@ auto :: Automation e e e
 auto x = x `lu` x
 
 switch :: ee -> Automation e e ee
-switch = (auto `ho'hu`)
+switch new old = old `lu` new
 
 leaf :: forall t e .
  Monoidal Straight Functor (->) LM ML t =>
