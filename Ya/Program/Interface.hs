@@ -12,13 +12,13 @@ class Field e r where
 instance Field e e where
  at = self
 
-instance Field e (__ `LM` e) where
+instance Field e (ee `LM` e) where
  at (These x xx) = xx `lu` (x `lu`)
 
-instance {-# OVERLAPS #-} Field e __ => Field e (__ `LM` __e) where
+instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
  at (These x xs) = These
-  `li` this (at @e @__ `he` x)
-  `li` \new -> adjust (Attribute (at @e @__)) (but new) x `lu` xs
+  `li` this (at @e @ee `he` x)
+  `li` \new -> adjust (Attribute (at @e @ee)) (but new) x `lu` xs
 
 -- type family Handpicked a r where
  -- Handpicked a (a `ML` a_) = a `ML`()
