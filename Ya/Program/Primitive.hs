@@ -94,12 +94,6 @@ prompt ::
  Supertype e -> e
 prompt = wrap
 
--- TODO: replace with `by @Repeat`
-repeat ::
- Component Natural (->) (->) (t `T'TT'I` t) t =>
- t e -> t e
-repeat x = x `yuk` repeat x
-
 to :: forall tt t e .
  Component Straight (->) (->) t tt =>
  t e -> tt e
