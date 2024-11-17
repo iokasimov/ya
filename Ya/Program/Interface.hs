@@ -124,6 +124,8 @@ instance Stack (Construction Optional) where
 
 type Shafted e = Reverse e `LM'T'I'TT'I` Forward e
 
+type Leveled e = Scrolling List `T'TT'I` e
+
 type family Scrolling datastructure = result | result -> datastructure where
  Scrolling (Construction Singular) = Only `LM'T'I'TT'I` (Stream `LM'T'I'TT'I` Stream)
  Scrolling (Optional `T'TT'I` Construction Optional) = Only `LM'T'I'TT'I` Shafted List
