@@ -200,15 +200,20 @@ type Repeating = Labeled (U_I_I LM ())
 pattern Again :: t e -> Repeating t e
 pattern Again e = T_'_I e
 
-type Retrying = Labeled (U_I_II ML () ())
-
-pattern Retry :: t e -> Retrying t e
-pattern Retry e = T_'_I e
-
 type Trying = Labeled (U_II_I ML () ())
 
 pattern Try :: t e -> Trying t e
 pattern Try e = T_'_I e
+
+type Checking = Trying
+
+pattern Check :: t e -> Trying t e
+pattern Check e = Try e
+
+type Retrying = Labeled (U_I_II ML () ())
+
+pattern Retry :: t e -> Retrying t e
+pattern Retry e = T_'_I e
 
 type Fore = U_I_II (->) () ()
 
