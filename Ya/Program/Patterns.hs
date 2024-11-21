@@ -121,7 +121,7 @@ pattern Root x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
 
 pattern Node x xs = Recursive (U_I_T_II (These x xs))
 
-pattern Yet x xs = Recursive (U_I_T_II (These x xs))
+-- pattern Yet x xs = Recursive (U_I_T_II (These x xs))
 
 type Instruction = R_U_I_T_I ML
 
@@ -200,7 +200,7 @@ type Repeating = Labeled (U_I_I LM ())
 pattern Again :: t e -> Repeating t e
 pattern Again e = T_'_I e
 
-type Trying = Labeled (U_II_I ML () ())
+type Trying = Labeled (U_I_II ML () ())
 
 pattern Try :: t e -> Trying t e
 pattern Try e = T_'_I e
@@ -210,14 +210,14 @@ type Checking = Trying
 pattern Check :: t e -> Trying t e
 pattern Check e = Try e
 
-type Retrying = Labeled (U_I_II ML () ())
+type Retrying = Labeled (U_II_I ML () ())
 
 pattern Retry :: t e -> Retrying t e
 pattern Retry e = T_'_I e
 
-type Fore = U_I_II (->) () ()
+type Fore = U_I_II ML () ()
 
-type Back = U_II_I (->) () ()
+type Back = U_II_I ML () ()
 
 type Forward = T_'_I Fore
 
@@ -228,3 +228,12 @@ type Reverse = T_'_I Back
 
 pattern Reverse :: t e -> Reverse t e
 pattern Reverse e = T_'_I e
+
+pattern Forth :: t e -> Forward t e
+pattern Forth e = T_'_I e
+
+pattern Prior :: t e -> Reverse t e
+pattern Prior e = T_'_I e
+
+pattern New :: t e -> Labeled (U_I_II ML () ()) t e
+pattern New e = T_'_I e
