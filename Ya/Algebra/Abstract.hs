@@ -197,6 +197,8 @@ pattern In x = U_II_I x
 
 type Labeled = T_'_I
 
+type L = T_'_I
+
 type family Flip v where
  Flip Straight = Opposite
  Flip Opposite = Straight
