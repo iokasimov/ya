@@ -235,5 +235,11 @@ pattern Forth e = T_'_I e
 pattern Prior :: t e -> Reverse t e
 pattern Prior e = T_'_I e
 
+pattern Old :: t e -> Labeled (U_II_I ML () ()) t e
+pattern Old e = T_'_I e
+
 pattern New :: t e -> Labeled (U_I_II ML () ()) t e
 pattern New e = T_'_I e
+
+pattern Use :: t e -> Labeled (U_I_II ML () ()) t e
+pattern Use e = T_'_I e
