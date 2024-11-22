@@ -5,6 +5,7 @@ module Ya.Program.Interface where
 import Ya.Algebra
 import Ya.Program.Patterns
 import Ya.Program.Primitive
+import Ya.Program.Labels
 
 class Field e r where
  at :: Reference LM r e e

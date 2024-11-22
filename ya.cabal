@@ -24,6 +24,7 @@ library
     Ya.Program.Interface
     Ya.Program.Patterns
     Ya.Program.Primitive
+    Ya.Program.Labels
   default-extensions:
     DataKinds
     DeriveAnyClass
