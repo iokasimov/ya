@@ -146,7 +146,7 @@ type family Scrolled datastructure where
 
 instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
  mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (T_'_I (Empty @List ()) `lu` (T_'_I (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
+  U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (Labeled (Empty @List ()) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance
  Mapping Straight Straight Arrow Arrow (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) (Construction Optional) where

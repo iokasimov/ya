@@ -434,14 +434,14 @@ yai'yai x = fai fai (yai @from @into x)
 
 yok, yok_, yok__, yok___, yok____, yok_____, yok______
  , li'yok, li_'yok, li__'yok, li___'yok, li____'yok, li_____'yok, li______'yok, li_______'yok
- :: forall from into tt t label a o .
- Component Natural into into (T'TT'I t (Labeled label tt)) t =>
+ :: forall from into tt t l a o .
+ Component Natural into into (T'TT'I t (L l tt)) t =>
  Covariant Yoneda from into t =>
- Castable Opposite into (U_I_II from a (Labeled label tt o)) =>
- Castable Opposite into (T'TT'I t (Labeled label tt) o) =>
- t a -> into (from a (Labeled label tt o)) (t o)
-yok x = component @U_I_II @into @into @(T'TT'I t (Labeled label tt))
- `compose` wrap @into @(T'TT'I t (Labeled label tt) _)
+ Castable Opposite into (U_I_II from a (L l tt o)) =>
+ Castable Opposite into (T'TT'I t (L l tt) o) =>
+ t a -> into (from a (L l tt o)) (t o)
+yok x = component @U_I_II @into @into @(T'TT'I t (L l tt))
+ `compose` wrap @into @(T'TT'I t (L l tt) _)
  `compose` yoneda @U_I_II @from x
  `compose` wrap
 
@@ -461,18 +461,18 @@ li______'yok = yok
 li_______'yok = yok
 
 yok'he, yok_'he, yok__'he, yok___'he, yok____'he, yok_____'he, yok______'he
- :: forall from into tt t label a o .
- Component Natural into into (T'TT'I t (Labeled label tt)) t =>
+ :: forall from into tt t l a o .
+ Component Natural into into (T'TT'I t (L l tt)) t =>
  Covariant Semi Functor into into tt =>
  Covariant Yoneda from into t =>
- Contravariant Semi Functor from into (U_II_I from (Labeled label tt o)) =>
- Wrapper into (U_I_II from a (Labeled label tt o)) =>
- Wrapper into (U_II_I from (Labeled label tt o) a) =>
- Wrapper into (U_II_I from (Labeled label tt o) (Supertype a)) =>
- (forall e . Wrapper into (T'TT'I t (Labeled label tt) e)) =>
- Wrapper into (T'TT'I t (Labeled label tt) o) =>
+ Contravariant Semi Functor from into (U_II_I from (L l tt o)) =>
+ Wrapper into (U_I_II from a (L l tt o)) =>
+ Wrapper into (U_II_I from (L l tt o) a) =>
+ Wrapper into (U_II_I from (L l tt o) (Supertype a)) =>
+ (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
+ Wrapper into (T'TT'I t (L l tt) o) =>
  Castable Straight from a =>
- t a -> into (from (Supertype a) (Labeled label tt o)) (t o)
+ t a -> into (from (Supertype a) (L l tt o)) (t o)
 yok'he x = yok @from @into x `compose` fai @from he
 
 yok_'he = yok'he
@@ -483,18 +483,18 @@ yok_____'he = yok'he
 yok______'he = yok'he
 
 yok'he'he, yok_'he'he, yok__'he'he, yok___'he'he, yok____'he'he, yok_____'he'he, yok______'he'he
- :: forall from into tt t label a o .
- Component Natural into into (T'TT'I t (Labeled label tt)) t =>
+ :: forall from into tt t l a o .
+ Component Natural into into (T'TT'I t (L l tt)) t =>
  Covariant Semi Functor into into tt =>
  Covariant Yoneda from into t =>
- Contravariant Semi Functor from into (U_II_I from (Labeled label tt o)) =>
- Wrapper into (U_I_II from a (Labeled label tt o)) =>
- Wrapper into (U_II_I from (Labeled label tt o) a) =>
- Wrapper into (U_II_I from (Labeled label tt o) (Supertype (Supertype a))) =>
- (forall e . Wrapper into (T'TT'I t (Labeled label tt) e)) =>
+ Contravariant Semi Functor from into (U_II_I from (L l tt o)) =>
+ Wrapper into (U_I_II from a (L l tt o)) =>
+ Wrapper into (U_II_I from (L l tt o) a) =>
+ Wrapper into (U_II_I from (L l tt o) (Supertype (Supertype a))) =>
+ (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
  Castable Straight from a =>
  Castable Straight from (Supertype a) =>
- t a -> into (from (Supertype (Supertype a)) (Labeled label tt o)) (t o)
+ t a -> into (from (Supertype (Supertype a)) (L l tt o)) (t o)
 yok'he'he x = yok @from @into x `compose` fai @from he'he
 
 yok_'he'he = yok'he'he
@@ -507,12 +507,12 @@ yok______'he'he = yok'he'he
 yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
  :: forall into tt t l a o .
  Covariant Yoneda into into t =>
- Component Natural into into (T'TT'I t (Labeled l tt)) t =>
+ Component Natural into into (T'TT'I t (L l tt)) t =>
  Mapping Straight Straight into into I (U_I_II into a) =>
- Wrapper into (T'TT'I t (Labeled l tt) o) =>
- Wrapper into (I (Labeled l tt o)) =>
- Wrapper into (U_I_II into a (Labeled l tt o)) =>
- t a -> into (Labeled l tt o) (t o)
+ Wrapper into (T'TT'I t (L l tt) o) =>
+ Wrapper into (I (L l tt o)) =>
+ Wrapper into (U_I_II into a (L l tt o)) =>
+ t a -> into (L l tt o) (t o)
 yuk x = yok @into @into x `compose` constant
 
 -- yok x = component @Straight @(->) @into @(T'TT'I t tt)
@@ -2106,7 +2106,7 @@ ha'yok :: forall from u t tt l a o e .
 ha'yok x = fai fok (ha @from x)
 
 -- TODO: try to gereralize
-yok'ho :: forall from t tt label a o e .
+yok'ho :: forall from t tt l a o e .
  Covariant Functor (->) (->) tt =>
  Contravariant Functor (->) (->) (Opposite from (t o)) =>
  Covariant Functor from from (Straight from e) =>
@@ -2117,33 +2117,33 @@ yok'ho :: forall from t tt label a o e .
  Covariant Functor (->) from tt =>
  Covariant Functor from from tt =>
  Covariant Yoneda from from t =>
- Contravariant Yoneda from (->) (Opposite from (Labeled label tt o)) =>
- Mapping Straight Straight from from (T'TT'I t (Labeled label tt)) t =>
- (forall ee . Wrapper from ((t `T'TT'I` Labeled label tt) ee)) =>
- Wrapper from (U_II_I from e (Labeled label tt o)) =>
- Wrapper from (U_I_II from e (Labeled label tt o)) =>
- (forall ee . Wrapper from (Labeled label tt ee)) =>
+ Contravariant Yoneda from (->) (Opposite from (L l tt o)) =>
+ Mapping Straight Straight from from (T'TT'I t (L l tt)) t =>
+ (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
+ Wrapper from (U_II_I from e (L l tt o)) =>
+ Wrapper from (U_I_II from e (L l tt o)) =>
+ (forall ee . Wrapper from (L l tt ee)) =>
  Wrapper from (U_II_I from o a) =>
  Wrapper from (U_II_I from o e) =>
  Wrapper from (U_I_II from e a) =>
- t e -> from a (Labeled label tt o) -> from (from e a) (t o)
+ t e -> from a (L l tt o) -> from (from e a) (t o)
 yok'ho x f = yok x `compose` fio f
 
 -- TODO: try to gereralize
-yok'ha :: forall into t tt label a o e .
+yok'ha :: forall into t tt l a o e .
  Category into =>
  Covariant Yoneda into into t =>
  Covariant Functor into into t =>
  Covariant Functor into into tt =>
- Contravariant Functor into into (U_II_I into (Labeled label tt o)) =>
- Contravariant Yoneda into (->) (U_II_I into (Labeled label tt o)) =>
- Mapping Straight Straight into into (T'TT'I t (Labeled label tt)) t =>
- (forall ee . Wrapper into ((t `T'TT'I` Labeled label tt) ee)) =>
- (forall ee . Wrapper into (Labeled label tt ee)) =>
- Wrapper into (U_I_II into e (Labeled label tt o)) =>
- Wrapper into (U_II_I into (Labeled label tt o) e) =>
- Wrapper into (U_II_I into (Labeled label tt o) a) =>
- t e -> into e a -> into (into a (Labeled label tt o)) (t o)
+ Contravariant Functor into into (U_II_I into (L l tt o)) =>
+ Contravariant Yoneda into (->) (U_II_I into (L l tt o)) =>
+ Mapping Straight Straight into into (T'TT'I t (L l tt)) t =>
+ (forall ee . Wrapper into ((t `T'TT'I` L l tt) ee)) =>
+ (forall ee . Wrapper into (L l tt ee)) =>
+ Wrapper into (U_I_II into e (L l tt o)) =>
+ Wrapper into (U_II_I into (L l tt o) e) =>
+ Wrapper into (U_II_I into (L l tt o) a) =>
+ t e -> into e a -> into (into a (L l tt o)) (t o)
 yok'ha x f = yok @into @into x `compose` fai @into f
 
 -- yok'hu :: forall from t tt a o e .

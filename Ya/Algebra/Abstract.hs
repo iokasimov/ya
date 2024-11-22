@@ -71,7 +71,7 @@ instance Castable Straight (->) (TT'T'I f g i)
 instance Castable Opposite (->) (TT'T'I f g i)
  where cast = U_II_I TT'T'I
 
-newtype T_'_I e t i = T_'_I (t i)
+newtype L e t i = Labeled (t i)
 
 newtype T'TTT'TT'I t ttt tt i = T'TTT'TT'I (t (tt (ttt i)))
 
@@ -195,10 +195,6 @@ pattern Opposite x <- U_II_I x
 pattern In :: u e ee -> U_II_I u ee e
 pattern In x = U_II_I x
 
-type Labeled = T_'_I
-
-type L = T_'_I
-
 type family Flip v where
  Flip Straight = Opposite
  Flip Opposite = Straight
@@ -219,13 +215,13 @@ instance Castable Straight (->) (U_I_1 u i ii)
 instance Castable Opposite (->) (U_I_1 u i ii)
  where cast = U_II_I U_I_1
 
-type instance Supertype (T_'_I e t i) = t i
+type instance Supertype (L e t i) = t i
 
-instance Castable Straight (->) (T_'_I e t i)
- where cast = U_I_II (\(T_'_I x) -> x)
+instance Castable Straight (->) (L e t i)
+ where cast = U_I_II (\(Labeled x) -> x)
 
-instance Castable Opposite (->) (T_'_I e t i)
- where cast = U_II_I T_'_I
+instance Castable Opposite (->) (L e t i)
+ where cast = U_II_I Labeled
 
 type instance Supertype (U_I_T_II t u i ii) = u i (t ii)
 

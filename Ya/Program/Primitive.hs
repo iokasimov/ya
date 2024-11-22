@@ -78,11 +78,11 @@ try :: forall t e o .
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @Straight @(->) @(->)
 
-label :: forall l t e . t e -> T_'_I l t e
-label = T_'_I
+label :: forall l t e . t e -> L l t e
+label = Labeled
 
-by :: forall label t e . t e -> Labeled label t e
-by = T_'_I
+by :: forall l t e . t e -> L l t e
+by = Labeled
 
 frame ::
  Castable Opposite (->) e =>
