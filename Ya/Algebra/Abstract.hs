@@ -27,14 +27,14 @@ class Castable direction morphism e where
 class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
 deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
 
-newtype Identity i = Identity i
+newtype I i = Identity i
 
-type instance Supertype (Identity i) = i
+type instance Supertype (I i) = i
 
-instance Castable Straight (->) (Identity i)
+instance Castable Straight (->) (I i)
  where cast = U_I_II (\(Identity x) -> x)
 
-instance Castable Opposite (->) (Identity i)
+instance Castable Opposite (->) (I i)
  where cast = U_II_I Identity
 
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))

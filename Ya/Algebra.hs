@@ -177,15 +177,15 @@ instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR
    let s = from x in U_II_I (These (this s) e) `lu` fo (that s)
 
 -- TODO: I'm not really sure about this instance... it could easily lead to an error!
-instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) Identity (U_I_I LM) where
+instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) I (U_I_I LM) where
  mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(Identity x) ->
    let s = from x in U_I_I (this s `lu`this s) `lu` (\(U_I_I (These _ _)) -> Identity (that s (this s)))
 
-instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_I_II LM e) Identity where
+instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_I_II LM e) I where
  mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_I_II (These e x)) ->
    let s = from x in Identity (this s) `lu` (U_I_II `compose` (e `lu`) `compose` that s `compose` unwrap)
 
-instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_II_I LM e) Identity where
+instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_II_I LM e) I where
  mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_II_I (These x e)) ->
    let s = from x in Identity (this s) `lu` (U_II_I `compose` (`lu` e) `compose` that s `compose` unwrap)
 
@@ -371,7 +371,7 @@ instance
  ) => Mapping Straight Straight AR AR tt (tt `TT'T'I` t) where
  mapping = rewrap / \from -> wrap @AR @((tt `TT'T'I` t) _)
   `compose` component @Straight @AR @AR @(U_I_II AR Unit) @t
-  `compose` component @Straight @AR @AR @Identity @(U_I_II AR Unit)
+  `compose` component @Straight @AR @AR @I @(U_I_II AR Unit)
   `compose` wrap @AR
   `compose` map @Straight @Straight @AR @AR @tt @tt from
 
@@ -389,7 +389,7 @@ instance Monoidal Straight Functor AR LM LM t =>
  mapping = rewrap / \from -> rewrap / \f -> Straight / \_ -> yu enter `compose` from `li` f Unit
 
 instance
- ( Covariant Yoneda into into Identity
+ ( Covariant Yoneda into into I
  , Covariant Endo Semi Functor into (U_I_II into e)
  , Adjoint Functor into into (U_II_I t e) (U_I_II tt e)
  , forall ee . Wrapper into (U_II_I t e ee)
@@ -399,7 +399,7 @@ instance
  , forall ee . Wrapper into (U_I_II (U_I_UU_II_I tt t) e ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II tt e) (U_II_I t e) ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I t e) (U_I_II tt e) ee)
- , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (I ee)
  ) => Mapping Straight Straight into into (U_I_II into Unit) (U_I_II (U_I_UU_II_I tt t) e) where
  mapping = rewrap `identity` \from -> rewrap
   / wrap @into @(U_I_UU_II_I _ _ _ _)
@@ -408,13 +408,13 @@ instance
    `compose` yi Unit
 
 instance
- ( Covariant Yoneda into into Identity
+ ( Covariant Yoneda into into I
  , Covariant Monoidal Functor into tt tt t
  , Covariant Endo Semi Functor into t
  , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
- , Component Natural into into Identity (U_I_II into Unit)
+ , Component Natural into into I (U_I_II into Unit)
  , Component Natural into into (U_I_II into Unit) t
- , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (I ee)
  , forall ee . Wrapper into (U_I_II into Unit ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
  , forall ee . Wrapper into (T'TTT'TT'I (U_I_II ttt e) (U_II_I tt e) t ee)
@@ -422,7 +422,7 @@ instance
  mapping = rewrap / \from -> rewrap
   / fj @into @into
    (component @Straight @into @into @(U_I_II into Unit) @t
-    `compose` component @Straight @into @into @Identity @(U_I_II into Unit)
+    `compose` component @Straight @into @into @I @(U_I_II into Unit)
     `compose` wrap @into
    ) `compose` from `compose` yi Unit
 
@@ -431,7 +431,7 @@ instance
  ( Covariant Endo Semi Functor into t
  , Adjoint Functor into into (U_II_I tt e) (U_I_II ttt e)
  , Component Natural from into (U_II_I tt e `T'TT'I` t) (U_II_I tt e `TT'T'I` t)
- , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (I ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (U_I_II ttt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) t ee)
@@ -447,7 +447,7 @@ instance
  , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I t tttt) (U_II_I tt e `TT'T'I` TT'T'I t tttt)
  , Component Natural from into (U_II_I tt e `T'TT'I` TT'T'I t tttt) (U_II_I tt e `TT'T'I` TT'T'I t tttt)
  , Component Natural from into t (TT'T'I t tttt)
- , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (I ee)
  , forall ee . Wrapper into (T'TT'I (U_II_I tt e) (U_I_II ttt e) ee)
  , forall ee . Wrapper into (T'TT'I (U_I_II ttt e) (U_II_I tt e) ee)
  , forall ee . Wrapper into (TT'T'I (U_II_I tt e) (TT'T'I t tttt) ee)
@@ -466,7 +466,7 @@ instance
  , Component Natural from into (tt `T'TT'I` TT'T'I tttt t) (tt `TT'T'I` TT'T'I tttt t)
  , Component Natural from into (tt `T'TT'I` TT'T'I tttt t) (tt `TT'T'I` TT'T'I tttt t)
  , Component Natural from into t (TT'T'I tttt t)
- , forall ee . Wrapper into (Identity ee)
+ , forall ee . Wrapper into (I ee)
  , forall ee . Wrapper into (T'TT'I (tt) (ttt) ee)
  , forall ee . Wrapper into (T'TT'I (ttt) (tt) ee)
  , forall ee . Wrapper into (TT'T'I (tt) (TT'T'I tttt t) ee)
@@ -513,7 +513,7 @@ instance Covariant Monoidal Functor AR LM LM t =>
 -- instance
  -- ( Monoidal Straight Functor AR LM LM t
  -- , Mapping Straight Straight AR AR (T'TT'I t t) t
- -- , Mapping Straight Straight AR AR Identity (U_I_II AR e)
+ -- , Mapping Straight Straight AR AR I (U_I_II AR e)
  -- ) => Mapping Straight Straight AR AR (t `T'TT'I` T_'_I (U_I_II ML Unit Unit) (U_I_II ML e)) t where
  -- mapping = rewrap / \from -> \(T'TT'I x) ->
   -- x `yok'he'he` constant @AR (map @Straight @Straight from (T'TT'I x)) `la` yu (enter @t) `ha` from
@@ -521,7 +521,7 @@ instance Covariant Monoidal Functor AR LM LM t =>
 -- instance
  -- ( Mapping U_I_II U_I_II AR AR t t
  -- , Mapping U_I_II U_I_II AR AR (T'TT'I t t) t
- -- ) => Mapping Straight Straight AR AR (t `T'TT'I` T_'_I (U_I_I LM Unit) Identity) t where
+ -- ) => Mapping Straight Straight AR AR (t `T'TT'I` T_'_I (U_I_I LM Unit) I) t where
  -- mapping = rewrap / \from -> \(T'TT'I x) ->
   -- x `yok'he'he` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T'TT'I x))
 

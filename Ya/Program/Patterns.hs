@@ -3,27 +3,27 @@ module Ya.Program.Patterns where
 
 import Ya.Algebra
 
-type Same = Identity
+type Same = I
 
 pattern Same e = Identity e
 
-type Once = Identity
+type Once = I
 
 pattern Once e = Identity e
 
-type Only = Identity
+type Only = I
 
 pattern Only e = Identity e
 
-type Singular = Identity
+type Singular = I
 
 pattern Singular e = Identity e
 
-type Focused = Identity
+type Focused = I
 
 pattern Focused e = Identity e
 
-type Apparently = Identity
+type Apparently = I
 
 pattern Apparently e = Identity e
 
