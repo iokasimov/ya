@@ -112,8 +112,9 @@ class Stack datastructure where
 instance Stack List where
  pop = \case
   Empty @List _ -> This () `lu` Empty @List ()
-  T'TT'I (Some (Construct (Yet x xs))) -> That x `lu` (T'TT'I / xs `yo` R_U_I_T_I)
- push item s = item `lu` rewrap (Some `ha` R_U_I_T_I `ha` Yet item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+  T'TT'I (Some (Construct (Recursive (U_I_T_II (These x xs))))) -> That x `lu` (T'TT'I / xs `yo` R_U_I_T_I)
+ push item s = item `lu` rewrap
+  (Some `ha` R_U_I_T_I `ha` Recursive `ha` U_I_T_II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stack (Construction Optional) where
@@ -150,23 +151,27 @@ instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT
 instance
  Mapping Straight Straight Arrow Arrow (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
-  let f = State `ha` Transition `ha` push `ha` from in
-  that (l `yokl` f `yuk___` r `yokl` f `he_____'he` Construct `ha` Last `he` from x)
+  let f = State `ha` Transition `ha` push @(Nonempty List) `ha` from
+  in enter @(State (Nonempty List _))
+   `yuk___` New (unwrap l `yokl` Prior `ha` f)
+   `yuk___` New (unwrap r `yokl` Forth `ha` f)
+   `he_____'he` Construct `ha` Last `he` from x
+   `yi_____` that
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
  ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
   mapping = rewrap / \from x -> U_T_I_TT_I
    (T'TT'I (U_T_I_TT_I ((Only `he__` x `yo` from) `lu` U_T_I_TT_I (Reverse `he` Empty @List Unit `lu`Forward `he` Empty @List Unit))) `lu` T'TT'I (Reverse `he` Empty @List Unit))
 
-instance Mapping Straight Straight Arrow Arrow
- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
- mapping = rewrap / \from (U_T_I_TT_I (These sl xs)) ->
-  T'TT'I `he` that ((unwrap xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `lu`)) `he_'he` unwrap sl) `yo` from where
+-- instance Mapping Straight Straight Arrow Arrow
+ -- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
+ -- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
+ -- mapping = rewrap / \from (U_T_I_TT_I (These sl xs)) ->
+  -- T'TT'I `he` that ((unwrap xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `lu`)) `he_'he` unwrap sl) `yo` from where
 
-   restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = U_T_I_TT_I
-    `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
-     `lu` unwrap shafted
+   -- restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = U_T_I_TT_I
+    -- `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
+     -- `lu` unwrap shafted
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
@@ -183,9 +188,9 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
-   `yuk__` State `he__` Transition `he` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Maybe
-   `yok__` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
-   `yok__` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
+   `yuk__` New `ha` State `he__` Transition `he` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Try `ha` Maybe
+   `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
   path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
    `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
@@ -200,35 +205,35 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
 
   horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   horizontally way = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk__` State `he__` Transition `he` scroll way
+   `yuk__` New `ha` State `he__` Transition `he` scroll way
    `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
-   `yok__` is @(Optional _) `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
+   `yok__` Try `ha___` is @(Optional _) `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
 
   -- TODO: refactor, it's hard to catch an error here
   vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk____` State `he____` Transition `he` auto
+   `yuk____` New `ha` State `he____` Transition `he` auto
    `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
    `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) self)
         `lo` Scope @(Shafted List `T'I` Tree item) at)
-   `yok____` State `ha____` Transition
+   `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `he` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
    `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
    `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
-   `yok____'he`  Maybe
-   `yok____` State `ha____` Transition
+   `yok____'he`  Try `ha` Maybe
+   `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
       `ho'he` Scope @(Scrolling List `T'I` Tree item) at
 
   vertical_up :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   vertical_up _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk___` State `he__` Transition `he` pop
+   `yuk___` New `ha` State `he__` Transition `he` pop
    `ha_'he` Scope @((Reverse List `T'TT'I_` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
    `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
-   `yok___` Maybe
-   `yok___` State `ha__` Transition `ha_` restoring
+   `yok___` Try `ha` Maybe
+   `yok___` New `ha` State `ha__` Transition `ha_` restoring
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
       `ho'he` Scope @(Scrolling List `T'I` Tree item) at
 
@@ -269,12 +274,12 @@ class Literal datastructure item literal
 instance Literal (Construction Optional) item item where
  as x = Construct `li` Last x
 
-instance Literal (Construction Optional) item init =>
- Literal (Construction Optional) item (init `LM` item) where
- as (These init last) =
-  that `li` (unwrap `compose` unwrap)
-   (Reverse `he` as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State)
-   (Construct (Last last))
+-- instance Literal (Construction Optional) item init =>
+ -- Literal (Construction Optional) item (init `LM` item) where
+ -- as (These init last) =
+  -- that `li` (unwrap `compose` unwrap)
+   -- (Reverse `he` as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State `ho` New)
+   -- (Construct (Last last))
 
 instance Literal (Construction (U_I_I LM `T'TT'I` Optional)) item item where
  as x = Root x (T'TT'I (U_I_I (None () `lu` None ())))
