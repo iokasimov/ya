@@ -47,7 +47,7 @@ infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he
  , `ho________'he'he'he`
  , `ho________'he'he'he'he`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`--, `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi`, `ha'yok`, `ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yokl` -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
  , `ha'he`, `ha_ha`
 infixl 8 `ha_`
  , `ha_'he`
@@ -2091,19 +2091,29 @@ ho_______'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho________'yuk x = fai (fuk @from @t @tt) (ho @from x)
 
 ha'yok :: forall from u t tt l a o e .
- Covariant Functor (->) (->) tt =>
- Covariant Functor from (->) t =>
- Covariant Functor from (->) tt =>
- Covariant Functor from from tt =>
- Covariant Functor from from t =>
- Mapping Straight Straight from from (t `T'TT'I` L l tt) t =>
+ Covariant Endo Semi Functor from t =>
+ Covariant Endo Semi Functor from tt =>
+ Component Natural from from (t `T'TT'I` L l tt) t =>
  Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
  Contravariant Yoneda from (->) (U_II_I u e) =>
  (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
  (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
  (forall ee . Wrapper from (L l tt ee)) =>
  u (t o) e -> from a (L l tt o) -> u (t a) e
-ha'yok x = fai fok (ha @from x)
+ha'yok = fai fok `compose` ha @from @u
+
+ha'yokl :: forall from u t tt l a o e .
+ Covariant Endo Semi Functor from t =>
+ Covariant Endo Semi Functor from tt =>
+ Component Natural from from (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
+ Contravariant Yoneda from (->) (U_II_I (->) (tt o)) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
+ (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
+ (forall ee . Wrapper from ((t `TT'T'I` tt) ee)) =>
+ (forall ee . Wrapper from (L l tt ee)) =>
+ u (tt (t o)) e -> from a (L l tt o) -> u (t a) e
+ha'yokl = fai fokl `compose` ha @from @u
 
 -- TODO: try to gereralize
 yok'ho :: forall from t tt l a o e .
