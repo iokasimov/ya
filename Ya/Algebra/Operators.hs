@@ -47,24 +47,41 @@ infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he
  , `ho________'he'he'he`
  , `ho________'he'he'he'he`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yokl` -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yokl`
+ -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
  , `ha'he`, `ha_ha`
 infixl 8 `ha_`
  , `ha_'he`
+ , `ha_'yok`
+ , `ha_'yokl`
 infixl 7 `ha__`
  , `ha__'he`
+ , `ha__'yok`
+ , `ha__'yokl`
 infixl 6 `ha___`
  , `ha___'he`
+ , `ha___'yok`
+ , `ha___'yokl`
 infixl 5 `ha____`
  , `ha____'he`
+ , `ha____'yok`
+ , `ha____'yokl`
 infixl 4 `ha_____`
  , `ha_____'he`
+ , `ha_____'yok`
+ , `ha_____'yokl`
 infixl 3 `ha______`
  , `ha______'he`
+ , `ha______'yok`
+ , `ha______'yokl`
 infixl 2 `ha_______`
  , `ha_______'he`
+ , `ha_______'yok`
+ , `ha_______'yokl`
 infixl 1 `ha________`
  , `ha________'he`
+ , `ha________'yok`
+ , `ha________'yokl`
 
 infixl 9 `hu` --, `hu'he`, `hu'he'he`
 infixl 8 `hu_`
@@ -2090,7 +2107,8 @@ ho______'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho_______'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho________'yuk x = fai (fuk @from @t @tt) (ho @from x)
 
-ha'yok :: forall from u t tt l a o e .
+ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
+ :: forall from u t tt l a o e .
  Covariant Endo Semi Functor from t =>
  Covariant Endo Semi Functor from tt =>
  Component Natural from from (t `T'TT'I` L l tt) t =>
@@ -2102,7 +2120,17 @@ ha'yok :: forall from u t tt l a o e .
  u (t o) e -> from a (L l tt o) -> u (t a) e
 ha'yok = fai fok `compose` ha @from @u
 
-ha'yokl :: forall from u t tt l a o e .
+ha_'yok = ha'yok
+ha__'yok = ha'yok
+ha___'yok = ha'yok
+ha____'yok = ha'yok
+ha_____'yok = ha'yok
+ha______'yok = ha'yok
+ha_______'yok = ha'yok
+ha________'yok = ha'yok
+
+ha'yokl, ha_'yokl, ha__'yokl, ha___'yokl, ha____'yokl, ha_____'yokl, ha______'yokl, ha_______'yokl, ha________'yokl
+ :: forall from u t tt l a o e .
  Covariant Endo Semi Functor from t =>
  Covariant Endo Semi Functor from tt =>
  Component Natural from from (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
@@ -2114,6 +2142,15 @@ ha'yokl :: forall from u t tt l a o e .
  (forall ee . Wrapper from (L l tt ee)) =>
  u (tt (t o)) e -> from a (L l tt o) -> u (t a) e
 ha'yokl = fai fokl `compose` ha @from @u
+
+ha_'yokl = ha'yokl
+ha__'yokl = ha'yokl
+ha___'yokl = ha'yokl
+ha____'yokl = ha'yokl
+ha_____'yokl = ha'yokl
+ha______'yokl = ha'yokl
+ha_______'yokl = ha'yokl
+ha________'yokl = ha'yokl
 
 -- TODO: try to gereralize
 yok'ho :: forall from t tt l a o e .
