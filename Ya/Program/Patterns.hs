@@ -108,6 +108,8 @@ type Transition = U_I_UU_II_I (->) LM
 
 pattern Transition x = U_I_UU_II_I @(->) @LM x
 
+pattern Event x = U_I_UU_II_I @(->) @LM x
+
 type State = U_I_II Transition
 
 pattern State :: forall e o . Transition e o -> State e o
