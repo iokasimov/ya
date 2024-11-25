@@ -12,7 +12,7 @@ type Cascading = L (Straight LM () ())
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = Labeled e
 
-type Repeating = L (U_I_I LM ())
+type Repeating = L Recursive
 
 pattern Again :: t e -> Repeating t e
 pattern Again e = Labeled e
@@ -45,9 +45,6 @@ pattern Prior e = Labeled e
 
 pattern Use :: t e -> L (U_I_II ML () ()) t e
 pattern Use e = Labeled e
-
--- pattern Usual :: t e -> L (U_I_II ML () ()) t e
--- pattern Usual e = Labeled e
 
 pattern New e = Labeled @() @(State _) e
 

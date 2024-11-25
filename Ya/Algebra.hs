@@ -15,15 +15,15 @@ import Ya.Algebra.Operators as Exports
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Monoidal Functor AR LM LM tt
- , Component Natural AR AR (t `T'TT'I` L (U_I_II ML () ()) tt) (t `TT'T'I` tt)
+ , Component Natural AR AR (t `T'TT'I` L () tt) (t `TT'T'I` tt)
  , Component Natural AR AR (R_U_I_T_I LM t `T'TT'I` L l tt) (R_U_I_T_I LM t `TT'T'I` tt)
  ) => Mapping Straight Straight AR AR
   ((t `T'TT'I` R_U_I_T_I LM t) `T'TT'I` L l tt)
   ((t `T'TT'I` R_U_I_T_I LM t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap / \x -> unwrap x
   `yo` wrapped (map @Straight @Straight @AR @AR @(R_U_I_T_I LM t `T'TT'I` L l tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
-  `ho` wrap @AR @(L (U_I_II ML () ()) tt (R_U_I_T_I LM t _))
-  `yi` wrapped (map @Straight @Straight @AR @AR @(t `T'TT'I` L (U_I_II ML () ()) tt) @(t `TT'T'I` tt) identity)
+  `ho` wrap @AR @(L () tt (R_U_I_T_I LM t _))
+  `yi` wrapped (map @Straight @Straight @AR @AR @(t `T'TT'I` L () tt) @(t `TT'T'I` tt) identity)
   `yo` wrap @AR @(T'TT'I t (R_U_I_T_I LM t) _)
 
 -- TODO: reduce a number of transformations here
@@ -39,24 +39,24 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Monoidal Functor AR LM LM tt
- , Component Natural AR AR (t `T'TT'I` L (U_I_II ML () ()) tt) (t `TT'T'I` tt)
+ , Component Natural AR AR (t `T'TT'I` L () tt) (t `TT'T'I` tt)
  ) => Mapping U_I_II U_I_II AR AR
-  (R_U_I_T_I LM t `T'TT'I` L (U_I_II ML () ()) tt)
+  (R_U_I_T_I LM t `T'TT'I` L (U_I_II ML () ())  tt)
   (R_U_I_T_I LM t `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
     unwrap x `yo` from
      `lu_`xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
       `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L (U_I_II ML () ()) tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
-      `ho` wrap @AR @(L (U_I_II ML () ()) tt _)
-      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L (U_I_II ML () ()) tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
+      `ho` wrap @AR @(L () tt _)
+      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L () tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
      `yp_'yo` wrap @AR @(R_U_I_T_I _ _ _) `ha` wrap @AR @(Recursive _) `ha` wrap @AR @(U_I_T_II _ _ _ _)
 
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Monoidal Functor AR LM LM tt
- , Transformation Straight Functor AR AR (t `T'TT'I` L (U_I_II ML () ()) tt) (t `TT'T'I` tt)
+ , Transformation Straight Functor AR AR (t `T'TT'I` L () tt) (t `TT'T'I` tt)
  ) => Mapping Straight Straight AR AR
   (R_U_I_T_I LM t `T'TT'I` L (U_II_I ML () ()) tt)
   (R_U_I_T_I LM t `TT'T'I` tt) where
@@ -70,8 +70,8 @@ instance
    `fc` (xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
       `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L (U_II_I ML () ()) tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
-      `ho` wrap @AR @(L (U_I_II ML () ()) tt _)
-      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L (U_I_II ML () ()) tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
+      `ho` wrap @AR @(L () tt _)
+      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L () tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
     )
 
 -- TODO: try to simplify
@@ -193,7 +193,7 @@ instance Mapping Straight Straight (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR
 
 -- This instance for normal state propagation. How unnormal should look like?
 instance Mapping Straight Straight AR AR
- (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L (U_I_II ML () ()) `WR` U_I_II (U_I_UU_II_I AR LM) e)
+ (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L () `WR` U_I_II (U_I_UU_II_I AR LM) e)
  (U_I_II (U_I_UU_II_I AR LM) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
@@ -233,37 +233,38 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor AR t => Mapping Straight S
   \(Straight f) e -> f e `yo` unwrap @AR `ho` (`li` e) `ho` from
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
--- TODO: introduce a label
+-- 1. U_I_II AR old (t (U_II_I LM btw))
+
 instance
  ( Covariant Endo Semi Functor AR t
- , Transformation Natural Functor AR AR (T'TT'I t t) t
+ , Transformation Natural Functor AR AR (t `T'TT'I` L () t) t
  ) => Mapping Straight Straight AR AR
  (T'TT'I
   ((U_I_II AR old `T'TTT'TT'I` U_II_I LM btw) t)
-  ((U_I_II AR btw `T'TTT'TT'I` U_II_I LM new) t)
+  (L () ((U_I_II AR btw `T'TTT'TT'I` U_II_I LM new) t))
  )
  (T'TTT'TT'I (U_I_II AR old) (U_II_I LM new) t) where
  mapping = rewrap / \from -> rewrap `compose` rewrap /
-  \(U_I_II x) -> component @Straight @AR @AR @(t `T'TT'I` t) @t
-  `compose` wrap @AR @(T'TT'I _ _ _)
+  \(U_I_II x) -> component @Straight @AR @AR @(t `T'TT'I` L () t) @t
+  `compose` wrap @AR @(T'TT'I t (L () t) _)
   `compose` map @Straight @Straight @AR @AR @t @t
-   (fd @AR @AR (unwrap `compose` fo from))
+   (wrap @AR @(L () t _) `compose` fd @AR @AR (unwrap @AR @(T'TTT'TT'I (U_I_II AR btw) (U_II_I LM new) t _) `compose` fo from `compose` unwrap @AR @(L () _ _)))
   `compose` x
 
 -- TODO: try to use adjunctions here
 instance
  ( Covariant Monoidal Functor AR LM LM tt
- , Transformation Natural Functor AR AR (tt `T'TT'I` L (U_I_II ML () ()) tt) tt
+ , Transformation Natural Functor AR AR (tt `T'TT'I` L () tt) tt
  , e ~ ee
  ) => Mapping Straight Straight AR AR
  (T'TT'I
   (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt)
-  (L (U_I_II ML () ()) (U_I_II (U_I_UU_II_I AR LM) ee))
+  (L () (U_I_II (U_I_UU_II_I AR LM) ee))
  )
  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
     \old -> x old `yok` \(U_II_I (These (Labeled (U_I_II (U_I_UU_II_I f))) btw))
-      -> Labeled @(U_I_II ML () ()) (yu (enter @tt) / U_II_I (f btw) `yo` from)
+      -> Labeled @() (yu (enter @tt) / U_II_I (f btw) `yo` from)
 
 -- TODO: introduce a label
 instance
@@ -498,32 +499,34 @@ instance
  mapping = rewrap / \from x -> UU_V_U_I_II_T_II (\(Opposite e) -> fa @from (fai @into @AR e from) x)
 
 -- TODO: label inner effect
-instance Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` L (U_I_II ML () ()) (U_I_II ML e)) (U_I_II ML e) where
+instance Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` L () (U_I_II ML e)) (U_I_II ML e) where
  mapping = rewrap / \from -> \case
   T'TT'I (Straight (That (Labeled (Straight (That x))))) -> Straight (That / from x)
   T'TT'I (Straight (That (Labeled (Straight (This e))))) -> Straight (This e)
   T'TT'I (Straight (This e)) -> Straight (This e)
 
 instance Covariant Monoidal Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` L (U_I_II ML () ()) t) (U_I_II ML e `TT'T'I` t) where
+ Mapping Straight Straight AR AR (U_I_II ML e `T'TT'I` L () t) (U_I_II ML e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   Straight (This e) -> yu enter (Straight `li` This e)
   Straight (That x) -> unwrap x `yo` from `ho` That  `ho` Straight
 
--- instance
- -- ( Monoidal Straight Functor AR LM LM t
- -- , Mapping Straight Straight AR AR (T'TT'I t t) t
- -- , Mapping Straight Straight AR AR I (U_I_II AR e)
- -- ) => Mapping Straight Straight AR AR (t `T'TT'I` Labeled (U_I_II ML Unit Unit) (U_I_II ML e)) t where
- -- mapping = rewrap / \from -> \(T'TT'I x) ->
-  -- x `yok'he'he` constant @AR (map @Straight @Straight from (T'TT'I x)) `la` yu (enter @t) `ha` from
+instance
+ ( Monoidal Straight Functor AR LM LM t
+ , Mapping Straight Straight AR AR (t `T'TT'I` L () t) t
+ , Mapping Straight Straight AR AR I (U_I_II AR e)
+ ) => Mapping Straight Straight AR AR (t `T'TT'I` L (() `LM` ()) (U_I_II ML e)) t where
+ mapping = rewrap / \from -> \(T'TT'I x) ->
+  x `yok_'he'he` Labeled @()
+    `ha__` constant @AR (map @Straight @Straight from (T'TT'I x))
+      `la` yu (enter @t) `ha` from
 
--- instance
- -- ( Mapping U_I_II U_I_II AR AR t t
- -- , Mapping U_I_II U_I_II AR AR (T'TT'I t t) t
- -- ) => Mapping Straight Straight AR AR (t `T'TT'I` Labeled (U_I_I LM Unit) I) t where
- -- mapping = rewrap / \from -> \(T'TT'I x) ->
-  -- x `yok'he'he` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T'TT'I x))
+instance
+ ( Mapping U_I_II U_I_II AR AR t t
+ , Mapping U_I_II U_I_II AR AR (t `T'TT'I` L () t) t
+ ) => Mapping Straight Straight AR AR (t `T'TT'I` L Recursive I) t where
+ mapping = rewrap / \from -> \(T'TT'I x) ->
+  x `yok'he'he` Labeled @() `ha` constant @AR (map @Straight @Straight @_ @_ @_ @t from (T'TT'I x))
 
 -- TODO: generalize using adjunctions
 instance Mapping Straight Straight AR AR
@@ -538,7 +541,7 @@ instance Mapping Straight Straight AR AR
    These (from `li` f (These x y)) upd
 
 instance
- ( Component Natural AR AR (t `T'TT'I` L (U_I_II ML () ()) t) t
+ ( Component Natural AR AR (t `T'TT'I` L () t) t
  , Covariant Yoneda AR AR t
  ) => Mapping Straight Straight AR AR
   (Day Straight AR LM LM
@@ -549,7 +552,7 @@ instance
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TTT'TT'I (U_I_II x)) (T'TTT'TT'I (U_I_II y))) (U_I_II f) ->
    U_I_II / \old -> x old `yok` \(U_II_I (These e btw)) ->
-    Labeled @(U_I_II ML () ()) (from `compose` f `compose` (e `lu`) `fo'fo` y btw)
+    Labeled @() (from `compose` f `compose` (e `lu`) `fo'fo` y btw)
 
 instance
  ( Component Natural AR AR (t `T'TT'I` t) t
@@ -607,7 +610,7 @@ instance Covariant Monoidal Functor AR LM LM t =>
 
 -- TODO: generalize with limits
 instance Covariant Monoidal Functor AR LM LM t =>
- Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` L (U_I_II ML () ()) t) (U_II_I LM e `TT'T'I` t) where
+ Mapping Straight Straight AR AR (U_II_I LM e `T'TT'I` L () t) (U_II_I LM e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   U_II_I (These x e) -> unwrap x `yo` from `ho` (`lu` e) `ho` U_II_I
 
