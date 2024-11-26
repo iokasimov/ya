@@ -515,7 +515,7 @@ instance
  ( Monoidal Straight Functor AR LM LM t
  , Mapping Straight Straight AR AR (t `T'TT'I` L () t) t
  , Mapping Straight Straight AR AR I (U_I_II AR e)
- ) => Mapping Straight Straight AR AR (t `T'TT'I` L (() `LM` ()) (U_I_II ML e)) t where
+ ) => Mapping Straight Straight AR AR (t `T'TT'I` L Recursive (U_I_II ML e)) t where
  mapping = rewrap / \from -> \(T'TT'I x) ->
   x `yok_'he'he` Labeled @()
     `ha__` constant @AR (map @Straight @Straight from (T'TT'I x))

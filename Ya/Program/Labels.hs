@@ -12,16 +12,13 @@ type Cascading = L (Straight LM () ())
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = Labeled e
 
-type Repeating = L Recursive
-
-pattern Again :: t e -> Repeating t e
-pattern Again e = Labeled e
+pattern Again e = Labeled @Recursive e
 
 pattern Try e = Labeled @() e
 
 pattern Check e = Labeled @() e
 
-pattern Retry e = Labeled @(() `LM` ()) e
+pattern Retry e = Labeled @Recursive e
 
 type Fore = U_I_II ML () ()
 
