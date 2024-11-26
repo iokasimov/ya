@@ -366,9 +366,6 @@ constant = unwrap @_ @(U_I_II from a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-but :: e -> ee -> e
-but x _ = x
-
 type MLM = U_U_I_II_UU_I_II ML LM
 
 instance Wrapper (->) x

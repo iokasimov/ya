@@ -19,7 +19,7 @@ instance Field e (ee `LM` e) where
 instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
  at (These x xs) = These
   `li` this (at @e @ee `he` x)
-  `li` \new -> adjust (Attribute (at @e @ee)) (but new) x `lu` xs
+  `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
 -- type family Handpicked a r where
  -- Handpicked a (a `ML` a_) = a `ML`()
