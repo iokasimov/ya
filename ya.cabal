@@ -1,14 +1,13 @@
 name:                ya
 version:             0.0.0
 synopsis:            ...
-description:         ...
-homepage:            ...
-license:             MIT
+description:         Extremely composable programming language
+homepage:            muratkasimov.art/Ya
 license-file:        LICENSE
 extra-source-files:  CHANGELOG.md, README.md
-author:              Murat Kasimov
+author:              Murat Kasimov <iokasimov.m@gmail.com>
 maintainer:          Murat Kasimov <iokasimov.m@gmail.com>
-copyright:           Copyright (c) 2023 Murat Kasimov
+copyright:           Copyright (c) 2024 Murat Kasimov
 build-type:          Simple
 cabal-version:       >= 1.10
 
