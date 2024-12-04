@@ -117,6 +117,8 @@ infixl 3 `he______`, `he______'he`, `he______'he'he`, `he______'he'he'he`, `he__
 infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `he_______'ho`, `he_______'ho'he`
 infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
 
+infixl 9 `hv`, `hv'he`
+
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
 infixl 6 `lo__`, `lo__'yp`, `lo__'ys`, `lo__'ys'la`
@@ -1214,6 +1216,14 @@ hv :: forall from into a o e .
  Contravariant Yoneda into (->) (U_II_I into o) =>
  into () o -> into e a -> into e o
 hv x = ha (x `compose` terminal)
+
+hv'he :: forall from into a o e .
+ Category into =>
+ Terminal into =>
+ Contravariant Yoneda into (->) (U_II_I into e) =>
+ Wrapper into o =>
+ into () e -> into (Supertype o) a -> into o e
+hv'he x = hv x `compose` fai (he @into)
 
 ha_ha :: forall from u u_ a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
