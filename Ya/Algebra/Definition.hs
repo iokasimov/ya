@@ -343,10 +343,10 @@ type family JNT effect where
  JNT (U_I_II ML e) = TT'T'I (U_I_II ML e)
  JNT (U_I_II (U_I_UU_II_I AR LM) e) = T'TTT'TT'I (U_I_II AR e) (U_II_I LM e)
 
-this :: e `LM` ee -> e
+this :: forall e ee . e `LM` ee -> e
 this (These x _) = x
 
-that :: e `LM` ee -> ee
+that :: forall ee e . e `LM` ee -> ee
 that (These _ x) = x
 
 swap :: e `LM` ee `AR_` ee `LM` e
