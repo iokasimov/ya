@@ -133,7 +133,7 @@ pattern Load x = R_U_I_T_I (Recursive (U_I_T_II (This x)))
 
 type List = Optional `T'TT'I` Construction Optional
 
-pattern List xs = T'TT'I @Optional @(Construction Optional) xs
+pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
 pattern Next x xs = Recursive (U_I_T_II (These x (Some xs)))
 
@@ -145,8 +145,8 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
  Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Construction (Brancher t) i -> Construction (Brancher t) i
-pattern Nonempty xs = xs
+pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
+pattern Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
  => () -> T'TT'I Optional (Construction Optional) e
