@@ -289,11 +289,11 @@ monoidal_ from =
  `compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t . Monoidal Straight Functor (->) LM ML t => t Void
-empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II identity)
+empty :: forall t o . Monoidal Straight Functor (->) LM ML t => t o
+empty = component @Straight @(->) @(->) @(Straight (->) Void) @t (U_I_II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Monoidal Straight Functor (->) LM LM t => t ()
+enter :: forall t . Monoidal Straight Functor (->) LM LM t => t Unit
 enter = component @Straight @(->) @(->) @(Straight (->) ()) @t (U_I_II identity)
 
 rewrap :: forall o into a .
