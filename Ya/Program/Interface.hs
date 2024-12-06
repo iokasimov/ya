@@ -22,71 +22,71 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
 -- type family Handpicked a r where
- -- Handpicked a (a `ML` a_) = a `ML`()
- -- Handpicked a (a_ `ML` a) = a `ML` ()
- -- Handpicked a (a_ `ML` a__) = Handpicked a a_
+ -- Handpicked a (a `ML` aa) = a `ML`()
+ -- Handpicked a (aa `ML` a) = a `ML` ()
+ -- Handpicked a (aa `ML` aaa) = Handpicked a aa
 
 -- class Matchable a r where
  -- match :: r -> Handpicked a r
 
--- instance Matchable a (a `ML` a_) where
+-- instance Matchable a (a `ML` aa) where
  -- match = This `la` That `ha` but Unit
 
--- instance Matchable a (a_ `ML` a) where
+-- instance Matchable a (aa `ML` a) where
  -- match = That `ha` but Unit `la` This
 
 -- instance {-# OVERLAPS #-}
- -- ( Matchable a a_
- -- , Handpicked a (a_ `ML` a__) ~ a `ML` ()
- -- , Handpicked a a_ ~ a `ML` ()
- -- ) => Matchable a (a_ `ML` a__) where
- -- match = match @a @a_ `la` That `ha` but Unit
+ -- ( Matchable a aa
+ -- , Handpicked a (aa `ML` aaa) ~ a `ML` ()
+ -- , Handpicked a aa ~ a `ML` ()
+ -- ) => Matchable a (aa `ML` aaa) where
+ -- match = match @a @aa `la` That `ha` but Unit
 
 type family Excluded a r where
- Excluded a (a `ML` a_) = a_
- Excluded a (a_ `ML` a) = a_
- Excluded a (a_ `ML` a__) = Excluded a a_ `ML` a__
+ Excluded a (a `ML` aa) = aa
+ Excluded a (aa `ML` a) = aa
+ Excluded a (aa `ML` aaa) = Excluded a aa `ML` aaa
 
 class Matchable a r where
  match :: r `AR_` a `ML` Excluded a r
 
-instance Matchable a (a `ML` a_) where
+instance Matchable a (a `ML` aa) where
  match = This `la` That
 
-instance Matchable a (a_ `ML` a) where
+instance Matchable a (aa `ML` a) where
  match = That `la` This
 
-instance (Excluded a (a `ML` a_ `ML` a__) ~ (a_ `ML` a__))
- => Matchable a (a `ML` a_ `ML` a__) where
+instance (Excluded a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
+ => Matchable a (a `ML` aa `ML` aaa) where
  match = This
   `la` That `ha` This
   `la` That `ha` That
 
-instance (Excluded a (a_ `ML` a `ML` a__) ~ (a_ `ML` a__))
- => Matchable a (a_ `ML` a `ML` a__) where
+instance (Excluded a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
+ => Matchable a (aa `ML` a `ML` aaa) where
  match = is
   `li` That `ha` This
   `la` This
   `la` That `ha` That
 
-instance (Excluded a (a `ML` a_ `ML` a__ `ML` a___) ~ (a_ `ML` a__ `ML` a___))
- => Matchable a (a `ML` a_ `ML` a__ `ML` a___) where
+instance (Excluded a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+ => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
  match = is
   `li` This
   `la` That `ha` This `ha` This
   `la` That `ha` This `ha` That
   `la` That `ha` That
 
-instance (Excluded a (a_ `ML` a `ML` a__ `ML` a___) ~ (a_ `ML` a__ `ML` a___))
- => Matchable a (a_ `ML` a `ML` a__ `ML` a___) where
+instance (Excluded a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+ => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
  match = is
   `li` That `ha` This `ha` This
   `la` This
   `la` That `ha` This `ha` That
   `la` That `ha` That
 
-instance (Excluded a (a_ `ML` a__ `ML` a `ML` a___) ~ (a_ `ML` a__ `ML` a___))
- => Matchable a (a_ `ML` a__ `ML` a `ML` a___) where
+instance (Excluded a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+ => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
  match = is
   `li` That `ha` This `ha` This
   `la` That `ha` This `ha` That
