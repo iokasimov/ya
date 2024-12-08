@@ -48,50 +48,35 @@ type family Excluded a r where
  Excluded a (aa `ML` aaa) = Excluded a aa `ML` aaa
 
 class Matchable a r where
- match :: r `AR_` a `ML` Excluded a r
+ match :: r `AR_` Excluded a r `ML` a
 
+-- TODO: introduce a constrant: `a` != `aa`
 instance Matchable a (a `ML` aa) where
- match = This `la` That
-
-instance Matchable a (aa `ML` a) where
  match = That `la` This
+
+-- TODO: introduce a constrant: `a` != `aa`
+instance Matchable a (aa `ML` a) where
+ match = This `la` That
 
 instance (Excluded a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
  => Matchable a (a `ML` aa `ML` aaa) where
- match = This
-  `la` That `ha` This
-  `la` That `ha` That
+ match = That `la` This `ha` This `la` This `ha` That
 
 instance (Excluded a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
  => Matchable a (aa `ML` a `ML` aaa) where
- match = is
-  `li` That `ha` This
-  `la` This
-  `la` That `ha` That
+ match = This `ha` This `la` That `la` This `ha` That
 
 instance (Excluded a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
- match = is
-  `li` This
-  `la` That `ha` This `ha` This
-  `la` That `ha` This `ha` That
-  `la` That `ha` That
+ match =  That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
 instance (Excluded a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
- match = is
-  `li` That `ha` This `ha` This
-  `la` This
-  `la` That `ha` This `ha` That
-  `la` That `ha` That
+ match = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
 
 instance (Excluded a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
- match = is
-  `li` That `ha` This `ha` This
-  `la` That `ha` This `ha` That
-  `la` This
-  `la` That `ha` That
+ match = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
 
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
