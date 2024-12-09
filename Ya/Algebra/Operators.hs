@@ -5,7 +5,7 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -880,66 +880,84 @@ ho______'he'he'he'he = ho'he'he'he'he
 ho_______'he'he'he'he = ho'he'he'he'he
 ho________'he'he'he'he = ho'he'he'he'he
 
-ho'ho, ho_'ho :: forall from u u_ o e ee a .
- Covariant Yoneda u from (Straight u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
- Covariant Semi Functor from u (Straight u_ ee) =>
- Covariant Endo Semi Functor (->) (Straight (->) (u e (u_ a ee))) =>
- Contravariant Semi Functor (->) (->) (Opposite from (u e (u_ ee o))) =>
- Wrapper u (Straight u_ ee a) =>
- Wrapper u (Straight u_ ee o) =>
- Wrapper from (Straight u_ ee o) =>
- Wrapper from (Straight u e (u_ ee o)) =>
- Wrapper from (Straight u (u_ ee a) (u_ ee o)) =>
- u e (u_ ee a) -> from (from a o) (u e (u_ ee o))
-ho'ho x = fai fio (ho @u x)
+ho'ho, ho_'ho :: forall from u uu e ee a o .
+ Covariant Yoneda u from (U_I_II u e) =>
+ Covariant Semi Functor from u (U_I_II uu ee) =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
+ Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
+ Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee o))) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Wrapper from (U_I_II uu ee o) =>
+ Wrapper from (U_I_II u e (uu ee o)) =>
+ Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
+ u e (uu ee a) -> from (from a o) (u e (uu ee o))
+ho'ho x = fai @(->) @(->) (fio @from @u) (ho @u @from x)
 
 ho_'ho = ho'ho
 
-ho'ho'hu :: forall from u u_ u__ o e ee eee a .
+ho'ho'ho :: forall from u uu uuu o e ee eee a .
+ Covariant Yoneda u from (U_I_II u e) =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
+ Covariant Semi Functor from u (U_I_II uu ee) =>
+ Covariant Endo Semi Functor from (U_I_II uuu eee) =>
+ Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
+ Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee (uuu eee o)))) =>
+ Wrapper u (U_I_II uu ee (uuu eee o)) =>
+ Wrapper u (U_I_II uu ee (uuu eee a)) =>
+ Wrapper from (U_I_II uuu eee a) =>
+ Wrapper from (U_I_II uuu eee o) =>
+ Wrapper from (U_I_II uu ee (uuu eee o)) =>
+ Wrapper from (U_I_II u e (uu ee (uuu eee o))) =>
+ Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
+ Wrapper from (U_I_II u (uu ee (uuu eee a)) (uu ee (uuu eee o))) =>
+ u e (uu ee (uuu eee a)) -> from (from a o) (u e (uu ee (uuu eee o)))
+ho'ho'ho x = fai @(->) @(->) (fio @from `compose` fio @from) (ho @u @from x)
+
+ho'ho'hu :: forall from u uu u__ o e ee eee a .
  Category from =>
  Covariant Yoneda u__ (->) (U_I_II u e) =>
- Covariant Semi Functor from u__ (U_I_II u_ ee) =>
+ Covariant Semi Functor from u__ (U_I_II uu ee) =>
  Covariant Endo Semi Functor from (U_I_II u__ eee) =>
  Constant Endo Semi Functor from (U_I_II u__ eee) =>
  Mapping Straight Straight from (->) I (U_I_II from a) =>
- Wrapper u__ (U_I_II u_ ee (u__ eee a)) =>
- Wrapper u__ (U_I_II u_ ee (u__ eee o)) =>
+ Wrapper u__ (U_I_II uu ee (u__ eee a)) =>
+ Wrapper u__ (U_I_II uu ee (u__ eee o)) =>
  Wrapper from (U_I_II u__ eee o) =>
  Wrapper from (U_I_II u__ eee a) =>
  Wrapper from (I o) =>
  Wrapper (->) (U_1_I from a o) =>
- u e (u_ ee (u__ eee a)) -> o -> u e (u_ ee (u__ eee o))
+ u e (uu ee (u__ eee a)) -> o -> u e (uu ee (u__ eee o))
 ho'ho'hu = fai (fio @from `compose` fiu @from) `compose` ho @u__
 
-ho'hu :: forall from u u_ o e ee a .
+ho'hu :: forall from u uu o e ee a .
  Category from =>
  Covariant Yoneda u from (U_I_II u e) =>
  Contravariant Yoneda (->) (->) (Opposite u e) =>
- Covariant Semi Functor from u (U_I_II u_ ee) =>
- Covariant Endo Semi Functor (->) (Straight (->) (u e (u_ a ee))) =>
- Contravariant Semi Functor (->) (->) (Opposite from (u e (u_ ee o))) =>
+ Covariant Semi Functor from u (U_I_II uu ee) =>
+ Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
+ Contravariant Semi Functor (->) (->) (Opposite from (u e (uu ee o))) =>
  Mapping Straight Straight from (->) I (U_I_II from a) =>
- Wrapper u (Straight u_ ee a) =>
- Wrapper u (Straight u_ ee o) =>
- Wrapper from (Straight u_ ee o) =>
- Wrapper from (Straight u e (u_ ee o)) =>
- Wrapper from (Straight u (u_ ee a) (u_ ee o)) =>
+ Wrapper u (Straight uu ee a) =>
+ Wrapper u (Straight uu ee o) =>
+ Wrapper from (Straight uu ee o) =>
+ Wrapper from (Straight u e (uu ee o)) =>
+ Wrapper from (Straight u (uu ee a) (uu ee o)) =>
  Wrapper u (I o) =>
- u e (u_ ee a) -> from o (u e (u_ ee o))
+ u e (uu ee a) -> from o (u e (uu ee o))
 ho'hu = fai (fiu @from) `compose` ho @u
 
 ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
- :: forall from u u_ o e ee a .
+ :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite u_ ee) =>
- Contravariant Endo Semi Functor (->) (Opposite (->) (u e (u_ a ee))) =>
- Wrapper u (U_II_I u_ ee a) =>
- Wrapper u (U_II_I u_ ee o) =>
- Wrapper from (U_I_II u e (u_ a ee)) =>
- Wrapper from (U_I_II u (u_ o ee) (u_ a ee)) =>
- u e (u_ o ee) -> from a o -> u e (u_ a ee)
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper from (U_I_II u e (uu a ee)) =>
+ Wrapper from (U_I_II u (uu o ee) (uu a ee)) =>
+ u e (uu o ee) -> from a o -> u e (uu a ee)
 ho'ha x = fai @(->) @(->) fai (ho @u x)
 
 ho_'ha = ho'ha
@@ -952,14 +970,14 @@ ho_______'ha = ho'ha
 ho________'ha = ho'ha
 
 ho'ha'he, ho_'ha'he, ho__'ha'he, ho___'ha'he, ho____'ha'he, ho_____'ha'he, ho______'ha'he, ho_______'ha'he, ho________'ha'he
- :: forall from u u_ o e ee a .
+ :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Semi Functor from u (Opposite u_ ee) =>
- Wrapper u (U_II_I u_ ee a) =>
- Wrapper u (U_II_I u_ ee (Supertype a)) =>
- Wrapper u (U_II_I u_ ee o) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee (Supertype a)) =>
+ Wrapper u (U_II_I uu ee o) =>
  Wrapper from a =>
- u e (u_ o ee) -> from (Supertype a) o -> u e (u_ a ee)
+ u e (uu o ee) -> from (Supertype a) o -> u e (uu a ee)
 ho'ha'he x = fai (fai `compose` fai @from unwrap) (ho @u x)
 
 ho_'ha'he = ho'ha'he
@@ -972,15 +990,15 @@ ho_______'ha'he = ho'ha'he
 ho________'ha'he = ho'ha'he
 
 ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'ha'he'he, ho_____'ha'he'he, ho______'ha'he'he, ho_______'ha'he'he, ho________'ha'he'he
- :: forall from u u_ o e ee a .
+ :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Semi Functor from u (Opposite u_ ee) =>
- Wrapper u (U_II_I u_ ee a) =>
- Wrapper u (U_II_I u_ ee (Supertype a)) =>
- Wrapper u (U_II_I u_ ee o) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee (Supertype a)) =>
+ Wrapper u (U_II_I uu ee o) =>
  Wrapper from a =>
  Wrapper from (Supertype a) =>
- u e (u_ o ee) -> from (Supertype (Supertype a)) o -> u e (u_ a ee)
+ u e (uu o ee) -> from (Supertype (Supertype a)) o -> u e (uu a ee)
 ho'ha'he'he x = fai (fai `compose` fai @from he'he) (ho @u x)
 
 ho_'ha'he'he = ho'ha'he'he
@@ -1202,12 +1220,12 @@ ha______'he'he = ha'he'he
 ha_______'he'he = ha'he'he
 ha________'he'he = ha'he'he
 
-ha'ha :: forall from u u_ a o e ee .
+ha'ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite u_ ee) =>
- Wrapper u (Opposite u_ ee a) =>
- Wrapper u (Opposite u_ ee o) =>
- u (u_ a ee) e -> from a o -> u (u_ o ee) e
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Wrapper u (Opposite uu ee a) =>
+ Wrapper u (Opposite uu ee o) =>
+ u (uu a ee) e -> from a o -> u (uu o ee) e
 ha'ha x = fai @(->) @(->) fai (ha @u x)
 
 hv :: forall from into a o e .
@@ -1225,71 +1243,71 @@ hv'he :: forall from into a o e .
  into () e -> into (Supertype o) a -> into o e
 hv'he x = hv x `compose` fai (he @into)
 
-ha_ha :: forall from u u_ a o e ee .
+ha_ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite u_ ee) =>
- Contravariant Semi Functor u u (Opposite u_ ee) =>
- Wrapper u (Opposite u_ ee (Supertype a)) =>
- Wrapper u (Opposite u_ ee o) =>
- Wrapper u (Opposite u_ ee a) =>
+ Contravariant Semi Functor from u (Opposite uu ee) =>
+ Contravariant Semi Functor u u (Opposite uu ee) =>
+ Wrapper u (Opposite uu ee (Supertype a)) =>
+ Wrapper u (Opposite uu ee o) =>
+ Wrapper u (Opposite uu ee a) =>
  Wrapper u a =>
  Wrapper from a =>
- u (u_ a ee) e -> from (Supertype a) o -> u (u_ o ee) e
+ u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai_ (ha @u x)
 
-ha'ho :: forall from u u_ o e ee a .
+ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (Straight u e) =>
  Contravariant Yoneda u (->) (Opposite u e) =>
- Covariant Semi Functor from u (U_I_II u_ ee) =>
- Wrapper u (U_I_II u_ ee a) =>
- Wrapper u (U_I_II u_ ee o) =>
- u (u_ ee o) e -> from a o -> u (u_ ee a) e
+ Covariant Semi Functor from u (U_I_II uu ee) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ u (uu ee o) e -> from a o -> u (uu ee a) e
 ha'ho x = fai @(->) @(->) fio (ha @u x)
 
--- ha'ho'hu :: forall from into u u_ u__ o e ee eee a .
+-- ha'ho'hu :: forall from into u uu u__ o e ee eee a .
  -- Precategory from =>
  -- Contravariant Yoneda u__ (->) (U_II_I u e) =>
- -- Covariant Semi Functor from u__ (U_I_II u_ ee) =>
+ -- Covariant Semi Functor from u__ (U_I_II uu ee) =>
  -- Covariant Endo Semi Functor from (U_I_II u__ eee) =>
  -- Mapping Straight Straight into into I (U_I_II into a) =>
- -- Wrapper u__ (U_I_II u_ ee (u__ eee a)) =>
- -- Wrapper u__ (U_I_II u_ ee (u__ eee o)) =>
+ -- Wrapper u__ (U_I_II uu ee (u__ eee a)) =>
+ -- Wrapper u__ (U_I_II uu ee (u__ eee o)) =>
  -- Wrapper from (U_I_II u__ eee o) =>
  -- Wrapper from (U_I_II u__ eee a) =>
  -- Wrapper (->) (U_1_I from a o) =>
- -- u (u_ ee (u__ eee o)) e -> Supertype (U_1_I from a o) -> u (u_ ee (u__ eee a)) e
+ -- u (uu ee (u__ eee o)) e -> Supertype (U_1_I from a o) -> u (uu ee (u__ eee a)) e
 -- ha'ho'hu = fai (fio @from `compose` fiu) `compose` ha @u__
 
--- ha'hu :: forall from u u_ o e ee a .
- -- Covariant Semi Functor u u (U_I_II u_ ee) =>
- -- Constant Semi Functor u u (U_I_II u_ ee) =>
+-- ha'hu :: forall from u uu o e ee a .
+ -- Covariant Semi Functor u u (U_I_II uu ee) =>
+ -- Constant Semi Functor u u (U_I_II uu ee) =>
  -- Contravariant Yoneda u (->) (Opposite u e) =>
- -- Wrapper u (U_I_II u_ ee a) =>
- -- Wrapper u (U_I_II u_ ee o) =>
+ -- Wrapper u (U_I_II uu ee a) =>
+ -- Wrapper u (U_I_II uu ee o) =>
  -- Castable Opposite u (U_1_I u a o) =>
  -- Castable Opposite (->) (U_1_I u a o) =>
- -- u (u_ ee o) e -> Supertype (U_1_I u a o) -> u (u_ ee a) e
+ -- u (uu ee o) e -> Supertype (U_1_I u a o) -> u (uu ee a) e
 -- ha'hu x = fai @(->) @(->) fiu (ha @u x)
 
--- ha'he'hu :: forall from u u_ o e ee a .
- -- Covariant Semi Functor u u (U_I_II u_ ee) =>
- -- Constant Semi Functor u u (U_I_II u_ ee) (U_I_II u_ ee) =>
+-- ha'he'hu :: forall from u uu o e ee a .
+ -- Covariant Semi Functor u u (U_I_II uu ee) =>
+ -- Constant Semi Functor u u (U_I_II uu ee) (U_I_II uu ee) =>
  -- Contravariant Yoneda u (->) (Opposite u e) =>
- -- Wrapper u (U_I_II u_ ee a) =>
- -- Wrapper u (U_I_II u_ ee o) =>
+ -- Wrapper u (U_I_II uu ee a) =>
+ -- Wrapper u (U_I_II uu ee o) =>
  -- Castable Opposite (->) (u () o) =>
- -- u (u_ ee o) e -> Supertype (u () o) -> u (u_ ee a) e
+ -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
 -- ha'he'hu x = fai @(->) @(->) fiu (ha'he @u x)
 
--- ha'hu'he :: forall from u u_ o e ee a .
---  Covariant Semi Functor u u (U_I_II u_ ee) =>
---  Constant Semi Functor u u (U_I_II u_ ee) =>
+-- ha'hu'he :: forall from u uu o e ee a .
+--  Covariant Semi Functor u u (U_I_II uu ee) =>
+--  Constant Semi Functor u u (U_I_II uu ee) =>
 --  Contravariant Yoneda u (->) (Opposite u e) =>
---  Wrapper u (U_I_II u_ ee a) =>
---  Wrapper u (U_I_II u_ ee o) =>
+--  Wrapper u (U_I_II uu ee a) =>
+--  Wrapper u (U_I_II uu ee o) =>
 --  Castable Opposite (->) (Supertype (u () o)) =>
 --  Castable Opposite (->) (u () o) =>
---  u (u_ ee o) e -> Supertype (Supertype (u () o)) -> u (u_ ee a) e
+--  u (uu ee o) e -> Supertype (Supertype (u () o)) -> u (uu ee a) e
 -- ha'hu'he x = fai @(->) @(->) fiu'_ (ha @u x)
 
 ha'yo :: forall from u t o e a .
@@ -1838,10 +1856,10 @@ la_____ = la
 la______ = la
 la_______ = la
 
--- `yp`: u (t e) (t ee) -> t (u_ e ee)
+-- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
 -- `lo`: into a o -> into a oo -> into a (o `LM` oo)
---     : u (from o i) (from oo i) -> from (u_ o oo) i
+--     : u (from o i) (from oo i) -> from (uu o oo) i
 
 -- TODO: to test
 -- rwr'hs :: forall from into r o a aa .
