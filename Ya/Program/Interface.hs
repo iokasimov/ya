@@ -44,36 +44,36 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
  -- match = match @a @aa `la` That `ha` but Unit
 
 class Matchable a r where
- match :: r `AR_` a `MN` r `ML` a
+ dis :: r `AR_` r `MN` a `ML` a
 
 instance Matchable a (a `ML` aa) where
- match = That `la` This
+ dis = That `la` This
 
 instance Matchable a (aa `ML` a) where
- match = This `la` That
+ dis = This `la` That
 
-instance (MN a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
+instance (a `ML` aa `ML` aaa `MN` a ~ (aa `ML` aaa))
  => Matchable a (a `ML` aa `ML` aaa) where
- match = That `la` This `ha` This `la` This `ha` That
+ dis = That `la` This `ha` This `la` This `ha` That
 
-instance (MN a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
+instance (aa `ML` a `ML` aaa `MN` a ~ (aa `ML` aaa))
  => Matchable a (aa `ML` a `ML` aaa) where
- match = This `ha` This `la` That `la` This `ha` That
+ dis = This `ha` This `la` That `la` This `ha` That
 
-instance (MN a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (a `ML` aa `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
- match = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
+ dis = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (MN a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (aa `ML` a `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
- match = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
+ dis = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (MN a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (aa `ML` aaa `ML` a `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
- match = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
+ dis = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
 
-match' :: Matchable a r => r `AR_` Unit `ML` a
-match' x = match x `yui` Unit
+dis' :: Matchable a r => r `AR_` Unit `ML` a
+dis' x = dis x `yui` Unit
 
 class Layable a r where
  lay :: a `AR_` r

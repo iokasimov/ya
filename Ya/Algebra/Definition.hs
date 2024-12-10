@@ -167,10 +167,10 @@ data instance Object Void e ee = This e | That ee
 type LM = Object Unit
 type ML = Object Void
 
-type family MN a r where
- MN a (a `ML` aa) = aa
- MN a (aa `ML` a) = aa
- MN a (aa `ML` aaa) = MN a aa `ML` aaa
+type family MN r a where
+ MN (a `ML` aa) a = aa
+ MN (aa `ML` a) a = aa
+ MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
 
 type family Neutral p where
  Neutral LM = Unit
