@@ -5,7 +5,7 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `LM`, `ML`
+infixl 8 `LM`, `ML`, `MN`
 
 infixr 7 `JNT`
 
@@ -166,6 +166,11 @@ data instance Object Void e ee = This e | That ee
 
 type LM = Object Unit
 type ML = Object Void
+
+type family MN a r where
+ MN a (a `ML` aa) = aa
+ MN a (aa `ML` a) = aa
+ MN a (aa `ML` aaa) = MN a aa `ML` aaa
 
 type family Neutral p where
  Neutral LM = Unit

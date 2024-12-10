@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Program.Interface where
 
 import Ya.Algebra
@@ -42,56 +43,68 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
  -- ) => Matchable a (aa `ML` aaa) where
  -- match = match @a @aa `la` That `ha` but Unit
 
-type family Excluded a r where
- Excluded a (a `ML` aa) = aa
- Excluded a (aa `ML` a) = aa
- Excluded a (aa `ML` aaa) = Excluded a aa `ML` aaa
-
 class Matchable a r where
- match :: r `AR_` a `ML` Excluded a r
+ match :: r `AR_` a `MN` r `ML` a
 
 instance Matchable a (a `ML` aa) where
- match = This `la` That
-
-instance Matchable a (aa `ML` a) where
  match = That `la` This
 
-instance (Excluded a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
+instance Matchable a (aa `ML` a) where
+ match = This `la` That
+
+instance (MN a (a `ML` aa `ML` aaa) ~ (aa `ML` aaa))
  => Matchable a (a `ML` aa `ML` aaa) where
- match = This
-  `la` That `ha` This
-  `la` That `ha` That
+ match = That `la` This `ha` This `la` This `ha` That
 
-instance (Excluded a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
+instance (MN a (aa `ML` a `ML` aaa) ~ (aa `ML` aaa))
  => Matchable a (aa `ML` a `ML` aaa) where
- match = is
-  `li` That `ha` This
-  `la` This
-  `la` That `ha` That
+ match = This `ha` This `la` That `la` This `ha` That
 
-instance (Excluded a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (MN a (a `ML` aa `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
- match = is
-  `li` This
-  `la` That `ha` This `ha` This
-  `la` That `ha` This `ha` That
-  `la` That `ha` That
+ match = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (Excluded a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (MN a (aa `ML` a `ML` aaa `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
- match = is
-  `li` That `ha` This `ha` This
-  `la` This
-  `la` That `ha` This `ha` That
-  `la` That `ha` That
+ match = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (Excluded a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
+instance (MN a (aa `ML` aaa `ML` a `ML` aaaa) ~ (aa `ML` aaa `ML` aaaa))
  => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
- match = is
-  `li` That `ha` This `ha` This
-  `la` That `ha` This `ha` That
-  `la` This
-  `la` That `ha` That
+ match = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
+
+match' :: Matchable a r => r `AR_` Unit `ML` a
+match' x = match x `yui` Unit
+
+class Layable a r where
+ lay :: a `AR_` r
+
+instance Layable a (a `ML` aa) where
+ lay = This
+
+instance Layable a (aa `ML` a) where
+ lay = That
+
+instance Layable a (a `ML` aa `ML` aaa) where
+ lay = This `ha` This
+
+instance Layable a (aa `ML` a `ML` aaa) where
+ lay = This `ha` That
+
+class Fittable a r where
+ fit :: r `AR_` MN a r `ML` a
+
+instance
+ ( Layable aa (MN a (aa `ML` aaa) `ML` a)
+ , Layable aaa (MN a (aa `ML` aaa) `ML` a)
+ ) => Fittable a (aa `ML` aaa) where
+ fit = lay `la` lay
+
+instance
+ ( Layable aa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
+ , Layable aaa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
+ , Layable aaaa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
+ ) => Fittable a (aa `ML` aaa `ML` aaaa) where
+ fit = lay `la` lay `la` lay
 
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
