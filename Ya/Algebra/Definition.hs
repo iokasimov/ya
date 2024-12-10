@@ -405,3 +405,13 @@ instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `ML` ee) (eee 
 
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `LM` ee) (eee `LM` eeee) where
  objective = identity
+
+newtype U_I_UU_MN_I_II_II u uu i ii = U_I_UU_MN_I_II_II (u i (uu (MN i ii) ii))
+
+type instance Supertype (U_I_UU_MN_I_II_II u uu i ii) = u i (uu (MN i ii) ii)
+
+instance Castable Opposite (->) (U_I_UU_MN_I_II_II u uu i ii)
+ where cast = U_II_I U_I_UU_MN_I_II_II
+
+instance Castable Straight (->) (U_I_UU_MN_I_II_II u uu i ii)
+ where cast = U_I_II (\(U_I_UU_MN_I_II_II x) -> x)
