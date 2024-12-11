@@ -249,25 +249,25 @@ li_______ = li
 fo :: forall from into t a o .
  Covariant Semi Functor from into t =>
  from a o -> into (t a) (t o)
-fo = map @Straight @Straight
+fo = map @U_I_II @U_I_II
 
 fa :: forall from into t a o .
  Contravariant Semi Functor from into t =>
  from a o -> into (t o) (t a)
-fa = map @Opposite @Straight
+fa = map @U_II_I @U_I_II
 
 fu :: forall from into t a o .
  Covariant Functor from into t =>
- Mapping Straight Straight from (->) I (U_I_II from a) =>
+ Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper into (I o) =>
  o -> into (t a) (t o)
 fu = fo @from @into @t `compose` constant @from @(->)
 
 fok :: forall from into t tt l a o .
  Component Natural from into (T'TT'I t (L l tt)) t =>
- Castable Opposite into ((t `T'TT'I` L l tt) o) =>
+ Castable U_II_I into ((t `T'TT'I` L l tt) o) =>
  from a (L l tt o) -> into (t a) (t o)
-fok from = component @Straight @from @into @(t `T'TT'I` L l tt) @t
+fok from = component @U_I_II @from @into @(t `T'TT'I` L l tt) @t
  `compose` wrap `compose` fo from
 
 fuk :: forall into t tt a o .
@@ -278,27 +278,27 @@ fuk :: forall into t tt a o .
  Wrapper into (T'TT'I t t o) =>
  Wrapper into (I (tt o)) =>
  tt o -> into (t a) (t o)
-fuk from = map @Straight @Straight @into @into @(t `T'TT'I` tt) @t identity
+fuk from = map @U_I_II @U_I_II @into @into @(t `T'TT'I` tt) @t identity
  `compose` wrap `compose` fu @into from
 
 fokl :: forall from into t tt l a o .
  Covariant Semi Functor from into t =>
  Component Natural from into (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
- Castable Opposite into ((t `T'TT'I` L l tt) o) =>
- Castable Straight into (TT'T'I t tt o) =>
+ Castable U_II_I into ((t `T'TT'I` L l tt) o) =>
+ Castable U_I_II into (TT'T'I t tt o) =>
  from a (L l tt o) -> into (t a) (tt (t o))
 fokl from = wrapped
- (component @Straight @from @into @(t `T'TT'I` L l tt) @(t `TT'T'I` tt))
+ (component @U_I_II @from @into @(t `T'TT'I` L l tt) @(t `TT'T'I` tt))
  `compose` fo from
 
 yi, yi_, yi__, yi___, yi____,  yi_____, yi______, yi_______
  :: forall from into a o .
  Precategory into =>
  Covariant Yoneda from into I =>
- Castable Opposite into (U_I_II from a o) =>
- Castable Straight into (I o) =>
+ Castable U_II_I into (U_I_II from a o) =>
+ Castable U_I_II into (I o) =>
  a -> into (from a o) o
-yi x = unwrap `compose` yoneda @Straight (Identity x) `compose` wrap
+yi x = unwrap `compose` yoneda @U_I_II (Identity x) `compose` wrap
 
 yi_ = yi
 yi__ = yi
@@ -311,9 +311,9 @@ yi_______ = yi
 yo, yo_, yi'yo :: forall from into t a o .
  Precategory into =>
  Covariant Yoneda from into t =>
- Castable Opposite into (U_I_II from a o) =>
+ Castable U_II_I into (U_I_II from a o) =>
  t a -> into (from a o) (t o)
-yo x = yoneda @Straight x `compose` wrap
+yo x = yoneda @U_I_II x `compose` wrap
 
 yo_ = yo
 yi'yo = yo
@@ -321,30 +321,30 @@ yi'yo = yo
 yoi :: forall from into t e a o .
  Precategory into =>
  Covariant Yoneda from into (U_II_I t e) =>
- Castable Opposite into (Straight from a o) =>
- Castable Straight into (U_II_I t e o) =>
+ Castable U_II_I into (U_I_II from a o) =>
+ Castable U_I_II into (U_II_I t e o) =>
  t a e -> into (from a o) (t o e)
 yoi = fio @into unwrap `compose` yo @from @into @(U_II_I t e) `compose` wrap
 
 yio :: forall from into t e a o .
  Precategory into =>
  Covariant Yoneda from into (U_I_II t e) =>
- Castable Opposite into (Straight from a o) =>
- Castable Straight into (U_I_II t e o) =>
+ Castable U_II_I into (U_I_II from a o) =>
+ Castable U_I_II into (U_I_II t e o) =>
  t e a -> into (from a o) (t e o)
 yio = fio @into unwrap `compose` yo @from @into @(U_I_II t e) `compose` wrap
 
 -- yioi :: forall from into w e eee a o .
 --  Precategory into =>
 --  Covariant Yoneda from into (W_III_I_II w eee e) =>
---  Castable Opposite into (U_I_II from a o) =>
---  Castable Straight into (W_III_I_II w eee e o) =>
+--  Castable U_II_I into (U_I_II from a o) =>
+--  Castable U_I_II into (W_III_I_II w eee e o) =>
 --  w e a eee -> into (from a o) (w e o eee)
--- yioi x = compose unwrap (yoneda @Straight @from @into @(W_III_I_II _ _ _) (wrap x))
+-- yioi x = compose unwrap (yoneda @U_I_II @from @into @(W_III_I_II _ _ _) (wrap x))
 
 yu, li'yu :: forall into t a o .
  Covariant Yoneda into into t =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper into (I o) =>
  t a -> into o (t o)
@@ -355,7 +355,7 @@ li'yu = yu
 yui :: forall into t e a o .
  Terminal into =>
  Covariant Yoneda into into (U_II_I t e) =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_II_I t e o) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper into (I o) =>
@@ -365,7 +365,7 @@ yui x = unwrap @into @(U_II_I t e _)
 
 yiu :: forall into t i a o .
  Covariant Yoneda into into (U_I_II t i) =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper into (U_I_II t i o) =>
  Wrapper into (I o) =>
@@ -378,7 +378,7 @@ yo'yo :: forall from into t tt a o .
  Covariant Functor from from tt =>
  Covariant Yoneda from into t =>
  Contravariant Endo Semi Functor (->) (U_II_I into (t (tt o))) =>
- Castable Opposite into (U_I_II from (tt a) (tt o)) =>
+ Castable U_II_I into (U_I_II from (tt a) (tt o)) =>
  t (tt a) -> into (from a o) (t (tt o))
 yo'yo x = fai fo (yo @from @into x)
 
@@ -403,10 +403,10 @@ yo'hj :: forall from into t tt ttt e a o .
  (forall ee . Wrapper from ((T'TT'I (U_I_II tt e) (U_II_I ttt e)) ee)) =>
  (forall ee . Wrapper from ((T'TT'I (U_II_I ttt e) (U_I_II tt e)) ee)) =>
  (forall ee . Wrapper from (I ee)) =>
- Castable Opposite from (U_II_I ttt e a) =>
- Castable Opposite from (U_I_II tt e o) =>
- Castable Opposite into (U_I_II from (ttt a e) o) =>
- Castable Opposite into (U_I_II from (tt e a) o) =>
+ Castable U_II_I from (U_II_I ttt e a) =>
+ Castable U_II_I from (U_I_II tt e o) =>
+ Castable U_II_I into (U_I_II from (ttt a e) o) =>
+ Castable U_II_I into (U_I_II from (tt e a) o) =>
  Contravariant Endo Semi Functor (->) (U_II_I into (t o)) =>
  t (ttt a e) -> into (from a (tt e o)) (t o)
 yo'hj x = fai hj (yo @from @into x)
@@ -416,8 +416,8 @@ yio'yo :: forall from into t tt e a o .
  Contravariant Endo Semi Functor (->) (U_II_I into (t e (tt o))) =>
  Covariant Yoneda from into (U_I_II t e) =>
  Covariant Functor from from tt =>
- Castable Opposite into (Straight from (tt a) (tt o)) =>
- Castable Straight into (U_I_II t e (tt o)) =>
+ Castable U_II_I into (U_I_II from (tt a) (tt o)) =>
+ Castable U_I_II into (U_I_II t e (tt o)) =>
  t e (tt a) -> into (from a o) (t e (tt o))
 yio'yo x = fai fo (yio @from @into x)
 
@@ -426,17 +426,17 @@ yio'yo x = fai fo (yio @from @into x)
 ya :: forall from into t a o .
  Precategory into =>
  Contravariant Yoneda from into t =>
- Castable Opposite into (Opposite from a o) =>
+ Castable U_II_I into (U_II_I from a o) =>
  t a -> into (from o a) (t o)
-ya x = yoneda @Opposite x `compose` wrap
+ya x = yoneda @U_II_I x `compose` wrap
 
 yai :: forall from into t e a o .
  Precategory into =>
  Contravariant Yoneda from into (U_II_I t e) =>
- Castable Opposite into (Opposite from a o) =>
- Castable Straight into (U_II_I t e o) =>
+ Castable U_II_I into (U_II_I from a o) =>
+ Castable U_I_II into (U_II_I t e o) =>
  t a e -> into (from o a) (t o e)
-yai x = compose unwrap (yoneda @Opposite @from @into @(U_II_I t e) (wrap x) `compose` wrap)
+yai x = compose unwrap (yoneda @U_II_I @from @into @(U_II_I t e) (wrap x) `compose` wrap)
 
 yai'yai :: forall from into t tt e ee a o .
  Precategory from =>
@@ -446,8 +446,8 @@ yai'yai :: forall from into t tt e ee a o .
  Contravariant Endo Semi Functor (->) (U_II_I into (t (tt o e) ee)) =>
  Wrapper from (U_II_I tt e o) =>
  Wrapper from (U_II_I tt e a) =>
- Castable Straight into (U_II_I t ee (tt o e)) =>
- Castable Opposite into (U_II_I from (tt a e) (tt o e)) =>
+ Castable U_I_II into (U_II_I t ee (tt o e)) =>
+ Castable U_II_I into (U_II_I from (tt a e) (tt o e)) =>
  t (tt a e) ee -> into (from a o) (t (tt o e) ee)
 yai'yai x = fai fai (yai @from @into x)
 
@@ -456,8 +456,8 @@ yok, yok_, yok__, yok___, yok____, yok_____, yok______
  :: forall from into tt t l a o .
  Component Natural into into (T'TT'I t (L l tt)) t =>
  Covariant Yoneda from into t =>
- Castable Opposite into (U_I_II from a (L l tt o)) =>
- Castable Opposite into (T'TT'I t (L l tt) o) =>
+ Castable U_II_I into (U_I_II from a (L l tt o)) =>
+ Castable U_II_I into (T'TT'I t (L l tt) o) =>
  t a -> into (from a (L l tt o)) (t o)
 yok x = component @U_I_II @into @into @(T'TT'I t (L l tt))
  `compose` wrap @into @(T'TT'I t (L l tt) _)
@@ -490,7 +490,7 @@ yok'he, yok_'he, yok__'he, yok___'he, yok____'he, yok_____'he, yok______'he
  Wrapper into (U_II_I from (L l tt o) (Supertype a)) =>
  (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
  Wrapper into (T'TT'I t (L l tt) o) =>
- Castable Straight from a =>
+ Castable U_I_II from a =>
  t a -> into (from (Supertype a) (L l tt o)) (t o)
 yok'he x = yok @from @into x `compose` fai @from he
 
@@ -511,8 +511,8 @@ yok'he'he, yok_'he'he, yok__'he'he, yok___'he'he, yok____'he'he, yok_____'he'he,
  Wrapper into (U_II_I from (L l tt o) a) =>
  Wrapper into (U_II_I from (L l tt o) (Supertype (Supertype a))) =>
  (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
- Castable Straight from a =>
- Castable Straight from (Supertype a) =>
+ Castable U_I_II from a =>
+ Castable U_I_II from (Supertype a) =>
  t a -> into (from (Supertype (Supertype a)) (L l tt o)) (t o)
 yok'he'he x = yok @from @into x `compose` fai @from he'he
 
@@ -527,16 +527,16 @@ yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
  :: forall into tt t l a o .
  Covariant Yoneda into into t =>
  Component Natural into into (T'TT'I t (L l tt)) t =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (T'TT'I t (L l tt) o) =>
  Wrapper into (I (L l tt o)) =>
  Wrapper into (U_I_II into a (L l tt o)) =>
  t a -> into (L l tt o) (t o)
 yuk x = yok @into @into x `compose` constant
 
--- yok x = component @Straight @(->) @into @(T'TT'I t tt)
+-- yok x = component @U_I_II @(->) @into @(T'TT'I t tt)
  -- `compose` wrap @into @(T'TT'I t tt _)
- -- `compose` yoneda @Straight @from x
+ -- `compose` yoneda @U_I_II @from x
  -- `compose` wrap
 
 yuk_ = yuk @into @tt
@@ -552,10 +552,10 @@ yi'yuk = yuk @into @tt
 --  Precategory into =>
 --  Component Natural (->) (->) t (T'TT'I t tt) =>
 --  Covariant Yoneda from into t =>
---  Castable Opposite into (Straight from (tt a) o) =>
+--  Castable U_II_I into (U_I_II from (tt a) o) =>
 --  t a -> into (from (tt a) o) (t o)
--- yko = yoneda @Straight @from @into identity `compose` unwrap
---  `compose` component @Straight @(->) @(->) @t @(T'TT'I t tt)
+-- yko = yoneda @U_I_II @from @into identity `compose` unwrap
+--  `compose` component @U_I_II @(->) @(->) @t @(T'TT'I t tt)
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl :: forall from into tt t l a o .
  Component Natural from into (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
@@ -565,9 +565,9 @@ yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl :: forall from into t
  (forall i ii . Wrapper into (U_I_II from i (L l tt ii))) =>
  t a -> into (from a (L l tt o)) (tt (t o))
 yokl x = unwrap @into @(TT'T'I t tt _)
- `compose` component @Straight @from @into @(T'TT'I t (L l tt)) @(TT'T'I t tt)
+ `compose` component @U_I_II @from @into @(T'TT'I t (L l tt)) @(TT'T'I t tt)
  `compose` wrap @into @(T'TT'I t (L l tt) _)
- `compose` yoneda @Straight @from x
+ `compose` yoneda @U_I_II @from x
  `compose` wrap
 
 yokl_ = yokl
@@ -581,14 +581,14 @@ li'yokl = yokl
 yiok :: forall from into tt t i a o .
  Component Natural from into (T'TT'I (U_I_II t i) tt) (U_I_II t i) =>
  Covariant Yoneda from into (U_I_II t i) =>
- Castable Opposite into (U_I_II from a (tt o)) =>
- Castable Straight into (U_I_II t i o) =>
- Castable Opposite into (T'TT'I (U_I_II t i) tt o) =>
+ Castable U_II_I into (U_I_II from a (tt o)) =>
+ Castable U_I_II into (U_I_II t i o) =>
+ Castable U_II_I into (T'TT'I (U_I_II t i) tt o) =>
  t i a -> into (from a (tt o)) (t i o)
 yiok x = unwrap @into @(U_I_II t i o)
- `compose` component @Straight @from @into @(T'TT'I (U_I_II t i) tt)
+ `compose` component @U_I_II @from @into @(T'TT'I (U_I_II t i) tt)
  `compose` wrap @into @(T'TT'I (U_I_II t i) tt _)
- `compose` yoneda @Straight @from (U_I_II x)
+ `compose` yoneda @U_I_II @from (U_I_II x)
  `compose` wrap
 
 -- TODO: yok'yo
@@ -649,10 +649,10 @@ li'yok'yokl = yok'yokl
  -- Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t o))) =>
  -- Component Natural from from (T'TT'I ttt tt) ttt =>
  -- Component Natural from into (T'TT'I t ttt) (TT'T'I t ttt) =>
- -- Castable Opposite into (U_I_II from (ttt a) (ttt o)) =>
- -- Castable Straight into (TT'T'I t ttt o) =>
- -- Castable Opposite into (T'TT'I t ttt o) =>
- -- Castable Opposite from (T'TT'I ttt tt o) =>
+ -- Castable U_II_I into (U_I_II from (ttt a) (ttt o)) =>
+ -- Castable U_I_II into (TT'T'I t ttt o) =>
+ -- Castable U_II_I into (T'TT'I t ttt o) =>
+ -- Castable U_II_I from (T'TT'I ttt tt o) =>
  -- t (ttt a) -> into (from a (L l tt o)) (ttt (t o))
 -- yokl'yok x = fai fok (yokl @from @into x)
 
@@ -663,11 +663,11 @@ li'yok'yokl = yok'yokl
  -- Component Natural from into (T'TT'I t ttt) (TT'T'I t ttt) =>
  -- Component Natural from from (T'TT'I tt ttt) (TT'T'I tt ttt) =>
  -- Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
- -- Castable Opposite from (T'TT'I tt ttt o) =>
- -- Castable Straight from (TT'T'I tt ttt o) =>
- -- Castable Straight into (TT'T'I t ttt (tt o)) =>
- -- Castable Opposite into (T'TT'I t ttt (tt o)) =>
- -- Castable Opposite into (Straight from (tt a) (ttt (tt o))) =>
+ -- Castable U_II_I from (T'TT'I tt ttt o) =>
+ -- Castable U_I_II from (TT'T'I tt ttt o) =>
+ -- Castable U_I_II into (TT'T'I t ttt (tt o)) =>
+ -- Castable U_II_I into (T'TT'I t ttt (tt o)) =>
+ -- Castable U_II_I into (U_I_II from (tt a) (ttt (tt o))) =>
  -- t (tt a) -> into (from a (ttt o)) (ttt (t (tt o)))
 -- yokl'yokl x = fai fokl (yokl @from @into x)
 
@@ -731,7 +731,7 @@ fio'fo from = fio @into @into (fo @from @into from)
 
 fiu :: forall from into t a o e .
  Covariant Functor from into (U_I_II t e) =>
- Mapping Straight Straight from (->) I (U_I_II from a) =>
+ Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper into (U_I_II t e a) =>
  Wrapper into (U_I_II t e o) =>
  Wrapper into (I o) =>
@@ -740,7 +740,7 @@ fiu from = unwrap `compose` fu @from @into @(U_I_II _ _) from `compose` wrap
 
 fui :: forall from into t a o e .
  Covariant Functor from into (U_II_I t e) =>
- Mapping Straight Straight from (->) I (U_I_II from a) =>
+ Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper into (U_II_I t e a) =>
  Wrapper into (U_II_I t e o) =>
  Wrapper into (I o) =>
@@ -751,18 +751,18 @@ fui from = unwrap `compose` fu @from @into @(U_II_I _ _) from `compose` wrap
 -- fiu'_ :: forall from into t a o e .
 --  Covariant Semi Functor into into (U_I_II t e) =>
 --  Constant Semi Functor into into (U_I_II t e) =>
---  Castable Opposite (->) (into () o) =>
---  Castable Opposite (->) (Supertype (into () o)) =>
---  Castable Straight into (U_I_II t e o) =>
---  Castable Opposite into (U_I_II t e a) =>
+--  Castable U_II_I (->) (into () o) =>
+--  Castable U_II_I (->) (Supertype (into () o)) =>
+--  Castable U_I_II into (U_I_II t e o) =>
+--  Castable U_II_I into (U_I_II t e a) =>
 --  Supertype (Supertype (into () o)) -> into (t e a) (t e o)
 -- fiu'_ from = unwrap `compose` fu @_ @(U_I_II _ _) (wrap from) `compose` wrap
 
 ho, ho_, ho__, ho___, ho____, ho_____, ho______, ho_______, ho________, yi'ho :: forall from into u i a o .
  Precategory into =>
  Covariant Yoneda from into (U_I_II u i) =>
- Castable Straight into (U_I_II u i o) =>
- Castable Opposite into (U_I_II from a o) =>
+ Castable U_I_II into (U_I_II u i o) =>
+ Castable U_II_I into (U_I_II from a o) =>
  u i a -> into (from a o) (u i o)
 ho = yio @from @into @u
 
@@ -920,7 +920,7 @@ ho'ho'hu :: forall from u uu u__ o e ee eee a .
  Covariant Semi Functor from u__ (U_I_II uu ee) =>
  Covariant Endo Semi Functor from (U_I_II u__ eee) =>
  Constant Endo Semi Functor from (U_I_II u__ eee) =>
- Mapping Straight Straight from (->) I (U_I_II from a) =>
+ Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper u__ (U_I_II uu ee (u__ eee a)) =>
  Wrapper u__ (U_I_II uu ee (u__ eee o)) =>
  Wrapper from (U_I_II u__ eee o) =>
@@ -933,26 +933,26 @@ ho'ho'hu = fai (fio @from `compose` fiu @from) `compose` ho @u__
 ho'hu :: forall from u uu o e ee a .
  Category from =>
  Covariant Yoneda u from (U_I_II u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
  Covariant Semi Functor from u (U_I_II uu ee) =>
- Covariant Endo Semi Functor (->) (Straight (->) (u e (uu a ee))) =>
- Contravariant Semi Functor (->) (->) (Opposite from (u e (uu ee o))) =>
- Mapping Straight Straight from (->) I (U_I_II from a) =>
- Wrapper u (Straight uu ee a) =>
- Wrapper u (Straight uu ee o) =>
- Wrapper from (Straight uu ee o) =>
- Wrapper from (Straight u e (uu ee o)) =>
- Wrapper from (Straight u (uu ee a) (uu ee o)) =>
+ Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
+ Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee o))) =>
+ Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Wrapper from (U_I_II uu ee o) =>
+ Wrapper from (U_I_II u e (uu ee o)) =>
+ Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
  Wrapper u (I o) =>
  u e (uu ee a) -> from o (u e (uu ee o))
 ho'hu = fai (fiu @from) `compose` ho @u
 
 ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
  :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
- Contravariant Endo Semi Functor (->) (Opposite (->) (u e (uu a ee))) =>
+ Covariant Yoneda u (->) (U_I_II u e) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
+ Contravariant Semi Functor from u (U_II_I uu ee) =>
+ Contravariant Endo Semi Functor (->) (U_II_I (->) (u e (uu a ee))) =>
  Wrapper u (U_II_I uu ee a) =>
  Wrapper u (U_II_I uu ee o) =>
  Wrapper from (U_I_II u e (uu a ee)) =>
@@ -971,8 +971,8 @@ ho________'ha = ho'ha
 
 ho'ha'he, ho_'ha'he, ho__'ha'he, ho___'ha'he, ho____'ha'he, ho_____'ha'he, ho______'ha'he, ho_______'ha'he, ho________'ha'he
  :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
+ Covariant Yoneda u (->) (U_I_II u e) =>
+ Contravariant Semi Functor from u (U_II_I uu ee) =>
  Wrapper u (U_II_I uu ee a) =>
  Wrapper u (U_II_I uu ee (Supertype a)) =>
  Wrapper u (U_II_I uu ee o) =>
@@ -991,8 +991,8 @@ ho________'ha'he = ho'ha'he
 
 ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'ha'he'he, ho_____'ha'he'he, ho______'ha'he'he, ho_______'ha'he'he, ho________'ha'he'he
  :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
+ Covariant Yoneda u (->) (U_I_II u e) =>
+ Contravariant Semi Functor from u (U_II_I uu ee) =>
  Wrapper u (U_II_I uu ee a) =>
  Wrapper u (U_II_I uu ee (Supertype a)) =>
  Wrapper u (U_II_I uu ee o) =>
@@ -1011,8 +1011,8 @@ ho_______'ha'he'he = ho'ha'he'he
 ho________'ha'he'he = ho'ha'he'he
 
 ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo :: forall from u t o e a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
  Covariant Endo Semi Functor from t =>
  Constant Semi Functor from (->) t =>
  u e (t a) -> from a o -> u e (t o)
@@ -1026,9 +1026,9 @@ ho_____'yo = ho'yo
 
 ho'yu, ho_'yu, ho__'yu, ho___'yu, ho____'yu, ho_____'yu, ho______'yu, ho_______'yu, ho________'yu
  :: forall u t o e a .
- Covariant Yoneda (->) (->) (Straight u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
- Mapping Straight Straight (->) (->) I (U_I_II (->) a) =>
+ Covariant Yoneda (->) (->) (U_I_II u e) =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
+ Mapping U_I_II U_I_II (->) (->) I (U_I_II (->) a) =>
  Covariant Endo Semi Functor (->) t =>
  Constant Semi Functor (->) (->) t =>
  u e (t a) -> o -> u e (t o)
@@ -1045,9 +1045,9 @@ ho________'yu = ho'yu
 
 ho'yui, ho_'yui, ho__'yui, ho___'yui, ho____'yui, ho_____'yui, ho______'yui, ho_______'yui, ho________'yui
  :: forall u t o e a .
- Covariant Yoneda (->) (->) (Straight u e) =>
- Contravariant Yoneda (->) (->) (Opposite u e) =>
- Mapping Straight Straight (->) (->) I (U_I_II (->) a) =>
+ Covariant Yoneda (->) (->) (U_I_II u e) =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
+ Mapping U_I_II U_I_II (->) (->) I (U_I_II (->) a) =>
  Covariant Endo Semi Functor (->) (U_II_I t e) =>
  Constant Semi Functor (->) (->) (U_II_I t e) =>
  u e (t a e) -> o -> u e (t o e)
@@ -1063,8 +1063,8 @@ ho_______'yui = ho'yui
 ho________'yui = ho'yui
 
 ho'yioi :: forall from u t o e ee eee a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
  Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
  Wrapper from (W_III_I_II t eee ee a) =>
  Wrapper from (W_III_I_II t eee ee o) =>
@@ -1126,7 +1126,7 @@ he________'ho'he = he'ho'he
  -- Category into =>
  -- Covariant Yoneda into into (U_I_II u i) =>
  -- Constant Semi Functor (->) (->) (U_I_II u i) =>
- -- Mapping Straight Straight (->) (->) (U_I_II u i) (U_I_II u i) =>
+ -- Mapping U_I_II U_I_II (->) (->) (U_I_II u i) (U_I_II u i) =>
  -- Contravariant Semi Functor from (->) (U_II_I u a) =>
  -- Covariant Semi Functor from into (U_I_II from o) =>
  -- Wrapper from i =>
@@ -1144,10 +1144,10 @@ he________'ho'he = he'ho'he
  -- Covariant Yoneda from into (U_I_II u i) =>
  -- Contravariant Semi Functor from (->) (U_II_I u a) =>
  -- Covariant Semi Functor from into (U_I_II from o) =>
- -- Castable Straight from i =>
- -- Castable Straight from (Supertype i) =>
- -- Castable Straight into (U_I_II u i o) =>
- -- Castable Opposite into (U_I_II from a o) =>
+ -- Castable U_I_II from i =>
+ -- Castable U_I_II from (Supertype i) =>
+ -- Castable U_I_II into (U_I_II u i o) =>
+ -- Castable U_II_I into (U_I_II from a o) =>
  -- Wrapper into (U_II_I from o a) =>
  -- Wrapper into (U_II_I from o (Supertype a)) =>
  -- u (Supertype (Supertype i)) a -> into (from a o) (u i o)
@@ -1221,10 +1221,10 @@ ha_______'he'he = ha'he'he
 ha________'he'he = ha'he'he
 
 ha'ha :: forall from u uu a o e ee .
- Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
- Wrapper u (Opposite uu ee a) =>
- Wrapper u (Opposite uu ee o) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
+ Contravariant Semi Functor from u (U_II_I uu ee) =>
+ Wrapper u (U_II_I uu ee a) =>
+ Wrapper u (U_II_I uu ee o) =>
  u (uu a ee) e -> from a o -> u (uu o ee) e
 ha'ha x = fai @(->) @(->) fai (ha @u x)
 
@@ -1244,20 +1244,20 @@ hv'he :: forall from into a o e .
 hv'he x = hv x `compose` fai (he @into)
 
 ha_ha :: forall from u uu a o e ee .
- Contravariant Yoneda u (->) (Opposite u e) =>
- Contravariant Semi Functor from u (Opposite uu ee) =>
- Contravariant Semi Functor u u (Opposite uu ee) =>
- Wrapper u (Opposite uu ee (Supertype a)) =>
- Wrapper u (Opposite uu ee o) =>
- Wrapper u (Opposite uu ee a) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
+ Contravariant Semi Functor from u (U_II_I uu ee) =>
+ Contravariant Semi Functor u u (U_II_I uu ee) =>
+ Wrapper u (U_II_I uu ee (Supertype a)) =>
+ Wrapper u (U_II_I uu ee o) =>
+ Wrapper u (U_II_I uu ee a) =>
  Wrapper u a =>
  Wrapper from a =>
  u (uu a ee) e -> from (Supertype a) o -> u (uu o ee) e
 ha_ha x = fai @(->) @(->) fai_ (ha @u x)
 
 ha'ho :: forall from u uu o e ee a .
- Covariant Yoneda u (->) (Straight u e) =>
- Contravariant Yoneda u (->) (Opposite u e) =>
+ Covariant Yoneda u (->) (U_I_II u e) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
  Covariant Semi Functor from u (U_I_II uu ee) =>
  Wrapper u (U_I_II uu ee a) =>
  Wrapper u (U_I_II uu ee o) =>
@@ -1269,7 +1269,7 @@ ha'ho x = fai @(->) @(->) fio (ha @u x)
  -- Contravariant Yoneda u__ (->) (U_II_I u e) =>
  -- Covariant Semi Functor from u__ (U_I_II uu ee) =>
  -- Covariant Endo Semi Functor from (U_I_II u__ eee) =>
- -- Mapping Straight Straight into into I (U_I_II into a) =>
+ -- Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  -- Wrapper u__ (U_I_II uu ee (u__ eee a)) =>
  -- Wrapper u__ (U_I_II uu ee (u__ eee o)) =>
  -- Wrapper from (U_I_II u__ eee o) =>
@@ -1281,46 +1281,46 @@ ha'ho x = fai @(->) @(->) fio (ha @u x)
 -- ha'hu :: forall from u uu o e ee a .
  -- Covariant Semi Functor u u (U_I_II uu ee) =>
  -- Constant Semi Functor u u (U_I_II uu ee) =>
- -- Contravariant Yoneda u (->) (Opposite u e) =>
+ -- Contravariant Yoneda u (->) (U_II_I u e) =>
  -- Wrapper u (U_I_II uu ee a) =>
  -- Wrapper u (U_I_II uu ee o) =>
- -- Castable Opposite u (U_1_I u a o) =>
- -- Castable Opposite (->) (U_1_I u a o) =>
+ -- Castable U_II_I u (U_1_I u a o) =>
+ -- Castable U_II_I (->) (U_1_I u a o) =>
  -- u (uu ee o) e -> Supertype (U_1_I u a o) -> u (uu ee a) e
 -- ha'hu x = fai @(->) @(->) fiu (ha @u x)
 
 -- ha'he'hu :: forall from u uu o e ee a .
  -- Covariant Semi Functor u u (U_I_II uu ee) =>
  -- Constant Semi Functor u u (U_I_II uu ee) (U_I_II uu ee) =>
- -- Contravariant Yoneda u (->) (Opposite u e) =>
+ -- Contravariant Yoneda u (->) (U_II_I u e) =>
  -- Wrapper u (U_I_II uu ee a) =>
  -- Wrapper u (U_I_II uu ee o) =>
- -- Castable Opposite (->) (u () o) =>
+ -- Castable U_II_I (->) (u () o) =>
  -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
 -- ha'he'hu x = fai @(->) @(->) fiu (ha'he @u x)
 
 -- ha'hu'he :: forall from u uu o e ee a .
 --  Covariant Semi Functor u u (U_I_II uu ee) =>
 --  Constant Semi Functor u u (U_I_II uu ee) =>
---  Contravariant Yoneda u (->) (Opposite u e) =>
+--  Contravariant Yoneda u (->) (U_II_I u e) =>
 --  Wrapper u (U_I_II uu ee a) =>
 --  Wrapper u (U_I_II uu ee o) =>
---  Castable Opposite (->) (Supertype (u () o)) =>
---  Castable Opposite (->) (u () o) =>
+--  Castable U_II_I (->) (Supertype (u () o)) =>
+--  Castable U_II_I (->) (u () o) =>
 --  u (uu ee o) e -> Supertype (Supertype (u () o)) -> u (uu ee a) e
 -- ha'hu'he x = fai @(->) @(->) fiu'_ (ha @u x)
 
 ha'yo :: forall from u t o e a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
  Covariant Endo Semi Functor from t =>
  Constant Semi Functor from (->) t =>
  u (t a) e -> from o a -> u (t o) e
 ha'yo x = fai (fo @from) (ha @from x)
 
 ha'yioi :: forall from u t o e ee eee a .
- Covariant Yoneda from (->) (Straight u e) =>
- Contravariant Yoneda from (->) (Opposite u e) =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
  Covariant Endo Semi Functor from (W_III_I_II t eee ee) =>
  Wrapper from (W_III_I_II t eee ee a) =>
  Wrapper from (W_III_I_II t eee ee o) =>
@@ -1333,8 +1333,8 @@ ha'yioi x = fai (fioi @from) (ha @from x)
 --  Covariant Yoneda from (->) (U_I_II u e) =>
 --  Contravariant Semi Functor from (->) (U_II_I (->) (u e (Supertype o))) =>
 --  Contravariant Yoneda from (->) (U_II_I (->) (u e (Supertype o))) =>
---  Castable Straight (->) (U_I_II u e o) =>
---  Castable Straight from o =>
+--  Castable U_I_II (->) (U_I_II u e o) =>
+--  Castable U_I_II from o =>
 --  Wrapper from (U_I_II from a o) =>
 --  Wrapper from (U_I_II from a (Supertype o)) =>
 --  u e a -> from a o -> u e (Supertype o)
@@ -1343,14 +1343,14 @@ ha'yioi x = fai (fioi @from) (ha @from x)
 -- -- TODO: replace with `ho_ho`
 -- ho_yi'ho :: forall from u e a o .
 --  Covariant Yoneda from (->) (U_I_II u e) =>
---  Castable Straight from a =>
+--  Castable U_I_II from a =>
 --  u e a -> from (Supertype a) o -> u e o
 -- ho_yi'ho x xx = x `ho` he @from `ho` xx
 
 hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
  forall into t i a o .
  Covariant Yoneda into into (U_I_II t i) =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper into (U_I_II t i o) =>
  Wrapper into (I o) =>
@@ -1372,14 +1372,14 @@ hu________ = hu
 --  Precategory from =>
 --  Covariant Yoneda from into (U_1_I from ()) =>
 --  Contravariant Endo Semi Functor from (U_II_I from o) =>
---  Castable Opposite into (U_I_II from a o) =>
---  Castable Opposite into (U_1_I from a o) =>
---  Castable Straight into (U_1_I from a o) =>
---  Castable Straight from a =>
+--  Castable U_II_I into (U_I_II from a o) =>
+--  Castable U_II_I into (U_1_I from a o) =>
+--  Castable U_I_II into (U_1_I from a o) =>
+--  Castable U_I_II from a =>
 --  Wrapper from (U_II_I from o a) =>
 --  Wrapper from (U_II_I from o (Supertype a)) =>
---  Castable Straight into (U_I_II from a o) =>
---  Castable Straight into (U_1_I from a o) =>
+--  Castable U_I_II into (U_I_II from a o) =>
+--  Castable U_I_II into (U_1_I from a o) =>
 --  Contravariant Yoneda from (->) (U_II_I into (Supertype (U_1_I from a o))) =>
 --  Supertype (U_1_I from a o) -> into (from (Supertype a) o) (Supertype (U_1_I from a o))
 -- hu'he x = hu @from @into @a x `yai'yai` he @from @a
@@ -1408,14 +1408,14 @@ hu________ = hu
  -- Covariant Yoneda from into (U_1_I from a) =>
  -- Constant Yoneda from into (U_1_I from a) =>
  -- Contravariant Endo Semi Functor from (U_II_I from o) =>
- -- Castable Opposite into (U_I_II from a o) =>
- -- Castable Opposite into (U_1_I from a a) =>
- -- Castable Straight into (U_1_I from a o) =>
- -- Castable Straight from a =>
- -- Castable Straight from (Supertype a) =>
+ -- Castable U_II_I into (U_I_II from a o) =>
+ -- Castable U_II_I into (U_1_I from a a) =>
+ -- Castable U_I_II into (U_1_I from a o) =>
+ -- Castable U_I_II from a =>
+ -- Castable U_I_II from (Supertype a) =>
  -- Wrapper from (U_II_I from o a) =>
  -- Wrapper from (U_II_I from o (Supertype (Supertype a))) =>
- -- Castable Straight into (U_I_II from a o) =>
+ -- Castable U_I_II into (U_I_II from a o) =>
  -- Wrapper into (U_1_I from a o) =>
  -- Contravariant Yoneda from (->) (U_II_I into (Supertype (U_1_I from a o))) =>
  -- a -> into (from (Supertype (Supertype a)) o) o
@@ -1444,82 +1444,82 @@ hu________ = hu
 ro :: forall into hom t i .
  Category into =>
  Covariant (Representable hom) into into t =>
- Castable Straight into (Straight hom (Representation t) i) =>
+ Castable U_I_II into (U_I_II hom (Representation t) i) =>
  into (t i) (hom (Representation t) i)
-ro = he `compose` map @Straight @Straight @into @into @t @(Straight hom (Representation t)) identity
+ro = he `compose` map @U_I_II @U_I_II @into @into @t @(U_I_II hom (Representation t)) identity
 
 ra :: forall into hom t i .
  Category into =>
  Contravariant (Representable hom) into into t =>
- Castable Straight into (Opposite hom (Representation t) i) =>
+ Castable U_I_II into (U_II_I hom (Representation t) i) =>
  into (t i) (hom i (Representation t))
-ra = he `compose` map @Opposite @Straight @into @into @t @(Opposite hom (Representation t)) identity
+ra = he `compose` map @U_II_I @U_I_II @into @into @t @(U_II_I hom (Representation t)) identity
 
 fd :: forall from into t tt a o .
  Adjoint Functor from into t tt =>
- Castable Opposite from ((T'TT'I t tt) o) =>
- Castable Straight from (I o) =>
+ Castable U_II_I from ((T'TT'I t tt) o) =>
+ Castable U_I_II from (I o) =>
  into a (tt o) -> from (t a) o
 fd from = unwrap @from @(I _)
- `compose` component @Straight @into @from @(t `T'TT'I` tt) @I
+ `compose` component @U_I_II @into @from @(t `T'TT'I` tt) @I
  `compose` wrap @from @((t `T'TT'I` tt) _)
  `compose` fo @into @from from
 
 fj :: forall from into t tt a o .
  Adjoint Functor from into t tt =>
- Castable Straight into (T'TT'I tt t a) =>
- Castable Opposite into (I a) =>
+ Castable U_I_II into (T'TT'I tt t a) =>
+ Castable U_II_I into (I a) =>
  from (t a) o -> into a (tt o)
 fj from = fo from
  `compose` unwrap @into
- `compose` component @Straight @from @into @I @(tt `T'TT'I` t)
+ `compose` component @U_I_II @from @into @I @(tt `T'TT'I` t)
  `compose` wrap @into
 
 -- ilj :: forall from into t tt e ee a o .
  -- Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
- -- Castable Straight into ((T'TT'I (U_I_II tt ee) (U_I_II t e)) a) =>
- -- Castable Straight into (U_I_II tt ee o) =>
- -- Castable Opposite into (I a) =>
- -- Castable Straight from (U_I_II t e a) =>
+ -- Castable U_I_II into ((T'TT'I (U_I_II tt ee) (U_I_II t e)) a) =>
+ -- Castable U_I_II into (U_I_II tt ee o) =>
+ -- Castable U_II_I into (I a) =>
+ -- Castable U_I_II from (U_I_II t e a) =>
  -- from (t e a) o -> into a (tt ee o)
 -- ilj from = he @into @(U_I_II tt _ _)
  -- `compose` fo (from `compose` he @from @(U_I_II t _ _))
  -- `compose` he @into @(T'TT'I _ _ _)
- -- `compose` component @Straight @from @into @I @(U_I_II tt ee `T'TT'I` U_I_II t e)
+ -- `compose` component @U_I_II @from @into @I @(U_I_II tt ee `T'TT'I` U_I_II t e)
  -- `compose` wrap @into
 
 hd :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
- Castable Straight into ((U_I_II tt e `T'TT'I` U_II_I t e) a) =>
- Castable Straight into (U_I_II tt e o) =>
- Castable Opposite into (I a) =>
- Castable Straight from (U_II_I t e a) =>
+ Castable U_I_II into ((U_I_II tt e `T'TT'I` U_II_I t e) a) =>
+ Castable U_I_II into (U_I_II tt e o) =>
+ Castable U_II_I into (I a) =>
+ Castable U_I_II from (U_II_I t e a) =>
  from (t a e) o -> into a (tt e o)
 hd from = he @into @(U_I_II tt _ _)
  `compose` fo (from `compose` he @from @(U_II_I t _ _))
  `compose` he @into @(T'TT'I _ _ _)
- `compose` component @Straight @from @into @I @(U_I_II tt e `T'TT'I` U_II_I t e)
+ `compose` component @U_I_II @from @into @I @(U_I_II tt e `T'TT'I` U_II_I t e)
  `compose` wrap @into
 
 hd'q :: forall into a .
  Adjoint Functor into into (U_II_I LM a) (U_I_II into a) =>
- Castable Straight into ((U_I_II into a `T'TT'I` U_II_I LM a) a) =>
- Castable Straight into (U_I_II into a (a `LM` a `ML` a)) =>
- Castable Straight into (U_II_I LM a a) =>
- Castable Opposite into (I a) =>
+ Castable U_I_II into ((U_I_II into a `T'TT'I` U_II_I LM a) a) =>
+ Castable U_I_II into (U_I_II into a (a `LM` a `ML` a)) =>
+ Castable U_I_II into (U_II_I LM a a) =>
+ Castable U_II_I into (I a) =>
  Setoid into a =>
  into a (into a (a `LM` a `ML` a))
 hd'q = hd (q @into)
 
 hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
- Castable Opposite from ((T'TT'I (U_II_I t e) (U_I_II tt e)) o) =>
- Castable Straight from (I o) =>
- Castable Opposite from (U_II_I t e a) =>
- Castable Opposite into (U_I_II tt e o) =>
+ Castable U_II_I from ((T'TT'I (U_II_I t e) (U_I_II tt e)) o) =>
+ Castable U_I_II from (I o) =>
+ Castable U_II_I from (U_II_I t e a) =>
+ Castable U_II_I into (U_I_II tt e o) =>
  into a (tt e o) -> from (t a e) o
 hj from = he @from
- `compose` component @Straight @into @from @(U_II_I t e `T'TT'I` U_I_II tt e) @I
+ `compose` component @U_I_II @into @from @(U_II_I t e `T'TT'I` U_I_II tt e) @I
  `compose` wrap @from @((U_II_I t e `T'TT'I` U_I_II tt e) _)
  `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
  `compose` wrap @from @(U_II_I t e _)
@@ -1536,22 +1536,22 @@ hj________ = hj
 hj'hj :: forall from into t tt ttt tttt e ee a o .
  Adjoint Functor from from (U_II_I t ee) (U_I_II tttt ee) =>
  Adjoint Functor from into (U_II_I ttt e) (U_I_II tt e) =>
- Castable Opposite from (U_II_I t ee a) =>
- Castable Opposite into (U_I_II tt e o) =>
- Castable Opposite into (U_I_II tt e (tttt ee o)) =>
- Castable Straight from (I o) =>
- Castable Straight from (I (tttt ee o)) =>
- Castable Opposite from (I (U_I_II tttt ee o)) =>
- Castable Opposite from (U_II_I ttt e a) =>
- Castable Opposite from (U_I_II tttt ee o) =>
- Castable Opposite from (U_II_I t ee (ttt a e)) =>
- Castable Opposite from ((T'TT'I (U_II_I ttt e) (U_I_II tt e)) (tttt ee o)) =>
- Castable Opposite from ((T'TT'I (U_II_I t ee) (U_I_II tttt ee)) o) =>
+ Castable U_II_I from (U_II_I t ee a) =>
+ Castable U_II_I into (U_I_II tt e o) =>
+ Castable U_II_I into (U_I_II tt e (tttt ee o)) =>
+ Castable U_I_II from (I o) =>
+ Castable U_I_II from (I (tttt ee o)) =>
+ Castable U_II_I from (I (U_I_II tttt ee o)) =>
+ Castable U_II_I from (U_II_I ttt e a) =>
+ Castable U_II_I from (U_I_II tttt ee o) =>
+ Castable U_II_I from (U_II_I t ee (ttt a e)) =>
+ Castable U_II_I from ((T'TT'I (U_II_I ttt e) (U_I_II tt e)) (tttt ee o)) =>
+ Castable U_II_I from ((T'TT'I (U_II_I t ee) (U_I_II tttt ee)) o) =>
  into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
 hj'hj = hj @from @from `compose` hj @from @into
 
 he, he_, he__, he___, he____, he_____, he______, he_______, he________ :: forall into e .
- Castable Straight into e =>
+ Castable U_I_II into e =>
  into e (Supertype e)
 he = unwrap
 
@@ -1567,8 +1567,8 @@ he________ = he
 he'he, he_'he, he__'he, he___'he, he____'he, he_____'he, he______'he, he_______'he, he________'he
  :: forall into e .
  Precategory into =>
- Castable Straight into e =>
- Castable Straight into (Supertype e) =>
+ Castable U_I_II into e =>
+ Castable U_I_II into (Supertype e) =>
  into e (Supertype (Supertype e))
 he'he = unwrap `compose` unwrap
 
@@ -1583,9 +1583,9 @@ he________'he = he'he
 
 he'he'he, he_'he'he, he__'he'he, he___'he'he, he____'he'he, he_____'he'he, he______'he'he, he_______'he'he, he________'he'he :: forall into e .
  Precategory into =>
- Castable Straight into e =>
- Castable Straight into (Supertype e) =>
- Castable Straight into (Supertype (Supertype e)) =>
+ Castable U_I_II into e =>
+ Castable U_I_II into (Supertype e) =>
+ Castable U_I_II into (Supertype (Supertype e)) =>
  into e (Supertype (Supertype (Supertype e)))
 he'he'he = unwrap `compose` unwrap `compose` unwrap
 
@@ -1600,10 +1600,10 @@ he________'he'he = he'he'he
 
 he'he'he'he, he_'he'he'he, he__'he'he'he, he___'he'he'he, he____'he'he'he, he_____'he'he'he, he______'he'he'he, he_______'he'he'he, he________'he'he'he :: forall into e .
  Precategory into =>
- Castable Straight into e =>
- Castable Straight into (Supertype e) =>
- Castable Straight into (Supertype (Supertype e)) =>
- Castable Straight into (Supertype (Supertype (Supertype e))) =>
+ Castable U_I_II into e =>
+ Castable U_I_II into (Supertype e) =>
+ Castable U_I_II into (Supertype (Supertype e)) =>
+ Castable U_I_II into (Supertype (Supertype (Supertype e))) =>
  into e (Supertype (Supertype (Supertype (Supertype e))))
 he'he'he'he = unwrap `compose` unwrap `compose` unwrap `compose` unwrap
 
@@ -1637,12 +1637,12 @@ he'yo = yo @from @into `compose` unwrap
 he'yu :: forall into t a o e .
  Precategory into =>
  Covariant Yoneda into into t =>
- Mapping Straight Straight (->) (->) t t =>
- Mapping Straight Straight into into I (U_I_II into a) =>
+ Mapping U_I_II U_I_II (->) (->) t t =>
+ Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper (->) (into () o) =>
  Wrapper into (into () o) =>
- Castable Opposite into (U_I_II into () o) =>
+ Castable U_II_I into (U_I_II into () o) =>
  Wrapper into (I o) =>
  Wrapper (->) e =>
  t a -> into o (t o)
@@ -1652,7 +1652,7 @@ he'yu = yu @into
 
 lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______ :: forall into a o oo .
  Category into =>
- Limit Straight into into =>
+ Limit U_I_II into into =>
  Covariant Endo Semi Functor into (U_I_II Product a) =>
  Covariant Endo Semi Functor into (U_II_I Product oo) =>
  (forall e ee . Wrapper into (U_I_II Product e ee)) =>
@@ -1661,7 +1661,7 @@ lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______ :: forall into a o oo
  (forall e . Wrapper into (I e)) =>
  into a o -> into a oo -> into a (Product o oo)
 lo l r = foi @into @into l `compose` fio @into @into r
- `compose` wrapped (map @Opposite @Opposite @into @into @(Both Product) @I identity)
+ `compose` wrapped (map @U_II_I @U_II_I @into @into @(Both Product) @I identity)
 
 lo_ = lo
 lo__ = lo
@@ -1727,11 +1727,15 @@ lo_______'ys'la = lo'ys'la
 -- lo______'yip'yp = lo'yp
 -- lo_______'yip'yp = lo'yp
 
+-- x `lo'la` y
+
+-- into a o -> into a oo -> into a (Product o oo)
+
 cn :: forall into a aa o oo .
- Cone Straight into into Product =>
- Functor Straight into into (U_I_II Product o) =>
- Functor Straight into into (U_I_II Product aa) =>
- Functor Straight into into (U_II_I Product aa) =>
+ Cone U_I_II into into Product =>
+ Functor U_I_II into into (U_I_II Product o) =>
+ Functor U_I_II into into (U_I_II Product aa) =>
+ Functor U_I_II into into (U_II_I Product aa) =>
  Wrapper into (U_I_II Product o aa) =>
  Wrapper into (U_I_II Product o oo) =>
  Wrapper into (U_II_I Product aa o) =>
@@ -1742,22 +1746,22 @@ cn from__eft from_right = fio from_right `compose` foi from__eft
 -- into a o -> into a oo -> into a (Product into o oo)
 
 -- cnz :: forall into e a aa o oo .
- -- Cone Straight into into (Object Straight into) =>
- -- Functor Straight into into (U_I_II (Product into) o) =>
- -- Functor Straight into into (U_I_II (Product into) aa) =>
- -- Functor Straight into into (U_II_I (Product into) aa) =>
+ -- Cone U_I_II into into (Object U_I_II into) =>
+ -- Functor U_I_II into into (U_I_II (Product into) o) =>
+ -- Functor U_I_II into into (U_I_II (Product into) aa) =>
+ -- Functor U_I_II into into (U_II_I (Product into) aa) =>
  -- Wrapper into (U_I_II (Product into) o aa) =>
  -- Wrapper into (U_I_II (Product into) o oo) =>
  -- Wrapper into (U_II_I (Product into) aa o) =>
  -- Wrapper into (U_II_I (Product into) aa a) =>
- -- Castable Straight into e =>
+ -- Castable U_I_II into e =>
  -- (Supertype e ~ (Product into a aa)) =>
  -- into a o -> into aa oo -> into e (Product into o oo)
 -- cnz from__eft from_right = fio from_right `compose` foi from__eft `compose` _' @into
 
 -- TODO: try to generalize
 -- cn'yp, yi'cn'yp :: forall t a aa o oo .
- -- Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
+ -- Mapping U_I_II U_I_II (->) (->) (Day U_I_II (->) (Product (->)) (Product (->)) t t o oo) t =>
  -- Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (->) a aa) (t (Product Arrow o oo))
 -- cn'yp from__eft from_right = yp `compose` cn from__eft from_right
 
@@ -1765,8 +1769,8 @@ cn from__eft from_right = fio from_right `compose` foi from__eft
 
 -- TODO: try to generalize
 -- cnz'yp, yi'cnz'yp :: forall e t a aa o oo .
---  Mapping Straight Straight (->) (->) (Day Straight (->) (Product (->)) (Product (->)) t t o oo) t =>
---  Castable Straight (->) e =>
+--  Mapping U_I_II U_I_II (->) (->) (Day U_I_II (->) (Product (->)) (Product (->)) t t o oo) t =>
+--  Castable U_I_II (->) e =>
 --  (Supertype e ~ Product (->) a aa) =>
 --  Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
 -- cnz'yp from__eft from_right = yp `compose` cn from__eft from_right `compose` he
@@ -1775,44 +1779,44 @@ cn from__eft from_right = fio from_right `compose` foi from__eft
 
 -- TODO: try to generalize
 -- lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall o oo .
---  Limit Straight (->) (->) =>
+--  Limit U_I_II (->) (->) =>
 --  Covariant Functor (->) (->) (U_I_II (Product (->)) o) =>
 --  Covariant Functor (->) (->) (U_II_I (Product (->)) (Product (->) () ())) =>
---  Castable Straight (->) (Both (Product (->)) (Product (->) () ())) =>
---  Castable Straight (->) (U_I_II (Product (->)) o oo) =>
---  Castable Opposite (->) (U_II_I (Product (->)) () ()) =>
---  Castable Opposite (->) (U_I_II (Product (->)) () ()) =>
---  Castable Straight (->) (Both (Product (->)) ()) =>
---  Castable Straight (->) (U_II_I (Product (->)) (Product (->) () ()) o) =>
---  Castable Opposite (->) (U_II_I (Product (->)) (Product (->) () ()) (Product (->) () ())) =>
+--  Castable U_I_II (->) (Both (Product (->)) (Product (->) () ())) =>
+--  Castable U_I_II (->) (U_I_II (Product (->)) o oo) =>
+--  Castable U_II_I (->) (U_II_I (Product (->)) () ()) =>
+--  Castable U_II_I (->) (U_I_II (Product (->)) () ()) =>
+--  Castable U_I_II (->) (Both (Product (->)) ()) =>
+--  Castable U_I_II (->) (U_II_I (Product (->)) (Product (->) () ()) o) =>
+--  Castable U_II_I (->) (U_II_I (Product (->)) (Product (->) () ()) (Product (->) () ())) =>
 --  Wrapper (->) (U_I_II (Product (->)) o (Product (->) () ())) =>
 --  (forall e . Wrapper (->) (I e)) =>
---  Castable Opposite (->) (U_1_I (->) () o) =>
---  Castable Opposite (->) (U_1_I (->) () oo) =>
---  Castable Straight (->) (U_1_I (->) () (Product (->) o oo)) =>
+--  Castable U_II_I (->) (U_1_I (->) () o) =>
+--  Castable U_II_I (->) (U_1_I (->) () oo) =>
+--  Castable U_I_II (->) (U_1_I (->) () (Product (->) o oo)) =>
 --  Supertype (U_1_I (->) () o) ->
 --  Supertype (U_1_I (->) () oo) ->
 --  Supertype (U_1_I (->) () (Product (->) o oo))
 -- lu from__eft from_right = -- he /
---  -- __ (map @Straight @Straight (wrapped (right @Straight (wrap @_ @(U_1_I (->) () oo) from_right)))) `compose`
---  -- i_ (map @Straight @Straight (wrapped (left @Straight (wrap @_ @(U_1_I (->) () o) from__eft)))) `compose`
---  -- wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
---  -- wrapped (map @Straight @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+--  -- __ (map @U_I_II @U_I_II (wrapped (right @U_I_II (wrap @_ @(U_1_I (->) () oo) from_right)))) `compose`
+--  -- i_ (map @U_I_II @U_I_II (wrapped (left @U_I_II (wrap @_ @(U_1_I (->) () o) from__eft)))) `compose`
+--  -- wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(Both (Product (->))) identity) `compose`
+--  -- wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(Both (Product (->))) identity)
 
---  __ (map @U_1_I @Straight (wrapped (right @Straight from_right))) `compose`
---  i_ (map @U_1_I @Straight (wrapped (left @Straight from__eft))) `compose`
- -- wrapped (map @U_1_I @Straight @(->) @(->) @I @(Both (Product (->))) identity) `compose`
- -- wrapped (map @U_1_I @Straight @(->) @(->) @I @(Both (Product (->))) identity)
+--  __ (map @U_1_I @U_I_II (wrapped (right @U_I_II from_right))) `compose`
+--  i_ (map @U_1_I @U_I_II (wrapped (left @U_I_II from__eft))) `compose`
+ -- wrapped (map @U_1_I @U_I_II @(->) @(->) @I @(Both (Product (->))) identity) `compose`
+ -- wrapped (map @U_1_I @U_I_II @(->) @(->) @I @(Both (Product (->))) identity)
 
 lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall o oo .
- Limit Straight (->) (->) =>
- Mapping Straight Straight (->) (->) I (U_I_I Product) =>
+ Limit U_I_II (->) (->) =>
+ Mapping U_I_II U_I_II (->) (->) I (U_I_I Product) =>
  Covariant Yoneda (->) (->) (U_I_II Product o) =>
  Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  Wrapper (->) (U_I_I Product ()) =>
  Wrapper (->) (I ()) =>
  o -> oo -> Product o oo
-lu l r = wrapped (map @Straight @Straight @(->) @(->) @I @(U_I_I Product) identity) () `yui` l `yiu` r
+lu l r = wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(U_I_I Product) identity) () `yui` l `yiu` r
 
 lu_ = lu
 lu__ = lu
@@ -1823,18 +1827,18 @@ lu______ = lu
 lu_______ = lu
 
 -- ho'lu :: forall o oo .
- -- Limit Straight (->) (->) =>
- -- Mapping Straight Straight (->) (->) I (U_I_I Product) =>
+ -- Limit U_I_II (->) (->) =>
+ -- Mapping U_I_II U_I_II (->) (->) I (U_I_I Product) =>
  -- Covariant Yoneda (->) (->) (U_I_II Product o) =>
  -- Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  -- Wrapper (->) (U_I_I Product ()) =>
  -- Wrapper (->) (I ()) =>
  -- from e o -> from e oo -> Product o oo
--- ho'lu l r = wrapped (map @Straight @Straight @(->) @(->) @I @(U_I_I Product) identity) () `yui` l `yiu` r
+-- ho'lu l r = wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(U_I_I Product) identity) () `yui` l `yiu` r
 
 la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o oo .
  Category from =>
- Limit Opposite from from =>
+ Limit U_II_I from from =>
  Objective from (o `ML` oo) a =>
  Covariant Endo Semi Functor from (U_I_II Sum o) =>
  Covariant Endo Semi Functor from (U_II_I Sum i) =>
@@ -1843,7 +1847,7 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o 
  (forall ee . Wrapper from (U_I_I Sum ee)) =>
  (forall ee . Wrapper from (I ee)) =>
  from o i -> from oo i -> from a i
-la l r = wrapped (map @Opposite @Opposite @from @from @I @(Both Sum) identity)
+la l r = wrapped (map @U_II_I @U_II_I @from @from @I @(Both Sum) identity)
  `compose` foi @from @from l
  `compose` fio @from @from r
  `compose` objective @_ @(o `ML` oo)
@@ -1864,39 +1868,39 @@ la_______ = la
 -- TODO: to test
 -- rwr'hs :: forall from into r o a aa .
  -- Category from =>
- -- Limit Opposite from into =>
+ -- Limit U_II_I from into =>
  -- Covariant Functor into into (U_I_II Sum a) =>
  -- Covariant Functor into into (U_II_I Sum (Sum (Supertype r) (Supertype r))) =>
- -- Castable Opposite into (Both Sum (Sum (Supertype r) (Supertype r))) =>
- -- Castable Opposite into (U_I_II Sum a aa) =>
- -- Castable Straight into (U_I_II Sum (Supertype r) (Supertype r)) =>
- -- Castable Straight into (U_II_I Sum (Supertype r) (Supertype r)) =>
- -- Castable Opposite into (Both Sum (Supertype r)) =>
- -- Castable Straight into (That Sum a (Sum (Supertype r) (Supertype r))) =>
- -- Castable Opposite into (U_II_I Sum (Sum (Supertype r) (Supertype r)) a) =>
- -- Castable Straight into (U_II_I Sum (Sum (Supertype r) (Supertype r)) (Sum (Supertype r) (Supertype r))) =>
+ -- Castable U_II_I into (Both Sum (Sum (Supertype r) (Supertype r))) =>
+ -- Castable U_II_I into (U_I_II Sum a aa) =>
+ -- Castable U_I_II into (U_I_II Sum (Supertype r) (Supertype r)) =>
+ -- Castable U_I_II into (U_II_I Sum (Supertype r) (Supertype r)) =>
+ -- Castable U_II_I into (Both Sum (Supertype r)) =>
+ -- Castable U_I_II into (That Sum a (Sum (Supertype r) (Supertype r))) =>
+ -- Castable U_II_I into (U_II_I Sum (Sum (Supertype r) (Supertype r)) a) =>
+ -- Castable U_I_II into (U_II_I Sum (Sum (Supertype r) (Supertype r)) (Sum (Supertype r) (Supertype r))) =>
  -- (Supertype o ~ Sum a aa) =>
  -- (forall eee_ . Wrapper into (I eee_)) =>
- -- Castable Opposite into r =>
- -- Castable Straight into o =>
+ -- Castable U_II_I into r =>
+ -- Castable U_I_II into o =>
  -- from a (Supertype r) -> from aa (Supertype r) -> into o r
 -- rwr'hs from__eft from_right = rwr /
- -- wrapped (map @Opposite @Opposite @from @into @I @(Both Sum) identity) `compose`
- -- wrapped (map @Opposite @Opposite @from @into @I @(Both Sum) identity) `compose`
- -- i_ (map @Straight @Straight (wrapped (left @Opposite from__eft))) `compose`
- -- __ (map @Straight @Straight (wrapped (right @Opposite from_right)))
+ -- wrapped (map @U_II_I @U_II_I @from @into @I @(Both Sum) identity) `compose`
+ -- wrapped (map @U_II_I @U_II_I @from @into @I @(Both Sum) identity) `compose`
+ -- i_ (map @U_I_II @U_I_II (wrapped (left @U_II_I from__eft))) `compose`
+ -- __ (map @U_I_II @U_I_II (wrapped (right @U_II_I from_right)))
 
 -- TODO: try to generalize
 yp :: forall u e ee t .
  Covariant Monoidal Functor (->) u LM t =>
  u (t e) (t ee) -> t (e `LM` ee)
-yp = day @Straight @(->) @t @u @LM identity identity
+yp = day @U_I_II @(->) @t @u @LM identity identity
 
 -- TODO: try to generalize
 yp'yo, yp_'yo :: forall from e ee r t .
  Covariant Monoidal Functor from LM LM t =>
  t e `LM` t ee -> from (e `LM` ee) r -> t r
-yp'yo x f = day @Straight @from @t @LM @LM identity f x
+yp'yo x f = day @U_I_II @from @t @LM @LM identity f x
 
 yp_'yo = yp'yo
 
@@ -1907,7 +1911,7 @@ yip :: forall u e ee eee t .
  Covariant Monoidal Functor (->) u LM (U_I_II t e) =>
  u (t e ee) (t e eee) -> t e (ee `LM` eee)
 yip = unwrap @Arrow
- `compose` day @Straight @(->) @(U_I_II t e) @u @LM identity identity
+ `compose` day @U_I_II @(->) @(U_I_II t e) @u @LM identity identity
  `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
@@ -1917,7 +1921,7 @@ yip'yo :: forall u e ee eee t r .
  Covariant Monoidal Functor (->) u LM (U_I_II t e) =>
  u (t e ee) (t e eee) -> (->) (ee `LM` eee) r -> t e r
 yip'yo x f = unwrap @Arrow
- `compose` day @Straight @(->) @(U_I_II t e) @u @LM identity f
+ `compose` day @U_I_II @(->) @(U_I_II t e) @u @LM identity f
  `compose` fio @Arrow wrap `compose` foi @Arrow wrap
  `identity` x
 
@@ -1926,26 +1930,26 @@ yo'yp :: forall u e ee t tt .
  Covariant Endo Semi Functor (->) t =>
  Covariant Monoidal Functor (->) u LM tt =>
  t (u (tt e) (tt ee)) -> t (tt (e `LM` ee))
-yo'yp = fo (day @Straight @(->) @tt @u @LM identity identity)
+yo'yp = fo (day @U_I_II @(->) @tt @u @LM identity identity)
 
 -- TODO: try to generalize
 yio'yp :: forall u e ee eee t tt .
  Covariant Endo Semi Functor (->) (U_I_II t eee) =>
  Covariant Monoidal Functor (->) u LM tt =>
  t eee (u (tt e) (tt ee)) -> t eee (tt (e `LM` ee))
-yio'yp = fio (day @Straight @(->) @tt @u @LM identity identity)
+yio'yp = fio (day @U_I_II @(->) @tt @u @LM identity identity)
 
 -- TODO: try to generalize
 ys :: forall u e ee t .
  Covariant Monoidal Functor (->) u ML t =>
  u (t e) (t ee) -> t (e `ML` ee)
-ys = day @Straight @(->) @t @u @ML identity identity
+ys = day @U_I_II @(->) @t @u @ML identity identity
 
 -- TODO: try to generalize
 ys'yo :: forall from e ee u r t .
  Covariant Monoidal Functor from u ML t =>
  u (t e) (t ee) -> from (e `ML` ee) r -> t r
-ys'yo x f = day @Straight @from @t @u @ML identity f x
+ys'yo x f = day @U_I_II @from @t @u @ML identity f x
 
 -- TODO: try to generalize
 yis :: forall u e ee eee t .
@@ -1954,30 +1958,30 @@ yis :: forall u e ee eee t .
  Covariant Monoidal Functor (->) u ML (U_I_II t e) =>
  u (t e ee) (t e eee) -> t e (ee `ML` eee)
 yis = unwrap @Arrow
- `compose` day @Straight @(->) @(U_I_II t e) @u @ML identity identity
+ `compose` day @U_I_II @(->) @(U_I_II t e) @u @ML identity identity
  `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
 dw :: forall u e ee t .
  Covariant Monoidal Functor (->) u MLM t =>
  u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
-dw = day @Straight @(->) @t @u @MLM identity he
+dw = day @U_I_II @(->) @t @u @MLM identity he
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt .
  Covariant Monoidal Functor (->) u LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
  u (t (tt e)) (t (tt ee)) -> t (tt (e `LM` ee))
-yp'yp = day @Straight @(->) @t @u @LM identity
- (day @Straight @(->) @tt @LM @LM identity identity)
+yp'yp = day @U_I_II @(->) @t @u @LM identity
+ (day @U_I_II @(->) @tt @LM @LM identity identity)
 
 -- TODO: try to generalize
 yp'ys :: forall u e ee t tt .
  Covariant Monoidal Functor (->) u LM t =>
  Covariant Monoidal Functor (->) LM ML tt =>
  u (t (tt e)) (t (tt ee)) -> t (tt (e `ML` ee))
-yp'ys = day @Straight @(->) @t @u @LM identity
- (day @Straight @(->) @tt @LM @ML identity identity)
+yp'ys = day @U_I_II @(->) @t @u @LM identity
+ (day @U_I_II @(->) @tt @LM @ML identity identity)
 
 yip'yp :: forall u e ee eee t tt .
  Covariant Endo Semi Functor (->) (U_I_II t e) =>
@@ -2013,7 +2017,7 @@ yp'yok :: forall e ee from into t tt l o .
  Covariant Endo Semi Functor into t =>
  Covariant Yoneda from into t =>
  Component Natural into into (T'TT'I t (L l tt)) t =>
- Castable Opposite into (Straight from (e `LM` ee) (L l tt o)) =>
+ Castable U_II_I into (U_I_II from (e `LM` ee) (L l tt o)) =>
  (forall eee . Wrapper into (T'TT'I t (L l tt) eee)) =>
  t e `LM` t ee -> into (from (e `LM` ee) (L l tt o)) (t o)
 yp'yok = yok @from @into `compose` yp
@@ -2023,7 +2027,7 @@ yp'yokl :: forall e ee from into t tt l o .
  Component Natural from into (t `T'TT'I` L l tt) (TT'T'I t tt) =>
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Yoneda from into t =>
- Castable Opposite into (U_I_II from (e `LM` ee) (tt o)) =>
+ Castable U_II_I into (U_I_II from (e `LM` ee) (tt o)) =>
  (forall i . Wrapper into (T'TT'I t tt i)) =>
  (forall i . Wrapper into (TT'T'I t tt i)) =>
  (forall i . Wrapper into ((t `T'TT'I` L l tt) i)) =>
@@ -2036,27 +2040,27 @@ yp'yp'yo :: forall from e ee r t tt .
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor from LM LM tt =>
  t (tt e) `LM` t (tt ee) -> from (e `LM` ee) r -> t (tt r)
-yp'yp'yo x f = day @Straight @(->) @t @LM @LM identity
- (day @Straight @from @tt @LM @LM identity f) x
+yp'yp'yo x f = day @U_I_II @(->) @t @LM @LM identity
+ (day @U_I_II @from @tt @LM @LM identity f) x
 
 -- w'rw :: forall into a o
  -- Precategory into =>
- -- Castable Opposite into o =>
- -- Castable Straight into a =>
+ -- Castable U_II_I into o =>
+ -- Castable U_I_II into a =>
  -- into (Supertype a) (Supertype o) -> into a o
 -- w'rw into = wrap @into `compose` into `compose` he @into
 
 -- rw'w :: forall into a o .
  -- Precategory into =>
- -- Castable Opposite into a =>
- -- Castable Straight into o =>
+ -- Castable U_II_I into a =>
+ -- Castable U_I_II into o =>
  -- into a o -> into (Supertype a) (Supertype o)
 -- rw'w into = _' @into `compose` into `compose` wrap @into
 
 -- yi__, yi___, yi____, yi_____, yi______ :: forall into a .
  -- Precategory into =>
- -- Castable Straight into a =>
- -- Castable Straight into (Supertype a) =>
+ -- Castable U_I_II into a =>
+ -- Castable U_I_II into (Supertype a) =>
  -- into a (Supertype (Supertype a))
 -- yi__ = _' @into `compose` _' @into
 
@@ -2067,9 +2071,9 @@ yp'yp'yo x f = day @Straight @(->) @t @LM @LM identity
 
 -- yi___, yi____, yi_____, yi______, yi_______ :: forall into a .
  -- Precategory into =>
- -- Castable Straight into a =>
- -- Castable Straight into (Supertype a) =>
- -- Castable Straight into (Supertype (Supertype a)) =>
+ -- Castable U_I_II into a =>
+ -- Castable U_I_II into (Supertype a) =>
+ -- Castable U_I_II into (Supertype (Supertype a)) =>
  -- into a (Supertype (Supertype (Supertype a)))
 -- yi___ = _' @into `compose` _' @into `compose` _' @into
 
@@ -2080,9 +2084,9 @@ yp'yp'yo x f = day @Straight @(->) @t @LM @LM identity
 
 -- TODO: it's wrong, we ne_d to rewrite it
 -- he'he'he'ho :: forall a e o oo .
---  Castable Straight (->) a =>
---  Castable Straight (->) (Supertype a) =>
---  Castable Straight (->) (Supertype (Supertype a)) =>
+--  Castable U_I_II (->) a =>
+--  Castable U_I_II (->) (Supertype a) =>
+--  Castable U_I_II (->) (Supertype (Supertype a)) =>
 --  ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
 --  a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
 -- he'he'he'ho x e f = f (_' (_' (_' x)) e)
@@ -2096,8 +2100,8 @@ yp'yp'yo x f = day @Straight @(->) @t @LM @LM identity
 ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall from u t tt l a o e .
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
- Mapping Straight Straight from from (t `T'TT'I` L l tt) t =>
- Covariant Yoneda from (->) (Straight u e) =>
+ Mapping U_I_II U_I_II from from (t `T'TT'I` L l tt) t =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
  (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
  (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
  (forall ee . Wrapper from (L l tt ee)) =>
@@ -2119,7 +2123,7 @@ ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_
  Constant Semi Functor from from t =>
  Component Natural from from (T'TT'I t tt) t =>
  Component Natural from (->) I (U_I_II from a) =>
- Covariant Yoneda from (->) (Straight from e) =>
+ Covariant Yoneda from (->) (U_I_II from e) =>
  Wrapper from (T'TT'I t t o) =>
  Wrapper from (I (tt o)) =>
  Wrapper (->) (U_1_I from a (tt o)) =>
@@ -2183,17 +2187,17 @@ ha________'yokl = ha'yokl
 -- TODO: try to gereralize
 yok'ho :: forall from t tt l a o e .
  Covariant Functor (->) (->) tt =>
- Contravariant Functor (->) (->) (Opposite from (t o)) =>
- Covariant Functor from from (Straight from e) =>
- Contravariant Functor from from (Opposite from o) =>
+ Contravariant Functor (->) (->) (U_II_I from (t o)) =>
+ Covariant Functor from from (U_I_II from e) =>
+ Contravariant Functor from from (U_II_I from o) =>
  Covariant Functor (->) from t =>
  Covariant Functor from from t =>
  Covariant Functor (->) (->) t =>
  Covariant Functor (->) from tt =>
  Covariant Functor from from tt =>
  Covariant Yoneda from from t =>
- Contravariant Yoneda from (->) (Opposite from (L l tt o)) =>
- Mapping Straight Straight from from (T'TT'I t (L l tt)) t =>
+ Contravariant Yoneda from (->) (U_II_I from (L l tt o)) =>
+ Mapping U_I_II U_I_II from from (T'TT'I t (L l tt)) t =>
  (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
  Wrapper from (U_II_I from e (L l tt o)) =>
  Wrapper from (U_I_II from e (L l tt o)) =>
@@ -2212,7 +2216,7 @@ yok'ha :: forall into t tt l a o e .
  Covariant Functor into into tt =>
  Contravariant Functor into into (U_II_I into (L l tt o)) =>
  Contravariant Yoneda into (->) (U_II_I into (L l tt o)) =>
- Mapping Straight Straight into into (T'TT'I t (L l tt)) t =>
+ Mapping U_I_II U_I_II into into (T'TT'I t (L l tt)) t =>
  (forall ee . Wrapper into ((t `T'TT'I` L l tt) ee)) =>
  (forall ee . Wrapper into (L l tt ee)) =>
  Wrapper into (U_I_II into e (L l tt o)) =>
@@ -2224,32 +2228,32 @@ yok'ha x f = yok @into @into x `compose` fai @into f
 -- yok'hu :: forall from t tt a o e .
   -- Precategory from =>
   -- Covariant Yoneda from from t =>
-  -- Mapping Straight Straight from from (U_I_II from e) (U_I_II from e) =>
+  -- Mapping U_I_II U_I_II from from (U_I_II from e) (U_I_II from e) =>
   -- Constant Semi Functor from from (U_I_II from e) =>
   -- Covariant Semi Functor from from t =>
   -- Covariant Semi Functor (->) from t =>
   -- Covariant Semi Functor from (->) tt =>
   -- Covariant Semi Functor (->) from tt =>
-  -- Mapping Straight Straight (->) from (T'TT'I t tt) t =>
+  -- Mapping U_I_II U_I_II (->) from (T'TT'I t tt) t =>
   -- (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
-  -- Castable Opposite from (T'TT'I t tt o) =>
+  -- Castable U_II_I from (T'TT'I t tt o) =>
   -- Wrapper from (U_I_II from e (tt o)) =>
-  -- Castable Opposite from (U_I_II from e a) =>
-  -- Castable Opposite from (U_1_I from a (tt o)) =>
-  -- Castable Opposite (->) (U_1_I from a (tt o)) =>
+  -- Castable U_II_I from (U_I_II from e a) =>
+  -- Castable U_II_I from (U_1_I from a (tt o)) =>
+  -- Castable U_II_I (->) (U_1_I from a (tt o)) =>
   -- t e -> Supertype (U_1_I from a (tt o)) -> from (from e a) (t o)
 -- yok'hu x f = yok @_ @_ @tt x `compose` fiu @from f
 
 -- yokl__ :: forall from u t tt a o e .
  -- Category from =>
  -- -- Covariant Endo Semi Functor from tt =>
- -- Covariant Functor from from (Straight u e) =>
+ -- Covariant Functor from from (U_I_II u e) =>
  -- Covariant Functor (->) u t =>
  -- Covariant Functor u u t =>
- -- -- Mapping Straight Straight from from (T'TT'I t tt) t =>
+ -- -- Mapping U_I_II U_I_II from from (T'TT'I t tt) t =>
  -- Covariant Yoneda from u t =>
- -- Covariant Yoneda u from (Straight u e) =>
- -- Covariant Yoneda from from (Opposite u (t o)) =>
+ -- Covariant Yoneda u from (U_I_II u e) =>
+ -- Covariant Yoneda from from (U_II_I u (t o)) =>
  -- -- Covariant Yoneda from from t =>
  -- -- (forall ee . Wrapper from (T'TT'I t tt ee)) =>
  -- -- t (from a o) -> from (u e a) (t o)
@@ -2257,11 +2261,11 @@ yok'ha x f = yok @into @into x `compose` fai @into f
 -- yokl__ x = fai fio (yokl @from @u x)
 
 ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl :: forall from u t tt l a o e .
- Covariant Semi Functor from (->) (Straight u e) =>
+ Covariant Semi Functor from (->) (U_I_II u e) =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
- Mapping Straight Straight from from (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
- Covariant Yoneda from (->) (Straight u e) =>
+ Mapping U_I_II U_I_II from from (t `T'TT'I` L l tt) (t `TT'T'I` tt) =>
+ Covariant Yoneda from (->) (U_I_II u e) =>
  (forall ee . Wrapper from ((t `T'TT'I` L l tt) ee)) =>
  (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
  (forall ee . Wrapper from ((t `TT'T'I` tt) ee)) =>
@@ -2283,36 +2287,36 @@ ho________'yokl = ho'yokl
 --  Covariant Functor from from t =>
 --  Covariant Functor from from tt =>
 --  Contravariant Yoneda from (->) (U_II_I from (tt o)) =>
---  Mapping Straight Straight from from (T'TT'I tt t) tt =>
+--  Mapping U_I_II U_I_II from from (T'TT'I tt t) tt =>
 --  Constant Semi Functor from from tt =>
---  Castable Opposite from (T'TT'I tt t o) =>
+--  Castable U_II_I from (T'TT'I tt t o) =>
 --  (forall ee . Wrapper from (T'TT'I tt t ee)) =>
---  Castable Opposite from (T'TT'I tt tt o) =>
---  Castable Opposite (->) (U_1_I from a (t o)) =>
+--  Castable U_II_I from (T'TT'I tt tt o) =>
+--  Castable U_II_I (->) (U_1_I from a (t o)) =>
 --  Supertype (U_1_I from a (t o)) -> from e (tt a) -> from e (tt o)
 -- ha'yuk = ha `compose` fuk @from @tt @t
 
 -- fr'yp :: forall from t i o oo .
  -- Category from =>
- -- Limit Straight from from =>
+ -- Limit U_I_II from from =>
  -- Covariant Functor (->) (->) (U_I_II (LM) o) =>
  -- Covariant Functor from (->) (U_II_I (LM) (LM i i)) =>
  -- Covariant Monoidal Functor (->) LM LM t =>
- -- Castable Straight (->) (U_I_I LM (LM i i)) =>
- -- Castable Straight (->) (U_I_II LM o oo) =>
- -- Castable Opposite from (U_II_I LM i i) =>
- -- Castable Opposite (->) (U_I_II LM i i) =>
- -- Castable Straight (->) (U_I_I LM i) =>
- -- Castable Straight (->) (U_II_I LM (LM i i) o) =>
- -- Castable Opposite (->) (U_II_I LM (LM i i) (LM i i)) =>
+ -- Castable U_I_II (->) (U_I_I LM (LM i i)) =>
+ -- Castable U_I_II (->) (U_I_II LM o oo) =>
+ -- Castable U_II_I from (U_II_I LM i i) =>
+ -- Castable U_II_I (->) (U_I_II LM i i) =>
+ -- Castable U_I_II (->) (U_I_I LM i) =>
+ -- Castable U_I_II (->) (U_II_I LM (LM i i) o) =>
+ -- Castable U_II_I (->) (U_II_I LM (LM i i) (LM i i)) =>
  -- Wrapper (->) (U_I_II (LM) o (LM i i)) =>
  -- (forall e . Wrapper from (I e)) =>
  -- from i (t o) -> from i (t oo) -> i -> t (LM o oo)
 -- fr'yp from__eft from_right = yp `compose`
- -- __ (map @Straight @Straight @from (wrapped (right @Straight from_right))) `compose`
- -- i_ (map @Straight @Straight @from (wrapped (left @Straight from__eft))) `compose`
- -- wrapped (map @Straight @Straight @from @(->) @I @(U_I_I LM) identity) `compose`
- -- wrapped (map @Straight @Straight @from @(->) @I @(U_I_I LM) identity)
+ -- __ (map @U_I_II @U_I_II @from (wrapped (right @U_I_II from_right))) `compose`
+ -- i_ (map @U_I_II @U_I_II @from (wrapped (left @U_I_II from__eft))) `compose`
+ -- wrapped (map @U_I_II @U_I_II @from @(->) @I @(U_I_I LM) identity) `compose`
+ -- wrapped (map @U_I_II @U_I_II @from @(->) @I @(U_I_I LM) identity)
 
 -- TODO: generalize
 lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'yp :: forall o oo t .
@@ -2381,7 +2385,7 @@ lu_______'yis = lu'yis
 lu'yp'yp :: forall o oo t tt .
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
- -- Mapping Straight Straight into (->) I (U_I_I (Product into)) =>
+ -- Mapping U_I_II U_I_II into (->) I (U_I_I (Product into)) =>
  Covariant Yoneda (->) (->) (U_I_II Product (t (tt o))) =>
  Covariant Yoneda (->) (->) (U_II_I Product ()) =>
  t (tt o) -> t (tt oo) -> t (tt (o `LM` oo))
@@ -2429,9 +2433,9 @@ lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
 
 jt :: forall into f g e .
  Component Natural (->) into (f `T'TT'I` g) (f `JNT` g) =>
- Castable Opposite into ((f `T'TT'I` g) e) =>
+ Castable U_II_I into ((f `T'TT'I` g) e) =>
  into (f (g e)) ((f `JNT` g) e)
-jt = component @Straight @(->) @into @(f `T'TT'I` g) @(f `JNT` g) @e
+jt = component @U_I_II @(->) @into @(f `T'TT'I` g) @(f `JNT` g) @e
  `compose` wrap @into @((f `T'TT'I` g) e)
 
 -- TODO: generalize
@@ -2440,8 +2444,8 @@ yp'yp'jt :: forall e ee t tt .
  Covariant Monoidal Functor (->) LM LM t =>
  Covariant Monoidal Functor (->) LM LM tt =>
  t (tt e) `LM` t (tt ee) -> (t `JNT` tt) (e `LM` ee)
-yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
- (day @Straight @(->) @tt @LM @LM identity identity)
+yp'yp'jt = jt `compose` day @U_I_II @(->) @t @LM @LM identity
+ (day @U_I_II @(->) @tt @LM @LM identity identity)
 
 -- TODO: generalize
 -- yp'yp'jt'yok :: forall from into e ee t tt ttt o .
@@ -2452,7 +2456,7 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
  -- Component Natural (->) into (T'TT'I (t `JNT` tt) ttt) (t `JNT` tt) =>
  -- Covariant Monoidal Functor (->) LM LM t =>
  -- Covariant Monoidal Functor (->) LM LM tt =>
- -- Castable Opposite into (Straight from (e `LM` ee) (ttt o)) =>
+ -- Castable U_II_I into (U_I_II from (e `LM` ee) (ttt o)) =>
  -- (forall e . Wrapper into (T'TT'I (JNT t tt) ttt e)) =>
  -- t (tt e) `LM` t (tt ee) -> into (from (e `LM` ee) (ttt o)) ((t `JNT` tt) o)
 -- yp'yp'jt'yok = yok @from @into `compose` yp'yp'jt
@@ -2460,10 +2464,10 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- TODO: generalize
 -- rwr'foi :: forall into w o u e ee .
  -- Covariant Endo Semi Functor into (U_II_I u o) =>
- -- Castable Straight into (U_II_I u o ee) =>
- -- Castable Opposite into (U_II_I u o e) =>
- -- Castable Opposite into (w u ee o) =>
- -- Castable Straight into (w u e o) =>
+ -- Castable U_I_II into (U_II_I u o ee) =>
+ -- Castable U_II_I into (U_II_I u o e) =>
+ -- Castable U_II_I into (w u ee o) =>
+ -- Castable U_I_II into (w u e o) =>
  -- (Supertype (w u e o) ~ u e o) =>
  -- (Supertype (w u ee o) ~ u ee o) =>
  -- into e ee -> into (w u e o) (w u ee o)
@@ -2472,10 +2476,10 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- TODO: generalize
 -- rwr'fio :: forall into w o u e ee .
  -- Covariant Endo Semi Functor into (U_I_II u o) =>
- -- Castable Straight into (U_I_II u o ee) =>
- -- Castable Opposite into (U_I_II u o e) =>
- -- Castable Opposite into (w u o ee) =>
- -- Castable Straight into (w u o e) =>
+ -- Castable U_I_II into (U_I_II u o ee) =>
+ -- Castable U_II_I into (U_I_II u o e) =>
+ -- Castable U_II_I into (w u o ee) =>
+ -- Castable U_I_II into (w u o e) =>
  -- (Supertype (w u o e) ~ u o e) =>
  -- (Supertype (w u o ee) ~ u o ee) =>
  -- into e ee -> into (w u o e) (w u o ee)
@@ -2485,10 +2489,10 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- rwr'yoi :: forall from into w o u e ee .
  -- Precategory into =>
  -- Covariant Yoneda from into (U_II_I u o) =>
- -- Castable Opposite into (w u ee o) =>
- -- Castable Straight (->) (w u e o) =>
- -- Castable Straight into (U_II_I u o ee) =>
- -- Castable Opposite into (U_I_II from e ee) =>
+ -- Castable U_II_I into (w u ee o) =>
+ -- Castable U_I_II (->) (w u e o) =>
+ -- Castable U_I_II into (U_II_I u o ee) =>
+ -- Castable U_II_I into (U_I_II from e ee) =>
  -- (Supertype (w u e o) ~ u e o) =>
  -- (Supertype (w u ee o) ~ u ee o) =>
  -- w u e o -> into (from e ee) (w u ee o)
@@ -2499,10 +2503,10 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 --  Precategory into =>
 --  Covariant Endo Semi Functor into (U_II_I u o) =>
 --  Covariant Yoneda into (->) (U_I_II from a) =>
---  Castable Straight into (w u e o) =>
---  Castable Opposite into (w u ee o) =>
---  Castable Straight into (U_II_I u o ee) =>
---  Castable Opposite into (U_II_I u o e) =>
+--  Castable U_I_II into (w u e o) =>
+--  Castable U_II_I into (w u ee o) =>
+--  Castable U_I_II into (U_II_I u o ee) =>
+--  Castable U_II_I into (U_II_I u o e) =>
 --  (Supertype (w u e o) ~ u e o) =>
 --  (Supertype (w u ee o) ~ u ee o) =>
 --  from a (w u e o) -> into e ee -> from a (w u ee o)
@@ -2513,10 +2517,10 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 --  Precategory into =>
 --  Covariant Endo Semi Functor into (U_I_II u o) =>
 --  Covariant Yoneda into (->) (U_I_II from a) =>
---  Castable Straight into (w u o e) =>
---  Castable Opposite into (w u o ee) =>
---  Castable Straight into (U_I_II u o ee) =>
---  Castable Opposite into (U_I_II u o e) =>
+--  Castable U_I_II into (w u o e) =>
+--  Castable U_II_I into (w u o ee) =>
+--  Castable U_I_II into (U_I_II u o ee) =>
+--  Castable U_II_I into (U_I_II u o e) =>
 --  (Supertype (w u o e) ~ u o e) =>
 --  (Supertype (w u o ee) ~ u o ee) =>
 --  from a (w u o e) -> into e ee -> from a (w u o ee)
@@ -2530,11 +2534,11 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 --  Component Natural (->) (->) (T'TT'I t (w u ee)) t =>
 --  (Supertype (w u e o) ~ u e o) =>
 --  (Supertype (w u ee o) ~ u ee o) =>
---  Castable Opposite (->) (into () ee) =>
---  Castable Opposite into (U_II_I u o e) =>
---  Castable Opposite into (w u ee o) =>
---  Castable Straight into (U_II_I u o ee) =>
---  Castable Straight into (w u e o) =>
+--  Castable U_II_I (->) (into () ee) =>
+--  Castable U_II_I into (U_II_I u o e) =>
+--  Castable U_II_I into (w u ee o) =>
+--  Castable U_I_II into (U_II_I u o ee) =>
+--  Castable U_I_II into (w u e o) =>
 --  t (w u e o) -> into e ee -> t o
 -- yokl_rwr_yoi x f = yokl @into @_ @(w u ee) @t x
 --  (rwr_foi @into @w @o @u @e @ee f)
@@ -2542,11 +2546,11 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 -- rwr_yui :: forall into w o u e ee .
 --  Covariant Endo Semi Functor into (U_II_I u o) =>
 --  Constant Semi Functor into into (U_II_I u o) (U_II_I u o) =>
---  Castable Straight into (U_II_I u o ee) =>
---  Castable Opposite into (U_II_I u o e) =>
---  Castable Opposite into (w u ee o) =>
---  Castable Straight into (w u e o) =>
---  Castable Opposite (->) (into () ee) =>
+--  Castable U_I_II into (U_II_I u o ee) =>
+--  Castable U_II_I into (U_II_I u o e) =>
+--  Castable U_II_I into (w u ee o) =>
+--  Castable U_I_II into (w u e o) =>
+--  Castable U_II_I (->) (into () ee) =>
 --  (Supertype (w u e o) ~ u e o) =>
 --  (Supertype (w u ee o) ~ u ee o) =>
 --  Supertype (into () ee) -> into (w u e o) (w u ee o)
@@ -2562,11 +2566,11 @@ yp'yp'jt = jt `compose` day @Straight @(->) @t @LM @LM identity
 --  Component Natural (->) (->) (T'TT'I t (w u ee)) t =>
 --  (Supertype (w u e o) ~ u e o) =>
 --  (Supertype (w u ee o) ~ u ee o) =>
---  Castable Opposite (->) ((->) () ee) =>
---  Castable Opposite (->) (U_II_I u o e) =>
---  Castable Opposite (->) (w u ee o) =>
---  Castable Straight (->) (U_II_I u o ee) =>
---  Castable Straight (->) (w u e o) =>
+--  Castable U_II_I (->) ((->) () ee) =>
+--  Castable U_II_I (->) (U_II_I u o e) =>
+--  Castable U_II_I (->) (w u ee o) =>
+--  Castable U_I_II (->) (U_II_I u o ee) =>
+--  Castable U_I_II (->) (w u e o) =>
 --  t (w u e o) -> Supertype (() -> ee) -> t o
 -- yokl_rwr_yui x f = yokl @(->) @_ @(w u ee) @t x
 --  (rwr_yui @(->) @w @o @u @e @ee f)
@@ -2579,21 +2583,21 @@ fc :: forall into t a o .
  Adjoint Functor (->) (->) (U_I_II LM (t a)) (U_I_II into (t a)) =>
  Adjoint Functor (->) (->) (U_I_II LM a) (U_I_II into a) =>
  Adjoint Functor (->) (->) (U_I_II LM (t a `LM` t (into a o))) (U_I_II (->) (t a `LM` t (into a o))) =>
- Monoidal Straight Functor into LM LM t =>
+ Monoidal U_I_II Functor into LM LM t =>
  t (into a o) -> into (t a) (t o)
 fc = unwrap @(->) @(U_I_II into (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
  (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
  `compose` fj @(->) @(->) @(U_I_II LM (t a)) @(U_I_II into _)
- (monoidal_ @Straight @into @(->) @t @LM @LM identity (wrap identity)
+ (monoidal_ @U_I_II @into @(->) @t @LM @LM identity (wrap identity)
  `compose` unwrap @(->) @(U_I_II LM (t a) (t (into a o))))
 
 -- cc :: forall t e ee .
 --  Adjoint Functor (->) (->) (U_I_II LM (t e `LM` t ee)) (U_I_II (->) (t e `LM` t ee)) =>
---  Monoidal Straight Functor (->) LM LM t =>
+--  Monoidal U_I_II Functor (->) LM LM t =>
 --  t e -> t ee -> t (e `LM` ee)
 -- cc e ee = monoidal_
---  @Straight @(->) @(->) @t @LM @LM identity
+--  @U_I_II @(->) @(->) @t @LM @LM identity
 --  (wrap identity)
 --  (e `lu` ee)
 
