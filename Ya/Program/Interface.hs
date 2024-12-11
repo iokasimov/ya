@@ -22,11 +22,14 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
   `li` this (at @e @ee `he` x)
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
-dis' :: Excludable a r => r `AR_` Unit `ML` a
-dis' x = dis x `yui` Unit
+on' :: Excludable a r => r `AR_` Unit `ML` a
+on' x = on x `yui` Unit
 
 class Layable a r where
  lay :: a `AR_` r
+
+instance Layable a a where
+ lay = identity
 
 instance Layable a (a `ML` aa) where
  lay = This
@@ -39,6 +42,14 @@ instance Layable a (a `ML` aa `ML` aaa) where
 
 instance Layable a (aa `ML` a `ML` aaa) where
  lay = This `ha` That
+
+instance Layable (a `ML` aaa) (a `ML` aa `ML` aaa) where
+ lay = This `ha` This `la` That
+
+instance Layable (aaa `ML` a) (a `ML` aa `ML` aaa) where
+ lay = That `la` This `ha` This
+
+-- TODO: define more Layable instances
 
 class Fittable a r where
  fit :: r `AR_` MN a r `ML` a
@@ -256,44 +267,44 @@ instance (Literal (Construction (U_I_I LM `T'TT'I` Optional)) item lst, Literal 
 
 -- TODO: generalize over categories
 class Excludable a r where
- dis :: r `AR_` r `MN` a `ML` a
+ on :: r `AR_` r `MN` a `ML` a
 
 instance Excludable a (a `ML` aa) where
- dis = That `la` This
+ on = That `la` This
 
 instance Excludable a (aa `ML` a) where
- dis = This `la` That
+ on = This `la` That
 
 instance (a `ML` aa `ML` aaa `MN` a ~ (aa `ML` aaa))
  => Excludable a (a `ML` aa `ML` aaa) where
- dis = That `la` This `ha` This `la` This `ha` That
+ on = That `la` This `ha` This `la` This `ha` That
 
 instance (aa `ML` a `ML` aaa `MN` a ~ (aa `ML` aaa))
  => Excludable a (aa `ML` a `ML` aaa) where
- dis = This `ha` This `la` That `la` This `ha` That
+ on = This `ha` This `la` That `la` This `ha` That
 
 instance (a `ML` aa `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Excludable a (a `ML` aa `ML` aaa `ML` aaaa) where
- dis = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
+ on = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
 instance (aa `ML` a `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Excludable a (aa `ML` a `ML` aaa `ML` aaaa) where
- dis = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
+ on = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
 
 instance (aa `ML` aaa `ML` a `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
  => Excludable a (aa `ML` aaa `ML` a `ML` aaaa) where
- dis = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
+ on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
 
-instance (forall o . Excludable o e)
- => Mapping U_I_II U_I_II (U_I_UU_MN_I_II_II AR ML) AR
- (U_I_II (U_I_UU_MN_I_II_II AR ML) e)
- (U_I_II (U_I_UU_MN_I_II_II AR ML) e) where
- mapping = rewrap / \from -> rewrap `compose` rewrap / \into e ->
-  case into e of
-   This e_mn_a -> dis e
-   That a -> case unwrap from a of
-    This a_mn_o -> dis e
-    That o -> That o
+-- instance (forall o . Excludable o e)
+ -- => Mapping U_I_II U_I_II (U_I_UU_MN_I_II_II AR ML) AR
+ -- (U_I_II (U_I_UU_MN_I_II_II AR ML) e)
+ -- (U_I_II (U_I_UU_MN_I_II_II AR ML) e) where
+ -- mapping = rewrap / \from -> rewrap `compose` rewrap / \into e ->
+  -- case into e of
+   -- This e_mn_a -> on e
+   -- That a -> case unwrap from a of
+    -- This a_mn_o -> on e
+    -- That o -> That o
 
 -- ASCII ~> Glyph
 -- ASCII ~> Symbol
