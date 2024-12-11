@@ -167,11 +167,6 @@ data instance Object Void e ee = This e | That ee
 type LM = Object Unit
 type ML = Object Void
 
-type family MN r a where
- MN (a `ML` aa) a = aa
- MN (aa `ML` a) a = aa
- MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
-
 type family Neutral p where
  Neutral LM = Unit
  Neutral ML = Void
@@ -179,6 +174,11 @@ type family Neutral p where
 type family Aught p where
  Aught Straight = Unit
  Aught Opposite = Void
+
+type family MN r a where
+ MN (a `ML` aa) a = aa
+ MN (aa `ML` a) a = aa
+ MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
 
 class
  ( forall e . Mapping v v from into (U_II_I u e) I

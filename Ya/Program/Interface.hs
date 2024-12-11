@@ -22,57 +22,7 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
   `li` this (at @e @ee `he` x)
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
--- type family Handpicked a r where
- -- Handpicked a (a `ML` aa) = a `ML`()
- -- Handpicked a (aa `ML` a) = a `ML` ()
- -- Handpicked a (aa `ML` aaa) = Handpicked a aa
-
--- class Matchable a r where
- -- match :: r -> Handpicked a r
-
--- instance Matchable a (a `ML` aa) where
- -- match = This `la` That `ha` but Unit
-
--- instance Matchable a (aa `ML` a) where
- -- match = That `ha` but Unit `la` This
-
--- instance {-# OVERLAPS #-}
- -- ( Matchable a aa
- -- , Handpicked a (aa `ML` aaa) ~ a `ML` ()
- -- , Handpicked a aa ~ a `ML` ()
- -- ) => Matchable a (aa `ML` aaa) where
- -- match = match @a @aa `la` That `ha` but Unit
-
-class Matchable a r where
- dis :: r `AR_` r `MN` a `ML` a
-
-instance Matchable a (a `ML` aa) where
- dis = That `la` This
-
-instance Matchable a (aa `ML` a) where
- dis = This `la` That
-
-instance (a `ML` aa `ML` aaa `MN` a ~ (aa `ML` aaa))
- => Matchable a (a `ML` aa `ML` aaa) where
- dis = That `la` This `ha` This `la` This `ha` That
-
-instance (aa `ML` a `ML` aaa `MN` a ~ (aa `ML` aaa))
- => Matchable a (aa `ML` a `ML` aaa) where
- dis = This `ha` This `la` That `la` This `ha` That
-
-instance (a `ML` aa `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (a `ML` aa `ML` aaa `ML` aaaa) where
- dis = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
-
-instance (aa `ML` a `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (aa `ML` a `ML` aaa `ML` aaaa) where
- dis = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
-
-instance (aa `ML` aaa `ML` a `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
- => Matchable a (aa `ML` aaa `ML` a `ML` aaaa) where
- dis = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
-
-dis' :: Matchable a r => r `AR_` Unit `ML` a
+dis' :: Excludable a r => r `AR_` Unit `ML` a
 dis' x = dis x `yui` Unit
 
 class Layable a r where
@@ -303,3 +253,76 @@ instance (Literal (Construction (U_I_I LM `T'TT'I` Optional)) item lst, Literal 
  as (These (These x lx) rx) = Root x `ha` T'TT'I `ha` U_I_I
    `li_` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
     `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+
+-- TODO: generalize over categories
+class Excludable a r where
+ dis :: r `AR_` r `MN` a `ML` a
+
+instance Excludable a (a `ML` aa) where
+ dis = That `la` This
+
+instance Excludable a (aa `ML` a) where
+ dis = This `la` That
+
+instance (a `ML` aa `ML` aaa `MN` a ~ (aa `ML` aaa))
+ => Excludable a (a `ML` aa `ML` aaa) where
+ dis = That `la` This `ha` This `la` This `ha` That
+
+instance (aa `ML` a `ML` aaa `MN` a ~ (aa `ML` aaa))
+ => Excludable a (aa `ML` a `ML` aaa) where
+ dis = This `ha` This `la` That `la` This `ha` That
+
+instance (a `ML` aa `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
+ => Excludable a (a `ML` aa `ML` aaa `ML` aaaa) where
+ dis = That `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
+
+instance (aa `ML` a `ML` aaa `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
+ => Excludable a (aa `ML` a `ML` aaa `ML` aaaa) where
+ dis = This `ha` This `ha` This `la` That `la` This `ha` This `ha` That `la` This `ha` That
+
+instance (aa `ML` aaa `ML` a `ML` aaaa `MN` a ~ (aa `ML` aaa `ML` aaaa))
+ => Excludable a (aa `ML` aaa `ML` a `ML` aaaa) where
+ dis = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `la` This `ha` That
+
+instance (forall o . Excludable o e)
+ => Mapping U_I_II U_I_II (U_I_UU_MN_I_II_II AR ML) AR
+ (U_I_II (U_I_UU_MN_I_II_II AR ML) e)
+ (U_I_II (U_I_UU_MN_I_II_II AR ML) e) where
+ mapping = rewrap / \from -> rewrap `compose` rewrap / \into e ->
+  case into e of
+   This e_mn_a -> dis e
+   That a -> case unwrap from a of
+    This a_mn_o -> dis e
+    That o -> That o
+
+-- ASCII ~> Glyph
+-- ASCII ~> Symbol
+
+-- from : (a -> ((a - o) + o))
+
+-- into : (e -> ((e - a) + a))
+
+-- res : (e -> ((e - o) + o))
+
+-- a - o
+
+-- e - o
+
+  -- case (into origin :: _) of
+   -- That a -> case unwrap from a of
+    -- That o -> That o
+    -- This (mn_a_o :: _) -> This mn_a_o
+   -- This a_e -> This origin
+
+-- instance Mapping U_II_I U_I_II (U_I_UU_I_II AR ML) AR
+ -- (U_II_I (U_I_UU_I_II AR ML) e)
+ -- (U_II_I (U_I_UU_I_II AR ML) e) where
+ -- mapping = rewrap / \into -> rewrap `compose` rewrap / \from origin ->
+  -- case unwrap into origin of
+   -- That a -> case from a of
+    -- That o -> That o
+    -- This o_a -> This origin
+   -- This a_e -> This origin
+
+-- instance Category (U_I_UU_I_II AR ML) where
+ -- identity = U_I_UU_I_II That
