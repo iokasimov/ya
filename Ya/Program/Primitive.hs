@@ -8,6 +8,12 @@ import Ya.Program.Patterns
 not :: e `ML` ee `AR_` ee `ML` e
 not = That `la` This
 
+-- TODO: generalize
+row :: e `ML` (ee `ML` eee) `AR__` (e `ML` ee) `ML` eee
+row (This x) = This (This x)
+row (That (This x)) = This (That x)
+row (That (That x)) = That x
+
 provide :: U_I_II (->) e e
 provide = U_I_II identity
 
