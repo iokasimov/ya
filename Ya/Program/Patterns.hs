@@ -97,10 +97,15 @@ type Scope = U_I_UU_II_U_II_I (->) LM
 pattern Scope :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Scope e ee
 pattern Scope x = U_I_UU_II_U_II_I @(->) @LM x
 
-type Directive = U_I_UU_II_U_II_I (->) ML
+-- type Directive = U_I_UU_I_II (->) ML
 
-pattern Directive :: forall ee e . (e `AR_` ML ee (ee -> e)) -> Directive e ee
-pattern Directive x = U_I_UU_II_U_II_I @(->) @ML x
+-- pattern Directive :: forall ee e . (e `AR_` ML e ee) -> Directive e ee
+-- pattern Directive x = U_I_UU_I_II @(->) @ML x
+
+type Match = U_I_UU_MN_I_II_II (->) ML
+
+pattern Match :: forall ee e . (e `AR_` ML (MN e ee) ee) -> Match e ee
+pattern Match x = U_I_UU_MN_I_II_II @(->) @ML x
 
 type Automation e ee eee = e `AR_` ee `LM` eee
 
