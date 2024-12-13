@@ -6,6 +6,8 @@ infixl 8 `T'I`
 
 type T'I t i = t i
 
+infixl 9 #
+
 infixl 8 `WR`
 infixl 7 `WR_`
 infixl 6 `WR__`
@@ -70,6 +72,18 @@ instance Castable Straight (->) (TT'T'I f g i)
 
 instance Castable Opposite (->) (TT'T'I f g i)
  where cast = U_II_I TT'T'I
+
+newtype T e i = Tagged i
+
+type (#) = T
+
+type instance Supertype (T e i) = i
+
+instance Castable Straight (->) (T e i)
+ where cast = U_I_II (\(Tagged x) -> x)
+
+instance Castable Opposite (->) (T e i)
+ where cast = U_II_I Tagged
 
 newtype L e t i = Labeled (t i)
 
