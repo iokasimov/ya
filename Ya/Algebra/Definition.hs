@@ -6,6 +6,8 @@ module Ya.Algebra.Definition where
 import Ya.Algebra.Abstract
 
 infixl 8 `LM`, `ML`, `MN`
+infixl 7 `LM_`, `ML_`, `MN_`
+infixl 6 `LM__`, `ML__`, `MN__`
 
 infixr 7 `JNT`
 
@@ -165,7 +167,22 @@ data instance Object Unit e ee = These e ee
 data instance Object Void e ee = This e | That ee
 
 type LM = Object Unit
+
+type LM_ = LM
+type LM__ = LM
+
 type ML = Object Void
+
+type ML_ = ML
+type ML__ = ML
+
+type family MN r a where
+ MN (_ # a `ML` aa) a = aa
+ MN (aa `ML` _ # a) a = aa
+ MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
+
+type MN_ a aa = MN a aa
+type MN__ a aa = MN a aa
 
 type family Neutral p where
  Neutral LM = Unit
@@ -174,12 +191,6 @@ type family Neutral p where
 type family Aught p where
  Aught Straight = Unit
  Aught Opposite = Void
-
-type family MN r a where
- MN (_ # a `ML` aa) a = aa
- MN (aa `ML` _ # a) a = aa
- MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
- -- MN (T _ aa) a = MN aa a
 
 class
  ( forall e . Mapping v v from into (U_II_I u e) I
