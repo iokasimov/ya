@@ -176,9 +176,10 @@ type family Aught p where
  Aught Opposite = Void
 
 type family MN r a where
- MN (a `ML` aa) a = aa
- MN (aa `ML` a) a = aa
+ MN (_ # a `ML` aa) a = aa
+ MN (aa `ML` _ # a) a = aa
  MN (aa `ML` aaa) a = aa `MN` a `ML` aaa
+ -- MN (T _ aa) a = MN aa a
 
 class
  ( forall e . Mapping v v from into (U_II_I u e) I
