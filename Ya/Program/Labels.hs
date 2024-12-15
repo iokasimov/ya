@@ -24,12 +24,12 @@ type Fore = U_I_II ML () ()
 
 type Back = U_II_I ML () ()
 
-type Forward = L Fore
+type Forward = L Unit
 
 pattern Forward :: t e -> Forward t e
 pattern Forward e = Labeled e
 
-type Reverse = L Back
+type Reverse = L (Unit `LM` Unit)
 
 pattern Reverse :: t e -> Reverse t e
 pattern Reverse e = Labeled e

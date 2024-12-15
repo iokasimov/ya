@@ -39,15 +39,15 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Monoidal Functor AR LM LM tt
- , Component Natural AR AR (t `T'TT'I` L () tt) (t `TT'T'I` tt)
+ , Component Natural AR AR (t `T'TT'I` L Unit tt) (t `TT'T'I` tt)
  ) => Mapping U_I_II U_I_II AR AR
-  (R_U_I_T_I LM t `T'TT'I` L (U_I_II ML () ())  tt)
+  (R_U_I_T_I LM t `T'TT'I` L Unit  tt)
   (R_U_I_T_I LM t `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
     unwrap x `yo` from
      `lu_`xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
-      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L (U_I_II ML () ()) tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
+      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L Unit tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
       `ho` wrap @AR @(L () tt _)
       `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L () tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
      `yp_'yo` wrap @AR @(R_U_I_T_I _ _ _) `ha` wrap @AR @(Recursive _) `ha` wrap @AR @(U_I_T_II _ _ _ _)
@@ -58,7 +58,7 @@ instance
  , Covariant Monoidal Functor AR LM LM tt
  , Transformation Straight Functor AR AR (t `T'TT'I` L () tt) (t `TT'T'I` tt)
  ) => Mapping Straight Straight AR AR
-  (R_U_I_T_I LM t `T'TT'I` L (U_II_I ML () ()) tt)
+  (R_U_I_T_I LM t `T'TT'I` L (Unit `LM` Unit) tt)
   (R_U_I_T_I LM t `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap
   / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
@@ -69,7 +69,7 @@ instance
    `fo` (unwrap x `yo` from)
    `fc` (xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
-      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L (U_II_I ML () ()) tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
+      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I LM t `T'TT'I` L (() `LM` ()) tt) @(R_U_I_T_I LM t `TT'T'I` tt) from)
       `ho` wrap @AR @(L () tt _)
       `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L () tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
     )
