@@ -131,8 +131,9 @@ instance
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
   let f = State `ha` Transition `ha` push @(Nonempty List) `ha` from
   in enter @(State (Nonempty List _))
-   `yuk___` New (unwrap l `yokl` Prior `ha` f)
-   `yuk___` New (unwrap r `yokl` Forth `ha` f)
+   -- TODO: replace with `yuk___'yokl` operator
+   `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
+   `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
    `he_____'he` Construct `ha` Last `he` from x
    `yi_____` that
 

@@ -12,13 +12,14 @@ instance (Precategory into, forall e . Wrapper into (I e))
 
 instance
  ( forall e . Wrapper into (I e)
- , forall e . Wrapper into (L l t e)
+ , forall e . Wrapper into (L l (L ll t) e)
+ , forall e . Wrapper into (L ll t e)
  , forall e . Wrapper into (I `TT'T'I` t `WR___` e)
- , forall e . Wrapper into (I `T'TT'I` L l t `WR___` e)
+ , forall e . Wrapper into (I `T'TT'I` L l (L ll t) `WR___` e)
  , Covariant Endo Semi Functor into t
- ) => Mapping U_I_II U_I_II into into (I `T'TT'I` L l t) (I `TT'T'I` t) where
+ ) => Mapping U_I_II U_I_II into into (I `T'TT'I` L l (L ll t)) (I `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap /
-  map @U_I_II @U_I_II @into @into (wrap @into @(I _) `compose` from) `compose` unwrap @into @(L l t _) `compose` unwrap @into @(I _)
+  map @U_I_II @U_I_II @into @into (wrap @into @(I _) `compose` from) `compose` unwrap @into @(L ll t _) `compose` unwrap @into @(L l _ _) `compose` unwrap @into @(I _)
 
 instance
  ( Covariant Semi Functor from into tt
