@@ -4,8 +4,6 @@ module Ya.Algebra.Abstract where
 
 infixl 8 `T'I`
 
-type T'I t i = t i
-
 infixl 9 #
 
 infixl 8 `WR`
@@ -16,10 +14,14 @@ infixl 5 `WR___`
 infixl 6 `T'TT'I`, `TT'T'I`
 infixl 7 `T'TT'I_`
 
+infixr 9 `L`
+
 type WR t i = t i
 type WR_ t i = t i
 type WR__ t i = t i
 type WR___ t i = t i
+
+type T'I t i = t i
 
 type family Supertype e
 
