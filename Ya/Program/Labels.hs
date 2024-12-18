@@ -3,7 +3,8 @@ module Ya.Program.Labels where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-pattern Def, Usual, Default :: t e -> L Unit t e
+pattern Run, Def, Usual, Default :: t e -> L Unit t e
+pattern Run e = Labeled @Unit e
 pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
