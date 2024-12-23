@@ -167,13 +167,15 @@ infixl 1 `yi_______`
 infixl 8 `yo`, `yo'yo`, `yo'ha`, `yo'hj`, `yo'yp`
 infixl 7 `yo_`
 
-infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl` --, `yko`
+infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl`
 infixl 6 `yok_`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`
 infixl 5 `yok__`, `yok__'he`,  `yok__'he'he`, `yok__'yokl`
 infixl 4 `yok___`, `yok___'he`,  `yok___'he'he`, `yok___'yokl`
 infixl 3 `yok____`, `yok____'he`,  `yok____'he'he`, `yok____'yokl`
 infixl 2 `yok_____`, `yok_____'he`,  `yok_____'he'he`, `yok_____'yokl`
 infixl 1 `yok______`, `yok______'he`,  `yok______'he'he`, `yok______'yokl`
+
+infixl 7 `kyo`
 
 infixl 6 `yiok`
 
@@ -534,11 +536,6 @@ yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
  t a -> into (L l tt o) (t o)
 yuk x = yok @into @into x `compose` constant
 
--- yok x = component @U_I_II @(->) @into @(T'TT'I t tt)
- -- `compose` wrap @into @(T'TT'I t tt _)
- -- `compose` yoneda @U_I_II @from x
- -- `compose` wrap
-
 yuk_ = yuk @into @tt
 yuk__ = yuk @into @tt
 yuk___ = yuk @into @tt
@@ -547,15 +544,13 @@ yuk_____ = yuk @into @tt
 yuk______ = yuk @into @tt
 yi'yuk = yuk @into @tt
 
--- TODO: try to generalize
--- yko :: forall from into tt t a o .
---  Precategory into =>
---  Component Natural (->) (->) t (T'TT'I t tt) =>
---  Covariant Yoneda from into t =>
---  Castable U_II_I into (U_I_II from (tt a) o) =>
---  t a -> into (from (tt a) o) (t o)
--- yko = yoneda @U_I_II @from @into identity `compose` unwrap
---  `compose` component @U_I_II @(->) @(->) @t @(T'TT'I t tt)
+kyo :: forall from into t tt ll a o .
+ Precategory into =>
+ Component Natural into (->) t (t `T'TT'I` ll `L` tt) =>
+ Covariant Yoneda from into t =>
+ Wrapper into (U_I_II from (L ll tt a) o) =>
+ t a -> into (from (L ll tt a) o) (t o)
+kyo x = yoneda @U_I_II (unwrap (component @U_I_II @into @(->) @t @(t `T'TT'I` ll `L` tt) x)) `compose` wrap
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
