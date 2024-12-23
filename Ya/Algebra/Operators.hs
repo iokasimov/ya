@@ -185,7 +185,7 @@ infixl 3 `yuk____`
 infixl 2 `yuk_____`
 infixl 1 `yuk______`
 
-infixl 6 `yokl` --, `yokl'yok`, `yokl'yokl`
+infixl 6 `yokl`, `yokl'yokl`
 infixl 5 `yokl_`
 infixl 4 `yokl__`
 infixl 3 `yokl___`
@@ -558,7 +558,7 @@ yi'yuk = yuk @into @tt
 --  `compose` component @U_I_II @(->) @(->) @t @(T'TT'I t tt)
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
- forall from into tt t ll l a o .
+ forall from into t tt l ll a o .
  Component Natural from into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Covariant Yoneda from into t =>
  (forall i . Wrapper into ((t `T'TT'I` L l (L ll tt)) i)) =>
@@ -620,7 +620,7 @@ yok'yokl, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok__
  (forall e . Wrapper from (TT'T'I ttt tt e)) =>
  (forall e . Wrapper from (TT'T'I ttt (L l (L ll tt)) e)) =>
  t (ttt a) -> into (from a (L l (L ll tt) o)) (t (ttt o))
-yok'yokl x = fai (fio @from wrap `compose` fokl @from @from @ttt @tt @l @ll)
+yok'yokl x = fai (fio (wrap @from @(L l tt _)) `compose` fokl @from @from @ttt @tt @l @ll)
   (yok @from @into @t @tt @l x)
 
 yok_'yokl = yok'yokl
@@ -631,6 +631,42 @@ yok_____'yokl = yok'yokl
 yok______'yokl = yok'yokl
 
 li'yok'yokl = yok'yokl
+
+yokl'yokl :: forall from into t tt ttt l ll lll a o .
+ Covariant Yoneda from into t =>
+ Covariant Semi Functor from into t =>
+ Covariant Endo Semi Functor from tt =>
+ Covariant Endo Semi Functor from ttt =>
+ Covariant Semi Functor from into ttt =>
+ Component Natural from into (t `T'TT'I` l `L` lll `L` ttt) (t `TT'T'I` ttt) =>
+ Component Natural from from (tt `T'TT'I` ll `L` lll `L` ttt) (tt `TT'T'I` ttt) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
+ (forall e . Wrapper from (L l (L lll ttt) (tt e))) =>
+ (forall e . Wrapper from (L l (L ll (L lll ttt)) e)) =>
+ (forall e . Wrapper from (TT'T'I tt (L lll ttt) e)) =>
+ (forall e . Wrapper from (L lll ttt e)) =>
+ (forall e . Wrapper from (L ll (L lll ttt) e)) =>
+ (forall e . Wrapper from (T'TT'I tt (L ll (L lll ttt)) e)) =>
+ (forall e . Wrapper into (L lll ttt e)) =>
+ (forall e . Wrapper into (L l (L lll ttt) (tt e))) =>
+ (forall e . Wrapper into (L l (L lll ttt) e)) =>
+ (forall e . Wrapper into (T'TT'I t (L l (L lll ttt)) e)) =>
+ (forall e . Wrapper into (TT'T'I t (L l (L lll ttt)) e)) =>
+ (forall e . Wrapper into (T'TT'I t ttt e)) =>
+ (forall e . Wrapper into (TT'T'I t ttt e)) =>
+ (forall e . Wrapper from (TT'T'I tt ttt e)) =>
+ (forall i ii . Wrapper into (U_I_II from i (L l (L lll ttt) ii))) =>
+ t (tt a) -> into (from a (L l (L ll (L lll ttt)) o)) (ttt (t (tt o)))
+yokl'yokl x = fai
+ (fio @from (wrap `compose` wrap)
+  `compose` fokl @from @from @tt @ttt @ll @lll
+  `compose` fio @from unwrap
+ )
+ (yokl @from @into @t @ttt @l @lll @(tt a) @(tt o) x)
+
+-- yokl x: into (from (tt a) (L l (L lll ttt) o)) (ttt (t (tt o)))
+
+-- fokl: from a (L ll (L lll ttt) o) -> into (tt a) (ttt (tt o))
 
 -- yokl'yok :: forall from into t tt ttt l a o .
  -- Covariant Yoneda from into t =>
@@ -645,21 +681,6 @@ li'yok'yokl = yok'yokl
  -- Castable U_II_I from (T'TT'I ttt tt o) =>
  -- t (ttt a) -> into (from a (L l tt o)) (ttt (t o))
 -- yokl'yok x = fai fok (yokl @from @into x)
-
--- yokl'yokl :: forall from into t tt ttt a o .
- -- Covariant Yoneda from into t =>
- -- Covariant Endo Semi Functor from tt =>
- -- Covariant Endo Semi Functor from ttt =>
- -- Component Natural from into (T'TT'I t ttt) (TT'T'I t ttt) =>
- -- Component Natural from from (T'TT'I tt ttt) (TT'T'I tt ttt) =>
- -- Contravariant Endo Semi Functor (->) (U_II_I into (ttt (t (tt o)))) =>
- -- Castable U_II_I from (T'TT'I tt ttt o) =>
- -- Castable U_I_II from (TT'T'I tt ttt o) =>
- -- Castable U_I_II into (TT'T'I t ttt (tt o)) =>
- -- Castable U_II_I into (T'TT'I t ttt (tt o)) =>
- -- Castable U_II_I into (U_I_II from (tt a) (ttt (tt o))) =>
- -- t (tt a) -> into (from a (ttt o)) (ttt (t (tt o)))
--- yokl'yokl x = fai fokl (yokl @from @into x)
 
 fo'fo :: forall from into t tt a o .
  Covariant Semi Functor from into tt =>
