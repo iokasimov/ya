@@ -166,6 +166,12 @@ infixl 1 `yi_______`
 
 infixl 8 `yo`, `yo'yo`, `yo'ha`, `yo'hj`, `yo'yp`
 infixl 7 `yo_`
+infixl 6 `yo__`
+infixl 5 `yo___`
+infixl 4 `yo____`
+infixl 3 `yo_____`
+infixl 2 `yo______`
+infixl 1 `yo_______`
 
 infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl`
 infixl 6 `yok_`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`
@@ -310,7 +316,7 @@ yi_____ = yi
 yi______ = yi
 yi_______ = yi
 
-yo, yo_, yi'yo :: forall from into t a o .
+yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______, yi'yo :: forall from into t a o .
  Precategory into =>
  Covariant Yoneda from into t =>
  Castable U_II_I into (U_I_II from a o) =>
@@ -318,6 +324,12 @@ yo, yo_, yi'yo :: forall from into t a o .
 yo x = yoneda @U_I_II x `compose` wrap
 
 yo_ = yo
+yo__ = yo
+yo___ = yo
+yo____ = yo
+yo_____ = yo
+yo______ = yo
+yo_______ = yo
 yi'yo = yo
 
 yoi :: forall from into t e a o .
