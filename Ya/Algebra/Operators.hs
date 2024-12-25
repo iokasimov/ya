@@ -47,40 +47,48 @@ infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he
  , `ho________'he'he'he`
  , `ho________'he'he'he'he`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yokl`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yuk`, `ha'yokl`
  -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
  , `ha'he`, `ha_ha`
 infixl 8 `ha_`
  , `ha_'he`
  , `ha_'yok`
+ , `ha_'yuk`
  , `ha_'yokl`
 infixl 7 `ha__`
  , `ha__'he`
  , `ha__'yok`
+ , `ha__'yuk`
  , `ha__'yokl`
 infixl 6 `ha___`
  , `ha___'he`
  , `ha___'yok`
+ , `ha___'yuk`
  , `ha___'yokl`
 infixl 5 `ha____`
  , `ha____'he`
  , `ha____'yok`
+ , `ha____'yuk`
  , `ha____'yokl`
 infixl 4 `ha_____`
  , `ha_____'he`
  , `ha_____'yok`
+ , `ha_____'yuk`
  , `ha_____'yokl`
 infixl 3 `ha______`
  , `ha______'he`
  , `ha______'yok`
+ , `ha______'yuk`
  , `ha______'yokl`
 infixl 2 `ha_______`
  , `ha_______'he`
  , `ha_______'yok`
+ , `ha_______'yuk`
  , `ha_______'yokl`
 infixl 1 `ha________`
  , `ha________'he`
  , `ha________'yok`
+ , `ha________'yuk`
  , `ha________'yokl`
 
 infixl 9 `hu` --, `hu'he`, `hu'he'he`
@@ -278,15 +286,15 @@ fok :: forall from into t tt l a o .
 fok from = component @U_I_II @from @into @(t `T'TT'I` L l tt) @t
  `compose` wrap `compose` fo from
 
-fuk :: forall into t tt a o .
- Component Natural into into (T'TT'I t tt) t =>
+-- TODO: `tt o` should be labeled
+fuk :: forall into t tt ll a o .
+ Component Natural into into (t `T'TT'I` ll `L` tt) t =>
  Component Natural into (->) I (U_I_II into a) =>
  Constant Semi Functor into into t =>
- Wrapper into (T'TT'I t tt o) =>
- Wrapper into (T'TT'I t t o) =>
- Wrapper into (I (tt o)) =>
- tt o -> into (t a) (t o)
-fuk from = map @U_I_II @U_I_II @into @into @(t `T'TT'I` tt) @t identity
+ Wrapper into (t `T'TT'I` ll `L` tt `WR__` o) =>
+ Wrapper into (I `WR_` ll `L` tt `WR` o) =>
+ (ll `L` tt) o -> into (t a) (t o)
+fuk from = map @U_I_II @U_I_II @into @into @(t `T'TT'I` ll `L` tt) @t identity
  `compose` wrap `compose` fu @into from
 
 fokl :: forall from into t tt l ll a o .
@@ -298,6 +306,8 @@ fokl :: forall from into t tt l ll a o .
 fokl from = wrapped
  (component @U_I_II @from @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` tt))
  `compose` fo from
+
+-- TODO: define `fukl`
 
 yi, yi_, yi__, yi___, yi____,  yi_____, yi______, yi_______
  :: forall from into a o .
@@ -2135,18 +2145,19 @@ ho______'yok = ho'yok
 ho_______'yok = ho'yok
 ho________'yok = ho'yok
 
-ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_______'yuk, ho________'yuk :: forall from t tt a o e .
+ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_______'yuk, ho________'yuk
+ :: forall from t tt ll a o e .
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
  Constant Semi Functor from from t =>
- Component Natural from from (T'TT'I t tt) t =>
+ Component Natural from from (t `T'TT'I` ll `L` tt) t =>
  Component Natural from (->) I (U_I_II from a) =>
  Covariant Yoneda from (->) (U_I_II from e) =>
- Wrapper from (T'TT'I t t o) =>
- Wrapper from (I (tt o)) =>
- Wrapper (->) (U_1_I from a (tt o)) =>
- (forall ee . Wrapper from (T'TT'I t tt ee)) =>
- from e (t a) -> tt o -> from e (t o)
+ Wrapper from (t `T'TT'I` ll `L` tt `WR__` o) =>
+ Wrapper from (I `WR_` ll `L` tt `WR` o) =>
+ -- Wrapper (->) (U_1_I from a (tt o)) =>
+ -- (forall ee . Wrapper from (t `T'TT'I` ll `L` tt `WR__` ee)) =>
+ from e (t a) -> (ll `L` tt) o -> from e (t o)
 ho'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho_'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho__'yuk x = fai (fuk @from @t @tt) (ho @from x)
@@ -2178,6 +2189,26 @@ ha_____'yok = ha'yok
 ha______'yok = ha'yok
 ha_______'yok = ha'yok
 ha________'yok = ha'yok
+
+ha'yuk, ha_'yuk, ha__'yuk, ha___'yuk, ha____'yuk, ha_____'yuk, ha______'yuk, ha_______'yuk, ha________'yuk
+ :: forall u t tt l a o e .
+ Covariant Endo Semi Functor (->) t =>
+ Covariant Endo Semi Functor (->) tt =>
+ Component Natural (->) (->) (t `T'TT'I` L l tt) t =>
+ Contravariant Yoneda (->) (->) (U_II_I u e) =>
+ (forall ee . Wrapper (->) ((t `T'TT'I` L l tt) ee)) =>
+ (forall ee . Wrapper (->) (L l tt ee)) =>
+ u (t o) e -> L l tt o -> u (t a) e
+ha'yuk = fai fuk `compose` ha @(->) @u
+
+ha_'yuk = ha'yuk
+ha__'yuk = ha'yuk
+ha___'yuk = ha'yuk
+ha____'yuk = ha'yuk
+ha_____'yuk = ha'yuk
+ha______'yuk = ha'yuk
+ha_______'yuk = ha'yuk
+ha________'yuk = ha'yuk
 
 ha'yokl, ha_'yokl, ha__'yokl, ha___'yokl, ha____'yokl, ha_____'yokl, ha______'yokl, ha_______'yokl, ha________'yokl
  :: forall from u t tt l ll a o e .
