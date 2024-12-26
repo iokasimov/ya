@@ -5,47 +5,63 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yoi`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
  , `ho'he'he'he'he`
-infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`
+infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
  , `ho_'he'he'he'he`
-infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`
+ , `ho_'yo`
+ , `ho_'yoi`
+infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
  , `ho__'he'he'he'he`
-infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`
+ , `ho__'yo`
+ , `ho__'yoi`
+infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
  , `ho___'he'he'he'he`
-infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`
+ , `ho___'yo`
+ , `ho___'yoi`
+infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
  , `ho____'he'he'he'he`
-infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'yo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`
+ , `ho____'yo`
+ , `ho____'yoi`
+infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
  , `ho_____'he'he'he'he`
+ , `ho_____'yo`
+ , `ho_____'yoi`
 infixl 3 `ho______`, `ho______'he`, `ho______'he'he`, `ho______'he'he'he`, `ho______'ha`, `ho______'ha'he`, `ho______'ha'he'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`
+ , `ho______'yo`
+ , `ho______'yoi`
 infixl 2 `ho_______`, `ho_______'ha`, `ho_______'ha'he`, `ho_______'ha'he'he`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
  , `ho_______'he'he'he'he`
+ , `ho_______'yo`
+ , `ho_______'yoi`
 infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he`, `ho________'yok`-- , `ho________'yuk`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
  , `ho________'he'he'he'he`
+ , `ho________'yo`
+ , `ho________'yoi`
 
 infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yuk`, `ha'yokl`
  -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
@@ -728,8 +744,7 @@ fioi from = unwrap `compose` fo @_ @_ @(W_III_I_II _ _ _) from `compose` wrap
 
 foi :: forall from into t a o i .
  Covariant Semi Functor from into (U_II_I t i) =>
- Wrapper into (U_II_I t i a) =>
- Wrapper into (U_II_I t i o) =>
+ (forall e . Wrapper into (U_II_I t i e)) =>
  from a o -> into (t a i) (t o i)
 foi from = unwrap `compose` fo @_ @_ @(U_II_I _ _) from `compose` wrap
 
@@ -1038,7 +1053,8 @@ ho______'ha'he'he = ho'ha'he'he
 ho_______'ha'he'he = ho'ha'he'he
 ho________'ha'he'he = ho'ha'he'he
 
-ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo :: forall from u t o e a .
+ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo, ho______'yo, ho_______'yo, ho________'yo
+ :: forall from u t o e a .
  Covariant Yoneda from (->) (U_I_II u e) =>
  Contravariant Yoneda from (->) (U_II_I u e) =>
  Covariant Endo Semi Functor from t =>
@@ -1051,6 +1067,9 @@ ho__'yo = ho'yo
 ho___'yo = ho'yo
 ho____'yo = ho'yo
 ho_____'yo = ho'yo
+ho______'yo = ho'yo
+ho_______'yo = ho'yo
+ho________'yo = ho'yo
 
 ho'yu, ho_'yu, ho__'yu, ho___'yu, ho____'yu, ho_____'yu, ho______'yu, ho_______'yu, ho________'yu
  :: forall u t o e a .
@@ -1070,6 +1089,24 @@ ho_____'yu = ho'yu
 ho______'yu = ho'yu
 ho_______'yu = ho'yu
 ho________'yu = ho'yu
+
+ho'yoi, ho_'yoi, ho__'yoi, ho___'yoi, ho____'yoi, ho_____'yoi, ho______'yoi, ho_______'yoi, ho________'yoi
+ :: forall from u t o e a .
+ Covariant Yoneda from (->) (U_I_II u e) =>
+ Contravariant Yoneda from (->) (U_II_I u e) =>
+ Covariant Endo Semi Functor from (U_II_I t e) =>
+ (forall ee . Wrapper from (U_II_I t e ee)) =>
+ u e (t a e) -> from a o -> u e (t o e)
+ho'yoi x = fai (foi @from) (ho @from x)
+
+ho_'yoi = ho'yoi
+ho__'yoi = ho'yoi
+ho___'yoi = ho'yoi
+ho____'yoi = ho'yoi
+ho_____'yoi = ho'yoi
+ho______'yoi = ho'yoi
+ho_______'yoi = ho'yoi
+ho________'yoi = ho'yoi
 
 ho'yui, ho_'yui, ho__'yui, ho___'yui, ho____'yui, ho_____'yui, ho______'yui, ho_______'yui, ho________'yui
  :: forall u t o e a .
@@ -1768,6 +1805,7 @@ cn :: forall into a aa o oo .
  Wrapper into (U_I_II Product o oo) =>
  Wrapper into (U_II_I Product aa o) =>
  Wrapper into (U_II_I Product aa a) =>
+ (forall e . Wrapper into (U_II_I Product aa e)) =>
  into a o -> into aa oo -> into (Product a aa) (Product o oo)
 cn from__eft from_right = fio from_right `compose` foi from__eft
 
