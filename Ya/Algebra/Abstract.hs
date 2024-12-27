@@ -87,7 +87,7 @@ instance Castable Straight (->) (T e i)
 instance Castable Opposite (->) (T e i)
  where cast = U_II_I Tagged
 
-newtype L e t i = Labeled (t i)
+newtype L l t i = Labeled (t i)
 
 newtype T'TTT'TT'I t ttt tt i = T'TTT'TT'I (t (tt (ttt i)))
 

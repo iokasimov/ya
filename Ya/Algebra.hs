@@ -632,6 +632,11 @@ instance Covariant Endo Semi Functor AR t =>
  -- mapping = rewrap / \from ->
   -- map @Straight @Straight @AR @AR @(T'TT'I t tt) @t from `compose` rewrap @_ @AR (fo @AR unwrap)
 
+instance Setoid AR i => Setoid AR (I i) where
+ equality (These (Identity x) (Identity xx)) = equality (x `lu` xx)
+  `yoi` (`yoi` Identity) `ho` (`yio` Identity)
+  `yio` Identity
+
 instance Setoid AR Unit where
  equality _ = That Unit
 
