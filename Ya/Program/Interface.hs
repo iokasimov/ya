@@ -122,12 +122,16 @@ type family Scrolled datastructure where
  Scrolled (Construction (U_I_I LM `T'TT'I` Optional)) = Optional
  Scrolled (Construction List) = Optional
 
-instance Mapping Straight Straight Arrow Arrow (Construction Optional) (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) where
+instance Mapping Straight Straight Arrow Arrow
+ (Construction Optional)
+ (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from (Root x xs) ->
   U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (Labeled (Empty @List ()) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance
- Mapping Straight Straight Arrow Arrow (U_T_I_TT_I LM Only (U_T_I_TT_I LM (Reverse List) (Forward List))) (Construction Optional) where
+ Mapping Straight Straight Arrow Arrow
+  (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
+  (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
   let f = State `ha` Transition `ha` push @(Nonempty List) `ha` from
   in enter @(State (Nonempty List _))
@@ -136,6 +140,19 @@ instance
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
    `he_____'he` Construct `ha` Last `he` from x
    `yi_____` that
+
+instance Mapping U_I_II U_I_II AR AR
+  (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
+  ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
+  mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
+   Identity `he` Labeled x
+    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu` x)
+      `he'he` Empty @List () `yi` that `ho` Reverse
+     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu` x)
+      `he'he` Empty @List () `yi` that `ho` Forward
+     `yi_` U_T_I_TT_I
+    `yi__` U_T_I_TT_I `ho` T'TT'I
+    `yo__` from
 
 instance Mapping Straight Straight Arrow Arrow (Construction List)
  ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
@@ -237,6 +254,7 @@ instance Mapping Straight Straight (->) (->) (List `T'TT'I` Cascading List) List
      )
     ))))))
 
+-- TODO: Add a label
 instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  mapping = rewrap / \from -> \case
   R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
