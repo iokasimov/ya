@@ -142,6 +142,14 @@ infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `
 infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
 
 infixl 9 `hv`, `hv'he`
+infixl 8 `hv_`, `hv_'he`
+infixl 7 `hv__`, `hv__'he`
+infixl 6 `hv___`, `hv___'he`
+infixl 5 `hv____`, `hv____'he`
+infixl 4 `hv_____`, `hv_____'he`
+infixl 3 `hv______`, `hv______'he`
+infixl 2 `hv_______`, `hv_______'he`
+infixl 1 `hv________`, `hv________'he`
 
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
@@ -325,7 +333,9 @@ fokl from = wrapped
 
 -- TODO: define `fukl`
 
-yi, yi_, yi__, yi___, yi____,  yi_____, yi______, yi_______
+-- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
+
+yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall from into a o .
  Precategory into =>
  Covariant Yoneda from into I =>
@@ -1310,20 +1320,38 @@ ha'ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from a o -> u (uu o ee) e
 ha'ha x = fai @(->) @(->) fai (ha @u x)
 
-hv :: forall into a o e .
+hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
+ :: forall into a o .
  Category into =>
  Terminal into =>
- Contravariant Yoneda into (->) (U_II_I into o) =>
- into () o -> into e a -> into e o
-hv x = ha (x `compose` terminal)
+ into a o -> into a o
+hv = identity
 
-hv'he :: forall into a o e .
+hv_ = hv
+hv__ = hv
+hv___ = hv
+hv____ = hv
+hv_____ = hv
+hv______ = hv
+hv_______ = hv
+hv________ = hv
+
+hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
+ :: forall into a o .
  Category into =>
  Terminal into =>
- Contravariant Yoneda into (->) (U_II_I into e) =>
- Wrapper into o =>
- into () e -> into (Supertype o) a -> into o e
-hv'he x = hv x `compose` fai (he @into)
+ Wrapper into a =>
+ into a o -> into (Supertype a) o
+hv'he = fai @into wrap
+
+hv_'he = hv'he
+hv__'he = hv'he
+hv___'he = hv'he
+hv____'he = hv'he
+hv_____'he = hv'he
+hv______'he = hv'he
+hv_______'he = hv'he
+hv________'he = hv'he
 
 ha_ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (U_II_I u e) =>
