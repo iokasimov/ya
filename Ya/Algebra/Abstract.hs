@@ -395,13 +395,21 @@ instance Castable Straight (->) (W_III_I_II w iii i ii)
 instance Castable Opposite (->) (W_III_I_II w iii i ii)
  where cast = U_II_I W_III_I_II
 
-type instance Supertype (Arrow i ii) = Arrow i ii
+-- type instance Supertype (Arrow i ii) = Arrow i ii
 
-instance Castable Opposite (->) (Arrow i ii)
- where cast = U_II_I (\f -> f)
+-- instance Castable Opposite (->) (Arrow i ii)
+ -- where cast = U_II_I (\f -> f)
 
-instance Castable Straight (->) (Arrow i ii)
- where cast = U_I_II (\f -> f)
+-- instance Castable Straight (->) (Arrow i ii)
+ -- where cast = U_I_II (\f -> f)
+
+type instance Supertype (Arrow Unit ii) = ii
+
+instance Castable Opposite (->) (Arrow Unit ii)
+ where cast = U_II_I (\ii -> (\_ -> ii))
+
+instance Castable Straight (->) (Arrow Unit ii)
+ where cast = U_I_II (\f -> f ())
 
 unwrap :: Castable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = cast in x

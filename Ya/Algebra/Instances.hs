@@ -323,14 +323,14 @@ instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) AR
  (U_I_II (U_I_UU_II_U_II_I AR LM) origin) where
  mapping = rewrap / \into -> rewrap `compose` rewrap / \from origin ->
   let These source source_origin = from origin in
-  let These target target_source = (unwrap `compose` unwrap) into source in
+  let These target target_source = unwrap into source in
   These target (source_origin `compose` target_source)
 
 instance Mapping U_II_I U_I_II (U_I_UU_II_U_II_I AR LM) AR
  (U_II_I (U_I_UU_II_U_II_I AR LM) origin)
  (U_II_I (U_I_UU_II_U_II_I AR LM) origin) where
- mapping = rewrap / \from -> rewrap `compose` rewrap `compose` rewrap / \into origin ->
-  let These source source_origin = (unwrap `compose` unwrap) from origin in
+ mapping = rewrap / \from -> rewrap `compose` rewrap / \into origin ->
+  let These source source_origin = unwrap from origin in
   let These target target_source = into source in
   These target (source_origin `compose` target_source)
 

@@ -19,7 +19,7 @@ instance Field e (ee `LM` e) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
  at (These x xs) = These
-  `li` this (at @e @ee `he` x)
+  `li` this (at @e @ee `hv` x)
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
 on' :: Excludable a r => r `AR_` Unit `ML` a
@@ -138,14 +138,14 @@ instance
    -- TODO: replace with `yuk___'yokl` operator
    `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he_____'he` Construct `ha` Last `he` from x
+   `he_____'he` Construct `ha` Last `hv` from x
    `yi_____` that
 
 instance Mapping U_I_II U_I_II AR AR
   (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
   ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
   mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
-   Identity `he` Labeled x
+   Identity `hv` Labeled x
     `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu` x)
       `he'he` Empty @List () `yi` that `ho` Reverse
      `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu` x)
@@ -157,7 +157,7 @@ instance Mapping U_I_II U_I_II AR AR
 instance Mapping Straight Straight Arrow Arrow (Construction List)
  ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
   mapping = rewrap / \from x -> U_T_I_TT_I
-   (T'TT'I (U_T_I_TT_I ((Only `he__` x `yo` from) `lu` U_T_I_TT_I (Reverse `he` Empty @List Unit `lu`Forward `he` Empty @List Unit))) `lu` T'TT'I (Reverse `he` Empty @List Unit))
+   (T'TT'I (U_T_I_TT_I ((Only `hv__` x `yo` from) `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu`Forward `hv` Empty @List Unit))) `lu` T'TT'I (Reverse `hv` Empty @List Unit))
 
 -- instance Mapping Straight Straight Arrow Arrow
  -- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
@@ -184,7 +184,7 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
-   `yuk__` New `ha` State `he__` Transition `he` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Try `ha` Maybe
+   `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Try `ha` Maybe
    `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
@@ -201,7 +201,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
 
   horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   horizontally way = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk__` New `ha` State `he__` Transition `he` scroll way
+   `yuk__` New `ha` State `hv__` Transition `hv` scroll way
    `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
    `yok__` Try `ha___` is @(Optional _) `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
@@ -209,12 +209,12 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
   -- TODO: refactor, it's hard to catch an error here
   vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk____` New `ha` State `he____` Transition `he` auto
+   `yuk____` New `ha` State `hv____` Transition `hv` auto
    `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
    `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) self)
         `lo` Scope @(Shafted List `T'I` Tree item) at)
    `yok____` New `ha` State `ha____` Transition
-   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `he` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
+   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
    `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
    `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
    `yok____'he`  Try `ha` Maybe
@@ -225,7 +225,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
 
   vertical_up :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
   vertical_up _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
-   `yuk___` New `ha` State `he__` Transition `he` pop
+   `yuk___` New `ha` State `hv__` Transition `hv` pop
    `ha_'he` Scope @((Reverse List `T'TT'I_` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
    `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
    `yok___` Try `ha` Maybe
@@ -234,7 +234,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
       `ho'he` Scope @(Scrolling List `T'I` Tree item) at
 
   restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (U_T_I_TT_I
-    `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
+    `hv__` Only (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
      `lu` unwrap shafted)
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T'TT'I` Optional)) item where

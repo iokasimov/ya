@@ -18,7 +18,6 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 adjust ::
- Castable Straight Arrow (Reference LM origin target target) =>
  Castable Straight Arrow (Attribute origin target) =>
  Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `he` s in x `li`f h
@@ -111,6 +110,6 @@ rep index = U_I_UU_II_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
  idx origin `he` index `lu`
-  (\x -> tbt `ha` U_I_II  `he`
+  (\x -> tbt `ha` U_I_II  `hv`
    (\index' -> constant (idx origin `he` index') `la` constant x `li` q (index' `lu` index))
   )
