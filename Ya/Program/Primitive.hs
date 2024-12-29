@@ -18,7 +18,7 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 adjust ::
- Castable Straight Arrow (Attribute origin target) =>
+ Elicitable Straight Arrow (Attribute origin target) =>
  Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `he` s in x `li`f h
 
@@ -71,7 +71,7 @@ embed = component @Straight @(->) @(->) @g @(f `JNT` g) @e
 
 joint :: forall f g e .
  Component Natural (->) (->) (f `T'TT'I` g) (f `JNT` g) =>
- Castable Opposite (->) ((f `T'TT'I` g) e) =>
+ Elicitable Opposite (->) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
@@ -79,17 +79,17 @@ joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @Straight @(->) @(->) @(f 
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
- Castable Opposite (->) ((t `T'TT'I` Progress e) e) =>
+ Elicitable Opposite (->) ((t `T'TT'I` Progress e) e) =>
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @Straight @(->) @(->)
 
 frame ::
- Castable Opposite (->) e =>
+ Elicitable Opposite (->) e =>
  Supertype e -> e
 frame = wrap
 
 prompt ::
- Castable Opposite (->) e =>
+ Elicitable Opposite (->) e =>
  Supertype e -> e
 prompt = wrap
 

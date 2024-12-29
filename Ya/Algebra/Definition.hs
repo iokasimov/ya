@@ -48,8 +48,8 @@ instance Mapping Opposite Straight from into t tt => Mapping Straight Opposite f
 
 map :: forall v vv from into t tt a o .
  Mapping v vv from into t tt =>
- Castable Opposite Arrow (v from a o) =>
- Castable Straight Arrow (vv into (t a) (tt o)) =>
+ Elicitable Opposite Arrow (v from a o) =>
+ Elicitable Straight Arrow (vv into (t a) (tt o)) =>
  Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
 map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
@@ -58,7 +58,7 @@ type Component v = Transformation v Functor
 component :: forall v from into t tt o .
  Component v from into t tt =>
  (Supertype (v from o o) ~ from o o) =>
- Castable Opposite Arrow (v from o o) =>
+ Elicitable Opposite Arrow (v from o o) =>
  into (t o) (tt o)
 component = unwrap @Arrow (mapping @v @Straight @from @into @t @tt @_ @o (wrap identity))
 
@@ -133,7 +133,7 @@ class (Category from, forall o . Mapping v Straight from Arrow t (UU_V_U_I_II_T_
   Category from =>
   Precategory into =>
   (Supertype (v from a a) ~ from a a) =>
-  Castable Opposite (->) (v from a a) =>
+  Elicitable Opposite (->) (v from a a) =>
   t a -> into (v from a o) (t o)
  yoneda x = unwrap (map @v @Straight @from @Arrow @t @(UU_V_U_I_II_T_II v from into t o) identity x)
 
@@ -204,15 +204,15 @@ deriving instance
 
 left :: forall v from into a o e .
  Cone v from into (Object (Aught v)) =>
- Castable Opposite Arrow (v from a o) =>
- Castable Straight Arrow (v into ((U_II_I (Object (Aught v))) e a) (I o)) =>
+ Elicitable Opposite Arrow (v from a o) =>
+ Elicitable Straight Arrow (v into ((U_II_I (Object (Aught v))) e a) (I o)) =>
  Supertype (v from a o) -> Supertype (v into (U_II_I (Object (Aught v)) e a) (I o))
 left from = map @v @v @from @into @(U_II_I (Object (Aught v)) e) @I @a @o from
 
 right :: forall v from into a o e .
  Cone v from into (Object (Aught v)) =>
- Castable Opposite Arrow (v from a o) =>
- Castable Straight Arrow (v into (U_I_II (Object (Aught v)) e a) (I o)) =>
+ Elicitable Opposite Arrow (v from a o) =>
+ Elicitable Straight Arrow (v into (U_I_II (Object (Aught v)) e a) (I o)) =>
  Supertype (v from a o) -> Supertype (v into (U_I_II (Object (Aught v)) e a) (I o))
 right from = map @v @v @from @into @(U_I_II (Object (Aught v)) e) @I @a @o from
 
@@ -275,8 +275,8 @@ deriving instance
 -- TODO: Yoneda version?
 day :: forall v from t u uu a o e ee .
  Mapping v Straight from (->) (Day v from u uu t t e ee) t =>
- Castable Opposite Arrow (v from a o) =>
- Castable Opposite Arrow (v from (uu e ee) a) =>
+ Elicitable Opposite Arrow (v from a o) =>
+ Elicitable Opposite Arrow (v from (uu e ee) a) =>
  Supertype (v from a o)
   -> Supertype (v from (uu e ee) a)
   -> u (t e) (t ee) -> t o
@@ -289,11 +289,11 @@ monoidal_ :: forall v from into t u uu a o e ee .
   (U_I_II LM (u (t e) (t ee)))
   (U_I_II into (u (t e) (t ee))) =>
  Monoidal v Functor from u uu t =>
- Castable Opposite Arrow (v from a o) =>
- Castable Opposite into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
- Castable Straight into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
- Castable Straight into (U_I_II into (u (t e) (t ee)) (t o)) =>
- Castable Opposite into (I (v from (uu e ee) a)) =>
+ Elicitable Opposite Arrow (v from a o) =>
+ Elicitable Opposite into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
+ Elicitable Straight into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+ Elicitable Straight into (U_I_II into (u (t e) (t ee)) (t o)) =>
+ Elicitable Opposite into (I (v from (uu e ee) a)) =>
  Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal_ from =
  unwrap @into @(U_I_II into _ _)
@@ -315,43 +315,43 @@ enter = component @Straight @(->) @(->) @(Straight (->) ()) @t (U_I_II identity)
 
 rewrap :: forall o into a .
  Precategory into =>
- Castable Opposite into o =>
- Castable Straight into a =>
+ Elicitable Opposite into o =>
+ Elicitable Straight into a =>
  into (Supertype a) (Supertype o) -> into a o
 rewrap f = wrap `compose` f `compose` unwrap
 
 wrapped :: forall into a o .
  Precategory into =>
- Castable Straight into o =>
- Castable Opposite into a =>
+ Elicitable Straight into o =>
+ Elicitable Opposite into a =>
  into a o -> into (Supertype a) (Supertype o)
 wrapped f = unwrap `compose` f `compose` wrap
 
 i_ :: forall into u a o e .
  Precategory into =>
- Castable Opposite into (U_II_I u e a) =>
- Castable Straight into (U_II_I u e o) =>
+ Elicitable Opposite into (U_II_I u e a) =>
+ Elicitable Straight into (U_II_I u e o) =>
  into (U_II_I u e a) (U_II_I u e o) -> into (u a e) (u o e)
 i_ f = unwrap @into @(U_II_I _ _ _) `compose` f `compose` wrap @into @(U_II_I _ _ _)
 
 _i :: forall into u a o e .
  Precategory into =>
- Castable Opposite into (U_I_II u e a) =>
- Castable Straight into (U_I_II u e o) =>
+ Elicitable Opposite into (U_I_II u e a) =>
+ Elicitable Straight into (U_I_II u e o) =>
  into (U_I_II u e a) (U_I_II u e o) -> into (u e a) (u e o)
 _i f = unwrap @into @(U_I_II _ _ _) `compose` f `compose` wrap @into @(U_I_II _ _ _)
 
 cata :: forall into t e .
  Covariant Endo Semi Functor into t =>
- Castable Straight into (Recursive t) =>
+ Elicitable Straight into (Recursive t) =>
  into (t e) e -> into (Recursive t) e
 cata into = into `compose`
  map @Straight @Straight (cata into) `compose`
- (let U_I_II x = cast in x)
+ (let U_I_II x = elicit in x)
 
 ana :: forall into t e .
  Covariant Endo Semi Functor into t =>
- Castable Opposite into (Recursive t) =>
+ Elicitable Opposite into (Recursive t) =>
  into e (t e) -> into e (Recursive t)
 ana into = wrap `compose` map @Straight @Straight (ana into) `compose` into
 
@@ -373,8 +373,8 @@ constant :: forall from into a o .
  Category from =>
  Precategory into =>
  Mapping Straight Straight from into I (U_I_II from a) =>
- Castable Straight into (U_I_II from a o) =>
- Castable Opposite into (I o) =>
+ Elicitable Straight into (U_I_II from a o) =>
+ Elicitable Opposite into (I o) =>
  into o (from a o)
 constant = unwrap @_ @(U_I_II from a _)
  `compose` map @Straight @Straight @from @into identity
@@ -386,12 +386,12 @@ is = identity
 type MLM = U_U_I_II_UU_I_II ML LM
 
 instance Wrapper (->) x
- => Castable Straight (U_I_UU_II_U_II_I (->) LM) x where
- cast = U_I_II (U_I_UU_II_U_II_I (\x -> These (unwrap x) wrap))
+ => Elicitable Straight (U_I_UU_II_U_II_I (->) LM) x where
+ elicit = U_I_II (U_I_UU_II_U_II_I (\x -> These (unwrap x) wrap))
 
 instance Wrapper (->) x
- => Castable Opposite (U_I_UU_II_U_II_I (->) LM) x where
- cast = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
+ => Elicitable Opposite (U_I_UU_II_U_II_I (->) LM) x where
+ elicit = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
 class Setoid into e where
  equality :: into (e `LM` e) (e `LM` e `ML` e)
@@ -407,7 +407,7 @@ class Objective into st t where
 
 instance {-# OVERLAPPABLE #-}
  ( Category into
- , Castable Straight into t
+ , Elicitable Straight into t
  , Objective into st (Supertype t)
  ) => Objective into st t where
  objective = objective @into `compose` unwrap @into
@@ -422,8 +422,8 @@ newtype U_I_UU_MN_I_II_II u uu i ii = U_I_UU_MN_I_II_II (u i (uu (MN i ii) ii))
 
 type instance Supertype (U_I_UU_MN_I_II_II u uu i ii) = u i (uu (MN i ii) ii)
 
-instance Castable Opposite (->) (U_I_UU_MN_I_II_II u uu i ii)
- where cast = U_II_I U_I_UU_MN_I_II_II
+instance Elicitable Opposite (->) (U_I_UU_MN_I_II_II u uu i ii)
+ where elicit = U_II_I U_I_UU_MN_I_II_II
 
-instance Castable Straight (->) (U_I_UU_MN_I_II_II u uu i ii)
- where cast = U_I_II (\(U_I_UU_MN_I_II_II x) -> x)
+instance Elicitable Straight (->) (U_I_UU_MN_I_II_II u uu i ii)
+ where elicit = U_I_II (\(U_I_UU_MN_I_II_II x) -> x)

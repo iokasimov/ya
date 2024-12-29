@@ -25,31 +25,31 @@ type T'I t i = t i
 
 type family Supertype e
 
-class Castable direction morphism e where
- cast :: direction morphism e (Supertype e)
+class Elicitable direction morphism e where
+ elicit :: direction morphism e (Supertype e)
 
-class (Castable Opposite to f, Castable Straight to f) => Wrapper to f where
-deriving instance (Castable Opposite to f, Castable Straight to f) => Wrapper to f
+class (Elicitable Opposite to f, Elicitable Straight to f) => Wrapper to f where
+deriving instance (Elicitable Opposite to f, Elicitable Straight to f) => Wrapper to f
 
 newtype I i = Identity i
 
 type instance Supertype (I i) = i
 
-instance Castable Straight (->) (I i)
- where cast = U_I_II (\(Identity x) -> x)
+instance Elicitable Straight (->) (I i)
+ where elicit = U_I_II (\(Identity x) -> x)
 
-instance Castable Opposite (->) (I i)
- where cast = U_II_I Identity
+instance Elicitable Opposite (->) (I i)
+ where elicit = U_II_I Identity
 
 newtype U_U_I_II_UU_I_II u uu i ii = U_U_I_II_UU_I_II (u (u i ii) (uu i ii))
 
 type instance Supertype (U_U_I_II_UU_I_II u uu i ii) = u (u i ii) (uu i ii)
 
-instance Castable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
- where cast = U_II_I U_U_I_II_UU_I_II
+instance Elicitable Opposite (->) (U_U_I_II_UU_I_II u uu i ii)
+ where elicit = U_II_I U_U_I_II_UU_I_II
 
-instance Castable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
- where cast = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
+instance Elicitable Straight (->) (U_U_I_II_UU_I_II u uu i ii)
+ where elicit = U_I_II (\(U_U_I_II_UU_I_II x) -> x)
 
 newtype Recursive f = Recursive (f (Recursive f))
 
@@ -59,21 +59,21 @@ type T'TT'I_ = T'TT'I
 
 type instance Supertype (T'TT'I t tt i) = t (tt i)
 
-instance Castable Straight (->) (T'TT'I f g i)
- where cast = U_I_II (\(T'TT'I x) -> x)
+instance Elicitable Straight (->) (T'TT'I f g i)
+ where elicit = U_I_II (\(T'TT'I x) -> x)
 
-instance Castable Opposite (->) (T'TT'I f g i)
- where cast = U_II_I T'TT'I
+instance Elicitable Opposite (->) (T'TT'I f g i)
+ where elicit = U_II_I T'TT'I
 
 newtype TT'T'I t tt i = TT'T'I (tt (t i))
 
 type instance Supertype (TT'T'I t tt i) = tt (t i)
 
-instance Castable Straight (->) (TT'T'I f g i)
- where cast = U_I_II (\(TT'T'I x) -> x)
+instance Elicitable Straight (->) (TT'T'I f g i)
+ where elicit = U_I_II (\(TT'T'I x) -> x)
 
-instance Castable Opposite (->) (TT'T'I f g i)
- where cast = U_II_I TT'T'I
+instance Elicitable Opposite (->) (TT'T'I f g i)
+ where elicit = U_II_I TT'T'I
 
 newtype T e i = Tagged i
 
@@ -81,11 +81,11 @@ type (#) = T
 
 type instance Supertype (T e i) = i
 
-instance Castable Straight (->) (T e i)
- where cast = U_I_II (\(Tagged x) -> x)
+instance Elicitable Straight (->) (T e i)
+ where elicit = U_I_II (\(Tagged x) -> x)
 
-instance Castable Opposite (->) (T e i)
- where cast = U_II_I Tagged
+instance Elicitable Opposite (->) (T e i)
+ where elicit = U_II_I Tagged
 
 newtype L l t i = Labeled (t i)
 
@@ -93,11 +93,11 @@ newtype T'TTT'TT'I t ttt tt i = T'TTT'TT'I (t (tt (ttt i)))
 
 type instance Supertype (T'TTT'TT'I t ttt tt i) = t (tt (ttt i))
 
-instance Castable Straight (->) (T'TTT'TT'I f g h i)
- where cast = U_I_II (\(T'TTT'TT'I x) -> x)
+instance Elicitable Straight (->) (T'TTT'TT'I f g h i)
+ where elicit = U_I_II (\(T'TTT'TT'I x) -> x)
 
-instance Castable Opposite (->) (T'TTT'TT'I f g h i)
- where cast = U_II_I T'TTT'TT'I
+instance Elicitable Opposite (->) (T'TTT'TT'I f g h i)
+ where elicit = U_II_I T'TTT'TT'I
 
 data U_ u i ii
 
@@ -105,31 +105,31 @@ newtype U_I_I u i = U_I_I (u i i)
 
 type instance Supertype (U_I_I u i) = u i i
 
-instance Castable Straight (->) (U_I_I u i)
- where cast = U_I_II (\(U_I_I x) -> x)
+instance Elicitable Straight (->) (U_I_I u i)
+ where elicit = U_I_II (\(U_I_I x) -> x)
 
-instance Castable Opposite (->) (U_I_I u i)
- where cast = U_II_I U_I_I
+instance Elicitable Opposite (->) (U_I_I u i)
+ where elicit = U_II_I U_I_I
 
 newtype U_I_II u i ii = U_I_II (u i ii)
 
 type instance Supertype (U_I_II u i ii) = u i ii
 
-instance Castable Straight (->) (U_I_II u i ii)
- where cast = U_I_II (\(U_I_II x) -> x)
+instance Elicitable Straight (->) (U_I_II u i ii)
+ where elicit = U_I_II (\(U_I_II x) -> x)
 
-instance Castable Opposite (->) (U_I_II u i ii)
- where cast = U_II_I U_I_II
+instance Elicitable Opposite (->) (U_I_II u i ii)
+ where elicit = U_II_I U_I_II
 
 newtype U_II_I u i ii = U_II_I (u ii i)
 
 type instance Supertype (U_II_I u ii i) = u i ii
 
-instance Castable Straight (->) (U_II_I u i ii)
- where cast = U_I_II (\(U_II_I x) -> x)
+instance Elicitable Straight (->) (U_II_I u i ii)
+ where elicit = U_I_II (\(U_II_I x) -> x)
 
-instance Castable Opposite (->) (U_II_I u i ii)
- where cast = U_II_I U_II_I
+instance Elicitable Opposite (->) (U_II_I u i ii)
+ where elicit = U_II_I U_II_I
 
 newtype U_1_I u _' i = U_1_I (u () i)
 
@@ -219,203 +219,203 @@ type family Flip v where
 
 type instance Supertype (U_1_I u _ i) = u () i
 
-instance Castable Straight (->) (U_1_I u i ii)
- where cast = U_I_II (\(U_1_I x) -> x)
+instance Elicitable Straight (->) (U_1_I u i ii)
+ where elicit = U_I_II (\(U_1_I x) -> x)
 
-instance Castable Opposite (->) (U_1_I u i ii)
- where cast = U_II_I U_1_I
+instance Elicitable Opposite (->) (U_1_I u i ii)
+ where elicit = U_II_I U_1_I
 
 type instance Supertype (U_I_1 u i _) = u i ()
 
-instance Castable Straight (->) (U_I_1 u i ii)
- where cast = U_I_II (\(U_I_1 x) -> x)
+instance Elicitable Straight (->) (U_I_1 u i ii)
+ where elicit = U_I_II (\(U_I_1 x) -> x)
 
-instance Castable Opposite (->) (U_I_1 u i ii)
- where cast = U_II_I U_I_1
+instance Elicitable Opposite (->) (U_I_1 u i ii)
+ where elicit = U_II_I U_I_1
 
 type instance Supertype (L e t i) = t i
 
-instance Castable Straight (->) (L e t i)
- where cast = U_I_II (\(Labeled x) -> x)
+instance Elicitable Straight (->) (L e t i)
+ where elicit = U_I_II (\(Labeled x) -> x)
 
-instance Castable Opposite (->) (L e t i)
- where cast = U_II_I Labeled
+instance Elicitable Opposite (->) (L e t i)
+ where elicit = U_II_I Labeled
 
 type instance Supertype (U_I_T_II t u i ii) = u i (t ii)
 
-instance Castable Straight (->) (U_I_T_II u t i ii)
- where cast = U_I_II (\(U_I_T_II x) -> x)
+instance Elicitable Straight (->) (U_I_T_II u t i ii)
+ where elicit = U_I_II (\(U_I_T_II x) -> x)
 
-instance Castable Opposite (->) (U_I_T_II u f i ii)
- where cast = U_II_I U_I_T_II
+instance Elicitable Opposite (->) (U_I_T_II u f i ii)
+ where elicit = U_II_I U_I_T_II
 
 type instance Supertype (U_T_I_II t u i ii) = u (t i) ii
 
-instance Castable Straight (->) (U_T_I_II u t i ii)
- where cast = U_I_II (\(U_T_I_II x) -> x)
+instance Elicitable Straight (->) (U_T_I_II u t i ii)
+ where elicit = U_I_II (\(U_T_I_II x) -> x)
 
-instance Castable Opposite (->) (U_T_I_II u t i ii)
- where cast = U_II_I U_T_I_II
+instance Elicitable Opposite (->) (U_T_I_II u t i ii)
+ where elicit = U_II_I U_T_I_II
 
 type instance Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
 
-instance Castable Straight (->) (U_T_I_TT_I u t tt i)
- where cast = U_I_II (\(U_T_I_TT_I x) -> x)
+instance Elicitable Straight (->) (U_T_I_TT_I u t tt i)
+ where elicit = U_I_II (\(U_T_I_TT_I x) -> x)
 
-instance Castable Opposite (->) (U_T_I_TT_I u t tt i)
- where cast = U_II_I U_T_I_TT_I
+instance Elicitable Opposite (->) (U_T_I_TT_I u t tt i)
+ where elicit = U_II_I U_T_I_TT_I
 
 type instance Supertype (U_I_UU_II_III u uu i ii iii) = u i (uu ii iii)
 
-instance Castable Opposite (->) (U_I_UU_II_III u uu i ii iii)
- where cast = U_II_I U_I_UU_II_III
+instance Elicitable Opposite (->) (U_I_UU_II_III u uu i ii iii)
+ where elicit = U_II_I U_I_UU_II_III
 
-instance Castable Straight (->) (U_I_UU_II_III u uu i ii iii)
- where cast = U_I_II (\(U_I_UU_II_III x) -> x)
+instance Elicitable Straight (->) (U_I_UU_II_III u uu i ii iii)
+ where elicit = U_I_II (\(U_I_UU_II_III x) -> x)
 
 type instance Supertype (U_I_UU_II_U_II_I u uu i ii) = u i (uu ii (u ii i))
 
-instance Castable Opposite (->) (U_I_UU_II_U_II_I u uu i ii) where
- cast = U_II_I U_I_UU_II_U_II_I
+instance Elicitable Opposite (->) (U_I_UU_II_U_II_I u uu i ii) where
+ elicit = U_II_I U_I_UU_II_U_II_I
 
-instance Castable Straight (->) (U_I_UU_II_U_II_I u uu i ii) where
- cast = U_I_II (\(U_I_UU_II_U_II_I x) -> x)
+instance Elicitable Straight (->) (U_I_UU_II_U_II_I u uu i ii) where
+ elicit = U_I_II (\(U_I_UU_II_U_II_I x) -> x)
 
 type instance Supertype (U_I_UU_II_I u uu i ii) = u i (uu ii i)
 
-instance Castable Opposite (->) (U_I_UU_II_I u uu i ii)
- where cast = U_II_I U_I_UU_II_I
+instance Elicitable Opposite (->) (U_I_UU_II_I u uu i ii)
+ where elicit = U_II_I U_I_UU_II_I
 
-instance Castable Straight (->) (U_I_UU_II_I u uu i ii)
- where cast = U_I_II (\(U_I_UU_II_I x) -> x)
+instance Elicitable Straight (->) (U_I_UU_II_I u uu i ii)
+ where elicit = U_I_II (\(U_I_UU_II_I x) -> x)
 
 type instance Supertype (U_I_UU_I_II u uu i ii) = u i (uu i ii)
 
-instance Castable Opposite (->) (U_I_UU_I_II u uu i ii)
- where cast = U_II_I U_I_UU_I_II
+instance Elicitable Opposite (->) (U_I_UU_I_II u uu i ii)
+ where elicit = U_II_I U_I_UU_I_II
 
-instance Castable Straight (->) (U_I_UU_I_II u uu i ii)
- where cast = U_I_II (\(U_I_UU_I_II x) -> x)
+instance Elicitable Straight (->) (U_I_UU_I_II u uu i ii)
+ where elicit = U_I_II (\(U_I_UU_I_II x) -> x)
 
 type instance Supertype (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii) =
  u (uu (v uuu iii i) (v uuu iii ii)) (v uuu iii (uuuu i ii))
 
-instance Castable Straight (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
- where cast = U_I_II (\(U_UU_UUU_V_III_I_II_UUUU x) -> x)
+instance Elicitable Straight (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
+ where elicit = U_I_II (\(U_UU_UUU_V_III_I_II_UUUU x) -> x)
 
-instance Castable Opposite (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
- where cast = U_II_I U_UU_UUU_V_III_I_II_UUUU
+instance Elicitable Opposite (->) (U_UU_UUU_V_III_I_II_UUUU u uu uuu uuuu v i ii iii)
+ where elicit = U_II_I U_UU_UUU_V_III_I_II_UUUU
 
 type instance Supertype (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii) =
   u (uuu (t i) (tt ii)) (v uu (uuuu i ii) iii)
 
-instance Castable Straight (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
- where cast = U_I_II (\(U_V_UU_UUU_UUUU_T'TT'I_II_III x) -> x)
+instance Elicitable Straight (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
+ where elicit = U_I_II (\(U_V_UU_UUU_UUUU_T'TT'I_II_III x) -> x)
 
-instance Castable Opposite (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
- where cast = U_II_I U_V_UU_UUU_UUUU_T'TT'I_II_III
+instance Elicitable Opposite (->) (U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii_)
+ where elicit = U_II_I U_V_UU_UUU_UUUU_T'TT'I_II_III
 
 type instance Supertype (UU_V_U_I_II_T_II v u uu t i ii) = uu (v u ii i) (t i)
 
-instance Castable Straight (->) (UU_V_U_I_II_T_II v u uu t i ii)
- where cast = U_I_II (\(UU_V_U_I_II_T_II x) -> x)
+instance Elicitable Straight (->) (UU_V_U_I_II_T_II v u uu t i ii)
+ where elicit = U_I_II (\(UU_V_U_I_II_T_II x) -> x)
 
-instance Castable Opposite (->) (UU_V_U_I_II_T_II v u uu t i ii)
- where cast = U_II_I UU_V_U_I_II_T_II
+instance Elicitable Opposite (->) (UU_V_U_I_II_T_II v u uu t i ii)
+ where elicit = U_II_I UU_V_U_I_II_T_II
 
 type instance Supertype (Recursive f) = f (Recursive f)
 
-instance Castable Straight (->) (Recursive f)
- where cast = U_I_II (\(Recursive x) -> x)
+instance Elicitable Straight (->) (Recursive f)
+ where elicit = U_I_II (\(Recursive x) -> x)
 
-instance Castable Opposite (->) (Recursive f)
- where cast = U_II_I Recursive
+instance Elicitable Opposite (->) (Recursive f)
+ where elicit = U_II_I Recursive
 
 type instance Supertype (R_U_I_T_I u t i) = Recursive (U_I_T_II t u i)
 
-instance Castable Straight (->) (R_U_I_T_I u t i)
- where cast = U_I_II (\(R_U_I_T_I x) -> x)
+instance Elicitable Straight (->) (R_U_I_T_I u t i)
+ where elicit = U_I_II (\(R_U_I_T_I x) -> x)
 
-instance Castable Opposite (->) (R_U_I_T_I u t i)
- where cast = U_II_I R_U_I_T_I
+instance Elicitable Opposite (->) (R_U_I_T_I u t i)
+ where elicit = U_II_I R_U_I_T_I
 
 type instance Supertype (U_III_UU_I_II u uu iii i ii) = u i (uu ii iii)
 
-instance Castable Straight (->) (U_III_UU_I_II u uu iii i ii)
- where cast = U_I_II (\(U_III_UU_I_II x) -> x)
+instance Elicitable Straight (->) (U_III_UU_I_II u uu iii i ii)
+ where elicit = U_I_II (\(U_III_UU_I_II x) -> x)
 
-instance Castable Opposite (->) (U_III_UU_I_II u uu iii i ii)
- where cast = U_II_I U_III_UU_I_II
+instance Elicitable Opposite (->) (U_III_UU_I_II u uu iii i ii)
+ where elicit = U_II_I U_III_UU_I_II
 
 type instance Supertype (U_I_UU_III_U_II_I u uu i ii iii) = u i (uu iii (u ii i))
 
-instance Castable Straight (->) (U_I_UU_III_U_II_I u uu i ii iii)
- where cast = U_I_II (\(U_I_UU_III_U_II_I x) -> x)
+instance Elicitable Straight (->) (U_I_UU_III_U_II_I u uu i ii iii)
+ where elicit = U_I_II (\(U_I_UU_III_U_II_I x) -> x)
 
-instance Castable Opposite (->) (U_I_UU_III_U_II_I u uu i ii iii)
- where cast = U_II_I U_I_UU_III_U_II_I
+instance Elicitable Opposite (->) (U_I_UU_III_U_II_I u uu i ii iii)
+ where elicit = U_II_I U_I_UU_III_U_II_I
 
 type instance Supertype (W_I_II_II w i ii) = w i ii ii
 
-instance Castable Straight (->) (W_I_II_II u i ii)
- where cast = U_I_II (\(W_I_II_II x) -> x)
+instance Elicitable Straight (->) (W_I_II_II u i ii)
+ where elicit = U_I_II (\(W_I_II_II x) -> x)
 
-instance Castable Opposite (->) (W_I_II_II u i ii)
- where cast = U_II_I W_I_II_II
+instance Elicitable Opposite (->) (W_I_II_II u i ii)
+ where elicit = U_II_I W_I_II_II
 
 type instance Supertype (W_I_II_I w i ii) = w i ii i
 
-instance Castable Straight (->) (W_I_II_I u i ii)
- where cast = U_I_II (\(W_I_II_I x) -> x)
+instance Elicitable Straight (->) (W_I_II_I u i ii)
+ where elicit = U_I_II (\(W_I_II_I x) -> x)
 
-instance Castable Opposite (->) (W_I_II_I u i ii)
- where cast = U_II_I W_I_II_I
+instance Elicitable Opposite (->) (W_I_II_I u i ii)
+ where elicit = U_II_I W_I_II_I
 
 type instance Supertype (W_II_II_I w i ii) = w ii ii i
 
-instance Castable Straight (->) (W_II_II_I w i ii)
- where cast = U_I_II (\(W_II_II_I x) -> x)
+instance Elicitable Straight (->) (W_II_II_I w i ii)
+ where elicit = U_I_II (\(W_II_II_I x) -> x)
 
-instance Castable Opposite (->) (W_II_II_I w i ii)
- where cast = U_II_I W_II_II_I
+instance Elicitable Opposite (->) (W_II_II_I w i ii)
+ where elicit = U_II_I W_II_II_I
 
 type instance Supertype (W_I_I_II w i ii) = w i i ii
 
-instance Castable Straight (->) (W_I_I_II u i ii)
- where cast = U_I_II (\(W_I_I_II x) -> x)
+instance Elicitable Straight (->) (W_I_I_II u i ii)
+ where elicit = U_I_II (\(W_I_I_II x) -> x)
 
-instance Castable Opposite (->) (W_I_I_II u i ii)
- where cast = U_II_I W_I_I_II
+instance Elicitable Opposite (->) (W_I_I_II u i ii)
+ where elicit = U_II_I W_I_I_II
 
 type instance Supertype (W_III_I_II w iii i ii) = w i ii iii
 
-instance Castable Straight (->) (W_III_I_II w iii i ii)
- where cast = U_I_II (\(W_III_I_II x) -> x)
+instance Elicitable Straight (->) (W_III_I_II w iii i ii)
+ where elicit = U_I_II (\(W_III_I_II x) -> x)
 
-instance Castable Opposite (->) (W_III_I_II w iii i ii)
- where cast = U_II_I W_III_I_II
+instance Elicitable Opposite (->) (W_III_I_II w iii i ii)
+ where elicit = U_II_I W_III_I_II
 
 -- type instance Supertype (Arrow i ii) = Arrow i ii
 
--- instance Castable Opposite (->) (Arrow i ii)
- -- where cast = U_II_I (\f -> f)
+-- instance Elicitable Opposite (->) (Arrow i ii)
+ -- where elicit = U_II_I (\f -> f)
 
--- instance Castable Straight (->) (Arrow i ii)
- -- where cast = U_I_II (\f -> f)
+-- instance Elicitable Straight (->) (Arrow i ii)
+ -- where elicit = U_I_II (\f -> f)
 
 type instance Supertype (Arrow Unit ii) = ii
 
-instance Castable Opposite (->) (Arrow Unit ii)
- where cast = U_II_I (\ii -> (\_ -> ii))
+instance Elicitable Opposite (->) (Arrow Unit ii)
+ where elicit = U_II_I (\ii -> (\_ -> ii))
 
-instance Castable Straight (->) (Arrow Unit ii)
- where cast = U_I_II (\f -> f ())
+instance Elicitable Straight (->) (Arrow Unit ii)
+ where elicit = U_I_II (\f -> f ())
 
-unwrap :: Castable Straight into i => into i (Supertype i)
-unwrap = let U_I_II x = cast in x
+unwrap :: Elicitable Straight into i => into i (Supertype i)
+unwrap = let U_I_II x = elicit in x
 
-wrap :: Castable Opposite into i => into (Supertype i) i
-wrap = let U_II_I x = cast in x
+wrap :: Elicitable Opposite into i => into (Supertype i) i
+wrap = let U_II_I x = elicit in x
 
 -- Category: initial object
 data Void

@@ -167,7 +167,7 @@ instance
  ( Covariant Semi Functor from AR t
  , Covariant Functor from from (U_I_I u)
  , Covariant Monoidal Functor from u u t
- , forall e . Castable U_II_I from (U_I_I u e)
+ , forall e . Elicitable U_II_I from (U_I_I u e)
  ) => Mapping U_I_II U_I_II from AR (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap /
   day @U_I_II @from @t @u @u
