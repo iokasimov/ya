@@ -423,6 +423,33 @@ yiu :: forall into t i a o .
 yiu x = unwrap @_ @(U_I_II t i o)
  `compose` yu @into (wrap @_ @(U_I_II t i a) x)
 
+yiu' :: forall from into t i a o .
+ Terminal from =>
+ Category from =>
+ Covariant Yoneda from into (U_I_II t i) =>
+ Covariant Functor from into (U_I_II from a) =>
+ Contravariant Functor from into (U_II_I from o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o Unit) =>
+ Wrapper into (U_I_II t i o) =>
+ t i a -> into (from Unit o) (t i o)
+yiu' x = yio @from x `compose` fai @from terminal
+
+yiu'he' :: forall from into t i a o .
+ Terminal from =>
+ Category from =>
+ Covariant Yoneda from into (U_I_II t i) =>
+ Covariant Functor from into (U_I_II from a) =>
+ Contravariant Functor from into (U_II_I from o) =>
+ Wrapper into (from Unit o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o Unit) =>
+ Wrapper into (U_I_II t i o) =>
+ t i a -> into (Supertype (from Unit o)) (t i o)
+yiu'he' x = yio @from x `compose` fai @from terminal `compose` wrap
+
 yo'yo :: forall from into t tt a o .
  Precategory into =>
  Covariant Functor from from tt =>
@@ -1327,6 +1354,9 @@ hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  into a o -> into a o
 hv = identity
 
+-- hu: t i a -> into (from Unit o) (t i o)
+-- hv: t a i -> into (from o Void) (t o i)
+
 hv_ = hv
 hv__ = hv
 hv___ = hv
@@ -1660,6 +1690,7 @@ hj'hj :: forall from into t tt ttt tttt e ee a o .
  into a (tt e (tttt ee o)) -> from (t (ttt a e) ee) o
 hj'hj = hj @from @from `compose` hj @from @into
 
+-- TODO: it shouldn't exist by itself
 he, he_, he__, he___, he____, he_____, he______, he_______, he________ :: forall into e .
  Castable U_I_II into e =>
  into e (Supertype e)
