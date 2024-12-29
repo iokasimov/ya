@@ -186,7 +186,8 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way
    `yok__` Try `ha` Maybe
-   `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   -- `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   `yok__` New `ha` State `ha__` Transition `ha` switch `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
   path = is `hu_'he` Scope @(Reverse List item) at `ho'he` Scope self

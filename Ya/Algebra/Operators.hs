@@ -827,13 +827,14 @@ fio'fo :: forall from into t tt e a o .
 fio'fo from = fio @into @into (fo @from @into from)
 
 fiu :: forall from into t a o e .
+ Terminal from =>
  Covariant Functor from into (U_I_II t e) =>
  Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper into (U_I_II t e a) =>
  Wrapper into (U_I_II t e o) =>
  Wrapper into (I o) =>
- o -> into (t e a) (t e o)
-fiu from = unwrap `compose` fu @from @into @(U_I_II _ _) from `compose` wrap
+ from Unit o -> into (t e a) (t e o)
+fiu from = fio (from `compose` terminal)
 
 fui :: forall from into t a o e .
  Covariant Functor from into (U_II_I t e) =>
@@ -1030,6 +1031,7 @@ ho'ho'yoi x = fai @(->) @(->) (fio @from `compose` foi @from) (ho @u @from x)
 
 ho'ho'hu :: forall from u uu u__ o e ee eee a .
  Category from =>
+ Terminal from =>
  Covariant Yoneda u__ (->) (U_I_II u e) =>
  Covariant Semi Functor from u__ (U_I_II uu ee) =>
  Covariant Endo Semi Functor from (U_I_II u__ eee) =>
@@ -1041,11 +1043,12 @@ ho'ho'hu :: forall from u uu u__ o e ee eee a .
  Wrapper from (U_I_II u__ eee a) =>
  Wrapper from (I o) =>
  Wrapper (->) (U_1_I from a o) =>
- u e (uu ee (u__ eee a)) -> o -> u e (uu ee (u__ eee o))
+ u e (uu ee (u__ eee a)) -> from Unit o -> u e (uu ee (u__ eee o))
 ho'ho'hu = fai (fio @from `compose` fiu @from) `compose` ho @u__
 
 ho'hu :: forall from u uu o e ee a .
  Category from =>
+ Terminal from =>
  Covariant Yoneda u from (U_I_II u e) =>
  Contravariant Yoneda (->) (->) (U_II_I u e) =>
  Covariant Semi Functor from u (U_I_II uu ee) =>
@@ -1058,7 +1061,7 @@ ho'hu :: forall from u uu o e ee a .
  Wrapper from (U_I_II u e (uu ee o)) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
  Wrapper u (I o) =>
- u e (uu ee a) -> from o (u e (uu ee o))
+ u e (uu ee a) -> from (from Unit o) (u e (uu ee o))
 ho'hu = fai (fiu @from) `compose` ho @u
 
 ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
