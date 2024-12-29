@@ -107,15 +107,15 @@ infixl 1 `ha________`
  , `ha________'yuk`
  , `ha________'yokl`
 
-infixl 9 `hu` --, `hu'he`, `hu'he'he`
-infixl 8 `hu_`
-infixl 7 `hu__`
-infixl 6 `hu___`
-infixl 5 `hu____`
-infixl 4 `hu_____`
-infixl 3 `hu______`
-infixl 2 `hu_______`
-infixl 1 `hu________`
+infixl 9 `hu`, `hu'he`
+infixl 8 `hu_`, `hu_'he`
+infixl 7 `hu__`, `hu__'he`
+infixl 6 `hu___`, `hu___'he`
+infixl 5 `hu____`, `hu____'he`
+infixl 4 `hu_____`, `hu_____'he`
+infixl 3 `hu______`, `hu______'he`
+infixl 2 `hu_______`, `hu_______'he`
+infixl 1 `hu________`, `hu________'he`
 
 infixl 9 `hd`, `hd'q`
 
@@ -246,8 +246,8 @@ infixl 7 `yoi`
 
 infixl 7 `yai`, `yai'yai`
 
-infixl 7 `yui`
-infixl 7 `yiu`
+infixl 7 `yui`, `yui'he`
+infixl 7 `yiu`, `yiu'he`
 
 infixl 7 `yio`, `yio'yo`, `yio'yp`
 
@@ -402,53 +402,70 @@ yu x = yoneda @U_I_II @into @into x `compose` wrap `compose` constant
 
 li'yu = yu
 
-yui :: forall into t e a o .
+yui :: forall into t i a o .
  Terminal into =>
- Covariant Yoneda into into (U_II_I t e) =>
- Mapping U_I_II U_I_II into into I (U_I_II into a) =>
- Wrapper into (U_II_I t e o) =>
+ Category into =>
+ Covariant Yoneda into into (U_II_I t i) =>
+ Covariant Functor into into (U_I_II into a) =>
+ Contravariant Functor into into (U_II_I into o) =>
  Wrapper into (U_I_II into a o) =>
- Wrapper into (I o) =>
- t a e -> into o (t o e)
-yui x = unwrap @into @(U_II_I t e _)
- `compose` yu @into (wrap @_ @(U_II_I t e _) x)
+ Wrapper into (U_II_I into o a) =>
+ Wrapper into (U_II_I into o Unit) =>
+ Wrapper into (U_II_I t i o) =>
+ t a i -> into (into Unit o) (t o i)
+yui x = yoi @into x `compose` fai @into terminal
+
+yui'he :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda into into (U_II_I t i) =>
+ Covariant Functor into into (U_I_II into a) =>
+ Contravariant Functor into into (U_II_I into o) =>
+ Wrapper into (into Unit o) =>
+ Wrapper into (U_I_II into a o) =>
+ Wrapper into (U_II_I into o a) =>
+ Wrapper into (U_II_I into o Unit) =>
+ Wrapper into (U_II_I t i o) =>
+ t a i -> into (Supertype (into Unit o)) (t o i)
+yui'he x = yoi @into x `compose` fai @into terminal `compose` wrap
 
 yiu :: forall into t i a o .
+ Terminal into =>
+ Category into =>
  Covariant Yoneda into into (U_I_II t i) =>
- Mapping U_I_II U_I_II into into I (U_I_II into a) =>
+ Covariant Functor into into (U_I_II into a) =>
+ Contravariant Functor into into (U_II_I into o) =>
  Wrapper into (U_I_II into a o) =>
+ Wrapper into (U_II_I into o a) =>
+ Wrapper into (U_II_I into o Unit) =>
  Wrapper into (U_I_II t i o) =>
- Wrapper into (I o) =>
- t i a -> into o (t i o)
-yiu x = unwrap @_ @(U_I_II t i o)
- `compose` yu @into (wrap @_ @(U_I_II t i a) x)
+ t i a -> into (into Unit o) (t i o)
+yiu x = yio @into x `compose` fai @into terminal
 
-yiu' :: forall from into t i a o .
- Terminal from =>
- Category from =>
- Covariant Yoneda from into (U_I_II t i) =>
- Covariant Functor from into (U_I_II from a) =>
- Contravariant Functor from into (U_II_I from o) =>
- Wrapper into (U_I_II from a o) =>
- Wrapper into (U_II_I from o a) =>
- Wrapper into (U_II_I from o Unit) =>
+yiu'he, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda into into (U_I_II t i) =>
+ Covariant Functor into into (U_I_II into a) =>
+ Contravariant Functor into into (U_II_I into o) =>
+ Wrapper into (into Unit o) =>
+ Wrapper into (U_I_II into a o) =>
+ Wrapper into (U_II_I into o a) =>
+ Wrapper into (U_II_I into o Unit) =>
  Wrapper into (U_I_II t i o) =>
- t i a -> into (from Unit o) (t i o)
-yiu' x = yio @from x `compose` fai @from terminal
+ t i a -> into (Supertype (into Unit o)) (t i o)
+yiu'he x = yio @into x `compose` fai @into terminal `compose` wrap
 
-yiu'he' :: forall from into t i a o .
- Terminal from =>
- Category from =>
- Covariant Yoneda from into (U_I_II t i) =>
- Covariant Functor from into (U_I_II from a) =>
- Contravariant Functor from into (U_II_I from o) =>
- Wrapper into (from Unit o) =>
- Wrapper into (U_I_II from a o) =>
- Wrapper into (U_II_I from o a) =>
- Wrapper into (U_II_I from o Unit) =>
- Wrapper into (U_I_II t i o) =>
- t i a -> into (Supertype (from Unit o)) (t i o)
-yiu'he' x = yio @from x `compose` fai @from terminal `compose` wrap
+hu'he = yiu'he
+hu_'he = yiu'he
+hu__'he = yiu'he
+hu___'he = yiu'he
+hu____'he = yiu'he
+hu_____'he = yiu'he
+hu______'he = yiu'he
+hu_______'he = yiu'he
+hu________'he = yiu'he
 
 yo'yo :: forall from into t tt a o .
  Precategory into =>
@@ -1487,15 +1504,29 @@ ha'yioi x = fai (fioi @from) (ha @from x)
 --  u e a -> from (Supertype a) o -> u e o
 -- ho_yi'ho x xx = x `ho` he @from `ho` xx
 
+-- hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
+ -- forall into t i a o .
+ -- Covariant Yoneda into into (U_I_II t i) =>
+ -- Mapping U_I_II U_I_II into into I (U_I_II into a) =>
+ -- Wrapper into (U_I_II into a o) =>
+ -- Wrapper into (U_I_II t i o) =>
+ -- Wrapper into (I o) =>
+ -- t i a -> into o (t i o)
+-- hu = yiu
+
 hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
- forall into t i a o .
- Covariant Yoneda into into (U_I_II t i) =>
- Mapping U_I_II U_I_II into into I (U_I_II into a) =>
- Wrapper into (U_I_II into a o) =>
+ forall from into t i a o .
+ Terminal from =>
+ Category from =>
+ Covariant Yoneda from into (U_I_II t i) =>
+ Covariant Functor from into (U_I_II from a) =>
+ Contravariant Functor from into (U_II_I from o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I from o a) =>
+ Wrapper into (U_II_I from o Unit) =>
  Wrapper into (U_I_II t i o) =>
- Wrapper into (I o) =>
- t i a -> into o (t i o)
-hu = yiu
+ t i a -> into (from Unit o) (t i o)
+hu x = yio @from x `compose` fai @from terminal
 
 hu_ = hu
 hu__ = hu
@@ -1958,7 +1989,7 @@ lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall o oo .
  Wrapper (->) (U_I_I Product ()) =>
  Wrapper (->) (I ()) =>
  o -> oo -> Product o oo
-lu l r = wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(U_I_I Product) identity) () `yui` l `yiu` r
+lu l r = wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(U_I_I Product) identity) () `yui'he` l `yiu'he` r
 
 lu_ = lu
 lu__ = lu

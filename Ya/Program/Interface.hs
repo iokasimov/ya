@@ -23,7 +23,7 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
 on' :: Excludable a r => r `AR_` Unit `ML` a
-on' x = on x `yui` Unit
+on' x = on x `yui'he` Unit
 
 class Layable a r where
  lay :: a `AR_` r
@@ -146,9 +146,9 @@ instance Mapping U_I_II U_I_II AR AR
   ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
   mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
    Identity `hv` Labeled x
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu` x)
+    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu'he` x)
       `he'he` Empty @List () `yi` that `ho` Reverse
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu` x)
+     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu'he` x)
       `he'he` Empty @List () `yi` that `ho` Forward
      `yi_` U_T_I_TT_I
     `yi__` U_T_I_TT_I `ho` T'TT'I
@@ -179,23 +179,24 @@ class Scrollable datastructure item where
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) item where
  scroll way x = is
-  `li` is `hu` (None () `lu` x)
+  `li` is `hu'he` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
   `li` flow `he'he` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
-   `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way `yok__` Try `ha` Maybe
+   `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way
+   `yok__` Try `ha` Maybe
    `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
-  path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
-   `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
+  path = is `hu_'he` Scope @(Reverse List item) at `ho'he` Scope self
+   `la___` is `hu_'he` Scope @(Forward List item) at `ho'he` Scope self
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
 instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
  scroll way x = is
-  `li` is `hu` (None () `lu` x)
+  `li` is `hu'he` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he` x where
 
