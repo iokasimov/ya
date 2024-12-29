@@ -63,8 +63,8 @@ infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he
  , `ho________'yo`
  , `ho________'yoi`
 
-infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'yok`, `ha'yuk`, `ha'yokl`
- -- `ha'ho'hu`, `ha'hu` --, `ha'hu'he`, `ha'yo`, `ha'yioi``ha'yuk`
+infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'he`, `ha'yok`, `ha'yuk`, `ha'yokl`
+ -- `ha'ho'hu`, `ha'yo`, `ha'yioi``ha'yuk`
  , `ha'he`, `ha_ha`
 infixl 8 `ha_`
  , `ha_'he`
@@ -829,10 +829,8 @@ fio'fo from = fio @into @into (fo @from @into from)
 fiu :: forall from into t a o e .
  Terminal from =>
  Covariant Functor from into (U_I_II t e) =>
- Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper into (U_I_II t e a) =>
  Wrapper into (U_I_II t e o) =>
- Wrapper into (I o) =>
  from Unit o -> into (t e a) (t e o)
 fiu from = fio (from `compose` terminal)
 
@@ -1036,12 +1034,10 @@ ho'ho'hu :: forall from u uu u__ o e ee eee a .
  Covariant Semi Functor from u__ (U_I_II uu ee) =>
  Covariant Endo Semi Functor from (U_I_II u__ eee) =>
  Constant Endo Semi Functor from (U_I_II u__ eee) =>
- Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper u__ (U_I_II uu ee (u__ eee a)) =>
  Wrapper u__ (U_I_II uu ee (u__ eee o)) =>
  Wrapper from (U_I_II u__ eee o) =>
  Wrapper from (U_I_II u__ eee a) =>
- Wrapper from (I o) =>
  Wrapper (->) (U_1_I from a o) =>
  u e (uu ee (u__ eee a)) -> from Unit o -> u e (uu ee (u__ eee o))
 ho'ho'hu = fai (fio @from `compose` fiu @from) `compose` ho @u__
@@ -1054,13 +1050,11 @@ ho'hu :: forall from u uu o e ee a .
  Covariant Semi Functor from u (U_I_II uu ee) =>
  Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
  Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee o))) =>
- Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
  Wrapper u (U_I_II uu ee a) =>
  Wrapper u (U_I_II uu ee o) =>
  Wrapper from (U_I_II uu ee o) =>
  Wrapper from (U_I_II u e (uu ee o)) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
- Wrapper u (I o) =>
  u e (uu ee a) -> from (from Unit o) (u e (uu ee o))
 ho'hu = fai (fiu @from) `compose` ho @u
 
@@ -1438,16 +1432,17 @@ ha'ho x = fai @(->) @(->) fio (ha @u x)
  -- u (uu ee (u__ eee o)) e -> Supertype (U_1_I from a o) -> u (uu ee (u__ eee a)) e
 -- ha'ho'hu = fai (fio @from `compose` fiu) `compose` ha @u__
 
--- ha'hu :: forall from u uu o e ee a .
- -- Covariant Semi Functor u u (U_I_II uu ee) =>
- -- Constant Semi Functor u u (U_I_II uu ee) =>
- -- Contravariant Yoneda u (->) (U_II_I u e) =>
- -- Wrapper u (U_I_II uu ee a) =>
- -- Wrapper u (U_I_II uu ee o) =>
- -- Elicitable U_II_I u (U_1_I u a o) =>
- -- Elicitable U_II_I (->) (U_1_I u a o) =>
- -- u (uu ee o) e -> Supertype (U_1_I u a o) -> u (uu ee a) e
--- ha'hu x = fai @(->) @(->) fiu (ha @u x)
+ha'hu :: forall u uu o e ee a .
+ Terminal u =>
+ Covariant Semi Functor u u (U_I_II uu ee) =>
+ Constant Semi Functor u u (U_I_II uu ee) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Elicitable U_II_I u (U_1_I u a o) =>
+ Elicitable U_II_I (->) (U_1_I u a o) =>
+ u (uu ee o) e -> u Unit o -> u (uu ee a) e
+ha'hu x = fai @(->) @(->) fiu (ha @u x)
 
 -- ha'he'hu :: forall from u uu o e ee a .
  -- Covariant Semi Functor u u (U_I_II uu ee) =>
@@ -1459,16 +1454,17 @@ ha'ho x = fai @(->) @(->) fio (ha @u x)
  -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
 -- ha'he'hu x = fai @(->) @(->) fiu (ha'he @u x)
 
--- ha'hu'he :: forall from u uu o e ee a .
---  Covariant Semi Functor u u (U_I_II uu ee) =>
---  Constant Semi Functor u u (U_I_II uu ee) =>
---  Contravariant Yoneda u (->) (U_II_I u e) =>
---  Wrapper u (U_I_II uu ee a) =>
---  Wrapper u (U_I_II uu ee o) =>
---  Elicitable U_II_I (->) (Supertype (u () o)) =>
---  Elicitable U_II_I (->) (u () o) =>
---  u (uu ee o) e -> Supertype (Supertype (u () o)) -> u (uu ee a) e
--- ha'hu'he x = fai @(->) @(->) fiu'_ (ha @u x)
+ha'hu'he :: forall u uu o e ee a .
+ Terminal u =>
+ Covariant Semi Functor u u (U_I_II uu ee) =>
+ Constant Semi Functor u u (U_I_II uu ee) =>
+ Contravariant Yoneda u (->) (U_II_I u e) =>
+ Wrapper u (U_I_II uu ee a) =>
+ Wrapper u (U_I_II uu ee o) =>
+ Elicitable U_II_I (->) (Supertype (u () o)) =>
+ Elicitable U_II_I (->) (u Unit o) =>
+ u (uu ee o) e -> Supertype (u Unit o) -> u (uu ee a) e
+ha'hu'he x = fai @(->) @(->) (fiu @u `compose` wrap) (ha @u x)
 
 ha'yo :: forall from u t o e a .
  Covariant Yoneda from (->) (U_I_II u e) =>
