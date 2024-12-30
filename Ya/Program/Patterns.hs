@@ -140,9 +140,14 @@ type List = Optional `T'TT'I` Construction Optional
 
 pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
-pattern Next x xs = Recursive (U_I_T_II (These x (Some xs)))
+pattern Item :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
+pattern Item x xs = Recursive (U_I_T_II (These x xs))
 
-pattern Last x = Recursive (U_I_T_II (These x (None ())))
+pattern Next :: forall r e ee . (r ~ e `ML` ee) => ee -> r
+pattern Next x = That x
+
+pattern Last :: e -> e `ML` Recursive (U_I_T_II t LM i)
+pattern Last x = This x
 
 type family Brancher datastructure where
  Brancher (T'TT'I t (Construction t)) = t
