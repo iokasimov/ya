@@ -138,7 +138,7 @@ instance
    -- TODO: replace with `yuk___'yokl` operator
    `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he_____'he` Construct `ha` (\x' -> Item x' `ha` Maybe `hv'he` Last @Unit) `hv` from x
+   `he_____'he` Construct `ha` (\x' -> Item x' `ha` Maybe `hv` Last) `hv` from x
    `yi_____` that
 
 instance Mapping U_I_II U_I_II AR AR
@@ -271,7 +271,7 @@ class Literal datastructure item literal
  where as :: literal -> datastructure item
 
 instance Literal (Construction Optional) item item where
- as x = Construct `li` Item x `ha` Maybe `hv'he` Last @Unit
+ as x = Construct `li` Item x `ha` Maybe `hv` Last
 
 -- instance Literal (Construction Optional) item init =>
  -- Literal (Construction Optional) item (init `LM` item) where

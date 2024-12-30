@@ -146,8 +146,8 @@ pattern Item x xs = Recursive (U_I_T_II (These x xs))
 pattern Next :: forall r e ee . (r ~ e `ML` ee) => ee -> r
 pattern Next x = That x
 
-pattern Last :: e -> e `ML` Recursive (U_I_T_II t LM i)
-pattern Last x = This x
+pattern Last :: Unit `ML` Recursive (U_I_T_II t LM i)
+pattern Last = This Unit
 
 type family Brancher datastructure where
  Brancher (T'TT'I t (Construction t)) = t
