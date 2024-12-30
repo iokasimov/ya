@@ -68,41 +68,49 @@ infixl 9 `ha`, `ha'ha`, `ha'ho`, `ha'hu`, `ha'hu'he`, `ha'yok`, `ha'yuk`, `ha'yo
  , `ha'he`, `ha_ha`
 infixl 8 `ha_`
  , `ha_'he`
+ , `ha_'hu`
  , `ha_'yok`
  , `ha_'yuk`
  , `ha_'yokl`
 infixl 7 `ha__`
  , `ha__'he`
+ , `ha__'hu`
  , `ha__'yok`
  , `ha__'yuk`
  , `ha__'yokl`
 infixl 6 `ha___`
  , `ha___'he`
+ , `ha___'hu`
  , `ha___'yok`
  , `ha___'yuk`
  , `ha___'yokl`
 infixl 5 `ha____`
  , `ha____'he`
+ , `ha____'hu`
  , `ha____'yok`
  , `ha____'yuk`
  , `ha____'yokl`
 infixl 4 `ha_____`
  , `ha_____'he`
+ , `ha_____'hu`
  , `ha_____'yok`
  , `ha_____'yuk`
  , `ha_____'yokl`
 infixl 3 `ha______`
  , `ha______'he`
+ , `ha______'hu`
  , `ha______'yok`
  , `ha______'yuk`
  , `ha______'yokl`
 infixl 2 `ha_______`
  , `ha_______'he`
+ , `ha_______'hu`
  , `ha_______'yok`
  , `ha_______'yuk`
  , `ha_______'yokl`
 infixl 1 `ha________`
  , `ha________'he`
+ , `ha________'hu`
  , `ha________'yok`
  , `ha________'yuk`
  , `ha________'yokl`
@@ -1432,7 +1440,7 @@ ha'ho x = fai @(->) @(->) fio (ha @u x)
  -- u (uu ee (u__ eee o)) e -> Supertype (U_1_I from a o) -> u (uu ee (u__ eee a)) e
 -- ha'ho'hu = fai (fio @from `compose` fiu) `compose` ha @u__
 
-ha'hu :: forall u uu o e ee a .
+ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'hu, ha________'hu :: forall u uu o e ee a .
  Terminal u =>
  Covariant Semi Functor u u (U_I_II uu ee) =>
  Constant Semi Functor u u (U_I_II uu ee) =>
@@ -1443,6 +1451,15 @@ ha'hu :: forall u uu o e ee a .
  Elicitable U_II_I (->) (U_1_I u a o) =>
  u (uu ee o) e -> u Unit o -> u (uu ee a) e
 ha'hu x = fai @(->) @(->) fiu (ha @u x)
+
+ha_'hu = ha'hu
+ha__'hu = ha'hu
+ha___'hu = ha'hu
+ha____'hu = ha'hu
+ha_____'hu = ha'hu
+ha______'hu = ha'hu
+ha_______'hu = ha'hu
+ha________'hu = ha'hu
 
 -- ha'he'hu :: forall from u uu o e ee a .
  -- Covariant Semi Functor u u (U_I_II uu ee) =>
