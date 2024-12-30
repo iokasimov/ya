@@ -23,7 +23,7 @@ instance {-# OVERLAPS #-} Field e ee => Field e (ee `LM` eee) where
   `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
 
 on' :: Excludable a r => r `AR_` Unit `ML` a
-on' x = on x `yui'he` Unit
+on' x = on x `yui` Unit
 
 class Layable a r where
  lay :: a `AR_` r
@@ -99,7 +99,7 @@ instance Stack (Construction Optional) where
  pop = \case
   R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> x `lu` T'TT'I (Some (R_U_I_T_I xs))
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
- push x = \old -> These x (Next x `rewrap` old)
+ push x = \old -> These x (Item x `ha` Maybe `ha` Next  `rewrap` old)
 
 type Shafted e = Reverse e `LM'T'I'TT'I` Forward e
 
@@ -138,7 +138,7 @@ instance
    -- TODO: replace with `yuk___'yokl` operator
    `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he_____'he` Construct `ha` Last `hv` from x
+   `he_____'he` Construct `ha` (\x' -> Item x' `ha` Maybe `hv'he` Last @Unit) `hv` from x
    `yi_____` that
 
 instance Mapping U_I_II U_I_II AR AR
@@ -146,9 +146,9 @@ instance Mapping U_I_II U_I_II AR AR
   ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
   mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
    Identity `hv` Labeled x
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu'he` x)
+    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu` x)
       `he'he` Empty @List () `yi` that `ho` Reverse
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu'he` x)
+     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu` x)
       `he'he` Empty @List () `yi` that `ho` Forward
      `yi_` U_T_I_TT_I
     `yi__` U_T_I_TT_I `ho` T'TT'I
@@ -179,7 +179,7 @@ class Scrollable datastructure item where
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) item where
  scroll way x = is
-  `li` is `hu'he` (None () `lu` x)
+  `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
   `li` flow `he'he` x where
 
@@ -190,14 +190,14 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
    `yok__` New `ha` State `ha__` Transition `ha` switch `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
-  path = is `hu_'he` Scope @(Reverse List item) at `ho'he` Scope self
-   `la___` is `hu_'he` Scope @(Forward List item) at `ho'he` Scope self
+  path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
+   `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
 instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
  scroll way x = is
-  `li` is `hu'he` (None () `lu` x)
+  `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he` x where
 
@@ -257,21 +257,21 @@ instance Mapping Straight Straight (->) (->) (List `T'TT'I` Cascading List) List
     ))))))
 
 -- TODO: Add a label
-instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
- mapping = rewrap / \from -> \case
-  R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
-   T'TT'I `ha` R_U_I_T_I
-    `li` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
-  R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
-   T'TT'I `ha` R_U_I_T_I
-    `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
-    `li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
+-- instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
+ -- mapping = rewrap / \from -> \case
+  -- R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
+   -- T'TT'I `ha` R_U_I_T_I
+    -- `li` Last (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (This ()))))))
+  -- R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
+   -- T'TT'I `ha` R_U_I_T_I
+    -- `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
+    -- `li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
 
 class Literal datastructure item literal
  where as :: literal -> datastructure item
 
 instance Literal (Construction Optional) item item where
- as x = Construct `li` Last x
+ as x = Construct `li` Item x `ha` Maybe `hv'he` Last @Unit
 
 -- instance Literal (Construction Optional) item init =>
  -- Literal (Construction Optional) item (init `LM` item) where

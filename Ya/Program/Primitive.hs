@@ -110,6 +110,6 @@ rep index = U_I_UU_II_U_II_I `li` \origin ->
  let idx = map @U_I_II @U_I_II @Arrow @Arrow @t @(U_I_II (->) (Representation t)) identity in
  let tbt = map @U_I_II @U_I_II @Arrow @Arrow @(U_I_II (->) (Representation t)) @t identity in
  idx origin `he` index `lu`
-  (\x -> tbt `ha` U_I_II  `hv`
-   (\index' -> constant (idx origin `he` index') `la` constant x `li` q (index' `lu` index))
+  (\x -> tbt `ha` U_I_II `hv`
+   (\index' -> is `hu_` idx origin `he` index' `la` is `hu` x `li` q (index' `lu` index))
   )
