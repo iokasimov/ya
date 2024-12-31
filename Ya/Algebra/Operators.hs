@@ -149,15 +149,15 @@ infixl 3 `he______`, `he______'he`, `he______'he'he`, `he______'he'he'he`, `he__
 infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `he_______'ho`, `he_______'ho'he`
 infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
 
-infixl 9 `hv`, `hv'he`, `he'hv`
-infixl 8 `hv_`, `hv_'he`, `he'hv_`
-infixl 7 `hv__`, `hv__'he`, `he'hv__`
-infixl 6 `hv___`, `hv___'he`, `he'hv___`
-infixl 5 `hv____`, `hv____'he`, `he'hv____`
-infixl 4 `hv_____`, `hv_____'he`, `he'hv_____`
-infixl 3 `hv______`, `hv______'he`, `he'hv______`
-infixl 2 `hv_______`, `hv_______'he`, `he'hv_______`
-infixl 1 `hv________`, `hv________'he`, `he'hv________`
+infixl 9 `hv`, `hv'he`, `he'hv`, `he'he'hv`
+infixl 8 `hv_`, `hv_'he`, `he'hv_`, `he'he'hv_`
+infixl 7 `hv__`, `hv__'he`, `he'hv__`, `he'he'hv__`
+infixl 6 `hv___`, `hv___'he`, `he'hv___`, `he'he'hv___`
+infixl 5 `hv____`, `hv____'he`, `he'hv____`, `he'he'hv____`
+infixl 4 `hv_____`, `hv_____'he`, `he'hv_____`, `he'he'hv_____`
+infixl 3 `hv______`, `hv______'he`, `he'hv______`, `he'he'hv______`
+infixl 2 `hv_______`, `hv_______'he`, `he'hv_______`, `he'he'hv_______`
+infixl 1 `hv________`, `hv________'he`, `he'hv________`, `he'he'hv________`
 
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
@@ -260,7 +260,7 @@ infixl 7 `yio`, `yio'yo`, `yio'yp`
 
 infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
-infixl 7 `yvi`, `yvi'he`, `he'yvi`
+infixl 7 `yvi`, `yvi'he`, `he'yvi`, `he'he'yvi`
 
 -- infixl 6 `yioi`
 
@@ -1484,6 +1484,29 @@ he'hv_____ = hv `compose` unwrap
 he'hv______ = hv `compose` unwrap
 he'hv_______ = hv `compose` unwrap
 he'hv________ = hv `compose` unwrap
+
+he'he'yvi, he'he'hv, he'he'hv_, he'he'hv__, he'he'hv___, he'he'hv____, he'he'hv_____, he'he'hv______, he'he'hv_______, he'he'hv________
+ :: forall into a o e .
+ Category into =>
+ Terminal into =>
+ Wrapper (->) e =>
+ Wrapper (->) (Supertype e) =>
+ (Supertype (Supertype e) ~ into a o) =>
+ e -> into a o
+he'he'yvi = hv `compose` unwrap `compose` unwrap
+
+he'he'hv = hv `compose` unwrap `compose` unwrap
+he'he'hv_ = hv `compose` unwrap `compose` unwrap
+he'he'hv__ = hv `compose` unwrap `compose` unwrap
+he'he'hv___ = hv `compose` unwrap `compose` unwrap
+he'he'hv____ = hv `compose` unwrap `compose` unwrap
+he'he'hv_____ = hv `compose` unwrap `compose` unwrap
+he'he'hv______ = hv `compose` unwrap `compose` unwrap
+he'he'hv_______ = hv `compose` unwrap `compose` unwrap
+he'he'hv________ = hv `compose` unwrap `compose` unwrap
+
+-- he'ho: u (Supertype i) a -> into (from a o) (u i o)
+-- ho'he: u i a -> into (from (Supertype a) o) (u i o)
 
 -- he'ho: u (Supertype i) a -> into (from a o) (u i o)
 -- ho'he: u i a -> into (from (Supertype a) o) (u i o)
