@@ -149,15 +149,15 @@ infixl 3 `he______`, `he______'he`, `he______'he'he`, `he______'he'he'he`, `he__
 infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `he_______'ho`, `he_______'ho'he`
 infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
 
-infixl 9 `hv`, `hv'he`
-infixl 8 `hv_`, `hv_'he`
-infixl 7 `hv__`, `hv__'he`
-infixl 6 `hv___`, `hv___'he`
-infixl 5 `hv____`, `hv____'he`
-infixl 4 `hv_____`, `hv_____'he`
-infixl 3 `hv______`, `hv______'he`
-infixl 2 `hv_______`, `hv_______'he`
-infixl 1 `hv________`, `hv________'he`
+infixl 9 `hv`, `hv'he`, `he'hv`
+infixl 8 `hv_`, `hv_'he`, `he'hv_`
+infixl 7 `hv__`, `hv__'he`, `he'hv__`
+infixl 6 `hv___`, `hv___'he`, `he'hv___`
+infixl 5 `hv____`, `hv____'he`, `he'hv____`
+infixl 4 `hv_____`, `hv_____'he`, `he'hv_____`
+infixl 3 `hv______`, `hv______'he`, `he'hv______`
+infixl 2 `hv_______`, `hv_______'he`, `he'hv_______`
+infixl 1 `hv________`, `hv________'he`, `he'hv________`
 
 infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
@@ -255,10 +255,12 @@ infixl 7 `yoi`
 infixl 7 `yai`, `yai'yai`
 
 infixl 7 `yui` --, `yui'he`
-infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
 infixl 7 `yio`, `yio'yo`, `yio'yp`
 
+infixl 7 `yiu`, `yiu'he`, `he'yiu`
+
+infixl 7 `yvi`, `yvi'he`, `he'yvi`
 
 -- infixl 6 `yioi`
 
@@ -1426,41 +1428,66 @@ ha'ha :: forall from u uu a o e ee .
  u (uu a ee) e -> from a o -> u (uu o ee) e
 ha'ha x = fai @(->) @(->) fai (ha @u x)
 
-hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
+yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  :: forall into a o .
  Category into =>
  Terminal into =>
  into a o -> into a o
-hv = identity
+yvi = identity
 
 -- hu: t i a -> into (from Unit o) (t i o)
 -- hv: t a i -> into (from o Void) (t o i)
 
-hv_ = hv
-hv__ = hv
-hv___ = hv
-hv____ = hv
-hv_____ = hv
-hv______ = hv
-hv_______ = hv
-hv________ = hv
+hv = yvi
+hv_ = yvi
+hv__ = yvi
+hv___ = yvi
+hv____ = yvi
+hv_____ = yvi
+hv______ = yvi
+hv_______ = yvi
+hv________ = yvi
 
-hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
+yvi'he, hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
  :: forall into a o .
  Category into =>
  Terminal into =>
  Wrapper into a =>
  into (Supertype a) o -> into a o
-hv'he = fai @into unwrap
+yvi'he = fai @into unwrap
 
-hv_'he = hv'he
-hv__'he = hv'he
-hv___'he = hv'he
-hv____'he = hv'he
-hv_____'he = hv'he
-hv______'he = hv'he
-hv_______'he = hv'he
-hv________'he = hv'he
+hv'he = yvi'he
+hv_'he = yvi'he
+hv__'he = yvi'he
+hv___'he = yvi'he
+hv____'he = yvi'he
+hv_____'he = yvi'he
+hv______'he = yvi'he
+hv_______'he = yvi'he
+hv________'he = yvi'he
+
+he'yvi, he'hv, he'hv_, he'hv__, he'hv___, he'hv____, he'hv_____, he'hv______, he'hv_______, he'hv________
+ :: forall into a o e .
+ Category into =>
+ Terminal into =>
+ Wrapper (->) e =>
+ (Supertype e ~ into a o) =>
+ e -> into a o
+he'yvi = hv `compose` unwrap
+
+he'hv = hv `compose` unwrap
+he'hv_ = hv `compose` unwrap
+he'hv__ = hv `compose` unwrap
+he'hv___ = hv `compose` unwrap
+he'hv____ = hv `compose` unwrap
+he'hv_____ = hv `compose` unwrap
+he'hv______ = hv `compose` unwrap
+he'hv_______ = hv `compose` unwrap
+he'hv________ = hv `compose` unwrap
+
+-- he'ho: u (Supertype i) a -> into (from a o) (u i o)
+-- ho'he: u i a -> into (from (Supertype a) o) (u i o)
+-- ha'he: u a i -> into (from (Supertype o) a) (u o i)
 
 ha_ha :: forall from u uu a o e ee .
  Contravariant Yoneda u (->) (U_II_I u e) =>
