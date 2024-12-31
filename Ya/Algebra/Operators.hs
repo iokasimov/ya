@@ -115,15 +115,15 @@ infixl 1 `ha________`
  , `ha________'yuk`
  , `ha________'yokl`
 
-infixl 9 `hu`-- , `hu'he`
-infixl 8 `hu_`-- , `hu_'he`
-infixl 7 `hu__`-- , `hu__'he`
-infixl 6 `hu___`-- , `hu___'he`
-infixl 5 `hu____`-- , `hu____'he`
-infixl 4 `hu_____`-- , `hu_____'he`
-infixl 3 `hu______`-- , `hu______'he`
-infixl 2 `hu_______`-- , `hu_______'he`
-infixl 1 `hu________`-- , `hu________'he`
+infixl 9 `hu`, `hu'he`
+infixl 8 `hu_`, `hu_'he`
+infixl 7 `hu__`, `hu__'he`
+infixl 6 `hu___`, `hu___'he`
+infixl 5 `hu____`, `hu____'he`
+infixl 4 `hu_____`, `hu_____'he`
+infixl 3 `hu______`, `hu______'he`
+infixl 2 `hu_______`, `hu_______'he`
+infixl 1 `hu________`, `hu________'he`
 
 infixl 9 `hd`, `hd'q`
 
@@ -255,7 +255,7 @@ infixl 7 `yoi`
 infixl 7 `yai`, `yai'yai`
 
 infixl 7 `yui` --, `yui'he`
-infixl 7 `yiu` --, `yiu'he`
+infixl 7 `yiu`, `yiu'he`
 
 infixl 7 `yio`, `yio'yo`, `yio'yp`
 
@@ -475,6 +475,32 @@ hu_____ = yiu
 hu______ = yiu
 hu_______ = yiu
 hu________ = yiu
+
+yiu'he, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda into into (U_I_II t i) =>
+ Covariant Functor into into (U_I_II into a) =>
+ Contravariant Functor into into (U_II_I into o) =>
+ Wrapper into (into Unit o) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into (U_I_II into a o) =>
+ Wrapper into (U_II_I into o a) =>
+ Wrapper into (U_II_I into o Unit) =>
+ Wrapper into (U_I_II t i o) =>
+ t i a -> into (Supertype (Supertype (into Unit o))) (t i o)
+yiu'he x = yio @into x `compose` fai @into terminal `compose` wrap `compose` wrap
+
+hu'he = yiu'he
+hu_'he = yiu'he
+hu__'he = yiu'he
+hu___'he = yiu'he
+hu____'he = yiu'he
+hu_____'he = yiu'he
+hu______'he = yiu'he
+hu_______'he = yiu'he
+hu________'he = yiu'he
 
 yo'yo :: forall from into t tt a o .
  Precategory into =>
