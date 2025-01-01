@@ -849,8 +849,7 @@ fo'fo'fo from = fo @into @into (fo @into @into (fo @from @into from))
 
 fio :: forall from into t a o i .
  Covariant Semi Functor from into (U_I_II t i) =>
- Wrapper into (U_I_II t i a) =>
- Wrapper into (U_I_II t i o) =>
+ (forall e . Wrapper into (U_I_II t i e)) =>
  from a o -> into (t i a) (t i o)
 fio from = unwrap `compose` fo @_ @_ @(U_I_II _ _) from `compose` wrap
 
@@ -886,39 +885,25 @@ fai_ = fai `compose` fai @from unwrap
 fio'fo :: forall from into t tt e a o .
  Covariant Semi Functor into into (U_I_II t e) =>
  Covariant Semi Functor from into tt =>
- Wrapper into (U_I_II t e (tt a)) =>
- Wrapper into (U_I_II t e (tt o)) =>
+ (forall i . Wrapper into (U_I_II t e i)) =>
  from a o -> into (t e (tt a)) (t e (tt o))
 fio'fo from = fio @into @into (fo @from @into from)
 
 fiu :: forall from into t a o e .
  Terminal from =>
  Covariant Functor from into (U_I_II t e) =>
- Wrapper into (U_I_II t e a) =>
- Wrapper into (U_I_II t e o) =>
+ (forall ee . Wrapper into (U_I_II t e ee)) =>
  Wrapper (->) (from Unit o) =>
  Supertype (from Unit o) -> into (t e a) (t e o)
 fiu from = fio (wrap @(->) @(from Unit o) from `compose` terminal)
 
 fui :: forall from into t a o e .
+ Terminal from =>
  Covariant Functor from into (U_II_I t e) =>
- Mapping U_I_II U_I_II from (->) I (U_I_II from a) =>
- Wrapper into (U_II_I t e a) =>
- Wrapper into (U_II_I t e o) =>
- Wrapper into (I o) =>
- o -> into (t a e) (t o e)
-fui from = unwrap `compose` fu @from @into @(U_II_I _ _) from `compose` wrap
-
--- TODO: remove
--- fiu'_ :: forall from into t a o e .
---  Covariant Semi Functor into into (U_I_II t e) =>
---  Constant Semi Functor into into (U_I_II t e) =>
---  Elicitable U_II_I (->) (into () o) =>
---  Elicitable U_II_I (->) (Supertype (into () o)) =>
---  Elicitable U_I_II into (U_I_II t e o) =>
---  Elicitable U_II_I into (U_I_II t e a) =>
---  Supertype (Supertype (into () o)) -> into (t e a) (t e o)
--- fiu'_ from = unwrap `compose` fu @_ @(U_I_II _ _) (wrap from) `compose` wrap
+ (forall ee . Wrapper into (U_II_I t e ee)) =>
+ Wrapper (->) (from Unit o) =>
+ Supertype (from Unit o) -> into (t a e) (t o e)
+fui from = foi (wrap @(->) @(from Unit o) from `compose` terminal)
 
 ho, ho_, ho__, ho___, ho____, ho_____, ho______, ho_______, ho________, yi'ho :: forall from into u i a o .
  Precategory into =>
@@ -1048,8 +1033,8 @@ ho'ho, ho_'ho :: forall from u uu e ee a o .
  Contravariant Yoneda (->) (->) (U_II_I u e) =>
  Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
  Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee o))) =>
- Wrapper u (U_I_II uu ee a) =>
- Wrapper u (U_I_II uu ee o) =>
+ -- Wrapper u (U_I_II uu ee a) =>
+ (forall i . Wrapper u (U_I_II uu ee i)) =>
  Wrapper from (U_I_II uu ee o) =>
  Wrapper from (U_I_II u e (uu ee o)) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
@@ -1065,10 +1050,8 @@ ho'ho'ho :: forall from u uu uuu o e ee eee a .
  Covariant Endo Semi Functor from (U_I_II uuu eee) =>
  Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
  Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee (uuu eee o)))) =>
- Wrapper u (U_I_II uu ee (uuu eee o)) =>
- Wrapper u (U_I_II uu ee (uuu eee a)) =>
- Wrapper from (U_I_II uuu eee a) =>
- Wrapper from (U_I_II uuu eee o) =>
+ (forall i . Wrapper from (U_I_II uuu eee i)) =>
+ (forall i . Wrapper u (U_I_II uu ee i)) =>
  Wrapper from (U_I_II uu ee (uuu eee o)) =>
  Wrapper from (U_I_II u e (uu ee (uuu eee o))) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
@@ -1083,9 +1066,8 @@ ho'ho'yoi :: forall from u uu uuu o e ee eee a .
  Covariant Endo Semi Functor from (U_II_I uuu eee) =>
  Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
  Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee (uuu o eee)))) =>
- Wrapper u (U_I_II uu ee (uuu o eee)) =>
- Wrapper u (U_I_II uu ee (uuu a eee)) =>
  (forall i . Wrapper from (U_II_I uuu eee i)) =>
+ (forall i . Wrapper u (U_I_II uu ee i)) =>
  Wrapper from (U_I_II uu ee (uuu eee o)) =>
  Wrapper from (U_I_II u e (uu ee (uuu o eee))) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
@@ -1100,10 +1082,8 @@ ho'ho'hu :: forall from u uu uuu o e ee eee a .
  Covariant Semi Functor from uuu (U_I_II uu ee) =>
  Covariant Endo Semi Functor from (U_I_II uuu eee) =>
  Constant Endo Semi Functor from (U_I_II uuu eee) =>
- Wrapper uuu (U_I_II uu ee (uuu eee a)) =>
- Wrapper uuu (U_I_II uu ee (uuu eee o)) =>
- Wrapper from (U_I_II uuu eee o) =>
- Wrapper from (U_I_II uuu eee a) =>
+ (forall i . Wrapper uuu (U_I_II uu ee i)) =>
+ (forall i . Wrapper from (U_I_II uuu eee i)) =>
  Wrapper (->) (from Unit o) =>
  u e (uu ee (uuu eee a)) -> Supertype (from Unit o) -> u e (uu ee (uuu eee o))
 ho'ho'hu = fai (fio @from `compose` fiu @from) `compose` ho @uuu
@@ -1116,8 +1096,7 @@ ho'hu :: forall from u uu o e ee a .
  Covariant Semi Functor from u (U_I_II uu ee) =>
  Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
  Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee o))) =>
- Wrapper u (U_I_II uu ee a) =>
- Wrapper u (U_I_II uu ee o) =>
+ (forall eee . Wrapper u (U_I_II uu ee eee)) =>
  Wrapper from (U_I_II uu ee o) =>
  Wrapper from (U_I_II u e (uu ee o)) =>
  Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
@@ -1528,8 +1507,7 @@ ha'ho :: forall from u uu o e ee a .
  Covariant Yoneda u (->) (U_I_II u e) =>
  Contravariant Yoneda u (->) (U_II_I u e) =>
  Covariant Semi Functor from u (U_I_II uu ee) =>
- Wrapper u (U_I_II uu ee a) =>
- Wrapper u (U_I_II uu ee o) =>
+ (forall eee . Wrapper u (U_I_II uu ee eee)) =>
  u (uu ee o) e -> from a o -> u (uu ee a) e
 ha'ho x = fai @(->) @(->) fio (ha @u x)
 
@@ -1575,8 +1553,9 @@ ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'
  Covariant Semi Functor u u (U_I_II uu ee) =>
  Constant Semi Functor u u (U_I_II uu ee) =>
  Contravariant Yoneda u (->) (U_II_I u e) =>
- Wrapper u (U_I_II uu ee a) =>
- Wrapper u (U_I_II uu ee o) =>
+ -- Wrapper u (U_I_II uu ee a) =>
+ -- Wrapper u (U_I_II uu ee o) =>
+ (forall eee . Wrapper u (U_I_II uu ee eee)) =>
  Wrapper (->) (u Unit o) =>
  u (uu ee o) e -> Supertype (u Unit o) -> u (uu ee a) e
 ha'hu x = fai @(->) @(->) (fiu @u) (ha @u x)
@@ -2026,18 +2005,18 @@ lo_______'ys'la = lo'ys'la
 
 -- into a o -> into a oo -> into a (Product o oo)
 
-cn :: forall into a aa o oo .
- Cone U_I_II into into Product =>
- Functor U_I_II into into (U_I_II Product o) =>
- Functor U_I_II into into (U_I_II Product aa) =>
- Functor U_I_II into into (U_II_I Product aa) =>
- Wrapper into (U_I_II Product o aa) =>
- Wrapper into (U_I_II Product o oo) =>
- Wrapper into (U_II_I Product aa o) =>
- Wrapper into (U_II_I Product aa a) =>
- (forall e . Wrapper into (U_II_I Product aa e)) =>
- into a o -> into aa oo -> into (Product a aa) (Product o oo)
-cn from__eft from_right = fio from_right `compose` foi from__eft
+-- cn :: forall into a aa o oo .
+ -- Cone U_I_II into into Product =>
+ -- Functor U_I_II into into (U_I_II Product o) =>
+ -- Functor U_I_II into into (U_I_II Product aa) =>
+ -- Functor U_I_II into into (U_II_I Product aa) =>
+ -- Wrapper into (U_I_II Product o aa) =>
+ -- Wrapper into (U_I_II Product o oo) =>
+ -- Wrapper into (U_II_I Product aa o) =>
+ -- Wrapper into (U_II_I Product aa a) =>
+ -- (forall e . Wrapper into (U_II_I Product aa e)) =>
+ -- into a o -> into aa oo -> into (Product a aa) (Product o oo)
+-- cn from__eft from_right = fio from_right `compose` foi from__eft
 
 -- into a o -> into a oo -> into a (Product into o oo)
 
@@ -2155,6 +2134,34 @@ la____ = la
 la_____ = la
 la______ = la
 la_______ = la
+
+-- lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
+-- lv
+ -- :: forall from i a aa aaa o .
+ -- Terminal from =>
+ -- Category from =>
+ -- Limit U_II_I from from =>
+ -- Covariant Endo Semi Functor from (U_I_II Sum o) =>
+ -- -- Covariant Endo Semi Functor from (U_II_I Sum i) =>
+ -- Objective from (aa `ML` aaa) a =>
+ -- -- (forall ee eee . Objective from (ee `ML` ee) a) =>
+ -- (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
+ -- (forall ee eee . Wrapper from (U_II_I Sum ee eee)) =>
+ -- (forall ee . Wrapper from (U_I_I Sum ee)) =>
+ -- (forall ee . Wrapper from (I ee)) =>
+ -- Supertype (from Unit o) -> Supertype (from Unit o) -> from a o
+-- lv l r = wrapped (map @U_II_I @U_II_I @from @from @I @(Both Sum) identity)
+ -- `compose` fui @from @from l
+ -- `compose` fiu @from @from r
+ -- `compose` objective @from @(aa `ML` aaa) @a
+
+-- lv_ = lv
+-- lv__ = lv
+-- lv___ = lv
+-- lv____ = lv
+-- lv_____ = lv
+-- lv______ = lv
+-- lv_______ = lv
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
@@ -2519,6 +2526,7 @@ yok'ho :: forall from t tt l a o e .
  Wrapper from (U_II_I from e (L l tt o)) =>
  Wrapper from (U_I_II from e (L l tt o)) =>
  (forall ee . Wrapper from (L l tt ee)) =>
+ (forall ee . Wrapper from (U_I_II from e ee)) =>
  Wrapper from (U_II_I from o a) =>
  Wrapper from (U_II_I from o e) =>
  Wrapper from (U_I_II from e a) =>
