@@ -199,9 +199,6 @@ pattern Straight x <- U_I_II x
 
 {-# COMPLETE Straight #-}
 
-pattern Out :: u e ee -> U_I_II u e ee
-pattern Out x = U_I_II x
-
 type Opposite = U_II_I
 
 pattern Opposite :: u e ee -> Opposite u ee e
@@ -410,6 +407,14 @@ instance Elicitable Opposite (->) (Arrow Unit ii)
 
 instance Elicitable Straight (->) (Arrow Unit ii)
  where elicit = U_I_II (\f -> f ())
+
+-- type instance Supertype (Arrow i Void) = Arrow i i
+
+-- instance Elicitable Opposite (->) (Arrow i Void)
+ -- where elicit = U_II_I (\ii -> (\_ -> ii))
+
+-- instance Elicitable Straight (->) (Arrow Unit ii)
+ -- where elicit = U_I_II (\f -> f ())
 
 unwrap :: Elicitable Straight into i => into i (Supertype i)
 unwrap = let U_I_II x = elicit in x
