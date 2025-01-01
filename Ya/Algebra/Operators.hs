@@ -186,6 +186,15 @@ infixl 3 `lu_____`, `lu_____'yp`, `lu_____'ys`
 infixl 2 `lu______`, `lu______'yp`, `lu______'ys`
 infixl 1 `lu_______`, `lu_______'yp`, `lu_______'ys`
 
+infixl 8 `lv`
+infixl 7 `lv_`
+infixl 6 `lv__`
+infixl 5 `lv___`
+infixl 4 `lv____`
+infixl 3 `lv_____`
+infixl 2 `lv______`
+infixl 1 `lv_______`
+
 infixl 8 `li`, `li'yu`, `li'yok` --, `li'yok'yokl`, `li'yokl`
 infixl 7 `li_`, `li_'yok`
 infixl 6 `li__`, `li__'yok`
@@ -2135,33 +2144,51 @@ la_____ = la
 la______ = la
 la_______ = la
 
--- lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
--- lv
- -- :: forall from i a aa aaa o .
- -- Terminal from =>
- -- Category from =>
- -- Limit U_II_I from from =>
- -- Covariant Endo Semi Functor from (U_I_II Sum o) =>
- -- -- Covariant Endo Semi Functor from (U_II_I Sum i) =>
- -- Objective from (aa `ML` aaa) a =>
- -- -- (forall ee eee . Objective from (ee `ML` ee) a) =>
- -- (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
- -- (forall ee eee . Wrapper from (U_II_I Sum ee eee)) =>
- -- (forall ee . Wrapper from (U_I_I Sum ee)) =>
- -- (forall ee . Wrapper from (I ee)) =>
- -- Supertype (from Unit o) -> Supertype (from Unit o) -> from a o
--- lv l r = wrapped (map @U_II_I @U_II_I @from @from @I @(Both Sum) identity)
- -- `compose` fui @from @from l
- -- `compose` fiu @from @from r
- -- `compose` objective @from @(aa `ML` aaa) @a
+lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
+ :: forall a aa aaa o .
+ Covariant Endo Semi Functor (->) (U_I_II Sum aa) =>
+ Covariant Endo Semi Functor (->) (U_II_I Sum o) =>
+ Objective (->) (aa `ML` aaa) a =>
+ (forall ee eee . Wrapper (->) (U_I_II Sum ee eee)) =>
+ (forall ee eee . Wrapper (->) (U_II_I Sum ee eee)) =>
+ (forall ee . Wrapper (->) (U_I_I Sum ee)) =>
+ (forall ee . Wrapper (->) (I ee)) =>
+ Wrapper (->) ((->) Unit o) =>
+ (Supertype ((->) Unit o) ~ o) =>
+ o -> o -> a -> o
+lv l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
 
--- lv_ = lv
--- lv__ = lv
--- lv___ = lv
--- lv____ = lv
--- lv_____ = lv
--- lv______ = lv
--- lv_______ = lv
+lv_ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv__ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv___ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv____ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv_____ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
+lv_______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
+ `compose` fui @(->) @(->) l
+ `compose` fiu @(->) @(->) r
+ `compose` objective @(->) @(aa `ML` aaa) @a
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `ML` oo) i
