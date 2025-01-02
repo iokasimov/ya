@@ -27,7 +27,7 @@ type Apparently = I
 
 pattern Apparently e = Identity e
 
-type Boolean = Straight ML () ()
+type Boolean = U_I_II ML () ()
 
 pattern Boolean e = U_I_II e
 

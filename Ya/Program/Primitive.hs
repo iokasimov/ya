@@ -18,12 +18,12 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 adjust ::
- Elicitable Straight Arrow (Attribute origin target) =>
+ Elicitable U_I_II Arrow (Attribute origin target) =>
  Attribute origin target -> (target -> target) -> (origin -> origin)
 adjust attr f s = let (These h x) = attr `he'hv` s in x `li`f h
 
 -- TODO: should be moved later
--- instance Mapping Straight Straight Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
+-- instance Mapping U_I_II U_I_II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
   -- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
   -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
@@ -35,7 +35,7 @@ switch :: ee -> Automation e e ee
 switch new old = old `lu` new
 
 leaf :: forall t e .
- Monoidal Straight Functor (->) LM ML t =>
+ Monoidal U_I_II Functor (->) LM ML t =>
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
@@ -56,47 +56,47 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall e t . Monoidal Straight Functor (->) LM LM t => e -> t e
+intro :: forall e t . Monoidal U_I_II Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x
 
 layer :: forall g f e .
  Component Natural (->) (->) f (f `JNT` g) =>
  f e -> (f `JNT` g) e
-layer = component @Straight @(->) @(->) @f @(f `JNT` g) @e
+layer = component @U_I_II @(->) @(->) @f @(f `JNT` g) @e
 
 embed :: forall f g e .
  Component Natural (->) (->) g (f `JNT` g) =>
  g e -> (f `JNT` g) e
-embed = component @Straight @(->) @(->) @g @(f `JNT` g) @e
+embed = component @U_I_II @(->) @(->) @g @(f `JNT` g) @e
 
 joint :: forall f g e .
  Component Natural (->) (->) (f `T'TT'I` g) (f `JNT` g) =>
- Elicitable Opposite (->) ((f `T'TT'I` g) e) =>
+ Elicitable U_II_I (->) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
-joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @Straight @(->) @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
+joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @U_I_II @(->) @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 -- Define a special `Mapping` instance instead and use `Try` label constructor for it
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component Natural (->) (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
- Elicitable Opposite (->) ((t `T'TT'I` Progress e) e) =>
+ Elicitable U_II_I (->) ((t `T'TT'I` Progress e) e) =>
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
-try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @Straight @(->) @(->)
+try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @U_I_II @(->) @(->)
 
 frame ::
- Elicitable Opposite (->) e =>
+ Elicitable U_II_I (->) e =>
  Supertype e -> e
 frame = wrap
 
 prompt ::
- Elicitable Opposite (->) e =>
+ Elicitable U_II_I (->) e =>
  Supertype e -> e
 prompt = wrap
 
 to :: forall tt t e .
- Component Straight (->) (->) t tt =>
+ Component U_I_II (->) (->) t tt =>
  t e -> tt e
-to = component @Straight @Arrow
+to = component @U_I_II @Arrow
 
 same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `ML`  e
 same = q

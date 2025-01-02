@@ -122,14 +122,14 @@ type family Scrolled datastructure where
  Scrolled (Construction (U_I_I LM `T'TT'I` Optional)) = Optional
  Scrolled (Construction List) = Optional
 
-instance Mapping Straight Straight Arrow Arrow
+instance Mapping U_I_II U_I_II Arrow Arrow
  (Construction Optional)
  (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from (Root x xs) ->
   U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (Labeled (Empty @List ()) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance
- Mapping Straight Straight Arrow Arrow
+ Mapping U_I_II U_I_II Arrow Arrow
   (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
   (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
@@ -154,12 +154,12 @@ instance Mapping U_I_II U_I_II AR AR
     `yi__` U_T_I_TT_I `ho` T'TT'I
     `yo__` from
 
-instance Mapping Straight Straight Arrow Arrow (Construction List)
+instance Mapping U_I_II U_I_II Arrow Arrow (Construction List)
  ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
   mapping = rewrap / \from x -> U_T_I_TT_I
    (T'TT'I (U_T_I_TT_I ((Only `hv__` x `yo` from) `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu`Forward `hv` Empty @List Unit))) `lu` T'TT'I (Reverse `hv` Empty @List Unit))
 
--- instance Mapping Straight Straight Arrow Arrow
+-- instance Mapping U_I_II U_I_II Arrow Arrow
  -- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List `LM'T'I'TT'I` (Reverse List `T'TT'I` (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
  -- ((Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
  -- mapping = rewrap / \from (U_T_I_TT_I (These sl xs)) ->
@@ -242,7 +242,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
 -- TODO: instance Scrollable (Construction (U_I_I LM `T'TT'I` Optional)) item where
 
 -- TODO: think about alternative implementations
-instance Mapping Straight Straight (->) (->) (List `T'TT'I` Cascading List) List where
+instance Mapping U_I_II U_I_II (->) (->) (List `T'TT'I` Cascading List) List where
  mapping = rewrap / \from -> \case
   T'TT'I (T'TT'I (U_I_II (This ())))
    -> T'TT'I (U_I_II (This ()))
@@ -251,13 +251,13 @@ instance Mapping Straight Straight (->) (->) (List `T'TT'I` Cascading List) List
   T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T'TT'I (U_I_II (That
    (R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
    -> T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
-     (fo @Arrow unwrap `compose` unwrap @Arrow / map @Straight @Straight @(->) @(->) @(List `T'TT'I` Cascading List) @List from
+     (fo @Arrow unwrap `compose` unwrap @Arrow / map @U_I_II @U_I_II @(->) @(->) @(List `T'TT'I` Cascading List) @List from
       (T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T'TT'I / xx `yo` R_U_I_T_I) xxx))))))))
      )
     ))))))
 
 -- TODO: Add a label
--- instance Mapping Straight Straight (->) (->) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
+-- instance Mapping U_I_II U_I_II (->) (->) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  -- mapping = rewrap / \from -> \case
   -- R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (This ()))))) ->
    -- T'TT'I `ha` R_U_I_T_I
@@ -265,7 +265,7 @@ instance Mapping Straight Straight (->) (->) (List `T'TT'I` Cascading List) List
   -- R_U_I_T_I (Recursive (U_I_T_II (These e (U_I_II (That es))))) ->
    -- T'TT'I `ha` R_U_I_T_I
     -- `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
-    -- `li` Last (map @Straight @Straight @(->) @(->) from (R_U_I_T_I es))
+    -- `li` Last (map @U_I_II @U_I_II @(->) @(->) from (R_U_I_T_I es))
 
 class Literal datastructure item literal
  where as :: literal -> datastructure item

@@ -9,7 +9,7 @@ pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
 
-type Cascading = L (Straight LM () ())
+type Cascading = L (U_I_II LM () ())
 
 pattern Cascading :: t e -> Cascading t e
 pattern Cascading e = Labeled e
