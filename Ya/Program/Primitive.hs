@@ -39,7 +39,7 @@ leaf :: forall t e .
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
-self :: Reference LM e e e
+self :: forall e . Reference LM e e e
 self x = x `lu` identity
 
 top :: forall tt t e .
@@ -97,6 +97,9 @@ to :: forall tt t e .
  Component U_I_II (->) (->) t tt =>
  t e -> tt e
 to = component @U_I_II @Arrow
+
+it :: Unit `AR` a `AR_` a
+it = unwrap
 
 same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `ML`  e
 same = q
