@@ -9,11 +9,13 @@ infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'ho'yoi`, `ho'yio'yoi`, `ho'y
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
+ , `ho'he'he'hv`
  , `ho'he'he'he'he`
 infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
+ , `ho_'he'he'hv`
  , `ho_'he'he'he'he`
  , `ho_'yo`
  , `ho_'yoi`
@@ -21,6 +23,7 @@ infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yu`, `ho__'yok`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
+ , `ho__'he'he'hv`
  , `ho__'he'he'he'he`
  , `ho__'yo`
  , `ho__'yoi`
@@ -28,6 +31,7 @@ infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yu`, `ho__
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
+ , `ho___'he'he'hv`
  , `ho___'he'he'he'he`
  , `ho___'yo`
  , `ho___'yoi`
@@ -35,6 +39,7 @@ infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yu`, 
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
+ , `ho____'he'he'hv`
  , `ho____'he'he'he'he`
  , `ho____'yo`
  , `ho____'yoi`
@@ -42,6 +47,7 @@ infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
+ , `ho_____'he'he'hv`
  , `ho_____'he'he'he'he`
  , `ho_____'yo`
  , `ho_____'yoi`
@@ -52,6 +58,7 @@ infixl 2 `ho_______`, `ho_______'ha`, `ho_______'ha'he`, `ho_______'ha'he'he`, `
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
+ , `ho_______'he'he'hv`
  , `ho_______'he'he'he'he`
  , `ho_______'yo`
  , `ho_______'yoi`
@@ -59,6 +66,7 @@ infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
+ , `ho________'he'he'hv`
  , `ho________'he'he'he'he`
  , `ho________'yo`
  , `ho________'yoi`
@@ -977,6 +985,32 @@ ho_____'he'he = ho'he'he
 ho______'he'he = ho'he'he
 ho_______'he'he = ho'he'he
 ho________'he'he = ho'he'he
+
+ho'he'he'hv, ho_'he'he'hv, ho__'he'he'hv, ho___'he'he'hv, ho____'he'he'hv, ho_____'he'he'hv, ho______'he'he'hv, ho_______'he'he'hv, ho________'he'he'hv
+ :: forall u e i a o .
+ Covariant Yoneda (->) (->) I =>
+ Covariant Yoneda (->) (->) (U_I_II u i) =>
+ Contravariant Semi Functor (->) (->) (U_II_I (->) o) =>
+ Covariant Semi Functor (->) (->) (U_I_II (->) o) =>
+ Wrapper (->) a =>
+ Wrapper (->) (Supertype a) =>
+ Wrapper (->) (U_I_II u i o) =>
+ Wrapper (->) (U_I_II (->) a o) =>
+ Wrapper (->) (U_II_I (->) o a) =>
+ Wrapper (->) (U_II_I (->) o (Supertype a)) =>
+ Wrapper (->) (U_II_I (->) o (Supertype (Supertype a))) =>
+ (Supertype (Supertype a) ~ (->) e o) =>
+ u i a -> e -> (u i o)
+ho'he'he'hv = fai @(->) (fai @(->) (he `compose` he) `compose` yi) `compose` yio @(->) @(->) @u
+
+ho_'he'he'hv = ho'he'he'hv
+ho__'he'he'hv = ho'he'he'hv
+ho___'he'he'hv = ho'he'he'hv
+ho____'he'he'hv = ho'he'he'hv
+ho_____'he'he'hv = ho'he'he'hv
+ho______'he'he'hv = ho'he'he'hv
+ho_______'he'he'hv = ho'he'he'hv
+ho________'he'he'hv = ho'he'he'hv
 
 ho'he'he'he, ho_'he'he'he, ho__'he'he'he, ho___'he'he'he, ho____'he'he'he, ho_____'he'he'he, ho______'he'he'he, ho_______'he'he'he, ho________'he'he'he
  :: forall from into u i a o .
