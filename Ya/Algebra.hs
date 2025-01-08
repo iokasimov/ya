@@ -651,6 +651,31 @@ instance (Setoid AR e, Setoid AR ee) => Setoid AR (e `LM` ee) where
   These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))
 
 instance
+ ( Setoid AR (u e ee)
+ ) => Setoid AR (U_I_II u e ee) where
+ equality (These x xx) = equality (unwrap x `lu` unwrap xx)
+  `yoi` (`yio` U_I_II) `ho` (`yoi` U_I_II) `yio` U_I_II
+
+instance
+ ( Setoid AR e
+ , Setoid AR (t (Recursive (U_I_T_II t LM e)))
+ ) => Setoid AR (U_I_T_II t LM e (Recursive (U_I_T_II t LM e))) where
+ equality (These x xx) = equality (unwrap x `lu` unwrap xx)
+  `yoi` (`yio` U_I_T_II) `ho` (`yoi` U_I_T_II) `yio` U_I_T_II
+
+instance
+ ( Setoid AR e
+ , Setoid AR (t (Recursive (U_I_T_II t LM e)))
+ ) => Setoid AR (Recursive (U_I_T_II t LM e)) where
+ equality (These x xx) = equality (unwrap x `lu` unwrap xx)
+  `yoi` (`yio` Recursive) `ho` (`yoi` Recursive) `yio` Recursive
+
+instance Setoid AR (Recursive (U_I_T_II t LM e))
+ => Setoid AR (R_U_I_T_I LM t e) where
+ equality (These x xx) = equality (unwrap x `lu` unwrap xx)
+  `yoi` (`yio` R_U_I_T_I) `ho` (`yoi` R_U_I_T_I) `yio` R_U_I_T_I
+
+instance
  ( Monoidal U_I_II Functor AR LM LM t
  , Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) t
  ) => Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (L l t) where
