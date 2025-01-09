@@ -265,6 +265,13 @@ infixl 3 `yokl___`
 infixl 2 `yokl____`
 infixl 1 `yokl_____`
 
+infixl 6 `yukl`
+infixl 5 `yukl_`
+infixl 4 `yukl__`
+infixl 3 `yukl___`
+infixl 2 `yukl____`
+infixl 1 `yukl_____`
+
 infixl 8 `ya`
 
 infixl 8 `yu`
@@ -740,7 +747,7 @@ kyo :: forall from into t tt ll a o .
  Precategory into =>
  Component Natural into (->) t (t `T'TT'I` ll `L` tt) =>
  Covariant Yoneda from into t =>
- Wrapper into (U_I_II from (L ll tt a) o) =>
+ (forall i ii . Wrapper into (U_I_II from (L ll tt i) ii)) =>
  t a -> into (from (L ll tt a) o) (t o)
 kyo x = yoneda @U_I_II (unwrap (component @U_I_II @into @(->) @t @(t `T'TT'I` ll `L` tt) x)) `compose` wrap
 
@@ -765,6 +772,27 @@ yokl____ = yokl
 yokl_____ = yokl
 
 li'yokl = yokl
+
+yukl, yukl_, yukl__, yukl___, yukl____, yukl_____
+ :: forall into t tt l ll a o .
+ Component Natural into into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
+ Component Natural into into I (U_I_II into a) =>
+ Covariant Yoneda into into t =>
+ (forall i . Wrapper into ((t `T'TT'I` L l (L ll tt)) i)) =>
+ (forall i . Wrapper into ((t `TT'T'I` tt) i)) =>
+ (forall i ii . Wrapper into (U_I_II into i (L l (L ll tt) ii))) =>
+ (forall i ii . Wrapper into (U_I_II into ((L ll tt) i) ii)) =>
+ (forall i ii . Wrapper into (U_II_I into (L l (L ll tt) i) ii)) =>
+ (forall e . Wrapper into (I (L l (L ll tt) e))) =>
+ -- (forall e . Wrapper into ((L ll tt e))) =>
+ t a -> into (L l (L ll tt) o) (tt (t o))
+yukl x = yokl @into @into x `compose` constant
+
+yukl_ = yukl
+yukl__ = yukl
+yukl___ = yukl
+yukl____ = yukl
+yukl_____ = yukl
 
 yiok :: forall from into tt t i a o .
  Component Natural from into (T'TT'I (U_I_II t i) tt) (U_I_II t i) =>
