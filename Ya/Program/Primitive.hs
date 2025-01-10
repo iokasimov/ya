@@ -56,7 +56,7 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall e t . Monoidal U_I_II Functor (->) LM LM t => e -> t e
+intro :: forall t e . Monoidal U_I_II Functor (->) LM LM t => e -> t e
 intro x = enter `yu` x
 
 layer :: forall g f e .
@@ -82,11 +82,6 @@ try :: forall t e o .
  Elicitable U_II_I (->) ((t `T'TT'I` Progress e) e) =>
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @U_I_II @(->) @(->)
-
-frame ::
- Elicitable U_II_I (->) e =>
- Supertype e -> e
-frame = wrap
 
 prompt ::
  Elicitable U_II_I (->) e =>
