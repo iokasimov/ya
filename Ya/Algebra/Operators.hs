@@ -5,13 +5,13 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'ho'yoi`, `ho'yio'yoi`, `ho'yio'yui`, `ho'ho'yui`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yoi`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`
+infixl 9 `ho`, `ho'ho`, `ho'ho'ho`, `ho'ho'hu`, `ho'ho'yoi`, `ho'yio'yoi`, `ho'yio'yui`, `ho'ho'yui`, `ho'hu`, `ho'ha`, `ho'ha'he`, `ho'ha'he'he`, `ho'yo`, `ho'yioi`, `ho'yu`, `ho'yoi`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yukl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
  , `ho'he'he'hv`
  , `ho'he'he'he'he`
-infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`
+infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
@@ -19,7 +19,7 @@ infixl 8 `ho_`, `ho_'ho`, `ho_'ha`, `ho_'ha'he`, `ho_'ha'he'he`, `ho_'yu`, `ho_'
  , `ho_'he'he'he'he`
  , `ho_'yo`
  , `ho_'yoi`
-infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`
+infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
@@ -27,7 +27,7 @@ infixl 7 `ho__`, `ho__'ha`, `ho__'ha'he`, `ho__'ha'he'he`, `ho__'yu`, `ho__'yok`
  , `ho__'he'he'he'he`
  , `ho__'yo`
  , `ho__'yoi`
-infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`
+infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
@@ -35,7 +35,7 @@ infixl 6 `ho___`, `ho___'ha`, `ho___'ha'he`, `ho___'ha'he'he`, `ho___'yu`, `ho__
  , `ho___'he'he'he'he`
  , `ho___'yo`
  , `ho___'yoi`
-infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`
+infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
@@ -43,7 +43,7 @@ infixl 5 `ho____`, `ho____'ha`, `ho____'ha'he`, `ho____'ha'he'he`, `ho____'yu`, 
  , `ho____'he'he'he'he`
  , `ho____'yo`
  , `ho____'yoi`
-infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`
+infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl`
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
@@ -51,10 +51,10 @@ infixl 4 `ho_____`, `ho_____'ha`, `ho_____'ha'he`, `ho_____'ha'he'he`, `ho_____'
  , `ho_____'he'he'he'he`
  , `ho_____'yo`
  , `ho_____'yoi`
-infixl 3 `ho______`, `ho______'he`, `ho______'he'he`, `ho______'he'he'he`, `ho______'ha`, `ho______'ha'he`, `ho______'ha'he'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`
+infixl 3 `ho______`, `ho______'he`, `ho______'he'he`, `ho______'he'he'he`, `ho______'ha`, `ho______'ha'he`, `ho______'ha'he'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yukl`
  , `ho______'yo`
  , `ho______'yoi`
-infixl 2 `ho_______`, `ho_______'ha`, `ho_______'ha'he`, `ho_______'ha'he'he`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`
+infixl 2 `ho_______`, `ho_______'ha`, `ho_______'ha'he`, `ho_______'ha'he'he`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yukl`
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
@@ -62,7 +62,7 @@ infixl 2 `ho_______`, `ho_______'ha`, `ho_______'ha'he`, `ho_______'ha'he'he`, `
  , `ho_______'he'he'he'he`
  , `ho_______'yo`
  , `ho_______'yoi`
-infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he`, `ho________'yok`-- , `ho________'yuk`
+infixl 1 `ho________`, `ho________'ha`, `ho________'ha'he`, `ho________'ha'he'he`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
@@ -288,7 +288,7 @@ infixl 7 `yai`, `yai'yai`, `yai'yukl`
 
 infixl 7 `yui` --, `yui'he`
 
-infixl 7 `yio`, `yio'yo`, `yio'yp`, `yio'yio'yoi`, `yio'yio'yui`
+infixl 7 `yio`, `yio'yo`, `yio'yukl`, `yio'yp`, `yio'yio'yoi`, `yio'yio'yui`
 
 infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
@@ -2770,6 +2770,32 @@ ho_____'yokl = ho'yokl
 ho______'yokl = ho'yokl
 ho_______'yokl = ho'yokl
 ho________'yokl = ho'yokl
+
+yio'yukl, ho'yukl, ho_'yukl, ho__'yukl, ho___'yukl, ho____'yukl, ho_____'yukl, ho______'yukl, ho_______'yukl, ho________'yukl
+ :: forall u t tt l ll a o e .
+ Covariant Semi Functor (->) (->) (U_I_II u e) =>
+ Covariant Endo Semi Functor (->) tt =>
+ Covariant Endo Semi Functor (->) t =>
+ Mapping U_I_II U_I_II (->) (->) (t `T'TT'I` L l (L ll tt)) (t `TT'T'I` tt) =>
+ Component Natural (->) (->) I (U_I_II (->) a) =>
+ Covariant Yoneda (->) (->) (U_I_II u e) =>
+ (forall ee . Wrapper (->) ((t `T'TT'I` L l (L ll tt)) ee)) =>
+ (forall ee . Wrapper (->) ((t `T'TT'I` tt) ee)) =>
+ (forall ee . Wrapper (->) ((t `TT'T'I` tt) ee)) =>
+ (forall ee . Wrapper (->) (L l (L ll tt) ee)) =>
+ (forall ee . Wrapper (->) (L ll tt ee)) =>
+ u e (t a) -> L l (L ll tt) o -> u e (tt (t o))
+yio'yukl x = fai fukl (ho @(->) x)
+
+ho'yukl = yio'yukl
+ho_'yukl = yio'yukl
+ho__'yukl = yio'yukl
+ho___'yukl = yio'yukl
+ho____'yukl = yio'yukl
+ho_____'yukl = yio'yukl
+ho______'yukl = yio'yukl
+ho_______'yukl = yio'yukl
+ho________'yukl = yio'yukl
 
 -- ha'yuk :: forall from t tt a o e .
 --  Covariant Functor (->) (->) tt =>
