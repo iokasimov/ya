@@ -252,7 +252,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
  slide way x = is
   `li` is `hu` (None () `lu` x)
   `la` is `ho'he` foi @_ @Arrow Some
-  `li` slide_future `he'he'hv` x where
+  `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
   slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv___` Event `hv` pop
@@ -336,8 +336,20 @@ instance Mapping U_I_II U_I_II AR AR
  (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
  (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from -> rewrap / \x -> x
-  `yoi`unwrap @AR `ho` (\i -> List `ha` Item (from i) `ha` Maybe `hv` Last)
+  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Maybe `hv` Last)
   `yio'yo` from
+
+instance Mapping U_I_II U_I_II (->) (->)
+ ((t `LM'T'I'TT'I` (Reverse tt `LM'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
+ ((t `LM'T'I'TT'I` (Reverse tt `LM'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
+ where
+  -- mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
+   -- (wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L l (L ll tttt)) @(t `TT'T'I` tttt) from) w :: _)
+
+-- TODO: we are going to apply the same function to all items in a list but it's actually fine
+instance Mapping U_I_II U_I_II (->) (->)
+ (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
+ ((List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Unit `L` (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
 
 -- TODO: instance Scrollable (Construction (U_I_I LM `T'TT'I` Optional)) item where
 
@@ -366,6 +378,8 @@ instance Mapping U_I_II U_I_II (->) (->) (List `T'TT'I` Cascading List) List whe
    -- T'TT'I `ha` R_U_I_T_I
     -- `ha` Next (R_U_I_T_I (Recursive (U_I_T_II (These (from e) (U_I_II (That / unwrap (R_U_I_T_I es `yo` from)))))))
     -- `li` Last (map @U_I_II @U_I_II @(->) @(->) from (R_U_I_T_I es))
+
+-- Define `Rewindable` typeclass, there should be instances for `Scrolling List`/`Sliding List`
 
 class Literal datastructure item literal
  where as :: literal -> datastructure item
