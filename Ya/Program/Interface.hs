@@ -327,9 +327,9 @@ instance Mapping U_I_II U_I_II AR AR (List `LM'T'I'TT'I` (Reverse List `LM'T'I'T
  mapping = rewrap / \from (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
   that `ho'yo` from
   `hv_____` enter @(State `WR` List _)
-    `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
-    `yuk__` New (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
     `yuk__` New (f `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
+    `yuk__` New (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
+    `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
   `he'he'hv____` Empty @List Unit
 
 instance Mapping U_I_II U_I_II AR AR
