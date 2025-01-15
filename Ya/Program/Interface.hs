@@ -317,11 +317,11 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
 
   window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Maybe `hv` Last) `yui` r
 
--- NOTE: initial sliding window is empty
-instance Mapping U_I_II U_I_II AR AR
- (Construction Optional)
- (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
+instance Mapping U_I_II U_I_II AR AR (Construction Optional) (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `ha` List `hv` unwrap x)) `yo` from
+
+instance Mapping U_I_II U_I_II AR AR List (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
+ mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `hv` x)) `yo` from
 
 instance Mapping U_I_II U_I_II AR AR (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) List where
  mapping = rewrap / \from (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
