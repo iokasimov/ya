@@ -199,8 +199,9 @@ instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM)
 -- TODO: I should alse test how attributes behave on sums
 
 -- This instance for normal state propagation. How unnormal should look like?
-instance Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L () `WR` U_I_II (U_I_UU_II_I AR LM) e)
+instance (e ~ ee) =>
+ Mapping U_I_II U_I_II AR AR
+ (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L () `WR` U_I_II (U_I_UU_II_I AR LM) ee)
  (U_I_II (U_I_UU_II_I AR LM) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
