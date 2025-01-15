@@ -238,13 +238,13 @@ infixl 3 `yo_____`
 infixl 2 `yo______`
 infixl 1 `yo_______`
 
-infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl`
-infixl 6 `yok_`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`
-infixl 5 `yok__`, `yok__'he`,  `yok__'he'he`, `yok__'yokl`
-infixl 4 `yok___`, `yok___'he`,  `yok___'he'he`, `yok___'yokl`
-infixl 3 `yok____`, `yok____'he`,  `yok____'he'he`, `yok____'yokl`
-infixl 2 `yok_____`, `yok_____'he`,  `yok_____'he'he`, `yok_____'yokl`
-infixl 1 `yok______`, `yok______'he`,  `yok______'he'he`, `yok______'yokl`
+infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl`, `yok'yukl`
+infixl 6 `yok_`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`, `yok_'yukl`
+infixl 5 `yok__`, `yok__'he`,  `yok__'he'he`, `yok__'yokl`, `yok__'yukl`
+infixl 4 `yok___`, `yok___'he`,  `yok___'he'he`, `yok___'yokl`, `yok___'yukl`
+infixl 3 `yok____`, `yok____'he`,  `yok____'he'he`, `yok____'yokl`, `yok____'yukl`
+infixl 2 `yok_____`, `yok_____'he`,  `yok_____'he'he`, `yok_____'yokl`, `yok_____'yukl`
+infixl 1 `yok______`, `yok______'he`,  `yok______'he'he`, `yok______'yokl`, `yok______'yukl`
 
 infixl 7 `kyo`
 
@@ -846,6 +846,40 @@ yok_____'yokl = yok'yokl
 yok______'yokl = yok'yokl
 
 li'yok'yokl = yok'yokl
+
+yok'yukl, yok_'yukl, yok__'yukl, yok___'yukl, yok____'yukl, yok_____'yukl, yok______'yukl
+ :: forall into t tt ttt l ll a o .
+ Covariant Yoneda (->) into t =>
+ Covariant Endo Semi Functor into t =>
+ Covariant Endo Semi Functor (->) tt =>
+ Covariant Endo Semi Functor (->) ttt =>
+ Covariant Semi Functor (->) into (U_I_II (->) a) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into (t (ttt o))) =>
+ Component Natural into into (t `T'TT'I` l `L` tt) t =>
+ Component Natural (->) (->) (ttt `T'TT'I` l `L` ll `L` tt) (ttt `TT'T'I` tt) =>
+ Wrapper into (U_I_II (->) (ttt a) (L l tt (ttt o))) =>
+ Wrapper into (U_I_II (->) a (L ll (L l tt) o)) =>
+ Wrapper into (U_I_II (->) a (L l tt o)) =>
+ (forall e . Wrapper (->) ((ttt `T'TT'I` L l (L ll tt)) e)) =>
+ (forall e . Wrapper into (L l tt e)) =>
+ (forall e . Wrapper (->) (L l tt e)) =>
+ (forall e . Wrapper into (L l (L ll tt) e)) =>
+ (forall e . Wrapper into (L ll tt e)) =>
+ (forall e . Wrapper (->) (L l (L ll tt) e)) =>
+ (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
+ (forall e . Wrapper into (T'TT'I t (L l (L ll tt)) e)) =>
+ (forall e . Wrapper (->) (T'TT'I ttt (L ll tt) e)) =>
+ (forall e . Wrapper (->) (TT'T'I ttt tt e)) =>
+ (forall e . Wrapper (->) (TT'T'I ttt (L l (L ll tt)) e)) =>
+ t (ttt a) -> into (L l (L ll tt) o) (t (ttt o))
+yok'yukl x = fai (fio (wrap @(->) @(L l tt _)) `compose` fukl @(->) @ttt @tt @l @ll) (yok @(->) @into @t @tt @l x)
+
+yok_'yukl = yok'yukl
+yok__'yukl = yok'yukl
+yok___'yukl = yok'yukl
+yok____'yukl = yok'yukl
+yok_____'yukl = yok'yukl
+yok______'yukl = yok'yukl
 
 yokl'yokl :: forall from into t tt ttt l ll lll a o .
  Covariant Yoneda from into t =>
