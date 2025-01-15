@@ -174,13 +174,13 @@ class Scrollable datastructure item where
  scroll :: Scroller datastructure
   `AR_` Automation
    `WR` Scrolling datastructure item
-   `WR` Scrolled datastructure item
+   `WR` Supertype (Scrolled datastructure item)
    `WR` Scrolling datastructure item
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) item where
  scroll way x = is
-  `li` is `hu` (None () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow Some
+  `li` is `hu` (This () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow That
   `li` flow `he'he'hv` x where
 
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
@@ -197,8 +197,8 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
 
 instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
  scroll way x = is
-  `li` is `hu` (None () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow Some
+  `li` is `hu` (This () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow That
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
   horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
@@ -206,7 +206,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
    `yuk__` New `ha` State `hv__` Transition `hv` scroll way
    `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
-   `yok__` Try `ha___` is @(Optional _) `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
+   `yok__` Try `ha___` Maybe `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
 
   -- TODO: refactor, it's hard to catch an error here
   vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
@@ -245,13 +245,13 @@ type family Sliding datastructure = result | result -> datastructure where
 
 class Scrollable datastructure item
  => Slidable datastructure item where
- slide :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Scrolled datastructure item `WR` Sliding datastructure item
- extend :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Scrolled datastructure item `WR` Sliding datastructure item
+ slide :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
+ extend :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
 
 instance Slidable (Optional `T'TT'I` Construction Optional) item where
  slide way x = is
-  `li` is `hu` (None () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow Some
+  `li` is `hu` (This () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow That
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
   slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
@@ -293,8 +293,8 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
     `yi__` that `ho` pop @List
 
  extend way x = is
-  `li` is `hu` (None () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow Some
+  `li` is `hu` (This () `lu` x)
+  `la` is `ho'he` foi @_ @Arrow That
   `li` (extend_passed `lv` extend_future `li` way) `he'he'hv` x where
 
   extend_passed = enter @(State `WR` Sliding List item `JNT` Halts)
