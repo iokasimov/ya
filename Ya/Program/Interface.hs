@@ -12,7 +12,7 @@ class Field e r where
  at :: Reference LM r e e
 
 instance Field e e where
- at = self
+ at = it
 
 instance Field e (ee `LM` e) where
  at (These x xx) = xx `lu` (x `lu`)
@@ -186,12 +186,12 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   flow = enter @(State `WR` Scrolling List item `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way
    `yok__` Try `ha` Maybe
-   -- `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
-   `yok__` New `ha` State `ha__` Transition `ha` switch `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope self
+   -- `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope it
+   `yok__` New `ha` State `ha__` Transition `ha` switch `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope it
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List item) at `he'ho'he` path (not way)
 
-  path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope self
-   `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope self
+  path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope it
+   `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope it
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
@@ -213,7 +213,7 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
   vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yuk____` New `ha` State `hv____` Transition `hv` auto
    `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
-   `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) self)
+   `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) it)
         `lo` Scope @(Shafted List `T'I` Tree item) at)
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
@@ -261,11 +261,11 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha__` Event `ha` push
    `ho_'ha'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
    `yuk____` New `ha` State `hv____` Event `hv` pop
    `ha___'he` Scope `hv` at @(Shafted List item)
       `ho'he` Scope @(Forward List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
    `yok____` Try `ha` Maybe
    `yok____` New `ha` State `ha____` Event `ha` window_future
    `ho_'ha'he` Scope `hv` at @(List item)
@@ -274,7 +274,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yuk____` New `ha` State `hv____` Event `hv` pop
    `ha___'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
    `yok____` Try `ha` Maybe
    `yok____` New `ha` State `ha__` Event `ha` window_extract_last
    `ho_'ha'he` Scope `hv` at @(List item)
@@ -282,7 +282,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha__` Event `ha` push
    `ho_'ha'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Forward List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
 
   window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Maybe `hv` Last) `yui` r
 
@@ -301,7 +301,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yuk____` New `ha` State `hv____` Event `hv` pop @List
    `ha___'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
    `yok____` Try `ha` Maybe
    `yok____` New `ha` State `ha__` Event `ha` push
    `ho_'ha'he` Scope `hv` at @(List item)
@@ -310,7 +310,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yuk____` New `ha` State `hv____` Event `hv` pop
    `ha___'he` Scope `hv` at @(Shafted List item)
       `ho'he` Scope @(Forward List item) at
-      `ho'he` Scope self
+      `ho'he` Scope it
    `yok____` Try `ha` Maybe
    `yok____` New `ha` State `ha____` Event `ha` window_future
    `ho_'ha'he` Scope `hv` at @(List item)

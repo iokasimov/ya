@@ -39,8 +39,8 @@ leaf :: forall t e .
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
-self :: forall e . Reference LM e e e
-self x = x `lu` identity
+it :: forall e . Reference LM e e e
+it x = x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
