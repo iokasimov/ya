@@ -289,7 +289,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
   window_extract_last passed window =
    push @List passed window `yi` that
     `yokl` Forth `ha` New `ha` State `ha` Event `ha` push
-    `he'he'hv___` it `hv` Empty @List
+    `he'he'hv___` by `hv` Empty @List
     `yi__` that `ho` pop @List
 
  extend way x = is

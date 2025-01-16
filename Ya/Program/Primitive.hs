@@ -93,8 +93,8 @@ to :: forall tt t e .
  t e -> tt e
 to = component @U_I_II @Arrow
 
-it :: Unit `AR` a `AR_` a
-it = unwrap
+by :: Unit `AR` a `AR_` a
+by = unwrap
 
 same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `ML`  e
 same = q
