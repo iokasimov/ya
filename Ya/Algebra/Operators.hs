@@ -142,6 +142,14 @@ infixl 2 `hu_______`, `hu_______'he`, `he'hu_______`
 infixl 1 `hu________`, `hu________'he`, `he'hu________`
 
 infixl 9 `hd`, `hd'q`
+infixl 8 `hd_`, `hd_'q`
+infixl 7 `hd__`, `hd__'q`
+infixl 6 `hd___`, `hd___'q`
+infixl 5 `hd____`, `hd____'q`
+infixl 4 `hd_____`, `hd_____'q`
+infixl 3 `hd______`, `hd______'q`
+infixl 2 `hd_______`, `hd_______'q`
+infixl 1 `hd________`, `hd________'q`
 
 infixl 9 `hj`, `hj'hj`
 infixl 8 `hj_`
@@ -1913,7 +1921,8 @@ fj from = fo from
  -- `compose` component @U_I_II @from @into @I @(U_I_II tt ee `T'TT'I` U_I_II t e)
  -- `compose` wrap @into
 
-hd :: forall from into t tt e a o .
+hd, hd_, hd__, hd___, hd____, hd_____, hd______, hd_______, hd________
+ :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
  Elicitable U_I_II into ((U_I_II tt e `T'TT'I` U_II_I t e) a) =>
  Elicitable U_I_II into (U_I_II tt e o) =>
@@ -1926,7 +1935,17 @@ hd from = he @into @(U_I_II tt _ _)
  `compose` component @U_I_II @from @into @I @(U_I_II tt e `T'TT'I` U_II_I t e)
  `compose` wrap @into
 
-hd'q :: forall into a .
+hd_ = hd
+hd__ = hd
+hd___ = hd
+hd____ = hd
+hd_____ = hd
+hd______ = hd
+hd_______ = hd
+hd________ = hd
+
+hd'q, hd_'q, hd__'q, hd___'q, hd____'q, hd_____'q, hd______'q, hd_______'q, hd________'q
+ :: forall into a .
  Adjoint Functor into into (U_II_I LM a) (U_I_II into a) =>
  Elicitable U_I_II into ((U_I_II into a `T'TT'I` U_II_I LM a) a) =>
  Elicitable U_I_II into (U_I_II into a (a `LM` a `ML` a)) =>
@@ -1935,6 +1954,15 @@ hd'q :: forall into a .
  Setoid into a =>
  into a (into a (a `LM` a `ML` a))
 hd'q = hd (q @into)
+
+hd_'q = hd'q
+hd__'q = hd'q
+hd___'q = hd'q
+hd____'q = hd'q
+hd_____'q = hd'q
+hd______'q = hd'q
+hd_______'q = hd'q
+hd________'q = hd'q
 
 hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt e a o .
  Adjoint Functor from into (U_II_I t e) (U_I_II tt e) =>
