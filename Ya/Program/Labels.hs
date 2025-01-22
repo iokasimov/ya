@@ -18,6 +18,7 @@ pattern Again e = Labeled @Recursive e
 
 pattern Try e = Labeled @() e
 
+pattern Check :: Error e ee -> L () (Error e) ee
 pattern Check e = Labeled @() e
 
 pattern Retry e = Labeled @Recursive e
