@@ -201,7 +201,7 @@ instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM)
 -- This instance for normal state propagation. How unnormal should look like?
 instance (e ~ ee) =>
  Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L () `WR` U_I_II (U_I_UU_II_I AR LM) ee)
+ (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L Unit `WR` U_I_II (U_I_UU_II_I AR LM) ee)
  (U_I_II (U_I_UU_II_I AR LM) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
@@ -209,7 +209,7 @@ instance (e ~ ee) =>
         These (from res) new
 
 instance Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L (U_II_I ML () ()) `WR` U_I_II (U_I_UU_II_I AR LM) e)
+ (U_I_II (U_I_UU_II_I AR LM) e `T'TT'I` L (Unit `LM` Unit) `WR` U_I_II (U_I_UU_II_I AR LM) e)
  (U_I_II (U_I_UU_II_I AR LM) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
@@ -273,6 +273,20 @@ instance
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
     \old -> x old `yok` \(U_II_I (These (Labeled (U_I_II (U_I_UU_II_I f))) btw))
       -> Labeled @() (yu (enter @tt) / U_II_I (f btw) `yo` from)
+
+instance
+ ( Covariant Monoidal Functor AR LM LM tt
+ , Transformation Natural Functor AR AR (tt `T'TT'I` L () tt) tt
+ , e ~ ee
+ ) => Mapping U_I_II U_I_II AR AR
+ (T'TT'I
+  (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt)
+  (L (() `LM` ()) (U_I_II (U_I_UU_II_I AR LM) ee))
+ )
+ (T'TTT'TT'I (U_I_II AR e) (U_II_I LM e) tt) where
+  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
+    \old -> x old `yok` \(U_II_I (These (Labeled (U_I_II (U_I_UU_II_I f))) btw))
+      -> Labeled @() (yu (enter @tt) / U_II_I (f btw `yiu` old) `yo` from)
 
 -- TODO: introduce a label
 instance
