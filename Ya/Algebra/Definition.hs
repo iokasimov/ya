@@ -10,6 +10,7 @@ infixl 7 `LM_`, `ML_`, `MN_`
 infixl 6 `LM__`, `ML__`, `MN__`
 
 infixr 7 `JNT`
+infixr 6 `JNT_`
 
 infixr 8 `AR`
 infixr 7 `AR_`
@@ -359,6 +360,8 @@ type family JNT effect where
  JNT (U_I_II AR e) = T'TT'I (U_I_II AR e)
  JNT (U_I_II ML e) = TT'T'I (U_I_II ML e)
  JNT (U_I_II (U_I_UU_II_I AR LM) e) = T'TTT'TT'I (U_I_II AR e) (U_II_I LM e)
+
+type JNT_ effect = JNT effect
 
 this :: forall e ee . e `LM` ee -> e
 this (These x _) = x
