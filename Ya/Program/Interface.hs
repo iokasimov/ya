@@ -82,6 +82,9 @@ type family Leftovers datastructure where
  Leftovers (Construction Optional) = List
  Leftovers (Optional `T'TT'I` Construction Optional) = List
 
+instance Mapping U_I_II U_I_II AR AR (Construction Optional) List where
+ mapping = rewrap / \from -> rewrap / wrap `ho'yo` from `ho` Some
+
 class Stack datastructure where
  pop :: Automation `WR` datastructure item `WR` Supertype (Popped datastructure item) `WR` Leftovers datastructure item
  push :: item -> Automation `WR` datastructure item `WR` item `WR` datastructure item
@@ -128,6 +131,10 @@ instance Mapping U_I_II U_I_II Arrow Arrow
  mapping = rewrap / \from (Root x xs) ->
   U_T_I_TT_I (Singular (from x) `lu` U_T_I_TT_I (Labeled (Empty @List ()) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
+instance Mapping U_I_II U_I_II AR AR (Reverse List `LM'T'I'TT'I` Forward List) List where
+ mapping = rewrap / \from (U_T_I_TT_I (These (Labeled bs) (Labeled fs))) -> that
+  (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
+
 instance
  Mapping U_I_II U_I_II Arrow Arrow
   (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
@@ -138,7 +145,7 @@ instance
    -- TODO: replace with `yuk___'yokl` operator
    `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he_____'he` Construct `ha` (\x' -> Item x' `ha` Maybe `hv` Last) `hv` from x
+   `he'he'hv_____` Construct `ha` (\x' -> Item x' `ha` Maybe `hv` Last) `hv` from x
    `yi_____` that
 
 instance Mapping U_I_II U_I_II AR AR
