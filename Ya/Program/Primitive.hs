@@ -8,11 +8,11 @@ import Ya.Program.Patterns
 not :: e `ML` ee `AR_` ee `ML` e
 not = That `la` This
 
--- TODO: generalize
-row :: e `ML` (ee `ML` eee) `AR__` (e `ML` ee) `ML` eee
-row (This x) = This (This x)
-row (That (This x)) = This (That x)
-row (That (That x)) = That x
+row :: forall e ee eee ee_eee eeee .
+ Objective AR (e `ML` ee_eee) eeee =>
+ Objective AR (ee `ML` eee) ee_eee =>
+ eeee `AR__` (e `ML` ee) `ML` eee
+row = This `ha` This `la_` This `ha` That `la` That `ha_` is @ee_eee
 
 provide :: U_I_II (->) e e
 provide = U_I_II identity
