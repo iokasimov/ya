@@ -41,6 +41,9 @@ type Provided = U_I_II (->)
 
 type Supplied = U_II_I LM
 
+pattern Equip :: e `LM` ee -> Supplied ee e
+pattern Equip x = U_II_I x
+
 type Optional = U_I_II ML ()
 
 pattern None x = U_I_II (This x)
