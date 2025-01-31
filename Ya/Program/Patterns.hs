@@ -52,13 +52,11 @@ pattern Some x = U_I_II (That x)
 
 pattern Optionally x = U_I_II x
 
-type Halts = U_I_II ML ()
+type Halts = U_I_II ML
 
-type Maybe = U_I_II ML ()
+type Maybe = U_I_II ML Unit
 
-pattern Maybe x = U_I_II @ML @() x
-
-type Haltable t = JNT t Halts
+pattern Maybe x = U_I_II @ML @Unit x
 
 type Progress = U_I_II ML
 
