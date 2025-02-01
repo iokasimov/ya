@@ -246,13 +246,13 @@ infixl 3 `yo_____`
 infixl 2 `yo______`
 infixl 1 `yo_______`
 
-infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'he`, `yok'he'he`, `yok'yokl`, `yok'yukl`
-infixl 6 `yok_`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`, `yok_'yukl`
-infixl 5 `yok__`, `yok__'he`,  `yok__'he'he`, `yok__'yokl`, `yok__'yukl`
-infixl 4 `yok___`, `yok___'he`,  `yok___'he'he`, `yok___'yokl`, `yok___'yukl`
-infixl 3 `yok____`, `yok____'he`,  `yok____'he'he`, `yok____'yokl`, `yok____'yukl`
-infixl 2 `yok_____`, `yok_____'he`,  `yok_____'he'he`, `yok_____'yokl`, `yok_____'yukl`
-infixl 1 `yok______`, `yok______'he`,  `yok______'he'he`, `yok______'yokl`, `yok______'yukl`
+infixl 7 `yok`, `yok'ha`, `yok'ho`, `yok'hj`, `yok'he`, `yok'he'he`, `yok'yokl`, `yok'yukl`
+infixl 6 `yok_`, `yok_'hj`, `yok_'he`,  `yok_'he'he`, `yok_'yokl`, `yok_'yukl`
+infixl 5 `yok__`, `yok__'hj`, `yok__'he`,  `yok__'he'he`, `yok__'yokl`, `yok__'yukl`
+infixl 4 `yok___`, `yok___'hj`, `yok___'he`,  `yok___'he'he`, `yok___'yokl`, `yok___'yukl`
+infixl 3 `yok____`, `yok____'hj`, `yok____'he`,  `yok____'he'he`, `yok____'yokl`, `yok____'yukl`
+infixl 2 `yok_____`, `yok_____'hj`, `yok_____'he`,  `yok_____'he'he`, `yok_____'yokl`, `yok_____'yukl`
+infixl 1 `yok______`, `yok______'hj`, `yok______'he`,  `yok______'he'he`, `yok______'yokl`, `yok______'yukl`
 
 infixl 7 `kyo`
 
@@ -2774,6 +2774,33 @@ yok'ha :: forall into t tt l a o e .
  Wrapper into (U_II_I into (L l tt o) a) =>
  t e -> into e a -> into (into a (L l tt o)) (t o)
 yok'ha x f = yok @into @into x `compose` fai @into f
+
+yok'hj, yok_'hj, yok__'hj, yok___'hj, yok____'hj, yok_____'hj, yok______'hj
+ :: forall from t tt ttt tttt l a o e .
+ Category from =>
+ Adjoint Functor from from (U_II_I ttt e) (U_I_II tttt e) =>
+ Contravariant Functor (->) (->) (U_II_I from (t o)) =>
+ Covariant Functor from from t =>
+ Covariant Functor from from tt =>
+ Component Natural from from (T'TT'I t (L l tt)) t =>
+ Covariant Yoneda from from t =>
+ (forall ee . Wrapper from (U_I_II from (ttt a e) (L l tt ee))) =>
+ (forall ee . Wrapper from (U_II_I ttt e ee)) =>
+ (forall ee . Wrapper from (U_II_I tttt e (l `L` tt `WR` ee))) =>
+ (forall ee . Wrapper from (U_I_II tttt e (l `L` tt `WR` ee))) =>
+ (forall ee . Wrapper from (L l tt ee)) =>
+ (forall ee . Wrapper from (t `T'TT'I` l `L` tt `WR___` ee)) =>
+ (forall ee . Wrapper from (I (l `L` tt `WR` ee))) =>
+ (forall ee . Wrapper from (U_II_I ttt e `T'TT'I` U_I_II tttt e `WR___` l `L` tt `WR` ee)) =>
+ t (ttt a e) -> from (from a (tttt e (L l tt o))) (t o)
+yok'hj x = fai hj (yok @from @from x)
+
+yok_'hj = yok'hj
+yok__'hj = yok'hj
+yok___'hj = yok'hj
+yok____'hj = yok'hj
+yok_____'hj = yok'hj
+yok______'hj = yok'hj
 
 -- yok'hu :: forall from t tt a o e .
   -- Precategory from =>
