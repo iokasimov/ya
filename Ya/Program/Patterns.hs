@@ -70,6 +70,17 @@ type Error = U_I_II ML
 
 pattern Error x = U_I_II (This x)
 
+type Catch = U_I_II ML
+
+pattern Catch :: e -> Error e ee
+pattern Catch x = U_I_II (This x)
+
+type Reach = U_I_II ML
+
+pattern Reach :: e -> Error e ee
+pattern Reach x = U_I_II (This x)
+
+pattern Wrong :: e -> Error e ee
 pattern Wrong x = U_I_II (This x)
 
 pattern Close x = U_I_II (This x)
