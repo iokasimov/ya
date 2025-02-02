@@ -16,9 +16,10 @@ pattern Cascading e = Labeled e
 
 pattern Again e = Labeled @Recursive e
 
+pattern Try :: forall ee e . Error e ee -> L Unit (Error e) ee
 pattern Try e = Labeled @() e
 
-pattern Check :: Error e ee -> L () (Error e) ee
+pattern Check :: forall e ee . Error e ee -> L Unit (Error e) ee
 pattern Check e = Labeled @() e
 
 pattern Retry e = Labeled @Recursive e
