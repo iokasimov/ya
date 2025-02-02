@@ -9,26 +9,32 @@ pattern Same e = Identity e
 
 type Once = I
 
+pattern Once :: e -> Once e
 pattern Once e = Identity e
 
 type Only = I
 
+pattern Only :: e -> Only e
 pattern Only e = Identity e
 
 type Singular = I
 
+pattern Singular :: e -> Singular e
 pattern Singular e = Identity e
 
 type Focused = I
 
+pattern Focused :: e -> Focused e
 pattern Focused e = Identity e
 
 type Apparently = I
 
+pattern Apparently :: e -> Apparently e
 pattern Apparently e = Identity e
 
-type Boolean = U_I_II ML () ()
+type Boolean = U_I_II ML Unit Unit
 
+pattern Boolean :: Unit `ML` Unit `AR_` Boolean
 pattern Boolean e = U_I_II e
 
 pattern False x = U_I_II (This x)
@@ -44,10 +50,12 @@ type Supplied = U_II_I LM
 pattern Equip :: e `LM` ee -> Supplied ee e
 pattern Equip x = U_II_I x
 
-type Optional = U_I_II ML ()
+type Optional = U_I_II ML Unit
 
+pattern None :: Unit -> Optional e
 pattern None x = U_I_II (This x)
 
+pattern Some :: e -> Optional e
 pattern Some x = U_I_II (That x)
 
 pattern Optionally x = U_I_II x
@@ -56,18 +64,22 @@ type Halts = U_I_II ML
 
 type Maybe = U_I_II ML Unit
 
+pattern Maybe :: Unit `ML` e `AR_` Maybe e
 pattern Maybe x = U_I_II @ML @Unit x
 
 type Progress = U_I_II ML
 
 pattern Progress x = U_I_II @ML x
 
+pattern Interrupt :: e -> Progress e ee
 pattern Interrupt x = U_I_II @ML (This x)
 
+pattern Continue :: ee -> Progress e ee
 pattern Continue x = U_I_II @ML (That x)
 
 type Error = U_I_II ML
 
+pattern Error :: e -> Error e ee
 pattern Error x = U_I_II (This x)
 
 type Catch = U_I_II ML
@@ -83,8 +95,11 @@ pattern Reach x = U_I_II (This x)
 pattern Wrong :: e -> Error e ee
 pattern Wrong x = U_I_II (This x)
 
+-- TODO: remove
+pattern Close :: e -> Error e ee
 pattern Close x = U_I_II (This x)
 
+pattern Valid :: ee -> Error e ee
 pattern Valid x = U_I_II (That x)
 
 pattern Ok x = U_I_II (That x)
@@ -171,7 +186,7 @@ pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Const
 pattern Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
- => () -> T'TT'I Optional (Construction Optional) e
+ => Unit -> T'TT'I Optional (Construction Optional) e
 pattern Empty x = T'TT'I (None x)
 
 type Tree = Construction List
@@ -191,7 +206,7 @@ type Stream = Construction Only
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
-type Way = ML () ()
+type Way = ML Unit Unit
 
 pattern Back :: forall r e ee . (r ~ e `ML` ee) => e -> r
 pattern Back x = This x
@@ -202,14 +217,14 @@ pattern Fore x = That x
 pattern Passed x = This x
 pattern Future x = That x
 
-type Decision = ML () ()
+type Decision = ML Unit Unit
 
 pattern No x = This x
 pattern Yes x = That x
 
-type Side = ML () ()
+type Side = ML Unit Unit
 
 pattern Left x = This x
 pattern Right x = That x
 
-type Vertical = ML () ()
+type Vertical = ML Unit Unit
