@@ -172,11 +172,11 @@ pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs)
 pattern Item :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
 pattern Item x xs = Recursive (U_I_T_II (These x xs))
 
-pattern Next :: forall e ee . ee `AR_` Progress e ee
+pattern Next :: forall ee e . ee `AR_` Progress e ee
 pattern Next x = U_I_II (That x)
 
-pattern Last :: Unit `ML` Recursive (U_I_T_II t LM i)
-pattern Last = This Unit
+pattern Last :: forall e ee . e `AR_` Progress e ee
+pattern Last x = U_I_II (This x)
 
 type family Brancher datastructure where
  Brancher (T'TT'I t (Construction t)) = t

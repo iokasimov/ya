@@ -145,7 +145,7 @@ instance
    -- TODO: replace with `yuk___'yokl` operator
    `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
    `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he'he'hv_____` Construct `ha` (\x' -> Item x' `ha` Maybe `hv` Last) `hv` from x
+   `he'he'hv_____` Construct `ha` (\x' -> Item x' `ha` Last `hv` Unit) `hv` from x
    `yi_____` that
 
 instance Mapping U_I_II U_I_II AR AR
@@ -291,7 +291,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
       `ho'he` Scope @(Forward List item) at
       `ho'he` Scope it
 
-  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Maybe `hv` Last) `yui` r
+  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
   window_extract_last passed window =
    push @List passed window `yi` that
@@ -322,7 +322,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha____` Event `ha` window_future
    `ho_'ha'he` Scope `hv` at @(List item)
 
-  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Maybe `hv` Last) `yui` r
+  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
 instance Mapping U_I_II U_I_II AR AR (Construction Optional) (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `ha` List `hv` unwrap x)) `yo` from
@@ -343,7 +343,7 @@ instance Mapping U_I_II U_I_II AR AR
  (Only `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
  (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from -> rewrap / \x -> x
-  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Maybe `hv` Last)
+  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
   `yio'yo` from
 
 instance Mapping U_I_II U_I_II (->) (->)
@@ -358,7 +358,7 @@ instance Mapping U_I_II U_I_II (->) (->)
  (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))
  ((List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) `T'TT'I` Unit `L` (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List))) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These _ (U_T_I_TT_I (These rl fl)))) ->
-  List `ha` Item (Labeled x) `ha` Maybe `hv` Last
+  List `ha` Item (Labeled x) `ha` Last `hv` Unit
     `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` slide (by Back) `ha_` is `hu` x)
       `he'he'hv` Empty @List () `yi` that `ho` Reverse
      `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` slide (by Fore) `ha_` is `hu` x)
@@ -401,7 +401,7 @@ class Literal datastructure item literal
  where as :: literal -> datastructure item
 
 instance Literal (Construction Optional) item item where
- as x = Construct `li` Item x `ha` Maybe `hv` Last
+ as x = Construct `li` Item x `ha` Last `hv` Unit
 
 -- instance Literal (Construction Optional) item init =>
  -- Literal (Construction Optional) item (init `LM` item) where
