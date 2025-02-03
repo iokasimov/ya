@@ -62,7 +62,7 @@ pattern Some x = U_I_II (That x)
 
 pattern Optionally x = U_I_II x
 
-type Halts = U_I_II ML
+type Halts = U_I_II ML Unit
 
 type Maybe = U_I_II ML Unit
 

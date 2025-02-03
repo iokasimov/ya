@@ -190,7 +190,7 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   `la` is `ho'he` foi @_ @Arrow That
   `li` flow `he'he'hv` x where
 
-  flow = enter @(State `WR` Scrolling List item `JNT` Halts Unit)
+  flow = enter @(State `WR` Scrolling List item `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way
    `yok__` Try `ha` Maybe
    -- `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope it
@@ -208,16 +208,16 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
   `la` is `ho'he` foi @_ @Arrow That
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
-  horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts Unit `WR__` item
-  horizontally way = enter @(State `WR` Scrolling Tree item `JNT` Halts Unit)
+  horizontally :: forall item . Way `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
+  horizontally way = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` scroll way
    `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
     `ho'he` Scope @(Scrolling List `T'I` Tree item) at
    `yok__` Try `ha___` Maybe `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
 
   -- TODO: refactor, it's hard to catch an error here
-  vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts Unit `WR__` item
-  vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts Unit)
+  vertical_deep :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
+  vertical_deep _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yuk____` New `ha` State `hv____` Transition `hv` auto
    `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
    `ho__'he'he` ((Scope @(Focused (Tree item)) at `ho'he'he'he'he`  Scope @(item `LM` _) it)
@@ -232,8 +232,8 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) ite
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) item) at
       `ho'he` Scope @(Scrolling List `T'I` Tree item) at
 
-  vertical_up :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts Unit `WR__` item
-  vertical_up _ = enter @(State `WR` Scrolling Tree item `JNT` Halts Unit)
+  vertical_up :: forall item . Unit `AR___` State `WR` Scrolling Tree item `JNT` Halts `WR__` item
+  vertical_up _ = enter @(State `WR` Scrolling Tree item `JNT` Halts)
    `yuk___` New `ha` State `hv__` Transition `hv` pop
    `ha_'he` Scope @((Reverse List `T'TT'I_` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)) item) at
    `ho'he'he` Scope @(List ((Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree) item)) at
@@ -261,7 +261,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
   `la` is `ho'he` foi @_ @Arrow That
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
-  slide_future = enter @(State `WR` Sliding List item `JNT` Halts Unit)
+  slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv___` Event `hv` pop
    `ha__'he` Scope `hv` at @(List item)
    `yok____` Try `ha` Maybe
@@ -277,7 +277,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha____` Event `ha` window_future
    `ho_'ha'he` Scope `hv` at @(List item)
 
-  slide_passed = enter @(State `WR` Sliding List item `JNT` Halts Unit)
+  slide_passed = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv____` Event `hv` pop
    `ha___'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Reverse List item) at
@@ -304,7 +304,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
   `la` is `ho'he` foi @_ @Arrow That
   `li` (extend_passed `lv` extend_future `li` way) `he'he'hv` x where
 
-  extend_passed = enter @(State `WR` Sliding List item `JNT` Halts Unit)
+  extend_passed = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv____` Event `hv` pop @List
    `ha___'he` Scope @(Shafted List item) at
       `ho'he` Scope @(Reverse List item) at
@@ -313,7 +313,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha__` Event `ha` push
    `ho_'ha'he` Scope `hv` at @(List item)
 
-  extend_future = enter @(State `WR` Sliding List item `JNT` Halts Unit)
+  extend_future = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv____` Event `hv` pop
    `ha___'he` Scope `hv` at @(Shafted List item)
      `ho_'he` Scope `hv` at @(Forward List item) 
