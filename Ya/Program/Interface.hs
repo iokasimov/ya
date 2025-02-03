@@ -102,7 +102,7 @@ instance Stack (Construction Optional) where
  pop = \case
   R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> x `lu` T'TT'I (Some (R_U_I_T_I xs))
   R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
- push x = \old -> These x (Item x `ha` Maybe `ha` Next  `rewrap` old)
+ push x = \old -> These x (Item x `ha` Next  `rewrap` old)
 
 type Shafted e = Reverse e `LM'T'I'TT'I` Forward e
 
