@@ -47,9 +47,9 @@ type Provided = U_I_II (->)
 
 type Supplied = U_II_I LM
 
-type Equiped = U_II_I LM
+type Equipped = U_II_I LM
 
-pattern Equip :: e `LM` ee -> Supplied ee e
+pattern Equip :: e `LM` ee -> Equipped ee e
 pattern Equip x = U_II_I x
 
 type Optional = U_I_II ML Unit
