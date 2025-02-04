@@ -296,7 +296,7 @@ infixl 7 `yai`, `yai'yai`, `yai'yukl`
 
 infixl 7 `yui` --, `yui'he`
 
-infixl 7 `yio`, `yio'yo`, `yio'yukl`, `yio'yp`, `yio'yio'yoi`, `yio'yio'yui`
+infixl 7 `yio`, `yio'yo`, `yio'yokl'yokl`, `yio'yukl`, `yio'yp`, `yio'yio'yoi`, `yio'yio'yui`
 
 infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
@@ -2841,7 +2841,7 @@ ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yo
  Covariant Semi Functor from (->) (U_I_II u e) =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
- Mapping U_I_II U_I_II from from (t `T'TT'I` L l (L ll tt)) (t `TT'T'I` tt) =>
+ Component Natural from from (t `T'TT'I` L l (L ll tt)) (t `TT'T'I` tt) =>
  Covariant Yoneda from (->) (U_I_II u e) =>
  (forall ee . Wrapper from ((t `T'TT'I` L l (L ll tt)) ee)) =>
  (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
@@ -2859,6 +2859,36 @@ ho_____'yokl = ho'yokl
 ho______'yokl = ho'yokl
 ho_______'yokl = ho'yokl
 ho________'yokl = ho'yokl
+
+yio'yokl'yokl
+ :: forall from into u t tt ttt l ll lll a o i .
+ Category from =>
+ Covariant Yoneda from into (U_I_II u i) =>
+ Covariant Endo Semi Functor from t =>
+ Covariant Endo Semi Functor from tt =>
+ Covariant Semi Functor into from t =>
+ Covariant Endo Semi Functor from ttt =>
+ Covariant Semi Functor into from ttt =>
+ Contravariant Semi Functor (->) (->) (U_II_I into (u i (ttt (t (tt o))))) =>
+ Component Natural from from (t `T'TT'I` l `L` lll `L` ttt) (t `TT'T'I` ttt) =>
+ Component Natural from from (tt `T'TT'I` ll `L` lll `L` ttt) (tt `TT'T'I` ttt) =>
+ Component Natural into from (t `T'TT'I` l `L` ll `L` ttt) (t `TT'T'I` ttt) =>
+ (forall e . Wrapper into (U_I_II from (t (tt a)) (ttt (t (tt e))))) =>
+ (forall e . Wrapper into (U_I_II u i (ttt (t (tt e))))) =>
+ (forall e . Wrapper from ((tt `TT'T'I` ttt) e)) =>
+ (forall e . Wrapper from ((t `TT'T'I` ttt) (tt e))) =>
+ (forall e . Wrapper from (L lll ttt e)) =>
+ (forall e . Wrapper from (L l (L ll (L lll ttt)) e)) =>
+ (forall e . Wrapper from ((tt `T'TT'I` ll `L` lll `L` ttt) e)) =>
+ (forall e . Wrapper from ((t `T'TT'I` l `L` lll `L` ttt) (tt e))) =>
+ (forall e . Wrapper from (L l (L lll ttt) (tt e))) =>
+ u i (t (tt a)) -> into (from a (L l (L ll (L lll ttt)) o)) (u i (ttt (t (tt o))))
+yio'yokl'yokl x = fai @(->)
+ (fokl @from @from @t @ttt @l @lll
+  `compose` fio @from (wrap @from @(L l _ _) `compose` wrap @from @(L lll _ _))
+  `compose` fokl @from @from @tt @ttt @ll @lll
+  `compose` fio @from (unwrap @from @(L l _ _)))
+ (yio @from x)
 
 yio'yukl, ho'yukl, ho_'yukl, ho__'yukl, ho___'yukl, ho____'yukl, ho_____'yukl, ho______'yukl, ho_______'yukl, ho________'yukl
  :: forall u t tt l ll a o e .
