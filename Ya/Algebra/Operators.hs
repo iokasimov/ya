@@ -283,6 +283,13 @@ infixl 1 `yukl_____`
 infixl 8 `ya`
 
 infixl 8 `yu`
+infixl 7 `yu_`
+infixl 6 `yu__`
+infixl 5 `yu___`
+infixl 4 `yu____`
+infixl 3 `yu_____`
+infixl 2 `yu______`
+infixl 1 `yu_______`
 
 infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`, `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
@@ -452,13 +459,21 @@ yio = fio @into unwrap `compose` yo @from @into @(U_I_II t e) `compose` wrap
 --  w e a eee -> into (from a o) (w e o eee)
 -- yioi x = compose unwrap (yoneda @U_I_II @from @into @(W_III_I_II _ _ _) (wrap x))
 
-yu, li'yu :: forall into t a o .
+yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______, li'yu :: forall into t a o .
  Covariant Yoneda into into t =>
  Mapping U_I_II U_I_II into into I (U_I_II into a) =>
  Wrapper into (U_I_II into a o) =>
  Wrapper into (I o) =>
  t a -> into o (t o)
 yu x = yoneda @U_I_II @into @into x `compose` wrap `compose` constant
+
+yu_ = yu
+yu__ = yu
+yu___ = yu
+yu____ = yu
+yu_____ = yu
+yu______ = yu
+yu_______ = yu
 
 li'yu = yu
 
