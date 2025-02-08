@@ -11,17 +11,19 @@ pattern Default e = Labeled @Unit e
 
 type Cascading = L (U_I_II LM () ())
 
-pattern Cascading :: t e -> Cascading t e
-pattern Cascading e = Labeled e
+pattern Cascading :: List i -> Cascading List i
+pattern Cascading i = Labeled i
 
-pattern Again e = Labeled @Recursive e
+pattern Again :: forall t i . t i -> L Recursive t i
+pattern Again i = Labeled @Recursive i
 
-pattern Try :: forall ee e . Error e ee -> L Unit (Error e) ee
+pattern Try :: forall e ee . Error e ee -> L Unit (Error e) ee
 pattern Try e = Labeled @() e
 
 pattern Check :: forall e ee . Error e ee -> L Unit (Error e) ee
 pattern Check e = Labeled @() e
 
+pattern Retry :: forall ee e . Error e ee -> L Recursive (Error e) ee
 pattern Retry e = Labeled @Recursive e
 
 type Fore = U_I_II ML () ()
