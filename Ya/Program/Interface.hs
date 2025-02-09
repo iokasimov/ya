@@ -75,18 +75,14 @@ type family Vector x xs where
  Vector x y = x ~ y
 
 type family Popped datastructure where
- Popped (Construction Optional) = Singular
+ Popped (Construction Optional) = Optional
  Popped (Optional `T'TT'I` Construction Optional) = Optional
-
-type family Leftovers datastructure where
- Leftovers (Construction Optional) = List
- Leftovers (Optional `T'TT'I` Construction Optional) = List
 
 instance Mapping U_I_II U_I_II AR AR (Construction Optional) List where
  mapping = rewrap / \from -> rewrap / wrap `ho'yo` from `ho` Some
 
 class Stack datastructure where
- pop :: Automation `WR` datastructure item `WR` Supertype (Popped datastructure item) `WR` Leftovers datastructure item
+ pop :: Automation `WR` datastructure item `WR` Supertype (Popped datastructure item) `WR` datastructure item
  push :: item -> Automation `WR` datastructure item `WR` item `WR` datastructure item
 
 -- TODO: refactor, it's hard to read
@@ -100,8 +96,8 @@ instance Stack List where
 -- TODO: refactor, it's hard to read
 instance Stack (Construction Optional) where
  pop = \case
-  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> x `lu` T'TT'I (Some (R_U_I_T_I xs))
-  R_U_I_T_I (Recursive (U_I_T_II (These x (None _)))) -> x `lu` Empty @List ()
+  R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> That x `lu` R_U_I_T_I xs
+  R_U_I_T_I (Recursive (U_I_T_II (These x (None xs)))) -> by This `lu` R_U_I_T_I (Recursive (U_I_T_II (These x (None xs))))
  push x = \old -> These x (Item x `ha` Next  `rewrap` old)
 
 type Shafted e = Reverse e `LM'T'I'TT'I` Forward e
