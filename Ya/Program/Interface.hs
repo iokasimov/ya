@@ -9,64 +9,10 @@ import Ya.Program.Primitive
 import Ya.Program.Labels
 
 import Ya.Program.Interface.Field as Exports
+import Ya.Program.Interface.Match as Exports
 import Ya.Program.Interface.Stack as Exports
 import Ya.Program.Interface.Scroll as Exports
 import Ya.Program.Interface.Slide as Exports
-
-on' :: Excludable a r => r `AR_` Unit `ML` a
-on' x = on x `yui` Unit
-
-class Layable a r where
- lay :: a `AR_` r
-
-instance Layable a a where
- lay = identity
-
-instance Layable a aa => Layable a (T l aa) where
- lay = wrap `ha` lay
-
-instance Layable a (a `ML` aa) where
- lay = This
-
-instance Layable a (aa `ML` a) where
- lay = That
-
-instance Layable a (a `ML` aa `ML` aaa) where
- lay = This `ha` This
-
-instance Layable a (aa `ML` a `ML` aaa) where
- lay = This `ha` That
-
-instance Layable (a `ML` aaa) (a `ML` aa `ML` aaa) where
- lay = This `ha` This `la` That
-
-instance Layable (aaa `ML` a) (a `ML` aa `ML` aaa) where
- lay = That `la` This `ha` This
-
--- TODO: define more Layable instances
-
-class Fittable a r where
- fit :: r `AR_` MN a r `ML` a
-
-instance
- ( Layable aa (MN a (aa `ML` aaa) `ML` a)
- , Layable aaa (MN a (aa `ML` aaa) `ML` a)
- ) => Fittable a (aa `ML` aaa) where
- fit = lay `la` lay
-
-instance
- ( Layable aa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
- , Layable aaa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
- , Layable aaaa (MN a (aa `ML` aaa `ML` aaaa) `ML` a)
- ) => Fittable a (aa `ML` aaa `ML` aaaa) where
- fit = lay `la` lay `la` lay
-
-type family Vector x xs where
- Vector x (y `LM` xs) = (x ~ y, Vector x xs)
- Vector x y = x ~ y
-
-instance Mapping U_I_II U_I_II AR AR (Construction Optional) List where
- mapping = rewrap / \from -> rewrap / wrap `ho'yo` from `ho` Some
 
 instance Mapping U_I_II U_I_II AR AR (Reverse List `LM'T'I'TT'I` Forward List) List where
  mapping = rewrap / \from (U_T_I_TT_I (These (Labeled bs) (Labeled fs))) -> that
@@ -99,6 +45,9 @@ instance Mapping U_I_II U_I_II Arrow Arrow (Construction List)
    -- restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = U_T_I_TT_I
     -- `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
      -- `lu` unwrap shafted
+
+instance Mapping U_I_II U_I_II AR AR (Construction Optional) List where
+ mapping = rewrap / \from -> rewrap / wrap `ho'yo` from `ho` Some
 
 instance Mapping U_I_II U_I_II AR AR (Construction Optional) (List `LM'T'I'TT'I` (Reverse List `LM'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `ha` List `hv` unwrap x)) `yo` from
@@ -173,11 +122,11 @@ instance Mapping U_I_II U_I_II (->) (->) (List `T'TT'I` Cascading List) List whe
 
 -- Define `Rewindable` typeclass, there should be instances for `Scrolling List`/`Sliding List`
 
-class Literal datastructure item literal
- where as :: literal -> datastructure item
+-- class Literal datastructure item literal
+ -- where as :: literal -> datastructure item
 
-instance Literal (Construction Optional) item item where
- as x = Construct `li` Item x `ha` Last `hv` Unit
+-- instance Literal (Construction Optional) item item where
+ -- as x = Construct `li` Item x `ha` Last `hv` Unit
 
 -- instance Literal (Construction Optional) item init =>
  -- Literal (Construction Optional) item (init `LM` item) where
@@ -186,88 +135,15 @@ instance Literal (Construction Optional) item item where
    -- (Reverse `he` as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State `ho` New)
    -- (Construct (Last last))
 
-instance Literal (Construction (U_I_I LM `T'TT'I` Optional)) item item where
- as x = Root x (T'TT'I (U_I_I (None () `lu` None ())))
+-- instance Literal (Construction (U_I_I LM `T'TT'I` Optional)) item item where
+ -- as x = Root x (T'TT'I (U_I_I (None () `lu` None ())))
 
-instance (Literal (Construction (U_I_I LM `T'TT'I` Optional)) item lst, Literal (Construction (U_I_I LM `T'TT'I` Optional)) item rst) =>
- Literal (Construction (U_I_I LM `T'TT'I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
- as (These (These x lx) rx) = Root x `ha` T'TT'I `ha` U_I_I
-   `li_` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-    `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+-- instance (Literal (Construction (U_I_I LM `T'TT'I` Optional)) item lst, Literal (Construction (U_I_I LM `T'TT'I` Optional)) item rst) =>
+ -- Literal (Construction (U_I_I LM `T'TT'I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
+ -- as (These (These x lx) rx) = Root x `ha` T'TT'I `ha` U_I_I
+   -- `li_` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
+    -- `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
 
--- TODO: generalize over categories
-class Excludable a r where
- on :: r `AR_` r `MN` a `ML` a
-
--- instance Excludable a aa => Excludable a (T e aa) where
- -- on = on `ha` unwrap @AR
-
-instance Excludable a (l # a `ML` aa) where
- on = That `ha'he` is `la` This
-
-instance (aa `ML` l # a `MN` a ~ aa)
- => Excludable a (aa `ML` l # a) where
- on = This `la` That `ha'he` is
-
-instance (l # a `ML` aa `ML` aaa `MN` a ~ aa `ML` aaa)
- => Excludable a (l # a `ML` aa `ML` aaa) where
- on = That `ha'he` is `la` This `ha` This `la` This `ha` That
-
-instance (aa `ML` l # a `ML` aaa `MN` a ~ aa `ML` aaa)
- => Excludable a (aa `ML` l # a `ML` aaa) where
- on = This `ha` This `la` That `ha'he` is `la` This `ha` That
-
-instance (l # a `ML` aa `ML` aaa `ML` aaaa `MN` a ~ aa `ML` aaa `ML` aaaa)
- => Excludable a (l # a `ML` aa `ML` aaa `ML` aaaa) where
- on = That `ha'he` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
-
-instance (aa `ML` l # a `ML` aaa `ML` aaaa `MN` a ~ aa `ML` aaa `ML` aaaa)
- => Excludable a (aa `ML` l # a `ML` aaa `ML` aaaa) where
- on = This `ha` This `ha` This `la` That `ha'he` is `la` This `ha` This `ha` That `la` This `ha` That
-
-instance (aa `ML` aaa `ML` l # a `ML` aaaa `MN` a ~ aa `ML` aaa `ML` aaaa)
- => Excludable a (aa `ML` aaa `ML` l # a `ML` aaaa) where
- on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha'he` is `la` This `ha` That
-
--- instance (forall o . Excludable o e)
- -- => Mapping U_I_II U_I_II (U_I_UU_MN_I_II_II AR ML) AR
- -- (U_I_II (U_I_UU_MN_I_II_II AR ML) e)
- -- (U_I_II (U_I_UU_MN_I_II_II AR ML) e) where
- -- mapping = rewrap / \from -> rewrap `compose` rewrap / \into e ->
-  -- case into e of
-   -- This e_mn_a -> on e
-   -- That a -> case unwrap from a of
-    -- This a_mn_o -> on e
-    -- That o -> That o
-
--- ASCII ~> Glyph
--- ASCII ~> Symbol
-
--- from : (a -> ((a - o) + o))
-
--- into : (e -> ((e - a) + a))
-
--- res : (e -> ((e - o) + o))
-
--- a - o
-
--- e - o
-
-  -- case (into origin :: _) of
-   -- That a -> case unwrap from a of
-    -- That o -> That o
-    -- This (mn_a_o :: _) -> This mn_a_o
-   -- This a_e -> This origin
-
--- instance Mapping U_II_I U_I_II (U_I_UU_I_II AR ML) AR
- -- (U_II_I (U_I_UU_I_II AR ML) e)
- -- (U_II_I (U_I_UU_I_II AR ML) e) where
- -- mapping = rewrap / \into -> rewrap `compose` rewrap / \from origin ->
-  -- case unwrap into origin of
-   -- That a -> case from a of
-    -- That o -> That o
-    -- This o_a -> This origin
-   -- This a_e -> This origin
-
--- instance Category (U_I_UU_I_II AR ML) where
- -- identity = U_I_UU_I_II That
+type family Vector x xs where
+ Vector x (y `LM` xs) = (x ~ y, Vector x xs)
+ Vector x y = x ~ y
