@@ -6,6 +6,7 @@ import Ya.Program.Primitive
 import Ya.Program.Labels
 
 import Ya.Program.Interface.Field
+import Ya.Program.Interface.Match
 import Ya.Program.Interface.Stack
 
 type Leveled e = Scrolling List `T'TT'I` e
@@ -31,19 +32,19 @@ type family Scrolled datastructure where
 
 -- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
 class Scrollable datastructure item where
- scroll :: Scroller datastructure
-  `AR_` Automation
-   `WR` Scrolling datastructure item
-   `WR` Supertype (Scrolled datastructure item)
-   `WR` Scrolling datastructure item
+ scroll :: Scroller datastructure `AR__` Automation
+  `WR` Scrolling datastructure item
+  `WR` Supertype (Scrolled datastructure item)
+  `WR` Scrolling datastructure item
+ locate :: item `AR_` item `LM` item `ML` item `AR__` Automation
+  `WR` Scrolling datastructure item
+  `WR` Supertype (Optional (Scrolling datastructure item))
+  `WR` Scrolling datastructure item
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) item where
- scroll way x = is
-  `li` is `hu` (This () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow That
-  `li` flow `he'he'hv` x where
+ scroll way x = is `li` None `hu` (This () `lu` x) `la` is `ho'he` foi @_ @Arrow That `li` scroll' `he'he'hv` x where
 
-  flow = enter @(State `WR` Scrolling List item `JNT` Halts)
+  scroll' = enter @(State `WR` Scrolling List item `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List item) at `ho'he` path way
    `yok__` Try `ha` Maybe
    -- `yok__` New `ha` State `ha__` Transition `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused item) at `he'ho'he` Scope it
@@ -53,8 +54,17 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
   path = is `hu_` Scope @(Reverse List item) at `ho'he` Scope it
    `la___` is `hu_` Scope @(Forward List item) at `ho'he` Scope it
 
+ locate predicate x = foi That `ha` auto `la` is `ho'he` foi @_ @Arrow (is `hu` This Unit) `li` locate' `he'he'hv` x where
+
+  locate' = enter @(State `WR` Scrolling List item `JNT` Reach `WR` Scrolling List item)
+   `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` predicate `ha___'he` Scope `hv` at @(Focused item) `ho_'he` Scope `hv` it @item
+   `yok____` State `ho` New `ha____` Event `ha___` (Next `hu_` scroll `hv` by Fore `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Reach)
+   `yok____` Check `ha__` Reach `la` Continue
+   `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
+
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
+-- TODO: implement `locate` method
 instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) item where
  scroll way x = is
   `li` is `hu` (This () `lu` x)
