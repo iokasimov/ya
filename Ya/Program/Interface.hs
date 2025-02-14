@@ -147,3 +147,7 @@ instance Mapping U_I_II U_I_II (->) (->) (List `T'TT'I` Cascading List) List whe
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
  Vector x y = x ~ y
+
+-- This transformation is not natural!
+instance (forall i . Setoid AR i) => Mapping U_II_I U_I_II AR AR I Predicate where
+ mapping = rewrap / \from -> rewrap / \x x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` from x'
