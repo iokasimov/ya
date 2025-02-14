@@ -230,3 +230,8 @@ pattern Left x = This x
 pattern Right x = That x
 
 type Vertical = ML Unit Unit
+
+type Predicate = U_II_I Arrow Boolean
+
+pattern Predicate :: e `AR` Boolean `AR_` Predicate e
+pattern Predicate e = U_II_I e
