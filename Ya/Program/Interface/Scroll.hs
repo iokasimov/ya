@@ -36,7 +36,7 @@ class Scrollable datastructure item where
   `WR` Scrolling datastructure item
   `WR` Supertype (Scrolled datastructure item)
   `WR` Scrolling datastructure item
- locate :: item `AR_` item `LM` item `ML` item `AR__` Automation
+ locate :: Predicate item `AR__` Automation
   `WR` Scrolling datastructure item
   `WR` Supertype (Optional (Scrolling datastructure item))
   `WR` Scrolling datastructure item
@@ -57,7 +57,7 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) item where
  locate predicate x = foi That `ha` auto `la` is `ho'he` foi @_ @Arrow (is `hu` This Unit) `li` locate' `he'he'hv` x where
 
   locate' = enter @(State `WR` Scrolling List item `JNT` Reach `WR` Scrolling List item)
-   `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` predicate `ha___'he` Scope `hv` at @(Focused item) `ho_'he` Scope `hv` it @item
+   `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(Focused item) `ho_'he` Scope `hv` it @item
    `yok____` State `ho` New `ha____` Event `ha___` (Next `hu_` scroll `hv` by Fore `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Reach)
    `yok____` Check `ha__` Reach `la` Continue
    `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
