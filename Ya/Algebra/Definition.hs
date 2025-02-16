@@ -12,14 +12,14 @@ infixl 6 `LM__`, `ML__`, `MN__`
 infixr 7 `JNT`
 infixr 6 `JNT_`
 
-infixr 8 `AR`
-infixr 7 `AR_`
-infixr 6 `AR__`
-infixr 5 `AR___`
-infixr 4 `AR____`
-infixr 3 `AR_____`
-infixr 2 `AR______`
-infixr 1 `AR_______`
+infixr 8 `AR`, `AT`
+infixr 7 `AR_`, `AT_`
+infixr 6 `AR__`, `AT__`
+infixr 5 `AR___`, `AT___`
+infixr 4 `AR____`, `AT____`
+infixr 3 `AR_____`, `AT_____`
+infixr 2 `AR______`, `AT______`
+infixr 1 `AR_______`, `AT_______`
 
 infixl 3 `LM'T'I'TT'I`
 infixl 3 `ML'T'I'TT'I`
@@ -34,6 +34,15 @@ type AR____ = (->)
 type AR_____ = (->)
 type AR______ = (->)
 type AR_______ = (->)
+
+type AT = U_I_UU_II_U_II_I (->) LM
+type AT_ = U_I_UU_II_U_II_I (->) LM
+type AT__ = U_I_UU_II_U_II_I (->) LM
+type AT___ = U_I_UU_II_U_II_I (->) LM
+type AT____ = U_I_UU_II_U_II_I (->) LM
+type AT_____ = U_I_UU_II_U_II_I (->) LM
+type AT______ = U_I_UU_II_U_II_I (->) LM
+type AT_______ = U_I_UU_II_U_II_I (->) LM
 
 class Dumb x
 instance Dumb x
