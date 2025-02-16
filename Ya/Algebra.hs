@@ -168,32 +168,32 @@ instance (Initial AR, Monoidal U_I_II Functor AR LM ML t) =>
  mapping = rewrap / \_ _ -> T'TT'I (empty @t `yo` initial' @AR)
 
 -- TODO: generalize this instance
-instance Mapping U_II_I U_I_II (U_I_UU_II_U_II_I AR LM )AR
+instance Mapping U_II_I U_I_II AT AR
  (U_II_I (U_I_UU_II_I AR LM) e)
  (U_II_I (U_I_UU_II_I AR LM) e) where
  mapping = rewrap / \(U_I_UU_II_U_II_I from) ->
   rewrap `compose` rewrap `identity` \state old ->
    let (These new f) = from old in f `fio` state new
 
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_I_II LM e) (U_I_II LM e) where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_I_II (These e x)) ->
+instance Mapping U_I_II U_I_II AT AT (U_I_II LM e) (U_I_II LM e) where
+ mapping = rewrap `compose` rewrap / \from (U_I_II (These e x)) ->
    let s = from x in U_I_II (These e (this s)) `lu` fo (that s)
 
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_II_I LM e) (U_II_I LM e) where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_II_I (These x e)) ->
+instance Mapping U_I_II U_I_II AT AT (U_II_I LM e) (U_II_I LM e) where
+ mapping = rewrap `compose` rewrap / \from (U_II_I (These x e)) ->
    let s = from x in U_II_I (These (this s) e) `lu` fo (that s)
 
 -- TODO: I'm not really sure about this instance... it could easily lead to an error!
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) I (U_I_I LM) where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(Identity x) ->
+instance Mapping U_I_II U_I_II AT AT I (U_I_I LM) where
+ mapping = rewrap `compose` rewrap / \from (Identity x) ->
    let s = from x in U_I_I (this s `lu`this s) `lu` (\(U_I_I (These _ _)) -> Identity (that s (this s)))
 
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_I_II LM e) I where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_I_II (These e x)) ->
+instance Mapping U_I_II U_I_II AT AT (U_I_II LM e) I where
+ mapping = rewrap `compose` rewrap / \from (U_I_II (These e x)) ->
    let s = from x in Identity (this s) `lu` (U_I_II `compose` (e `lu`) `compose` that s `compose` unwrap)
 
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR LM) (U_I_UU_II_U_II_I AR LM) (U_II_I LM e) I where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) -> U_I_UU_II_U_II_I / \(U_II_I (These x e)) ->
+instance Mapping U_I_II U_I_II AT AT (U_II_I LM e) I where
+ mapping = rewrap `compose` rewrap / \from (U_II_I (These x e)) ->
    let s = from x in Identity (this s) `lu` (U_II_I `compose` (`lu` e) `compose` that s `compose` unwrap)
 
 -- TODO: I should alse test how attributes behave on sums
