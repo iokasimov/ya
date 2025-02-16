@@ -122,28 +122,6 @@ instance Mapping U_I_II U_I_II (->) (->) (List `T'TT'I` Cascading List) List whe
 
 -- Define `Rewindable` typeclass, there should be instances for `Scrolling List`/`Sliding List`
 
--- class Literal datastructure item literal
- -- where as :: literal -> datastructure item
-
--- instance Literal (Construction Optional) item item where
- -- as x = Construct `li` Item x `ha` Last `hv` Unit
-
--- instance Literal (Construction Optional) item init =>
- -- Literal (Construction Optional) item (init `LM` item) where
- -- as (These init last) =
-  -- that `li` (unwrap `compose` unwrap)
-   -- (Reverse `he` as @(Construction Optional) @item init `yokl` push `ho` Transition `ho` State `ho` New)
-   -- (Construct (Last last))
-
--- instance Literal (Construction (U_I_I LM `T'TT'I` Optional)) item item where
- -- as x = Root x (T'TT'I (U_I_I (None () `lu` None ())))
-
--- instance (Literal (Construction (U_I_I LM `T'TT'I` Optional)) item lst, Literal (Construction (U_I_I LM `T'TT'I` Optional)) item rst) =>
- -- Literal (Construction (U_I_I LM `T'TT'I` Optional)) item (item `LM` Optional lst `LM` Optional rst) where
- -- as (These (These x lx) rx) = Root x `ha` T'TT'I `ha` U_I_I
-   -- `li_` (lx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-    -- `lu` (rx `yo` as @(Binary Tree) `ho` unwrap @Arrow)
-
 type family Vector x xs where
  Vector x (y `LM` xs) = (x ~ y, Vector x xs)
  Vector x y = x ~ y
