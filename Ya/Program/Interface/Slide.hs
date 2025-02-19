@@ -54,7 +54,7 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
       `ho'he` Scope @(Forward List item) at
       `ho'he` Scope it
 
-  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
+  window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
   window_extract_last passed window =
    push @List passed window `yi` that
@@ -85,4 +85,4 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
    `yok____` New `ha` State `ha____` Event `ha` window_future
    `ho_'ha'he` Scope `hv` at @(List item)
 
-  window_future r w = (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
+  window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r

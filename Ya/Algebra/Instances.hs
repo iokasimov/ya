@@ -103,9 +103,9 @@ instance
 instance
  ( forall e . Covariant Endo Semi Functor AR (U_I_II u e)
  , forall e . Covariant Endo Semi Functor AR (U_II_I u e)
- , Covariant Monoidal Functor from u u ttt
- , Component Natural from AR (t `T'TT'I` ttt) (t `TT'T'I` ttt)
- , Component Natural from AR (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
+ , Covariant Monoidal Functor from AR u u ttt
+ , Covariant Transformation Functor from AR (t `T'TT'I` ttt) (t `TT'T'I` ttt)
+ , Covariant Transformation Functor from AR (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
  , forall e . Wrapper from (U_T_I_TT_I u t tt e)
  , forall e . Wrapper AR (TT'T'I (U_T_I_TT_I u t tt) ttt e)
  , forall e . Wrapper AR (T'TT'I (U_T_I_TT_I u t tt) ttt e)
@@ -166,7 +166,7 @@ instance Mapping U_I_II U_I_II AR AR (U_II_I ML o) (U_II_I ML o) where
 instance
  ( Covariant Semi Functor from AR t
  , Covariant Functor from from (U_I_I u)
- , Covariant Monoidal Functor from u u t
+ , Covariant Monoidal Functor from AR u u t
  , forall e . Elicitable U_II_I from (U_I_I u e)
  ) => Mapping U_I_II U_I_II from AR (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap /
@@ -177,14 +177,14 @@ instance
 instance
  ( Covariant Semi Functor AR AR t
  , Covariant Functor AR AR (U_I_I u)
- , Covariant Monoidal Functor AR u u tt
+ , Covariant Monoidal Functor AR AR u u tt
  , Mapping U_I_II U_I_II AR AR (T'TT'I t tt) (TT'T'I t tt)
  ) => Mapping U_I_II U_I_II AR AR
   ((U_I_I u `T'TT'I` t) `T'TT'I` tt)
   ((U_I_I u `T'TT'I` t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap /
   map @U_I_II @U_I_II @AR @AR (wrap @_ @(T'TT'I (U_I_I u) t _)) `compose`
-  wrapped (component @U_I_II @AR @AR @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
+  wrapped (component @AR @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
   map @U_I_II @U_I_II @AR @AR @(U_I_I u)
    (wrapped / map @U_I_II @U_I_II @AR @AR @(T'TT'I t tt) @(TT'T'I t tt) from) `compose`
   unwrap @AR

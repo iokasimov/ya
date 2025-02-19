@@ -1,5 +1,7 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE UndecidableSuperClasses #-}
+{-# LANGUAGE QuantifiedConstraints #-}
 module Ya.Program.Primitive where
 
 import Ya.Algebra
@@ -35,7 +37,7 @@ switch :: ee -> Automation e e ee
 switch new old = old `lu` new
 
 leaf :: forall t e .
- Monoidal U_I_II Functor (->) LM ML t =>
+ Monoidal U_I_II Functor (->) (->) LM ML t =>
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
@@ -56,32 +58,32 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall t e . Monoidal U_I_II Functor (->) LM LM t => e -> t e
+intro :: forall t e . Monoidal U_I_II Functor (->) (->) LM LM t => e -> t e
 intro x = enter `yu` x
 
 layer :: forall g f e .
- Component Natural (->) (->) f (f `JNT` g) =>
+ Component (->) f (f `JNT` g) =>
  f e -> (f `JNT` g) e
-layer = component @U_I_II @(->) @(->) @f @(f `JNT` g) @e
+layer = component @(->) @f @(f `JNT` g) @e
 
 embed :: forall f g e .
- Component Natural (->) (->) g (f `JNT` g) =>
+ Component (->) g (f `JNT` g) =>
  g e -> (f `JNT` g) e
-embed = component @U_I_II @(->) @(->) @g @(f `JNT` g) @e
+embed = component @(->) @g @(f `JNT` g) @e
 
 joint :: forall f g e .
- Component Natural (->) (->) (f `T'TT'I` g) (f `JNT` g) =>
+ Component (->) (f `T'TT'I` g) (f `JNT` g) =>
  Elicitable U_II_I (->) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
-joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @U_I_II @(->) @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
+joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 -- Define a special `Mapping` instance instead and use `Try` label constructor for it
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
- Component Natural (->) (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
+ Component (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
  Elicitable U_II_I (->) ((t `T'TT'I` Progress e) e) =>
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
-try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @U_I_II @(->) @(->)
+try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @(->)
 
 prompt ::
  Elicitable U_II_I (->) e =>
@@ -89,9 +91,14 @@ prompt ::
 prompt = wrap
 
 to :: forall tt t e .
- Component U_I_II (->) (->) t tt =>
- t e -> tt e
-to = component @U_I_II @Arrow
+ Component AR t tt =>
+ t e `AR` tt e
+to = component @AR
+
+as :: forall tt t e .
+ Component AT t tt =>
+ t e `AT` tt e
+as = component @AT
 
 by :: Unit `AR` a `AR_` a
 by = unwrap
@@ -111,3 +118,64 @@ rep index = U_I_UU_II_U_II_I `li` \origin ->
   (\x -> tbt `ha` U_I_II `hv`
    (\index' -> is `hu_` idx origin `he'hv` index' `la` is `hu` x `li` q (index' `lu` index))
   )
+
+{-
+class Choose c d where
+  resolve :: (c => r) -> (d => r) -> r
+
+-- instance -- Mapping U_I_II U_I_II AR AR t tt =>
+ -- Choose (Mapping U_I_II U_I_II AR AR t tt) d
+ -- where resolve r _ = r
+
+-- instance d =>
+ -- Choose (Mapping U_1_I U_I_1 LM LM t tt) d
+ -- where resolve _ r = r
+
+instance {-# OVERLAPPABLE #-} d => (Choose c d) where resolve _ r = r
+instance {-# OVERLAPPING #-} c => (Choose c d) where resolve r _ = r
+
+-- instance {-# OVERLAPPABLE #-} d => Choose (a ~ b) d where resolve = \_ a -> a
+
+-- instance {-# OVERLAPPING #-} Choose (a ~ a) d where resolve = \a _ -> a
+
+-- instance (Mapping U_II_I U_I_II AR AR t tt) => (Category LM || Mapping U_II_I U_I_II AR AR t tt) where resolve = \_ r -> r
+
+to :: forall tt t i .
+ (Supertype (U_I_II AR i i) ~ AR i i) =>
+ (Supertype (U_II_I AR i i) ~ AR i i) =>
+ Elicitable U_II_I AR (U_II_I AR i i) =>
+ Elicitable U_II_I AR (U_I_II AR i i) =>
+ Choose (Mapping U_I_II U_I_II AR AR t tt) (Mapping U_II_I U_I_II AR AR t tt) =>
+ t i `AR__` tt i
+to = resolve @(Mapping U_I_II U_I_II AR AR t tt) @(Mapping U_II_I U_I_II AR AR t tt)
+ (unwrap @AR (mapping @U_I_II @U_I_II @AR @AR @t @tt @_ @_ (wrap identity)))
+ (unwrap @AR (mapping @U_II_I @U_I_II @AR @AR @t @tt @_ @_ (wrap identity)))
+
+class Component' into t tt where
+ component' :: into (t i) (tt i)
+
+instance
+ Mapping U_I_II U_I_II AR AR t tt
+ => Component' AR t tt where
+ component' = unwrap @AR (mapping @U_I_II @U_I_II @AR @AR @t @tt (wrap identity))
+
+instance {-# OVERLAPS #-}
+ (forall i . Setoid AR i, Mapping U_II_I U_I_II AR AR I (U_II_I AR Boolean))
+ => Component' AR I (U_II_I AR Boolean) where
+ component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'
+
+to :: forall tt t i .
+ Component' AR t tt =>
+ t i -> tt i
+to = component'
+
+-- instance Component AR AR t tt => Component' AR t Predicate where
+ -- component' = unwrap @AR (mapping @U_II_I @U_I_II @AR @AR @t @tt @_ @_ (wrap identity))
+
+-- deriving instance Component' 
+-}
+
+-- instance -- {-# OVERLAPS #-}
+ -- (forall i . Setoid AR i) -- , Mapping U_II_I U_I_II AR AR I (U_II_I AR Boolean))
+ -- => Component' AR I (U_II_I AR Boolean) where
+ -- component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'

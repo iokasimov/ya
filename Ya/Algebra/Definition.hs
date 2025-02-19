@@ -63,14 +63,20 @@ map :: forall v vv from into t tt a o .
  Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
 map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
-type Component v = Transformation v Functor
+-- type Component v = Transformation v Functor
 
-component :: forall v from into t tt o .
- Component v from into t tt =>
- (Supertype (v from o o) ~ from o o) =>
- Elicitable U_II_I Arrow (v from o o) =>
- into (t o) (tt o)
-component = unwrap @Arrow (mapping @v @U_I_II @from @into @t @tt @_ @o (wrap identity))
+-- component :: forall v from into t tt o .
+ -- Component v from into t tt =>
+ -- (Supertype (v from o o) ~ from o o) =>
+ -- Elicitable U_II_I Arrow (v from o o) =>
+ -- into (t o) (tt o)
+-- component = unwrap @Arrow (mapping @v @U_I_II @from @into @t @tt @_ @o (wrap identity))
+
+class Component into t tt where
+ component :: into (t i) (tt i)
+
+instance {-# OVERLAPPABLE #-} (Category into, Mapping U_I_II U_I_II into into t tt) => Component into t tt where
+ component = map @U_I_II @U_I_II @into @into identity
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
@@ -271,16 +277,16 @@ deriving instance
  ) => Adjoint x from into t tt
 
 class
- ( forall e ee . Mapping v U_I_II from Arrow (Day v from u uu t t e ee) t
- , Mapping v U_I_II from Arrow (v Arrow (Neutral uu)) t
- , x v from Arrow t
- ) => Monoidal v x from u uu t where
+ ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
+ , Mapping v U_I_II from into (v into (Neutral uu)) t
+ , x v from into t
+ ) => Monoidal v x from into u uu t where
 
 deriving instance
- ( forall e ee . Mapping v U_I_II from Arrow (Day v from u uu t t e ee) t
- , Mapping v U_I_II from Arrow (v Arrow (Neutral uu)) t
- , x v from Arrow t
- ) => Monoidal v x from u uu t
+ ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
+ , Mapping v U_I_II from into (v into (Neutral uu)) t
+ , x v from into t
+ ) => Monoidal v x from into u uu t
 
 -- TODO: Yoneda version?
 day :: forall v from t u uu a o e ee .
@@ -295,33 +301,33 @@ day from t x = map @v @U_I_II @from @(->)
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 monoidal_ :: forall v from into t u uu a o e ee .
- Adjoint Functor (->) into
-  (U_I_II LM (u (t e) (t ee)))
-  (U_I_II into (u (t e) (t ee))) =>
- Monoidal v Functor from u uu t =>
- Elicitable U_II_I Arrow (v from a o) =>
- Elicitable U_II_I into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
- Elicitable U_I_II into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
- Elicitable U_I_II into (U_I_II into (u (t e) (t ee)) (t o)) =>
- Elicitable U_II_I into (I (v from (uu e ee) a)) =>
+ Adjoint Functor into into (U_I_II LM (u (t e) (t ee))) (U_I_II into (u (t e) (t ee))) =>
+ Monoidal v Functor from into u uu t =>
+ Wrapper Arrow (v from a o) =>
+ Wrapper into (U_I_II LM (u (t e) (t ee)) (v from (uu e ee) a)) =>
+ Wrapper into (U_V_UU_UUU_UUUU_T'TT'I_II_III LM v from u uu t t e ee a) =>
+ Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
+ Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+ Wrapper into (U_I_II into (u (t e) (t ee)) (t o)) =>
+ Wrapper into (I (v from (uu e ee) a)) =>
  Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
 monoidal_ from =
  unwrap @into @(U_I_II into _ _)
- `compose` map @U_I_II @U_I_II @(->) @into
+ `compose` map @U_I_II @U_I_II @into @into
   @(U_I_II into (u (t e) (t ee))) @(U_I_II into (u (t e) (t ee)))
-  ((map @v @U_I_II @from @(->) @(Day v from u uu t t e ee) @t from `compose` wrap)
-  `compose` unwrap @(->) @(U_I_II LM _ _))
+  ((map @v @U_I_II @from @into @(Day v from u uu t t e ee) @t from `compose` wrap)
+  `compose` unwrap @into @(U_I_II LM _ _))
  `compose` unwrap @into @(T'TT'I _ _ _)
- `compose` component @U_I_II @(->) @into @I @(U_I_II into _ `T'TT'I` U_I_II LM _)
+ `compose` component @into @I @(U_I_II into _ `T'TT'I` U_I_II LM _)
  `compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t o . Monoidal U_I_II Functor (->) LM ML t => t o
-empty = component @U_I_II @(->) @(->) @(U_I_II (->) Void) @t (U_I_II initial')
+empty :: forall t o . Covariant Monoidal Functor (->) (->) LM ML t => t o
+empty = component @(->) @(U_I_II (->) Void) @t (U_I_II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Monoidal U_I_II Functor (->) LM LM t => t Unit
-enter = component @U_I_II @(->) @(->) @(U_I_II (->) ()) @t (U_I_II identity)
+enter :: forall t . Covariant Monoidal Functor (->) (->) LM LM t => t Unit
+enter = component @(->) @(U_I_II (->) Unit) @t (U_I_II identity)
 
 rewrap :: forall o into a .
  Precategory into =>
@@ -365,6 +371,11 @@ ana :: forall into t e .
  into e (t e) -> into e (Recursive t)
 ana into = wrap `compose` map @U_I_II @U_I_II (ana into) `compose` into
 
+type family Jointable effect where
+ Jointable (U_I_II AR e) = ()
+ Jointable (U_I_II ML e) = ()
+ Jointable (U_I_II (U_I_UU_II_I AR LM) e) = ()
+
 type family JNT effect where
  JNT (U_I_II AR e) = T'TT'I (U_I_II AR e)
  JNT (U_I_II ML e) = TT'T'I (U_I_II ML e)
@@ -384,12 +395,12 @@ swap (These x y) = These y x
 constant :: forall from into a o .
  Category from =>
  Precategory into =>
- Mapping U_I_II U_I_II from into I (U_I_II from a) =>
+ Component into I (U_I_II from a) =>
  Elicitable U_I_II into (U_I_II from a o) =>
  Elicitable U_II_I into (I o) =>
  into o (from a o)
 constant = unwrap @_ @(U_I_II from a _)
- `compose` map @U_I_II @U_I_II @from @into identity
+ `compose` component @into
  `compose` wrap @into @(I o)
 
 is :: Category AR_ => e `AR_` e
