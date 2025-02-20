@@ -779,7 +779,7 @@ kyo x = yoneda @U_I_II (unwrap (component @(->) @t @(t `T'TT'I` ll `L` tt) x)) `
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
  Category into =>
- Component into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
+ Covariant Transformation Functor into into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Covariant Yoneda from into t =>
  (forall i . Wrapper into ((t `T'TT'I` L l (L ll tt)) i)) =>
  (forall i . Wrapper into ((t `TT'T'I` tt) i)) =>
@@ -802,7 +802,7 @@ li'yokl = yokl
 yukl, yukl_, yukl__, yukl___, yukl____, yukl_____
  :: forall into t tt l ll a o .
  Category into =>
- Component into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
+ Covariant Transformation Functor into into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Component into I (U_I_II into a) =>
  Covariant Yoneda into into t =>
  (forall i . Wrapper into ((t `T'TT'I` L l (L ll tt)) i)) =>

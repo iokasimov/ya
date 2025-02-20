@@ -63,15 +63,6 @@ map :: forall v vv from into t tt a o .
  Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
 map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
--- type Component v = Transformation v Functor
-
--- component :: forall v from into t tt o .
- -- Component v from into t tt =>
- -- (Supertype (v from o o) ~ from o o) =>
- -- Elicitable U_II_I Arrow (v from o o) =>
- -- into (t o) (tt o)
--- component = unwrap @Arrow (mapping @v @U_I_II @from @into @t @tt @_ @o (wrap identity))
-
 class Component into t tt where
  component :: into (t i) (tt i)
 
