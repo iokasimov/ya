@@ -106,10 +106,13 @@ deriving instance
  , Dumb (Functor v from into t)
  ) => Semi v Functor from into t
 
+-- TODO: Semi Natural Transformation?
+-- TODO: Semi Monoidal Functor?
+
 type Endo v x c into = x v c into into
 
-{- LAW: mapping @tt @tt morphism . component @t @tt = component @t @tt . mapping morphism @t @t -}
-{- LAW: mapping @tt @tt morphism . component @t @tt = component @t @tt . mapping morphism @t @t -}
+{- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
+{- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 class
  ( Mapping v U_I_II from into t tt
  , x v from into t
@@ -122,6 +125,7 @@ deriving instance
  , x v from into tt
  ) => Transformation v x from into t tt
 
+-- TODO: Semi Natural Covariant/Contravariant Transformation?
 type Natural = U_I_II
 
 type Dinatural = U_II_I
@@ -134,8 +138,8 @@ type Constant t = t U_1_I
 
 type Kleisli u t = U_I_T_II t u
 
-class (Category from, forall o . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t o)) =>
- Yoneda v from into t where
+class (Category from, x v from into t, forall o . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t o)) =>
+ Yoneda v x from into t where
  yoneda :: forall a o .
   Category from =>
   Precategory into =>
@@ -145,8 +149,8 @@ class (Category from, forall o . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II
  yoneda x = unwrap (map @v @U_I_II @from @Arrow @t @(UU_V_U_I_II_T_II v from into t o) identity x)
 
 deriving instance
- (Category from, forall r . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
- Yoneda v from into t
+ (Category from, x v from into t, forall r . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+ Yoneda v x from into t
 
 type family Representation t where
  Representation I = ()
@@ -261,11 +265,11 @@ class
  ) => Adjoint x from into t tt
 
 deriving instance
- ( x U_I_II into from t
- , x U_I_II from into tt
- , Transformation U_I_II x into from (T'TT'I t tt) I
- , Transformation U_I_II x from into I (T'TT'I tt t)
- ) => Adjoint x from into t tt
+ ( Functor U_I_II into from t
+ , Functor U_I_II from into tt
+ , Transformation U_I_II Functor into from (T'TT'I t tt) I
+ , Transformation U_I_II Functor from into I (T'TT'I tt t)
+ ) => Adjoint Functor from into t tt
 
 class
  ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
