@@ -1,6 +1,7 @@
-# Extremely composable embeddable programming language
+## Extremely composable embeddable programming language
 
-[Documentation](https://muratkasimov.art/Ya) ⋅ [Font](https://github.com/iokasimov/ya-fonts)
+[All you need is actually here - documentation, examples, tutorials, deep-dive articles as well.](https://muratkasimov.art/Ya)
 
-<img width="990" alt="ภาพถ่ายหน้าจอ 2567-12-06 เวลา 17 43 44" src="https://github.com/user-attachments/assets/650947b3-d624-4fa0-af2e-97fedf260433">
+#### This is how code in this language looks like:
 
+<img src="https://github.com/user-attachments/assets/d3ce0068-e0de-42a3-bf53-18b273de15a1" alt="ภาพถ่ายหน้าจอ2568-02-01เวลา 15 34 42" width="80%"/>
