@@ -177,7 +177,7 @@ instance
 instance
  ( Covariant Semi Functor AR AR t
  , Covariant Functor AR AR (U_I_I u)
- , Covariant Monoidal Functor AR AR u u tt
+ , Covariant Endo Monoidal Functor AR u u tt
  , Mapping U_I_II U_I_II AR AR (T'TT'I t tt) (TT'T'I t tt)
  ) => Mapping U_I_II U_I_II AR AR
   ((U_I_I u `T'TT'I` t) `T'TT'I` tt)

@@ -106,8 +106,9 @@ deriving instance
  , Dumb (Functor v from into t)
  ) => Semi v Functor from into t
 
--- TODO: Semi Natural Transformation?
+-- TODO: Semi Transformation?
 -- TODO: Semi Monoidal Functor?
+-- TODO: Semi Covariant/Contravariant Transformation?
 
 type Endo v x c into = x v c into into
 
@@ -124,9 +125,6 @@ deriving instance
  , x v from into t
  , x v from into tt
  ) => Transformation v x from into t tt
-
--- TODO: Semi Natural Covariant/Contravariant Transformation?
-type Natural = U_I_II
 
 type Dinatural = U_II_I
 
