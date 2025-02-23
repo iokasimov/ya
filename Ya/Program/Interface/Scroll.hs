@@ -30,7 +30,7 @@ type family Scrolled datastructure where
  Scrolled (Construction (U_I_I LM `T'TT'I` Optional)) = Optional
  Scrolled (Construction List) = Optional
 
--- TODO: maybe to add `path` method here? Check `Scrolling `WR` Tree` first
+-- TODO: maybe to add `path` method here? Check `Scrolling Tree` first
 class Scrollable datastructure item where
  scroll :: Scroller datastructure `AR__` Automation
   `WR` Scrolling datastructure item

@@ -250,23 +250,18 @@ instance Terminal (->) where
 
 type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III LM
 
-
--- TODO add these constraints:
--- , forall ee . Wrapper into (T'TT'I (U_I_II tt e) (U_II_I t e) ee)
--- , forall ee . Wrapper into (T'TT'I (U_II_I t e) (U_I_II tt e) ee)
-
 class
- ( x U_I_II into from t
- , x U_I_II from into tt
- , Transformation U_I_II x into from (T'TT'I t tt) I
- , Transformation U_I_II x from into I (T'TT'I tt t)
+ ( Covariant x into from t
+ , Covariant x from into tt
+ , Covariant Transformation x into from (T'TT'I t tt) I
+ , Covariant Transformation x from into I (T'TT'I tt t)
  ) => Adjoint x from into t tt
 
 deriving instance
- ( Functor U_I_II into from t
- , Functor U_I_II from into tt
- , Transformation U_I_II Functor into from (T'TT'I t tt) I
- , Transformation U_I_II Functor from into I (T'TT'I tt t)
+ ( Covariant Functor into from t
+ , Covariant Functor from into tt
+ , Covariant Transformation Functor into from (T'TT'I t tt) I
+ , Covariant Transformation Functor from into I (T'TT'I tt t)
  ) => Adjoint Functor from into t tt
 
 class
