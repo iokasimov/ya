@@ -9,18 +9,14 @@ import Ya.Program.Interface.Field
 import Ya.Program.Interface.Stack
 import Ya.Program.Interface.Scroll
 
-type family Window datastructure = result | result -> datastructure where
- -- Ideally there should be `Queue` instead of `List`, but we don't have it for now
- Window (Optional `T'TT'I` Construction Optional) = List
-
 type family Sliding datastructure = result | result -> datastructure where
+ -- TODO: Ideally there should be `Queue` instead of `List`, but we don't have it for now
  Sliding (Optional `T'TT'I` Construction Optional) = List `LM'T'I'TT'I` Shafted List
 
 class Scrollable datastructure item
  => Slidable datastructure item where
  slide :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
  extend :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
- window :: Supertype (Sliding datastructure item `AT` Window datastructure item)
 
 instance Slidable (Optional `T'TT'I` Construction Optional) item where
  slide way x = is
@@ -65,8 +61,6 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
     `yokl` Forth `ha` New `ha` State `ha` Event `ha` push
     `he'he'hv___` by `hv` Empty @List
     `yi__` that `ho` pop @List
-
- window = unwrap `hv__` Scope `hv` it @(Sliding List item) `ho_'he` Scope `hv` at @(List item)
 
  extend way x = is
   `li` is `hu` (This () `lu` x)
