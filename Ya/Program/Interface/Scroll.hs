@@ -30,13 +30,12 @@ type family Scrolled t where
  Scrolled (Construction (U_I_I LM `T'TT'I` Optional)) = Optional
  Scrolled (Construction List) = Optional
 
--- TODO: maybe to add `path` method here? Check `Scrolling Tree` first
 class Scrollable t i where
- scroll :: Scroller t `AR__` Automation `WR` Scrolling t i `WR` Supertype (Scrolled t i) `WR` Scrolling t i
- locate :: Scroller t `AR___` Predicate i `AR__` Automation `WR` Scrolling t i `WR` Supertype (Optional (Scrolling t i)) `WR` Scrolling t i
+ scroll :: Scroller t `AR___` Supertype (Transition `WR` Scrolling t i `WR` Scrolled t i)
+ locate :: Scroller t `AR___` Predicate i `AR__` Supertype (Transition `WR` Scrolling t i `WR_` Optional `WR` Scrolling t i)
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) i where
- scroll way x = is `li` None `hu` (This () `lu` x) `la` is `ho'he` foi @_ @Arrow That `li` scroll' `he'he'hv` x where
+ scroll way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @Arrow Some `li` scroll' `he'he'hv` x where
 
   scroll' = enter @(State `WR` Scrolling List i `JNT` Halts)
    `yuk__` New `ha` State `hv__` Transition `hv` pop `ha_'he` Scope @(Shafted List i) at `ho'he` path way
@@ -45,10 +44,10 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) i where
    `yok__` New `ha` State `ha__` Transition `ha` switch `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
    `yok__` New `ha` State `ha__` Transition `ha` push `ho_'ha` Scope @(Shafted List i) at `he'ho'he` path (not way)
 
-  path = is `hu_` Scope @(Reverse List i) at `ho'he` Scope it
-   `la___` is `hu_` Scope @(Forward List i) at `ho'he` Scope it
+  path = Back `hu_` Scope @(Reverse List i) at `ho'he` Scope it
+   `la___` Fore `hu_` Scope @(Forward List i) at `ho'he` Scope it
 
- locate way predicate x = foi That `ha` auto `la` is `ho'he` foi @_ @Arrow (is `hu` This Unit) `li` locate' `he'he'hv` x where
+ locate way predicate x = foi Some `ha` auto `la` is `ho'he` foi @_ @Arrow (None `hu` by None) `li` locate' `he'he'hv` x where
 
   locate' = enter @(State `WR` Scrolling List i `JNT` Reach `WR` Scrolling List i)
    `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(Focused i) `ho_'he` Scope `hv` it @i
@@ -61,8 +60,8 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) i where
 -- TODO: implement `locate` method
 instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) i where
  scroll way x = is
-  `li` is `hu` (This () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow That
+  `li` is `hu` (by None `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
   horizontally :: forall i . Way `AR___` State `WR` Scrolling Tree i `JNT` Halts `WR__` i
@@ -70,7 +69,8 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) i w
    `yuk__` New `ha` State `hv__` Transition `hv` scroll way
    `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
     `ho'he` Scope @(Scrolling List `T'I` Tree i) at
-   `yok__` Try `ha___` Maybe `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
+   -- TODO: rewrite it, we need `ha'yo` operator for it
+   `yok__` Try `ha___` is `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
 
   -- TODO: refactor, it's hard to catch an error here
   vertical_deep :: forall i . Unit `AR___` State `WR` Scrolling Tree i `JNT` Halts `WR__` i
