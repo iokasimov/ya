@@ -15,13 +15,13 @@ type family Sliding datastructure = result | result -> datastructure where
 
 class Scrollable datastructure item
  => Slidable datastructure item where
- slide :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
- extend :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Supertype (Scrolled datastructure item) `WR` Sliding datastructure item
+ slide :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Scrolled datastructure item `WR` Sliding datastructure item
+ extend :: Scroller datastructure `AR_` Automation `WR` Sliding datastructure item `WR` Scrolled datastructure item `WR` Sliding datastructure item
 
 instance Slidable (Optional `T'TT'I` Construction Optional) item where
  slide way x = is
-  `li` is `hu` (This () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow That
+  `li` is `hu` (by None `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
   slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
@@ -63,8 +63,8 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
     `yi__` that `ho` pop @List
 
  extend way x = is
-  `li` is `hu` (This () `lu` x)
-  `la` is `ho'he` foi @_ @Arrow That
+  `li` is `hu` (by None `lu` x)
+  `la` is `ho'he` foi @_ @Arrow Some
   `li` (extend_passed `lv` extend_future `li` way) `he'he'hv` x where
 
   extend_passed = enter @(State `WR` Sliding List item `JNT` Halts)
