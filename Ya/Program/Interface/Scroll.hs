@@ -32,7 +32,7 @@ type family Scrolled t where
 
 class Scrollable t i where
  scroll :: Scroller t `AR___` Supertype (Transition `WR` Scrolling t i `WR` Scrolled t i)
- locate :: Scroller t `AR___` Predicate i `AR__` Supertype (Transition `WR` Scrolling t i `WR_` Optional `WR` Scrolling t i)
+ locate :: Scroller t `LM` Predicate i `AR__` Supertype (Transition `WR` Scrolling t i `WR_` Optional `WR` Scrolling t i)
 
 instance Scrollable (Optional `T'TT'I` Construction Optional) i where
  scroll way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @Arrow Some `li` scroll' `he'he'hv` x where
@@ -47,7 +47,7 @@ instance Scrollable (Optional `T'TT'I` Construction Optional) i where
   path = Back `hu_` Scope @(Reverse List i) at `ho'he` Scope it
    `la___` Fore `hu_` Scope @(Forward List i) at `ho'he` Scope it
 
- locate way predicate x = foi Some `ha` auto `la` is `ho'he` foi @_ @Arrow (None `hu` by None) `li` locate' `he'he'hv` x where
+ locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @Arrow (None `hu` by None) `li` locate' `he'he'hv` x where
 
   locate' = enter @(State `WR` Scrolling List i `JNT` Reach `WR` Scrolling List i)
    `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(Focused i) `ho_'he` Scope `hv` it @i
