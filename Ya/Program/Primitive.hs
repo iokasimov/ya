@@ -30,11 +30,15 @@ adjust attr f s = let (These h x) = attr `he'hv` s in x `li`f h
   -- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
   -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
-auto :: Automation e e e
+auto, get :: Automation e e e
 auto x = x `lu` x
 
-switch :: ee -> Automation e e ee
+get = auto
+
+switch, put :: ee -> Automation e e ee
 switch new old = old `lu` new
+
+put = switch
 
 leaf :: forall t e .
  Monoidal U_I_II Functor (->) (->) LM ML t =>
