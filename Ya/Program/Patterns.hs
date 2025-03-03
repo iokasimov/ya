@@ -84,6 +84,9 @@ type Error = U_I_II ML
 pattern Error :: e -> Error e ee
 pattern Error x = U_I_II (This x)
 
+pattern Break :: e -> Error e ee
+pattern Break x = U_I_II (This x)
+
 type Catch = U_I_II ML
 
 pattern Catch :: e -> Error e ee
@@ -208,7 +211,7 @@ type Stream = Construction Only
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
-type Way = ML Unit Unit
+type Way = Unit `ML` Unit
 
 pattern Back :: forall r e ee . (r ~ e `ML` ee) => e -> r
 pattern Back x = This x
