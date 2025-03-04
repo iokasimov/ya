@@ -19,10 +19,10 @@ type family Scrolling t = result | result -> t where
  Scrolling (Construction List) = Scrolling List `T'TT'I` Tree `LM'T'I'TT'I` Reverse List `T'TT'I` (Only `LM'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
 type family Scroller t where
- Scroller Stream = () `ML` ()
- Scroller (Optional `T'TT'I` Construction Optional) = () `ML` ()
- Scroller (Construction (U_I_I LM `T'TT'I` Optional)) = () `ML` () `ML` ()
- Scroller (Construction List) = (Unit `ML` Unit) `ML` (Unit `ML` Unit)
+ Scroller Stream = () `S` ()
+ Scroller (Optional `T'TT'I` Construction Optional) = () `S` ()
+ Scroller (Construction (U_I_I LM `T'TT'I` Optional)) = () `S` () `S` ()
+ Scroller (Construction List) = (Unit `S` Unit) `S` (Unit `S` Unit)
 
 type family Scrolled t where
  Scrolled Stream = Only

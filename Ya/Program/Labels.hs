@@ -26,9 +26,9 @@ pattern Check e = Labeled @() e
 pattern Retry :: forall ee e . Error e ee -> L Recursive (Error e) ee
 pattern Retry e = Labeled @Recursive e
 
-type Fore = U_I_II ML () ()
+type Fore = U_I_II S () ()
 
-type Back = U_II_I ML () ()
+type Back = U_II_I S () ()
 
 type Forward = L Unit
 
@@ -46,7 +46,7 @@ pattern Forth e = Labeled e
 pattern Prior :: t e -> Reverse t e
 pattern Prior e = Labeled e
 
-pattern Use :: t e -> L (U_I_II ML () ()) t e
+pattern Use :: t e -> L (U_I_II S () ()) t e
 pattern Use e = Labeled e
 
 pattern New e = Labeled @() @(State _) e

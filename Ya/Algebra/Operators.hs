@@ -1971,11 +1971,11 @@ hd'q, hd_'q, hd__'q, hd___'q, hd____'q, hd_____'q, hd______'q, hd_______'q, hd__
  :: forall into a .
  Adjoint Functor into into (U_II_I LM a) (U_I_II into a) =>
  Elicitable U_I_II into ((U_I_II into a `T'TT'I` U_II_I LM a) a) =>
- Elicitable U_I_II into (U_I_II into a (a `LM` a `ML` a)) =>
+ Elicitable U_I_II into (U_I_II into a (a `LM` a `S` a)) =>
  Elicitable U_I_II into (U_II_I LM a a) =>
  Elicitable U_II_I into (I a) =>
  Setoid into a =>
- into a (into a (a `LM` a `ML` a))
+ into a (into a (a `LM` a `S` a))
 hd'q = hd (q @into)
 
 hd_'q = hd'q
@@ -2173,7 +2173,7 @@ lo_______'yp = lo'yp
 
 lo'ys, lo_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
  :: forall t a o oo .
- Covariant Monoidal Functor (->) (->) LM ML t =>
+ Covariant Monoidal Functor (->) (->) LM S t =>
  Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Sum o oo))
 lo'ys from__eft from_right = ys `compose` lo from__eft from_right
 
@@ -2187,7 +2187,7 @@ lo_______'ys = lo'ys
 
 lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo______'ys'la, lo_______'ys'la
  :: forall t a oo_ .
- Covariant Monoidal Functor (->) (->) LM ML t =>
+ Covariant Monoidal Functor (->) (->) LM S t =>
  Arrow a (t oo_) -> Arrow a (t oo_) -> Arrow a (t oo_)
 lo'ys'la from__eft from_right = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo from__eft from_right
 
@@ -2326,7 +2326,7 @@ lu_______ = lu
 la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o oo .
  Category from =>
  Limit U_II_I from from =>
- Objective from (o `ML` oo) a =>
+ Objective from (o `S` oo) a =>
  Covariant Endo Semi Functor from (U_I_II Sum o) =>
  Covariant Endo Semi Functor from (U_II_I Sum i) =>
  (forall ee eee . Wrapper from (U_I_II Sum ee eee)) =>
@@ -2337,7 +2337,7 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o 
 la l r = wrapped (map @U_II_I @U_II_I @from @from @I @(Both Sum) identity)
  `compose` foi @from @from l
  `compose` fio @from @from r
- `compose` objective @_ @(o `ML` oo)
+ `compose` objective @_ @(o `S` oo)
 
 la_ = la
 la__ = la
@@ -2351,7 +2351,7 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
  Covariant Endo Semi Functor (->) (U_I_II Sum aa) =>
  Covariant Endo Semi Functor (->) (U_II_I Sum o) =>
- Objective (->) (aa `ML` aaa) a =>
+ Objective (->) (aa `S` aaa) a =>
  (forall ee eee . Wrapper (->) (U_I_II Sum ee eee)) =>
  (forall ee eee . Wrapper (->) (U_II_I Sum ee eee)) =>
  (forall ee . Wrapper (->) (U_I_I Sum ee)) =>
@@ -2362,39 +2362,39 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
 lv l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 
 lv_ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv__ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv___ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv____ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv_____ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 lv_______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity)
  `compose` fui @(->) @(->) l
  `compose` fiu @(->) @(->) r
- `compose` objective @(->) @(aa `ML` aaa) @a
+ `compose` objective @(->) @(aa `S` aaa) @a
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
--- `hs`: from o i -> from oo i -> from (o `ML` oo) i
+-- `hs`: from o i -> from oo i -> from (o `S` oo) i
 -- `lo`: into a o -> into a oo -> into a (o `LM` oo)
 --     : u (from o i) (from oo i) -> from (uu o oo) i
 
@@ -2474,31 +2474,31 @@ yio'yp = fio (day @U_I_II @(->) @tt @u @LM identity identity)
 
 -- TODO: try to generalize
 ys :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u ML t =>
- u (t e) (t ee) -> t (e `ML` ee)
-ys = day @U_I_II @(->) @t @u @ML identity identity
+ Covariant Monoidal Functor (->) (->) u S t =>
+ u (t e) (t ee) -> t (e `S` ee)
+ys = day @U_I_II @(->) @t @u @S identity identity
 
 -- TODO: try to generalize
 ys'yo :: forall from e ee u r t .
- Covariant Monoidal Functor from (->) u ML t =>
- u (t e) (t ee) -> from (e `ML` ee) r -> t r
-ys'yo x f = day @U_I_II @from @t @u @ML identity f x
+ Covariant Monoidal Functor from (->) u S t =>
+ u (t e) (t ee) -> from (e `S` ee) r -> t r
+ys'yo x f = day @U_I_II @from @t @u @S identity f x
 
 -- TODO: try to generalize
 yis :: forall u e ee eee t .
  Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
  Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
- Covariant Monoidal Functor (->) (->) u ML (U_I_II t e) =>
- u (t e ee) (t e eee) -> t e (ee `ML` eee)
+ Covariant Monoidal Functor (->) (->) u S (U_I_II t e) =>
+ u (t e ee) (t e eee) -> t e (ee `S` eee)
 yis = unwrap @Arrow
- `compose` day @U_I_II @(->) @(U_I_II t e) @u @ML identity identity
+ `compose` day @U_I_II @(->) @(U_I_II t e) @u @S identity identity
  `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
 dw :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u MLM t =>
- u (t e) (t ee) -> t (ML e ee `ML` LM e ee)
-dw = day @U_I_II @(->) @t @u @MLM identity he
+ Covariant Monoidal Functor (->) (->) u SM t =>
+ u (t e) (t ee) -> t (S e ee `S` LM e ee)
+dw = day @U_I_II @(->) @t @u @SM identity he
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt .
@@ -2511,10 +2511,10 @@ yp'yp = day @U_I_II @(->) @t @u @LM identity
 -- TODO: try to generalize
 yp'ys :: forall u e ee t tt .
  Covariant Monoidal Functor (->) (->) u LM t =>
- Covariant Monoidal Functor (->) (->) LM ML tt =>
- u (t (tt e)) (t (tt ee)) -> t (tt (e `ML` ee))
+ Covariant Monoidal Functor (->) (->) LM S tt =>
+ u (t (tt e)) (t (tt ee)) -> t (tt (e `S` ee))
 yp'ys = day @U_I_II @(->) @t @u @LM identity
- (day @U_I_II @(->) @tt @LM @ML identity identity)
+ (day @U_I_II @(->) @tt @LM @S identity identity)
 
 yip'yp :: forall u e ee eee t tt .
  Covariant Endo Semi Functor (->) (U_I_II t e) =>
@@ -2539,8 +2539,8 @@ yip'yis :: forall u e ee eee eeee t tt .
  Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee eee))) =>
  Covariant Endo Semi Functor (->) (U_II_I u (t e (tt ee eeee))) =>
  Covariant Monoidal Functor (->) (->) u LM (U_I_II t e) =>
- Covariant Monoidal Functor (->) (->) LM ML (U_I_II tt ee) =>
- u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `ML` eeee))
+ Covariant Monoidal Functor (->) (->) LM S (U_I_II tt ee) =>
+ u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `S` eeee))
 yip'yis x = yip'yo x yis
 
 -- TODO: try to generalize
@@ -3085,10 +3085,10 @@ lu_______'yip = lu'yip
 
 lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'ys
  :: forall o oo t .
- Covariant Monoidal Functor (->) (->) LM ML t =>
+ Covariant Monoidal Functor (->) (->) LM S t =>
  Covariant Yoneda Functor (->) (->) (U_I_II LM (t o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I LM ()) =>
- t o -> t oo -> t (o `ML` oo)
+ t o -> t oo -> t (o `S` oo)
 lu'ys from__eft from_right = ys (lu from__eft from_right)
 
 lu_'ys = lu'ys
@@ -3101,10 +3101,10 @@ lu_______'ys = lu'ys
 
 lu'yis, lu_'yis, lu__'yis, lu___'yis, lu____'yis, lu_____'yis, lu______'yis, lu_______'yis
  :: forall e o oo t .
- Covariant Monoidal Functor (->) (->) LM ML (U_I_II t e) =>
+ Covariant Monoidal Functor (->) (->) LM S (U_I_II t e) =>
  Covariant Yoneda Functor (->) (->) (U_I_II LM (t e o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I LM ()) =>
- t e o -> t e oo -> t e (o `ML` oo)
+ t e o -> t e oo -> t e (o `S` oo)
 lu'yis from__eft from_right = yis (lu from__eft from_right)
 
 lu_'yis = lu'yis
@@ -3127,11 +3127,11 @@ lu'yp'yp from__eft from_right = yp'yp @LM (lu from__eft from_right)
 lu'yp'ys
  :: forall t tt o oo .
  Covariant Monoidal Functor (->) (->) LM LM t =>
- Covariant Monoidal Functor (->) (->) LM ML tt =>
+ Covariant Monoidal Functor (->) (->) LM S tt =>
  Covariant Endo Semi Functor (->) t =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t (tt o))) =>
- t (tt o) -> t (tt oo) -> t (tt (o `ML` oo))
+ t (tt o) -> t (tt oo) -> t (tt (o `S` oo))
 lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
 
 lu'yip'yp
@@ -3157,11 +3157,11 @@ lu'yip'yip from__eft from_right = yip'yip (lu from__eft from_right)
 lu'yip'yis
  :: forall t tt o oo e ee .
  Covariant Monoidal Functor (->) (->) LM LM (U_I_II t e) =>
- Covariant Monoidal Functor (->) (->) LM ML (U_I_II tt ee) =>
+ Covariant Monoidal Functor (->) (->) LM S (U_I_II tt ee) =>
  Covariant Endo Semi Functor (->) (U_I_II t e) =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
- t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `ML` oo))
+ t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `S` oo))
 lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
 
 -- jt :: forall into f g e .
@@ -3337,7 +3337,7 @@ fc = unwrap @(->) @(U_I_II into (t a) _)
 q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
  forall into e .
  Setoid into e =>
- into (e `LM` e) (e `LM` e `ML` e)
+ into (e `LM` e) (e `LM` e `S` e)
 q = equality
 
 q_ = q

@@ -32,9 +32,9 @@ type Apparently = I
 pattern Apparently :: e -> Apparently e
 pattern Apparently e = Identity e
 
-type Boolean = U_I_II ML Unit Unit
+type Boolean = U_I_II S Unit Unit
 
-pattern Boolean :: Unit `ML` Unit `AR_` Boolean
+pattern Boolean :: Unit `S` Unit `AR_` Boolean
 pattern Boolean e = U_I_II e
 
 pattern False x = U_I_II (This x)
@@ -52,7 +52,7 @@ type Equipped = U_II_I LM
 pattern Equip :: e `LM` ee -> Equipped ee e
 pattern Equip x = U_II_I x
 
-type Optional = U_I_II ML Unit
+type Optional = U_I_II S Unit
 
 pattern None :: Unit -> Optional e
 pattern None x = U_I_II (This x)
@@ -62,24 +62,24 @@ pattern Some x = U_I_II (That x)
 
 pattern Optionally x = U_I_II x
 
-type Halts = U_I_II ML Unit
+type Halts = U_I_II S Unit
 
-type Maybe = U_I_II ML Unit
+type Maybe = U_I_II S Unit
 
-pattern Maybe :: Unit `ML` e `AR_` Maybe e
-pattern Maybe x = U_I_II @ML @Unit x
+pattern Maybe :: Unit `S` e `AR_` Maybe e
+pattern Maybe x = U_I_II @S @Unit x
 
-type Progress = U_I_II ML
+type Progress = U_I_II S
 
-pattern Progress x = U_I_II @ML x
+pattern Progress x = U_I_II @S x
 
 pattern Interrupt :: e -> Progress e ee
-pattern Interrupt x = U_I_II @ML (This x)
+pattern Interrupt x = U_I_II @S (This x)
 
 pattern Continue :: ee -> Progress e ee
-pattern Continue x = U_I_II @ML (That x)
+pattern Continue x = U_I_II @S (That x)
 
-type Error = U_I_II ML
+type Error = U_I_II S
 
 pattern Error :: e -> Error e ee
 pattern Error x = U_I_II (This x)
@@ -87,12 +87,12 @@ pattern Error x = U_I_II (This x)
 pattern Break :: e -> Error e ee
 pattern Break x = U_I_II (This x)
 
-type Catch = U_I_II ML
+type Catch = U_I_II S
 
 pattern Catch :: e -> Error e ee
 pattern Catch x = U_I_II (This x)
 
-type Reach = U_I_II ML
+type Reach = U_I_II S
 
 pattern Reach :: e -> Error e ee
 pattern Reach x = U_I_II (This x)
@@ -109,13 +109,13 @@ pattern Valid x = U_I_II (That x)
 
 pattern Ok x = U_I_II (That x)
 
-type Probably = U_I_II ML
+type Probably = U_I_II S
 
-pattern Probably x = U_I_II @ML x
+pattern Probably x = U_I_II @S x
 
-type Perhaps = U_I_II ML
+type Perhaps = U_I_II S
 
-pattern Perhaps x = U_I_II @ML x
+pattern Perhaps x = U_I_II @S x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
@@ -129,15 +129,15 @@ type Scope = U_I_UU_II_U_II_I (->) LM
 pattern Scope :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Scope e ee
 pattern Scope x = U_I_UU_II_U_II_I @(->) @LM x
 
--- type Directive = U_I_UU_I_II (->) ML
+-- type Directive = U_I_UU_I_II (->) S
 
--- pattern Directive :: forall ee e . (e `AR_` ML e ee) -> Directive e ee
--- pattern Directive x = U_I_UU_I_II @(->) @ML x
+-- pattern Directive :: forall ee e . (e `AR_` S e ee) -> Directive e ee
+-- pattern Directive x = U_I_UU_I_II @(->) @S x
 
-type Match = U_I_UU_MN_I_II_II (->) ML
+type Match = U_I_UU_MN_I_II_II (->) S
 
-pattern Match :: forall ee e . (e `AR_` ML (MN e ee) ee) -> Match e ee
-pattern Match x = U_I_UU_MN_I_II_II @(->) @ML x
+pattern Match :: forall ee e . (e `AR_` S (MN e ee) ee) -> Match e ee
+pattern Match x = U_I_UU_MN_I_II_II @(->) @S x
 
 type Automation e ee eee = e `AR_` ee `LM` eee
 
@@ -162,7 +162,7 @@ pattern Node x xs = Recursive (U_I_T_II (These x xs))
 
 -- pattern Yet x xs = Recursive (U_I_T_II (These x xs))
 
-type Instruction = R_U_I_T_I ML
+type Instruction = R_U_I_T_I S
 
 pattern Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
@@ -211,28 +211,28 @@ type Stream = Construction Only
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
-type Way = Unit `ML` Unit
+type Way = Unit `S` Unit
 
-pattern Back :: forall r e ee . (r ~ e `ML` ee) => e -> r
+pattern Back :: forall r e ee . (r ~ e `S` ee) => e -> r
 pattern Back x = This x
 
-pattern Fore :: forall r ee e . (r ~ e `ML` ee) => ee -> r
+pattern Fore :: forall r ee e . (r ~ e `S` ee) => ee -> r
 pattern Fore x = That x
 
 pattern Passed x = This x
 pattern Future x = That x
 
-type Decision = ML Unit Unit
+type Decision = S Unit Unit
 
 pattern No x = This x
 pattern Yes x = That x
 
-type Side = ML Unit Unit
+type Side = S Unit Unit
 
 pattern Left x = This x
 pattern Right x = That x
 
-type Vertical = ML Unit Unit
+type Vertical = S Unit Unit
 
 type Predicate = U_II_I Arrow Boolean
 

@@ -7,13 +7,13 @@ module Ya.Program.Primitive where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-not :: e `ML` ee `AR_` ee `ML` e
+not :: e `S` ee `AR_` ee `S` e
 not = That `la` This
 
 row :: forall e ee eee ee_eee eeee .
- Objective AR (e `ML` ee_eee) eeee =>
- Objective AR (ee `ML` eee) ee_eee =>
- eeee `AR__` (e `ML` ee) `ML` eee
+ Objective AR (e `S` ee_eee) eeee =>
+ Objective AR (ee `S` eee) ee_eee =>
+ eeee `AR__` (e `S` ee) `S` eee
 row = This `ha` This `la_` This `ha` That `la` That `ha_` is @ee_eee
 
 provide :: U_I_II (->) e e
@@ -41,7 +41,7 @@ switch new old = old `lu` new
 put = switch
 
 leaf :: forall t e .
- Monoidal U_I_II Functor (->) (->) LM ML t =>
+ Monoidal U_I_II Functor (->) (->) LM S t =>
  e -> Recursive (U_I_T_II t LM e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
@@ -107,7 +107,7 @@ as = component @AT
 by :: Unit `AR` a `AR_` a
 by = unwrap
 
-same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `ML`  e
+same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `S`  e
 same = q
 
 rep :: forall r t e .
