@@ -5,9 +5,9 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `LM`, `S`, `MN`
-infixl 7 `LM_`, `S_`, `MN_`
-infixl 6 `LM__`, `S__`, `MN__`
+infixl 8 `P`, `S`, `MN`
+infixl 7 `P_`, `S_`, `MN_`
+infixl 6 `P__`, `S__`, `MN__`
 
 infixr 7 `JNT`
 infixr 6 `JNT_`
@@ -21,7 +21,7 @@ infixl 3 `AR_____`, `AT_____`
 infixl 2 `AR______`, `AT______`
 infixl 1 `AR_______`, `AT_______`
 
-infixl 3 `LM'T'I'TT'I`
+infixl 3 `P'T'I'TT'I`
 infixl 3 `S'T'I'TT'I`
 
 infixl 0 /
@@ -35,14 +35,14 @@ type AR_____ = (->)
 type AR______ = (->)
 type AR_______ = (->)
 
-type AT = U_I_UU_II_U_II_I (->) LM
-type AT_ = U_I_UU_II_U_II_I (->) LM
-type AT__ = U_I_UU_II_U_II_I (->) LM
-type AT___ = U_I_UU_II_U_II_I (->) LM
-type AT____ = U_I_UU_II_U_II_I (->) LM
-type AT_____ = U_I_UU_II_U_II_I (->) LM
-type AT______ = U_I_UU_II_U_II_I (->) LM
-type AT_______ = U_I_UU_II_U_II_I (->) LM
+type AT = U_I_UU_II_U_II_I (->) P
+type AT_ = U_I_UU_II_U_II_I (->) P
+type AT__ = U_I_UU_II_U_II_I (->) P
+type AT___ = U_I_UU_II_U_II_I (->) P
+type AT____ = U_I_UU_II_U_II_I (->) P
+type AT_____ = U_I_UU_II_U_II_I (->) P
+type AT______ = U_I_UU_II_U_II_I (->) P
+type AT_______ = U_I_UU_II_U_II_I (->) P
 
 class Dumb x
 instance Dumb x
@@ -154,10 +154,10 @@ type family Representation t where
  Representation I = ()
  Representation (U_I_II Arrow a) = a
  Representation (T'TT'I t tt) =
-  Representation t `LM` Representation tt
+  Representation t `P` Representation tt
  Representation (T'TTT'TT'I t ttt tt) =
-  Representation t `LM` Representation tt `LM` Representation ttt
- Representation (U_I_I LM) = () `S` ()
+  Representation t `P` Representation tt `P` Representation ttt
+ Representation (U_I_I P) = () `S` ()
 
 class
   ( Mapping v U_I_II from into t (v hom (Representation t))
@@ -175,10 +175,10 @@ data family Object o e ee
 data instance Object Unit e ee = These e ee
 data instance Object Void e ee = This e | That ee
 
-type LM = Object Unit
+type P = Object Unit
 
-type LM_ = LM
-type LM__ = LM
+type P_ = P
+type P__ = P
 
 type S = Object Void
 
@@ -194,7 +194,7 @@ type MN_ a aa = MN a aa
 type MN__ a aa = MN a aa
 
 type family Neutral p where
- Neutral LM = Unit
+ Neutral P = Unit
  Neutral S = Void
 
 type family Aught p where
@@ -248,7 +248,7 @@ class Terminal into where
 instance Terminal (->) where
  terminal _ = ()
 
-type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III LM
+type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III P
 
 class
  ( Covariant x into from t
@@ -289,13 +289,13 @@ day from t x = map @v @U_I_II @from @(->)
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 monoidal_ :: forall v from into t u uu a o e ee .
- Adjoint Functor into into (U_I_II LM (u (t e) (t ee))) (U_I_II into (u (t e) (t ee))) =>
+ Adjoint Functor into into (U_I_II P (u (t e) (t ee))) (U_I_II into (u (t e) (t ee))) =>
  Monoidal v Functor from into u uu t =>
  Wrapper Arrow (v from a o) =>
- Wrapper into (U_I_II LM (u (t e) (t ee)) (v from (uu e ee) a)) =>
- Wrapper into (U_V_UU_UUU_UUUU_T'TT'I_II_III LM v from u uu t t e ee a) =>
- Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) a) =>
- Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II LM (u (t e) (t ee))) (v from (uu e ee) a)) =>
+ Wrapper into (U_I_II P (u (t e) (t ee)) (v from (uu e ee) a)) =>
+ Wrapper into (U_V_UU_UUU_UUUU_T'TT'I_II_III P v from u uu t t e ee a) =>
+ Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II P (u (t e) (t ee))) a) =>
+ Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II P (u (t e) (t ee))) (v from (uu e ee) a)) =>
  Wrapper into (U_I_II into (u (t e) (t ee)) (t o)) =>
  Wrapper into (I (v from (uu e ee) a)) =>
  Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
@@ -304,17 +304,17 @@ monoidal_ from =
  `compose` map @U_I_II @U_I_II @into @into
   @(U_I_II into (u (t e) (t ee))) @(U_I_II into (u (t e) (t ee)))
   ((map @v @U_I_II @from @into @(Day v from u uu t t e ee) @t from `compose` wrap)
-  `compose` unwrap @into @(U_I_II LM _ _))
+  `compose` unwrap @into @(U_I_II P _ _))
  `compose` unwrap @into @(T'TT'I _ _ _)
- `compose` component @into @I @(U_I_II into _ `T'TT'I` U_I_II LM _)
+ `compose` component @into @I @(U_I_II into _ `T'TT'I` U_I_II P _)
  `compose` wrap @into
 
 -- TODO: generalize
-empty :: forall t o . Covariant Monoidal Functor (->) (->) LM S t => t o
+empty :: forall t o . Covariant Monoidal Functor (->) (->) P S t => t o
 empty = component @(->) @(U_I_II (->) Void) @t (U_I_II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Covariant Monoidal Functor (->) (->) LM LM t => t Unit
+enter :: forall t . Covariant Monoidal Functor (->) (->) P P t => t Unit
 enter = component @(->) @(U_I_II (->) Unit) @t (U_I_II identity)
 
 rewrap :: forall o into a .
@@ -362,22 +362,22 @@ ana into = wrap `compose` map @U_I_II @U_I_II (ana into) `compose` into
 type family Jointable effect where
  Jointable (U_I_II AR e) = ()
  Jointable (U_I_II S e) = ()
- Jointable (U_I_II (U_I_UU_II_I AR LM) e) = ()
+ Jointable (U_I_II (U_I_UU_II_I AR P) e) = ()
 
 type family JNT effect where
  JNT (U_I_II AR e) = T'TT'I (U_I_II AR e)
  JNT (U_I_II S e) = TT'T'I (U_I_II S e)
- JNT (U_I_II (U_I_UU_II_I AR LM) e) = T'TTT'TT'I (U_I_II AR e) (U_II_I LM e)
+ JNT (U_I_II (U_I_UU_II_I AR P) e) = T'TTT'TT'I (U_I_II AR e) (U_II_I P e)
 
 type JNT_ effect = JNT effect
 
-this :: forall e ee . e `LM` ee -> e
+this :: forall e ee . e `P` ee -> e
 this (These x _) = x
 
-that :: forall ee e . e `LM` ee -> ee
+that :: forall ee e . e `P` ee -> ee
 that (These _ x) = x
 
-swap :: e `LM` ee `AR_` ee `LM` e
+swap :: e `P` ee `AR_` ee `P` e
 swap (These x y) = These y x
 
 constant :: forall from into a o .
@@ -394,23 +394,23 @@ constant = unwrap @_ @(U_I_II from a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-type SM = U_U_I_II_UU_I_II S LM
+type SM = U_U_I_II_UU_I_II S P
 
 instance Wrapper (->) x
- => Elicitable U_I_II (U_I_UU_II_U_II_I (->) LM) x where
+ => Elicitable U_I_II (U_I_UU_II_U_II_I (->) P) x where
  elicit = U_I_II (U_I_UU_II_U_II_I (\x -> These (unwrap x) wrap))
 
 instance Wrapper (->) x
- => Elicitable U_II_I (U_I_UU_II_U_II_I (->) LM) x where
+ => Elicitable U_II_I (U_I_UU_II_U_II_I (->) P) x where
  elicit = U_II_I (U_I_UU_II_U_II_I (\x -> These (wrap x) unwrap))
 
 class Setoid into e where
- equality :: into (e `LM` e) (e `LM` e `S` e)
+ equality :: into (e `P` e) (e `P` e `S` e)
 
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type LM'T'I'TT'I = U_T_I_TT_I LM
+type P'T'I'TT'I = U_T_I_TT_I P
 type S'T'I'TT'I = U_T_I_TT_I S
 
 class Objective into st t where
@@ -426,7 +426,7 @@ instance {-# OVERLAPPABLE #-}
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `S` eeee) where
  objective = identity
 
-instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `LM` ee) (eee `LM` eeee) where
+instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `P` ee) (eee `P` eeee) where
  objective = identity
 
 newtype U_I_UU_MN_I_II_II u uu i ii = U_I_UU_MN_I_II_II (u i (uu (MN i ii) ii))

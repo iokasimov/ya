@@ -9,7 +9,7 @@ pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
 
-type Cascading = L (U_I_II LM () ())
+type Cascading = L (U_I_II P () ())
 
 pattern Cascading :: List i -> Cascading List i
 pattern Cascading i = Labeled i
@@ -35,7 +35,7 @@ type Forward = L Unit
 pattern Forward :: t e -> Forward t e
 pattern Forward e = Labeled e
 
-type Reverse = L (Unit `LM` Unit)
+type Reverse = L (Unit `P` Unit)
 
 pattern Reverse :: t e -> Reverse t e
 pattern Reverse e = Labeled e
@@ -51,4 +51,4 @@ pattern Use e = Labeled e
 
 pattern New e = Labeled @() @(State _) e
 
-pattern Old e = Labeled @(() `LM` ()) @(State _) e
+pattern Old e = Labeled @(() `P` ()) @(State _) e

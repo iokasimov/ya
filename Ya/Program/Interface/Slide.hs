@@ -11,7 +11,7 @@ import Ya.Program.Interface.Scroll
 
 type family Sliding datastructure = result | result -> datastructure where
  -- TODO: Ideally there should be `Queue` instead of `List`, but we don't have it for now
- Sliding (Optional `T'TT'I` Construction Optional) = List `LM'T'I'TT'I` Shafted List
+ Sliding (Optional `T'TT'I` Construction Optional) = List `P'T'I'TT'I` Shafted List
 
 class Scrollable datastructure item
  => Slidable datastructure item where

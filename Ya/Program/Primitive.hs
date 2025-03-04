@@ -41,28 +41,28 @@ switch new old = old `lu` new
 put = switch
 
 leaf :: forall t e .
- Monoidal U_I_II Functor (->) (->) LM S t =>
- e -> Recursive (U_I_T_II t LM e)
+ Monoidal U_I_II Functor (->) (->) P S t =>
+ e -> Recursive (U_I_T_II t P e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
-it :: forall e . Reference LM e e e
+it :: forall e . Reference P e e e
 it x = x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
- Reference LM (Construction t e) e e
+ Reference P (Construction t e) e e
 top (R_U_I_T_I (Recursive (U_I_T_II (These old xs)))) =
   old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
- Reference LM (Construction t e) (t (Construction t e)) (t (Construction t e))
+ Reference P (Construction t e) (t (Construction t e)) (t (Construction t e))
 sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall t e . Monoidal U_I_II Functor (->) (->) LM LM t => e -> t e
+intro :: forall t e . Monoidal U_I_II Functor (->) (->) P P t => e -> t e
 intro x = enter `yu` x
 
 layer :: forall g f e .
@@ -107,7 +107,7 @@ as = component @AT
 by :: Unit `AR` a `AR_` a
 by = unwrap
 
-same :: Setoid Arrow e => e `LM` e `AR_` e `LM` e `S`  e
+same :: Setoid Arrow e => e `P` e `AR_` e `P` e `S`  e
 same = q
 
 rep :: forall r t e .
@@ -132,7 +132,7 @@ class Choose c d where
  -- where resolve r _ = r
 
 -- instance d =>
- -- Choose (Mapping U_1_I U_I_1 LM LM t tt) d
+ -- Choose (Mapping U_1_I U_I_1 P P t tt) d
  -- where resolve _ r = r
 
 instance {-# OVERLAPPABLE #-} d => (Choose c d) where resolve _ r = r
@@ -142,7 +142,7 @@ instance {-# OVERLAPPING #-} c => (Choose c d) where resolve r _ = r
 
 -- instance {-# OVERLAPPING #-} Choose (a ~ a) d where resolve = \a _ -> a
 
--- instance (Mapping U_II_I U_I_II AR AR t tt) => (Category LM || Mapping U_II_I U_I_II AR AR t tt) where resolve = \_ r -> r
+-- instance (Mapping U_II_I U_I_II AR AR t tt) => (Category P || Mapping U_II_I U_I_II AR AR t tt) where resolve = \_ r -> r
 
 to :: forall tt t i .
  (Supertype (U_I_II AR i i) ~ AR i i) =>

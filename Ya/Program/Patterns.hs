@@ -45,11 +45,11 @@ pattern Selfsame x = U_I_II (That x)
 
 type Provided = U_I_II (->)
 
-type Supplied = U_II_I LM
+type Supplied = U_II_I P
 
-type Equipped = U_II_I LM
+type Equipped = U_II_I P
 
-pattern Equip :: e `LM` ee -> Equipped ee e
+pattern Equip :: e `P` ee -> Equipped ee e
 pattern Equip x = U_II_I x
 
 type Optional = U_I_II S Unit
@@ -119,15 +119,15 @@ pattern Perhaps x = U_I_II @S x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
-type Attribute = U_I_UU_II_U_II_I (->) LM
+type Attribute = U_I_UU_II_U_II_I (->) P
 
-pattern Attribute :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Attribute e ee
-pattern Attribute x = U_I_UU_II_U_II_I @(->) @LM x
+pattern Attribute :: forall ee e . (e `AR_` P ee (ee -> e)) -> Attribute e ee
+pattern Attribute x = U_I_UU_II_U_II_I @(->) @P x
 
-type Scope = U_I_UU_II_U_II_I (->) LM
+type Scope = U_I_UU_II_U_II_I (->) P
 
-pattern Scope :: forall ee e . (e `AR_` LM ee (ee -> e)) -> Scope e ee
-pattern Scope x = U_I_UU_II_U_II_I @(->) @LM x
+pattern Scope :: forall ee e . (e `AR_` P ee (ee -> e)) -> Scope e ee
+pattern Scope x = U_I_UU_II_U_II_I @(->) @P x
 
 -- type Directive = U_I_UU_I_II (->) S
 
@@ -139,20 +139,20 @@ type Match = U_I_UU_MN_I_II_II (->) S
 pattern Match :: forall ee e . (e `AR_` S (MN e ee) ee) -> Match e ee
 pattern Match x = U_I_UU_MN_I_II_II @(->) @S x
 
-type Automation e ee eee = e `AR_` ee `LM` eee
+type Automation e ee eee = e `AR_` ee `P` eee
 
-type Transition = U_I_UU_II_I (->) LM
+type Transition = U_I_UU_II_I (->) P
 
-pattern Transition x = U_I_UU_II_I @(->) @LM x
+pattern Transition x = U_I_UU_II_I @(->) @P x
 
-pattern Event x = U_I_UU_II_I @(->) @LM x
+pattern Event x = U_I_UU_II_I @(->) @P x
 
 type State = U_I_II Transition
 
 pattern State :: forall e o . Transition e o -> State e o
 pattern State x = U_I_II @Transition x
 
-type Construction = R_U_I_T_I LM
+type Construction = R_U_I_T_I P
 
 pattern Construct xs = R_U_I_T_I xs
 
@@ -172,7 +172,7 @@ type List = Optional `T'TT'I` Construction Optional
 
 pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
-pattern Item :: i -> t (Recursive (U_I_T_II t LM i)) -> Recursive (U_I_T_II t LM i)
+pattern Item :: i -> t (Recursive (U_I_T_II t P i)) -> Recursive (U_I_T_II t P i)
 pattern Item x xs = Recursive (U_I_T_II (These x xs))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
@@ -187,7 +187,7 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
  Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) LM i) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) P i) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
@@ -199,7 +199,7 @@ type Tree = Construction List
 pattern Tree x xs = R_U_I_T_I (Recursive (U_I_T_II (These x (T'TT'I (Some (Construct xs))))))
 
 type family Binary t where
- Binary Tree = Construction (U_I_I LM `T'TT'I` Optional)
+ Binary Tree = Construction (U_I_I P `T'TT'I` Optional)
 
 pattern Binary xs = T'TT'I (U_I_I xs)
 
