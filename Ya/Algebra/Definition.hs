@@ -5,9 +5,9 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `P`, `S`, `MN`
-infixl 7 `P_`, `S_`, `MN_`
-infixl 6 `P__`, `S__`, `MN__`
+infixl 8 `P`, `S`, `M`
+infixl 7 `P_`, `S_`, `M_`
+infixl 6 `P__`, `S__`, `M__`
 
 infixr 7 `JNT`
 infixr 6 `JNT_`
@@ -185,13 +185,13 @@ type S = Object Void
 type S_ = S
 type S__ = S
 
-type family MN r a where
- MN (_ # a `S` aa) a = aa
- MN (aa `S` _ # a) a = aa
- MN (aa `S` aaa) a = aa `MN` a `S` aaa
+type family M r a where
+ M (_ # a `S` aa) a = aa
+ M (aa `S` _ # a) a = aa
+ M (aa `S` aaa) a = aa `M` a `S` aaa
 
-type MN_ a aa = MN a aa
-type MN__ a aa = MN a aa
+type M_ a aa = M a aa
+type M__ a aa = M a aa
 
 type family Neutral p where
  Neutral P = Unit
@@ -429,12 +429,12 @@ instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `P` ee) (eee `P` eeee) where
  objective = identity
 
-newtype U_I_UU_MN_I_II_II u uu i ii = U_I_UU_MN_I_II_II (u i (uu (MN i ii) ii))
+newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
 
-type instance Supertype (U_I_UU_MN_I_II_II u uu i ii) = u i (uu (MN i ii) ii)
+type instance Supertype (U_I_UU_M_I_II_II u uu i ii) = u i (uu (M i ii) ii)
 
-instance Elicitable U_II_I (->) (U_I_UU_MN_I_II_II u uu i ii)
- where elicit = U_II_I U_I_UU_MN_I_II_II
+instance Elicitable U_II_I (->) (U_I_UU_M_I_II_II u uu i ii)
+ where elicit = U_II_I U_I_UU_M_I_II_II
 
-instance Elicitable U_I_II (->) (U_I_UU_MN_I_II_II u uu i ii)
- where elicit = U_I_II (\(U_I_UU_MN_I_II_II x) -> x)
+instance Elicitable U_I_II (->) (U_I_UU_M_I_II_II u uu i ii)
+ where elicit = U_I_II (\(U_I_UU_M_I_II_II x) -> x)
