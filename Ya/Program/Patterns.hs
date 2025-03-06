@@ -134,10 +134,10 @@ pattern Scope x = U_I_UU_II_U_II_I @(->) @P x
 -- pattern Directive :: forall ee e . (e `AR_` S e ee) -> Directive e ee
 -- pattern Directive x = U_I_UU_I_II @(->) @S x
 
-type Match = U_I_UU_MN_I_II_II (->) S
+type Match = U_I_UU_M_I_II_II (->) S
 
-pattern Match :: forall ee e . (e `AR_` S (MN e ee) ee) -> Match e ee
-pattern Match x = U_I_UU_MN_I_II_II @(->) @S x
+pattern Match :: forall ee e . (e `AR_` S (M e ee) ee) -> Match e ee
+pattern Match x = U_I_UU_M_I_II_II @(->) @S x
 
 type Automation e ee eee = e `AR_` ee `P` eee
 

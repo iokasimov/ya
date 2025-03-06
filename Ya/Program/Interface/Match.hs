@@ -4,7 +4,7 @@ import Ya.Algebra
 
 -- TODO: generalize over categories
 class Excludable a r where
- on :: r `AR_` r `MN` a `S` a
+ on :: r `AR_` r `M` a `S` a
 
 -- instance Excludable a aa => Excludable a (T e aa) where
  -- on = on `ha` unwrap @AR
@@ -12,27 +12,27 @@ class Excludable a r where
 instance Excludable a (l # a `S` aa) where
  on = That `ha'he` is `la` This
 
-instance (aa `S` l # a `MN` a ~ aa)
+instance (aa `S` l # a `M` a ~ aa)
  => Excludable a (aa `S` l # a) where
  on = This `la` That `ha'he` is
 
-instance (l # a `S` aa `S` aaa `MN` a ~ aa `S` aaa)
+instance (l # a `S` aa `S` aaa `M` a ~ aa `S` aaa)
  => Excludable a (l # a `S` aa `S` aaa) where
  on = That `ha'he` is `la` This `ha` This `la` This `ha` That
 
-instance (aa `S` l # a `S` aaa `MN` a ~ aa `S` aaa)
+instance (aa `S` l # a `S` aaa `M` a ~ aa `S` aaa)
  => Excludable a (aa `S` l # a `S` aaa) where
  on = This `ha` This `la` That `ha'he` is `la` This `ha` That
 
-instance (l # a `S` aa `S` aaa `S` aaaa `MN` a ~ aa `S` aaa `S` aaaa)
+instance (l # a `S` aa `S` aaa `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
  => Excludable a (l # a `S` aa `S` aaa `S` aaaa) where
  on = That `ha'he` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (aa `S` l # a `S` aaa `S` aaaa `MN` a ~ aa `S` aaa `S` aaaa)
+instance (aa `S` l # a `S` aaa `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
  => Excludable a (aa `S` l # a `S` aaa `S` aaaa) where
  on = This `ha` This `ha` This `la` That `ha'he` is `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (aa `S` aaa `S` l # a `S` aaaa `MN` a ~ aa `S` aaa `S` aaaa)
+instance (aa `S` aaa `S` l # a `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
  => Excludable a (aa `S` aaa `S` l # a `S` aaaa) where
  on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha'he` is `la` This `ha` That
 
@@ -70,18 +70,18 @@ instance Layable (aaa `S` a) (a `S` aa `S` aaa) where
 -- TODO: define more Layable instances
 
 class Fittable a r where
- fit :: r `AR_` MN a r `S` a
+ fit :: r `AR_` M a r `S` a
 
 instance
- ( Layable aa (MN a (aa `S` aaa) `S` a)
- , Layable aaa (MN a (aa `S` aaa) `S` a)
+ ( Layable aa (M a (aa `S` aaa) `S` a)
+ , Layable aaa (M a (aa `S` aaa) `S` a)
  ) => Fittable a (aa `S` aaa) where
  fit = lay `la` lay
 
 instance
- ( Layable aa (MN a (aa `S` aaa `S` aaaa) `S` a)
- , Layable aaa (MN a (aa `S` aaa `S` aaaa) `S` a)
- , Layable aaaa (MN a (aa `S` aaa `S` aaaa) `S` a)
+ ( Layable aa (M a (aa `S` aaa `S` aaaa) `S` a)
+ , Layable aaa (M a (aa `S` aaa `S` aaaa) `S` a)
+ , Layable aaaa (M a (aa `S` aaa `S` aaaa) `S` a)
  ) => Fittable a (aa `S` aaa `S` aaaa) where
  fit = lay `la` lay `la` lay
 

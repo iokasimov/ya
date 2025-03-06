@@ -386,7 +386,7 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (U_I_II S e
   These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
 instance Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P SM (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
+  (Day U_I_II AR P SP (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These ee eee

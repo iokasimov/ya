@@ -2496,9 +2496,9 @@ yis = unwrap @Arrow
 
 -- TODO: try to generalize
 dw :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u SM t =>
+ Covariant Monoidal Functor (->) (->) u SP t =>
  u (t e) (t ee) -> t (S e ee `S` P e ee)
-dw = day @U_I_II @(->) @t @u @SM identity he
+dw = day @U_I_II @(->) @t @u @SP identity he
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt .

@@ -394,7 +394,7 @@ constant = unwrap @_ @(U_I_II from a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-type SM = U_U_I_II_UU_I_II S P
+type SP = U_U_I_II_UU_I_II S P
 
 instance Wrapper (->) x
  => Elicitable U_I_II (U_I_UU_II_U_II_I (->) P) x where

@@ -129,16 +129,16 @@ instance
 -- TODO: try to avoid mapping twice datastructure here
 instance
  ( Covariant Endo Semi Functor AR t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SM t t (R_U_I_T_I P t e) (R_U_I_T_I P t ee)) t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SM t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SM (t `T'TT'I` R_U_I_T_I P t) (t `T'TT'I` R_U_I_T_I P t) e ee) (t `T'TT'I` R_U_I_T_I P t) where
+ , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (R_U_I_T_I P t e) (R_U_I_T_I P t ee)) t
+ , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (t `T'TT'I` R_U_I_T_I P t) (t `T'TT'I` R_U_I_T_I P t) e ee) (t `T'TT'I` R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TT'I e) (T'TT'I ee)) (U_I_II f) ->
-    (day @U_I_II @AR @t @P @SM identity
+    (day @U_I_II @AR @t @P @SP identity
      (\case
       U_U_I_II_UU_I_II (This (This x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That x) -> day @U_I_II @AR @(R_U_I_T_I P t) @P @SM identity (from `compose` f) x
+      U_U_I_II_UU_I_II (That x) -> day @U_I_II @AR @(R_U_I_T_I P t) @P @SP identity (from `compose` f) x
      )
       (These e ee)
     )
@@ -146,19 +146,19 @@ instance
 -- TODO: try to avoid mapping twice datastructure here
 instance
  ( Covariant Endo Semi Functor AR t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SM t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SM (R_U_I_T_I P t) (R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
+ , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (R_U_I_T_I P t) (R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These e ee) (U_I_II f) ->
    let These e_ e__ = he'he'he e in
    let These ee_ ee__ = he'he'he ee in
    Recursive `compose` U_I_T_II / These
     (from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
-    (day @U_I_II @AR @t @P @SM identity
+    (day @U_I_II @AR @t @P @SP identity
      (unwrap @AR `compose` \case
       U_U_I_II_UU_I_II (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That (These x xx)) -> day @U_I_II @AR @(R_U_I_T_I P t) @P @SM identity (from `compose` f)
+      U_U_I_II_UU_I_II (That (These x xx)) -> day @U_I_II @AR @(R_U_I_T_I P t) @P @SP identity (from `compose` f)
        (These (R_U_I_T_I x) (R_U_I_T_I xx))
      )
      / These e__ ee__)
