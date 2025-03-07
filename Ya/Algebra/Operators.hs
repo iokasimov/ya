@@ -295,7 +295,9 @@ infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `y
 infixl 7 `yp_'yo`, `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
 infixl 8 `ys`, `ys'yo`
-infixl 8 `yis`
+infixl 7 `yis`
+
+infixl 7 `ysp`
 
 infixl 7 `yoi`
 
@@ -2495,10 +2497,10 @@ yis = unwrap @Arrow
  `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-dw :: forall u e ee t .
+ysp :: forall u e ee t .
  Covariant Monoidal Functor (->) (->) u SP t =>
- u (t e) (t ee) -> t (S e ee `S` P e ee)
-dw = day @U_I_II @(->) @t @u @SP identity he
+ u (t e) (t ee) -> t (e `S` ee `S_` e `P` ee)
+ysp = day @U_I_II @(->) @t @u @SP identity he
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt .
