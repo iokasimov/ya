@@ -8,6 +8,26 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Operators as Exports
 
+instance Mapping U_I_II U_I_II AR AR
+ (Day U_I_II AR P S (R_U_I_T_I P (U_I_II S Unit)) (R_U_I_T_I P (U_I_II S Unit)) i ii)
+ (R_U_I_T_I P (U_I_II S Unit)) where
+ mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
+   let These x xs = he'he'he i in
+   let These _ ys = he'he'he ii in
+   Recursive `compose` U_I_T_II / These
+    (from `compose` f / This x)
+    (day @U_I_II @AR @(U_I_II S Unit) @P @P identity
+     (unwrap `compose` day @U_I_II @AR @(R_U_I_T_I P _) @P @S identity (from `compose` f) `compose` fio R_U_I_T_I `compose` foi R_U_I_T_I)
+     / These xs ys)
+
+instance Mapping U_I_II U_I_II AR AR
+ (Day U_I_II AR P S (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)) (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)) i ii)
+ (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)) where
+ mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
+  (day @U_I_II @AR @(U_I_II S Unit) @P @P identity
+     (day @U_I_II @AR @(R_U_I_T_I P _) @P @S identity (from `compose` f))
+     / unwrap i `lu` unwrap ii)
+
 -- 1. t (R_U_I_T_I P t (L l (L ll tt _)))
 -- 2. t (tt (R_U_I_T_I P t _))
 -- 3. t (L l (L ll tt (R_U_I_T_I P t _)))

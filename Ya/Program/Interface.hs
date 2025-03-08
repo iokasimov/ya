@@ -18,6 +18,9 @@ instance Mapping U_I_II U_I_II AR AR (Reverse List `P'T'I'TT'I` Forward List) Li
  mapping = rewrap / \from (U_T_I_TT_I (These (Labeled bs) (Labeled fs))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
 
+instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (Reverse List `P'T'I'TT'I` Forward List) where
+ mapping = rewrap / \_ _ -> U_T_I_TT_I (These (Labeled empty) (Labeled empty))
+
 instance Mapping U_I_II U_I_II AR AR
   (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
   ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))) where
