@@ -183,7 +183,7 @@ infixl 3 `hv______`, `hv______'he`, `he'hv______`, `he'he'hv______`
 infixl 2 `hv_______`, `hv_______'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`, `he'hv________`, `he'he'hv________`
 
-infixl 8 `lo`, `lo'yp`, `lo'ys`, `lo'ys'la`
+infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
 infixl 6 `lo__`, `lo__'yp`, `lo__'ys`, `lo__'ys'la`
 infixl 5 `lo___`, `lo___'yp`, `lo___'ys`, `lo___'ys'la`
@@ -2069,6 +2069,7 @@ he______'he = he'he
 he_______'he = he'he
 he________'he = he'he
 
+-- TODO: remove
 he'he'he, he_'he'he, he__'he'he, he___'he'he, he____'he'he, he_____'he'he, he______'he'he, he_______'he'he, he________'he'he :: forall into e .
  Precategory into =>
  Elicitable U_I_II into e =>
@@ -2158,6 +2159,22 @@ lo____ = lo
 lo_____ = lo
 lo______ = lo
 lo_______ = lo
+
+-- TODO: `lo'lu`
+
+lo'lu :: forall into a aa o oo .
+ Category into =>
+ Limit U_I_II into into =>
+ Covariant Endo Semi Functor into (U_I_II P (a `P` aa)) =>
+ Covariant Endo Semi Functor into (U_II_I P oo) =>
+ (forall e ee . Wrapper into (U_I_II P e ee)) =>
+ (forall e ee . Wrapper into (U_II_I P e ee)) =>
+ (forall e . Wrapper into (Both P e)) =>
+ (forall e . Wrapper into (I e)) =>
+ into a o -> into aa oo -> into (a `P` aa) (o `P` oo)
+lo'lu l r = lo
+ (l `compose` (wrapped (left @U_I_II @into identity)))
+ (r `compose` (wrapped (right @U_I_II @into identity)))
 
 lo'yp, lo_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
  :: forall t a o oo .
