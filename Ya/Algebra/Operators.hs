@@ -424,7 +424,7 @@ yi_______ = yi
 yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______, yi'yo :: forall from into t a o .
  Precategory into =>
  Covariant Yoneda Functor from into t =>
- Elicitable U_II_I into (U_I_II from a o) =>
+ Wrapper into (U_I_II from a o) =>
  t a -> into (from a o) (t o)
 yo x = yoneda @U_I_II @Functor x `compose` wrap
 
@@ -440,23 +440,23 @@ yi'yo = yo
 yoi :: forall from into t e a o .
  Precategory into =>
  Covariant Yoneda Functor from into (U_II_I t e) =>
- Elicitable U_II_I into (U_I_II from a o) =>
- Elicitable U_I_II into (U_II_I t e o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_II_I t e o) =>
  t a e -> into (from a o) (t o e)
 yoi = fio @into unwrap `compose` yo @from @into @(U_II_I t e) `compose` wrap
 
 yio :: forall from into t e a o .
  Precategory into =>
  Covariant Yoneda Functor from into (U_I_II t e) =>
- Elicitable U_II_I into (U_I_II from a o) =>
- Elicitable U_I_II into (U_I_II t e o) =>
+ Wrapper into (U_I_II from a o) =>
+ Wrapper into (U_I_II t e o) =>
  t e a -> into (from a o) (t e o)
 yio = fio @into unwrap `compose` yo @from @into @(U_I_II t e) `compose` wrap
 
 -- yioi :: forall from into w e eee a o .
 --  Precategory into =>
 --  Covariant Yoneda Functor from into (W_III_I_II w eee e) =>
---  Elicitable U_II_I into (U_I_II from a o) =>
+--  Wrapper into (U_I_II from a o) =>
 --  Elicitable U_I_II into (W_III_I_II w eee e o) =>
 --  w e a eee -> into (from a o) (w e o eee)
 -- yioi x = compose unwrap (yoneda @U_I_II @from @into @(W_III_I_II _ _ _) (wrap x))
@@ -599,14 +599,24 @@ he'hu______ = he'yiu
 he'hu_______ = he'yiu
 he'hu________ = he'yiu
 
+-- type (functor from tt) ???? (functor into t) = (functor from from tt, functor from into t)
+
 yo'yo :: forall from into t tt a o .
- Precategory into =>
- Covariant Functor from from tt =>
+ Covariant Yoneda Functor from from tt =>
  Covariant Yoneda Functor from into t =>
- Contravariant Endo Semi Functor (->) (U_II_I into (t (tt o))) =>
- Elicitable U_II_I into (U_I_II from (tt a) (tt o)) =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt o))) =>
+ Wrapper into (U_I_II from (tt a) (tt o)) =>
  t (tt a) -> into (from a o) (t (tt o))
-yo'yo x = fai fo (yo @from @into x)
+yo'yo x = fai (fo @from) (yo @from @into x)
+
+yo'yo'yo :: forall from into t tt ttt a o .
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o)))) =>
+ Wrapper into (U_I_II from (tt (ttt a)) (tt (ttt o))) =>
+ t (tt (ttt a)) -> into (from a o) (t (tt (ttt o)))
+yo'yo'yo x = fai (fo @from `compose` fo @from) (yo @from @into x)
 
 -- TODO: try to gereralize
 yo'ha :: forall into t a o e .
@@ -629,10 +639,10 @@ yo'hj :: forall from into t tt ttt e a o .
  (forall ee . Wrapper from ((T'TT'I (U_I_II tt e) (U_II_I ttt e)) ee)) =>
  (forall ee . Wrapper from ((T'TT'I (U_II_I ttt e) (U_I_II tt e)) ee)) =>
  (forall ee . Wrapper from (I ee)) =>
- Elicitable U_II_I from (U_II_I ttt e a) =>
- Elicitable U_II_I from (U_I_II tt e o) =>
- Elicitable U_II_I into (U_I_II from (ttt a e) o) =>
- Elicitable U_II_I into (U_I_II from (tt e a) o) =>
+ Wrapper from (U_II_I ttt e a) =>
+ Wrapper from (U_I_II tt e o) =>
+ Wrapper into (U_I_II from (ttt a e) o) =>
+ Wrapper into (U_I_II from (tt e a) o) =>
  Contravariant Endo Semi Functor (->) (U_II_I into (t o)) =>
  t (ttt a e) -> into (from a (tt e o)) (t o)
 yo'hj x = fai hj (yo @from @into x)
@@ -642,8 +652,8 @@ yio'yo :: forall from into t tt e a o .
  Contravariant Endo Semi Functor (->) (U_II_I into (t e (tt o))) =>
  Covariant Yoneda Functor from into (U_I_II t e) =>
  Covariant Functor from from tt =>
- Elicitable U_II_I into (U_I_II from (tt a) (tt o)) =>
- Elicitable U_I_II into (U_I_II t e (tt o)) =>
+ Wrapper into (U_I_II from (tt a) (tt o)) =>
+ Wrapper into (U_I_II t e (tt o)) =>
  t e (tt a) -> into (from a o) (t e (tt o))
 yio'yo x = fai fo (yio @from @into x)
 
@@ -680,7 +690,7 @@ yai'yai x = fai fai (yai @from @into x)
 yok, yok_, yok__, yok___, yok____, yok_____, yok______
  , li'yok, li_'yok, li__'yok, li___'yok, li____'yok, li_____'yok, li______'yok, li_______'yok
  :: forall from into t tt l a o .
- Covariant Endo Transformation Functor into (T'TT'I t (L l tt)) t =>
+ Covariant Endo Transformation Functor into (t `T'TT'I` l `L` tt) t =>
  Covariant Yoneda Functor from into t =>
  Elicitable U_II_I into (U_I_II from a (L l tt o)) =>
  Elicitable U_II_I into (T'TT'I t (L l tt) o) =>
@@ -1034,8 +1044,8 @@ fui from = foi (wrap @(->) @(from Unit o) from `compose` terminal)
 ho, ho_, ho__, ho___, ho____, ho_____, ho______, ho_______, ho________, yi'ho :: forall from into u i a o .
  Precategory into =>
  Covariant Yoneda Functor from into (U_I_II u i) =>
- Elicitable U_I_II into (U_I_II u i o) =>
- Elicitable U_II_I into (U_I_II from a o) =>
+ Wrapper into (U_I_II u i o) =>
+ Wrapper into (U_I_II from a o) =>
  u i a -> into (from a o) (u i o)
 ho = yio @from @into @u
 
@@ -2160,8 +2170,7 @@ lo_____ = lo
 lo______ = lo
 lo_______ = lo
 
--- TODO: `lo'lu`
-
+-- TODO: define longer versions of this operator
 lo'lu :: forall into a aa o oo .
  Category into =>
  Limit U_I_II into into =>
