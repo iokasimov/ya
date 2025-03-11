@@ -618,6 +618,80 @@ yo'yo'yo :: forall from into t tt ttt a o .
  t (tt (ttt a)) -> into (from a o) (t (tt (ttt o)))
 yo'yo'yo x = fai (fo @from `compose` fo @from) (yo @from @into x)
 
+yo'yo'yo'yo :: forall from into t tt ttt tttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt o))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt a))) (tt (ttt (tttt o)))) =>
+ (t (tt (ttt (tttt a)))) -> into (from a o) (t (tt (ttt (tttt o))))
+yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+
+yo'yo'yo'yo'yo :: forall from into t tt ttt tttt ttttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from from ttttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt (ttttt o)))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt (ttttt a)))) (tt (ttt (tttt (ttttt o))))) =>
+ (t (tt (ttt (tttt (ttttt a))))) -> into (from a o) (t (tt (ttt (tttt (ttttt o)))))
+yo'yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+
+yo'yo'yo'yo'yo'yo :: forall from into t tt ttt tttt ttttt tttttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from from ttttt =>
+ Covariant Yoneda Functor from from tttttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt (ttttt (tttttt o))))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt (ttttt (tttttt a))))) (tt (ttt (tttt (ttttt (tttttt o)))))) =>
+ (t (tt (ttt (tttt (ttttt (tttttt a)))))) -> into (from a o) (t (tt (ttt (tttt (ttttt (tttttt o))))))
+yo'yo'yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+
+yo'yo'yo'yo'yo'yo'yo :: forall from into t tt ttt tttt ttttt tttttt ttttttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from from ttttt =>
+ Covariant Yoneda Functor from from tttttt =>
+ Covariant Yoneda Functor from from ttttttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt (ttttt (tttttt (ttttttt o)))))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt (ttttt (tttttt (ttttttt a)))))) (tt (ttt (tttt (ttttt (tttttt (ttttttt o))))))) =>
+ (t (tt (ttt (tttt (ttttt (tttttt (ttttttt a))))))) -> into (from a o) (t (tt (ttt (tttt (ttttt (tttttt (ttttttt o)))))))
+yo'yo'yo'yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+yo'yo'yo'yo'yo'yo'yo'yo :: forall from into t tt ttt tttt ttttt tttttt ttttttt tttttttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from from ttttt =>
+ Covariant Yoneda Functor from from tttttt =>
+ Covariant Yoneda Functor from from ttttttt =>
+ Covariant Yoneda Functor from from tttttttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt o))))))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt a))))))) (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt o)))))))) =>
+ (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt a)))))))) -> into (from a o) (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt o))))))))
+yo'yo'yo'yo'yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+
+yo'yo'yo'yo'yo'yo'yo'yo'yo :: forall from into t tt ttt tttt ttttt tttttt ttttttt tttttttt ttttttttt a o .
+ Covariant Yoneda Functor from from tt =>
+ Covariant Yoneda Functor from from ttt =>
+ Covariant Yoneda Functor from from tttt =>
+ Covariant Yoneda Functor from from ttttt =>
+ Covariant Yoneda Functor from from tttttt =>
+ Covariant Yoneda Functor from from ttttttt =>
+ Covariant Yoneda Functor from from tttttttt =>
+ Covariant Yoneda Functor from from ttttttttt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt (ttttttttt o)))))))))) =>
+ Wrapper into (U_I_II from (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt (ttttttttt a)))))))) (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt (ttttttttt o))))))))) =>
+ (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt (ttttttttt a))))))))) -> into (from a o) (t (tt (ttt (tttt (ttttt (tttttt (ttttttt (tttttttt (ttttttttt o)))))))))
+yo'yo'yo'yo'yo'yo'yo'yo'yo x = fai (fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from `compose` fo @from) (yo @from @into x)
+
 -- TODO: try to gereralize
 yo'ha :: forall into t a o e .
  Category into =>
