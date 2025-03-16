@@ -19,7 +19,16 @@ instance Mapping U_I_II U_I_II AR AR (Reverse List `P'T'I'TT'I` Forward List) Li
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (Reverse List `P'T'I'TT'I` Forward List) where
- mapping = rewrap / \_ _ -> U_T_I_TT_I (These (Labeled empty) (Labeled empty))
+ mapping = rewrap / \_ _ -> U_T_I_TT_I (wrap empty `lu` wrap empty)
+
+instance Mapping U_I_II U_I_II AR AR
+ (Day U_I_II AR P S (Reverse List `P'T'I'TT'I` Forward List) (Reverse List `P'T'I'TT'I` Forward List) i ii)
+ (Reverse List `P'T'I'TT'I` Forward List) where
+ mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
+  let These i' i'' = unwrap i in
+  let These ii' ii'' = unwrap ii in
+  (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii'))) `lu`
+  (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii')))
 
 instance Mapping U_I_II U_I_II AR AR
   (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
@@ -67,12 +76,12 @@ instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'
     `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
   `he'he'hv____` Empty @List Unit
 
-instance Mapping U_I_II U_I_II AR AR
- (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
- (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
- mapping = rewrap / \from -> rewrap / \x -> x
-  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
-  `yio'yo` from
+-- instance Mapping U_I_II U_I_II AR AR
+--  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
+--  (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
+--  mapping = rewrap / \from -> rewrap / \x -> x
+--   `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
+--   `yio'yo` from
 
 instance Mapping U_I_II U_I_II (->) (->)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
