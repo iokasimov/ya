@@ -83,7 +83,8 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) i w
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
    `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
    `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
-   `yok____'he`  Try `ha` Maybe
+   -- `yok____'he`  Try `ha` Maybe
+   `yok____` Try `ha` Maybe `ha` unwrap @AR
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at

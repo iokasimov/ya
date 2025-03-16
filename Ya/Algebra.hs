@@ -555,16 +555,20 @@ instance
  , Mapping U_I_II U_I_II AR AR I (U_I_II AR e)
  ) => Mapping U_I_II U_I_II AR AR (t `T'TT'I` L Recursive (U_I_II S e)) t where
  mapping = rewrap / \from -> \(T'TT'I x) ->
-  x `yok_'he'he` Labeled @()
+  --x `yok_'he'he` Labeled @()
+  x `yok_` Labeled @()
     `ha__` constant @AR (map @U_I_II @U_I_II from (T'TT'I x))
       `la` yu (enter @t) `ha` from
+    `ha__` unwrap @AR
+    `ha__` unwrap @AR
 
 instance
  ( Mapping U_I_II U_I_II AR AR t t
  , Mapping U_I_II U_I_II AR AR (t `T'TT'I` L () t) t
  ) => Mapping U_I_II U_I_II AR AR (t `T'TT'I` L Recursive I) t where
  mapping = rewrap / \from -> \(T'TT'I x) ->
-  x `yok'he'he` Labeled @() `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x))
+  -- x `yok'he'he` Labeled @() `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x))
+  x `yok` Labeled @() `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x)) `ha` unwrap @AR `ha` unwrap @AR
 
 -- TODO: generalize using adjunctions
 instance Mapping U_I_II U_I_II AR AR
