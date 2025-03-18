@@ -25,34 +25,19 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
   slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
-   `yuk____` New `ha` State `hv___` Event `hv` pop
-   `ha__'he` Scope `hv` at @(List item)
+   `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `hv` focus
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha__` Event `ha` push
-   `ho_'ha'he` Scope @(Shafted List item) at
-      `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope it
-   `yuk____` New `ha` State `hv____` Event `hv` pop
-   `ha___'he` Scope `hv` at @(Shafted List item)
-      `ho'he` Scope @(Forward List item) at
-      `ho'he` Scope it
+   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Passed
+   `yuk____` New `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha____` Event `ha` window_future
-   `ho_'ha'he` Scope `hv` at @(List item)
+   `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
   slide_passed = enter @(State `WR` Sliding List item `JNT` Halts)
-   `yuk____` New `ha` State `hv____` Event `hv` pop
-   `ha___'he` Scope @(Shafted List item) at
-      `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope it
+   `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Passed
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha__` Event `ha` window_extract_last
-   `ho_'ha'he` Scope `hv` at @(List item)
+   `yok____` New `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` focus
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha__` Event `ha` push
-   `ho_'ha'he` Scope @(Shafted List item) at
-      `ho'he` Scope @(Forward List item) at
-      `ho'he` Scope it
+   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
 
   window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
@@ -68,21 +53,13 @@ instance Slidable (Optional `T'TT'I` Construction Optional) item where
   `li` (extend_passed `lv` extend_future `li` way) `he'he'hv` x where
 
   extend_passed = enter @(State `WR` Sliding List item `JNT` Halts)
-   `yuk____` New `ha` State `hv____` Event `hv` pop @List
-   `ha___'he` Scope @(Shafted List item) at
-      `ho'he` Scope @(Reverse List item) at
-      `ho'he` Scope it
+   `yuk____` New `ha` State `hv____` Event `hv` pop @List `ha_` Scope `ha` shaft `hv` by Passed
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha__` Event `ha` push
-   `ho_'ha'he` Scope `hv` at @(List item)
+   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `hv` focus
 
   extend_future = enter @(State `WR` Sliding List item `JNT` Halts)
-   `yuk____` New `ha` State `hv____` Event `hv` pop
-   `ha___'he` Scope `hv` at @(Shafted List item)
-     `ho_'he` Scope `hv` at @(Forward List item) 
-     `ho_'he` Scope `hv` it @(List item) -- @Transition
+   `yuk____` New `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
    `yok____` Try `ha` Maybe
-   `yok____` New `ha` State `ha____` Event `ha` window_future
-   `ho_'ha'he` Scope `hv` at @(List item)
+   `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
   window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r

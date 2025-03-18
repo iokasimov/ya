@@ -81,14 +81,18 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) i w
         `lo` Scope @(Shafted List `T'I` Tree i) at)
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
-   `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
-   `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
+   -- `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
+   -- `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
+   `ho_'ha` (Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at `compose` unwrap)
+      `ho` (Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at `compose` unwrap `compose` unwrap)
    -- `yok____'he`  Try `ha` Maybe
    `yok____` Try `ha` Maybe `ha` unwrap @AR
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
-   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+   `ho_'ha` (Scope @((Scrolling List `T'TT'I` Tree) i) at `compose` unwrap)
+      `ho` (Scope @(Scrolling List `T'I` Tree i) at `compose` unwrap)
 
   vertical_up :: forall i . Unit `AR___` State `WR` Scrolling Tree i `JNT` Halts `WR__` i
   vertical_up _ = enter @(State `WR` Scrolling Tree i `JNT` Halts)
@@ -97,8 +101,10 @@ instance Scrollable (Construction (Optional `T'TT'I` Construction Optional)) i w
    `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `yok___` Try `ha` Maybe
    `yok___` New `ha` State `ha__` Transition `ha_` restoring
-   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+   `ho_'ha` (unwrap @AT `ho` Scope @((Scrolling List `T'TT'I` Tree) i) at)
+      `ho` (unwrap @AT `ho` Scope @(Scrolling List `T'I` Tree i) at)
 
   restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (U_T_I_TT_I
     `hv__` Only (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
