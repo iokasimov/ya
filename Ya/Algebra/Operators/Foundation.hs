@@ -1128,29 +1128,27 @@ ho________'he'he'he'he = ho'he'he'he'he
 --  u i (uu ii (uuu iii a)) -> from (from a o) (u i (uu ii (uuu iii o)))
 -- ho'ho'ho x = fai @(->) @(->) (fio @from `compose` fio @from) (ho @u @from x)
 
--- yio'yio'yui, yio'ho'yui, ho'yio'yui, ho'ho'yui
- -- :: forall from u uu uuu o e ee eee a .
- -- Terminal from =>
- -- Category from =>
- -- Covariant Yoneda Functor u from (U_I_II u e) =>
- -- Contravariant Yoneda Functor (->) (->) (U_II_I u e) =>
- -- Covariant Semi Functor from u (U_I_II uu ee) =>
- -- Covariant Endo Semi Functor from (U_II_I uuu eee) =>
- -- Covariant Endo Semi Functor (->) (U_I_II (->) (u e (uu a ee))) =>
- -- Contravariant Semi Functor (->) (->) (U_II_I from (u e (uu ee (uuu o eee)))) =>
- -- (forall i . Wrapper from (U_II_I uuu eee i)) =>
- -- (forall i . Wrapper u (U_I_II uu ee i)) =>
- -- Wrapper from (U_I_II uu ee (uuu eee o)) =>
- -- Wrapper from (U_I_II u e (uu ee (uuu o eee))) =>
- -- Wrapper from (U_I_II u (uu ee a) (uu ee o)) =>
- -- Wrapper from (U_I_II u (uu ee (uuu a eee)) (uu ee (uuu o eee))) =>
- -- Wrapper (->) (from Unit o) =>
- -- u e (uu ee (uuu a eee)) -> from (Supertype (from Unit o)) (u e (uu ee (uuu o eee)))
--- yio'yio'yui x = fai @(->) @(->) (fio @from `compose` fui @from) (ho @u @from x)
+yio'yio'yui, yio'ho'yui, ho'yio'yui, ho'ho'yui
+ :: forall from u uu uuu o i ii iii a .
+ Terminal from =>
+ Category from =>
+ Covariant Yoneda Functor u from (U_I_II u i) =>
+ Contravariant Yoneda Functor (->) (->) (U_II_I u i) =>
+ Covariant Semi Functor from u (U_I_II uu ii) =>
+ Covariant Endo Semi Functor from (U_II_I uuu iii) =>
+ Covariant Endo Semi Functor (->) (U_I_II (->) (u i (uu a ii))) =>
+ Contravariant Semi Functor (->) (->) (U_II_I from (u i (uu ii (uuu o iii)))) =>
+ (forall e ee . Wrapper from (U_II_I uuu e ee)) =>
+ (forall e ee . Wrapper from (U_I_II uu e ee)) =>
+ (forall e ee . Wrapper from (U_I_II u e ee)) =>
+ (forall e ee . Wrapper u (U_I_II uu e ee)) =>
+ Wrapper (->) (from Unit o) =>
+ u i (uu ii (uuu a iii)) -> from (Supertype (from Unit o)) (u i (uu ii (uuu o iii)))
+yio'yio'yui x = fai @(->) @(->) (fio @from `compose` fui @from) (ho @u @from x)
 
--- ho'yio'yui = yio'yio'yui
--- yio'ho'yui = yio'yio'yui
--- ho'ho'yui = yio'yio'yui
+ho'yio'yui = yio'yio'yui
+yio'ho'yui = yio'yio'yui
+ho'ho'yui = yio'yio'yui
 
 -- ho'ho'hu :: forall from u uu uuu o i ee eee a .
  -- Category from =>
