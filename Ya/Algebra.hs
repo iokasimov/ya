@@ -187,14 +187,6 @@ instance (Initial AR, Covariant Endo Monoidal Functor AR P S t) =>
  Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (t `T'TT'I` R_U_I_T_I P tt) where
  mapping = rewrap / \_ _ -> T'TT'I (empty @t `yo` initial' @AR)
 
--- TODO: generalize this instance
-instance Mapping U_II_I U_I_II AT AR
- (U_II_I (U_I_UU_II_I AR P) e)
- (U_II_I (U_I_UU_II_I AR P) e) where
- mapping = rewrap / \(U_I_UU_II_U_II_I from) ->
-  rewrap `compose` rewrap `identity` \state old ->
-   let (These new f) = from old in f `fio` state new
-
 instance Mapping U_I_II U_I_II AT AT (U_I_II P e) (U_I_II P e) where
  mapping = rewrap `compose` rewrap / \from (U_I_II (These e x)) ->
    let s = from x in U_I_II (These e (this s)) `lu` fo (that s)
@@ -740,3 +732,24 @@ instance
  component = U_I_UU_II_U_II_I / \x ->
   map @U_I_II @U_I_II @AR @AR @t @tt identity x
   `lu` map @U_I_II @U_I_II @AR @AR @tt @t identity
+
+instance {-# OVERLAPPABLE #-}
+ Mapping U_I_II U_I_II AR AR t t
+ => Mapping U_I_II U_I_II AT AR t t where
+ mapping = rewrap / \(U_I_UU_II_U_II_I from) x ->
+  map @U_I_II @U_I_II @AR @AR @t @t (this `compose` from) x
+
+instance Mapping U_II_I U_I_II AT AR
+ (U_II_I (U_I_UU_II_I AR P) e)
+ (U_II_I (U_I_UU_II_I AR P) e) where
+ mapping = rewrap / \(U_I_UU_II_U_II_I from) ->
+  rewrap `compose` rewrap `identity` \state old ->
+   let (These new f) = from old in f `fio` state new
+
+-- TODO: I'm not sure about this instance
+instance Mapping U_II_I U_I_II AT AT
+ (U_II_I (U_I_UU_II_I (->) P) i)
+ (U_II_I (U_I_UU_II_I (->) P) i) where
+ mapping = rewrap `compose` rewrap / \from x ->
+  These (map @U_II_I @U_I_II (U_I_UU_II_U_II_I from) x)
+   (constant @AR x)
