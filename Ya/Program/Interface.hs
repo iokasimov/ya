@@ -76,12 +76,12 @@ instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'
     `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
   `he'he'hv____` Empty @List Unit
 
--- instance Mapping U_I_II U_I_II AR AR
---  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
---  (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
---  mapping = rewrap / \from -> rewrap / \x -> x
---   `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
---   `yio'yo` from
+instance Mapping U_I_II U_I_II AR AR
+ (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
+ (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
+ mapping = rewrap / \from -> rewrap / \x -> x
+  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
+  `yio'yo` from
 
 instance Mapping U_I_II U_I_II (->) (->)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
@@ -142,11 +142,4 @@ type family Vector x xs where
 instance (forall i . Setoid AR i) => Mapping U_II_I U_I_II AR AR I Predicate where
  mapping = rewrap / \from -> rewrap / \x x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` from x'
 
-shaft :: forall t tt i . Side `AR` Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` tt i)
-shaft x = unwrap `hv______` Scope `hv` it `ho____'he` Scope `hv` at @(Shafted tt i)
- `ho____'he` Left `hu__` Scope `hv` at @(Reverse tt i) `ho_'he` Scope `hv` it @(tt i)
-     `la__` Right `hu__` Scope `hv` at @(Forward tt i) `ho_'he` Scope `hv` it @(tt i)
-     `li__` x
 
-focus :: forall t tt i . Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` t i)
-focus (U_T_I_TT_I (These x xs)) = x `lu` U_T_I_TT_I `ha` (`lu` xs)
