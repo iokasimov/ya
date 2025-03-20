@@ -19,6 +19,7 @@ library
     Ya.Algebra.Definition
     Ya.Algebra.Instances
     Ya.Algebra.Operators
+    Ya.Algebra.Operators.Functions
     Ya.Algebra.Operators.Foundation
     Ya.Algebra.Operators.Composites
     Ya.Program
