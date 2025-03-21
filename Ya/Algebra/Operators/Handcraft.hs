@@ -1,5 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
-module Ya.Algebra.Operators.Foundation where
+module Ya.Algebra.Operators.Handcraft where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition

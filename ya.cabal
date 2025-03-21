@@ -20,8 +20,8 @@ library
     Ya.Algebra.Instances
     Ya.Algebra.Operators
     Ya.Algebra.Operators.Functions
-    Ya.Algebra.Operators.Foundation
-    Ya.Algebra.Operators.Composites
+    Ya.Algebra.Operators.Handcraft
+    Ya.Algebra.Operators.Generated
     Ya.Program
     Ya.Program.Interface
     Ya.Program.Interface.Field
