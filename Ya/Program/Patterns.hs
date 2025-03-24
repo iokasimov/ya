@@ -143,8 +143,12 @@ type Automation e ee eee = e `AR_` ee `P` eee
 
 type Transition = U_I_UU_II_I (->) P
 
+pattern Transition :: Automation e ee e `AR__` Transition e ee
 pattern Transition x = U_I_UU_II_I @(->) @P x
 
+type Event = U_I_UU_II_I (->) P
+
+pattern Event :: Automation e ee e `AR__` Event e ee
 pattern Event x = U_I_UU_II_I @(->) @P x
 
 type State = U_I_II Transition
