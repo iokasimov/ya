@@ -724,11 +724,8 @@ yok'yokl, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok__
  Contravariant Endo Semi Functor (->) (U_II_I into (t (ttt o))) =>
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` tt) t =>
  Covariant Endo Transformation Functor from (ttt `T'TT'I` l `L` ll `L` tt) (ttt `TT'T'I` tt) =>
- -- Wrapper into (U_I_II from (ttt a) (L l tt (ttt o))) =>
  Wrapper into (U_I_II from a (L ll (L l tt) o)) =>
-
  (forall e ee . Wrapper into (U_I_II from e ((l `L` tt) ee))) =>
-
  (forall e . Wrapper from ((ttt `T'TT'I` L l (L ll tt)) e)) =>
  (forall e . Wrapper into (L l tt e)) =>
  (forall e . Wrapper from (L l tt e)) =>
@@ -1671,41 +1668,6 @@ ra :: forall into hom t i .
  Elicitable U_I_II into (U_II_I hom (Representation t) i) =>
  into (t i) (hom i (Representation t))
 ra = he `compose` map @U_II_I @U_I_II @into @into @t @(U_II_I hom (Representation t)) identity
-
-fd :: forall from into t tt a o .
- Adjoint Functor from from t tt =>
- Covariant Functor into from t =>
- Elicitable U_II_I from ((T'TT'I t tt) o) =>
- Elicitable U_I_II from (I o) =>
- into a (tt o) -> from (t a) o
-fd from = unwrap @from @(I _)
- `compose` component @from @(t `T'TT'I` tt) @I
- `compose` wrap @from @((t `T'TT'I` tt) _)
- `compose` fo @into @from from
-
-fj :: forall from into t tt a o .
- Covariant Functor from into tt =>
- Adjoint Functor into into t tt =>
- Elicitable U_I_II into (T'TT'I tt t a) =>
- Elicitable U_II_I into (I a) =>
- from (t a) o -> into a (tt o)
-fj from = fo from
- `compose` unwrap @into
- `compose` component @into @I @(tt `T'TT'I` t)
- `compose` wrap @into
-
--- ilj :: forall from into t tt e ee a o .
- -- Adjoint Functor from into (U_I_II t e) (U_I_II tt ee) =>
- -- Elicitable U_I_II into ((T'TT'I (U_I_II tt ee) (U_I_II t e)) a) =>
- -- Elicitable U_I_II into (U_I_II tt ee o) =>
- -- Elicitable U_II_I into (I a) =>
- -- Elicitable U_I_II from (U_I_II t e a) =>
- -- from (t e a) o -> into a (tt ee o)
--- ilj from = he @into @(U_I_II tt _ _)
- -- `compose` fo (from `compose` he @from @(U_I_II t _ _))
- -- `compose` he @into @(T'TT'I _ _ _)
- -- `compose` component @from @into @I @(U_I_II tt ee `T'TT'I` U_I_II t e)
- -- `compose` wrap @into
 
 hd, hd_, hd__, hd___, hd____, hd_____, hd______, hd_______, hd________
  :: forall from into t tt e a o .
@@ -2809,28 +2771,6 @@ ho________'yukl = yio'yukl
 --  Supertype (U_1_I from a (t o)) -> from e (tt a) -> from e (tt o)
 -- ha'yuk = ha `compose` fuk @from @tt @t
 
--- fr'yp :: forall from t i o oo .
- -- Category from =>
- -- Limit U_I_II from from =>
- -- Covariant Functor (->) (->) (U_I_II (P) o) =>
- -- Covariant Functor from (->) (U_II_I (P) (P i i)) =>
- -- Covariant Monoidal Functor (->) P P t =>
- -- Elicitable U_I_II (->) (U_I_I P (P i i)) =>
- -- Elicitable U_I_II (->) (U_I_II P o oo) =>
- -- Elicitable U_II_I from (U_II_I P i i) =>
- -- Elicitable U_II_I (->) (U_I_II P i i) =>
- -- Elicitable U_I_II (->) (U_I_I P i) =>
- -- Elicitable U_I_II (->) (U_II_I P (P i i) o) =>
- -- Elicitable U_II_I (->) (U_II_I P (P i i) (P i i)) =>
- -- Wrapper (->) (U_I_II (P) o (P i i)) =>
- -- (forall e . Wrapper from (I e)) =>
- -- from i (t o) -> from i (t oo) -> i -> t (P o oo)
--- fr'yp from__eft from_right = yp `compose`
- -- __ (map @U_I_II @U_I_II @from (wrapped (right @U_I_II from_right))) `compose`
- -- i_ (map @U_I_II @U_I_II @from (wrapped (left @U_I_II from__eft))) `compose`
- -- wrapped (map @U_I_II @U_I_II @from @(->) @I @(U_I_I P) identity) `compose`
- -- wrapped (map @U_I_II @U_I_II @from @(->) @I @(U_I_I P) identity)
-
 -- TODO: generalize
 lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'yp :: forall o oo t .
  Covariant Monoidal Functor (->) (->) P P t =>
@@ -2973,146 +2913,6 @@ lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
  -- (forall e . Wrapper into (T'TT'I (JNT t tt) ttt e)) =>
  -- t (tt e) `P` t (tt ee) -> into (from (e `P` ee) (ttt o)) ((t `JNT` tt) o)
 -- yp'yp'jt'yok = yok @from @into `compose` yp'yp'jt
-
--- TODO: generalize
--- rwr'foi :: forall into w o u e ee .
- -- Covariant Endo Semi Functor into (U_II_I u o) =>
- -- Elicitable U_I_II into (U_II_I u o ee) =>
- -- Elicitable U_II_I into (U_II_I u o e) =>
- -- Elicitable U_II_I into (w u ee o) =>
- -- Elicitable U_I_II into (w u e o) =>
- -- (Supertype (w u e o) ~ u e o) =>
- -- (Supertype (w u ee o) ~ u ee o) =>
- -- into e ee -> into (w u e o) (w u ee o)
--- rwr'foi = rwr `compose` i_ `compose` fo
-
--- TODO: generalize
--- rwr'fio :: forall into w o u e ee .
- -- Covariant Endo Semi Functor into (U_I_II u o) =>
- -- Elicitable U_I_II into (U_I_II u o ee) =>
- -- Elicitable U_II_I into (U_I_II u o e) =>
- -- Elicitable U_II_I into (w u o ee) =>
- -- Elicitable U_I_II into (w u o e) =>
- -- (Supertype (w u o e) ~ u o e) =>
- -- (Supertype (w u o ee) ~ u o ee) =>
- -- into e ee -> into (w u o e) (w u o ee)
--- rwr'fio = rwr `compose` __ `compose` fo
-
--- TODO: try to simplify
--- rwr'yoi :: forall from into w o u e ee .
- -- Precategory into =>
- -- Covariant Yoneda Functor from into (U_II_I u o) =>
- -- Elicitable U_II_I into (w u ee o) =>
- -- Elicitable U_I_II (->) (w u e o) =>
- -- Elicitable U_I_II into (U_II_I u o ee) =>
- -- Elicitable U_II_I into (U_I_II from e ee) =>
- -- (Supertype (w u e o) ~ u e o) =>
- -- (Supertype (w u ee o) ~ u ee o) =>
- -- w u e o -> into (from e ee) (w u ee o)
--- rwr'yoi x = wrap @into `compose` yoi (unwrap x)
-
--- -- TODO: generalize
--- oorwr_''yoi :: forall from into w a o u e ee .
---  Precategory into =>
---  Covariant Endo Semi Functor into (U_II_I u o) =>
---  Covariant Yoneda Functor into (->) (U_I_II from a) =>
---  Elicitable U_I_II into (w u e o) =>
---  Elicitable U_II_I into (w u ee o) =>
---  Elicitable U_I_II into (U_II_I u o ee) =>
---  Elicitable U_II_I into (U_II_I u o e) =>
---  (Supertype (w u e o) ~ u e o) =>
---  (Supertype (w u ee o) ~ u ee o) =>
---  from a (w u e o) -> into e ee -> from a (w u ee o)
--- oorwr_yoi x f = x `ho` rwr_foi @into @w @o @u @e @ee f
-
--- -- TODO: generalize
--- oorwr_yio :: forall from into w a o u e ee .
---  Precategory into =>
---  Covariant Endo Semi Functor into (U_I_II u o) =>
---  Covariant Yoneda Functor into (->) (U_I_II from a) =>
---  Elicitable U_I_II into (w u o e) =>
---  Elicitable U_II_I into (w u o ee) =>
---  Elicitable U_I_II into (U_I_II u o ee) =>
---  Elicitable U_II_I into (U_I_II u o e) =>
---  (Supertype (w u o e) ~ u o e) =>
---  (Supertype (w u o ee) ~ u o ee) =>
---  from a (w u o e) -> into e ee -> from a (w u o ee)
--- oorwr_yio x f = x `ho` rwr_fio @into @w @o @u @e @ee f
-
--- yokl_rwr_yoi :: forall into w t o u e ee .
---  Covariant Yoneda Functor into (->) t =>
---  Covariant Endo Semi Functor (->) t =>
---  Covariant Endo Semi Functor (->) (w u ee) =>
---  Covariant Endo Semi Functor into (U_II_I u o) =>
---  Covariant Transformation Functor (->) (->) (T'TT'I t (w u ee)) t =>
---  (Supertype (w u e o) ~ u e o) =>
---  (Supertype (w u ee o) ~ u ee o) =>
---  Elicitable U_II_I (->) (into () ee) =>
---  Elicitable U_II_I into (U_II_I u o e) =>
---  Elicitable U_II_I into (w u ee o) =>
---  Elicitable U_I_II into (U_II_I u o ee) =>
---  Elicitable U_I_II into (w u e o) =>
---  t (w u e o) -> into e ee -> t o
--- yokl_rwr_yoi x f = yokl @into @_ @(w u ee) @t x
---  (rwr_foi @into @w @o @u @e @ee f)
-
--- rwr_yui :: forall into w o u e ee .
---  Covariant Endo Semi Functor into (U_II_I u o) =>
---  Constant Semi Functor into into (U_II_I u o) (U_II_I u o) =>
---  Elicitable U_I_II into (U_II_I u o ee) =>
---  Elicitable U_II_I into (U_II_I u o e) =>
---  Elicitable U_II_I into (w u ee o) =>
---  Elicitable U_I_II into (w u e o) =>
---  Elicitable U_II_I (->) (into () ee) =>
---  (Supertype (w u e o) ~ u e o) =>
---  (Supertype (w u ee o) ~ u ee o) =>
---  Supertype (into () ee) -> into (w u e o) (w u ee o)
--- rwr_yui = rwr `compose` i_ `compose` fu
-
--- TODO: find a way to generalize
--- yokl_rwr_yui :: forall w t o u e ee .
---  Covariant Yoneda Functor (->) (->) t =>
---  Covariant Endo Semi Functor (->) t =>
---  Covariant Endo Semi Functor (->) (w u ee) =>
---  Covariant Endo Semi Functor (->) (U_II_I u o) =>
---  Constant Semi Functor (->) (->) (U_II_I u o) (U_II_I u o) =>
---  Covariant Transformation Functor (->) (->) (T'TT'I t (w u ee)) t =>
---  (Supertype (w u e o) ~ u e o) =>
---  (Supertype (w u ee o) ~ u ee o) =>
---  Elicitable U_II_I (->) ((->) () ee) =>
---  Elicitable U_II_I (->) (U_II_I u o e) =>
---  Elicitable U_II_I (->) (w u ee o) =>
---  Elicitable U_I_II (->) (U_II_I u o ee) =>
---  Elicitable U_I_II (->) (w u e o) =>
---  t (w u e o) -> Supertype (() -> ee) -> t o
--- yokl_rwr_yui x f = yokl @(->) @_ @(w u ee) @t x
---  (rwr_yui @(->) @w @o @u @e @ee f)
-
--- TODO: effects are executed in reverse order, we can use it
--- to alter execution order, in Scrolling List for example
-fc :: forall into t a o .
- Covariant Endo Semi Functor (->) t =>
- Covariant Endo Semi Functor (->) (U_I_II into a) =>
- Adjoint Functor (->) (->) (U_I_II P (t a)) (U_I_II into (t a)) =>
- Adjoint Functor (->) (->) (U_I_II P a) (U_I_II into a) =>
- Adjoint Functor (->) (->) (U_I_II P (t a `P` t (into a o))) (U_I_II (->) (t a `P` t (into a o))) =>
- Monoidal U_I_II Functor into AR P P t =>
- t (into a o) -> into (t a) (t o)
-fc = unwrap @(->) @(U_I_II into (t a) _)
- `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
- (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
- `compose` fj @(->) @(->) @(U_I_II P (t a)) @(U_I_II into _)
- (monoidal_ @U_I_II @into @(->) @t @P @P identity (wrap identity)
- `compose` unwrap @(->) @(U_I_II P (t a) (t (into a o))))
-
--- cc :: forall t e ee .
---  Adjoint Functor (->) (->) (U_I_II P (t e `P` t ee)) (U_I_II (->) (t e `P` t ee)) =>
---  Monoidal U_I_II Functor (->) P P t =>
---  t e -> t ee -> t (e `P` ee)
--- cc e ee = monoidal_
---  @U_I_II @(->) @(->) @t @P @P identity
---  (wrap identity)
---  (e `lu` ee)
 
 q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
  forall into e .

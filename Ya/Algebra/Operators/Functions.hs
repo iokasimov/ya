@@ -122,3 +122,41 @@ fui :: forall from into t a o i .
  Supertype (from Unit o) -> into (t a i) (t o i)
 fui from = foi (wrap @(->) @(from Unit o) from `compose` terminal)
 
+fd :: forall from into t tt a o .
+ Adjoint Functor from from t tt =>
+ Covariant Functor into from t =>
+ Elicitable U_II_I from ((T'TT'I t tt) o) =>
+ Elicitable U_I_II from (I o) =>
+ into a (tt o) -> from (t a) o
+fd from = unwrap @from @(I _)
+ `compose` component @from @(t `T'TT'I` tt) @I
+ `compose` wrap @from @((t `T'TT'I` tt) _)
+ `compose` fo @into @from from
+
+fj :: forall from into t tt a o .
+ Covariant Functor from into tt =>
+ Adjoint Functor into into t tt =>
+ Elicitable U_I_II into (T'TT'I tt t a) =>
+ Elicitable U_II_I into (I a) =>
+ from (t a) o -> into a (tt o)
+fj from = fo from
+ `compose` unwrap @into
+ `compose` component @into @I @(tt `T'TT'I` t)
+ `compose` wrap @into
+
+-- TODO: effects are executed in reverse order, we can use it
+-- to alter execution order, in Scrolling List for example
+fc :: forall into t a o .
+ Covariant Endo Semi Functor (->) t =>
+ Covariant Endo Semi Functor (->) (U_I_II into a) =>
+ Adjoint Functor (->) (->) (U_I_II P (t a)) (U_I_II into (t a)) =>
+ Adjoint Functor (->) (->) (U_I_II P a) (U_I_II into a) =>
+ Adjoint Functor (->) (->) (U_I_II P (t a `P` t (into a o))) (U_I_II (->) (t a `P` t (into a o))) =>
+ Monoidal U_I_II Functor into AR P P t =>
+ t (into a o) -> into (t a) (t o)
+fc = unwrap @(->) @(U_I_II into (t a) _)
+ `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
+ (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
+ `compose` fj @(->) @(->) @(U_I_II P (t a)) @(U_I_II into _)
+ (monoidal_ @U_I_II @into @(->) @t @P @P identity (wrap identity)
+ `compose` unwrap @(->) @(U_I_II P (t a) (t (into a o))))
