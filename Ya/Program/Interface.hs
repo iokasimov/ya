@@ -11,8 +11,7 @@ import Ya.Program.Labels
 import Ya.Program.Interface.Field as Exports
 import Ya.Program.Interface.Match as Exports
 import Ya.Program.Interface.Stack as Exports
-import Ya.Program.Interface.Scroll as Exports
-import Ya.Program.Interface.Slide as Exports
+import Ya.Program.Interface.Shiftable as Exports
 
 instance Mapping U_I_II U_I_II AR AR (Reverse List `P'T'I'TT'I` Forward List) List where
  mapping = rewrap / \from (U_T_I_TT_I (These (Labeled bs) (Labeled fs))) -> that
@@ -35,9 +34,9 @@ instance Mapping U_I_II U_I_II AR AR
   ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))) where
   mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
    Identity `hv` Labeled x
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Back ()) `ha_` is `hu` x)
+    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (Back ()) `ha_` is `hu` x)
       `he'he'hv` Empty @List () `yi` that `ho` Reverse
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` scroll (Fore ()) `ha_` is `hu` x)
+     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (Fore ()) `ha_` is `hu` x)
       `he'he'hv` Empty @List () `yi` that `ho` Forward
      `yi_` U_T_I_TT_I
     `yi__` U_T_I_TT_I `ho` T'TT'I
@@ -83,6 +82,7 @@ instance Mapping U_I_II U_I_II AR AR
   `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
   `yio'yo` from
 
+-- TODO
 instance Mapping U_I_II U_I_II (->) (->)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
@@ -96,9 +96,9 @@ instance Mapping U_I_II U_I_II (->) (->)
  ((List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Unit `L` (List `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These _ (U_T_I_TT_I (These rl fl)))) ->
   List `ha` Item (Labeled x) `ha` Last `hv` Unit
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` slide (by Back) `ha_` is `hu` x)
+    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Back) `ha_` is `hu` x)
       `he'he'hv` Empty @List () `yi` that `ho` Reverse
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` slide (by Fore) `ha_` is `hu` x)
+     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
       `he'he'hv` Empty @List () `yi` that `ho` Forward
      `yi_` U_T_I_TT_I
     `yi__` U_T_I_TT_I `ho` T'TT'I

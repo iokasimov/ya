@@ -27,8 +27,7 @@ library
     Ya.Program.Interface.Field
     Ya.Program.Interface.Match
     Ya.Program.Interface.Stack
-    Ya.Program.Interface.Scroll
-    Ya.Program.Interface.Slide
+    Ya.Program.Interface.Shiftable
     Ya.Program.Patterns
     Ya.Program.Primitive
     Ya.Program.Labels
