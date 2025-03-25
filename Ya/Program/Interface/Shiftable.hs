@@ -20,16 +20,8 @@ type family Shifter t where
  Shifter (Construction (U_I_I P `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
-type family Shifted t where
- Shifted Stream = Only
- Shifted (Optional `T'TT'I` Construction Optional) = Optional
- Shifted (Construction (U_I_I P `T'TT'I` Optional)) = Optional
- Shifted (Construction List) = Optional
-
 class Shiftable window datastructure item where
- shift :: Shifter datastructure `AR___` Supertype (Event `WR` Shifting window datastructure item `WR` Shifted datastructure item)
- -- TODO: Predicate `WR` window item
- locate :: Shifter datastructure `P` Predicate item `AR__` Supertype (Event `WR` Shifting window datastructure item `WR_` Optional (Shifting window datastructure item))
+ shift :: Shifter datastructure `AR___` Supertype (Event `WR` Shifting window datastructure item `WR` Optional item)
 
 type Leveled e = Shifting Only List `T'TT'I` e
 
@@ -49,14 +41,6 @@ instance Shiftable Only (Optional `T'TT'I` Construction Optional) i where
 
   path = Back `hu_` Scope @(Reverse List i) at `ho'he` Scope it
    `la___` Fore `hu_` Scope @(Forward List i) at `ho'he` Scope it
-
- locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (None `hu` by None) `li` locate' `he'he'hv` x where
-
-  locate' = enter @(State `WR` Scrolling List i `JNT` Reach `WR` Scrolling List i)
-   `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(Focused i) `ho_'he` Scope `hv` it @i
-   `yok____` State `ho` New `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Reach)
-   `yok____` Check `ha__` Reach `la` Continue
-   `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
 
 instance Shiftable List (Optional `T'TT'I` Construction Optional) item where
  shift way x = is
@@ -161,7 +145,7 @@ instance Mapping U_I_II U_I_II AR AR
    `yi_____` that
 
 -- TODO: it's here temporaly, I should find a way to generalize it
-extend :: Shifter List `AR_` Automation `WR` Sliding List item `WR` Shifted List item `WR` Sliding List item
+extend :: Shifter List `AR_` Supertype (Event `WR` Sliding List item `WR` Optional item)
 extend way x = is
  `li` is `hu` (by None `lu` x)
  `la` is `ho'he` foi @_ @AR Some
@@ -179,3 +163,16 @@ extend way x = is
 
  window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
+locate :: forall window datastructure item .
+ Shiftable window datastructure item =>
+ Field (window item) (Supertype (Shifting window datastructure item)) =>
+ Wrapper AR (Shifting window datastructure item) =>
+ Shifter datastructure `P` Predicate (window item) `AR_`
+ Supertype (Event `WR` Shifting window datastructure item `WR_` Optional (Shifting window datastructure item))
+locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (None `hu` by None) `li` locate' `he'he'hv` x where
+
+ locate' = enter @(State `WR` Shifting window datastructure item `JNT` Reach `WR` Shifting window datastructure item)
+  `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(window item)
+  `yok____` State `ho` New `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Reach)
+  `yok____` Check `ha__` Reach `la` Continue
+  `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
