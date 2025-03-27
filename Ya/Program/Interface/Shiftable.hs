@@ -34,7 +34,7 @@ instance Shiftable Only (Optional `T'TT'I` Construction Optional) i where
 
   shift' = enter @(State `WR` Scrolling List i `JNT` Halts)
    `yuk__` New `ha` State `hv__` Event `hv` pop `ha_'he` Scope @(Shafted List i) at `ho'he` path way
-   `yok__` Try `ha` Maybe
+   `yok__` Try
    -- `yok__` New `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
    `yok__` New `ha` State `ha__` Event `ha` switch `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
    `yok__` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope @(Shafted List i) at `he'ho'he` path (not way)
@@ -50,17 +50,17 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) item where
 
   slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `hv` focus
-   `yok____` Try `ha` Maybe
+   `yok____` Try
    `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Passed
    `yuk____` New `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
-   `yok____` Try `ha` Maybe
+   `yok____` Try
    `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
   slide_passed = enter @(State `WR` Sliding List item `JNT` Halts)
    `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Passed
-   `yok____` Try `ha` Maybe
+   `yok____` Try
    `yok____` New `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` focus
-   `yok____` Try `ha` Maybe
+   `yok____` Try
    `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
 
   window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
@@ -101,8 +101,8 @@ instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional))
    -- `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `ho_'ha` (Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at `compose` unwrap)
       `ho` (Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at `compose` unwrap `compose` unwrap)
-   -- `yok____'he`  Try `ha` Maybe
-   `yok____` Try `ha` Maybe `ha` unwrap @AR
+   -- `yok____'he`  Try
+   `yok____` Try
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
    -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
@@ -115,7 +115,7 @@ instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional))
    `yuk___` New `ha` State `hv__` Transition `hv` pop
    `ha_'he` Scope @((Reverse List `T'TT'I_` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
    `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
-   `yok___` Try `ha` Maybe
+   `yok___` Try
    `yok___` New `ha` State `ha__` Transition `ha_` restoring
    -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
       -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
@@ -153,12 +153,12 @@ extend way x = is
 
  extend_passed = enter @(State `WR` Sliding List _ `JNT` Halts)
   `yuk____` New `ha` State `hv____` Event `hv` pop @List `ha_` Scope `ha` shaft `hv` by Passed
-  `yok____` Try `ha` Maybe
+  `yok____` Try
   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `hv` focus
 
  extend_future = enter @(State `WR` Sliding List _ `JNT` Halts)
   `yuk____` New `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
-  `yok____` Try `ha` Maybe
+  `yok____` Try
   `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
  window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
@@ -167,8 +167,7 @@ locate :: forall window datastructure item .
  Shiftable window datastructure item =>
  Field (window item) (Supertype (Shifting window datastructure item)) =>
  Wrapper AR (Shifting window datastructure item) =>
- Shifter datastructure `P` Predicate (window item) `AR_`
- Supertype (Event `WR` Shifting window datastructure item `WR_` Optional (Shifting window datastructure item))
+ Shifter datastructure `P` Predicate (window item) `AR_` Supertype (Event `WR` Shifting window datastructure item `WR_` Optional (Shifting window datastructure item))
 locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (None `hu` by None) `li` locate' `he'he'hv` x where
 
  locate' = enter @(State `WR` Shifting window datastructure item `JNT` Reach `WR` Shifting window datastructure item)
@@ -176,3 +175,5 @@ locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (
   `yok____` State `ho` New `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Reach)
   `yok____` Check `ha__` Reach `la` Continue
   `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
+
+-- TODO: rewind :: forall window datastructure item .
