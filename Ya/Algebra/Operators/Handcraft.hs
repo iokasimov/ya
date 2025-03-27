@@ -2173,10 +2173,10 @@ yp :: forall u e ee t .
 yp = day @U_I_II @(->) @t @u @P identity identity
 
 -- TODO: try to generalize
-yp'yo, yp_'yo :: forall from e ee r t .
- Covariant Monoidal Functor from (->) P P t =>
- t e `P` t ee -> from (e `P` ee) r -> t r
-yp'yo x f = day @U_I_II @from @t @P @P identity f x
+yp'yo, yp_'yo :: forall e ee r t .
+ Covariant Monoidal Functor (->) (->) P P t =>
+ t e `P` t ee -> (e `P` ee `AR` r) -> t r
+yp'yo x f = day @U_I_II @(->) @t @P @P identity f x
 
 yp_'yo = yp'yo
 
