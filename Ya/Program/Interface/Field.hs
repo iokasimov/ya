@@ -16,8 +16,9 @@ instance Field e (ee `P` e) where
 
 instance {-# OVERLAPS #-} Field e ee => Field e (ee `P` eee) where
  at (These x xs) = These
-  `li` this (at @e @ee `hv` x)
-  `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
+  `li` this `ha` at @e @ee `hv` x
+  -- `li` \new -> adjust (Attribute (at @e @ee)) (constant new) x `lu` xs
+  `li` that `ha` at @e @ee `hv` x `ho` (`lu` xs)
 
 shaft :: forall t tt i . Side `AR` Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` tt i)
 shaft x = unwrap `hv______` Scope `hv` it `ho____'he` Scope `hv` at @((Reverse tt `P'T'I'TT'I` Forward tt) i)

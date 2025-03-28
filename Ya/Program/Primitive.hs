@@ -19,11 +19,6 @@ row = This `ha` This `la_` This `ha` That `la` That `ha_` is @ee_eee
 provide :: U_I_II (->) e e
 provide = U_I_II identity
 
-adjust ::
- Elicitable U_I_II Arrow (Attribute origin target) =>
- Attribute origin target -> (target -> target) -> (origin -> origin)
-adjust attr f s = let (These h x) = attr `he'hv` s in x `li`f h
-
 -- TODO: should be moved later
 -- instance Mapping U_I_II U_I_II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
@@ -32,12 +27,10 @@ adjust attr f s = let (These h x) = attr `he'hv` s in x `li`f h
 
 auto, get :: Automation e e e
 auto x = x `lu` x
-
 get = auto
 
 switch, put :: ee -> Automation e e ee
 switch new old = old `lu` new
-
 put = switch
 
 leaf :: forall t e .
