@@ -22,6 +22,12 @@ library
     Ya.Algebra.Operators.Functions
     Ya.Algebra.Operators.Handcraft
     Ya.Algebra.Operators.Generated
+    Ya.Algebra.Operators.Generated.XX
+    Ya.Algebra.Operators.Generated.XXX
+    Ya.Algebra.Operators.Generated.XXXX
+    Ya.Algebra.Operators.Generated.XXXXX
+    Ya.Algebra.Operators.Generated.XXXXXX
+    Ya.Algebra.Operators.Generated.XXXXXXX
     Ya.Program
     Ya.Program.Interface
     Ya.Program.Interface.Field
