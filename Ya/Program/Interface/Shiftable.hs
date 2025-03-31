@@ -97,18 +97,13 @@ instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional))
         `lo` Scope @(Shafted List `T'I` Tree i) at)
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
-   -- `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
-   -- `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
-   `ho_'ha` (Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at `compose` unwrap)
-      `ho` (Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at `compose` unwrap `compose` unwrap)
-   -- `yok____'he`  Try
+   `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
+   `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `yok____` Try
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
-   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
-   `ho_'ha` (Scope @((Scrolling List `T'TT'I` Tree) i) at `compose` unwrap)
-      `ho` (Scope @(Scrolling List `T'I` Tree i) at `compose` unwrap)
+   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
   vertical_up :: forall i . Unit `AR___` State `WR` Scrolling Tree i `JNT` Halts `WR__` i
   vertical_up _ = enter @(State `WR` Scrolling Tree i `JNT` Halts)
@@ -117,10 +112,8 @@ instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional))
    `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `yok___` Try
    `yok___` New `ha` State `ha__` Transition `ha_` restoring
-   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
-   `ho_'ha` (unwrap @AT `ho` Scope @((Scrolling List `T'TT'I` Tree) i) at)
-      `ho` (unwrap @AT `ho` Scope @(Scrolling List `T'I` Tree i) at)
+   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
   restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (U_T_I_TT_I
     `hv__` Only (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
@@ -145,21 +138,21 @@ instance Mapping U_I_II U_I_II AR AR
    `yi_____` that
 
 -- TODO: it's here temporaly, I should find a way to generalize it
-extend :: Shifter List `AR_` Supertype (Event `WR` Sliding List item `WR` Optional item)
-extend way x = is
+adjust :: Shifter List `AR_` Supertype (Event `WR` Sliding List item `WR` Optional item)
+adjust way x = is
  `li` is `hu` (by None `lu` x)
  `la` is `ho'he` foi @_ @AR Some
  `li` (extend_passed `lv` extend_future `li` way) `he'he'hv` x where
 
  extend_passed = enter @(State `WR` Sliding List _ `JNT` Halts)
-  `yuk____` New `ha` State `hv____` Event `hv` pop @List `ha_` Scope `ha` shaft `hv` by Passed
+  `yuk____` New `ha` State `hv__` Event `hv` pop @List `ha_` Scope `ha` shaft `hv` by Passed
   `yok____` Try
   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `hv` focus
 
  extend_future = enter @(State `WR` Sliding List _ `JNT` Halts)
-  `yuk____` New `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
+  `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
   `yok____` Try
-  `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
+  `yok____` New `ha` State `ha__` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
  window_future r w = (is @(List _) w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
 
