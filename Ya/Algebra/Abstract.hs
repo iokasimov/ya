@@ -11,8 +11,8 @@ infixl 7 `WR_`
 infixl 6 `WR__`
 infixl 5 `WR___`
 
-infixl 6 `T'TT'I`, `TT'T'I`
-infixl 7 `T'TT'I_`
+infixl 7 `T'TT'I`, `TT'T'I`
+infixl 6 `T'TT'I_`
 
 infixr 9 `L`
 

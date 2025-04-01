@@ -12,36 +12,34 @@ instance (Precategory into, forall e . Wrapper into (I e))
 
 instance
  ( forall e . Wrapper into (I e)
- , forall e . Wrapper into (L l (L ll t) e)
- , forall e . Wrapper into (L ll t e)
- , forall e . Wrapper into (I `TT'T'I` t `WR___` e)
- , forall e . Wrapper into (I `T'TT'I` L l (L ll t) `WR___` e)
+ , forall e . Wrapper into (l `L` ll `L` t `WR` e)
+ , forall e . Wrapper into (ll `L` t `WR` e)
+ , forall e . Wrapper into (I `TT'T'I` t `WR_` e)
+ , forall e . Wrapper into (I `T'TT'I` l `L` ll `L` t `WR_` e)
  , Covariant Endo Semi Functor into t
- ) => Mapping U_I_II U_I_II into into (I `T'TT'I` L l (L ll t)) (I `TT'T'I` t) where
+ ) => Mapping U_I_II U_I_II into into (I `T'TT'I` l `L` ll `L` t) (I `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap /
   map @U_I_II @U_I_II @into @into (wrap @into @(I _) `compose` from) `compose` unwrap @into @(L ll t _) `compose` unwrap @into @(L l _ _) `compose` unwrap @into @(I _)
 
 instance
  ( Covariant Semi Functor from into tt
  , Covariant Endo Semi Functor into t
- , forall e . Wrapper into (T'TT'I t tt e)
- ) => Mapping U_I_II U_I_II from into (T'TT'I t tt) (T'TT'I t tt) where
+ , forall e . Wrapper into (t `T'TT'I` tt `WR_` e)
+ ) => Mapping U_I_II U_I_II from into (t `T'TT'I` tt) (t `T'TT'I` tt) where
  mapping = rewrap / \from -> wrap @into `compose` (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into) from `compose` unwrap @into
 
 instance
  ( Covariant Semi Functor from into t
  , Covariant Endo Semi Functor into tt
- , forall e . Wrapper into (TT'T'I t tt e)
- ) => Mapping U_I_II U_I_II from into (TT'T'I t tt) (TT'T'I t tt) where
+ , forall e . Wrapper into (t `TT'T'I` tt `WR_` e)
+ ) => Mapping U_I_II U_I_II from into (t `TT'T'I` tt) (t `TT'T'I` tt) where
  mapping = rewrap / \from -> wrap @into `compose` (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into) from `compose` unwrap @into
 
 instance
  ( Covariant Semi Functor from into t
- , forall e . Wrapper into (L l t e)
- ) => Mapping U_I_II U_I_II from into (L l t) (L l t) where
- mapping = rewrap / \from -> wrap @into @(L _ t _)
-   `compose` map @U_I_II @U_I_II @from @into @t from
-   `compose` unwrap @into @(L _ t _)
+ , forall e . Wrapper into (l `L` t `WR` e)
+ ) => Mapping U_I_II U_I_II from into (l `L` t) (l `L` t) where
+ mapping = rewrap / \from -> rewrap (map @U_I_II @U_I_II @from @into @t from)
 
 instance
  ( Covariant Semi Functor from into t
@@ -178,15 +176,15 @@ instance
  ( Covariant Semi Functor AR AR t
  , Covariant Functor AR AR (U_I_I u)
  , Covariant Endo Monoidal Functor AR u u tt
- , Mapping U_I_II U_I_II AR AR (T'TT'I t tt) (TT'T'I t tt)
+ , Mapping U_I_II U_I_II AR AR (t `T'TT'I` tt) (t `TT'T'I` tt)
  ) => Mapping U_I_II U_I_II AR AR
   ((U_I_I u `T'TT'I` t) `T'TT'I` tt)
   ((U_I_I u `T'TT'I` t) `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap /
-  map @U_I_II @U_I_II @AR @AR (wrap @_ @(T'TT'I (U_I_I u) t _)) `compose`
-  wrapped (component @AR @(T'TT'I (U_I_I u) tt) @(TT'T'I (U_I_I u) tt)) `compose`
+  map @U_I_II @U_I_II @AR @AR (wrap @_ @(U_I_I u `T'TT'I` t `WR_` _)) `compose`
+  wrapped (component @AR @(U_I_I u `T'TT'I` tt) @(U_I_I u `TT'T'I` tt)) `compose`
   map @U_I_II @U_I_II @AR @AR @(U_I_I u)
-   (wrapped / map @U_I_II @U_I_II @AR @AR @(T'TT'I t tt) @(TT'T'I t tt) from) `compose`
+   (wrapped / map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` tt) @(t `TT'T'I` tt) from) `compose`
   unwrap @AR
 
 -- instance Covariant Yoneda AR AR tt =>
@@ -318,23 +316,19 @@ instance Mapping U_I_II U_I_II AR AR I (U_I_II S e) where
 instance Mapping U_I_II U_I_II AR AR I (U_II_I S e) where
  mapping (U_I_II from) = U_I_II / \(Identity x) -> U_II_I (This (from x))
 
-instance Mapping U_I_II U_I_II (U_I_UU_II_U_II_I AR P) AR
- (U_I_II (U_I_UU_II_U_II_I AR P) origin)
- (U_I_II (U_I_UU_II_U_II_I AR P) origin) where
+instance Mapping U_I_II U_I_II AT AR (U_I_II AT origin) (U_I_II AT origin) where
  mapping = rewrap / \into -> rewrap `compose` rewrap / \from origin ->
   let These source source_origin = from origin in
   let These target target_source = unwrap into source in
   These target (source_origin `compose` target_source)
 
-instance Mapping U_II_I U_I_II (U_I_UU_II_U_II_I AR P) AR
- (U_II_I (U_I_UU_II_U_II_I AR P) origin)
- (U_II_I (U_I_UU_II_U_II_I AR P) origin) where
+instance Mapping U_II_I U_I_II AT AR (U_II_I AT origin) (U_II_I AT origin) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \into origin ->
   let These source source_origin = unwrap from origin in
   let These target target_source = into source in
   These target (source_origin `compose` target_source)
 
-instance Category (U_I_UU_II_U_II_I AR P) where
+instance Category AT where
  identity = U_I_UU_II_U_II_I / \x -> These x identity
 
 -- instance Mapping U_I_II U_I_II
@@ -385,8 +379,7 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (U_I_II S e
   These (These (U_I_II (This e)) _) (U_I_II _) -> This e
   These (These _ (U_I_II (This e))) (U_I_II _) -> This e
 
-instance Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P SP (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These ee eee
