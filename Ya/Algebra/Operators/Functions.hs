@@ -127,13 +127,35 @@ fd :: forall from into t tt a o .
  into a (tt o) -> from (t a) o
 fd from = wrapped (component @from @(t `T'TT'I` tt) @I) `compose` fo @into @from from
 
+fdi :: forall from into t tt i ii a o .
+ Adjoint Functor from from (U_II_I t i) (U_I_II tt ii) =>
+ Covariant Functor into from (U_II_I t i) =>
+ (forall e . Wrapper into (U_I_II tt ii e)) =>
+ (forall e . Wrapper from ((U_II_I t i `T'TT'I` U_I_II tt ii) e)) =>
+ (forall e . Wrapper from (U_II_I t i e)) =>
+ Elicitable U_I_II from (I o) =>
+ into a (tt ii o) -> from (t a i) o
+fdi from = wrapped (component @from @(U_II_I t i `T'TT'I` U_I_II tt ii) @I)
+ `compose` fo @into @from (wrap `compose` from) `compose` wrap
+
 fj :: forall from into t tt a o .
  Covariant Functor from into tt =>
  Adjoint Functor into into t tt =>
- Elicitable U_I_II into (T'TT'I tt t a) =>
+ Elicitable U_I_II into (tt `T'TT'I` t `WR_` a) =>
  Elicitable U_II_I into (I a) =>
  from (t a) o -> into a (tt o)
 fj from = fo from `compose` wrapped (component @into @I @(tt `T'TT'I` t))
+
+fij :: forall from into t tt i ii a o .
+ Covariant Functor from into (U_I_II tt ii) =>
+ Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR__` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii e)) =>
+ (forall e . Wrapper from (U_II_I t i e)) =>
+ Elicitable U_II_I into (I a) =>
+ from (t a i) o -> into a (tt ii o)
+fij from = unwrap `compose` fo (from `compose` unwrap)
+ `compose` wrapped (component @into @I @(U_I_II tt ii `T'TT'I` U_II_I t i))
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
