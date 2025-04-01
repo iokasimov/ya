@@ -423,20 +423,20 @@ instance Covariant Endo Monoidal Functor AR P P t =>
 
 instance
  ( Covariant Yoneda Functor into into I
- , Covariant Endo Semi Functor into (U_I_II into e)
- , Adjoint Functor into into (U_II_I t e) (U_I_II tt e)
- , forall ee . Wrapper into (U_II_I t e ee)
- , forall ee . Wrapper into (U_I_II into Unit ee)
- , forall ee . Wrapper into (U_I_II tt e (t ee e))
- , forall ee . Wrapper into (U_I_UU_II_I tt t e ee)
- , forall ee . Wrapper into (U_I_II (U_I_UU_II_I tt t) e ee)
- , forall ee . Wrapper into (T'TT'I (U_I_II tt e) (U_II_I t e) ee)
- , forall ee . Wrapper into (T'TT'I (U_II_I t e) (U_I_II tt e) ee)
- , forall ee . Wrapper into (I ee)
- ) => Mapping U_I_II U_I_II into into (U_I_II into Unit) (U_I_II (U_I_UU_II_I tt t) e) where
+ , Covariant Endo Semi Functor into (U_I_II into i)
+ , Adjoint Functor into into (U_II_I t i) (U_I_II tt i)
+ , forall e . Wrapper into (U_II_I t i e)
+ , forall e . Wrapper into (U_I_II into Unit e)
+ , forall e . Wrapper into (U_I_II tt i e)
+ , forall e . Wrapper into (U_I_UU_II_I tt t i e)
+ , forall e . Wrapper into (U_I_II (U_I_UU_II_I tt t) i e)
+ , forall e . Wrapper into (T'TT'I (U_I_II tt i) (U_II_I t i) e)
+ , forall e . Wrapper into (T'TT'I (U_II_I t i) (U_I_II tt i) e)
+ , forall e . Wrapper into (I e)
+ ) => Mapping U_I_II U_I_II into into (U_I_II into Unit) (U_I_II (U_I_UU_II_I tt t) i) where
  mapping = rewrap `identity` \from -> rewrap
   / wrap @into @(U_I_UU_II_I _ _ _ _)
-   `compose` hd @into @into identity
+   `compose` fij @into @into identity
    `compose` from
    `compose` yi Unit
 
