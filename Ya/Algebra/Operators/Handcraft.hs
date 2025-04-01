@@ -501,18 +501,65 @@ he'hu______ = he'yiu
 he'hu_______ = he'yiu
 he'hu________ = he'yiu
 
--- TODO: try to gereralize
--- yo'ha :: forall into t a o e .
---  Category into =>
---  Covariant Yoneda Functor into into t =>
---  Covariant Functor into into t =>
---  Contravariant Functor into into (U_II_I into o) =>
---  Contravariant Yoneda Functor into (->) (U_II_I into o) =>
---  (forall e ee . Wrapper into (U_I_II into e ee)) =>
---  (forall e ee . Wrapper into (U_II_I into e ee)) =>
---  t e -> into e a -> into (into a o) (t o)
--- yo'ha x f = yo @into @into x `compose` fai @into f
+yd :: forall from into t tt a o .
+ Adjoint Functor into into t tt =>
+ Covariant Yoneda Functor from into (t `T'TT'I` tt) =>
+ (forall e . Wrapper into ((t `T'TT'I` tt) e)) =>
+ Wrapper into (I o) =>
+ Wrapper into (U_I_II from a o) =>
+ t (tt a) -> into (from a o) o
+yd x = unwrap @into
+ `compose` component @into @(t `T'TT'I` tt) @I
+ `compose` yoneda @U_I_II @Functor @from (wrap x)
+ `compose` wrap @into
 
+ydi :: forall from into t tt i ii a o .
+ Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
+ Covariant Endo Semi Functor AR (U_II_I t i) =>
+ Covariant Yoneda Functor from into (U_II_I t i `T'TT'I` U_I_II tt ii) =>
+ (forall e . Wrapper into ((U_II_I t i `T'TT'I` U_I_II tt ii) e)) =>
+ Wrapper into (I o) =>
+ Wrapper into (U_I_II from a o) =>
+ (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ (forall e ee . Wrapper from (U_II_I t e ee)) =>
+ t (tt ii a) i -> into (from a o) o
+ydi x = unwrap @into
+ `compose` component @into @(U_II_I t i `T'TT'I` U_I_II tt ii) @I
+ `compose` yoneda @U_I_II @Functor @from (wrap @AR (wrap @AR (foi @AR wrap x)))
+ `compose` wrap @into
+
+-- hd = ydi
+
+yj :: forall from into t tt a o .
+ Adjoint Functor (->) (->) t tt =>
+ Covariant Yoneda Functor from into (tt `T'TT'I` t) =>
+ (forall e . Wrapper into ((tt `T'TT'I` t) e)) =>
+ Wrapper into (I o) =>
+ Wrapper into (U_I_II from a o) =>
+ a -> into (from a o) (tt (t o))
+yj x = unwrap @into
+ `compose` yoneda @U_I_II @Functor @from
+  (component @(->) @I @(tt `T'TT'I` t) (wrap x))
+ `compose` wrap @into
+
+yij :: forall from into t tt i ii a o .
+ Adjoint Functor (->) (->) (U_I_II t i) (U_II_I tt ii) =>
+ Covariant Yoneda Functor from into (U_II_I tt ii `T'TT'I` U_I_II t i) =>
+ Covariant Endo Semi Functor into (U_II_I tt ii) =>
+ (forall e . Wrapper into ((U_II_I tt ii `T'TT'I` U_I_II t i) e)) =>
+ Wrapper into (I o) =>
+ Wrapper into (U_I_II t i o) =>
+ Wrapper into (U_II_I tt ii (t i o)) =>
+ Wrapper into (U_I_II from a o) =>
+ a -> into (from a o) (tt (t i o) ii)
+yij x = unwrap @into `compose` fo (unwrap @into) `compose` unwrap @into
+ `compose` yoneda @U_I_II @Functor @from
+  (component @(->) @I @(U_II_I tt ii `T'TT'I` U_I_II t i) (wrap x))
+ `compose` wrap @into
+
+-- hj = yij
+
+-- TODO: should become obsolete as soon as we get used to generate these types of operators
 yo'hj :: forall from into t tt ttt e a o .
  Precategory into =>
  Adjoint Functor from from (U_II_I ttt e) (U_I_II tt e) =>
