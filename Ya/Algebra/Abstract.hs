@@ -382,10 +382,10 @@ instance Elicitable U_II_I (->) (W_III_I_II w iii i ii)
 
 type instance Supertype (Arrow Unit ii) = ii
 
-instance Elicitable U_II_I (->) (Arrow Unit ii)
+instance (i ~ Unit) => Elicitable U_II_I (->) (Arrow i ii)
  where elicit = U_II_I (\ii -> (\_ -> ii))
 
-instance Elicitable U_I_II (->) (Arrow Unit ii)
+instance (i ~ Unit) => Elicitable U_I_II (->) (Arrow i ii)
  where elicit = U_I_II (\f -> f ())
 
 -- type instance Supertype (Arrow i Void) = Arrow i i
