@@ -128,15 +128,15 @@ infixl 3 `hu______`, `hu______'he`, `he'hu______`
 infixl 2 `hu_______`, `hu_______'he`, `he'hu_______`
 infixl 1 `hu________`, `hu________'he`, `he'hu________`
 
--- infixl 9 `hd`, `hd'q`
--- infixl 8 `hd_`, `hd_'q`
--- infixl 7 `hd__`, `hd__'q`
--- infixl 6 `hd___`, `hd___'q`
--- infixl 5 `hd____`, `hd____'q`
--- infixl 4 `hd_____`, `hd_____'q`
--- infixl 3 `hd______`, `hd______'q`
--- infixl 2 `hd_______`, `hd_______'q`
--- infixl 1 `hd________`, `hd________'q`
+infixl 9 `hd`, `hd'q`
+infixl 8 `hd_`, `hd_'q`
+infixl 7 `hd__`, `hd__'q`
+infixl 6 `hd___`, `hd___'q`
+infixl 5 `hd____`, `hd____'q`
+infixl 4 `hd_____`, `hd_____'q`
+infixl 3 `hd______`, `hd______'q`
+infixl 2 `hd_______`, `hd_______'q`
+infixl 1 `hd________`, `hd________'q`
 
 infixl 9 `hj` --, `hj'hj`
 infixl 8 `hj_`
@@ -1734,6 +1734,7 @@ ra :: forall into hom t i .
  into (t i) (hom i (Representation t))
 ra = he `compose` map @U_II_I @U_I_II @into @into @t @(U_II_I hom (Representation t)) identity
 
+-- TODO: it should be renamed since `hj` is used instead of `hd`
 hd'q, hd_'q, hd__'q, hd___'q, hd____'q, hd_____'q, hd______'q, hd_______'q, hd________'q
  :: forall into a .
  Adjoint Functor into into (U_II_I P a) (U_I_II into a) =>
