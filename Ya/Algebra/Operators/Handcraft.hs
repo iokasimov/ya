@@ -551,18 +551,18 @@ yj x = unwrap @into
  `compose` wrap @into
 
 yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt i ii a o .
- Adjoint Functor (->) (->) (U_I_II t i) (U_II_I tt ii) =>
- Covariant Yoneda Functor from into (U_II_I tt ii `T'TT'I` U_I_II t i) =>
- Covariant Endo Semi Functor into (U_II_I tt ii) =>
- (forall e . Wrapper into ((U_II_I tt ii `T'TT'I` U_I_II t i) e)) =>
+ Adjoint Functor (->) (->) (U_II_I t i) (U_I_II tt ii) =>
+ Covariant Yoneda Functor from into (U_I_II tt ii `T'TT'I` U_II_I t i) =>
+ Covariant Endo Semi Functor into (U_I_II tt ii) =>
+ (forall e . Wrapper into ((U_I_II tt ii `T'TT'I` U_II_I t i) e)) =>
  Wrapper into (I o) =>
- Wrapper into (U_I_II t i o) =>
- Wrapper into (U_II_I tt ii (t i o)) =>
+ Wrapper into (U_II_I t i o) =>
+ Wrapper into (U_I_II tt ii (t o i)) =>
  Wrapper into (U_I_II from a o) =>
- a -> into (from a o) (tt (t i o) ii)
+ a -> into (from a o) (tt ii (t o i))
 yij x = unwrap @into `compose` fo (unwrap @into) `compose` unwrap @into
  `compose` yoneda @U_I_II @Functor @from
-  (component @(->) @I @(U_II_I tt ii `T'TT'I` U_I_II t i) (wrap x))
+  (component @(->) @I @(U_I_II tt ii `T'TT'I` U_II_I t i) (wrap x))
  `compose` wrap @into
 
 hj = yij
