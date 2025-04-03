@@ -298,6 +298,10 @@ infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
 infixl 7 `yvi`, `yvi'he`, `he'yvi`, `he'he'yvi`
 
+infixl 8 `yd`, `yj`
+
+infixl 7 `ydi`, `yij`, `ydi'ydi`
+
 -- infixl 6 `yioi`
 
 -- infixl 9 `v`
@@ -560,10 +564,8 @@ yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: f
  Wrapper into (U_I_II tt ii (t o i)) =>
  Wrapper into (U_I_II from a o) =>
  a -> into (from a o) (tt ii (t o i))
-yij x = unwrap @into `compose` fo (unwrap @into) `compose` unwrap @into
- `compose` yoneda @U_I_II @Functor @from
-  (component @(->) @I @(U_I_II tt ii `T'TT'I` U_II_I t i) (wrap x))
- `compose` wrap @into
+yij x = unwrap @into `compose` fo (unwrap @into)
+ `compose` wrapped (yoneda @U_I_II @Functor @from (component @(->) @I @(U_I_II tt ii `T'TT'I` U_II_I t i) (wrap x)))
 
 hj = yij
 hj_ = yij
@@ -575,7 +577,28 @@ hj______ = yij
 hj_______ = yij
 hj________ = yij
 
--- hj = yij
+ydi'ydi :: forall from into t tt ttt i ii iii a o .
+ Adjoint Functor from from (U_II_I ttt iii) (U_I_II tt ii) =>
+ Adjoint Functor from into (U_II_I t i) (U_I_II tt ii) =>
+ Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
+ Covariant Endo Semi Functor (->) (U_II_I t i) =>
+ Covariant Endo Semi Functor from (U_II_I ttt iii) =>
+ Covariant Endo Semi Functor into (U_I_II tt ii) =>
+ Covariant Endo Semi Functor from (U_I_II tt ii) =>
+ Covariant Endo Semi Functor into (U_II_I t i) =>
+ Covariant Yoneda Functor from into (U_II_I t i `T'TT'I` U_I_II tt ii) =>
+ Contravariant Endo Semi Functor (->) (U_II_I into o) =>
+ (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ (forall e ee . Wrapper from (U_II_I t e ee)) =>
+ (forall e . Wrapper into (U_I_II from e o)) =>
+ (forall e . Wrapper from (U_II_I ttt iii e)) =>
+ (forall e . Wrapper into (I e)) =>
+ (forall e . Wrapper from (I e)) =>
+ (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
+ (forall e . Wrapper from (U_II_I ttt iii `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ t (tt ii (ttt a iii)) i `AR___` into (from a (tt ii o)) o
+ydi'ydi x = fai @(->) fdi (ydi @from @into x)
 
 -- TODO: should become obsolete as soon as we get used to generate these types of operators
 -- yo'hj :: forall from into t tt ttt e a o .
@@ -1416,10 +1439,10 @@ ha_______'he'he = ha'he'he
 ha________'he'he = ha'he'he
 
 yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
- :: forall into a o .
+ :: forall into i .
  Category into =>
  Terminal into =>
- into a o -> into a o
+ into i i
 yvi = identity
 
 -- hu: t i a -> into (from Unit o) (t i o)
