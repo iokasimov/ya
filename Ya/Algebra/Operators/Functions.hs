@@ -16,7 +16,6 @@ k = component @into @(U_I_II into Unit) @t
 
 d :: forall into t tt o .
  Adjoint Functor into into t tt =>
- Covariant Endo Yoneda Functor into (t `T'TT'I` tt) =>
  (forall e . Wrapper into (t `T'TT'I` tt `WR_` e)) =>
  (forall e . Wrapper into (I e)) =>
  into (t (tt o)) o
@@ -24,7 +23,6 @@ d = wrapped `identity` component @into @(t `T'TT'I` tt) @I
 
 di :: forall into t tt i ii o .
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- Covariant Endo Yoneda Functor into (U_II_I t i `T'TT'I` U_I_II tt ii) =>
  (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
  (forall e . Wrapper into (U_II_I t i e)) =>
  (forall e . Wrapper into (U_I_II tt ii e)) =>
@@ -34,19 +32,20 @@ di = wrapped `identity` component @into @(U_II_I t i `T'TT'I` U_I_II tt ii) @I `
 
 j :: forall into t tt o .
  Adjoint Functor into into t tt =>
- Covariant Endo Yoneda Functor into (tt `T'TT'I` t) =>
  (forall e . Wrapper into (tt `T'TT'I` t `WR_` e)) =>
  (forall e . Wrapper into (I e)) =>
  into o (tt (t o))
 j = wrapped `identity` component @into @I @(tt `T'TT'I` t)
 
-ij :: forall into t tt o .
+ij :: forall into t tt i ii o .
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- Covariant Endo Yoneda Functor into (U_I_I tt ii `T'TT'I` U_II_I t i) =>
  (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
+ (forall e . Wrapper into (U_II_I t i e)) =>
+ (forall e . Wrapper into (U_I_II tt ii e)) =>
  (forall e . Wrapper into (I e)) =>
  into o (tt ii (t o i))
-ij = wrapped `identity` component @into @I @(tt `T'TT'I` t)
+ij = unwrap @into `compose` fo @into unwrap
+ `compose` (wrapped (component @into @I @(U_I_II tt ii `T'TT'I` U_II_I t i)))
 
 fo :: forall from into t a o .
  Covariant Semi Functor from into t =>
@@ -176,7 +175,7 @@ fdi :: forall from into t tt i ii a o .
  (forall e . Wrapper into (U_I_II tt ii e)) =>
  (forall e . Wrapper from ((U_II_I t i `T'TT'I` U_I_II tt ii) e)) =>
  (forall e . Wrapper from (U_II_I t i e)) =>
- Elicitable U_I_II from (I o) =>
+ (forall e . Wrapper from (I e)) =>
  into a (tt ii o) -> from (t a i) o
 fdi from = wrapped (component @from @(U_II_I t i `T'TT'I` U_I_II tt ii) @I)
  `compose` fo @into @from (wrap `compose` from) `compose` wrap
