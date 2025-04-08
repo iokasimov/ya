@@ -554,28 +554,28 @@ yj x = unwrap @into
   (component @(->) @I @(tt `T'TT'I` t) (wrap x))
  `compose` wrap @into
 
--- yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt i ii a o .
---  Adjoint Functor (->) (->) (U_II_I t i) (U_I_II tt ii) =>
---  Covariant Yoneda Functor from into (U_I_II tt ii `T'TT'I` U_II_I t i) =>
---  Covariant Endo Semi Functor into (U_I_II tt ii) =>
---  (forall e . Wrapper into ((U_I_II tt ii `T'TT'I` U_II_I t i) e)) =>
---  Wrapper into (I o) =>
---  Wrapper into (U_II_I t i o) =>
---  Wrapper into (U_I_II tt ii (t o i)) =>
---  Wrapper into (U_I_II from a o) =>
---  a -> into (from a o) (tt ii (t o i))
--- yij x = unwrap @into `compose` fo (unwrap @into)
---  `compose` wrapped (yoneda @U_I_II @Functor @from (component @(->) @I @(U_I_II tt ii `T'TT'I` U_II_I t i) (wrap x)))
-
 yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt i ii a o .
- Covariant Functor from into (U_I_II tt ii) =>
- Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR__` e)) =>
- (forall e . Wrapper into (U_I_II tt ii e)) =>
- (forall e . Wrapper from (U_II_I t i e)) =>
- Elicitable U_II_I into (I a) =>
- from (t a i) o -> into a (tt ii o)
-yij = fij
+ Adjoint Functor (->) (->) (U_II_I t i) (U_I_II tt ii) =>
+ Covariant Yoneda Functor from into (U_I_II tt ii `T'TT'I` U_II_I t i) =>
+ Covariant Endo Semi Functor into (U_I_II tt ii) =>
+ (forall e . Wrapper into ((U_I_II tt ii `T'TT'I` U_II_I t i) e)) =>
+ Wrapper into (I o) =>
+ Wrapper into (U_II_I t i o) =>
+ Wrapper into (U_I_II tt ii (t o i)) =>
+ Wrapper into (U_I_II from a o) =>
+ a -> into (from a o) (tt ii (t o i))
+yij x = unwrap @into `compose` fo (unwrap @into)
+ `compose` wrapped (yoneda @U_I_II @Functor @from (component @(->) @I @(U_I_II tt ii `T'TT'I` U_II_I t i) (wrap x)))
+
+-- yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt i ii a o .
+ -- Covariant Functor from into (U_I_II tt ii) =>
+ -- Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
+ -- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR__` e)) =>
+ -- (forall e . Wrapper into (U_I_II tt ii e)) =>
+ -- (forall e . Wrapper from (U_II_I t i e)) =>
+ -- Elicitable U_II_I into (I a) =>
+ -- from (t a i) o -> into a (tt ii o)
+-- yij = fij
 
 hj = yij
 hj_ = yij
