@@ -13,6 +13,8 @@ infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'
  , `ho'he'he'he`
  , `ho'he'he'hv`
  , `ho'he'he'he'he`
+ , `ho'hd`
+ , `ho'hd'hd`
 infixl 8 `ho_`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`, `ho_'yukl`
  , `ho_'he`
  , `ho_'he'he`
@@ -633,7 +635,32 @@ ydi'yij :: forall from into t tt ttt tttt i ii iii iiii a o .
  t (tt ii a) i `AR___` into (from (ttt a iii) o) (tttt iiii o)
 ydi'yij x = fai @(->) fij (ydi @from @into x)
 
--- ydi'yij: (i `AR` a) `P` i `AR___` ((a `P` ii) `AR` o) `AR_` (ii `AR` o)
+hd'hj = ydi'yij
+
+-- yij'ydi --, hj'hd
+ -- :: forall from into t tt ttt tttt i ii iii iiii a o .
+ -- Contravariant Endo Semi Functor (->) (U_II_I into (tt ii (t o i))) =>
+ -- Covariant Yoneda Functor from into (U_I_II tt ii `T'TT'I` U_II_I t i) =>
+ -- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
+ -- Covariant Endo Semi Functor from (U_II_I tttt iiii) =>
+ -- Covariant Endo Semi Functor into (U_I_II tt ii) =>
+ -- Covariant Endo Semi Functor (->) (U_II_I t i) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II tt ii) =>
+ -- Adjoint Functor from into (U_II_I t i) (U_I_II tt ii) =>
+ -- Adjoint Functor from from (U_II_I ttt iii) (U_I_II tttt iiii) =>
+ -- (forall e . Wrapper into (I e)) =>
+ -- (forall e ee . Wrapper into (U_II_I t e ee)) =>
+ -- (forall e ee . Wrapper into (U_I_II tt e ee)) =>
+ -- (forall e ee . Wrapper from (U_I_II tttt e ee)) =>
+ -- (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
+ -- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ -- (forall e . Wrapper from (U_I_II ttt iii `T'TT'I`U_II_I tttt iiii  `WR_` e)) =>
+ -- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
+ -- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ -- tttt a iiii `AR___` into (from a (ttt iii o)) (tt ii (t o i))
+-- yij'ydi x = fai fdi (yij @from @into x)
+
+-- hj'hd = yij'ydi
 
 -- TODO: should become obsolete as soon as we get used to generate these types of operators
 -- yo'hj :: forall from into t tt ttt e a o .
