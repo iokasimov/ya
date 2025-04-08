@@ -290,11 +290,11 @@ infixl 7 `ysp`
 
 infixl 7 `yoi`
 
-infixl 7 `yai`, `yai'yukl`
+infixl 7 `yai`, `yai'yukl`, `yai'ydi`, `yai'ydi'ydi`, `yai'yij`
 
 infixl 7 `yui` --, `yui'he`
 
-infixl 7 `yio`, `yio'yokl'yokl`, `yio'yokl'yukl`, `yio'yukl`, `yio'yp`
+infixl 7 `yio`, `yio'yokl'yokl`, `yio'yokl'yukl`, `yio'yukl`, `yio'yp`, `yio'yij`, `yio'ydi`, `yio'ydi'ydi`, `yio'yij'yij`
 
 infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
@@ -381,6 +381,7 @@ yoi :: forall from into t i a o .
  t a i -> into (from a o) (t o i)
 yoi = fio @into unwrap `compose` yo @from @into @(U_II_I t i) `compose` wrap
 
+-- TODO: add Hom functor aliases here
 yio :: forall from into t i a o .
  Precategory into =>
  Covariant Yoneda Functor from into (U_I_II t i) =>
@@ -579,7 +580,7 @@ hj______ = yij
 hj_______ = yij
 hj________ = yij
 
-ydi'ydi :: forall from into t tt ttt tttt i ii iii iiii a o .
+ydi'ydi, hd'hd :: forall from into t tt ttt tttt i ii iii iiii a o .
  Adjoint Functor from from (U_II_I ttt iii) (U_I_II tttt iiii) =>
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
  Covariant Endo Semi Functor (->) (U_II_I t i) =>
@@ -745,7 +746,7 @@ yai'ydi'ydi :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
  t a i -> into (from o (ttt iii (ttttt iiiii a))) (t (tttt (tt o ii) iiii) i)
 yai'ydi'ydi x = fai (fdi @from `compose` fdi @from) (yai @from @into x)
 
-yio'ydi :: forall from into t tt ttt tttt i ii iii a o .
+yio'ydi, ho'hd :: forall from into t tt ttt i ii iii a o .
  Precategory into =>
  Contravariant Endo Semi Functor (->) (U_II_I into (t o i)) =>
  Adjoint Functor from from (U_II_I tt ii) (U_I_II ttt iii) =>
@@ -762,6 +763,8 @@ yio'ydi :: forall from into t tt ttt tttt i ii iii a o .
  (forall e . Wrapper from (T'TT'I (U_II_I tt ii) (U_I_II ttt iii) e)) =>
  t i (tt a ii) -> into (from a (ttt iii o)) (t i o)
 yio'ydi x = fai fdi (yio @from @into x)
+
+ho'hd = yio'ydi
 
 yio'ydi'ydi, ho'hd'hd :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
  Precategory into =>
@@ -1998,7 +2001,7 @@ hd________'q = hd'q
  -- Wrapper from ((T'TT'I (U_II_I t ii) (U_I_II tttt ii)) o) =>
  -- (forall e . Wrapper from (U_II_I ttt i `T'TT'I` U_I_II tt i `WR__` e)) =>
  -- (forall e . Wrapper from (U_I_II tt i `T'TT'I` U_II_I ttt i `WR__` e)) =>
- -- into a (tt i (tttt ii o)) -> from (t (ttt a i) ii) o
+ -- a -> from (from (into (from _ o) (tt ii (t o i))) _) (tt ii (t o i))
 -- hj'hj = hj @from @from `compose` hj @from @into
 
 -- TODO: it shouldn't exist by itself
