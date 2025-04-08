@@ -1962,52 +1962,26 @@ hd______'q = hd'q
 hd_______'q = hd'q
 hd________'q = hd'q
 
--- hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________
---  :: forall from into t tt e a o .
---  Precategory from =>
---  Precategory into =>
---  Covariant Functor into from (U_II_I t e) =>
---  Adjoint Functor from from (U_II_I t e) (U_I_II tt e) =>
---  Elicitable U_II_I from ((T'TT'I (U_II_I t e) (U_I_II tt e)) o) =>
---  Elicitable U_I_II from (I o) =>
---  Elicitable U_II_I from (U_II_I t e a) =>
---  Elicitable U_II_I into (U_I_II tt e o) =>
---  into a (tt e o) -> from (t a e) o
--- hj from = he @from
---  `compose` component @from @(U_II_I t e `T'TT'I` U_I_II tt e) @I
---  `compose` wrap @from @((U_II_I t e `T'TT'I` U_I_II tt e) _)
---  `compose` fo (wrap @into @(U_I_II tt e _) `compose` from)
---  `compose` wrap @from @(U_II_I t e _)
-
--- hj_ = hj
--- hj__ = hj
--- hj___ = hj
--- hj____ = hj
--- hj_____ = hj
--- hj______ = hj
--- hj_______ = hj
--- hj________ = hj
-
 -- hj'hj :: forall from into t tt ttt tttt i ii a o .
---  Category into =>
---  Adjoint Functor from from (U_II_I t ii) (U_I_II tttt ii) =>
---  Adjoint Functor from from (U_II_I ttt i) (U_I_II tt i) =>
---  Covariant Functor into from (U_II_I ttt i) =>
---  Covariant Functor from from (U_I_II tt i) =>
---  Wrapper from (U_II_I t ii a) =>
---  Wrapper into (U_I_II tt i o) =>
---  Wrapper into (U_I_II tt i (tttt ii o)) =>
---  Wrapper from (I o) =>
---  Wrapper from (I (tttt ii o)) =>
---  Wrapper from (I (U_I_II tttt ii o)) =>
---  Wrapper from (U_II_I ttt i a) =>
---  Wrapper from (U_I_II tttt ii o) =>
---  Wrapper from (U_II_I t ii (ttt a i)) =>
---  Wrapper from ((T'TT'I (U_II_I ttt i) (U_I_II tt i)) (tttt ii o)) =>
---  Wrapper from ((T'TT'I (U_II_I t ii) (U_I_II tttt ii)) o) =>
---  (forall e . Wrapper from (U_II_I ttt i `T'TT'I` U_I_II tt i `WR__` e)) =>
---  (forall e . Wrapper from (U_I_II tt i `T'TT'I` U_II_I ttt i `WR__` e)) =>
---  into a (tt i (tttt ii o)) -> from (t (ttt a i) ii) o
+ -- Category into =>
+ -- Adjoint Functor from from (U_II_I t ii) (U_I_II tttt ii) =>
+ -- Adjoint Functor from from (U_II_I ttt i) (U_I_II tt i) =>
+ -- Covariant Functor into from (U_II_I ttt i) =>
+ -- Covariant Functor from from (U_I_II tt i) =>
+ -- Wrapper from (U_II_I t ii a) =>
+ -- Wrapper into (U_I_II tt i o) =>
+ -- Wrapper into (U_I_II tt i (tttt ii o)) =>
+ -- Wrapper from (I o) =>
+ -- Wrapper from (I (tttt ii o)) =>
+ -- Wrapper from (I (U_I_II tttt ii o)) =>
+ -- Wrapper from (U_II_I ttt i a) =>
+ -- Wrapper from (U_I_II tttt ii o) =>
+ -- Wrapper from (U_II_I t ii (ttt a i)) =>
+ -- Wrapper from ((T'TT'I (U_II_I ttt i) (U_I_II tt i)) (tttt ii o)) =>
+ -- Wrapper from ((T'TT'I (U_II_I t ii) (U_I_II tttt ii)) o) =>
+ -- (forall e . Wrapper from (U_II_I ttt i `T'TT'I` U_I_II tt i `WR__` e)) =>
+ -- (forall e . Wrapper from (U_I_II tt i `T'TT'I` U_II_I ttt i `WR__` e)) =>
+ -- into a (tt i (tttt ii o)) -> from (t (ttt a i) ii) o
 -- hj'hj = hj @from @from `compose` hj @from @into
 
 -- TODO: it shouldn't exist by itself
