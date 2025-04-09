@@ -63,6 +63,8 @@ infixl 1 `ho________`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `h
 
 infixl 9 `ha`, `ha'hu`, `ha'yok`, `ha'yuk`, `ha'yokl`, `ha'yukl`
  , `ha'he`
+ , `ha'hd`
+ , `ha'hd'hd`
 infixl 8 `ha_`
  , `ha_'he`
  , `ha_'hu`
@@ -704,7 +706,7 @@ yai'yij = fai fij `compose` yai @from @into
 
 -- t (ii `AR` a) i -> into ((o `P` ii) `AR` a) (t o i)
 
-yai'ydi :: forall from into t tt ttt i ii iii a o .
+yai'ydi, ha'hd :: forall from into t tt ttt i ii iii a o .
  Precategory into =>
  Contravariant Functor from (->) (U_II_I into (t o i)) =>
  Adjoint Functor from from (U_II_I tt ii) (U_I_II ttt iii) =>
@@ -722,7 +724,9 @@ yai'ydi :: forall from into t tt ttt i ii iii a o .
  t a i -> into (from o (ttt iii a)) (t (tt o ii) i)
 yai'ydi x = fai (fdi @from) (yai @from @into x)
 
-yai'ydi'ydi :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
+ha'hd = yai'ydi
+
+yai'ydi'ydi, ha'hd'hd :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
  Precategory into =>
  Contravariant Functor from (->) (U_II_I into (t o i)) =>
  Adjoint Functor from from (U_II_I tt ii) (U_I_II ttt iii) =>
@@ -745,6 +749,8 @@ yai'ydi'ydi :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
  (forall e . Wrapper from (T'TT'I (U_II_I tttt iiii) (U_I_II ttttt iiiii) e)) =>
  t a i -> into (from o (ttt iii (ttttt iiiii a))) (t (tttt (tt o ii) iiii) i)
 yai'ydi'ydi x = fai (fdi @from `compose` fdi @from) (yai @from @into x)
+
+ha'hd'hd = yai'ydi'ydi
 
 yio'ydi, ho'hd :: forall from into t tt ttt i ii iii a o .
  Precategory into =>

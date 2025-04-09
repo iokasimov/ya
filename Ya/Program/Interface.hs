@@ -10,7 +10,7 @@ import Ya.Program.Labels
 
 import Ya.Program.Interface.Field as Exports
 import Ya.Program.Interface.Match as Exports
-import Ya.Program.Interface.Stack as Exports
+import Ya.Program.Interface.Stackable as Exports
 import Ya.Program.Interface.Shiftable as Exports
 
 instance Mapping U_I_II U_I_II AR AR (Reverse List `P'T'I'TT'I` Forward List) List where
