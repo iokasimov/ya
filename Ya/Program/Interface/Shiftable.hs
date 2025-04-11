@@ -148,6 +148,14 @@ locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (
   `yok____` Check `ha__` Reach `la` Continue
   `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
 
+rewind :: forall window datastructure item .
+ Shiftable window datastructure item =>
+ Shifter datastructure `AR___` Supertype (Event `WR` Shifting window datastructure item `WR` Unit)
+rewind way x = enter @(State `WR` Shifting window datastructure item)
+  `yuk____` State `ho` New `hv____` Event `hv___` shift way
+  `yok____` Retry `ha__` Some `la` Some `hu` by None
+  `he'he'hv_______` x
+
 pattern Shrink e = This e
 pattern Expand e = That e
 
@@ -187,14 +195,12 @@ adjust way x = is `hu` (by None `lu` x) `la` is `ho'he` foi @_ @AR Some `li` rou
   `yok____` New `ha` State `ha__` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` focus
   `yok____` Try
   `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
- 
+
  get_last_window_item window = window
   `yokl` New `ha` State `ha` Event `ha` push @List `ho` Prior
   `yuk_` New `ha` State `ha` Event `hv` pop @List
   `he'he'hv_____` by `hv` Empty @List
- 
+
  rearrange_window_back popped window =
   (window `yokl` New `ha` State `ha` Event `ha` push @List `ho` Prior
   `he'he'hv_____` by `hv` Empty @List) `yui` popped
-
--- TODO: rewind :: forall window datastructure item .
