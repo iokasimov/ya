@@ -192,14 +192,14 @@ infixl 3 `la_____`
 infixl 2 `la______`
 infixl 1 `la_______`
 
-infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`
-infixl 7 `lu_`, `lu_'yp`, `lu_'ys`
-infixl 6 `lu__`, `lu__'yp`, `lu__'ys`
-infixl 5 `lu___`, `lu___'yp`, `lu___'ys`
-infixl 4 `lu____`, `lu____'yp`, `lu____'ys`
-infixl 3 `lu_____`, `lu_____'yp`, `lu_____'ys`
-infixl 2 `lu______`, `lu______'yp`, `lu______'ys`
-infixl 1 `lu_______`, `lu_______'yp`, `lu_______'ys`
+infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`, `lu'ysp`
+infixl 7 `lu_`, `lu_'yp`, `lu_'ys`, `lu_'ysp`
+infixl 6 `lu__`, `lu__'yp`, `lu__'ys`, `lu__'ysp`
+infixl 5 `lu___`, `lu___'yp`, `lu___'ys`, `lu___'ysp`
+infixl 4 `lu____`, `lu____'yp`, `lu____'ys`, `lu____'ysp`
+infixl 3 `lu_____`, `lu_____'yp`, `lu_____'ys`, `lu_____'ysp`
+infixl 2 `lu______`, `lu______'yp`, `lu______'ys`, `lu______'ysp`
+infixl 1 `lu_______`, `lu_______'yp`, `lu_______'ys`, `lu_______'ysp`
 
 infixl 8 `lv`
 infixl 7 `lv_`
@@ -815,6 +815,8 @@ yio'yij, ho'hj :: forall from into t tt ttt i ii iii a o .
  t i a -> into (from (tt a ii) o) (t i (ttt iii o))
 yio'yij x = fai fij (yio @from @into x)
 
+-- t i a -> into (from (a `P` ii) o) (t i (ii `AR` o))
+
 ho'hj = yio'yij
 
 yio'yij'yij, ho'hj'hj :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
@@ -946,7 +948,7 @@ kyo :: forall from into t tt ll a o .
  Component (->) t (t `T'TT'I` ll `L` tt) =>
  Covariant Yoneda Functor from into t =>
  (forall i ii . Wrapper into (U_I_II from (L ll tt i) ii)) =>
- t a -> into (from (L ll tt a) o) (t o)
+ t a -> into (from ((ll `L` tt) a) o) (t o)
 kyo x = yoneda @U_I_II @Functor (unwrap (component @(->) @t @(t `T'TT'I` ll `L` tt) x)) `compose` wrap
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
@@ -2859,6 +2861,7 @@ ha________'yukl = yai'yukl
  -- t (u e a) -> u (from a o) (t o)
 -- yokl__ x = fai fio (yokl @from @u x)
 
+-- TODO: generalize
 ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl :: forall from u t tt l ll a o e .
  Covariant Semi Functor from (->) (U_I_II u e) =>
  Covariant Endo Semi Functor from tt =>
@@ -3131,6 +3134,22 @@ lu'yip'yis
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
  t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `S` oo))
 lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
+
+lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_______'ysp
+ :: forall e o oo t .
+ Covariant Monoidal Functor (->) (->) P SP t =>
+ Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
+ t o -> t oo -> t (o `S` oo `S_` o `P` oo)
+lu'ysp from__eft from_right = ysp (lu from__eft from_right)
+
+lu_'ysp = lu'ysp
+lu__'ysp = lu'ysp
+lu___'ysp = lu'ysp
+lu____'ysp = lu'ysp
+lu_____'ysp = lu'ysp
+lu______'ysp = lu'ysp
+lu_______'ysp = lu'ysp
 
 -- jt :: forall into f g e .
  -- Covariant Transformation Functor (->) into (f `T'TT'I` g) (f `JNT` g) =>
