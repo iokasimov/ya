@@ -196,6 +196,7 @@ type M__ a aa = M a aa
 type family Neutral p where
  Neutral P = Unit
  Neutral S = Void
+ Neutral SP = Void
 
 type family Aught p where
  Aught U_I_II = Unit
