@@ -29,18 +29,23 @@ instance Mapping U_I_II U_I_II AR AR
   (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii'))) `lu`
   (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii')))
 
-instance Mapping U_I_II U_I_II AR AR
-  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
-  ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` L Unit (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))) where
-  mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity x') (U_T_I_TT_I (These rl fl)))) ->
-   Identity `hv` Labeled x
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (Back ()) `ha_` is `hu` x)
-      `he'he'hv` Empty @List () `yi` that `ho` Reverse
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (Fore ()) `ha_` is `hu` x)
-      `he'he'hv` Empty @List () `yi` that `ho` Forward
-     `yi_` U_T_I_TT_I
-    `yi__` U_T_I_TT_I `ho` T'TT'I
-    `yo__` from
+instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))
+ ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Unit `L` (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List))) where
+ mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity _) (U_T_I_TT_I (These rl fl)))) ->
+  Identity `hv` Labeled x
+   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Reverse)
+    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Forward)
+    `yi_` U_T_I_TT_I
+   `yi__` U_T_I_TT_I `ho` T'TT'I
+   `yo__` from where
+
+  positions :: forall item label .
+   Scrolling List item `P` List item `AR__`
+   List (Unit `L` Scrolling List `WR` item) `P` (Scrolling List item `P` List ((Unit `L` Scrolling List) item))
+  positions (These x xs) = xs `yukl__` Forth `ha` New
+   `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` auto) `ha_` Scope `hv` at @(Scrolling List item)
+   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `WR` (Unit `L` Scrolling List) item)
+   `he'he'hv______` x `lu` by `hv` Empty @List
 
 instance Mapping U_I_II U_I_II Arrow Arrow (Construction List)
  ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List))) where
