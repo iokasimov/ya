@@ -20,7 +20,7 @@ type family Shifter t where
  Shifter (Construction (U_I_I P `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
-class Shiftable window datastructure item where
+class Shiftable window datastructure where
  shift :: Shifter datastructure `AR___` Supertype (Event `WR` Shifting window datastructure item `WR` Optional item)
 
 type Leveled e = Shifting Only List `T'TT'I` e
@@ -29,26 +29,23 @@ type Scrolling datastructure = Shifting Only datastructure
 
 type Sliding datastructure = Shifting List datastructure
 
-instance Shiftable Only (Optional `T'TT'I` Construction Optional) i where
+instance Shiftable Only (Optional `T'TT'I` Construction Optional) where
  shift way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @AR Some `li` shift' `he'he'hv` x where
 
-  shift' = enter @(State `WR` Scrolling List i `JNT` Halts)
-   `yuk__` New `ha` State `hv__` Event `hv` pop `ha_'he` Scope @(Shafted List i) at `ho'he` path way
+  shift' = enter @(State `WR` Scrolling List _ `JNT` Halts)
+   `yuk__` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
    `yok__` Try
    -- `yok__` New `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
-   `yok__` New `ha` State `ha__` Event `ha` switch `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
-   `yok__` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope @(Shafted List i) at `he'ho'he` path (not way)
+   `yok__` New `ha` State `ha__` Event `ha` switch `ho_'ha` Scope `hv` focus `ho'he` Scope it
+   `yok__` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
 
-  path = Back `hu_` Scope @(Reverse List i) at `ho'he` Scope it
-   `la___` Fore `hu_` Scope @(Forward List i) at `ho'he` Scope it
-
-instance Shiftable List (Optional `T'TT'I` Construction Optional) item where
+instance Shiftable List (Optional `T'TT'I` Construction Optional) where
  shift way x = is
   `li` is `hu` (by None `lu` x)
   `la` is `ho'he` foi @_ @AR Some
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
-  slide_future = enter @(State `WR` Sliding List item `JNT` Halts)
+  slide_future = enter @(State `WR` Sliding List _ `JNT` Halts)
    `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `hv` focus
    `yok____` Try
    `yok____` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Passed
@@ -56,7 +53,7 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) item where
    `yok____` Try
    `yok____` New `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` focus
 
-  slide_passed = enter @(State `WR` Sliding List item `JNT` Halts)
+  slide_passed = enter @(State `WR` Sliding List _ `JNT` Halts)
    `yuk____` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Passed
    `yok____` Try
    `yok____` New `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` focus
@@ -74,7 +71,7 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) item where
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
 -- TODO: implement `locate` method
-instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional)) i where
+instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional)) where
  shift way x = is
   `li` is `hu` (by None `lu` x)
   `la` is `ho'he` foi @_ @AR Some
@@ -136,7 +133,7 @@ instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'
    `yi_____` that
 
 locate :: forall window datastructure item .
- Shiftable window datastructure item =>
+ Shiftable window datastructure =>
  Field (window item) (Supertype (Shifting window datastructure item)) =>
  Wrapper AR (Shifting window datastructure item) =>
  Shifter datastructure `P` Predicate (window item) `AR_` Supertype (Event `WR` Shifting window datastructure item `WR_` Optional (Shifting window datastructure item))
@@ -149,12 +146,12 @@ locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @AR (
   `yok____` Retry `ha__` Interrupt `hu` by Ok `la` Again `ha` Same `hu` by Reach
 
 rewind :: forall window datastructure item .
- Shiftable window datastructure item =>
+ Shiftable window datastructure =>
  Shifter datastructure `AR___` Supertype (Event `WR` Shifting window datastructure item `WR` Unit)
-rewind way x = enter @(State `WR` Shifting window datastructure item)
-  `yuk____` State `ho` New `hv____` Event `hv___` shift way
-  `yok____` Retry `ha__` Some `la` Some `hu` by None
-  `he'he'hv_______` x
+rewind way = unwrap @AR `ha` unwrap @AR
+ `hv_______` enter @(State `WR` Shifting window datastructure item)
+   `yuk____` State `ho` New `hv____` Event `hv___` shift way
+   `yok____` Retry `ha__` Some `la` Some `hu` by None
 
 pattern Shrink e = This e
 pattern Expand e = That e
