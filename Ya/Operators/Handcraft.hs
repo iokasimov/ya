@@ -1,11 +1,11 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
-module Ya.Algebra.Operators.Handcraft where
+module Ya.Operators.Handcraft where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-import Ya.Algebra.Operators.Functions
+import Ya.Operators.Functions
 
 infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yokl'yokl`, `ho'yokl'yukl`, `ho'yukl`
  , `ho'he`

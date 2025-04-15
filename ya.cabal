@@ -18,16 +18,16 @@ library
     Ya.Algebra.Abstract
     Ya.Algebra.Definition
     Ya.Algebra.Instances
-    Ya.Algebra.Operators
-    Ya.Algebra.Operators.Functions
-    Ya.Algebra.Operators.Handcraft
-    Ya.Algebra.Operators.Generated
-    Ya.Algebra.Operators.Generated.XX
-    Ya.Algebra.Operators.Generated.XXX
-    Ya.Algebra.Operators.Generated.XXXX
-    Ya.Algebra.Operators.Generated.XXXXX
-    Ya.Algebra.Operators.Generated.XXXXXX
-    Ya.Algebra.Operators.Generated.XXXXXXX
+    Ya.Operators
+    Ya.Operators.Functions
+    Ya.Operators.Handcraft
+    Ya.Operators.Generated
+    Ya.Operators.Generated.XX
+    Ya.Operators.Generated.XXX
+    Ya.Operators.Generated.XXXX
+    Ya.Operators.Generated.XXXXX
+    Ya.Operators.Generated.XXXXXX
+    Ya.Operators.Generated.XXXXXXX
     Ya.Program
     Ya.Program.Interface
     Ya.Program.Interface.Field

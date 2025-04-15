@@ -1,5 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
-module Ya.Algebra.Operators.Functions where
+module Ya.Operators.Functions where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition

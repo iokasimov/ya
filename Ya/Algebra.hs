@@ -6,7 +6,7 @@ module Ya.Algebra (module Exports) where
 import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
-import Ya.Algebra.Operators as Exports
+import Ya.Operators as Exports
 
 instance Mapping U_I_II U_I_II AR AR
  (Day U_I_II AR P S (R_U_I_T_I P (U_I_II S Unit)) (R_U_I_T_I P (U_I_II S Unit)) i ii)

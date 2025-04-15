@@ -1,12 +1,12 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
-module Ya.Algebra.Operators.Generated.XX where
+module Ya.Operators.Generated.XX where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-import Ya.Algebra.Operators.Functions
-import Ya.Algebra.Operators.Handcraft
+import Ya.Operators.Functions
+import Ya.Operators.Handcraft
 
 infixl 2 `ha_______'yo`, `ha_______'ya`, `ha_______'yoi`, `ha_______'ha`, `ha_______'ho`, `ha_______'yia`, `ho_______'yo`, `ho_______'ya`, `ho_______'yoi`, `ho_______'ha`, `ho_______'ho`, `ho_______'yia`
 infixl 3 `ha______'yo`, `ha______'ya`, `ha______'yoi`, `ha______'ha`, `ha______'ho`, `ha______'yia`, `ho______'yo`, `ho______'ya`, `ho______'yoi`, `ho______'ha`, `ho______'ho`, `ho______'yia`
