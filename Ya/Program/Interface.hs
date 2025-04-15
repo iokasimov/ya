@@ -82,6 +82,10 @@ instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) (List `P'T
   `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
   `yio'yo` from
 
+instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List)
+ ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
+ mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree `yi` wrap @AR `lu` by (wrap @AR `ha` Reverse `ha` Empty @List) `yi` wrap @AR
+
 -- TODO
 instance Mapping U_I_II U_I_II AR AR
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
