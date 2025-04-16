@@ -47,17 +47,17 @@ type AT_______ = U_I_UU_II_U_II_I (->) P
 class Dumb x
 instance Dumb x
 
-class Mapping v vv from into f tt where
+class Mappings v vv from into f tt where
  mapping :: v from a o -> vv into (f a) (tt o)
 
-instance Mapping U_I_II U_I_II from into t tt => Mapping U_II_I U_II_I from into tt t
+instance Mappings U_I_II U_I_II from into t tt => Mappings U_II_I U_II_I from into tt t
  where mapping (U_II_I from) = U_II_I (map @U_I_II @U_I_II @from @into @t @tt from)
 
-instance Mapping U_II_I U_I_II from into t tt => Mapping U_I_II U_II_I from into tt t
+instance Mappings U_II_I U_I_II from into t tt => Mappings U_I_II U_II_I from into tt t
  where mapping (U_I_II from) = U_II_I (map @U_II_I @U_I_II @from @into @t @tt from)
 
 map :: forall v vv from into t tt a o .
- Mapping v vv from into t tt =>
+ Mappings v vv from into t tt =>
  Elicitable U_II_I Arrow (v from a o) =>
  Elicitable U_I_II Arrow (vv into (t a) (tt o)) =>
  Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
@@ -66,20 +66,20 @@ map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 class Component into t tt where
  component :: into (t i) (tt i)
 
-instance {-# OVERLAPPABLE #-} (Category into, Mapping U_I_II U_I_II into into t tt) => Component into t tt where
+instance {-# OVERLAPPABLE #-} (Category into, Mappings U_I_II U_I_II into into t tt) => Component into t tt where
  component = map @U_I_II @U_I_II @into @into identity
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
- ( forall e . Mapping U_I_II U_I_II from Arrow (U_I_II from e) (U_I_II from e)
- , forall e . Mapping U_II_I U_I_II from Arrow (U_II_I from e) (U_II_I from e)
+ ( forall e . Mappings U_I_II U_I_II from Arrow (U_I_II from e) (U_I_II from e)
+ , forall e . Mappings U_II_I U_I_II from Arrow (U_II_I from e) (U_II_I from e)
  ) => Precategory from where
  compose :: from a o -> from e a -> from e o
  compose post pre = let U_I_II y = map @U_I_II @U_I_II post (U_I_II pre) in y
 
 deriving instance
- ( forall e . Mapping U_I_II U_I_II from Arrow (U_I_II from e) (U_I_II from e)
- , forall e . Mapping U_II_I U_I_II from Arrow (U_II_I from e) (U_II_I from e)
+ ( forall e . Mappings U_I_II U_I_II from Arrow (U_I_II from e) (U_I_II from e)
+ , forall e . Mappings U_II_I U_I_II from Arrow (U_II_I from e) (U_II_I from e)
  ) => Precategory from
 
 {- [LAW] Left identity: identity . f ≡ f -}
@@ -89,20 +89,20 @@ class Precategory from => Category from
 
 {- [LAW] I preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-class (Category from, Category into, Mapping v U_I_II from into t t) => Functor v from into t
-deriving instance (Category from, Category into, Mapping v U_I_II from into t t) => Functor v from into t
+class (Category from, Category into, Mappings v U_I_II from into t t) => Functor v from into t
+deriving instance (Category from, Category into, Mappings v U_I_II from into t t) => Functor v from into t
 
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
 class
  ( Precategory from, Precategory into
- , Mapping v U_I_II from into t t
+ , Mappings v U_I_II from into t t
  , Dumb (x v from into t)
  ) => Semi v x from into t
 
 deriving instance
  ( Precategory from, Precategory into
- , Mapping v U_I_II from into t t
+ , Mappings v U_I_II from into t t
  , Dumb (Functor v from into t)
  ) => Semi v Functor from into t
 
@@ -115,13 +115,13 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 class
- ( Mapping v U_I_II from into t tt
+ ( Mappings v U_I_II from into t tt
  , x v from into t
  , x v from into tt
  ) => Transformation v x from into t tt
 
 deriving instance
- ( Mapping v U_I_II from into t tt
+ ( Mappings v U_I_II from into t tt
  , x v from into t
  , x v from into tt
  ) => Transformation v x from into t tt
@@ -136,7 +136,7 @@ type Constant t = t U_1_I
 
 type Kleisli u t = U_I_T_II t u
 
-class (Category from, x v from into t, forall o . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t o)) =>
+class (Category from, x v from into t, forall o . Mappings v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t o)) =>
  Yoneda v x from into t where
  yoneda :: forall a o .
   Category from =>
@@ -147,7 +147,7 @@ class (Category from, x v from into t, forall o . Mapping v U_I_II from Arrow t 
  yoneda x = unwrap (map @v @U_I_II @from @Arrow @t @(UU_V_U_I_II_T_II v from into t o) identity x)
 
 deriving instance
- (Category from, x v from into t, forall r . Mapping v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
+ (Category from, x v from into t, forall r . Mappings v U_I_II from Arrow t (UU_V_U_I_II_T_II v from into t r)) =>
  Yoneda v x from into t
 
 type family Representation t where
@@ -160,13 +160,13 @@ type family Representation t where
  Representation (U_I_I P) = () `S` ()
 
 class
-  ( Mapping v U_I_II from into t (v hom (Representation t))
-  , Mapping v U_I_II from into (v hom (Representation t)) t
+  ( Mappings v U_I_II from into t (v hom (Representation t))
+  , Mappings v U_I_II from into (v hom (Representation t)) t
   ) => Representable hom v from into t
 
 deriving instance
- ( Mapping v U_I_II from into t (v hom (Representation t))
- , Mapping v U_I_II from into (v hom (Representation t)) t
+ ( Mappings v U_I_II from into t (v hom (Representation t))
+ , Mappings v U_I_II from into (v hom (Representation t)) t
  ) => Representable hom v from into t
 
 type family Co x where Co (x U_I_II) = x U_II_I
@@ -203,13 +203,13 @@ type family Aught p where
  Aught U_II_I = Void
 
 class
- ( forall e . Mapping v v from into (U_II_I u e) I
- , forall e . Mapping v v from into (U_I_II u e) I
+ ( forall e . Mappings v v from into (U_II_I u e) I
+ , forall e . Mappings v v from into (U_I_II u e) I
  ) => Cone v from into u
 
 deriving instance
- ( forall e . Mapping v v from into (U_II_I u e) I
- , forall e . Mapping v v from into (U_I_II u e) I
+ ( forall e . Mappings v v from into (U_II_I u e) I
+ , forall e . Mappings v v from into (U_I_II u e) I
  ) => Cone v from into u
 
 left :: forall v from into a o e .
@@ -228,7 +228,7 @@ right from = map @v @v @from @into @(U_I_II (Object (Aught v)) e) @I @a @o from
 
 type Limit v from into =
  ( Cone v from into (Object (Aught v))
- , Mapping v v from into I (Both (Object (Aught v)))
+ , Mappings v v from into I (Both (Object (Aught v)))
  )
 
 type Product = Object Unit
@@ -266,20 +266,20 @@ deriving instance
  ) => Adjoint Functor from into t tt
 
 class
- ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
- , Mapping v U_I_II from into (v into (Neutral uu)) t
+ ( forall e ee . Mappings v U_I_II from into (Day v from u uu t t e ee) t
+ , Mappings v U_I_II from into (v into (Neutral uu)) t
  , x v from into t
  ) => Monoidal v x from into u uu t where
 
 deriving instance
- ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
- , Mapping v U_I_II from into (v into (Neutral uu)) t
+ ( forall e ee . Mappings v U_I_II from into (Day v from u uu t t e ee) t
+ , Mappings v U_I_II from into (v into (Neutral uu)) t
  , x v from into t
  ) => Monoidal v x from into u uu t
 
 -- TODO: Yoneda version?
 day :: forall v from t u uu a o e ee .
- Mapping v U_I_II from (->) (Day v from u uu t t e ee) t =>
+ Mappings v U_I_II from (->) (Day v from u uu t t e ee) t =>
  Elicitable U_II_I Arrow (v from a o) =>
  Elicitable U_II_I Arrow (v from (uu e ee) a) =>
  Supertype (v from a o)

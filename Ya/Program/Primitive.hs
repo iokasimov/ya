@@ -20,7 +20,7 @@ provide :: U_I_II (->) e e
 provide = U_I_II identity
 
 -- TODO: should be moved later
--- instance Mapping U_I_II U_I_II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
+-- instance Mappings U_I_II U_I_II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
   -- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
   -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
@@ -74,7 +74,7 @@ joint :: forall f g e .
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
--- Define a special `Mapping` instance instead and use `Try` label constructor for it
+-- Define a special `Mappings` instance instead and use `Try` label constructor for it
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
@@ -120,12 +120,12 @@ rep index = U_I_UU_II_U_II_I `li` \origin ->
 class Choose c d where
   resolve :: (c => r) -> (d => r) -> r
 
--- instance -- Mapping U_I_II U_I_II AR AR t tt =>
- -- Choose (Mapping U_I_II U_I_II AR AR t tt) d
+-- instance -- Mappings U_I_II U_I_II AR AR t tt =>
+ -- Choose (Mappings U_I_II U_I_II AR AR t tt) d
  -- where resolve r _ = r
 
 -- instance d =>
- -- Choose (Mapping U_1_I U_I_1 P P t tt) d
+ -- Choose (Mappings U_1_I U_I_1 P P t tt) d
  -- where resolve _ r = r
 
 instance {-# OVERLAPPABLE #-} d => (Choose c d) where resolve _ r = r
@@ -135,16 +135,16 @@ instance {-# OVERLAPPING #-} c => (Choose c d) where resolve r _ = r
 
 -- instance {-# OVERLAPPING #-} Choose (a ~ a) d where resolve = \a _ -> a
 
--- instance (Mapping U_II_I U_I_II AR AR t tt) => (Category P || Mapping U_II_I U_I_II AR AR t tt) where resolve = \_ r -> r
+-- instance (Mappings U_II_I U_I_II AR AR t tt) => (Category P || Mappings U_II_I U_I_II AR AR t tt) where resolve = \_ r -> r
 
 to :: forall tt t i .
  (Supertype (U_I_II AR i i) ~ AR i i) =>
  (Supertype (U_II_I AR i i) ~ AR i i) =>
  Elicitable U_II_I AR (U_II_I AR i i) =>
  Elicitable U_II_I AR (U_I_II AR i i) =>
- Choose (Mapping U_I_II U_I_II AR AR t tt) (Mapping U_II_I U_I_II AR AR t tt) =>
+ Choose (Mappings U_I_II U_I_II AR AR t tt) (Mappings U_II_I U_I_II AR AR t tt) =>
  t i `AR__` tt i
-to = resolve @(Mapping U_I_II U_I_II AR AR t tt) @(Mapping U_II_I U_I_II AR AR t tt)
+to = resolve @(Mappings U_I_II U_I_II AR AR t tt) @(Mappings U_II_I U_I_II AR AR t tt)
  (unwrap @AR (mapping @U_I_II @U_I_II @AR @AR @t @tt @_ @_ (wrap identity)))
  (unwrap @AR (mapping @U_II_I @U_I_II @AR @AR @t @tt @_ @_ (wrap identity)))
 
@@ -152,12 +152,12 @@ class Component' into t tt where
  component' :: into (t i) (tt i)
 
 instance
- Mapping U_I_II U_I_II AR AR t tt
+ Mappings U_I_II U_I_II AR AR t tt
  => Component' AR t tt where
  component' = unwrap @AR (mapping @U_I_II @U_I_II @AR @AR @t @tt (wrap identity))
 
 instance {-# OVERLAPS #-}
- (forall i . Setoid AR i, Mapping U_II_I U_I_II AR AR I (U_II_I AR Boolean))
+ (forall i . Setoid AR i, Mappings U_II_I U_I_II AR AR I (U_II_I AR Boolean))
  => Component' AR I (U_II_I AR Boolean) where
  component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'
 
@@ -173,6 +173,6 @@ to = component'
 -}
 
 -- instance -- {-# OVERLAPS #-}
- -- (forall i . Setoid AR i) -- , Mapping U_II_I U_I_II AR AR I (U_II_I AR Boolean))
+ -- (forall i . Setoid AR i) -- , Mappings U_II_I U_I_II AR AR I (U_II_I AR Boolean))
  -- => Component' AR I (U_II_I AR Boolean) where
  -- component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'

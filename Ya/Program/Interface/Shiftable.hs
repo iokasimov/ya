@@ -116,13 +116,13 @@ instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional))
     `hv__` Only (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @AR `yi` unwrap @AR)
      `lu` unwrap shafted)
 
-instance Mapping U_I_II U_I_II AR AR
+instance Mappings U_I_II U_I_II AR AR
  (Construction Optional)
  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from (Root x xs) ->
   U_T_I_TT_I (Only (from x) `lu` U_T_I_TT_I (Labeled (Empty @List Unit) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
-instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
+instance Mappings U_I_II U_I_II AR AR (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
   let f = State `ha` Transition `ha` push @(Nonempty List) `ha` from
   in enter @(State (Nonempty List _))

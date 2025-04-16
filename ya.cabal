@@ -19,7 +19,7 @@ library
     Ya.Algebra.Definition
     Ya.Algebra.Instances
     Ya.Operators
-    Ya.Operators.Functions
+    Ya.Operators.Mappings
     Ya.Operators.Handcraft
     Ya.Operators.Generated
     Ya.Operators.Generated.XX
