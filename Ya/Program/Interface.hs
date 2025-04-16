@@ -87,12 +87,21 @@ instance Mappings U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List)
  mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree `yi` wrap @AR `lu` by (wrap @AR `ha` Reverse `ha` Empty @List) `yi` wrap @AR
 
 -- TODO
-instance Mappings U_I_II U_I_II AR AR
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` l `L` ll `L` tttt)
+instance
+ ( Covariant Endo Semi Functor AR t
+ , Covariant Endo Semi Functor AR tt
+ , Covariant Endo Semi Functor AR ttt
+ , Covariant Endo Monoidal Functor AR P P tttt
+ , Covariant Endo Transformation Functor AR (t `T'TT'I` Unit `L` ll `L` tttt) (t `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
+ ) => Mappings U_I_II U_I_II AR AR
+ ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` Unit `L` ll `L` tttt)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
  where
-  -- mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
-   -- (wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L l (L ll tttt)) @(t `TT'T'I` tttt) from) w :: _)
+  mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
+   (r `yokl` is) `lu'yp` (w `yokl` is) `lu'yp` (f `yokl` is) -- `yo'yo` from
+    `yo` (\(These (These sx x) xs) -> U_T_I_TT_I (These (x `yo` from) (U_T_I_TT_I (These (Labeled (sx `yo` from)) (Labeled (xs `yo` from))))))
 
 -- TODO: we are going to apply the same function to all items in a list but it's actually fine
 instance Mappings U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` Unit `L` (List `P'T'I'TT'I` Shafted List)) where
