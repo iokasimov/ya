@@ -72,8 +72,14 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
+pattern Down x = This x :: Shifter List
+pattern Lift x = That x :: Shifter List
+
+pattern Range x = This x :: Shifter Tree
+pattern Level x = That x :: Shifter Tree
+
 -- TODO: implement `locate` method
-instance Shiftable Only (Construction (Optional `T'TT'I` Construction Optional)) where
+instance Shiftable Only (Construction List) where
  shift way x = is
   `li` is `hu` (by None `lu` x)
   `la` is `ho'he` foi @_ @AR Some
