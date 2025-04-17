@@ -11,9 +11,11 @@ import Ya.Program.Interface.Stackable
 
 type Shafted e = Reverse e `P'T'I'TT'I` Forward e
 
+type Stacked window ee e = Reverse e `T'TT'I` (window `P'T'I'TT'I` Shafted e `T'TT'I` ee)
+
 type family Shifting window datastructure = result | result -> window datastructure where
  Shifting window (Optional `T'TT'I` Construction Optional) = window `P'T'I'TT'I` Shafted List
- Shifting window (Construction List) = Shifting window List `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (window `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
+ Shifting window (Construction List) = Shifting window List `T'TT'I` Tree `P'T'I'TT'I` Stacked window Tree List
 
 type family Shifter t where
  Shifter (Optional `T'TT'I` Construction Optional) = Unit `S` Unit
