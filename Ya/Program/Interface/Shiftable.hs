@@ -132,13 +132,9 @@ instance Mapping U_I_II U_I_II AR AR
 
 instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
  mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
-  let f = State `ha` Transition `ha` push @(Nonempty List) `ha` from
-  in enter @(State (Nonempty List _))
-   -- TODO: replace with `yuk___'yokl` operator
-   `yuk___` New (unwrap l `yokl` Prior `ha` New `ha` f)
-   `yuk___` New (unwrap r `yokl` Forth `ha` New `ha` f)
-   `he'he'hv_____` Construct `ha` (\x' -> Item x' `ha` Last `hv` Unit) `hv` from x
-   `yi_____` that
+  (unwrap l `yokl` Forth `ha` New `ha` State `ha` Event `ha` push)
+   `he'he'hv__` Empty @List `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
+   `yi_` that `ho'yo` from
 
 locate :: forall window datastructure item .
  Shiftable window datastructure =>
