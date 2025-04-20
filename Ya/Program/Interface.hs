@@ -86,6 +86,7 @@ instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List)
  ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
  mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree `yi` wrap @AR `lu` by (wrap @AR `ha` Reverse `ha` Empty @List) `yi` wrap @AR
 
+-- TODO: check this instance, I'm not sure it works correctly
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
@@ -132,19 +133,29 @@ instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'
 -- TODO: instance Scrollable (Construction (U_I_I P `T'TT'I` Optional)) item where
 
 -- TODO: think about alternative implementations
-instance Mapping U_I_II U_I_II AR AR (List `T'TT'I` Cascading List) List where
- mapping = rewrap / \from -> \case
-  T'TT'I (T'TT'I (U_I_II (This ())))
-   -> T'TT'I (U_I_II (This ()))
-  T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T'TT'I (U_I_II (This ())))) _)))))))
-   -> T'TT'I (U_I_II (This ()))
-  T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T'TT'I (U_I_II (That
-   (R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
-   -> T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
-     (fo @Arrow unwrap `compose` unwrap @Arrow / map @U_I_II @U_I_II @AR @AR @(List `T'TT'I` Cascading List) @List from
-      (T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T'TT'I / xx `yo` R_U_I_T_I) xxx))))))))
-     )
-    ))))))
+-- TODO: refactor, it's really hard to read
+-- TODO: this instance works incorrectly!
+-- instance Mapping U_I_II U_I_II AR AR (List `T'TT'I` Cascading List) List where
+--  mapping = rewrap / \from -> \case
+--   T'TT'I (T'TT'I (U_I_II (This ())))
+--    -> T'TT'I (U_I_II (This ()))
+--   T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T'TT'I (U_I_II (This ())))) _)))))))
+--    -> T'TT'I (U_I_II (This ()))
+--   T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading (T'TT'I (U_I_II (That
+--    (R_U_I_T_I (Recursive (U_I_T_II (These x xx)))))))) xxx)))))))
+--    -> T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (from x)
+--      (fo @Arrow unwrap `compose` unwrap @Arrow / map @U_I_II @U_I_II @AR @AR @(List `T'TT'I` Cascading List) @List from
+--       (T'TT'I (T'TT'I (U_I_II (That (R_U_I_T_I (Recursive (U_I_T_II (These (Cascading `ha` T'TT'I / xx `yo` R_U_I_T_I) xxx))))))))
+--      )
+--     ))))))
+
+instance Mapping U_I_II U_I_II AR AR
+ (Day U_I_II AR P P List (Cross `L` List) e ee) List where
+ mapping = rewrap / \from -> rewrap / \case
+  These (These (Labeled e) (Labeled ee)) (U_I_II f) ->
+   (e `yokl` (\x -> Forth `ha` New `hv` (ee `yokl` (\xx -> Forth `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
+   `he'he'hv____` Empty @List Unit
+   `yi______` that `ho` unwrap @AR
 
 -- TODO: Add a label
 -- instance Mapping U_I_II U_I_II AR AR (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
