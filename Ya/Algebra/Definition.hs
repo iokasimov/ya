@@ -289,27 +289,6 @@ day from t x = map @v @U_I_II @from @(->)
  @(Day v from u uu t t e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
-monoidal_ :: forall v from into t u uu a o e ee .
- Adjoint Functor into into (U_I_II P (u (t e) (t ee))) (U_I_II into (u (t e) (t ee))) =>
- Monoidal v Functor from into u uu t =>
- Wrapper Arrow (v from a o) =>
- Wrapper into (U_I_II P (u (t e) (t ee)) (v from (uu e ee) a)) =>
- Wrapper into (U_V_UU_UUU_UUUU_T'TT'I_II_III P v from u uu t t e ee a) =>
- Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II P (u (t e) (t ee))) a) =>
- Wrapper into ((U_I_II into (u (t e) (t ee)) `T'TT'I` U_I_II P (u (t e) (t ee))) (v from (uu e ee) a)) =>
- Wrapper into (U_I_II into (u (t e) (t ee)) (t o)) =>
- Wrapper into (I (v from (uu e ee) a)) =>
- Supertype (v from a o) -> into (v from (uu e ee) a) (into (u (t e) (t ee)) (t o))
-monoidal_ from =
- unwrap @into @(U_I_II into _ _)
- `compose` map @U_I_II @U_I_II @into @into
-  @(U_I_II into (u (t e) (t ee))) @(U_I_II into (u (t e) (t ee)))
-  ((map @v @U_I_II @from @into @(Day v from u uu t t e ee) @t from `compose` wrap)
-  `compose` unwrap @into @(U_I_II P _ _))
- `compose` unwrap @into @(T'TT'I _ _ _)
- `compose` component @into @I @(U_I_II into _ `T'TT'I` U_I_II P _)
- `compose` wrap @into
-
 -- TODO: generalize
 empty :: forall t o . Covariant Monoidal Functor (->) (->) P S t => t o
 empty = component @(->) @(U_I_II (->) Void) @t (U_I_II initial')
