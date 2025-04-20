@@ -102,11 +102,8 @@ instance
     )
 
 -- TODO: try to simplify
-instance
- Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P P t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t =>
- Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P P (R_U_I_T_I P t) (R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
+instance Covariant Monoidal Functor AR AR P P t =>
+ Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (R_U_I_T_I P t) (R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These e ee) (U_I_II f) ->
    let These e_ e__ = he'he'he e in
@@ -129,10 +126,8 @@ instance
   R_U_I_T_I `compose` Recursive `compose` U_I_T_II
    / These (from / f Unit) (empty @t `yo` initial' @AR)
 
-instance
- ( Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P t t (R_U_I_T_I P t e) (R_U_I_T_I P t ee)) t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (t `T'TT'I` R_U_I_T_I P t) (t `T'TT'I` R_U_I_T_I P t) e ee) (t `T'TT'I` R_U_I_T_I P t) where
+instance Covariant Endo Monoidal Functor AR P P t =>
+ Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (t `T'TT'I` R_U_I_T_I P t) (t `T'TT'I` R_U_I_T_I P t) e ee) (t `T'TT'I` R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TT'I e) (T'TT'I ee)) (U_I_II f) ->
     day @U_I_II @AR @t @P @P identity
@@ -146,11 +141,10 @@ instance
  mapping = rewrap / \from (U_I_II f) -> T'TT'I /
   enter @t `yu` (enter @(R_U_I_T_I P tt) `yo` from `compose` f)
 
--- TODO: try to avoid mapping twice datastructure here
+-- TODO: try to avoid mapping a datastructure twice here
 instance
  ( Covariant Endo Semi Functor AR t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (R_U_I_T_I P t e) (R_U_I_T_I P t ee)) t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
+ , Covariant Monoidal Functor AR AR P SP t
  ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (t `T'TT'I` R_U_I_T_I P t) (t `T'TT'I` R_U_I_T_I P t) e ee) (t `T'TT'I` R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TT'I e) (T'TT'I ee)) (U_I_II f) ->
@@ -166,7 +160,7 @@ instance
 -- TODO: try to avoid mapping twice datastructure here
 instance
  ( Covariant Endo Semi Functor AR t
- , Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP t t (Recursive (U_I_T_II t P e)) (Recursive (U_I_T_II t P ee))) t
+ , Covariant Monoidal Functor AR AR P SP t
  ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (R_U_I_T_I P t) (R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These e ee) (U_I_II f) ->
@@ -715,7 +709,7 @@ instance
  mapping = rewrap / \from -> rewrap / \f -> (yu enter `compose` from `li` f Unit)
 
 instance
- ( Mapping U_I_II U_I_II into into (Day U_I_II into u uu t t e ee) t
+ ( Covariant Monoidal Functor into into u uu t
  , Covariant Endo Semi Functor into (U_II_I u (t ee))
  , Covariant Endo Semi Functor into (U_I_II u (L l t e))
  , forall eee . Mapping U_I_II U_I_II into into (U_II_I P eee) (U_II_I P eee)
