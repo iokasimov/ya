@@ -9,10 +9,15 @@ pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
 
-type Cascading = L (U_I_II P () ())
+type Cascading = L (() `P` ())
 
 pattern Cascading :: List i -> Cascading List i
 pattern Cascading i = Labeled i
+
+type Cross = L (Void `P` Void)
+
+pattern Cross :: List i -> Cross List i
+pattern Cross i = Labeled i
 
 pattern Again :: forall t i . t i -> L Recursive t i
 pattern Again i = Labeled @Recursive i
