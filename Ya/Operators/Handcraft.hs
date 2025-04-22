@@ -192,7 +192,8 @@ infixl 3 `la_____`
 infixl 2 `la______`
 infixl 1 `la_______`
 
-infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`, `lu'ysp`
+infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`, `lu'ysp`
+--, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`
 infixl 7 `lu_`, `lu_'yp`, `lu_'ys`, `lu_'ysp`
 infixl 6 `lu__`, `lu__'yp`, `lu__'ys`, `lu__'ysp`
 infixl 5 `lu___`, `lu___'yp`, `lu___'ys`, `lu___'ysp`
@@ -283,10 +284,10 @@ infixl 2 `yu______`
 infixl 1 `yu_______`
 
 infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
-infixl 7 `yp_'yo`, `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
+infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
 infixl 8 `ys`, `ys'yo`
-infixl 7 `yis`
+-- infixl 7 `yis`
 
 infixl 7 `ysp`
 
@@ -2151,10 +2152,13 @@ lo'lu l r = lo
  (r `compose` (wrapped (right @U_I_II @into identity)))
 
 lo'yp, lo_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
- :: forall t a o oo .
- Covariant Monoidal Functor (->) (->) P P t =>
- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product o oo))
+ :: forall t l a o oo .
+ -- Covariant Monoidal Functor (->) (->) P P l t =>
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P P t (l `L` t) o oo) t =>
+ Arrow a (t o) -> Arrow a ((l `L` t) oo) -> Arrow a (t (Product o oo))
 lo'yp from__eft from_right = yp `compose` lo from__eft from_right
+
+-- Covariant Transformation Functor (->) (->) (Day U_I_II AR u P t (l `L` t) e ee) t =>
 
 lo_'yp = lo'yp
 lo__'yp = lo'yp
@@ -2165,9 +2169,9 @@ lo______'yp = lo'yp
 lo_______'yp = lo'yp
 
 lo'ys, lo_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
- :: forall t a o oo .
- Covariant Monoidal Functor (->) (->) P S t =>
- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Sum o oo))
+ :: forall t l a o oo .
+ Covariant Monoidal Functor (->) (->) P S l t =>
+ Arrow a (t o) -> Arrow a ((l `L` t) oo) -> Arrow a (t (Sum o oo))
 lo'ys from__eft from_right = ys `compose` lo from__eft from_right
 
 lo_'ys = lo'ys
@@ -2179,9 +2183,9 @@ lo______'ys = lo'ys
 lo_______'ys = lo'ys
 
 lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo______'ys'la, lo_______'ys'la
- :: forall t a oo_ .
- Covariant Monoidal Functor (->) (->) P S t =>
- Arrow a (t oo_) -> Arrow a (t oo_) -> Arrow a (t oo_)
+ :: forall t l a o .
+ Covariant Monoidal Functor (->) (->) P S l t =>
+ Arrow a (t o) -> Arrow a ((l `L` t) o) -> Arrow a (t o)
 lo'ys'la from__eft from_right = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo from__eft from_right
 
 lo_'ys'la = lo'ys'la
@@ -2417,157 +2421,165 @@ lv_______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity
  -- __ (map @U_I_II @U_I_II (wrapped (right @U_II_I from_right)))
 
 -- TODO: try to generalize
-yp :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u P t =>
- u (t e) (t ee) -> t (e `P` ee)
-yp = day @U_I_II @(->) @t @u @P identity identity
+yp :: forall u e ee t tt l .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u P t (l `L` tt) e ee) t =>
+ -- Covariant Monoidal Functor (->) (->) u P l t =>
+ u (t e) ((l `L` tt) ee) -> t (e `P` ee)
+yp = day @U_I_II @(->) @l @t @tt @u @P identity identity
 
 -- TODO: try to generalize
-yp'yo, yp_'yo :: forall e ee r t .
- Covariant Monoidal Functor (->) (->) P P t =>
- t e `P` t ee -> (e `P` ee `AR` r) -> t r
-yp'yo x f = day @U_I_II @(->) @t @P @P identity f x
+yp'yo, yp_'yo :: forall e ee r t l .
+ -- Covariant Monoidal Functor (->) (->) P P l t =>
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P P t (l `L` t) e ee) t =>
+ t e `P` (l `L` t) ee -> (e `P` ee `AR` r) -> t r
+yp'yo x f = day @U_I_II @(->) @l @t @t @P @P identity f x
 
 yp_'yo = yp'yo
 
 -- TODO: try to generalize
-yip :: forall u e ee eee t .
- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
- u (t e ee) (t e eee) -> t e (ee `P` eee)
-yip = unwrap @Arrow
- `compose` day @U_I_II @(->) @(U_I_II t e) @u @P identity identity
- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+-- yip :: forall u e ee eee t .
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
+ -- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
+ -- u (t e ee) (t e eee) -> t e (ee `P` eee)
+-- yip = unwrap @Arrow
+ -- `compose` day @U_I_II @(->) @(U_I_II t e) @u @P identity identity
+ -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-yip'yo :: forall u e ee eee t r .
- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
- u (t e ee) (t e eee) -> (->) (ee `P` eee) r -> t e r
-yip'yo x f = unwrap @Arrow
- `compose` day @U_I_II @(->) @(U_I_II t e) @u @P identity f
- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
- `identity` x
+-- yip'yo :: forall u e ee eee t r .
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
+ -- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
+ -- u (t e ee) (t e eee) -> (->) (ee `P` eee) r -> t e r
+-- yip'yo x f = unwrap @Arrow
+ -- `compose` day @U_I_II @(->) @(U_I_II t e) @u @P identity f
+ -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+ -- `identity` x
 
 -- TODO: try to generalize
-yo'yp :: forall u e ee t tt .
+yo'yp :: forall u e ee t tt ll .
  Covariant Endo Semi Functor (->) t =>
- Covariant Monoidal Functor (->) (->) u P tt =>
- t (u (tt e) (tt ee)) -> t (tt (e `P` ee))
-yo'yp = fo (day @U_I_II @(->) @tt @u @P identity identity)
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u P tt (ll `L` tt) e ee) tt =>
+ t (u (tt e) ((ll `L` tt) ee)) -> t (tt (e `P` ee))
+yo'yp = fo (day @U_I_II @(->) @ll @tt @tt @u @P identity identity)
 
 -- TODO: try to generalize
-yio'yp :: forall u e ee eee t tt .
+yio'yp :: forall u e ee eee t tt ll .
  Covariant Endo Semi Functor (->) (U_I_II t eee) =>
- Covariant Monoidal Functor (->) (->) u P tt =>
- t eee (u (tt e) (tt ee)) -> t eee (tt (e `P` ee))
-yio'yp = fio (day @U_I_II @(->) @tt @u @P identity identity)
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u P tt (ll `L` tt) e ee) tt =>
+ t eee (u (tt e) ((ll `L` tt) ee)) -> t eee (tt (e `P` ee))
+yio'yp = fio (day @U_I_II @(->) @ll @tt @tt @u @P identity identity)
 
 -- TODO: try to generalize
-ys :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u S t =>
- u (t e) (t ee) -> t (e `S` ee)
-ys = day @U_I_II @(->) @t @u @S identity identity
+ys :: forall u e ee t l .
+ -- Covariant Monoidal Functor (->) (->) u S l t =>
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u S t (l `L` t) e ee) t =>
+ u (t e) ((l `L` t) ee) -> t (e `S` ee)
+ys = day @U_I_II @(->) @l @t @t @u @S identity identity
 
 -- TODO: try to generalize
-ys'yo :: forall from e ee u r t .
- Covariant Monoidal Functor from (->) u S t =>
- u (t e) (t ee) -> from (e `S` ee) r -> t r
-ys'yo x f = day @U_I_II @from @t @u @S identity f x
+ys'yo :: forall from t l e ee u r .
+ Category from =>
+ -- Covariant Monoidal Functor from (->) u S l t =>
+ Mapping U_I_II U_I_II from (->) (Day U_I_II from u S t (l `L` t) e ee) t =>
+ u (t e) ((l `L` t) ee) -> from (e `S` ee) r -> t r
+ys'yo x f = day @U_I_II @from @l @t @t @u @S identity f x
 
 -- TODO: try to generalize
-yis :: forall u e ee eee t .
- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
- Covariant Monoidal Functor (->) (->) u S (U_I_II t e) =>
- u (t e ee) (t e eee) -> t e (ee `S` eee)
-yis = unwrap @Arrow
- `compose` day @U_I_II @(->) @(U_I_II t e) @u @S identity identity
- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+-- yis :: forall u e ee eee t .
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e eee)) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e ee)) =>
+ -- Covariant Monoidal Functor (->) (->) u S (U_I_II t e) =>
+ -- u (t e ee) (t e eee) -> t e (ee `S` eee)
+-- yis = unwrap @Arrow
+ -- `compose` day @U_I_II @(->) @(U_I_II t e) @u @S identity identity
+ -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-ysp :: forall u e ee t .
- Covariant Monoidal Functor (->) (->) u SP t =>
- u (t e) (t ee) -> t (e `S` ee `S_` e `P` ee)
-ysp = day @U_I_II @(->) @t @u @SP identity he
+ysp :: forall u e ee t l .
+ -- Covariant Monoidal Functor (->) (->) u SP l t =>
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u SP t (l `L` t) e ee) t =>
+ u (t e) ((l `L` t) ee) -> t (e `S` ee `S_` e `P` ee)
+ysp = day @U_I_II @(->) @l @t @t @u @SP identity he
 
 -- TODO: try to generalize
-yp'yp :: forall u e ee t tt .
- Covariant Monoidal Functor (->) (->) u P t =>
- Covariant Monoidal Functor (->) (->) P P tt =>
- u (t (tt e)) (t (tt ee)) -> t (tt (e `P` ee))
-yp'yp = day @U_I_II @(->) @t @u @P identity
- (day @U_I_II @(->) @tt @P @P identity identity)
+yp'yp :: forall u e ee t tt l ll .
+ -- Covariant Monoidal Functor (->) (->) u P l t =>
+ -- Covariant Monoidal Functor (->) (->) P P ll tt =>
+ Covariant Transformation Functor (->) (->) (Day U_I_II AR u P t (l `L` t) (tt e) (L ll tt ee)) t =>
+ Covariant Transformation Functor (->) (->) (Day U_I_II AR P P tt (ll `L` tt) e ee) tt =>
+ u (t (tt e)) ((l `L` t) ((ll `L` tt) ee)) -> t (tt (e `P` ee))
+yp'yp = day @U_I_II @(->) @l @t @t @u @P identity
+ (day @U_I_II @(->) @ll @tt @tt @P @P identity identity)
 
 -- TODO: try to generalize
-yp'ys :: forall u e ee t tt .
- Covariant Monoidal Functor (->) (->) u P t =>
- Covariant Monoidal Functor (->) (->) P S tt =>
- u (t (tt e)) (t (tt ee)) -> t (tt (e `S` ee))
-yp'ys = day @U_I_II @(->) @t @u @P identity
- (day @U_I_II @(->) @tt @P @S identity identity)
+yp'ys :: forall u e ee t tt l ll .
+ Covariant Monoidal Functor (->) (->) u P l t =>
+ Covariant Monoidal Functor (->) (->) P S ll tt =>
+ u (t (tt e)) ((l `L` t) ((ll `L` tt) ee)) -> t (tt (e `S` ee))
+yp'ys = day @U_I_II @(->) @l @t @t @u @P identity
+ (day @U_I_II @(->) @ll @tt @tt @P @S identity identity)
 
-yip'yp :: forall u e ee eee t tt .
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee))) =>
- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt eee))) =>
- Covariant Monoidal Functor (->) (->) P P tt =>
- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
- u (t e (tt ee)) (t e (tt eee)) -> t e (tt (ee `P` eee))
-yip'yp x = yip'yo x yp
+-- yip'yp :: forall u e ee eee t tt .
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee))) =>
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt eee))) =>
+ -- Covariant Monoidal Functor (->) (->) P P tt =>
+ -- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
+ -- u (t e (tt ee)) (t e (tt eee)) -> t e (tt (ee `P` eee))
+-- yip'yp x = yip'yo x yp
 
-yip'yip :: forall u e ee eee eeee t tt .
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee eee))) =>
- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt ee eeee))) =>
- Covariant Monoidal Functor (->) (->) P P (U_I_II tt ee) =>
- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
- u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `P` eeee))
-yip'yip x = yip'yo x yip
+-- yip'yip :: forall u e ee eee eeee t tt .
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee eee))) =>
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt ee eeee))) =>
+ -- Covariant Monoidal Functor (->) (->) P P (U_I_II tt ee) =>
+ -- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
+ -- u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `P` eeee))
+-- yip'yip x = yip'yo x yip
 
-yip'yis :: forall u e ee eee eeee t tt .
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee eee))) =>
- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt ee eeee))) =>
- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
- Covariant Monoidal Functor (->) (->) P S (U_I_II tt ee) =>
- u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `S` eeee))
-yip'yis x = yip'yo x yis
+-- yip'yis :: forall u e ee eee eeee t tt .
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II u (U_I_II t e (tt ee eee))) =>
+ -- Covariant Endo Semi Functor (->) (U_II_I u (t e (tt ee eeee))) =>
+ -- Covariant Monoidal Functor (->) (->) u P (U_I_II t e) =>
+ -- Covariant Monoidal Functor (->) (->) P S (U_I_II tt ee) =>
+ -- u (t e (tt ee eee)) (t e (tt ee eeee)) -> t e (tt ee (eee `S` eeee))
+-- yip'yis x = yip'yo x yis
 
 -- TODO: try to generalize
-yp'yok :: forall i ii from into t tt l o .
- Covariant Monoidal Functor (->) (->) P P t =>
+yp'yok :: forall i ii from into t tt l ll o .
+ Covariant Monoidal Functor (->) (->) P P l t =>
  Covariant Endo Semi Functor into tt =>
  Covariant Endo Semi Functor into t =>
  Covariant Yoneda Functor from into t =>
- Covariant Endo Transformation Functor into (T'TT'I t (L l tt)) t =>
- (forall e ee . Wrapper into (U_I_II from e (L l tt ee))) =>
- (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
- t i `P` t ii -> into (from (i `P` ii) (L l tt o)) (t o)
+ Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` tt) t =>
+ (forall e ee . Wrapper into (U_I_II from e (L ll tt ee))) =>
+ (forall e . Wrapper into ((t `T'TT'I` ll `L` tt) e)) =>
+ t i `P` (l `L` t) ii -> into (from (i `P` ii) ((ll `L` tt) o)) (t o)
 yp'yok = yok @from @into `compose` yp
 
 -- TODO: try to generalize
-yp'yokl :: forall e ee from into t tt l ll o .
- Covariant Endo Transformation Functor into (t `T'TT'I` L ll (L l tt)) (TT'T'I t tt) =>
- Covariant Monoidal Functor (->) (->) P P t =>
+yp'yokl :: forall e ee from into t tt l' l ll o .
+ Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` l `L` tt) (t `TT'T'I` tt) =>
+ Covariant Monoidal Functor (->) (->) P P l' t =>
  Covariant Yoneda Functor from into t =>
  Elicitable U_II_I into (U_I_II from (e `P` ee) (tt o)) =>
  (forall i . Wrapper into (T'TT'I t tt i)) =>
  (forall i . Wrapper into (TT'T'I t tt i)) =>
  (forall i . Wrapper into ((t `T'TT'I` L ll (L l tt)) i)) =>
  (forall i ii . Wrapper into (U_I_II from i (L ll (L l tt) ii))) =>
- t e `P` t ee -> into (from (e `P` ee) (L ll (L l tt) o)) (tt (t o))
+ t e `P` (l' `L` t) ee -> into (from (e `P` ee) (L ll (L l tt) o)) (tt (t o))
 yp'yokl = yokl @from @into `compose` yp
 
 -- TODO: try to generalize
-yp'yp'yo :: forall from e ee r t tt .
- Covariant Monoidal Functor (->) (->) P P t =>
- Covariant Monoidal Functor from (->) P P tt =>
- t (tt e) `P` t (tt ee) -> from (e `P` ee) r -> t (tt r)
-yp'yp'yo x f = day @U_I_II @(->) @t @P @P identity
- (day @U_I_II @from @tt @P @P identity f) x
+yp'yp'yo :: forall from e ee r t tt l ll .
+ Covariant Monoidal Functor (->) (->) P P l t =>
+ Covariant Monoidal Functor from (->) P P ll tt =>
+ t (tt e) `P` (l `L` t) ((ll `L` tt) ee) -> from (e `P` ee) r -> t (tt r)
+yp'yp'yo x f = day @U_I_II @(->) @l @t @t @P @P identity
+ (day @U_I_II @from @ll @tt @tt @P @P identity f) x
 
 -- w'rw :: forall into a o
  -- Precategory into =>
@@ -3023,12 +3035,14 @@ ho________'yukl = yio'yukl
 -- ha'yuk = ha `compose` fuk @from @tt @t
 
 -- TODO: generalize
-lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'yp :: forall o oo t .
- Covariant Monoidal Functor (->) (->) P P t =>
+lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'yp
+ :: forall o oo t tt l .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P P t (l `L` tt) o oo) t =>
+ -- Covariant Monoidal Functor (->) (->) P P l t =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- t o -> t oo -> t (o `P` oo)
-lu'yp from__eft from_right = yp (lu from__eft from_right)
+ t o -> (l `L` tt) oo -> t (o `P` oo)
+lu'yp from_left from_right = yp (lu from_left from_right)
 
 lu_'yp = lu'yp
 lu__'yp = lu'yp
@@ -3038,28 +3052,28 @@ lu_____'yp = lu'yp
 lu______'yp = lu'yp
 lu_______'yp = lu'yp
 
-lu'yip, lu_'yip, lu__'yip, lu___'yip, lu____'yip, lu_____'yip, lu______'yip, lu_______'yip
- :: forall e o oo t .
- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e o)) =>
- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- t e o -> t e oo -> t e (o `P` oo)
-lu'yip from__eft from_right = yip (lu from__eft from_right)
+-- lu'yip, lu_'yip, lu__'yip, lu___'yip, lu____'yip, lu_____'yip, lu______'yip, lu_______'yip
+ -- :: forall e o oo t .
+ -- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
+ -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e o)) =>
+ -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ -- t e o -> t e oo -> t e (o `P` oo)
+-- lu'yip from__eft from_right = yip (lu from__eft from_right)
 
-lu_'yip = lu'yip
-lu__'yip = lu'yip
-lu___'yip = lu'yip
-lu____'yip = lu'yip
-lu_____'yip = lu'yip
-lu______'yip = lu'yip
-lu_______'yip = lu'yip
+-- lu_'yip = lu'yip
+-- lu__'yip = lu'yip
+-- lu___'yip = lu'yip
+-- lu____'yip = lu'yip
+-- lu_____'yip = lu'yip
+-- lu______'yip = lu'yip
+-- lu_______'yip = lu'yip
 
 lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'ys
- :: forall o oo t .
- Covariant Monoidal Functor (->) (->) P S t =>
+ :: forall o oo t l .
+ Covariant Monoidal Functor (->) (->) P S l t =>
  Covariant Yoneda Functor (->) (->) (U_I_II P (t o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I P ()) =>
- t o -> t oo -> t (o `S` oo)
+ t o -> (l `L` t) oo -> t (o `S` oo)
 lu'ys from__eft from_right = ys (lu from__eft from_right)
 
 lu_'ys = lu'ys
@@ -3070,77 +3084,77 @@ lu_____'ys = lu'ys
 lu______'ys = lu'ys
 lu_______'ys = lu'ys
 
-lu'yis, lu_'yis, lu__'yis, lu___'yis, lu____'yis, lu_____'yis, lu______'yis, lu_______'yis
- :: forall e o oo t .
- Covariant Monoidal Functor (->) (->) P S (U_I_II t e) =>
- Covariant Yoneda Functor (->) (->) (U_I_II P (t e o)) =>
- Covariant Yoneda Functor (->) (->) (U_II_I P ()) =>
- t e o -> t e oo -> t e (o `S` oo)
-lu'yis from__eft from_right = yis (lu from__eft from_right)
+-- lu'yis, lu_'yis, lu__'yis, lu___'yis, lu____'yis, lu_____'yis, lu______'yis, lu_______'yis
+ -- :: forall e o oo t .
+ -- Covariant Monoidal Functor (->) (->) P S (U_I_II t e) =>
+ -- Covariant Yoneda Functor (->) (->) (U_I_II P (t e o)) =>
+ -- Covariant Yoneda Functor (->) (->) (U_II_I P ()) =>
+ -- t e o -> t e oo -> t e (o `S` oo)
+-- lu'yis from__eft from_right = yis (lu from__eft from_right)
 
-lu_'yis = lu'yis
-lu__'yis = lu'yis
-lu___'yis = lu'yis
-lu____'yis = lu'yis
-lu_____'yis = lu'yis
-lu______'yis = lu'yis
-lu_______'yis = lu'yis
+-- lu_'yis = lu'yis
+-- lu__'yis = lu'yis
+-- lu___'yis = lu'yis
+-- lu____'yis = lu'yis
+-- lu_____'yis = lu'yis
+-- lu______'yis = lu'yis
+-- lu_______'yis = lu'yis
 
-lu'yp'yp :: forall o oo t tt .
- Covariant Monoidal Functor (->) (->) P P t =>
- Covariant Monoidal Functor (->) (->) P P tt =>
- -- Mapping U_I_II U_I_II into (->) I (U_I_I (Product into)) =>
+lu'yp'yp :: forall o oo t tt l ll .
+ Covariant Endo Semi Functor AR tt =>
+ Covariant Transformation Functor (->) (->) (Day U_I_II AR P P t (l `L` t) (tt o) (L ll tt oo)) t =>
+ Covariant Transformation Functor (->) (->) (Day U_I_II AR P P tt (ll `L` tt) o oo) tt =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t (tt o))) =>
- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- t (tt o) -> t (tt oo) -> t (tt (o `P` oo))
+ Covariant Yoneda Functor (->) (->) (U_II_I Product Unit) =>
+ t (tt o) -> (l `L` t) ((ll `L` tt) oo) -> t (tt (o `P` oo))
 lu'yp'yp from__eft from_right = yp'yp @P (lu from__eft from_right)
 
 lu'yp'ys
- :: forall t tt o oo .
- Covariant Monoidal Functor (->) (->) P P t =>
- Covariant Monoidal Functor (->) (->) P S tt =>
+ :: forall t tt l ll o oo .
+ Covariant Monoidal Functor (->) (->) P P l t =>
+ Covariant Monoidal Functor (->) (->) P S ll tt =>
  Covariant Endo Semi Functor (->) t =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t (tt o))) =>
- t (tt o) -> t (tt oo) -> t (tt (o `S` oo))
+ t (tt o) -> (l `L` t) ((ll `L` tt) oo) -> t (tt (o `S` oo))
 lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
 
-lu'yip'yp
- :: forall t tt o oo e .
- Covariant Monoidal Functor (->) (->) P P tt =>
- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt o))) =>
- t e (tt o) -> t e (tt oo) -> t e (tt (o `P` oo))
-lu'yip'yp from__eft from_right = yip'yp (lu from__eft from_right)
+-- lu'yip'yp
+ -- :: forall t tt o oo e .
+ -- Covariant Monoidal Functor (->) (->) P P tt =>
+ -- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt o))) =>
+ -- t e (tt o) -> t e (tt oo) -> t e (tt (o `P` oo))
+-- lu'yip'yp from__eft from_right = yip'yp (lu from__eft from_right)
 
-lu'yip'yip
- :: forall t tt o oo e ee .
- Covariant Monoidal Functor (->) (->) P P (U_I_II tt ee) =>
- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
- t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `P` oo))
-lu'yip'yip from__eft from_right = yip'yip (lu from__eft from_right)
+-- lu'yip'yip
+ -- :: forall t tt o oo e ee .
+ -- Covariant Monoidal Functor (->) (->) P P (U_I_II tt ee) =>
+ -- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
+ -- t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `P` oo))
+-- lu'yip'yip from__eft from_right = yip'yip (lu from__eft from_right)
 
-lu'yip'yis
- :: forall t tt o oo e ee .
- Covariant Monoidal Functor (->) (->) P P (U_I_II t e) =>
- Covariant Monoidal Functor (->) (->) P S (U_I_II tt ee) =>
- Covariant Endo Semi Functor (->) (U_I_II t e) =>
- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
- t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `S` oo))
-lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
+-- lu'yip'yis
+ -- :: forall t tt l ll o oo e ee .
+ -- Covariant Monoidal Functor (->) (->) P P l (U_I_II t e) =>
+ -- Covariant Monoidal Functor (->) (->) P S ll (U_I_II tt ee) =>
+ -- Covariant Endo Semi Functor (->) (U_I_II t e) =>
+ -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
+ -- t e (tt ee o) -> (l `L` t) e ((ll `L` tt) ee oo) -> t e (tt ee (o `S` oo))
+-- lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
 
 lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_______'ysp
- :: forall e o oo t .
- Covariant Monoidal Functor (->) (->) P SP t =>
+ :: forall e o oo t l .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P SP t (l `L` t) o oo) t =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
- t o -> t oo -> t (o `S` oo `S_` o `P` oo)
+ t o -> (l `L` t) oo -> t (o `S` oo `S_` o `P` oo)
 lu'ysp from__eft from_right = ysp (lu from__eft from_right)
 
 lu_'ysp = lu'ysp

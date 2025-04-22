@@ -5,14 +5,14 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-k :: forall into t o .
- Covariant Monoidal Functor into into P P t =>
- Component into I (U_I_II into Unit) =>
- Wrapper into (U_I_II into Unit o) =>
- Wrapper into (I o) =>
- into o (t o)
-k = component @into @(U_I_II into Unit) @t
- `compose` wrap `compose` constant
+-- k :: forall into t o .
+ -- Covariant Monoidal Functor into into P P t =>
+ -- Component into I (U_I_II into Unit) =>
+ -- Wrapper into (U_I_II into Unit o) =>
+ -- Wrapper into (I o) =>
+ -- into o (t o)
+-- k = component @into @(U_I_II into Unit) @t
+ -- `compose` wrap `compose` constant
 
 d :: forall into t tt o .
  Adjoint Functor into into t tt =>
@@ -201,17 +201,17 @@ fij from = unwrap `compose` fo (from `compose` unwrap)
 
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
-fc :: forall into t a o .
+fc :: forall t a o .
  Covariant Endo Semi Functor (->) t =>
- Covariant Endo Semi Functor (->) (U_I_II into a) =>
- Adjoint Functor (->) (->) (U_I_II P (t a)) (U_I_II into (t a)) =>
- Adjoint Functor (->) (->) (U_I_II P a) (U_I_II into a) =>
- Adjoint Functor (->) (->) (U_I_II P (t a `P` t (into a o))) (U_I_II (->) (t a `P` t (into a o))) =>
- Monoidal U_I_II Functor into AR P P t =>
- t (into a o) -> into (t a) (t o)
-fc = unwrap @(->) @(U_I_II into (t a) _)
+ Covariant Endo Semi Functor (->) (U_I_II AR a) =>
+ Adjoint Functor (->) (->) (U_I_II P (t a)) (U_I_II AR (t a)) =>
+ Adjoint Functor (->) (->) (U_I_II P a) (U_I_II AR a) =>
+ Adjoint Functor (->) (->) (U_I_II P (t a `P` t (AR a o))) (U_I_II (->) (t a `P` t (AR a o))) =>
+ Monoidal U_I_II Functor AR AR P P Unit t =>
+ t (AR a o) -> AR (t a) (t o)
+fc = unwrap @(->) @(U_I_II AR (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
  (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
- `compose` fj @(->) @(->) @(U_I_II P (t a)) @(U_I_II into _)
- (monoidal_ @U_I_II @into @(->) @t @P @P identity (wrap identity)
- `compose` unwrap @(->) @(U_I_II P (t a) (t (into a o))))
+ `compose` fj @(->) @(->) @(U_I_II P (t a)) @(U_I_II AR _)
+ (day @U_I_II @AR @Unit @t @t @P @P identity identity
+ `compose` unwrap @(->) @(U_I_II P (t a) ((Unit `L` t) (AR a o))) `compose` fo @AR wrap)

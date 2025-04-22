@@ -266,35 +266,35 @@ deriving instance
  ) => Adjoint Functor from into t tt
 
 class
- ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
+ ( forall e ee . Mapping v U_I_II from into (Day v from u uu t (l `L` t) e ee) t
  , Mapping v U_I_II from into (v into (Neutral uu)) t
  , x v from into t
- ) => Monoidal v x from into u uu t where
+ ) => Monoidal v x from into u uu l t where
 
 deriving instance
- ( forall e ee . Mapping v U_I_II from into (Day v from u uu t t e ee) t
+ ( forall e ee . Mapping v U_I_II from into (Day v from u uu t (l `L` t) e ee) t
  , Mapping v U_I_II from into (v into (Neutral uu)) t
  , x v from into t
- ) => Monoidal v x from into u uu t
+ ) => Monoidal v x from into u uu l t
 
 -- TODO: Yoneda version?
-day :: forall v from t u uu a o e ee .
- Mapping v U_I_II from (->) (Day v from u uu t t e ee) t =>
- Elicitable U_II_I Arrow (v from a o) =>
- Elicitable U_II_I Arrow (v from (uu e ee) a) =>
+day :: forall v from l t tt u uu a o e ee .
+ Mapping v U_I_II from AR (Day v from u uu t (l `L` tt) e ee) t =>
+ Wrapper AR (v from a o) =>
+ Wrapper AR (v from (uu e ee) a) =>
  Supertype (v from a o)
   -> Supertype (v from (uu e ee) a)
-  -> u (t e) (t ee) -> t o
+  -> u (t e) ((l `L` tt) ee) -> t o
 day from t x = map @v @U_I_II @from @(->)
- @(Day v from u uu t t e ee) @t from
+ @(Day v from u uu t (l `L` tt) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-empty :: forall t o . Covariant Monoidal Functor (->) (->) P S t => t o
+empty :: forall t l o . Covariant Monoidal Functor (->) (->) P S Unit t => t o
 empty = component @(->) @(U_I_II (->) Void) @t (U_I_II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Covariant Monoidal Functor (->) (->) P P t => t Unit
+enter :: forall t l . Covariant Monoidal Functor (->) (->) P P Unit t => t Unit
 enter = component @(->) @(U_I_II (->) Unit) @t (U_I_II identity)
 
 rewrap :: forall o into a .

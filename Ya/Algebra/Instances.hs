@@ -98,23 +98,21 @@ instance
   i_ (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into @t @t / from) `compose`
   _i (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into @tt @tt / from)
 
-instance
- ( forall e . Covariant Endo Semi Functor AR (U_I_II u e)
- , forall e . Covariant Endo Semi Functor AR (U_II_I u e)
- , Covariant Monoidal Functor from AR u u ttt
- , Covariant Transformation Functor from AR (t `T'TT'I` ttt) (t `TT'T'I` ttt)
- , Covariant Transformation Functor from AR (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
- , forall e . Wrapper from (U_T_I_TT_I u t tt e)
- , forall e . Wrapper AR (TT'T'I (U_T_I_TT_I u t tt) ttt e)
- , forall e . Wrapper AR (T'TT'I (U_T_I_TT_I u t tt) ttt e)
- ) => Mapping U_I_II U_I_II from AR (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt) where
- mapping = rewrap / \from -> rewrap /
-  day @U_I_II @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
-   i_ (map @U_I_II @U_I_II @AR @AR
-    (wrapped (map @U_I_II @U_I_II @from @AR @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
-   _i (map @U_I_II @U_I_II @AR @AR
-    (wrapped (map @U_I_II @U_I_II @from @AR @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
-   unwrap @AR @(U_T_I_TT_I u t tt _)
+-- instance
+ -- ( forall e . Covariant Endo Semi Functor AR (U_I_II u e)
+ -- , forall e . Covariant Endo Semi Functor AR (U_II_I u e)
+ -- , Covariant Monoidal Functor from AR u u Unit ttt
+ -- , Covariant Transformation Functor from AR (t `T'TT'I` ttt) (t `TT'T'I` ttt)
+ -- , Covariant Transformation Functor from AR (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
+ -- , forall e . Wrapper from (U_T_I_TT_I u t tt e)
+ -- , forall e . Wrapper AR (TT'T'I (U_T_I_TT_I u t tt) ttt e)
+ -- , forall e . Wrapper AR (T'TT'I (U_T_I_TT_I u t tt) ttt e)
+ -- ) => Mapping U_I_II U_I_II from AR (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt) where
+ -- mapping = rewrap / \from -> rewrap /
+  -- day @U_I_II @from @Unit @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity
+   -- `compose` i_ (map @U_I_II @U_I_II @AR @AR (wrapped (map @U_I_II @U_I_II @from @AR @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from)))
+   -- `compose` _i (map @U_I_II @U_I_II @AR @AR (wrapped (map @U_I_II @U_I_II @from @AR @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from)))
+   -- `compose` unwrap @AR @(U_T_I_TT_I u t tt _)
 
 -- TODO: here should be a generalized version of an instance above
 -- instance
@@ -161,31 +159,31 @@ instance Mapping U_I_II U_I_II AR AR (U_II_I S o) (U_II_I S o) where
   This x -> This (from x)
   That e -> That e
 
-instance
- ( Covariant Semi Functor from AR t
- , Covariant Functor from from (U_I_I u)
- , Covariant Monoidal Functor from AR u u t
- , forall e . Elicitable U_II_I from (U_I_I u e)
- ) => Mapping U_I_II U_I_II from AR (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t) where
- mapping = rewrap / \from -> rewrap /
-  day @U_I_II @from @t @u @u
-   (map @U_I_II @U_I_II from `compose` wrap @from @(U_I_I _ _)) identity
-  `compose` unwrap @AR @(U_I_I u _)
+-- instance
+ -- ( Covariant Semi Functor from AR t
+ -- , Covariant Functor from from (U_I_I u)
+ -- , Covariant Monoidal Functor from AR u u t
+ -- , forall e . Elicitable U_II_I from (U_I_I u e)
+ -- ) => Mapping U_I_II U_I_II from AR (U_I_I u `T'TT'I` t) (U_I_I u `TT'T'I` t) where
+ -- mapping = rewrap / \from -> rewrap /
+  -- day @U_I_II @from @t @u @u
+   -- (map @U_I_II @U_I_II from `compose` wrap @from @(U_I_I _ _)) identity
+  -- `compose` unwrap @AR @(U_I_I u _)
 
-instance
- ( Covariant Semi Functor AR AR t
- , Covariant Functor AR AR (U_I_I u)
- , Covariant Endo Monoidal Functor AR u u tt
- , Mapping U_I_II U_I_II AR AR (t `T'TT'I` tt) (t `TT'T'I` tt)
- ) => Mapping U_I_II U_I_II AR AR
-  ((U_I_I u `T'TT'I` t) `T'TT'I` tt)
-  ((U_I_I u `T'TT'I` t) `TT'T'I` tt) where
- mapping = rewrap / \from -> rewrap /
-  map @U_I_II @U_I_II @AR @AR (wrap @_ @(U_I_I u `T'TT'I` t `WR_` _)) `compose`
-  wrapped (component @AR @(U_I_I u `T'TT'I` tt) @(U_I_I u `TT'T'I` tt)) `compose`
-  map @U_I_II @U_I_II @AR @AR @(U_I_I u)
-   (wrapped / map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` tt) @(t `TT'T'I` tt) from) `compose`
-  unwrap @AR
+-- instance
+ -- ( Covariant Semi Functor AR AR t
+ -- , Covariant Functor AR AR (U_I_I u)
+ -- , Covariant Endo Monoidal Functor AR u u tt
+ -- , Mapping U_I_II U_I_II AR AR (t `T'TT'I` tt) (t `TT'T'I` tt)
+ -- ) => Mapping U_I_II U_I_II AR AR
+  -- ((U_I_I u `T'TT'I` t) `T'TT'I` tt)
+  -- ((U_I_I u `T'TT'I` t) `TT'T'I` tt) where
+ -- mapping = rewrap / \from -> rewrap /
+  -- map @U_I_II @U_I_II @AR @AR (wrap @_ @(U_I_I u `T'TT'I` t `WR_` _)) `compose`
+  -- wrapped (component @AR @(U_I_I u `T'TT'I` tt) @(U_I_I u `TT'T'I` tt)) `compose`
+  -- map @U_I_II @U_I_II @AR @AR @(U_I_I u)
+   -- (wrapped / map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` tt) @(t `TT'T'I` tt) from) `compose`
+  -- unwrap @AR
 
 -- instance Covariant Yoneda AR AR tt =>
 --  Mapping U_I_II U_I_II AR AR (U_II_I P e `T'TT'I` tt) (U_II_I P e `TT'T'I` tt) where
@@ -358,57 +356,56 @@ instance Category AT where
  -- mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
   -- map @U_II_I @U_I_II / (\(These x _) -> x) `compose` from
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P I I e ee) I where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P I (Unit `L` I) e ee) I where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (Identity e) (Identity ee)) (U_I_II f) -> from (f (These e ee))
+  These (These (Identity e) (Labeled (Identity ee))) (U_I_II f) -> from (f (These e ee))
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) I where
  mapping = rewrap / \from (U_I_II f) -> Identity (from (f Unit))
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_II_I S e) (U_II_I S e) ee eee) (U_II_I S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_II_I S e) (Unit `L` U_II_I S e) ee eee) (U_II_I S e) where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (U_II_I (This ee)) (U_II_I (This eee))) (U_I_II f) -> This (from (f (These ee eee)))
+  These (These (U_II_I (This ee)) (Labeled (U_II_I (This eee)))) (U_I_II f) -> This (from (f (These ee eee)))
   These (These (U_II_I (That e)) _) _ -> That e
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_II_I S e) where
  mapping = rewrap / \from (U_I_II f) -> U_II_I (This (from (f Unit)))
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) -> That (from (f (These ee eee)))
-  These (These (U_I_II (This e)) _) (U_I_II _) -> This e
-  These (These _ (U_I_II (This e))) (U_I_II _) -> This e
+  These (These (U_I_II (That ee)) (Labeled (U_I_II (That eee)))) (U_I_II f) -> That (from (f (These ee eee)))
+  These (These (U_I_II (This e)) _) _ -> This e
+  These (These _ (Labeled (U_I_II (This e)))) _ -> This e
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (U_I_II (That ee)) (U_I_II (That eee))) (U_I_II f) ->
+  These (These (U_I_II (That ee)) (Labeled (U_I_II (That eee)))) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These ee eee
   These (These (U_I_II (That ee)) _) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This / This ee
-  These (These (U_I_II (This _)) (U_I_II (That eee))) (U_I_II f) ->
+  These (These (U_I_II (This _)) (Labeled (U_I_II (That eee)))) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This / That eee
-  These (These (U_I_II (This e)) (U_I_II (This _))) (U_I_II _) ->
+  These (These (U_I_II (This e)) (Labeled (U_I_II (This _)))) (U_I_II _) ->
    This e
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_I_II S e) where
  mapping = rewrap / \from (U_I_II f) -> U_I_II (That (from (f Unit)))
 
-instance Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P S (U_I_II S e) (U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) _) (U_I_II f) -> That (from (f (This ee)))
-  These (These _ (U_I_II (That eee))) (U_I_II f) -> That (from (f (That eee)))
-  These (These _ (U_I_II (This eee))) (U_I_II _) -> This eee
+  These (These _ (Labeled (U_I_II (That eee)))) (U_I_II f) -> That (from (f (That eee)))
+  These (These _ (Labeled (U_I_II (This eee)))) (U_I_II _) -> This eee
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (U_II_I S Unit) where
  mapping = rewrap / \_ _ -> U_II_I (That Unit)
 
-instance Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P S (U_II_I S e) (U_II_I S e) ee eee) (U_II_I S e) where
- mapping = rewrap / \from -> rewrap / \case
-  These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
-  These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
-  These (These _ (U_II_I (That eee))) _ -> That eee
+-- instance Mapping U_I_II U_I_II AR AR
+--   (Day U_I_II AR P S (U_II_I S e) (U_II_I S e) ee eee) (U_II_I S e) where
+--  mapping = rewrap / \from -> rewrap / \case
+--   These (These (U_II_I (This ee)) _) (U_I_II f) -> This (from (f (This ee)))
+--   These (These _ (U_II_I (This eee))) (U_I_II f) -> This (from (f (That eee)))
+--   These (These _ (U_II_I (That eee))) _ -> That eee
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (U_I_II S Unit) where
  mapping = rewrap / \_ _ -> U_I_II (This Unit)

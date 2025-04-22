@@ -20,12 +20,12 @@ instance Mapping U_I_II U_I_II AR AR (Shafted List) List where
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (Shafted List) where
  mapping = rewrap / \_ _ -> U_T_I_TT_I (wrap empty `lu` wrap empty)
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (Shafted List) (Shafted List) i ii) (Shafted List) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (Shafted List) (Unit `L` Shafted List) i ii) (Shafted List) where
  mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
   let These i' i'' = unwrap i in
-  let These ii' ii'' = unwrap ii in
-  (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii'))) `lu`
-  (wrap (day @U_I_II @AR @List @P @S identity (from `compose` f) (unwrap i' `lu` unwrap ii')))
+  let These ii' ii'' = (unwrap `compose` unwrap) ii in
+  (wrap (day @U_I_II @AR @Unit @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
+  (wrap (day @U_I_II @AR @Unit @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
 
 instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Unit `L` (Only `P'T'I'TT'I` Shafted List)) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity _) (U_T_I_TT_I (These rl fl)))) ->
@@ -91,7 +91,7 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Endo Semi Functor AR ttt
- , Covariant Endo Monoidal Functor AR P P tttt
+ , Covariant Endo Monoidal Functor AR P P Unit tttt
  , Covariant Endo Transformation Functor AR (t `T'TT'I` Unit `L` ll `L` tttt) (t `TT'T'I` tttt)
  , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
  , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
@@ -100,7 +100,7 @@ instance
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
  where
   mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
-   (r `yokl` is) `lu'yp` (w `yokl` is) `lu'yp` (f `yokl` is) -- `yo'yo` from
+   (r `yokl` is) `lu'yp` Run (w `yokl` is) `lu'yp` Run (f `yokl` is) -- `yo'yo` from
     `yo` (\(These (These sx x) xs) -> U_T_I_TT_I (These (x `yo` from) (U_T_I_TT_I (These (Labeled (sx `yo` from)) (Labeled (xs `yo` from))))))
 
 instance
@@ -152,7 +152,7 @@ instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'
 instance Mapping U_I_II U_I_II AR AR
  (Day U_I_II AR P P List (Cross `L` List) e ee) List where
  mapping = rewrap / \from -> rewrap / \case
-  These (These (Labeled e) (Labeled ee)) (U_I_II f) ->
+  These (These e (Labeled ee)) (U_I_II f) ->
    (e `yokl` (\x -> Forth `ha` New `hv` (ee `yokl` (\xx -> Forth `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @AR
