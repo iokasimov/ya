@@ -14,10 +14,18 @@ type Cascading = L (() `P` ())
 pattern Cascading :: List i -> Cascading List i
 pattern Cascading i = Labeled i
 
-type Cross = L (Void `P` Void)
+-- TODO: restrict to Lists, Nonempty Lists
+pattern Align :: t i -> (Unit `L` t) i
+pattern Align i = Labeled i
 
-pattern Cross :: List i -> Cross List i
+-- TODO: restrict to Lists, Nonempty Lists
+pattern Cross :: t i -> ((Void `P` Void) `L` t) i
 pattern Cross i = Labeled i
+
+type First = L (Unit)
+
+pattern First :: Progress i o -> First (Progress i) o
+pattern First i = Labeled i
 
 pattern Again :: forall t i . t i -> L Recursive t i
 pattern Again i = Labeled @Recursive i
