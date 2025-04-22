@@ -149,11 +149,10 @@ instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'
 --      )
 --     ))))))
 
-instance Mapping U_I_II U_I_II AR AR
- (Day U_I_II AR P P List (Cross `L` List) e ee) List where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P List ((Void `P` Void) `L` List) e ee) List where
  mapping = rewrap / \from -> rewrap / \case
   These (These e (Labeled ee)) (U_I_II f) ->
-   (e `yokl` (\x -> Forth `ha` New `hv` (ee `yokl` (\xx -> Forth `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
+   (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @AR
 
