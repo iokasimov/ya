@@ -156,6 +156,12 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P List ((Void `P` Void) `L
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @AR
 
+instance Mapping U_I_II U_I_II AR AR (Construction Optional)
+ (Construction Optional `T'TT'I` (Unit) `L` Construction Optional) where
+ mapping = rewrap / \from x -> x
+  `yukl` Forth `ha` New `ha` State `ha` Event `hv_` get `ha` that `ha` pop `he'he'hv___` x
+  `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @AR
+
 -- TODO: Add a label
 -- instance Mapping U_I_II U_I_II AR AR (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  -- mapping = rewrap / \from -> \case
