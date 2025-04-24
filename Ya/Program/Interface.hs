@@ -156,6 +156,11 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P List ((Void `P` Void) `L
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @AR
 
+instance Mapping U_I_II U_I_II AR AR (List `T'TT'I` Void `L` List) List where
+ mapping = rewrap / \from x -> unwrap x 
+  `yokl` Prior `ha` New `ha__'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from `ha__` unwrap @AR  `he'he'hv___` Empty @List Unit
+  `yi__` that
+
 instance Mapping U_I_II U_I_II AR AR (Construction Optional)
  (Construction Optional `T'TT'I` (Unit) `L` Construction Optional) where
  mapping = rewrap / \from x -> x
