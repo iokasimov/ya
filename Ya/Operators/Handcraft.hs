@@ -164,15 +164,15 @@ infixl 3 `he______`, `he______'he`, `he______'he'he`, `he______'he'he'he`, `he__
 infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `he_______'ho`, `he_______'ho'he`
 infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
 
-infixl 9 `hv`, `hv'he`, `he'hv`, `he'he'hv`
-infixl 8 `hv_`, `hv_'he`, `he'hv_`, `he'he'hv_`
-infixl 7 `hv__`, `hv__'he`, `he'hv__`, `he'he'hv__`
-infixl 6 `hv___`, `hv___'he`, `he'hv___`, `he'he'hv___`
-infixl 5 `hv____`, `hv____'he`, `he'hv____`, `he'he'hv____`
-infixl 4 `hv_____`, `hv_____'he`, `he'hv_____`, `he'he'hv_____`
-infixl 3 `hv______`, `hv______'he`, `he'hv______`, `he'he'hv______`
-infixl 2 `hv_______`, `hv_______'he`, `he'hv_______`, `he'he'hv_______`
-infixl 1 `hv________`, `hv________'he`, `he'hv________`, `he'he'hv________`
+infixl 9 `hv`, `hv'he`,`hv'he'he`, `he'hv`, `he'he'hv`
+infixl 8 `hv_`, `hv_'he`,`hv_'he'he`, `he'hv_`, `he'he'hv_`
+infixl 7 `hv__`, `hv__'he`,`hv__'he'he`, `he'hv__`, `he'he'hv__`
+infixl 6 `hv___`, `hv___'he`,`hv___'he'he`, `he'hv___`, `he'he'hv___`
+infixl 5 `hv____`, `hv____'he`,`hv____'he'he`, `he'hv____`, `he'he'hv____`
+infixl 4 `hv_____`, `hv_____'he`,`hv_____'he'he`, `he'hv_____`, `he'he'hv_____`
+infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv______`
+infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
+infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
 infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'ys`, `lo'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
@@ -1688,6 +1688,25 @@ hv_____'he = yvi'he
 hv______'he = yvi'he
 hv_______'he = yvi'he
 hv________'he = yvi'he
+
+yvi'he'he, hv'he'he, hv_'he'he, hv__'he'he, hv___'he'he, hv____'he'he, hv_____'he'he, hv______'he'he, hv_______'he'he, hv________'he'he
+ :: forall into a o .
+ Category into =>
+ Terminal into =>
+ Wrapper into a =>
+ Wrapper into (Supertype a) =>
+ into (Supertype (Supertype a)) o -> into a o
+yvi'he'he = fai @into (unwrap `compose` unwrap)
+
+hv'he'he = yvi'he'he
+hv_'he'he = yvi'he'he
+hv__'he'he = yvi'he'he
+hv___'he'he = yvi'he'he
+hv____'he'he = yvi'he'he
+hv_____'he'he = yvi'he'he
+hv______'he'he = yvi'he'he
+hv_______'he'he = yvi'he'he
+hv________'he'he = yvi'he'he
 
 he'yvi, he'hv, he'hv_, he'hv__, he'hv___, he'hv____, he'hv_____, he'hv______, he'hv_______, he'hv________
  :: forall into a o e .
