@@ -2132,19 +2132,20 @@ he'yu :: forall into t a o e .
  t a -> into o (t o)
 he'yu = yu @into
 
--- TODO: define `j'__'__'`, `j'__'__'__'`, `j'__'__'__'__',
-
-lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______ :: forall into a o oo .
+lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______
+ :: forall into r a o oo .
  Category into =>
  Limit U_I_II into into =>
+ Objective into r (o `P` oo) =>
  Covariant Endo Semi Functor into (U_I_II Product a) =>
  Covariant Endo Semi Functor into (U_II_I Product oo) =>
  (forall e ee . Wrapper into (U_I_II Product e ee)) =>
  (forall e ee . Wrapper into (U_II_I Product e ee)) =>
  (forall e . Wrapper into (Both Product e)) =>
  (forall e . Wrapper into (I e)) =>
- into a o -> into a oo -> into a (Product o oo)
-lo l r = foi @into @into l `compose` fio @into @into r
+ into a o -> into a oo -> into a r
+lo l r = objective @into @_ @(o `P` oo)
+ `compose` foi @into @into l `compose` fio @into @into r
  `compose` wrapped (map @U_II_I @U_II_I @into @into @(Both Product) @I identity)
 
 lo_ = lo
@@ -2172,12 +2173,9 @@ lo'lu l r = lo
 
 lo'yp, lo_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
  :: forall t l a o oo .
- -- Covariant Monoidal Functor (->) (->) P P l t =>
  Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P P t (l `L` t) o oo) t =>
  Arrow a (t o) -> Arrow a ((l `L` t) oo) -> Arrow a (t (Product o oo))
-lo'yp from__eft from_right = yp `compose` lo from__eft from_right
-
--- Covariant Transformation Functor (->) (->) (Day U_I_II AR u P t (l `L` t) e ee) t =>
+lo'yp l r = yp `compose` lo @AR @(t o `P` (l `L` t) oo) l r
 
 lo_'yp = lo'yp
 lo__'yp = lo'yp
@@ -2188,10 +2186,10 @@ lo______'yp = lo'yp
 lo_______'yp = lo'yp
 
 lo'ys, lo_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
- :: forall t l a o oo .
- Covariant Monoidal Functor (->) (->) P S l t =>
- Arrow a (t o) -> Arrow a ((l `L` t) oo) -> Arrow a (t (Sum o oo))
-lo'ys from__eft from_right = ys `compose` lo from__eft from_right
+ :: forall t tt l a o oo .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P S t (l `L` tt) o oo) t =>
+ Arrow a (t o) -> Arrow a ((l `L` tt) oo) -> Arrow a (t (Sum o oo))
+lo'ys l r = ys `compose` lo @AR @(t o `P` (l `L` tt) oo) l r
 
 lo_'ys = lo'ys
 lo__'ys = lo'ys
@@ -2202,10 +2200,10 @@ lo______'ys = lo'ys
 lo_______'ys = lo'ys
 
 lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo______'ys'la, lo_______'ys'la
- :: forall t l a o .
- Covariant Monoidal Functor (->) (->) P S l t =>
+ :: forall t tt l a o .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P S t (l `L` t) o o) t =>
  Arrow a (t o) -> Arrow a ((l `L` t) o) -> Arrow a (t o)
-lo'ys'la from__eft from_right = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo from__eft from_right
+lo'ys'la l r = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo @AR @(_ `P` _) l r
 
 lo_'ys'la = lo'ys'la
 lo__'ys'la = lo'ys'la
@@ -2219,7 +2217,7 @@ lo_______'ys'la = lo'ys'la
  -- :: forall t a o oo .
  -- Covariant Monoidal Functor (->) P P t =>
  -- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product o oo))
--- lo'yp from__eft from_right = yp `compose` lo from__eft from_right
+-- lo'yp l r = yp `compose` lo l r
 
 -- lo_'yip'yp = lo'yp
 -- lo__'yip'yp = lo'yp
@@ -2244,7 +2242,7 @@ lo_______'ys'la = lo'ys'la
  -- Wrapper into (U_II_I Product aa a) =>
  -- (forall e . Wrapper into (U_II_I Product aa e)) =>
  -- into a o -> into aa oo -> into (Product a aa) (Product o oo)
--- cn from__eft from_right = fio from_right `compose` foi from__eft
+-- cn l r = fio r `compose` foi l
 
 -- into a o -> into a oo -> into a (Product into o oo)
 
@@ -2260,13 +2258,13 @@ lo_______'ys'la = lo'ys'la
  -- Elicitable U_I_II into e =>
  -- (Supertype e ~ (Product into a aa)) =>
  -- into a o -> into aa oo -> into e (Product into o oo)
--- cnz from__eft from_right = fio from_right `compose` foi from__eft `compose` _' @into
+-- cnz l r = fio r `compose` foi l `compose` _' @into
 
 -- TODO: try to generalize
 -- cn'yp, yi'cn'yp :: forall t a aa o oo .
  -- Mapping U_I_II U_I_II (->) (->) (Day U_I_II (->) (Product (->)) (Product (->)) t t o oo) t =>
  -- Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (->) a aa) (t (Product Arrow o oo))
--- cn'yp from__eft from_right = yp `compose` cn from__eft from_right
+-- cn'yp l r = yp `compose` cn l r
 
 -- yi'cn'yp = cn'yp
 
@@ -2276,7 +2274,7 @@ lo_______'ys'la = lo'ys'la
 --  Elicitable U_I_II (->) e =>
 --  (Supertype e ~ Product (->) a aa) =>
 --  Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
--- cnz'yp from__eft from_right = yp `compose` cn from__eft from_right `compose` he
+-- cnz'yp l r = yp `compose` cn l r `compose` he
 
 -- yi'cnz'yp = cnz'yp
 
@@ -2300,14 +2298,14 @@ lo_______'ys'la = lo'ys'la
 --  Supertype (U_1_I (->) () o) ->
 --  Supertype (U_1_I (->) () oo) ->
 --  Supertype (U_1_I (->) () (Product (->) o oo))
--- lu from__eft from_right = -- he /
---  -- __ (map @U_I_II @U_I_II (wrapped (right @U_I_II (wrap @_ @(U_1_I (->) () oo) from_right)))) `compose`
---  -- i_ (map @U_I_II @U_I_II (wrapped (left @U_I_II (wrap @_ @(U_1_I (->) () o) from__eft)))) `compose`
+-- lu l r = -- he /
+--  -- __ (map @U_I_II @U_I_II (wrapped (right @U_I_II (wrap @_ @(U_1_I (->) () oo) r)))) `compose`
+--  -- i_ (map @U_I_II @U_I_II (wrapped (left @U_I_II (wrap @_ @(U_1_I (->) () o) l)))) `compose`
 --  -- wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(Both (Product (->))) identity) `compose`
 --  -- wrapped (map @U_I_II @U_I_II @(->) @(->) @I @(Both (Product (->))) identity)
 
---  __ (map @U_1_I @U_I_II (wrapped (right @U_I_II from_right))) `compose`
---  i_ (map @U_1_I @U_I_II (wrapped (left @U_I_II from__eft))) `compose`
+--  __ (map @U_1_I @U_I_II (wrapped (right @U_I_II r))) `compose`
+--  i_ (map @U_1_I @U_I_II (wrapped (left @U_I_II l))) `compose`
  -- wrapped (map @U_1_I @U_I_II @(->) @(->) @I @(Both (Product (->))) identity) `compose`
  -- wrapped (map @U_1_I @U_I_II @(->) @(->) @I @(Both (Product (->))) identity)
 
@@ -2433,11 +2431,11 @@ lv_______ l r = wrapped (map @U_II_I @U_II_I @(->) @(->) @I @(Both Sum) identity
  -- Elicitable U_II_I into r =>
  -- Elicitable U_I_II into o =>
  -- from a (Supertype r) -> from aa (Supertype r) -> into o r
--- rwr'hs from__eft from_right = rwr /
+-- rwr'hs l r = rwr /
  -- wrapped (map @U_II_I @U_II_I @from @into @I @(Both Sum) identity) `compose`
  -- wrapped (map @U_II_I @U_II_I @from @into @I @(Both Sum) identity) `compose`
- -- i_ (map @U_I_II @U_I_II (wrapped (left @U_II_I from__eft))) `compose`
- -- __ (map @U_I_II @U_I_II (wrapped (right @U_II_I from_right)))
+ -- i_ (map @U_I_II @U_I_II (wrapped (left @U_II_I l))) `compose`
+ -- __ (map @U_I_II @U_I_II (wrapped (right @U_II_I r)))
 
 -- TODO: try to generalize
 yp :: forall u e ee t tt l .
@@ -2491,11 +2489,10 @@ yio'yp :: forall u e ee eee t tt ll .
 yio'yp = fio (day @U_I_II @(->) @ll @tt @tt @u @P identity identity)
 
 -- TODO: try to generalize
-ys :: forall u e ee t l .
- -- Covariant Monoidal Functor (->) (->) u S l t =>
- Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u S t (l `L` t) e ee) t =>
- u (t e) ((l `L` t) ee) -> t (e `S` ee)
-ys = day @U_I_II @(->) @l @t @t @u @S identity identity
+ys :: forall u e ee t tt l .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR u S t (l `L` tt) e ee) t =>
+ u (t e) ((l `L` tt) ee) -> t (e `S` ee)
+ys = day @U_I_II @(->) @l @t @tt @u @S identity identity
 
 -- TODO: try to generalize
 ys'yo :: forall from t l e ee u r .
@@ -3061,7 +3058,7 @@ lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  t o -> (l `L` tt) oo -> t (o `P` oo)
-lu'yp from_left from_right = yp (lu from_left from_right)
+lu'yp from_left r = yp (lu from_left r)
 
 lu_'yp = lu'yp
 lu__'yp = lu'yp
@@ -3077,7 +3074,7 @@ lu_______'yp = lu'yp
  -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e o)) =>
  -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  -- t e o -> t e oo -> t e (o `P` oo)
--- lu'yip from__eft from_right = yip (lu from__eft from_right)
+-- lu'yip l r = yip (lu l r)
 
 -- lu_'yip = lu'yip
 -- lu__'yip = lu'yip
@@ -3093,7 +3090,7 @@ lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'
  Covariant Yoneda Functor (->) (->) (U_I_II P (t o)) =>
  Covariant Yoneda Functor (->) (->) (U_II_I P ()) =>
  t o -> (l `L` t) oo -> t (o `S` oo)
-lu'ys from__eft from_right = ys (lu from__eft from_right)
+lu'ys l r = ys (lu l r)
 
 lu_'ys = lu'ys
 lu__'ys = lu'ys
@@ -3109,7 +3106,7 @@ lu_______'ys = lu'ys
  -- Covariant Yoneda Functor (->) (->) (U_I_II P (t e o)) =>
  -- Covariant Yoneda Functor (->) (->) (U_II_I P ()) =>
  -- t e o -> t e oo -> t e (o `S` oo)
--- lu'yis from__eft from_right = yis (lu from__eft from_right)
+-- lu'yis l r = yis (lu l r)
 
 -- lu_'yis = lu'yis
 -- lu__'yis = lu'yis
@@ -3126,7 +3123,7 @@ lu'yp'yp :: forall o oo t tt l ll .
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t (tt o))) =>
  Covariant Yoneda Functor (->) (->) (U_II_I Product Unit) =>
  t (tt o) -> (l `L` t) ((ll `L` tt) oo) -> t (tt (o `P` oo))
-lu'yp'yp from__eft from_right = yp'yp @P (lu from__eft from_right)
+lu'yp'yp l r = yp'yp @P (lu l r)
 
 lu'yp'ys
  :: forall t tt l ll o oo .
@@ -3136,7 +3133,7 @@ lu'yp'ys
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t (tt o))) =>
  t (tt o) -> (l `L` t) ((ll `L` tt) oo) -> t (tt (o `S` oo))
-lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
+lu'yp'ys l r = yp'ys (lu l r)
 
 -- lu'yip'yp
  -- :: forall t tt o oo e .
@@ -3146,7 +3143,7 @@ lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
  -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt o))) =>
  -- t e (tt o) -> t e (tt oo) -> t e (tt (o `P` oo))
--- lu'yip'yp from__eft from_right = yip'yp (lu from__eft from_right)
+-- lu'yip'yp l r = yip'yp (lu l r)
 
 -- lu'yip'yip
  -- :: forall t tt o oo e ee .
@@ -3156,7 +3153,7 @@ lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
  -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
  -- t e (tt ee o) -> t e (tt ee oo) -> t e (tt ee (o `P` oo))
--- lu'yip'yip from__eft from_right = yip'yip (lu from__eft from_right)
+-- lu'yip'yip l r = yip'yip (lu l r)
 
 -- lu'yip'yis
  -- :: forall t tt l ll o oo e ee .
@@ -3166,7 +3163,7 @@ lu'yp'ys from__eft from_right = yp'ys (lu from__eft from_right)
  -- Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  -- Covariant Yoneda Functor (->) (->) (U_I_II Product (t e (tt ee o))) =>
  -- t e (tt ee o) -> (l `L` t) e ((ll `L` tt) ee oo) -> t e (tt ee (o `S` oo))
--- lu'yip'yis from__eft from_right = yip'yis (lu from__eft from_right)
+-- lu'yip'yis l r = yip'yis (lu l r)
 
 lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_______'ysp
  :: forall e o oo t l .
@@ -3174,7 +3171,7 @@ lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_
  Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
  Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
  t o -> (l `L` t) oo -> t (o `S` oo `S_` o `P` oo)
-lu'ysp from__eft from_right = ysp (lu from__eft from_right)
+lu'ysp l r = ysp (lu l r)
 
 lu_'ysp = lu'ysp
 lu__'ysp = lu'ysp
