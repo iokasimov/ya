@@ -396,12 +396,11 @@ type S'T'I'TT'I = U_T_I_TT_I S
 class Objective into st t where
  objective :: into t st
 
-instance {-# OVERLAPPABLE #-}
- ( Category into
- , Elicitable U_I_II into t
- , Objective into st (Supertype t)
- ) => Objective into st t where
- objective = objective @into `compose` unwrap @into
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `S` ee) (Supertype t))
+ => Objective into (e `S` ee) t where objective = objective @into `compose` unwrap @into
+
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (Supertype t) (e `P` ee))
+ => Objective into t (e `P` ee) where objective = wrap @into `compose` objective @into
 
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `S` eeee) where
  objective = identity
