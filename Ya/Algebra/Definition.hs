@@ -290,11 +290,11 @@ day from t x = map @v @U_I_II @from @(->)
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-empty :: forall t l o . Covariant Monoidal Functor (->) (->) P S Unit t => t o
+empty :: forall t o . Covariant Monoidal Functor (->) (->) P S Unit t => t o
 empty = component @(->) @(U_I_II (->) Void) @t (U_I_II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t l . Covariant Monoidal Functor (->) (->) P P Unit t => t Unit
+enter :: forall t . Covariant Monoidal Functor (->) (->) P P Unit t => t Unit
 enter = component @(->) @(U_I_II (->) Unit) @t (U_I_II identity)
 
 rewrap :: forall o into a .
