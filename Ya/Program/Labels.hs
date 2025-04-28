@@ -16,6 +16,9 @@ pattern Plane i = Labeled i
 pattern Align :: t i -> (Unit `L` t) i
 pattern Align i = Labeled i
 
+pattern Range :: e -> (Unit `L` Only) e
+pattern Range x = Labeled (Only x)
+
 -- TODO: restrict to Lists, Nonempty Lists
 pattern Cross :: t i -> ((Void `P` Void) `L` t) i
 pattern Cross i = Labeled i
