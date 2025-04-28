@@ -104,6 +104,20 @@ instance
     `yo` (\(These (These sx x) xs) -> U_T_I_TT_I (These (x `yo` from) (U_T_I_TT_I (These (Labeled (sx `yo` from)) (Labeled (xs `yo` from))))))
 
 instance
+ ( Covariant Endo Semi Functor AR tt
+ , Covariant Endo Semi Functor AR ttt
+ , Covariant Endo Monoidal Functor AR P P Unit tttt
+ , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
+ ) => Mapping U_I_II U_I_II AR AR
+ ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` Unit `L` ll `L` tttt)
+ ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
+ where
+  mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These (Labeled r) (Labeled f))) ->
+   (r `yokl` is) `lu'yp` Run (f `yokl` is)
+    `yo` (\(These sx xs) -> U_T_I_TT_I (These (Labeled (sx `yo` from)) (Labeled (xs `yo` from))))
+
+instance
  ( Covariant Endo Semi Functor AR t
  -- , Covariant Endo Semi Functor AR tt
  -- , Covariant Endo Semi Functor AR ttt
