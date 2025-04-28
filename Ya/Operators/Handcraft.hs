@@ -945,9 +945,17 @@ kyo :: forall from into t tt ll a o .
  Precategory into =>
  Component (->) t (t `T'TT'I` ll `L` tt) =>
  Covariant Yoneda Functor from into t =>
+ Covariant Functor from into (U_I_II from (ll `L` tt `T'I` a)) =>
+ Contravariant Functor from into (U_II_I from (ll `L` I `T'I` o)) =>
  (forall e ee . Wrapper into (U_I_II from e ee)) =>
- t a -> into (from ((ll `L` tt) a) o) (t o)
+ (forall e ee . Wrapper into (U_II_I from e ee)) =>
+ (forall e . Wrapper from (I e)) =>
+ (forall e . Wrapper from (ll `L`I `T'I` e)) =>
+ (forall e . Wrapper from (ll `L`tt `T'I` e)) =>
+ t a -> into (from (tt a) ((ll `L` I) o)) (t o)
 kyo x = yo (unwrap `identity` component @(->) @t @(t `T'TT'I` ll `L` tt) x)
+ `compose` fio @from (unwrap `compose` unwrap)
+ `compose` fai @from unwrap
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
