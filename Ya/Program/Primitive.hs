@@ -34,7 +34,7 @@ switch new old = old `lu` new
 put = switch
 
 leaf :: forall t e .
- Covariant Monoidal Functor (->) (->) P S t =>
+ Covariant Monoidal Functor (->) (->) P S Unit t =>
  e -> Recursive (U_I_T_II t P e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
@@ -43,25 +43,25 @@ it x = x `lu` identity
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
- Reference P (Construction t e) e e
+ Supertype (Construction t e `AT` e)
 top (R_U_I_T_I (Recursive (U_I_T_II (These old xs)))) =
   old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (->) t =>
- Reference P (Construction t e) (t (Construction t e)) (t (Construction t e))
+ Supertype (Construction t e `AT` t (Construction t e))
 sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall t e . Covariant Monoidal Functor (->) (->) P P t => e -> t e
+intro :: forall t e . Covariant Monoidal Functor (->) (->) P P Unit t => e -> t e
 intro x = enter `yu` x
 
-layer :: forall g f e .
- Component (->) f (f `JNT` g) =>
- f e -> (f `JNT` g) e
-layer = component @(->) @f @(f `JNT` g) @e
+-- layer :: forall g f e .
+ -- Component (->) f (f `JNT` g) =>
+ -- f e -> (f `JNT` g) e
+-- layer = component @(->) @f @(f `JNT` g) @e
 
 embed :: forall f g e .
  Component (->) g (f `JNT` g) =>
@@ -82,10 +82,10 @@ try :: forall t e o .
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @(->)
 
-prompt ::
- Elicitable U_II_I (->) e =>
- Supertype e -> e
-prompt = wrap
+-- prompt ::
+ -- Elicitable U_II_I (->) e =>
+ -- Supertype e -> e
+-- prompt = wrap
 
 to :: forall tt t e .
  Component AR t tt =>
