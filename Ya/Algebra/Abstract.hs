@@ -191,6 +191,9 @@ type Function = (->)
 
 type Both = U_I_I
 
+pattern Both :: u i i -> U_I_I u i
+pattern Both x = U_I_I x
+
 pattern In :: u e ee -> U_II_I u ee e
 pattern In x = U_II_I x
 
