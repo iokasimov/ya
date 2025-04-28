@@ -75,7 +75,7 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 pattern Down x = This x :: Shifter List
 pattern Lift x = That x :: Shifter List
 
-pattern Range x = This x :: Shifter Tree
+pattern Broad x = This x :: Shifter Tree
 pattern Level x = That x :: Shifter Tree
 
 -- TODO: implement `locate` method
