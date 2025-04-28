@@ -9,10 +9,8 @@ pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
 
-type Cascading = L (() `P` ())
-
-pattern Cascading :: List i -> Cascading List i
-pattern Cascading i = Labeled i
+pattern Plane :: List i -> (Void `L` List) i
+pattern Plane i = Labeled i
 
 -- TODO: restrict to Lists, Nonempty Lists
 pattern Align :: t i -> (Unit `L` t) i
