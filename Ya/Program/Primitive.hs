@@ -94,8 +94,8 @@ to = component @AR
 
 as :: forall tt t e .
  Component AT t tt =>
- t e `AT` tt e
-as = component @AT
+ Supertype (t e `AT` tt e)
+as = unwrap (component @AT)
 
 by :: Unit `AR` a `AR_` a
 by = unwrap
