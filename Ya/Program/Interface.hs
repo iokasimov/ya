@@ -170,6 +170,13 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P List ((Void `P` Void) `L
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @AR
 
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (Construction Optional) ((Void `P` Void) `L` (Construction Optional)) e ee) (Construction Optional) where
+ mapping = rewrap / \from -> rewrap / \case
+  These (These e (Labeled ee)) (U_I_II f) ->
+   (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
+   `he'he'hv____` Empty @List Unit
+   `yi______` that `ho` (\r -> let (T'TT'I (U_I_II (That rr))) = r in rr) `ho` unwrap @AR
+
 instance Mapping U_I_II U_I_II AR AR (List `T'TT'I` Void `L` List) List where
  mapping = rewrap / \from x -> unwrap x
   `yokl` Prior `ha` New `ha__'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from `ha__` unwrap @AR `he'he'hv___` Empty @List Unit
@@ -187,7 +194,7 @@ instance Mapping U_I_II U_I_II AR AR (Construction Optional `T'TT'I` Void `L` Co
   `yi__` that
 
 instance Mapping U_I_II U_I_II AR AR (Construction Optional)
- (Construction Optional `T'TT'I` (Unit) `L` Construction Optional) where
+ (Construction Optional `T'TT'I` Unit `L` Construction Optional) where
  mapping = rewrap / \from x -> x
   `yukl` Forth `ha` New `ha` State `ha` Event `hv_` get `ha` that `ha` pop `he'he'hv___` x
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @AR
