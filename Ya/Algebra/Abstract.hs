@@ -3,6 +3,7 @@
 module Ya.Algebra.Abstract where
 
 infixl 8 `T'I`
+infixl 7 `T'I_`
 
 infixl 9 #
 
@@ -22,6 +23,7 @@ type WR__ t i = t i
 type WR___ t i = t i
 
 type T'I t i = t i
+type T'I_ t i = t i
 
 type family Supertype e
 
