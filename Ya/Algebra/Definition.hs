@@ -5,9 +5,9 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
-infixl 8 `P`, `S`, `M`
-infixl 7 `P_`, `S_`, `M_`
-infixl 6 `P__`, `S__`, `M__`
+infixl 9 `P`, `S`, `M`
+infixl 8 `P_`, `S_`, `M_`
+infixl 7 `P__`, `S__`, `M__`
 
 infixr 7 `JNT`
 infixr 6 `JNT_`
