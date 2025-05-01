@@ -186,8 +186,8 @@ type S_ = S
 type S__ = S
 
 type family M r a where
- M (_ # a `S` aa) a = aa
- M (aa `S` _ # a) a = aa
+ M ((_ # a) `S` aa) a = aa
+ M (aa `S` (_ # a)) a = aa
  M (aa `S` aaa) a = aa `M` a `S` aaa
 
 type M_ a aa = M a aa

@@ -4,35 +4,35 @@ import Ya.Algebra
 
 -- TODO: generalize over categories
 class Excludable a r where
- on :: r `AR_` r `M` a `S` a
+ on :: r `AR_` (r `M` a) `S` a
 
 -- instance Excludable a aa => Excludable a (T e aa) where
  -- on = on `ha` unwrap @AR
 
-instance Excludable a (((l # a)) `S` aa) where
+instance Excludable a ((l # a) `S` aa) where
  on = That `ha'he` is `la` This
 
-instance (aa `S` (l # a) `M` a ~ aa)
+instance ((aa `S` (l # a) `M` a) ~ (aa))
  => Excludable a (aa `S` (l # a)) where
  on = This `la` That `ha'he` is
 
-instance ((l # a) `S` aa `S` aaa `M` a ~ aa `S` aaa)
+instance (((l # a) `S` aa `S` aaa `M` a) ~ (aa `S` aaa))
  => Excludable a ((l # a) `S` aa `S` aaa) where
  on = That `ha'he` is `la` This `ha` This `la` This `ha` That
 
-instance (aa `S` (l # a) `S` aaa `M` a ~ aa `S` aaa)
+instance ((aa `S` (l # a) `S` aaa `M` a) ~ (aa `S` aaa))
  => Excludable a (aa `S` (l # a) `S` aaa) where
  on = This `ha` This `la` That `ha'he` is `la` This `ha` That
 
-instance ((l # a) `S` aa `S` aaa `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
+instance (((l # a) `S` aa `S` aaa `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
  => Excludable a ((l # a) `S` aa `S` aaa `S` aaaa) where
  on = That `ha'he` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (aa `S` (l # a) `S` aaa `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
+instance ((aa `S` (l # a) `S` aaa `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
  => Excludable a (aa `S` (l # a) `S` aaa `S` aaaa) where
  on = This `ha` This `ha` This `la` That `ha'he` is `la` This `ha` This `ha` That `la` This `ha` That
 
-instance (aa `S` aaa `S` (l # a) `S` aaaa `M` a ~ aa `S` aaa `S` aaaa)
+instance ((aa `S` aaa `S` (l # a) `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
  => Excludable a (aa `S` aaa `S` (l # a) `S` aaaa) where
  on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha'he` is `la` This `ha` That
 
