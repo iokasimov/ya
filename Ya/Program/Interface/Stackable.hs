@@ -27,3 +27,12 @@ instance Stackable (Construction Optional) where
   R_U_I_T_I (Recursive (U_I_T_II (These x (Some xs)))) -> Some x `lu` R_U_I_T_I xs
   R_U_I_T_I (Recursive (U_I_T_II (These x (None xs)))) -> by None `lu` R_U_I_T_I (Recursive (U_I_T_II (These x (None xs))))
  push x = \old -> These x (Item x `ha` Next  `rewrap` old)
+
+pattern Plane :: Stackable t => t i -> (Void `L` t) i
+pattern Plane i = Labeled i
+
+pattern Align :: Stackable t => t i -> (Unit `L` t) i
+pattern Align i = Labeled i
+
+pattern Cross :: Stackable t => t i -> ((Void `P` Void) `L` t) i
+pattern Cross i = Labeled i

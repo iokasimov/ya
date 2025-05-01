@@ -9,19 +9,9 @@ pattern Def e = Labeled @Unit e
 pattern Usual e = Labeled @Unit e
 pattern Default e = Labeled @Unit e
 
-pattern Plane :: List i -> (Void `L` List) i
-pattern Plane i = Labeled i
-
--- TODO: restrict to Lists, Nonempty Lists
-pattern Align :: t i -> (Unit `L` t) i
-pattern Align i = Labeled i
-
+-- TODO: restrict to Scrolling List, Scrolling Tree
 pattern Range :: e -> (Unit `L` Only) e
 pattern Range x = Labeled (Only x)
-
--- TODO: restrict to Lists, Nonempty Lists
-pattern Cross :: t i -> ((Void `P` Void) `L` t) i
-pattern Cross i = Labeled i
 
 type First = L (Unit)
 
