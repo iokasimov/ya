@@ -27,9 +27,6 @@ library
     Ya.Operators.Generated.XX
     Ya.Operators.Generated.XXX
     Ya.Operators.Generated.XXXX
-    Ya.Operators.Generated.XXXXX
-    Ya.Operators.Generated.XXXXXX
-    Ya.Operators.Generated.XXXXXXX
     Ya.Program.Interface
     Ya.Program.Interface.Field
     Ya.Program.Interface.Match
