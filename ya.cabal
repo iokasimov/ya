@@ -12,13 +12,15 @@ build-type:          Simple
 cabal-version:       >= 1.10
 
 library
-  exposed-modules: Ya
-  other-modules:
+  exposed-modules:
+    Ya
     Ya.Algebra
+    Ya.Operators
+    Ya.Program
+  other-modules:
     Ya.Algebra.Abstract
     Ya.Algebra.Definition
     Ya.Algebra.Instances
-    Ya.Operators
     Ya.Operators.Mappings
     Ya.Operators.Handcraft
     Ya.Operators.Generated
@@ -28,7 +30,6 @@ library
     Ya.Operators.Generated.XXXXX
     Ya.Operators.Generated.XXXXXX
     Ya.Operators.Generated.XXXXXXX
-    Ya.Program
     Ya.Program.Interface
     Ya.Program.Interface.Field
     Ya.Program.Interface.Match
