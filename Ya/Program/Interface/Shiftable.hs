@@ -1,6 +1,7 @@
 module Ya.Program.Interface.Shiftable where
 
 import Ya.Algebra
+import Ya.Operators
 import Ya.Program.Patterns
 import Ya.Program.Primitive
 import Ya.Program.Labels

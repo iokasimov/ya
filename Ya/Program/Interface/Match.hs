@@ -1,6 +1,7 @@
 module Ya.Program.Interface.Match where
 
 import Ya.Algebra
+import Ya.Operators
 
 -- TODO: generalize over categories
 class Excludable a r where

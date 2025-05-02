@@ -4,6 +4,7 @@
 module Ya.Program.Interface (module Exports, focus, shaft) where
 
 import Ya.Algebra
+import Ya.Operators
 import Ya.Program.Patterns
 import Ya.Program.Primitive
 import Ya.Program.Labels

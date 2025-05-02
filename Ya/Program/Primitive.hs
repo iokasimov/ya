@@ -5,6 +5,7 @@
 module Ya.Program.Primitive where
 
 import Ya.Algebra
+import Ya.Operators
 import Ya.Program.Patterns
 
 not :: e `S` ee `AR_` ee `S` e

@@ -7,7 +7,7 @@ import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
 
-import Ya.Operators as Exports
+import Ya.Operators
 
  -- ((R_U_I_T_I P (U_I_II S Unit)) (Unit `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
 
