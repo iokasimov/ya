@@ -7,20 +7,10 @@ infixl 7 `T'I_`
 
 infixl 9 #
 
-infixl 8 `WR`
-infixl 7 `WR_`
-infixl 6 `WR__`
-infixl 5 `WR___`
-
 infixl 7 `T'TT'I`, `TT'T'I`
 infixl 6 `T'TT'I_`
 
 infixr 9 `L`
-
-type WR t i = t i
-type WR_ t i = t i
-type WR__ t i = t i
-type WR___ t i = t i
 
 type T'I t i = t i
 type T'I_ t i = t i

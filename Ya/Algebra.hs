@@ -6,6 +6,7 @@ module Ya.Algebra (module Exports) where
 import Ya.Algebra.Abstract as Exports
 import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Instances as Exports ()
+
 import Ya.Operators as Exports
 
  -- ((R_U_I_T_I P (U_I_II S Unit)) (Unit `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
@@ -223,7 +224,7 @@ instance Mapping U_I_II U_I_II AT AT (U_II_I P e) I where
 -- This instance for normal state propagation. How unnormal should look like?
 instance (e ~ ee) =>
  Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L Unit `WR` U_I_II (U_I_UU_II_I AR P) ee)
+ (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L Unit `T'I` U_I_II (U_I_UU_II_I AR P) ee)
  (U_I_II (U_I_UU_II_I AR P) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
@@ -231,7 +232,7 @@ instance (e ~ ee) =>
         These (from res) new
 
 instance (e ~ ee) => Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L (Unit `P` Unit) `WR` U_I_II (U_I_UU_II_I AR P) ee)
+ (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L (Unit `P` Unit) `T'I` U_I_II (U_I_UU_II_I AR P) ee)
  (U_I_II (U_I_UU_II_I AR P) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in

@@ -12,10 +12,10 @@ instance (Precategory into, forall e . Wrapper into (I e))
 
 instance
  ( forall e . Wrapper into (I e)
- , forall e . Wrapper into (l `L` ll `L` t `WR` e)
- , forall e . Wrapper into (ll `L` t `WR` e)
- , forall e . Wrapper into (I `TT'T'I` t `WR_` e)
- , forall e . Wrapper into (I `T'TT'I` l `L` ll `L` t `WR_` e)
+ , forall e . Wrapper into (l `L` ll `L` t `T'I` e)
+ , forall e . Wrapper into (ll `L` t `T'I` e)
+ , forall e . Wrapper into (I `TT'T'I` t `T'I_` e)
+ , forall e . Wrapper into (I `T'TT'I` l `L` ll `L` t `T'I_` e)
  , Covariant Endo Semi Functor into t
  ) => Mapping U_I_II U_I_II into into (I `T'TT'I` l `L` ll `L` t) (I `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap /
@@ -24,20 +24,20 @@ instance
 instance
  ( Covariant Semi Functor from into tt
  , Covariant Endo Semi Functor into t
- , forall e . Wrapper into (t `T'TT'I` tt `WR_` e)
+ , forall e . Wrapper into (t `T'TT'I` tt `T'I_` e)
  ) => Mapping U_I_II U_I_II from into (t `T'TT'I` tt) (t `T'TT'I` tt) where
  mapping = rewrap / \from -> wrap @into `compose` (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into) from `compose` unwrap @into
 
 instance
  ( Covariant Semi Functor from into t
  , Covariant Endo Semi Functor into tt
- , forall e . Wrapper into (t `TT'T'I` tt `WR_` e)
+ , forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)
  ) => Mapping U_I_II U_I_II from into (t `TT'T'I` tt) (t `TT'T'I` tt) where
  mapping = rewrap / \from -> wrap @into `compose` (map @U_I_II @U_I_II @into @into `compose` map @U_I_II @U_I_II @from @into) from `compose` unwrap @into
 
 instance
  ( Covariant Semi Functor from into t
- , forall e . Wrapper into (l `L` t `WR` e)
+ , forall e . Wrapper into (l `L` t `T'I` e)
  ) => Mapping U_I_II U_I_II from into (l `L` t) (l `L` t) where
  mapping = rewrap / \from -> rewrap (map @U_I_II @U_I_II @from @into @t from)
 
@@ -179,7 +179,7 @@ instance Mapping U_I_II U_I_II AR AR (U_II_I S o) (U_II_I S o) where
   -- ((U_I_I u `T'TT'I` t) `T'TT'I` tt)
   -- ((U_I_I u `T'TT'I` t) `TT'T'I` tt) where
  -- mapping = rewrap / \from -> rewrap /
-  -- map @U_I_II @U_I_II @AR @AR (wrap @_ @(U_I_I u `T'TT'I` t `WR_` _)) `compose`
+  -- map @U_I_II @U_I_II @AR @AR (wrap @_ @(U_I_I u `T'TT'I` t `T'I` _)) `compose`
   -- wrapped (component @AR @(U_I_I u `T'TT'I` tt) @(U_I_I u `TT'T'I` tt)) `compose`
   -- map @U_I_II @U_I_II @AR @AR @(U_I_I u)
    -- (wrapped / map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` tt) @(t `TT'T'I` tt) from) `compose`

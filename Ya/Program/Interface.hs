@@ -38,10 +38,10 @@ instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) ((Only `P'
 
   positions :: forall item label .
    Scrolling List item `P` List item `AR__`
-   List (Unit `L` Scrolling List `WR` item) `P` (Scrolling List item `P` List ((Unit `L` Scrolling List) item))
+   List (Unit `L` Scrolling List `T'I` item) `P` (Scrolling List item `P` List (Unit `L` Scrolling List `T'I` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
    `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` auto) `ha_` Scope `hv` at @(Scrolling List item)
-   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `WR` (Unit `L` Scrolling List) item)
+   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `T'I_` Unit `L` Scrolling List `T'I` item)
    `he'he'hv______` x `lu` by `hv` Empty @List
 
 instance Mapping U_I_II U_I_II Arrow Arrow (Construction List)
@@ -71,7 +71,7 @@ instance Mapping U_I_II U_I_II AR AR List (List `P'T'I'TT'I` Shafted List) where
 instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) List where
  mapping = rewrap / \from (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
   that `ho'yo` from
-  `hv_____` enter @(State `WR` List _)
+  `hv_____` enter @(State `T'I` List _)
     `yuk__` New (f `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
     `yuk__` New (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
     `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)

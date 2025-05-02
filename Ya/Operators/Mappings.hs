@@ -16,14 +16,14 @@ import Ya.Algebra.Instances ()
 
 d :: forall into t tt o .
  Adjoint Functor into into t tt =>
- (forall e . Wrapper into (t `T'TT'I` tt `WR_` e)) =>
+ (forall e . Wrapper into (t `T'TT'I` tt `T'I_` e)) =>
  (forall e . Wrapper into (I e)) =>
  into (t (tt o)) o
 d = wrapped `identity` component @into @(t `T'TT'I` tt) @I
 
 di :: forall into t tt i ii o .
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `T'I_` e)) =>
  (forall e . Wrapper into (U_II_I t i e)) =>
  (forall e . Wrapper into (U_I_II tt ii e)) =>
  (forall e . Wrapper into (I e)) =>
@@ -32,14 +32,14 @@ di = wrapped `identity` component @into @(U_II_I t i `T'TT'I` U_I_II tt ii) @I `
 
 j :: forall into t tt o .
  Adjoint Functor into into t tt =>
- (forall e . Wrapper into (tt `T'TT'I` t `WR_` e)) =>
+ (forall e . Wrapper into (tt `T'TT'I` t `T'I_` e)) =>
  (forall e . Wrapper into (I e)) =>
  into o (tt (t o))
 j = wrapped `identity` component @into @I @(tt `T'TT'I` t)
 
 ij :: forall into t tt i ii o .
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `T'I_` e)) =>
  (forall e . Wrapper into (U_II_I t i e)) =>
  (forall e . Wrapper into (U_I_II tt ii e)) =>
  (forall e . Wrapper into (I e)) =>
@@ -68,7 +68,7 @@ fu = fo @from @into @t
 fok :: forall from into t tt l a o .
  Component into (t `T'TT'I` l `L` tt) t =>
  Covariant Functor from into t =>
- Elicitable U_II_I into (t `T'TT'I` l `L` tt `WR_` o) =>
+ Elicitable U_II_I into (t `T'TT'I` l `L` tt `T'I_` o) =>
  from a (L l tt o) -> into (t a) (t o)
 fok from = component @into @(t `T'TT'I` l `L` tt) @t
  `compose` wrap `compose` fo from
@@ -77,8 +77,8 @@ fuk :: forall into t tt ll a o .
  Component (->) I (U_I_II into a) =>
  Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` tt) t =>
  Constant Semi Functor into into t =>
- Wrapper into (t `T'TT'I` ll `L` tt `WR__` o) =>
- Wrapper into (I `WR_` ll `L` tt `WR` o) =>
+ Wrapper into (t `T'TT'I` ll `L` tt `T'I_` o) =>
+ Wrapper into (I `T'I_` ll `L` tt `T'I` o) =>
  (ll `L` tt) o -> into (t a) (t o)
 fuk from = map @U_I_II @U_I_II @into @into @(t `T'TT'I` ll `L` tt) @t identity
  `compose` wrap `compose` fu @into from
@@ -88,17 +88,17 @@ fokl :: forall from into t tt l ll a o .
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Elicitable U_II_I into ((t `T'TT'I` l `L` ll `L` tt) o) =>
  Elicitable U_I_II into (TT'T'I t tt o) =>
- from a (l `L` ll `L` tt `WR` o) -> into (t a) (tt (t o))
+ from a (l `L` ll `L` tt `T'I` o) -> into (t a) (tt (t o))
 fokl from = wrapped (component @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` tt)) `compose` fo from
 
 fukl :: forall into t tt l ll a o .
  Covariant Semi Functor into into t =>
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Component (->) I (U_I_II into a) =>
- Wrapper into (t `T'TT'I` l `L` ll `L` tt `WR_` o) =>
- Wrapper into (t `TT'T'I` tt `WR_` o) =>
- Wrapper into (I `WR_` l `L` ll `L` tt `WR` o) =>
- l `L` ll `L` tt `WR` o `AR__` into (t a) (tt (t o))
+ Wrapper into (t `T'TT'I` l `L` ll `L` tt `T'I_` o) =>
+ Wrapper into (t `TT'T'I` tt `T'I_` o) =>
+ Wrapper into (I `T'I_` l `L` ll `L` tt `T'I` o) =>
+ l `L` ll `L` tt `T'I` o `AR__` into (t a) (tt (t o))
 fukl from = wrapped (component @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` tt)) `compose` fu @into from
 
 fo'fo :: forall from into t tt a o .
@@ -183,7 +183,7 @@ fdi from = wrapped (component @from @(U_II_I t i `T'TT'I` U_I_II tt ii) @I)
 fj :: forall from into t tt a o .
  Covariant Functor from into tt =>
  Adjoint Functor into into t tt =>
- Elicitable U_I_II into (tt `T'TT'I` t `WR_` a) =>
+ Elicitable U_I_II into (tt `T'TT'I` t `T'I_` a) =>
  Elicitable U_II_I into (I a) =>
  from (t a) o -> into a (tt o)
 fj from = fo from `compose` wrapped (component @into @I @(tt `T'TT'I` t))
@@ -191,7 +191,7 @@ fj from = fo from `compose` wrapped (component @into @I @(tt `T'TT'I` t))
 fij :: forall from into t tt i ii a o .
  Covariant Functor from into (U_I_II tt ii) =>
  Adjoint Functor into into (U_II_I t i) (U_I_II tt ii) =>
- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR__` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `T'I_` e)) =>
  (forall e . Wrapper into (U_I_II tt ii e)) =>
  (forall e . Wrapper from (U_II_I t i e)) =>
  Elicitable U_II_I into (I a) =>

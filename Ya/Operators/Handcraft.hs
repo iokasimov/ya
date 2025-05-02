@@ -596,9 +596,9 @@ ydi'ydi, hd'hd :: forall from into t tt ttt tttt i ii iii iiii a o .
  (forall e ee . Wrapper into (U_I_II from e ee)) =>
  (forall e . Wrapper from (I e)) =>
  (forall e . Wrapper into (I e)) =>
- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
- (forall e . Wrapper from (U_II_I ttt iii `T'TT'I` U_I_II tttt iiii `WR_` e)) =>
+ (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `T'I_` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `T'I_` e)) =>
+ (forall e . Wrapper from (U_II_I ttt iii `T'TT'I` U_I_II tttt iiii `T'I_` e)) =>
  t (tt ii (ttt a iii)) i `AR___` into (from a (tttt iiii o)) o
 ydi'ydi x = fai @(->) fdi (ydi @from @into x)
 
@@ -619,9 +619,9 @@ ydi'yij, hd'hj :: forall from into t tt ttt tttt i ii iii iiii a o .
  (forall e ee . Wrapper from (U_I_II tt e ee)) =>
  (forall e ee . Wrapper from (U_I_II tttt e ee)) =>
  (forall e ee . Wrapper into (U_I_II from e ee)) =>
- (forall e . Wrapper from (U_I_II tttt iiii `T'TT'I` U_II_I ttt iii `WR_` e)) =>
- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ (forall e . Wrapper from (U_I_II tttt iiii `T'TT'I` U_II_I ttt iii `T'I_` e)) =>
+ (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `T'I_` e)) =>
+ (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `T'I_` e)) =>
  t (tt ii a) i `AR___` into (from (ttt a iii) o) (tttt iiii o)
 ydi'yij x = fai @(->) fij (ydi @from @into x)
 
@@ -644,9 +644,9 @@ hd'hj = ydi'yij
  -- (forall e ee . Wrapper from (U_I_II tttt e ee)) =>
  -- (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  -- (forall e ee . Wrapper into (U_I_II from e ee)) =>
- -- (forall e . Wrapper from (U_I_II ttt iii `T'TT'I`U_II_I tttt iiii  `WR_` e)) =>
- -- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `WR_` e)) =>
- -- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `WR_` e)) =>
+ -- (forall e . Wrapper from (U_I_II ttt iii `T'TT'I`U_II_I tttt iiii  `T'I_` e)) =>
+ -- (forall e . Wrapper into (U_I_II tt ii `T'TT'I` U_II_I t i `T'I_` e)) =>
+ -- (forall e . Wrapper into (U_II_I t i `T'TT'I` U_I_II tt ii `T'I_` e)) =>
  -- tttt a iiii `AR___` into (from a (ttt iii o)) (tt ii (t o i))
 -- yij'ydi x = fai fdi (yij @from @into x)
 
@@ -962,7 +962,7 @@ yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  Category into =>
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
  Covariant Yoneda Functor from into t =>
- (forall i . Wrapper into (t `T'TT'I` l `L` ll `L` tt `WR__` i)) =>
+ (forall i . Wrapper into (t `T'TT'I` l `L` ll `L` tt `T'I_` i)) =>
  (forall i . Wrapper into ((t `TT'T'I` tt) i)) =>
  (forall e ee . Wrapper into (U_I_II from e ee)) =>
  t a -> into (from a (L l (L ll tt) o)) (tt (t o))
@@ -2029,8 +2029,8 @@ hd________'q = hd'q
  -- Wrapper from (U_II_I t ii (ttt a i)) =>
  -- Wrapper from ((T'TT'I (U_II_I ttt i) (U_I_II tt i)) (tttt ii o)) =>
  -- Wrapper from ((T'TT'I (U_II_I t ii) (U_I_II tttt ii)) o) =>
- -- (forall e . Wrapper from (U_II_I ttt i `T'TT'I` U_I_II tt i `WR__` e)) =>
- -- (forall e . Wrapper from (U_I_II tt i `T'TT'I` U_II_I ttt i `WR__` e)) =>
+ -- (forall e . Wrapper from (U_II_I ttt i `T'TT'I` U_I_II tt i `T'I_` e)) =>
+ -- (forall e . Wrapper from (U_I_II tt i `T'TT'I` U_II_I ttt i `T'I_` e)) =>
  -- a -> from (from (into (from _ o) (tt ii (t o i))) _) (tt ii (t o i))
 -- hj'hj = hj @from @from `compose` hj @from @into
 
@@ -2681,10 +2681,10 @@ ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_
  Covariant Endo Transformation Functor from (t `T'TT'I` ll `L` tt) t =>
  Component (->) I (U_I_II from a) =>
  Covariant Yoneda Functor from (->) (U_I_II from e) =>
- Wrapper from (t `T'TT'I` ll `L` tt `WR__` o) =>
- Wrapper from (I `WR_` ll `L` tt `WR` o) =>
+ Wrapper from (t `T'TT'I` ll `L` tt `T'I_` o) =>
+ Wrapper from (I `T'I_` ll `L` tt `T'I` o) =>
  -- Wrapper (->) (U_1_I from a (tt o)) =>
- -- (forall ee . Wrapper from (t `T'TT'I` ll `L` tt `WR__` ee)) =>
+ -- (forall ee . Wrapper from (t `T'TT'I` ll `L` tt `T'I_` ee)) =>
  from e (t a) -> (ll `L` tt) o -> from e (t o)
 ho'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho_'yuk x = fai (fuk @from @t @tt) (ho @from x)
@@ -2774,7 +2774,7 @@ yai'yukl, ha'yukl, ha_'yukl, ha__'yukl, ha___'yukl, ha____'yukl, ha_____'yukl, h
  (forall ee . Wrapper (->) ((t `T'TT'I` tt) ee)) =>
  (forall ee . Wrapper (->) ((t `TT'T'I` tt) ee)) =>
  (forall ee . Wrapper (->) (L l tt ee)) =>
- Wrapper (->) (I `WR_` l `L` ll `L` tt `WR` o) =>
+ Wrapper (->) (I `T'I_` l `L` ll `L` tt `T'I` o) =>
  u (tt (t o)) e -> L l (L ll tt) o -> u (t a) e
 yai'yukl = fai fukl `compose` ha @(->) @u
 
@@ -2840,12 +2840,12 @@ ha________'yukl = yai'yukl
  -- Covariant Yoneda Functor from from t =>
  -- (forall ee . Wrapper from (U_I_II from (ttt a e) (L l tt ee))) =>
  -- (forall ee . Wrapper from (U_II_I ttt e ee)) =>
- -- (forall ee . Wrapper from (U_II_I tttt e (l `L` tt `WR` ee))) =>
- -- (forall ee . Wrapper from (U_I_II tttt e (l `L` tt `WR` ee))) =>
+ -- (forall ee . Wrapper from (U_II_I tttt e (l `L` tt `T'I` ee))) =>
+ -- (forall ee . Wrapper from (U_I_II tttt e (l `L` tt `T'I` ee))) =>
  -- (forall ee . Wrapper from (L l tt ee)) =>
  -- (forall ee . Wrapper from (t `T'TT'I` l `L` tt `WR___` ee)) =>
- -- (forall ee . Wrapper from (I (l `L` tt `WR` ee))) =>
- -- (forall ee . Wrapper from (U_II_I ttt e `T'TT'I` U_I_II tttt e `WR___` l `L` tt `WR` ee)) =>
+ -- (forall ee . Wrapper from (I (l `L` tt `T'I` ee))) =>
+ -- (forall ee . Wrapper from (U_II_I ttt e `T'TT'I` U_I_II tttt e `WR___` l `L` tt `T'I` ee)) =>
  -- t (ttt a e) -> from (from a (tttt e (L l tt o))) (t o)
 -- yok'hj x = fai hj (yok @from @from x)
 
