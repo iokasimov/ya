@@ -199,6 +199,12 @@ instance Mapping U_I_II U_I_II AR AR (Construction Optional)
   `yukl` Forth `ha` New `ha` State `ha` Event `hv_` get `ha` that `ha` pop `he'he'hv___` x
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @AR
 
+instance Mapping U_I_II U_I_II AR AR (Both P) (Construction Optional) where
+ mapping = rewrap / \from -> rewrap / \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
+
+instance Mapping U_I_II U_I_II AR AR (Both P) List where
+ mapping = rewrap / \from -> rewrap / \(These x y) -> Some `ha` Nonempty @List `ha` Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
+
 -- TODO: Add a label
 -- instance Mapping U_I_II U_I_II AR AR (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  -- mapping = rewrap / \from -> \case
