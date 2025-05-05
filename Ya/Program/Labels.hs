@@ -13,9 +13,7 @@ pattern Default e = Labeled @Unit e
 pattern Range :: e -> (Unit `L` Only) e
 pattern Range x = Labeled (Only x)
 
-type First = L (Unit)
-
-pattern First :: Progress i o -> First (Progress i) o
+pattern First :: Progress i o -> Unit `L` Progress i `T'I` o
 pattern First i = Labeled i
 
 pattern Again :: forall t i . t i -> L Recursive t i
