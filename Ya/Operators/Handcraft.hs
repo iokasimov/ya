@@ -174,14 +174,14 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
-infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'ys`, `lo'ys'la`
-infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`
-infixl 6 `lo__`, `lo__'yp`, `lo__'ys`, `lo__'ys'la`
-infixl 5 `lo___`, `lo___'yp`, `lo___'ys`, `lo___'ys'la`
-infixl 4 `lo____`, `lo____'yp`, `lo____'ys`, `lo____'ys'la`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'ys`, `lo_____'ys'la`
-infixl 2 `lo______`, `lo______'yp`, `lo______'ys`, `lo______'ys'la`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'ys`, `lo_______'ys'la`
+infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'ys`, `lo'ys'la`, `lu'ys'la`
+infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`, `lu_'ys'la`
+infixl 6 `lo__`, `lo__'yp`, `lo__'ys`, `lo__'ys'la`, `lu__'ys'la`
+infixl 5 `lo___`, `lo___'yp`, `lo___'ys`, `lo___'ys'la`, `lu___'ys'la`
+infixl 4 `lo____`, `lo____'yp`, `lo____'ys`, `lo____'ys'la`, `lu____'ys'la`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'ys`, `lo_____'ys'la`, `lu_____'ys'la`
+infixl 2 `lo______`, `lo______'yp`, `lo______'ys`, `lo______'ys'la`, `lu______'ys'la`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'ys`, `lo_______'ys'la`, `lu_______'ys'la`
 
 infixl 8 `la`
 infixl 7 `la_`
@@ -2215,19 +2215,21 @@ lo_____'ys'la = lo'ys'la
 lo______'ys'la = lo'ys'la
 lo_______'ys'la = lo'ys'la
 
--- lo'yip'yp, lo_'yip'yp, lo__'yip'yp, lo___'yip'yp, lo____'yip'yp, lo_____'yip'yp, lo______'yip'yp, lo_______'yip'yp
- -- :: forall t a o oo .
- -- Covariant Monoidal Functor (->) P P t =>
- -- Arrow a (t o) -> Arrow a (t oo) -> Arrow a (t (Product o oo))
--- lo'yp l r = yp `compose` lo l r
+lu'ys'la, lu_'ys'la, lu__'ys'la, lu___'ys'la, lu____'ys'la, lu_____'ys'la, lu______'ys'la, lu_______'ys'la
+ :: forall t tt l a o .
+ Mapping U_I_II U_I_II (->) (->) (Day U_I_II AR P S t (l `L` t) o o) t =>
+ Covariant Yoneda Functor (->) (->) (U_I_II Product (t o)) =>
+ Covariant Yoneda Functor (->) (->) (U_II_I Product ()) =>
+ t o -> (l `L` t) o -> (t o)
+lu'ys'la l r = ys'yo (lu l r) (identity @AR `la` identity)
 
--- lo_'yip'yp = lo'yp
--- lo__'yip'yp = lo'yp
--- lo___'yip'yp = lo'yp
--- lo____'yip'yp = lo'yp
--- lo_____'yip'yp = lo'yp
--- lo______'yip'yp = lo'yp
--- lo_______'yip'yp = lo'yp
+lu_'ys'la = lu'ys'la
+lu__'ys'la = lu'ys'la
+lu___'ys'la = lu'ys'la
+lu____'ys'la = lu'ys'la
+lu_____'ys'la = lu'ys'la
+lu______'ys'la = lu'ys'la
+lu_______'ys'la = lu'ys'la
 
 -- x `lo'la` y
 
