@@ -47,8 +47,8 @@ type AT_______ = U_I_UU_II_U_II_I (->) P
 class Dumb x
 instance Dumb x
 
-class Mapping v vv from into f tt where
- mapping :: v from a o -> vv into (f a) (tt o)
+class Mapping v vv from into t tt where
+ mapping :: v from a o -> vv into (t a) (tt o)
 
 instance Mapping U_I_II U_I_II from into t tt => Mapping U_II_I U_II_I from into tt t
  where mapping (U_II_I from) = U_II_I (map @U_I_II @U_I_II @from @into @t @tt from)
