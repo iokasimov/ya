@@ -21,14 +21,14 @@ instance Mapping U_I_II U_I_II AR AR (Shafted List) List where
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (Shafted List) where
  mapping = rewrap / \_ _ -> U_T_I_TT_I (wrap empty `lu` wrap empty)
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (Shafted List) (Unit `L` Shafted List) i ii) (Shafted List) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (Shafted List) (Void `L` Shafted List) i ii) (Shafted List) where
  mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
   let These i' i'' = unwrap i in
   let These ii' ii'' = (unwrap `compose` unwrap) ii in
-  (wrap (day @U_I_II @AR @Unit @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
-  (wrap (day @U_I_II @AR @Unit @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
+  (wrap (day @U_I_II @AR @Void @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
+  (wrap (day @U_I_II @AR @Void @List @List @P @S identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
 
-instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Unit `L` (Only `P'T'I'TT'I` Shafted List)) where
+instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Void `L` (Only `P'T'I'TT'I` Shafted List)) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity _) (U_T_I_TT_I (These rl fl)))) ->
   Identity `hv` Labeled x
    `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Reverse)
@@ -39,10 +39,10 @@ instance Mapping U_I_II U_I_II AR AR (Only `P'T'I'TT'I` Shafted List) ((Only `P'
 
   positions :: forall item label .
    Scrolling List item `P` List item `AR__`
-   List (Unit `L` Scrolling List `T'I` item) `P` (Scrolling List item `P` List (Unit `L` Scrolling List `T'I` item))
+   List (Void `L` Scrolling List `T'I` item) `P` (Scrolling List item `P` List (Void `L` Scrolling List `T'I` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
    `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` auto) `ha_` Scope `hv` at @(Scrolling List item)
-   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `T'I_` Unit `L` Scrolling List `T'I` item)
+   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `T'I_` Void `L` Scrolling List `T'I` item)
    `he'he'hv______` x `lu` by `hv` Empty @List
 
 instance Mapping U_I_II U_I_II Arrow Arrow (Construction List)
@@ -92,12 +92,12 @@ instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
  , Covariant Endo Semi Functor AR ttt
- , Covariant Endo Monoidal Functor AR P P Unit tttt
- , Covariant Endo Transformation Functor AR (t `T'TT'I` Unit `L` ll `L` tttt) (t `TT'T'I` tttt)
- , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
+ , Covariant Endo Monoidal Functor AR P P Void tttt
+ , Covariant Endo Transformation Functor AR (t `T'TT'I` Void `L` ll `L` tttt) (t `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (tt `T'TT'I` Void `L` ll `L` tttt) (tt `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Void `L` ll `L` tttt) (ttt `TT'T'I` tttt)
  ) => Mapping U_I_II U_I_II AR AR
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` Unit `L` ll `L` tttt)
+ ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` Void `L` ll `L` tttt)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
  where
   mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
@@ -107,11 +107,11 @@ instance
 instance
  ( Covariant Endo Semi Functor AR tt
  , Covariant Endo Semi Functor AR ttt
- , Covariant Endo Monoidal Functor AR P P Unit tttt
- , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
+ , Covariant Endo Monoidal Functor AR P P Void tttt
+ , Covariant Endo Transformation Functor AR (tt `T'TT'I` Void `L` ll `L` tttt) (tt `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Void `L` ll `L` tttt) (ttt `TT'T'I` tttt)
  ) => Mapping U_I_II U_I_II AR AR
- ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` Unit `L` ll `L` tttt)
+ ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` Void `L` ll `L` tttt)
  ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
  where
   mapping = rewrap / \from -> rewrap / \(U_T_I_TT_I (These (Labeled r) (Labeled f))) ->
@@ -123,18 +123,18 @@ instance
  -- , Covariant Endo Semi Functor AR tt
  -- , Covariant Endo Semi Functor AR ttt
  -- , Covariant Endo Monoidal Functor AR P P tttt
- -- , Covariant Endo Transformation Functor AR (t `T'TT'I` Unit `L` ll `L` tttt) (t `TT'T'I` tttt)
- -- , Covariant Endo Transformation Functor AR (tt `T'TT'I` Unit `L` ll `L` tttt) (tt `TT'T'I` tttt)
- -- , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Unit `L` ll `L` tttt) (ttt `TT'T'I` tttt)
+ -- , Covariant Endo Transformation Functor AR (t `T'TT'I` Void `L` ll `L` tttt) (t `TT'T'I` tttt)
+ -- , Covariant Endo Transformation Functor AR (tt `T'TT'I` Void `L` ll `L` tttt) (tt `TT'T'I` tttt)
+ -- , Covariant Endo Transformation Functor AR (ttt `T'TT'I` Void `L` ll `L` tttt) (ttt `TT'T'I` tttt)
  ) => Mapping U_I_II U_I_II AR AR
- (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) `T'TT'I` Unit `L` ll `L` tttt)
+ (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) `T'TT'I` Void `L` ll `L` tttt)
  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Stacked Only Tree List) `TT'T'I` tttt)  where
   -- mapping = rewrap / \from -> rewrap /
   --  \(U_T_I_TT_I (These (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) (Labeled passed))) ->
   --  ()
 
 -- TODO: we are going to apply the same function to all items in a list but it's actually fine
-instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` Unit `L` (List `P'T'I'TT'I` Shafted List)) where
+instance Mapping U_I_II U_I_II AR AR (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` Void `L` (List `P'T'I'TT'I` Shafted List)) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These _ (U_T_I_TT_I (These rl fl)))) ->
   List `ha` Item (Labeled x) `ha` Last `hv` Unit
     `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Back) `ha_` is `hu` x)
@@ -195,7 +195,7 @@ instance Mapping U_I_II U_I_II AR AR (Construction Optional `T'TT'I` Void `L` Co
   `yi__` that
 
 instance Mapping U_I_II U_I_II AR AR (Construction Optional)
- (Construction Optional `T'TT'I` Unit `L` Construction Optional) where
+ (Construction Optional `T'TT'I` Void `L` Construction Optional) where
  mapping = rewrap / \from x -> x
   `yukl` Forth `ha` New `ha` State `ha` Event `hv_` get `ha` that `ha` pop `he'he'hv___` x
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @AR

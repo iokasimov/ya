@@ -32,7 +32,7 @@ instance Stackable (Construction Optional) where
 pattern Plane :: Stackable t => t i -> (Void `L` t) i
 pattern Plane i = Labeled i
 
-pattern Align :: Stackable t => t i -> (Unit `L` t) i
+pattern Align :: Stackable t => t i -> (Void `L` t) i
 pattern Align i = Labeled i
 
 pattern Cross :: Stackable t => t i -> ((Void `P` Void) `L` t) i

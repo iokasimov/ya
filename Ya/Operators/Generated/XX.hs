@@ -24,7 +24,7 @@ yo'yo
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt o))) =>
  (forall e ee . Wrapper into (U_I_II from e ee)) =>
  (t (tt a)) -> into (from (a) o) (t (tt o))
-yo'yo x = fai (fo @from @from @tt) (yo @from @into x)
+yo'yo = fai (fo @from @from @tt) `compose` yo @from @into
 
 yo'ya
  :: forall from into t tt a o .

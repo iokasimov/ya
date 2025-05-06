@@ -9,37 +9,37 @@ import Ya.Algebra.Instances as Exports ()
 
 import Ya.Operators
 
- -- ((R_U_I_T_I P (U_I_II S Unit)) (Unit `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
+ -- ((R_U_I_T_I P (U_I_II S Unit)) (Void `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
 
  -- Covariant Transformation Functor AR AR (Day U_I_II AR P S 
 
 instance
- -- ( Covariant Endo Monoidal Functor AR P S Unit (R_U_I_T_I P (U_I_II S Unit))
- ( Covariant Endo Monoidal Functor AR P P Unit (U_I_II S Unit)
+ -- ( Covariant Endo Monoidal Functor AR P S Void (R_U_I_T_I P (U_I_II S Unit))
+ ( Covariant Endo Monoidal Functor AR P P Void (U_I_II S Unit)
  ) => Mapping U_I_II U_I_II AR AR
- (Day U_I_II AR P S (R_U_I_T_I P (U_I_II S Unit)) (Unit `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
+ (Day U_I_II AR P S (R_U_I_T_I P (U_I_II S Unit)) (Void `L` R_U_I_T_I P (U_I_II S Unit)) i ii)
  (R_U_I_T_I P (U_I_II S Unit)) where
  mapping = rewrap / \from -> rewrap / \(These (These i ii) (U_I_II f)) ->
    let These x xs = he'he'he i in
    let These _ ys = he'he'he'he ii in
    Recursive `compose` U_I_T_II / These
     (from `compose` f / This x)
-    (day @U_I_II @AR @Unit @(U_I_II S Unit) @(U_I_II S Unit) @P @P identity
-     (unwrap `compose` day @U_I_II @AR @Unit @(R_U_I_T_I P _) @(R_U_I_T_I P _) @P @S identity (from `compose` f)
+    (day @U_I_II @AR @Void @(U_I_II S Unit) @(U_I_II S Unit) @P @P identity
+     (unwrap `compose` day @U_I_II @AR @Void @(R_U_I_T_I P _) @(R_U_I_T_I P _) @P @S identity (from `compose` f)
       `compose` fio (wrap `compose` R_U_I_T_I) `compose` foi R_U_I_T_I)
      / These xs (wrap ys))
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit (U_I_II S Unit)
- -- , Covariant Endo Monoidal Functor AR P S Unit (R_U_I_T_I P (U_I_II S Unit))
+ ( Covariant Endo Monoidal Functor AR P P Void (U_I_II S Unit)
+ -- , Covariant Endo Monoidal Functor AR P S Void (R_U_I_T_I P (U_I_II S Unit))
  ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S
   (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit))
-  (Unit `L` (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)))
+  (Void `L` (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)))
  i ii)
  (U_I_II S Unit `T'TT'I` R_U_I_T_I P (U_I_II S Unit)) where
  mapping = rewrap / \from -> rewrap / \(These (These i (Labeled ii)) (U_I_II f)) ->
-  (day @U_I_II @AR @Unit @(U_I_II S Unit) @(U_I_II S Unit) @P @P identity
-     (day @U_I_II @AR @Unit @(R_U_I_T_I P _) @(R_U_I_T_I P _) @P @S identity (from `compose` f)
+  (day @U_I_II @AR @Void @(U_I_II S Unit) @(U_I_II S Unit) @P @P identity
+     (day @U_I_II @AR @Void @(R_U_I_T_I P _) @(R_U_I_T_I P _) @P @S identity (from `compose` f)
   `compose` fio @AR wrap)
      / unwrap i `lu` wrap (unwrap ii))
 
@@ -49,7 +49,7 @@ instance
 -- 4. tt (t (R_U_I_T_I P t _))
 instance
  ( Covariant Endo Semi Functor AR t
- , Covariant Endo Monoidal Functor AR P P Unit tt
+ , Covariant Endo Monoidal Functor AR P P Void tt
  , Covariant Transformation Functor AR AR (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt)
  , Covariant Transformation Functor AR AR (R_U_I_T_I P t `T'TT'I` l `L` ll `L` tt) (R_U_I_T_I P t `TT'T'I` tt)
  ) => Mapping U_I_II U_I_II AR AR
@@ -76,27 +76,27 @@ instance
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
- , Covariant Endo Monoidal Functor AR P P Unit tt
- , Covariant Transformation Functor AR AR (t `T'TT'I` Unit `L` ll `L` tt) (t `TT'T'I` tt)
- ) => Mapping U_I_II U_I_II AR AR (R_U_I_T_I P t `T'TT'I` Unit `L` ll `L` tt) (R_U_I_T_I P t `TT'T'I` tt) where
+ , Covariant Endo Monoidal Functor AR P P Void tt
+ , Covariant Transformation Functor AR AR (t `T'TT'I` Void `L` ll `L` tt) (t `TT'T'I` tt)
+ ) => Mapping U_I_II U_I_II AR AR (R_U_I_T_I P t `T'TT'I` Void `L` ll `L` tt) (R_U_I_T_I P t `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
     unwrap (unwrap x) `yo` from
      `lu_`xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
-      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I P t `T'TT'I` Unit `L` ll `L` tt) @(R_U_I_T_I P t `TT'T'I` tt) from)
+      `ho` wrapped (map @U_I_II @U_I_II @AR @AR @(R_U_I_T_I P t `T'TT'I` Void `L` ll `L` tt) @(R_U_I_T_I P t `TT'T'I` tt) from)
       `ho` wrap @AR @((ll `L` tt) _)
-      `ho` wrap @AR @((Unit `L` ll `L` tt) _)
-      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` Unit `L` ll `L` tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
-      `ho` wrap @AR @((Unit `L` _) _)
+      `ho` wrap @AR @((Void `L` ll `L` tt) _)
+      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` Void `L` ll `L` tt) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
+      `ho` wrap @AR @((Void `L` _) _)
      `yp_'yo` wrap @AR @(R_U_I_T_I _ _ _) `ha` wrap @AR @(Recursive _) `ha` wrap @AR @(U_I_T_II _ _ _ _)
 
 instance
  ( Covariant Endo Semi Functor AR t
  , Covariant Endo Semi Functor AR tt
- , Covariant Endo Monoidal Functor AR P P Unit tt
- , Transformation U_I_II Functor AR AR (t `T'TT'I` L (Unit `P` Unit) (L ll tt)) (t `TT'T'I` tt)
+ , Covariant Endo Monoidal Functor AR P P Void tt
+ , Transformation U_I_II Functor AR AR (t `T'TT'I` L (Void `P` Void) (L ll tt)) (t `TT'T'I` tt)
  ) => Mapping U_I_II U_I_II AR AR
-  (R_U_I_T_I P t `T'TT'I` L (Unit `P` Unit) (L ll tt))
+  (R_U_I_T_I P t `T'TT'I` L (Void `P` Void) (L ll tt))
   (R_U_I_T_I P t `TT'T'I` tt) where
  mapping = rewrap / \from -> rewrap
   / \(R_U_I_T_I (Recursive (U_I_T_II (These x xs)))) ->
@@ -108,50 +108,50 @@ instance
    `fc` (xs
       `yo` wrap @AR @(R_U_I_T_I _ _ _)
       `ho` wrapped (map @U_I_II @U_I_II @AR @AR
-       @(R_U_I_T_I P t `T'TT'I` L (Unit `P` Unit) (L ll tt))
+       @(R_U_I_T_I P t `T'TT'I` L (Void `P` Void) (L ll tt))
        @(R_U_I_T_I P t `TT'T'I` tt) from)
       `ho` wrap @AR @(L ll tt _)
-      `ho` wrap @AR @(L (Unit `P` Unit) (L ll tt) _)
-      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L (Unit `P` Unit) (L ll tt)) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
+      `ho` wrap @AR @(L (Void `P` Void) (L ll tt) _)
+      `yi` wrapped (map @U_I_II @U_I_II @AR @AR @(t `T'TT'I` L (Void `P` Void) (L ll tt)) @(t `TT'T'I` tt) (unwrap @AR @(R_U_I_T_I _ _ _)))
     )
 
 -- TODO: try to simplify
 instance
- ( Covariant Monoidal Functor AR AR P P Unit t
- , Covariant Monoidal Functor AR AR P P Unit (R_U_I_T_I P t)
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (R_U_I_T_I P t) (Unit `L` R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
+ ( Covariant Monoidal Functor AR AR P P Void t
+ , Covariant Monoidal Functor AR AR P P Void (R_U_I_T_I P t)
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (R_U_I_T_I P t) (Void `L` R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These e ee) (U_I_II f) ->
    let These e_ e__ = he'he'he e in
    let These ee_ ee__ = he'he'he'he ee in
    Recursive `compose` U_I_T_II / These
     (from `compose` f / These e_ ee_)
-    (day @U_I_II @AR @Unit @t @t @P @P identity
+    (day @U_I_II @AR @Void @t @t @P @P identity
      (unwrap
-      `compose` day @U_I_II @AR @Unit @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @P identity (from `compose` f)
+      `compose` day @U_I_II @AR @Void @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @P identity (from `compose` f)
       `compose` fio (wrap `compose` R_U_I_T_I)
       `compose` foi R_U_I_T_I)
      / These e__ (wrap ee__))
 
-instance (Initial AR, Covariant Endo Monoidal Functor AR P S Unit t) =>
+instance (Initial AR, Covariant Endo Monoidal Functor AR P S Void t) =>
  Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (R_U_I_T_I P t) where
  mapping = rewrap / \from (U_I_II f) ->
   R_U_I_T_I `compose` Recursive `compose` U_I_T_II
    / These (from / f Unit) (empty @t `yo` initial' @AR)
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit t
- , Covariant Endo Monoidal Functor AR P P Unit (R_U_I_T_I P t)
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (t `T'TT'I` R_U_I_T_I P t) (Unit `L` (t `T'TT'I` R_U_I_T_I P t)) e ee) (t `T'TT'I` R_U_I_T_I P t) where
+ ( Covariant Endo Monoidal Functor AR P P Void t
+ , Covariant Endo Monoidal Functor AR P P Void (R_U_I_T_I P t)
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (t `T'TT'I` R_U_I_T_I P t) (Void `L` (t `T'TT'I` R_U_I_T_I P t)) e ee) (t `T'TT'I` R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TT'I e) (Labeled (T'TT'I ee))) (U_I_II f) ->
-    day @U_I_II @AR @Unit @t @t @P @P identity
-     (day @U_I_II @AR @Unit @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @P identity (from `compose` f) `compose` fio @AR wrap)
+    day @U_I_II @AR @Void @t @t @P @P identity
+     (day @U_I_II @AR @Void @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @P identity (from `compose` f) `compose` fio @AR wrap)
       (These e (wrap ee))
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit t
- , Covariant Endo Monoidal Functor AR P P Unit (R_U_I_T_I P tt)
+ ( Covariant Endo Monoidal Functor AR P P Void t
+ , Covariant Endo Monoidal Functor AR P P Void (R_U_I_T_I P tt)
  ) => Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (t `T'TT'I` R_U_I_T_I P tt) where
  mapping = rewrap / \from (U_I_II f) -> T'TT'I /
   enter @t `yu` (enter @(R_U_I_T_I P tt) `yo` from `compose` f)
@@ -159,16 +159,16 @@ instance
 -- TODO: try to avoid mapping a datastructure twice here
 instance
  ( Covariant Endo Semi Functor AR t
- , Covariant Monoidal Functor AR AR P SP Unit t
- -- , Covariant Monoidal Functor AR AR P SP Unit (R_U_I_T_I P t)
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (t `T'TT'I` R_U_I_T_I P t) (Unit `L` (t `T'TT'I` R_U_I_T_I P t)) e ee) (t `T'TT'I` R_U_I_T_I P t) where
+ , Covariant Monoidal Functor AR AR P SP Void t
+ -- , Covariant Monoidal Functor AR AR P SP Void (R_U_I_T_I P t)
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (t `T'TT'I` R_U_I_T_I P t) (Void `L` (t `T'TT'I` R_U_I_T_I P t)) e ee) (t `T'TT'I` R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TT'I e) (Labeled (T'TT'I ee))) (U_I_II f) ->
-    (day @U_I_II @AR @Unit @t @t @P @SP identity
+    (day @U_I_II @AR @Void @t @t @P @SP identity
      (\case
       U_U_I_II_UU_I_II (This (This x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That x) -> day @U_I_II @AR @Unit @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @SP identity (from `compose` f) (fio @AR wrap x)
+      U_U_I_II_UU_I_II (That x) -> day @U_I_II @AR @Void @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @SP identity (from `compose` f) (fio @AR wrap x)
      )
       (These e (wrap @AR ee))
     )
@@ -176,25 +176,25 @@ instance
 -- TODO: try to avoid mapping twice datastructure here
 instance
  ( Covariant Endo Semi Functor AR t
- , Covariant Monoidal Functor AR AR P SP Unit t
+ , Covariant Monoidal Functor AR AR P SP Void t
   -- TODO: I hope it doesn't produce cycles
- -- , Covariant Monoidal Functor AR AR P SP Unit (R_U_I_T_I P t)
- ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (R_U_I_T_I P t) (Unit `L` R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
+ -- , Covariant Monoidal Functor AR AR P SP Void (R_U_I_T_I P t)
+ ) => Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (R_U_I_T_I P t) (Void `L` R_U_I_T_I P t) e ee) (R_U_I_T_I P t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These e ee) (U_I_II f) ->
    let These e_ e__ = he'he'he e in
    let These ee_ ee__ = he'he'he'he ee in
    Recursive `compose` U_I_T_II / These
     (from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These e_ ee_)
-    (day @U_I_II @AR @Unit @t @t @P @SP identity
+    (day @U_I_II @AR @Void @t @t @P @SP identity
      (unwrap @AR `compose` \case
       U_U_I_II_UU_I_II (This (This x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` This
       U_U_I_II_UU_I_II (This (That x)) -> R_U_I_T_I x `yo` from `compose` f `compose` U_U_I_II_UU_I_II `compose` This `compose` That
-      U_U_I_II_UU_I_II (That (These x xx)) -> day @U_I_II @AR @Unit @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @SP identity (from `compose` f) (R_U_I_T_I x `lu` wrap (R_U_I_T_I xx))
+      U_U_I_II_UU_I_II (That (These x xx)) -> day @U_I_II @AR @Void @(R_U_I_T_I P t) @(R_U_I_T_I P t) @P @SP identity (from `compose` f) (R_U_I_T_I x `lu` wrap (R_U_I_T_I xx))
      )
      / These e__ (wrap ee__))
 
-instance (Initial AR, Covariant Endo Monoidal Functor AR P S Unit t) =>
+instance (Initial AR, Covariant Endo Monoidal Functor AR P S Void t) =>
  Mapping U_I_II U_I_II AR AR (U_I_II AR Void) (t `T'TT'I` R_U_I_T_I P tt) where
  mapping = rewrap / \_ _ -> T'TT'I (empty @t `yo` initial' @AR)
 
@@ -224,7 +224,7 @@ instance Mapping U_I_II U_I_II AT AT (U_II_I P e) I where
 -- This instance for normal state propagation. How unnormal should look like?
 instance (e ~ ee) =>
  Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L Unit `T'I` U_I_II (U_I_UU_II_I AR P) ee)
+ (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` Void `L` U_I_II (U_I_UU_II_I AR P) ee)
  (U_I_II (U_I_UU_II_I AR P) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
@@ -232,14 +232,14 @@ instance (e ~ ee) =>
         These (from res) new
 
 instance (e ~ ee) => Mapping U_I_II U_I_II AR AR
- (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L (Unit `P` Unit) `T'I` U_I_II (U_I_UU_II_I AR P) ee)
+ (U_I_II (U_I_UU_II_I AR P) e `T'TT'I` L (Void `P` Void) `T'I` U_I_II (U_I_UU_II_I AR P) ee)
  (U_I_II (U_I_UU_II_I AR P) e) where
  mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_UU_II_I state) old ->
     let These trn btw = state old in
     let These res _ = unwrap (unwrap (unwrap trn)) btw in
         These (from res) old
 
-instance (Covariant Endo Monoidal Functor AR P P Unit t, e ~ ee)
+instance (Covariant Endo Monoidal Functor AR P P Void t, e ~ ee)
  => Mapping U_I_II U_I_II AR AR
   (U_I_II (U_I_UU_II_I AR P) ee)
   (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) t) where
@@ -266,48 +266,45 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor AR t => Mapping U_I_II U_I
 
 instance
  ( Covariant Endo Semi Functor AR t
- , Covariant Transformation Functor AR AR (t `T'TT'I` L () t) t
+ , Covariant Transformation Functor AR AR (t `T'TT'I` Void `L` t) t
  ) => Mapping U_I_II U_I_II AR AR
- (T'TT'I
-  ((U_I_II AR old `T'TTT'TT'I` U_II_I P btw) t)
-  (L () ((U_I_II AR btw `T'TTT'TT'I` U_II_I P new) t))
+ (
+  ((U_I_II AR old `T'TTT'TT'I` U_II_I P btw) t) `T'TT'I`
+  Void `L` (U_I_II AR btw `T'TTT'TT'I` U_II_I P new) t
  )
  (T'TTT'TT'I (U_I_II AR old) (U_II_I P new) t) where
  mapping = rewrap / \from -> rewrap `compose` rewrap /
-  \(U_I_II x) -> component @AR @(t `T'TT'I` L () t) @t
-  `compose` wrap @AR @(T'TT'I t (L () t) _)
+  \(U_I_II x) -> component @AR @(t `T'TT'I` L Void t) @t
+  `compose` wrap @AR @(T'TT'I t (L Void t) _)
   `compose` map @U_I_II @U_I_II @AR @AR @t @t
-   (wrap @AR @(L () t _) `compose` fd @AR @AR (unwrap @AR @(T'TTT'TT'I (U_I_II AR btw) (U_II_I P new) t _) `compose` fo from `compose` unwrap @AR @(L () _ _)))
+   (wrap @AR @(L Void t _) `compose` fd @AR @AR (unwrap @AR @(T'TTT'TT'I (U_I_II AR btw) (U_II_I P new) t _) `compose` fo from `compose` unwrap @AR @(L Void _ _)))
   `compose` x
 
 -- TODO: try to use adjunctions here
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit tt
- , Covariant Transformation Functor AR AR (tt `T'TT'I` L () tt) tt
+ ( Covariant Endo Monoidal Functor AR P P Void tt
+ , Covariant Transformation Functor AR AR (tt `T'TT'I` Void `L` tt) tt
  , e ~ ee
  ) => Mapping U_I_II U_I_II AR AR
- (T'TT'I
-  (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) tt)
-  (L () (U_I_II (U_I_UU_II_I AR P) ee))
- )
+ (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) tt `T'TT'I` Void `L` U_I_II (U_I_UU_II_I AR P) ee)
  (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) tt) where
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
     \old -> x old `yok` \(U_II_I (These (Labeled (U_I_II (U_I_UU_II_I f))) btw))
-      -> Labeled @() (yu (enter @tt) / U_II_I (f btw) `yo` from)
+      -> Labeled @Void (yu (enter @tt) / U_II_I (f btw) `yo` from)
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit tt
- , Covariant Transformation Functor AR AR (tt `T'TT'I` Unit `L` tt) tt
+ ( Covariant Endo Monoidal Functor AR P P Void tt
+ , Covariant Transformation Functor AR AR (tt `T'TT'I` Void `L` tt) tt
  , e ~ ee
  ) => Mapping U_I_II U_I_II AR AR
  (T'TT'I
   (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) tt)
-  ((() `P` ()) `L` (U_I_II (U_I_UU_II_I AR P) ee))
+  ((Void `P` Void) `L` (U_I_II (U_I_UU_II_I AR P) ee))
  )
  (T'TTT'TT'I (U_I_II AR e) (U_II_I P e) tt) where
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(U_I_II x) ->
     \old -> x old `yok` \(U_II_I (These (Labeled (U_I_II (U_I_UU_II_I f))) btw))
-      -> Labeled @() (yu (enter @tt) / U_II_I (f btw `yiu` old) `yo` from)
+      -> Labeled @Void (yu (enter @tt) / U_II_I (f btw `yiu` old) `yo` from)
 
 -- TODO: introduce a label
 instance
@@ -410,7 +407,7 @@ instance
   `compose` unwrap @into
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit t
+ ( Covariant Endo Monoidal Functor AR P P Void t
  , Covariant Endo Semi Functor AR tt
  ) => Mapping U_I_II U_I_II AR AR tt (tt `TT'T'I` t) where
  mapping = rewrap / \from -> wrap @AR @((tt `TT'T'I` t) _)
@@ -428,7 +425,7 @@ instance
    -- `li` map @U_I_II @U_I_II @AR @AR @(U_II_I P e `T'TT'I` L (U_I_II S () ()) tt) @(U_II_I P e `TT'T'I` tt) from
    -- `li` U_II_I (x old)
 
-instance Covariant Endo Monoidal Functor AR P P Unit t =>
+instance Covariant Endo Monoidal Functor AR P P Void t =>
  Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_I_II AR e `T'TT'I` t) where
  mapping = rewrap / \from -> rewrap / \f -> U_I_II / \_ -> yu enter `compose` from `li` f Unit
 
@@ -546,20 +543,20 @@ instance Mapping U_I_II U_I_II AR AR (U_I_II S e `T'TT'I` L l (U_I_II S e)) (U_I
   T'TT'I (U_I_II (That (Labeled (U_I_II (This e))))) -> U_I_II (This e)
   T'TT'I (U_I_II (This e)) -> U_I_II (This e)
 
-instance Covariant Endo Monoidal Functor AR P P Unit t =>
+instance Covariant Endo Monoidal Functor AR P P Void t =>
  Mapping U_I_II U_I_II AR AR (U_I_II S e `T'TT'I` l `L` ll `L` t) (U_I_II S e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   U_I_II (This e) -> yu enter (U_I_II `li` This e)
   U_I_II (That x) -> unwrap (unwrap x) `yo` from `ho` That  `ho` U_I_II
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit t
- , Mapping U_I_II U_I_II AR AR (t `T'TT'I` Unit `L` t) t
+ ( Covariant Endo Monoidal Functor AR P P Void t
+ , Mapping U_I_II U_I_II AR AR (t `T'TT'I` Void `L` t) t
  , Mapping U_I_II U_I_II AR AR I (U_I_II AR e)
  ) => Mapping U_I_II U_I_II AR AR (t `T'TT'I` Recursive `L` U_I_II S e) t where
  mapping = rewrap / \from -> \(T'TT'I x) ->
-  --x `yok_'he'he` Labeled @()
-  x `yok_` Labeled @Unit
+  --x `yok_'he'he` Labeled @Void
+  x `yok_` Labeled @Void
     `ha__` constant @AR (map @U_I_II @U_I_II from (T'TT'I x))
       `la` yu (enter @t) `ha` from
     `ha__` unwrap @AR
@@ -567,16 +564,16 @@ instance
 
 instance
  ( Mapping U_I_II U_I_II AR AR t t
- , Mapping U_I_II U_I_II AR AR (t `T'TT'I` L () t) t
+ , Mapping U_I_II U_I_II AR AR (t `T'TT'I` L Void t) t
  ) => Mapping U_I_II U_I_II AR AR (t `T'TT'I` L Recursive I) t where
  mapping = rewrap / \from -> \(T'TT'I x) ->
-  -- x `yok'he'he` Labeled @() `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x))
-  x `yok` Labeled @() `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x)) `ha` unwrap @AR `ha` unwrap @AR
+  -- x `yok'he'he` Labeled @Void `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x))
+  x `yok` Labeled @Void `ha` constant @AR (map @U_I_II @U_I_II @_ @_ @_ @t from (T'TT'I x)) `ha` unwrap @AR `ha` unwrap @AR
 
 -- TODO: generalize using adjunctions
 
 instance (e ~ ee) => Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P P (U_I_II (U_I_UU_II_I AR P) e) (Unit `L` U_I_II (U_I_UU_II_I AR P) ee) eee eeee)
+  (Day U_I_II AR P P (U_I_II (U_I_UU_II_I AR P) e) (Void `L` U_I_II (U_I_UU_II_I AR P) ee) eee eeee)
   (U_I_II (U_I_UU_II_I AR P) e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These ee eee) (U_I_II f) -> U_I_UU_II_I `li` \old ->
@@ -586,18 +583,18 @@ instance (e ~ ee) => Mapping U_I_II U_I_II AR AR
 
 instance
  ( i ~ ii
- , Covariant Transformation Functor AR AR (t `T'TT'I` L () t) t
+ , Covariant Transformation Functor AR AR (t `T'TT'I` Void `L` t) t
  , Covariant Yoneda Functor AR AR t
  ) => Mapping U_I_II U_I_II AR AR
   (Day U_I_II AR P P
    (T'TTT'TT'I (U_I_II AR i) (U_II_I P i) t)
-   (Unit `L` (T'TTT'TT'I (U_I_II AR ii) (U_II_I P ii) t))
+   (Void `L` (T'TTT'TT'I (U_I_II AR ii) (U_II_I P ii) t))
    eee eeee)
   (T'TTT'TT'I (U_I_II AR i) (U_II_I P i) t) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (T'TTT'TT'I (U_I_II x)) (Labeled (T'TTT'TT'I (U_I_II y)))) (U_I_II f) ->
    U_I_II / \old -> x old `yok` \(U_II_I (These e btw)) ->
-    Labeled @() (from `compose` f `compose` (e `lu`) `fo'fo` y btw)
+    Labeled @Void (from `compose` f `compose` (e `lu`) `fo'fo` y btw)
 
 -- instance
  -- ( Component AR (t `T'TT'I` t) t
@@ -609,14 +606,14 @@ instance
   -- These (These (T'TT'I (U_I_II f)) (T'TT'I (U_I_II g))) (U_I_II h) -> U_I_II / \x ->
    -- yp (These (f x) (g x)) `yo` h `ho` from
 
-instance Covariant Endo Monoidal Functor AR P P Unit t =>
+instance Covariant Endo Monoidal Functor AR P P Void t =>
  Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_I_II S e `TT'T'I` t) where
  mapping = rewrap / \from (U_I_II f) -> TT'T'I (yu enter (U_I_II (That (from (f Unit)))))
 
 -- TODO: Finish, it's for Halts transformer
-instance Covariant Endo Monoidal Functor AR P P Unit t =>
+instance Covariant Endo Monoidal Functor AR P P Void t =>
  Mapping U_I_II U_I_II AR AR
-  (Day U_I_II AR P P (U_I_II S e `TT'T'I` t) (Unit `L` (U_I_II S e `TT'T'I` t)) ee eee)
+  (Day U_I_II AR P P (U_I_II S e `TT'T'I` t) (Void `L` (U_I_II S e `TT'T'I` t)) ee eee)
   (U_I_II S e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
 
@@ -655,7 +652,7 @@ instance Covariant Endo Semi Functor AR t =>
 
 -- TODO: generalize with limits
 instance Covariant Endo Semi Functor AR t =>
- Mapping U_I_II U_I_II AR AR (U_II_I P e `T'TT'I` Unit `L` t) (U_II_I P e `TT'T'I` t) where
+ Mapping U_I_II U_I_II AR AR (U_II_I P e `T'TT'I` Void `L` t) (U_II_I P e `TT'T'I` t) where
  mapping = rewrap / \from -> rewrap / \case
   U_II_I (These x e) -> unwrap x `yo` from `ho` (`lu` e) `ho` U_II_I
 
@@ -720,7 +717,7 @@ instance Setoid AR (Recursive (U_I_T_II t P e))
   `yoi` (`yio` R_U_I_T_I) `ho` (`yoi` R_U_I_T_I) `yio` R_U_I_T_I
 
 instance
- ( Covariant Endo Monoidal Functor AR P P Unit t
+ ( Covariant Endo Monoidal Functor AR P P Void t
  , Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) t
  ) => Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (L l t) where
  mapping = rewrap / \from -> rewrap / \f -> (yu enter `compose` from `li` f Unit)
@@ -774,7 +771,7 @@ instance Mapping U_II_I U_I_II AT AT
 
 -- a `AR__` o `P` (o `AR` a)
 
--- (t `T'TT'I` Unit `L` ll `L` tt) `AR__` (t `TT'T'I` tt) o `P` ((t `TT'T'I` tt) o `AR` (t `T'TT'I` Unit `L` ll `L` tt))
+-- (t `T'TT'I` Void `L` ll `L` tt) `AR__` (t `TT'T'I` tt) o `P` ((t `TT'T'I` tt) o `AR` (t `T'TT'I` Void `L` ll `L` tt))
 
 -- instance
  -- ( Mapping U_I_II U_I_II AR AR (t `TT'T'I` tt) (t `T'TT'I` l `L` ll `L` tt)

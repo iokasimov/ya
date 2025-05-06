@@ -207,11 +207,11 @@ fc :: forall t a o .
  Adjoint Functor (->) (->) (U_I_II P (t a)) (U_I_II AR (t a)) =>
  Adjoint Functor (->) (->) (U_I_II P a) (U_I_II AR a) =>
  Adjoint Functor (->) (->) (U_I_II P (t a `P` t (AR a o))) (U_I_II (->) (t a `P` t (AR a o))) =>
- Monoidal U_I_II Functor AR AR P P Unit t =>
+ Monoidal U_I_II Functor AR AR P P Void t =>
  t (AR a o) -> AR (t a) (t o)
 fc = unwrap @(->) @(U_I_II AR (t a) _)
  `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
  (fd @(->) @(->) (wrap @_ @(U_I_II _ _ _)) `compose` wrap @_ @(U_I_II _ _ _))
  `compose` fj @(->) @(->) @(U_I_II P (t a)) @(U_I_II AR _)
- (day @U_I_II @AR @Unit @t @t @P @P identity identity
- `compose` unwrap @(->) @(U_I_II P (t a) ((Unit `L` t) (AR a o))) `compose` fo @AR wrap)
+ (day @U_I_II @AR @Void @t @t @P @P identity identity
+ `compose` unwrap @(->) @(U_I_II P (t a) ((Void `L` t) (AR a o))) `compose` fo @AR wrap)

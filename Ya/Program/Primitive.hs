@@ -35,7 +35,7 @@ switch new old = old `lu` new
 put = switch
 
 leaf :: forall t e .
- Covariant Monoidal Functor (->) (->) P S Unit t =>
+ Covariant Monoidal Functor (->) (->) P S Void t =>
  e -> Recursive (U_I_T_II t P e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(->)
 
@@ -56,7 +56,7 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(->) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall t e . Covariant Monoidal Functor (->) (->) P P Unit t => e -> t e
+intro :: forall t e . Covariant Monoidal Functor (->) (->) P P Void t => e -> t e
 intro x = enter `yu` x
 
 -- layer :: forall g f e .

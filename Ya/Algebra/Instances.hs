@@ -356,14 +356,14 @@ instance Category AT where
  -- mapping = rewrap / \(W_I_II_II (U_I_UU_III_U_II_I from)) ->
   -- map @U_II_I @U_I_II / (\(These x _) -> x) `compose` from
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P I (Unit `L` I) e ee) I where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P I (Void `L` I) e ee) I where
  mapping = rewrap / \from -> rewrap / \case
   These (These (Identity e) (Labeled (Identity ee))) (U_I_II f) -> from (f (These e ee))
 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) I where
  mapping = rewrap / \from (U_I_II f) -> Identity (from (f Unit))
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_II_I S e) (Unit `L` U_II_I S e) ee eee) (U_II_I S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_II_I S e) (Void `L` U_II_I S e) ee eee) (U_II_I S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_II_I (This ee)) (Labeled (U_II_I (This eee)))) (U_I_II f) -> This (from (f (These ee eee)))
   These (These (U_II_I (That e)) _) _ -> That e
@@ -371,13 +371,13 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_II_I S e) (Unit `L` U
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_II_I S e) where
  mapping = rewrap / \from (U_I_II f) -> U_II_I (This (from (f Unit)))
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P P (U_I_II S e) (Void `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) (Labeled (U_I_II (That eee)))) (U_I_II f) -> That (from (f (These ee eee)))
   These (These (U_I_II (This e)) _) _ -> This e
   These (These _ (Labeled (U_I_II (This e)))) _ -> This e
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (Void `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) (Labeled (U_I_II (That eee)))) (U_I_II f) ->
    That `compose` from `compose` f `compose` U_U_I_II_UU_I_II `compose` That / These ee eee
@@ -391,7 +391,7 @@ instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P SP (U_I_II S e) (Unit `L` 
 instance Mapping U_I_II U_I_II AR AR (U_I_II AR Unit) (U_I_II S e) where
  mapping = rewrap / \from (U_I_II f) -> U_I_II (That (from (f Unit)))
 
-instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (U_I_II S e) (Unit `L` U_I_II S e) ee eee) (U_I_II S e) where
+instance Mapping U_I_II U_I_II AR AR (Day U_I_II AR P S (U_I_II S e) (Void `L` U_I_II S e) ee eee) (U_I_II S e) where
  mapping = rewrap / \from -> rewrap / \case
   These (These (U_I_II (That ee)) _) (U_I_II f) -> That (from (f (This ee)))
   These (These _ (Labeled (U_I_II (That eee)))) (U_I_II f) -> That (from (f (That eee)))
