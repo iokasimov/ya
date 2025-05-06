@@ -30,7 +30,7 @@ pattern Retry e = Labeled @Recursive e
 
 type Fore = T'I'II S () ()
 
-type Back = U_II_I S () ()
+type Back = T'II'I S () ()
 
 type Forward = L Void
 

@@ -224,7 +224,7 @@ type family Vector x xs where
  Vector x y = x ~ y
 
 -- This transformation is not natural!
-instance (forall i . Setoid AR i) => Mapping U_II_I T'I'II AR AR I Predicate where
+instance (forall i . Setoid AR i) => Mapping T'II'I T'I'II AR AR I Predicate where
  mapping = rewrap / \from -> rewrap / \x x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` from x'
 
 

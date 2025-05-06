@@ -45,12 +45,12 @@ pattern Selfsame x = T'I'II (That x)
 
 type Provided = T'I'II (->)
 
-type Supplied = U_II_I P
+type Supplied = T'II'I P
 
-type Equipped = U_II_I P
+type Equipped = T'II'I P
 
 pattern Equip :: e `P` ee -> Equipped ee e
-pattern Equip x = U_II_I x
+pattern Equip x = T'II'I x
 
 type Optional = T'I'II S Unit
 
@@ -119,15 +119,15 @@ pattern Perhaps x = T'I'II @S x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
-type Attribute = U_I_UU_II_U_II_I (->) P
+type Attribute = U_I_UU_II_T'II'I (->) P
 
 pattern Attribute :: forall ee e . (e `AR_` P ee (ee -> e)) -> Attribute e ee
-pattern Attribute x = U_I_UU_II_U_II_I @(->) @P x
+pattern Attribute x = U_I_UU_II_T'II'I @(->) @P x
 
-type Scope = U_I_UU_II_U_II_I (->) P
+type Scope = U_I_UU_II_T'II'I (->) P
 
 pattern Scope :: forall ee e . (e `AR_` P ee (ee -> e)) -> Scope e ee
-pattern Scope x = U_I_UU_II_U_II_I @(->) @P x
+pattern Scope x = U_I_UU_II_T'II'I @(->) @P x
 
 -- type Directive = U_I_UT'I'II (->) S
 
@@ -141,15 +141,15 @@ pattern Match x = U_I_UU_M_I_II_II @(->) @S x
 
 type Automation e ee eee = e `AR_` ee `P` eee
 
-type Transition = U_I_UU_II_I (->) P
+type Transition = U_I_UT'II'I (->) P
 
 pattern Transition :: Automation e ee e `AR__` Transition e ee
-pattern Transition x = U_I_UU_II_I @(->) @P x
+pattern Transition x = U_I_UT'II'I @(->) @P x
 
-type Event = U_I_UU_II_I (->) P
+type Event = U_I_UT'II'I (->) P
 
 pattern Event :: Automation e ee e `AR__` Event e ee
-pattern Event x = U_I_UU_II_I @(->) @P x
+pattern Event x = U_I_UT'II'I @(->) @P x
 
 type State = T'I'II Transition
 
@@ -238,7 +238,7 @@ pattern Right x = That x
 
 type Vertical = S Unit Unit
 
-type Predicate = U_II_I Arrow Boolean
+type Predicate = T'II'I Arrow Boolean
 
 pattern Predicate :: e `AR` Boolean `AR_` Predicate e
-pattern Predicate e = U_II_I e
+pattern Predicate e = T'II'I e

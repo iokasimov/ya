@@ -71,7 +71,7 @@ embed = component @(->) @g @(f `JNT` g) @e
 
 joint :: forall f g e .
  Component (->) (f `T'TT'I` g) (f `JNT` g) =>
- Elicitable U_II_I (->) ((f `T'TT'I` g) e) =>
+ Elicitable T'II'I (->) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @(->) @(f `T'TT'I` g) @(f `JNT` g) @e
 
@@ -79,12 +79,12 @@ joint = wrap @(->) @((f `T'TT'I` g) e) `ho` component @(->) @(f `T'TT'I` g) @(f 
 try :: forall t e o .
  Covariant Endo Semi Functor (->) t =>
  Component (->) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
- Elicitable U_II_I (->) ((t `T'TT'I` Progress e) e) =>
+ Elicitable T'II'I (->) ((t `T'TT'I` Progress e) e) =>
  t (Progress e o) -> (t `JNT` Progress e) `T'I` o
 try = wrap @(->) @((t `T'TT'I` Progress e) _) `ho` component @(->)
 
 -- prompt ::
- -- Elicitable U_II_I (->) e =>
+ -- Elicitable T'II'I (->) e =>
  -- Supertype e -> e
 -- prompt = wrap
 
@@ -109,7 +109,7 @@ rep :: forall r t e .
  Setoid Arrow (Representation t) =>
  Covariant (Representable (->)) (->) (->) t =>
  Representation t `AR_` Attribute `T'I` t e `T'I` e
-rep index = U_I_UU_II_U_II_I `li` \origin ->
+rep index = U_I_UU_II_T'II'I `li` \origin ->
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (->) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (->) (Representation t)) @t identity in
  idx origin `he'hv` index `lu`
@@ -136,18 +136,18 @@ instance {-# OVERLAPPING #-} c => (Choose c d) where resolve r _ = r
 
 -- instance {-# OVERLAPPING #-} Choose (a ~ a) d where resolve = \a _ -> a
 
--- instance (Mapping U_II_I T'I'II AR AR t tt) => (Category P || Mapping U_II_I T'I'II AR AR t tt) where resolve = \_ r -> r
+-- instance (Mapping T'II'I T'I'II AR AR t tt) => (Category P || Mapping T'II'I T'I'II AR AR t tt) where resolve = \_ r -> r
 
 to :: forall tt t i .
  (Supertype (T'I'II AR i i) ~ AR i i) =>
- (Supertype (U_II_I AR i i) ~ AR i i) =>
- Elicitable U_II_I AR (U_II_I AR i i) =>
- Elicitable U_II_I AR (T'I'II AR i i) =>
- Choose (Mapping T'I'II T'I'II AR AR t tt) (Mapping U_II_I T'I'II AR AR t tt) =>
+ (Supertype (T'II'I AR i i) ~ AR i i) =>
+ Elicitable T'II'I AR (T'II'I AR i i) =>
+ Elicitable T'II'I AR (T'I'II AR i i) =>
+ Choose (Mapping T'I'II T'I'II AR AR t tt) (Mapping T'II'I T'I'II AR AR t tt) =>
  t i `AR__` tt i
-to = resolve @(Mapping T'I'II T'I'II AR AR t tt) @(Mapping U_II_I T'I'II AR AR t tt)
+to = resolve @(Mapping T'I'II T'I'II AR AR t tt) @(Mapping T'II'I T'I'II AR AR t tt)
  (unwrap @AR (mapping @T'I'II @T'I'II @AR @AR @t @tt @_ @_ (wrap identity)))
- (unwrap @AR (mapping @U_II_I @T'I'II @AR @AR @t @tt @_ @_ (wrap identity)))
+ (unwrap @AR (mapping @T'II'I @T'I'II @AR @AR @t @tt @_ @_ (wrap identity)))
 
 class Component' into t tt where
  component' :: into (t i) (tt i)
@@ -158,8 +158,8 @@ instance
  component' = unwrap @AR (mapping @T'I'II @T'I'II @AR @AR @t @tt (wrap identity))
 
 instance {-# OVERLAPS #-}
- (forall i . Setoid AR i, Mapping U_II_I T'I'II AR AR I (U_II_I AR Boolean))
- => Component' AR I (U_II_I AR Boolean) where
+ (forall i . Setoid AR i, Mapping T'II'I T'I'II AR AR I (T'II'I AR Boolean))
+ => Component' AR I (T'II'I AR Boolean) where
  component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'
 
 to :: forall tt t i .
@@ -168,12 +168,12 @@ to :: forall tt t i .
 to = component'
 
 -- instance Component AR AR t tt => Component' AR t Predicate where
- -- component' = unwrap @AR (mapping @U_II_I @T'I'II @AR @AR @t @tt @_ @_ (wrap identity))
+ -- component' = unwrap @AR (mapping @T'II'I @T'I'II @AR @AR @t @tt @_ @_ (wrap identity))
 
 -- deriving instance Component' 
 -}
 
 -- instance -- {-# OVERLAPS #-}
- -- (forall i . Setoid AR i) -- , Mapping U_II_I T'I'II AR AR I (U_II_I AR Boolean))
- -- => Component' AR I (U_II_I AR Boolean) where
+ -- (forall i . Setoid AR i) -- , Mapping T'II'I T'I'II AR AR I (T'II'I AR Boolean))
+ -- => Component' AR I (T'II'I AR Boolean) where
  -- component' (Identity x) = Predicate / \x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` x'
