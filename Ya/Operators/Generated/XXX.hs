@@ -22,7 +22,7 @@ yo'yo'he
  Covariant Endo Semi Functor from tt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt o))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt a)) -> into (from (Supertype (a)) o) (t (tt o))
 yo'yo'he x = fai (fo @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -32,7 +32,7 @@ yo'ya'he
  Contravariant Endo Semi Functor from tt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt a))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt o)) -> into (from (Supertype (a)) o) (t (tt a))
 yo'ya'he x = fai (fa @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -43,7 +43,7 @@ yo'yoi'he
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt o ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt a ii)) -> into (from (Supertype (a)) o) (t (tt o ii))
 yo'yoi'he x = fai (foi @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -54,7 +54,7 @@ yo'yai'he, yo'ha'he
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt a ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt o ii)) -> into (from (Supertype (a)) o) (t (tt a ii))
 yo'yai'he x = fai (fai @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -62,11 +62,11 @@ yo'ha'he = yo'yai'he
 
 yo'yio'he, yo'ho'he
  :: forall from into t tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (o)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt ii (a))) -> into (from (Supertype (a)) o) (t (tt ii (o)))
 yo'yio'he x = fai (fio @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -74,11 +74,11 @@ yo'ho'he = yo'yio'he
 
 yo'yia'he
  :: forall from into t tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (a)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt ii (o))) -> into (from (Supertype (a)) o) (t (tt ii (a)))
 yo'yia'he x = fai (fia @from @from @tt `compose` fai @from unwrap) (yo @from @into x)
@@ -128,8 +128,8 @@ ya'ha'he = ya'yai'he
 
 ya'yio'he, ya'ho'he
  :: forall from into t tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (a)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -140,8 +140,8 @@ ya'ho'he = ya'yio'he
 
 ya'yia'he
  :: forall from into t tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (o)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -155,7 +155,7 @@ yoi'yo'he
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt o) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt a) i) -> into (from (Supertype (a)) o) (t (tt o) i)
 yoi'yo'he x = fai (fo @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -166,7 +166,7 @@ yoi'ya'he
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt a) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt o) i) -> into (from (Supertype (a)) o) (t (tt a) i)
 yoi'ya'he x = fai (fa @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -178,7 +178,7 @@ yoi'yoi'he
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt o ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt a ii) i) -> into (from (Supertype (a)) o) (t (tt o ii) i)
 yoi'yoi'he x = fai (foi @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -190,7 +190,7 @@ yoi'yai'he, yoi'ha'he
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt a ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt o ii) i) -> into (from (Supertype (a)) o) (t (tt a ii) i)
 yoi'yai'he x = fai (fai @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -198,12 +198,12 @@ yoi'ha'he = yoi'yai'he
 
 yoi'yio'he, yoi'ho'he
  :: forall from into t i tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (o)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt ii (a)) i) -> into (from (Supertype (a)) o) (t (tt ii (o)) i)
 yoi'yio'he x = fai (fio @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -211,12 +211,12 @@ yoi'ho'he = yoi'yio'he
 
 yoi'yia'he
  :: forall from into t i tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (a)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t (tt ii (o)) i) -> into (from (Supertype (a)) o) (t (tt ii (a)) i)
 yoi'yia'he x = fai (fia @from @from @tt `compose` fai @from unwrap) (yoi @from @into x)
@@ -301,8 +301,8 @@ ha_______'ha'he = yai'yai'he
 
 yai'yio'he, ha'ho'he, ha_'ho'he, ha__'ho'he, ha___'ho'he, ha____'ho'he, ha_____'ho'he, ha______'ho'he, ha_______'ho'he
  :: forall from into t i tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (a)) i)) =>
@@ -321,8 +321,8 @@ ha_______'ho'he = yai'yio'he
 
 yai'yia'he, ha'yia'he, ha_'yia'he, ha__'yia'he, ha___'yia'he, ha____'yia'he, ha_____'yia'he, ha______'yia'he, ha_______'yia'he
  :: forall from into t i tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii (o)) i)) =>
@@ -342,10 +342,10 @@ ha_______'yia'he = yai'yia'he
 yio'yo'he, ho'yo'he, ho_'yo'he, ho__'yo'he, ho___'yo'he, ho____'yo'he, ho_____'yo'he, ho______'yo'he, ho_______'yo'he
  :: forall from into t i tt a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt o)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt a))) -> into (from (Supertype (a)) o) (t i ((tt o)))
 yio'yo'he x = fai (fo @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -361,10 +361,10 @@ ho_______'yo'he = yio'yo'he
 yio'ya'he, ho'ya'he, ho_'ya'he, ho__'ya'he, ho___'ya'he, ho____'ya'he, ho_____'ya'he, ho______'ya'he, ho_______'ya'he
  :: forall from into t i tt a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt a)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt o))) -> into (from (Supertype (a)) o) (t i ((tt a)))
 yio'ya'he x = fai (fa @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -381,10 +381,10 @@ yio'yoi'he, ho'yoi'he, ho_'yoi'he, ho__'yoi'he, ho___'yoi'he, ho____'yoi'he, ho_
  :: forall from into t i tt ii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt o ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt a ii))) -> into (from (Supertype (a)) o) (t i ((tt o ii)))
 yio'yoi'he x = fai (foi @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -401,10 +401,10 @@ yio'yai'he, ho'ha'he, ho_'ha'he, ho__'ha'he, ho___'ha'he, ho____'ha'he, ho_____'
  :: forall from into t i tt ii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt a ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt o ii))) -> into (from (Supertype (a)) o) (t i ((tt a ii)))
 yio'yai'he x = fai (fai @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -419,12 +419,12 @@ ho_______'ha'he = yio'yai'he
 
 yio'yio'he, ho'ho'he, ho_'ho'he, ho__'ho'he, ho___'ho'he, ho____'ho'he, ho_____'ho'he, ho______'ho'he, ho_______'ho'he
  :: forall from into t i tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii (o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt ii (a)))) -> into (from (Supertype (a)) o) (t i ((tt ii (o))))
 yio'yio'he x = fai (fio @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -439,12 +439,12 @@ ho_______'ho'he = yio'yio'he
 
 yio'yia'he, ho'yia'he, ho_'yia'he, ho__'yia'he, ho___'yia'he, ho____'yia'he, ho_____'yia'he, ho______'yia'he, ho_______'yia'he
  :: forall from into t i tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii (a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  Wrapper from (a) =>
  (t i ((tt ii (o)))) -> into (from (Supertype (a)) o) (t i ((tt ii (a))))
 yio'yia'he x = fai (fia @from @from @tt `compose` fai @from unwrap) (yio @from @into x)
@@ -460,8 +460,8 @@ ho_______'yia'he = yio'yia'he
 yia'yo'he
  :: forall from into t i tt a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt a)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -471,8 +471,8 @@ yia'yo'he x = fai (fo @from @from @tt `compose` fai @from unwrap) (yia @from @in
 yia'ya'he
  :: forall from into t i tt a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt o)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -483,8 +483,8 @@ yia'yoi'he
  :: forall from into t i tt ii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt a ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -495,8 +495,8 @@ yia'yai'he, yia'ha'he
  :: forall from into t i tt ii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt o ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -506,10 +506,10 @@ yia'ha'he = yia'yai'he
 
 yia'yio'he, yia'ho'he
  :: forall from into t i tt ii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii (a))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -519,10 +519,10 @@ yia'ho'he = yia'yio'he
 
 yia'yia'he
  :: forall from into t i tt ii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii (o))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  Wrapper from (a) =>
@@ -535,7 +535,7 @@ yo'yo'yo
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a))) -> into (from (a) o) (t (tt (ttt o)))
 yo'yo'yo x = fai (fo @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 
@@ -545,7 +545,7 @@ yo'yo'ya
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o))) -> into (from (a) o) (t (tt (ttt a)))
 yo'yo'ya x = fai (fo @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 
@@ -556,7 +556,7 @@ yo'yo'yoi
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii))) -> into (from (a) o) (t (tt (ttt o iii)))
 yo'yo'yoi x = fai (fo @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 
@@ -567,7 +567,7 @@ yo'yo'yai, yo'yo'ha
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii))) -> into (from (a) o) (t (tt (ttt a iii)))
 yo'yo'yai x = fai (fo @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'yo'ha = yo'yo'yai
@@ -575,11 +575,11 @@ yo'yo'ha = yo'yo'yai
 yo'yo'yio, yo'yo'ho
  :: forall from into t tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)))) -> into (from (a) o) (t (tt (ttt iii (o))))
 yo'yo'yio x = fai (fo @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'yo'ho = yo'yo'yio
@@ -587,11 +587,11 @@ yo'yo'ho = yo'yo'yio
 yo'yo'yia
  :: forall from into t tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)))) -> into (from (a) o) (t (tt (ttt iii (a))))
 yo'yo'yia x = fai (fo @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 
@@ -601,7 +601,7 @@ yo'ya'yo
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o))) -> into (from (a) o) (t (tt (ttt a)))
 yo'ya'yo x = fai (fa @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 
@@ -611,7 +611,7 @@ yo'ya'ya
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a))) -> into (from (a) o) (t (tt (ttt o)))
 yo'ya'ya x = fai (fa @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 
@@ -622,7 +622,7 @@ yo'ya'yoi
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii))) -> into (from (a) o) (t (tt (ttt a iii)))
 yo'ya'yoi x = fai (fa @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 
@@ -633,7 +633,7 @@ yo'ya'yai, yo'ya'ha
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii))) -> into (from (a) o) (t (tt (ttt o iii)))
 yo'ya'yai x = fai (fa @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'ya'ha = yo'ya'yai
@@ -641,11 +641,11 @@ yo'ya'ha = yo'ya'yai
 yo'ya'yio, yo'ya'ho
  :: forall from into t tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)))) -> into (from (a) o) (t (tt (ttt iii (a))))
 yo'ya'yio x = fai (fa @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'ya'ho = yo'ya'yio
@@ -653,11 +653,11 @@ yo'ya'ho = yo'ya'yio
 yo'ya'yia
  :: forall from into t tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)))) -> into (from (a) o) (t (tt (ttt iii (o))))
 yo'ya'yia x = fai (fa @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 
@@ -668,7 +668,7 @@ yo'yoi'yo
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a) ii)) -> into (from (a) o) (t (tt (ttt o) ii))
 yo'yoi'yo x = fai (foi @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 
@@ -679,7 +679,7 @@ yo'yoi'ya
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o) ii)) -> into (from (a) o) (t (tt (ttt a) ii))
 yo'yoi'ya x = fai (foi @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 
@@ -691,7 +691,7 @@ yo'yoi'yoi
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii) ii)) -> into (from (a) o) (t (tt (ttt o iii) ii))
 yo'yoi'yoi x = fai (foi @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 
@@ -703,7 +703,7 @@ yo'yoi'yai, yo'yoi'ha
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii) ii)) -> into (from (a) o) (t (tt (ttt a iii) ii))
 yo'yoi'yai x = fai (foi @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'yoi'ha = yo'yoi'yai
@@ -712,11 +712,11 @@ yo'yoi'yio, yo'yoi'ho
  :: forall from into t tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)) ii)) -> into (from (a) o) (t (tt (ttt iii (o)) ii))
 yo'yoi'yio x = fai (foi @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'yoi'ho = yo'yoi'yio
@@ -725,11 +725,11 @@ yo'yoi'yia
  :: forall from into t tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)) ii)) -> into (from (a) o) (t (tt (ttt iii (a)) ii))
 yo'yoi'yia x = fai (foi @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 
@@ -740,7 +740,7 @@ yo'yai'yo, yo'ha'yo
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o) ii)) -> into (from (a) o) (t (tt (ttt a) ii))
 yo'yai'yo x = fai (fai @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 yo'ha'yo = yo'yai'yo
@@ -752,7 +752,7 @@ yo'yai'ya, yo'ha'ya
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a) ii)) -> into (from (a) o) (t (tt (ttt o) ii))
 yo'yai'ya x = fai (fai @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 yo'ha'ya = yo'yai'ya
@@ -765,7 +765,7 @@ yo'yai'yoi, yo'ha'yoi
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii) ii)) -> into (from (a) o) (t (tt (ttt a iii) ii))
 yo'yai'yoi x = fai (fai @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 yo'ha'yoi = yo'yai'yoi
@@ -778,7 +778,7 @@ yo'yai'yai, yo'ha'ha
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii) ii)) -> into (from (a) o) (t (tt (ttt o iii) ii))
 yo'yai'yai x = fai (fai @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'ha'ha = yo'yai'yai
@@ -787,11 +787,11 @@ yo'yai'yio, yo'ha'ho
  :: forall from into t tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)) ii)) -> into (from (a) o) (t (tt (ttt iii (a)) ii))
 yo'yai'yio x = fai (fai @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'ha'ho = yo'yai'yio
@@ -800,160 +800,160 @@ yo'yai'yia, yo'ha'yia
  :: forall from into t tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)) ii)) -> into (from (a) o) (t (tt (ttt iii (o)) ii))
 yo'yai'yia x = fai (fai @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 yo'ha'yia = yo'yai'yia
 
 yo'yio'yo, yo'ho'yo
  :: forall from into t tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a)))) -> into (from (a) o) (t (tt ii ((ttt o))))
 yo'yio'yo x = fai (fio @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 yo'ho'yo = yo'yio'yo
 
 yo'yio'ya, yo'ho'ya
  :: forall from into t tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o)))) -> into (from (a) o) (t (tt ii ((ttt a))))
 yo'yio'ya x = fai (fio @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 yo'ho'ya = yo'yio'ya
 
 yo'yio'yoi, yo'ho'yoi
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a iii)))) -> into (from (a) o) (t (tt ii ((ttt o iii))))
 yo'yio'yoi x = fai (fio @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 yo'ho'yoi = yo'yio'yoi
 
 yo'yio'yai, yo'ho'ha
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o iii)))) -> into (from (a) o) (t (tt ii ((ttt a iii))))
 yo'yio'yai x = fai (fio @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'ho'ha = yo'yio'yai
 
 yo'yio'yio, yo'ho'ho
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (a))))) -> into (from (a) o) (t (tt ii ((ttt iii (o)))))
 yo'yio'yio x = fai (fio @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'ho'ho = yo'yio'yio
 
 yo'yio'yia, yo'ho'yia
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (o))))) -> into (from (a) o) (t (tt ii ((ttt iii (a)))))
 yo'yio'yia x = fai (fio @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 yo'ho'yia = yo'yio'yia
 
 yo'yia'yo
  :: forall from into t tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o)))) -> into (from (a) o) (t (tt ii ((ttt a))))
 yo'yia'yo x = fai (fia @from @from @tt `compose` fo @from @from @ttt) (yo @from @into x)
 
 yo'yia'ya
  :: forall from into t tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a)))) -> into (from (a) o) (t (tt ii ((ttt o))))
 yo'yia'ya x = fai (fia @from @from @tt `compose` fa @from @from @ttt) (yo @from @into x)
 
 yo'yia'yoi
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o iii)))) -> into (from (a) o) (t (tt ii ((ttt a iii))))
 yo'yia'yoi x = fai (fia @from @from @tt `compose` foi @from @from @ttt) (yo @from @into x)
 
 yo'yia'yai, yo'yia'ha
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a iii)))) -> into (from (a) o) (t (tt ii ((ttt o iii))))
 yo'yia'yai x = fai (fia @from @from @tt `compose` fai @from @from @ttt) (yo @from @into x)
 yo'yia'ha = yo'yia'yai
 
 yo'yia'yio, yo'yia'ho
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (o))))) -> into (from (a) o) (t (tt ii ((ttt iii (a)))))
 yo'yia'yio x = fai (fia @from @from @tt `compose` fio @from @from @ttt) (yo @from @into x)
 yo'yia'ho = yo'yia'yio
 
 yo'yia'yia
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (a))))) -> into (from (a) o) (t (tt ii ((ttt iii (o)))))
 yo'yia'yia x = fai (fia @from @from @tt `compose` fia @from @from @ttt) (yo @from @into x)
 
@@ -1003,8 +1003,8 @@ ya'yo'ha = ya'yo'yai
 ya'yo'yio, ya'yo'ho
  :: forall from into t tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1015,8 +1015,8 @@ ya'yo'ho = ya'yo'yio
 ya'yo'yia
  :: forall from into t tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1069,8 +1069,8 @@ ya'ya'ha = ya'ya'yai
 ya'ya'yio, ya'ya'ho
  :: forall from into t tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1081,8 +1081,8 @@ ya'ya'ho = ya'ya'yio
 ya'ya'yia
  :: forall from into t tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1140,8 +1140,8 @@ ya'yoi'yio, ya'yoi'ho
  :: forall from into t tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1153,8 +1153,8 @@ ya'yoi'yia
  :: forall from into t tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1215,8 +1215,8 @@ ya'yai'yio, ya'ha'ho
  :: forall from into t tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1228,8 +1228,8 @@ ya'yai'yia, ya'ha'yia
  :: forall from into t tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1239,8 +1239,8 @@ ya'ha'yia = ya'yai'yia
 
 ya'yio'yo, ya'ho'yo
  :: forall from into t tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))))) =>
@@ -1251,8 +1251,8 @@ ya'ho'yo = ya'yio'yo
 
 ya'yio'ya, ya'ho'ya
  :: forall from into t tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))))) =>
@@ -1263,8 +1263,8 @@ ya'ho'ya = ya'yio'ya
 
 ya'yio'yoi, ya'ho'yoi
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
@@ -1276,8 +1276,8 @@ ya'ho'yoi = ya'yio'yoi
 
 ya'yio'yai, ya'ho'ha
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
@@ -1289,10 +1289,10 @@ ya'ho'ha = ya'yio'yai
 
 ya'yio'yio, ya'ho'ho
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1302,10 +1302,10 @@ ya'ho'ho = ya'yio'yio
 
 ya'yio'yia, ya'ho'yia
  :: forall from into t tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1315,8 +1315,8 @@ ya'ho'yia = ya'yio'yia
 
 ya'yia'yo
  :: forall from into t tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))))) =>
@@ -1326,8 +1326,8 @@ ya'yia'yo x = fai (fia @from @from @tt `compose` fo @from @from @ttt) (ya @from 
 
 ya'yia'ya
  :: forall from into t tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))))) =>
@@ -1337,8 +1337,8 @@ ya'yia'ya x = fai (fia @from @from @tt `compose` fa @from @from @ttt) (ya @from 
 
 ya'yia'yoi
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
@@ -1349,8 +1349,8 @@ ya'yia'yoi x = fai (fia @from @from @tt `compose` foi @from @from @ttt) (ya @fro
 
 ya'yia'yai, ya'yia'ha
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
@@ -1362,10 +1362,10 @@ ya'yia'ha = ya'yia'yai
 
 ya'yia'yio, ya'yia'ho
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1375,10 +1375,10 @@ ya'yia'ho = ya'yia'yio
 
 ya'yia'yia
  :: forall from into t tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into t =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
@@ -1392,7 +1392,7 @@ yoi'yo'yo
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a)) i) -> into (from (a) o) (t (tt (ttt o)) i)
 yoi'yo'yo x = fai (fo @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 
@@ -1403,7 +1403,7 @@ yoi'yo'ya
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o)) i) -> into (from (a) o) (t (tt (ttt a)) i)
 yoi'yo'ya x = fai (fo @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 
@@ -1415,7 +1415,7 @@ yoi'yo'yoi
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii)) i) -> into (from (a) o) (t (tt (ttt o iii)) i)
 yoi'yo'yoi x = fai (fo @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 
@@ -1427,7 +1427,7 @@ yoi'yo'yai, yoi'yo'ha
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii)) i) -> into (from (a) o) (t (tt (ttt a iii)) i)
 yoi'yo'yai x = fai (fo @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'yo'ha = yoi'yo'yai
@@ -1435,12 +1435,12 @@ yoi'yo'ha = yoi'yo'yai
 yoi'yo'yio, yoi'yo'ho
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a))) i) -> into (from (a) o) (t (tt (ttt iii (o))) i)
 yoi'yo'yio x = fai (fo @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'yo'ho = yoi'yo'yio
@@ -1448,12 +1448,12 @@ yoi'yo'ho = yoi'yo'yio
 yoi'yo'yia
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o))) i) -> into (from (a) o) (t (tt (ttt iii (a))) i)
 yoi'yo'yia x = fai (fo @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 
@@ -1464,7 +1464,7 @@ yoi'ya'yo
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o)) i) -> into (from (a) o) (t (tt (ttt a)) i)
 yoi'ya'yo x = fai (fa @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 
@@ -1475,7 +1475,7 @@ yoi'ya'ya
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a)) i) -> into (from (a) o) (t (tt (ttt o)) i)
 yoi'ya'ya x = fai (fa @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 
@@ -1487,7 +1487,7 @@ yoi'ya'yoi
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii)) i) -> into (from (a) o) (t (tt (ttt a iii)) i)
 yoi'ya'yoi x = fai (fa @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 
@@ -1499,7 +1499,7 @@ yoi'ya'yai, yoi'ya'ha
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii)) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii)) i) -> into (from (a) o) (t (tt (ttt o iii)) i)
 yoi'ya'yai x = fai (fa @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'ya'ha = yoi'ya'yai
@@ -1507,12 +1507,12 @@ yoi'ya'ha = yoi'ya'yai
 yoi'ya'yio, yoi'ya'ho
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o))) i) -> into (from (a) o) (t (tt (ttt iii (a))) i)
 yoi'ya'yio x = fai (fa @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'ya'ho = yoi'ya'yio
@@ -1520,12 +1520,12 @@ yoi'ya'ho = yoi'ya'yio
 yoi'ya'yia
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a))) i) -> into (from (a) o) (t (tt (ttt iii (o))) i)
 yoi'ya'yia x = fai (fa @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 
@@ -1537,7 +1537,7 @@ yoi'yoi'yo
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a) ii) i) -> into (from (a) o) (t (tt (ttt o) ii) i)
 yoi'yoi'yo x = fai (foi @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 
@@ -1549,7 +1549,7 @@ yoi'yoi'ya
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o) ii) i) -> into (from (a) o) (t (tt (ttt a) ii) i)
 yoi'yoi'ya x = fai (foi @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 
@@ -1562,7 +1562,7 @@ yoi'yoi'yoi
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii) ii) i) -> into (from (a) o) (t (tt (ttt o iii) ii) i)
 yoi'yoi'yoi x = fai (foi @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 
@@ -1575,7 +1575,7 @@ yoi'yoi'yai, yoi'yoi'ha
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii) ii) i) -> into (from (a) o) (t (tt (ttt a iii) ii) i)
 yoi'yoi'yai x = fai (foi @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'yoi'ha = yoi'yoi'yai
@@ -1584,12 +1584,12 @@ yoi'yoi'yio, yoi'yoi'ho
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)) ii) i) -> into (from (a) o) (t (tt (ttt iii (o)) ii) i)
 yoi'yoi'yio x = fai (foi @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'yoi'ho = yoi'yoi'yio
@@ -1598,12 +1598,12 @@ yoi'yoi'yia
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)) ii) i) -> into (from (a) o) (t (tt (ttt iii (a)) ii) i)
 yoi'yoi'yia x = fai (foi @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 
@@ -1615,7 +1615,7 @@ yoi'yai'yo, yoi'ha'yo
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o) ii) i) -> into (from (a) o) (t (tt (ttt a) ii) i)
 yoi'yai'yo x = fai (fai @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 yoi'ha'yo = yoi'yai'yo
@@ -1628,7 +1628,7 @@ yoi'yai'ya, yoi'ha'ya
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a) ii) i) -> into (from (a) o) (t (tt (ttt o) ii) i)
 yoi'yai'ya x = fai (fai @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 yoi'ha'ya = yoi'yai'ya
@@ -1642,7 +1642,7 @@ yoi'yai'yoi, yoi'ha'yoi
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt a iii) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt o iii) ii) i) -> into (from (a) o) (t (tt (ttt a iii) ii) i)
 yoi'yai'yoi x = fai (fai @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 yoi'ha'yoi = yoi'yai'yoi
@@ -1656,7 +1656,7 @@ yoi'yai'yai, yoi'ha'ha
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt o iii) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt a iii) ii) i) -> into (from (a) o) (t (tt (ttt o iii) ii) i)
 yoi'yai'yai x = fai (fai @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'ha'ha = yoi'yai'yai
@@ -1665,12 +1665,12 @@ yoi'yai'yio, yoi'ha'ho
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (o)) ii) i) -> into (from (a) o) (t (tt (ttt iii (a)) ii) i)
 yoi'yai'yio x = fai (fai @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'ha'ho = yoi'yai'yio
@@ -1679,173 +1679,173 @@ yoi'yai'yia, yoi'ha'yia
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt (ttt iii (a)) ii) i) -> into (from (a) o) (t (tt (ttt iii (o)) ii) i)
 yoi'yai'yia x = fai (fai @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 yoi'ha'yia = yoi'yai'yia
 
 yoi'yio'yo, yoi'ho'yo
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a))) i) -> into (from (a) o) (t (tt ii ((ttt o))) i)
 yoi'yio'yo x = fai (fio @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 yoi'ho'yo = yoi'yio'yo
 
 yoi'yio'ya, yoi'ho'ya
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o))) i) -> into (from (a) o) (t (tt ii ((ttt a))) i)
 yoi'yio'ya x = fai (fio @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 yoi'ho'ya = yoi'yio'ya
 
 yoi'yio'yoi, yoi'ho'yoi
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o iii))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a iii))) i) -> into (from (a) o) (t (tt ii ((ttt o iii))) i)
 yoi'yio'yoi x = fai (fio @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 yoi'ho'yoi = yoi'yio'yoi
 
 yoi'yio'yai, yoi'ho'ha
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a iii))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o iii))) i) -> into (from (a) o) (t (tt ii ((ttt a iii))) i)
 yoi'yio'yai x = fai (fio @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'ho'ha = yoi'yio'yai
 
 yoi'yio'yio, yoi'ho'ho
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (a)))) i) -> into (from (a) o) (t (tt ii ((ttt iii (o)))) i)
 yoi'yio'yio x = fai (fio @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'ho'ho = yoi'yio'yio
 
 yoi'yio'yia, yoi'ho'yia
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (o)))) i) -> into (from (a) o) (t (tt ii ((ttt iii (a)))) i)
 yoi'yio'yia x = fai (fio @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 yoi'ho'yia = yoi'yio'yia
 
 yoi'yia'yo
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o))) i) -> into (from (a) o) (t (tt ii ((ttt a))) i)
 yoi'yia'yo x = fai (fia @from @from @tt `compose` fo @from @from @ttt) (yoi @from @into x)
 
 yoi'yia'ya
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a))) i) -> into (from (a) o) (t (tt ii ((ttt o))) i)
 yoi'yia'ya x = fai (fia @from @from @tt `compose` fa @from @from @ttt) (yoi @from @into x)
 
 yoi'yia'yoi
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt a iii))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt o iii))) i) -> into (from (a) o) (t (tt ii ((ttt a iii))) i)
 yoi'yia'yoi x = fai (fia @from @from @tt `compose` foi @from @from @ttt) (yoi @from @into x)
 
 yoi'yia'yai, yoi'yia'ha
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt o iii))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt a iii))) i) -> into (from (a) o) (t (tt ii ((ttt o iii))) i)
 yoi'yia'yai x = fai (fia @from @from @tt `compose` fai @from @from @ttt) (yoi @from @into x)
 yoi'yia'ha = yoi'yia'yai
 
 yoi'yia'yio, yoi'yia'ho
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (o)))) i) -> into (from (a) o) (t (tt ii ((ttt iii (a)))) i)
 yoi'yia'yio x = fai (fia @from @from @tt `compose` fio @from @from @ttt) (yoi @from @into x)
 yoi'yia'ho = yoi'yia'yio
 
 yoi'yia'yia
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Covariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))) i)) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t (tt ii ((ttt iii (a)))) i) -> into (from (a) o) (t (tt ii ((ttt iii (o)))) i)
 yoi'yia'yia x = fai (fia @from @from @tt `compose` fia @from @from @ttt) (yoi @from @into x)
 
@@ -1930,8 +1930,8 @@ ha_______'yo'ha = yai'yo'yai
 yai'yo'yio, ha'yo'ho, ha_'yo'ho, ha__'yo'ho, ha___'yo'ho, ha____'yo'ho, ha_____'yo'ho, ha______'yo'ho, ha_______'yo'ho
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))) i)) =>
@@ -1950,8 +1950,8 @@ ha_______'yo'ho = yai'yo'yio
 yai'yo'yia, ha'yo'yia, ha_'yo'yia, ha__'yo'yia, ha___'yo'yia, ha____'yo'yia, ha_____'yo'yia, ha______'yo'yia, ha_______'yo'yia
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))) i)) =>
@@ -2048,8 +2048,8 @@ ha_______'ya'ha = yai'ya'yai
 yai'ya'yio, ha'ya'ho, ha_'ya'ho, ha__'ya'ho, ha___'ya'ho, ha____'ya'ho, ha_____'ya'ho, ha______'ya'ho, ha_______'ya'ho
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o))) i)) =>
@@ -2068,8 +2068,8 @@ ha_______'ya'ho = yai'ya'yio
 yai'ya'yia, ha'ya'yia, ha_'ya'yia, ha__'ya'yia, ha___'ya'yia, ha____'ya'yia, ha_____'ya'yia, ha______'ya'yia, ha_______'ya'yia
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a))) i)) =>
@@ -2171,8 +2171,8 @@ yai'yoi'yio, ha'yoi'ho, ha_'yoi'ho, ha__'yoi'ho, ha___'yoi'ho, ha____'yoi'ho, ha
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii) i)) =>
@@ -2192,8 +2192,8 @@ yai'yoi'yia, ha'yoi'yia, ha_'yoi'yia, ha__'yoi'yia, ha___'yoi'yia, ha____'yoi'yi
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii) i)) =>
@@ -2295,8 +2295,8 @@ yai'yai'yio, ha'ha'ho, ha_'ha'ho, ha__'ha'ho, ha___'ha'ho, ha____'ha'ho, ha_____
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (o)) ii) i)) =>
@@ -2316,8 +2316,8 @@ yai'yai'yia, ha'ha'yia, ha_'ha'yia, ha__'ha'yia, ha___'ha'yia, ha____'ha'yia, ha
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt (ttt iii (a)) ii) i)) =>
@@ -2335,8 +2335,8 @@ ha_______'ha'yia = yai'yai'yia
 
 yai'yio'yo, ha'ho'yo, ha_'ho'yo, ha__'ho'yo, ha___'ho'yo, ha____'ho'yo, ha_____'ho'yo, ha______'ho'yo, ha_______'ho'yo
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
@@ -2355,8 +2355,8 @@ ha_______'ho'yo = yai'yio'yo
 
 yai'yio'ya, ha'ho'ya, ha_'ho'ya, ha__'ho'ya, ha___'ho'ya, ha____'ho'ya, ha_____'ho'ya, ha______'ho'ya, ha_______'ho'ya
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
@@ -2375,8 +2375,8 @@ ha_______'ho'ya = yai'yio'ya
 
 yai'yio'yoi, ha'ho'yoi, ha_'ho'yoi, ha__'ho'yoi, ha___'ho'yoi, ha____'ho'yoi, ha_____'ho'yoi, ha______'ho'yoi, ha_______'ho'yoi
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
@@ -2396,8 +2396,8 @@ ha_______'ho'yoi = yai'yio'yoi
 
 yai'yio'yai, ha'ho'ha, ha_'ho'ha, ha__'ho'ha, ha___'ho'ha, ha____'ho'ha, ha_____'ho'ha, ha______'ho'ha, ha_______'ho'ha
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
@@ -2417,10 +2417,10 @@ ha_______'ho'ha = yai'yio'yai
 
 yai'yio'yio, ha'ho'ho, ha_'ho'ho, ha__'ho'ho, ha___'ho'ho, ha____'ho'ho, ha_____'ho'ho, ha______'ho'ho, ha_______'ho'ho
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))) i)) =>
@@ -2438,10 +2438,10 @@ ha_______'ho'ho = yai'yio'yio
 
 yai'yio'yia, ha'ho'yia, ha_'ho'yia, ha__'ho'yia, ha___'ho'yia, ha____'ho'yia, ha_____'ho'yia, ha______'ho'yia, ha_______'ho'yia
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))) i)) =>
@@ -2459,8 +2459,8 @@ ha_______'ho'yia = yai'yio'yia
 
 yai'yia'yo, ha'yia'yo, ha_'yia'yo, ha__'yia'yo, ha___'yia'yo, ha____'yia'yo, ha_____'yia'yo, ha______'yia'yo, ha_______'yia'yo
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
@@ -2479,8 +2479,8 @@ ha_______'yia'yo = yai'yia'yo
 
 yai'yia'ya, ha'yia'ya, ha_'yia'ya, ha__'yia'ya, ha___'yia'ya, ha____'yia'ya, ha_____'yia'ya, ha______'yia'ya, ha_______'yia'ya
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
@@ -2499,8 +2499,8 @@ ha_______'yia'ya = yai'yia'ya
 
 yai'yia'yoi, ha'yia'yoi, ha_'yia'yoi, ha__'yia'yoi, ha___'yia'yoi, ha____'yia'yoi, ha_____'yia'yoi, ha______'yia'yoi, ha_______'yia'yoi
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
@@ -2520,8 +2520,8 @@ ha_______'yia'yoi = yai'yia'yoi
 
 yai'yia'yai, ha'yia'ha, ha_'yia'ha, ha__'yia'ha, ha___'yia'ha, ha____'yia'ha, ha_____'yia'ha, ha______'yia'ha, ha_______'yia'ha
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
@@ -2541,10 +2541,10 @@ ha_______'yia'ha = yai'yia'yai
 
 yai'yia'yio, ha'yia'ho, ha_'yia'ho, ha__'yia'ho, ha___'yia'ho, ha____'yia'ho, ha_____'yia'ho, ha______'yia'ho, ha_______'yia'ho
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (o)))) i)) =>
@@ -2562,10 +2562,10 @@ ha_______'yia'ho = yai'yia'yio
 
 yai'yia'yia, ha'yia'yia, ha_'yia'yia, ha__'yia'yia, ha___'yia'yia, ha____'yia'yia, ha_____'yia'yia, ha______'yia'yia, ha_______'yia'yia
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
  Contravariant Yoneda Functor from into (U_II_I t i) =>
  (forall e ee . Wrapper into (U_II_I t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t (tt ii ((ttt iii (a)))) i)) =>
@@ -2585,10 +2585,10 @@ yio'yo'yo, ho'yo'yo, ho_'yo'yo, ho__'yo'yo, ho___'yo'yo, ho____'yo'yo, ho_____'y
  :: forall from into t i tt ttt a o .
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a)))) -> into (from (a) o) (t i ((tt (ttt o))))
 yio'yo'yo x = fai (fo @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'yo'yo = yio'yo'yo
@@ -2604,10 +2604,10 @@ yio'yo'ya, ho'yo'ya, ho_'yo'ya, ho__'yo'ya, ho___'yo'ya, ho____'yo'ya, ho_____'y
  :: forall from into t i tt ttt a o .
  Covariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o)))) -> into (from (a) o) (t i ((tt (ttt a))))
 yio'yo'ya x = fai (fo @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'yo'ya = yio'yo'ya
@@ -2624,10 +2624,10 @@ yio'yo'yoi, ho'yo'yoi, ho_'yo'yoi, ho__'yo'yoi, ho___'yo'yoi, ho____'yo'yoi, ho_
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a iii)))) -> into (from (a) o) (t i ((tt (ttt o iii))))
 yio'yo'yoi x = fai (fo @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'yo'yoi = yio'yo'yoi
@@ -2644,10 +2644,10 @@ yio'yo'yai, ho'yo'ha, ho_'yo'ha, ho__'yo'ha, ho___'yo'ha, ho____'yo'ha, ho_____'
  Covariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o iii)))) -> into (from (a) o) (t i ((tt (ttt a iii))))
 yio'yo'yai x = fai (fo @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'yo'ha = yio'yo'yai
@@ -2662,12 +2662,12 @@ ho_______'yo'ha = yio'yo'yai
 yio'yo'yio, ho'yo'ho, ho_'yo'ho, ho__'yo'ho, ho___'yo'ho, ho____'yo'ho, ho_____'yo'ho, ho______'yo'ho, ho_______'yo'ho
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (a))))) -> into (from (a) o) (t i ((tt (ttt iii (o)))))
 yio'yo'yio x = fai (fo @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'yo'ho = yio'yo'yio
@@ -2682,12 +2682,12 @@ ho_______'yo'ho = yio'yo'yio
 yio'yo'yia, ho'yo'yia, ho_'yo'yia, ho__'yo'yia, ho___'yo'yia, ho____'yo'yia, ho_____'yo'yia, ho______'yo'yia, ho_______'yo'yia
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (o))))) -> into (from (a) o) (t i ((tt (ttt iii (a)))))
 yio'yo'yia x = fai (fo @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'yo'yia = yio'yo'yia
@@ -2703,10 +2703,10 @@ yio'ya'yo, ho'ya'yo, ho_'ya'yo, ho__'ya'yo, ho___'ya'yo, ho____'ya'yo, ho_____'y
  :: forall from into t i tt ttt a o .
  Contravariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o)))) -> into (from (a) o) (t i ((tt (ttt a))))
 yio'ya'yo x = fai (fa @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'ya'yo = yio'ya'yo
@@ -2722,10 +2722,10 @@ yio'ya'ya, ho'ya'ya, ho_'ya'ya, ho__'ya'ya, ho___'ya'ya, ho____'ya'ya, ho_____'y
  :: forall from into t i tt ttt a o .
  Contravariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a)))) -> into (from (a) o) (t i ((tt (ttt o))))
 yio'ya'ya x = fai (fa @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'ya'ya = yio'ya'ya
@@ -2742,10 +2742,10 @@ yio'ya'yoi, ho'ya'yoi, ho_'ya'yoi, ho__'ya'yoi, ho___'ya'yoi, ho____'ya'yoi, ho_
  Contravariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o iii)))) -> into (from (a) o) (t i ((tt (ttt a iii))))
 yio'ya'yoi x = fai (fa @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'ya'yoi = yio'ya'yoi
@@ -2762,10 +2762,10 @@ yio'ya'yai, ho'ya'ha, ho_'ya'ha, ho__'ya'ha, ho___'ya'ha, ho____'ya'ha, ho_____'
  Contravariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a iii)))) -> into (from (a) o) (t i ((tt (ttt o iii))))
 yio'ya'yai x = fai (fa @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'ya'ha = yio'ya'yai
@@ -2780,12 +2780,12 @@ ho_______'ya'ha = yio'ya'yai
 yio'ya'yio, ho'ya'ho, ho_'ya'ho, ho__'ya'ho, ho___'ya'ho, ho____'ya'ho, ho_____'ya'ho, ho______'ya'ho, ho_______'ya'ho
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (o))))) -> into (from (a) o) (t i ((tt (ttt iii (a)))))
 yio'ya'yio x = fai (fa @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'ya'ho = yio'ya'yio
@@ -2800,12 +2800,12 @@ ho_______'ya'ho = yio'ya'yio
 yio'ya'yia, ho'ya'yia, ho_'ya'yia, ho__'ya'yia, ho___'ya'yia, ho____'ya'yia, ho_____'ya'yia, ho______'ya'yia, ho_______'ya'yia
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (a))))) -> into (from (a) o) (t i ((tt (ttt iii (o)))))
 yio'ya'yia x = fai (fa @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'ya'yia = yio'ya'yia
@@ -2822,10 +2822,10 @@ yio'yoi'yo, ho'yoi'yo, ho_'yoi'yo, ho__'yoi'yo, ho___'yoi'yo, ho____'yoi'yo, ho_
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a) ii))) -> into (from (a) o) (t i ((tt (ttt o) ii)))
 yio'yoi'yo x = fai (foi @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'yoi'yo = yio'yoi'yo
@@ -2842,10 +2842,10 @@ yio'yoi'ya, ho'yoi'ya, ho_'yoi'ya, ho__'yoi'ya, ho___'yoi'ya, ho____'yoi'ya, ho_
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o) ii))) -> into (from (a) o) (t i ((tt (ttt a) ii)))
 yio'yoi'ya x = fai (foi @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'yoi'ya = yio'yoi'ya
@@ -2863,10 +2863,10 @@ yio'yoi'yoi, ho'yoi'yoi, ho_'yoi'yoi, ho__'yoi'yoi, ho___'yoi'yoi, ho____'yoi'yo
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a iii) ii))) -> into (from (a) o) (t i ((tt (ttt o iii) ii)))
 yio'yoi'yoi x = fai (foi @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'yoi'yoi = yio'yoi'yoi
@@ -2884,10 +2884,10 @@ yio'yoi'yai, ho'yoi'ha, ho_'yoi'ha, ho__'yoi'ha, ho___'yoi'ha, ho____'yoi'ha, ho
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o iii) ii))) -> into (from (a) o) (t i ((tt (ttt a iii) ii)))
 yio'yoi'yai x = fai (foi @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'yoi'ha = yio'yoi'yai
@@ -2903,12 +2903,12 @@ yio'yoi'yio, ho'yoi'ho, ho_'yoi'ho, ho__'yoi'ho, ho___'yoi'ho, ho____'yoi'ho, ho
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (a)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (o)) ii)))
 yio'yoi'yio x = fai (foi @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'yoi'ho = yio'yoi'yio
@@ -2924,12 +2924,12 @@ yio'yoi'yia, ho'yoi'yia, ho_'yoi'yia, ho__'yoi'yia, ho___'yoi'yia, ho____'yoi'yi
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (o)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (a)) ii)))
 yio'yoi'yia x = fai (foi @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'yoi'yia = yio'yoi'yia
@@ -2946,10 +2946,10 @@ yio'yai'yo, ho'ha'yo, ho_'ha'yo, ho__'ha'yo, ho___'ha'yo, ho____'ha'yo, ho_____'
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o) ii))) -> into (from (a) o) (t i ((tt (ttt a) ii)))
 yio'yai'yo x = fai (fai @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'ha'yo = yio'yai'yo
@@ -2966,10 +2966,10 @@ yio'yai'ya, ho'ha'ya, ho_'ha'ya, ho__'ha'ya, ho___'ha'ya, ho____'ha'ya, ho_____'
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a) ii))) -> into (from (a) o) (t i ((tt (ttt o) ii)))
 yio'yai'ya x = fai (fai @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'ha'ya = yio'yai'ya
@@ -2987,10 +2987,10 @@ yio'yai'yoi, ho'ha'yoi, ho_'ha'yoi, ho__'ha'yoi, ho___'ha'yoi, ho____'ha'yoi, ho
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt o iii) ii))) -> into (from (a) o) (t i ((tt (ttt a iii) ii)))
 yio'yai'yoi x = fai (fai @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'ha'yoi = yio'yai'yoi
@@ -3008,10 +3008,10 @@ yio'yai'yai, ho'ha'ha, ho_'ha'ha, ho__'ha'ha, ho___'ha'ha, ho____'ha'ha, ho_____
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt a iii) ii))) -> into (from (a) o) (t i ((tt (ttt o iii) ii)))
 yio'yai'yai x = fai (fai @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'ha'ha = yio'yai'yai
@@ -3027,12 +3027,12 @@ yio'yai'yio, ho'ha'ho, ho_'ha'ho, ho__'ha'ho, ho___'ha'ho, ho____'ha'ho, ho_____
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (o)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (a)) ii)))
 yio'yai'yio x = fai (fai @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'ha'ho = yio'yai'yio
@@ -3048,12 +3048,12 @@ yio'yai'yia, ho'ha'yia, ho_'ha'yia, ho__'ha'yia, ho___'ha'yia, ho____'ha'yia, ho
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)) ii)))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt (ttt iii (a)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (o)) ii)))
 yio'yai'yia x = fai (fai @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'ha'yia = yio'yai'yia
@@ -3067,13 +3067,13 @@ ho_______'ha'yia = yio'yai'yia
 
 yio'yio'yo, ho'ho'yo, ho_'ho'yo, ho__'ho'yo, ho___'ho'yo, ho____'ho'yo, ho_____'ho'yo, ho______'ho'yo, ho_______'ho'yo
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt a))))) -> into (from (a) o) (t i ((tt ii ((ttt o)))))
 yio'yio'yo x = fai (fio @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'ho'yo = yio'yio'yo
@@ -3087,13 +3087,13 @@ ho_______'ho'yo = yio'yio'yo
 
 yio'yio'ya, ho'ho'ya, ho_'ho'ya, ho__'ho'ya, ho___'ho'ya, ho____'ho'ya, ho_____'ho'ya, ho______'ho'ya, ho_______'ho'ya
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt o))))) -> into (from (a) o) (t i ((tt ii ((ttt a)))))
 yio'yio'ya x = fai (fio @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'ho'ya = yio'yio'ya
@@ -3107,14 +3107,14 @@ ho_______'ho'ya = yio'yio'ya
 
 yio'yio'yoi, ho'ho'yoi, ho_'ho'yoi, ho__'ho'yoi, ho___'ho'yoi, ho____'ho'yoi, ho_____'ho'yoi, ho______'ho'yoi, ho_______'ho'yoi
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o iii)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt a iii))))) -> into (from (a) o) (t i ((tt ii ((ttt o iii)))))
 yio'yio'yoi x = fai (fio @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'ho'yoi = yio'yio'yoi
@@ -3128,14 +3128,14 @@ ho_______'ho'yoi = yio'yio'yoi
 
 yio'yio'yai, ho'ho'ha, ho_'ho'ha, ho__'ho'ha, ho___'ho'ha, ho____'ho'ha, ho_____'ho'ha, ho______'ho'ha, ho_______'ho'ha
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a iii)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt o iii))))) -> into (from (a) o) (t i ((tt ii ((ttt a iii)))))
 yio'yio'yai x = fai (fio @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'ho'ha = yio'yio'yai
@@ -3149,14 +3149,14 @@ ho_______'ho'ha = yio'yio'yai
 
 yio'yio'yio, ho'ho'ho, ho_'ho'ho, ho__'ho'ho, ho___'ho'ho, ho____'ho'ho, ho_____'ho'ho, ho______'ho'ho, ho_______'ho'ho
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (o))))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt iii (a)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (o))))))
 yio'yio'yio x = fai (fio @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'ho'ho = yio'yio'yio
@@ -3170,14 +3170,14 @@ ho_______'ho'ho = yio'yio'yio
 
 yio'yio'yia, ho'ho'yia, ho_'ho'yia, ho__'ho'yia, ho___'ho'yia, ho____'ho'yia, ho_____'ho'yia, ho______'ho'yia, ho_______'ho'yia
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (a))))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt iii (o)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (a))))))
 yio'yio'yia x = fai (fio @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'ho'yia = yio'yio'yia
@@ -3191,13 +3191,13 @@ ho_______'ho'yia = yio'yio'yia
 
 yio'yia'yo, ho'yia'yo, ho_'yia'yo, ho__'yia'yo, ho___'yia'yo, ho____'yia'yo, ho_____'yia'yo, ho______'yia'yo, ho_______'yia'yo
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt o))))) -> into (from (a) o) (t i ((tt ii ((ttt a)))))
 yio'yia'yo x = fai (fia @from @from @tt `compose` fo @from @from @ttt) (yio @from @into x)
 ho'yia'yo = yio'yia'yo
@@ -3211,13 +3211,13 @@ ho_______'yia'yo = yio'yia'yo
 
 yio'yia'ya, ho'yia'ya, ho_'yia'ya, ho__'yia'ya, ho___'yia'ya, ho____'yia'ya, ho_____'yia'ya, ho______'yia'ya, ho_______'yia'ya
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt a))))) -> into (from (a) o) (t i ((tt ii ((ttt o)))))
 yio'yia'ya x = fai (fia @from @from @tt `compose` fa @from @from @ttt) (yio @from @into x)
 ho'yia'ya = yio'yia'ya
@@ -3231,14 +3231,14 @@ ho_______'yia'ya = yio'yia'ya
 
 yio'yia'yoi, ho'yia'yoi, ho_'yia'yoi, ho__'yia'yoi, ho___'yia'yoi, ho____'yia'yoi, ho_____'yia'yoi, ho______'yia'yoi, ho_______'yia'yoi
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a iii)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt o iii))))) -> into (from (a) o) (t i ((tt ii ((ttt a iii)))))
 yio'yia'yoi x = fai (fia @from @from @tt `compose` foi @from @from @ttt) (yio @from @into x)
 ho'yia'yoi = yio'yia'yoi
@@ -3252,14 +3252,14 @@ ho_______'yia'yoi = yio'yia'yoi
 
 yio'yia'yai, ho'yia'ha, ho_'yia'ha, ho__'yia'ha, ho___'yia'ha, ho____'yia'ha, ho_____'yia'ha, ho______'yia'ha, ho_______'yia'ha
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o iii)))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt a iii))))) -> into (from (a) o) (t i ((tt ii ((ttt o iii)))))
 yio'yia'yai x = fai (fia @from @from @tt `compose` fai @from @from @ttt) (yio @from @into x)
 ho'yia'ha = yio'yia'yai
@@ -3273,14 +3273,14 @@ ho_______'yia'ha = yio'yia'yai
 
 yio'yia'yio, ho'yia'ho, ho_'yia'ho, ho__'yia'ho, ho___'yia'ho, ho____'yia'ho, ho_____'yia'ho, ho______'yia'ho, ho_______'yia'ho
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (a))))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt iii (o)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (a))))))
 yio'yia'yio x = fai (fia @from @from @tt `compose` fio @from @from @ttt) (yio @from @into x)
 ho'yia'ho = yio'yia'yio
@@ -3294,14 +3294,14 @@ ho_______'yia'ho = yio'yia'yio
 
 yio'yia'yia, ho'yia'yia, ho_'yia'yia, ho__'yia'yia, ho___'yia'yia, ho____'yia'yia, ho_____'yia'yia, ho______'yia'yia, ho_______'yia'yia
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Covariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (o))))))) =>
- (forall e ee . Wrapper into (U_I_II from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (t i ((tt ii ((ttt iii (a)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (o))))))
 yio'yia'yia x = fai (fia @from @from @tt `compose` fia @from @from @ttt) (yio @from @into x)
 ho'yia'yia = yio'yia'yia
@@ -3317,8 +3317,8 @@ yia'yo'yo
  :: forall from into t i tt ttt a o .
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o)))) -> into (from (a) o) (t i ((tt (ttt a))))
@@ -3328,8 +3328,8 @@ yia'yo'ya
  :: forall from into t i tt ttt a o .
  Covariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a)))) -> into (from (a) o) (t i ((tt (ttt o))))
@@ -3340,8 +3340,8 @@ yia'yo'yoi
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o iii)))) -> into (from (a) o) (t i ((tt (ttt a iii))))
@@ -3352,8 +3352,8 @@ yia'yo'yai, yia'yo'ha
  Covariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a iii)))) -> into (from (a) o) (t i ((tt (ttt o iii))))
@@ -3363,10 +3363,10 @@ yia'yo'ha = yia'yo'yai
 yia'yo'yio, yia'yo'ho
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (o))))) -> into (from (a) o) (t i ((tt (ttt iii (a)))))
@@ -3376,10 +3376,10 @@ yia'yo'ho = yia'yo'yio
 yia'yo'yia
  :: forall from into t i tt ttt iii a o .
  Covariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (a))))) -> into (from (a) o) (t i ((tt (ttt iii (o)))))
@@ -3389,8 +3389,8 @@ yia'ya'yo
  :: forall from into t i tt ttt a o .
  Contravariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a)))) -> into (from (a) o) (t i ((tt (ttt o))))
@@ -3400,8 +3400,8 @@ yia'ya'ya
  :: forall from into t i tt ttt a o .
  Contravariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o)))) -> into (from (a) o) (t i ((tt (ttt a))))
@@ -3412,8 +3412,8 @@ yia'ya'yoi
  Contravariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a iii)))) -> into (from (a) o) (t i ((tt (ttt o iii))))
@@ -3424,8 +3424,8 @@ yia'ya'yai, yia'ya'ha
  Contravariant Endo Semi Functor from tt =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o iii)))) -> into (from (a) o) (t i ((tt (ttt a iii))))
@@ -3435,10 +3435,10 @@ yia'ya'ha = yia'ya'yai
 yia'ya'yio, yia'ya'ho
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (a))))) -> into (from (a) o) (t i ((tt (ttt iii (o)))))
@@ -3448,10 +3448,10 @@ yia'ya'ho = yia'ya'yio
 yia'ya'yia
  :: forall from into t i tt ttt iii a o .
  Contravariant Endo Semi Functor from tt =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (o))))) -> into (from (a) o) (t i ((tt (ttt iii (a)))))
@@ -3462,8 +3462,8 @@ yia'yoi'yo
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o) ii))) -> into (from (a) o) (t i ((tt (ttt a) ii)))
@@ -3474,8 +3474,8 @@ yia'yoi'ya
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a) ii))) -> into (from (a) o) (t i ((tt (ttt o) ii)))
@@ -3487,8 +3487,8 @@ yia'yoi'yoi
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o iii) ii))) -> into (from (a) o) (t i ((tt (ttt a iii) ii)))
@@ -3500,8 +3500,8 @@ yia'yoi'yai, yia'yoi'ha
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a iii) ii))) -> into (from (a) o) (t i ((tt (ttt o iii) ii)))
@@ -3512,10 +3512,10 @@ yia'yoi'yio, yia'yoi'ho
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (o)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (a)) ii)))
@@ -3526,10 +3526,10 @@ yia'yoi'yia
  :: forall from into t i tt ii ttt iii a o .
  Covariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (a)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (o)) ii)))
@@ -3540,8 +3540,8 @@ yia'yai'yo, yia'ha'yo
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a) ii))) -> into (from (a) o) (t i ((tt (ttt o) ii)))
@@ -3553,8 +3553,8 @@ yia'yai'ya, yia'ha'ya
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o) ii))) -> into (from (a) o) (t i ((tt (ttt a) ii)))
@@ -3567,8 +3567,8 @@ yia'yai'yoi, yia'ha'yoi
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt o iii) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt a iii) ii))) -> into (from (a) o) (t i ((tt (ttt o iii) ii)))
@@ -3581,8 +3581,8 @@ yia'yai'yai, yia'ha'ha
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt a iii) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt o iii) ii))) -> into (from (a) o) (t i ((tt (ttt a iii) ii)))
@@ -3593,10 +3593,10 @@ yia'yai'yio, yia'ha'ho
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (o)) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (a)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (o)) ii)))
@@ -3607,10 +3607,10 @@ yia'yai'yia, yia'ha'yia
  :: forall from into t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor from (U_II_I tt ii) =>
  (forall e ee . Wrapper from (U_II_I tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt (ttt iii (a)) ii)))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt (ttt iii (o)) ii))) -> into (from (a) o) (t i ((tt (ttt iii (a)) ii)))
@@ -3619,11 +3619,11 @@ yia'ha'yia = yia'yai'yia
 
 yia'yio'yo, yia'ho'yo
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt o))))) -> into (from (a) o) (t i ((tt ii ((ttt a)))))
@@ -3632,11 +3632,11 @@ yia'ho'yo = yia'yio'yo
 
 yia'yio'ya, yia'ho'ya
  :: forall from into t i tt ii ttt a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt a))))) -> into (from (a) o) (t i ((tt ii ((ttt o)))))
@@ -3645,12 +3645,12 @@ yia'ho'ya = yia'yio'ya
 
 yia'yio'yoi, yia'ho'yoi
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a iii)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt o iii))))) -> into (from (a) o) (t i ((tt ii ((ttt a iii)))))
@@ -3659,12 +3659,12 @@ yia'ho'yoi = yia'yio'yoi
 
 yia'yio'yai, yia'ho'ha
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o iii)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt a iii))))) -> into (from (a) o) (t i ((tt ii ((ttt o iii)))))
@@ -3673,12 +3673,12 @@ yia'ho'ha = yia'yio'yai
 
 yia'yio'yio, yia'ho'ho
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (a))))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt iii (o)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (a))))))
@@ -3687,12 +3687,12 @@ yia'ho'ho = yia'yio'yio
 
 yia'yio'yia, yia'ho'yia
  :: forall from into t i tt ii ttt iii a o .
- Covariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (o))))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt iii (a)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (o))))))
@@ -3701,11 +3701,11 @@ yia'ho'yia = yia'yio'yia
 
 yia'yia'yo
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt a))))) -> into (from (a) o) (t i ((tt ii ((ttt o)))))
@@ -3713,11 +3713,11 @@ yia'yia'yo x = fai (fia @from @from @tt `compose` fo @from @from @ttt) (yia @fro
 
 yia'yia'ya
  :: forall from into t i tt ii ttt a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from ttt =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt o))))) -> into (from (a) o) (t i ((tt ii ((ttt a)))))
@@ -3725,12 +3725,12 @@ yia'yia'ya x = fai (fia @from @from @tt `compose` fa @from @from @ttt) (yia @fro
 
 yia'yia'yoi
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Covariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt o iii)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt a iii))))) -> into (from (a) o) (t i ((tt ii ((ttt o iii)))))
@@ -3738,12 +3738,12 @@ yia'yia'yoi x = fai (fia @from @from @tt `compose` foi @from @from @ttt) (yia @f
 
 yia'yia'yai, yia'yia'ha
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
  Contravariant Endo Semi Functor from (U_II_I ttt iii) =>
  (forall e ee . Wrapper from (U_II_I ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt a iii)))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt o iii))))) -> into (from (a) o) (t i ((tt ii ((ttt a iii)))))
@@ -3752,12 +3752,12 @@ yia'yia'ha = yia'yia'yai
 
 yia'yia'yio, yia'yia'ho
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Covariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (o))))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt iii (a)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (o))))))
@@ -3766,12 +3766,12 @@ yia'yia'ho = yia'yia'yio
 
 yia'yia'yia
  :: forall from into t i tt ii ttt iii a o .
- Contravariant Endo Semi Functor from (U_I_II tt ii) =>
- (forall e ee . Wrapper from (U_I_II tt e ee)) =>
- Contravariant Endo Semi Functor from (U_I_II ttt iii) =>
- (forall e ee . Wrapper from (U_I_II ttt e ee)) =>
- Contravariant Yoneda Functor from into (U_I_II t i) =>
- (forall e ee . Wrapper into (U_I_II t e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e ee . Wrapper from (T'I'II tt e ee)) =>
+ Contravariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e ee . Wrapper from (T'I'II ttt e ee)) =>
+ Contravariant Yoneda Functor from into (T'I'II t i) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
  Contravariant Endo Semi Functor AR (U_II_I into (t i ((tt ii ((ttt iii (a))))))) =>
  (forall e ee . Wrapper into (U_II_I from e ee)) =>
  (t i ((tt ii ((ttt iii (o)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (a))))))

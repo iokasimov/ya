@@ -32,18 +32,18 @@ type Apparently = I
 pattern Apparently :: e -> Apparently e
 pattern Apparently e = Identity e
 
-type Boolean = U_I_II S Unit Unit
+type Boolean = T'I'II S Unit Unit
 
 pattern Boolean :: Unit `S` Unit `AR_` Boolean
-pattern Boolean e = U_I_II e
+pattern Boolean e = T'I'II e
 
-pattern False x = U_I_II (This x)
+pattern False x = T'I'II (This x)
 
-pattern True x = U_I_II (That x)
+pattern True x = T'I'II (That x)
 
-pattern Selfsame x = U_I_II (That x)
+pattern Selfsame x = T'I'II (That x)
 
-type Provided = U_I_II (->)
+type Provided = T'I'II (->)
 
 type Supplied = U_II_I P
 
@@ -52,70 +52,70 @@ type Equipped = U_II_I P
 pattern Equip :: e `P` ee -> Equipped ee e
 pattern Equip x = U_II_I x
 
-type Optional = U_I_II S Unit
+type Optional = T'I'II S Unit
 
 pattern None :: Unit -> Optional e
-pattern None x = U_I_II (This x)
+pattern None x = T'I'II (This x)
 
 pattern Some :: e -> Optional e
-pattern Some x = U_I_II (That x)
+pattern Some x = T'I'II (That x)
 
-pattern Optionally x = U_I_II x
+pattern Optionally x = T'I'II x
 
-type Halts = U_I_II S Unit
+type Halts = T'I'II S Unit
 
-type Maybe = U_I_II S Unit
+type Maybe = T'I'II S Unit
 
 pattern Maybe :: Unit `S` e `AR_` Maybe e
-pattern Maybe x = U_I_II @S @Unit x
+pattern Maybe x = T'I'II @S @Unit x
 
-type Progress = U_I_II S
+type Progress = T'I'II S
 
-pattern Progress x = U_I_II @S x
+pattern Progress x = T'I'II @S x
 
 pattern Interrupt :: e -> Progress e ee
-pattern Interrupt x = U_I_II @S (This x)
+pattern Interrupt x = T'I'II @S (This x)
 
 pattern Continue :: ee -> Progress e ee
-pattern Continue x = U_I_II @S (That x)
+pattern Continue x = T'I'II @S (That x)
 
-type Error = U_I_II S
+type Error = T'I'II S
 
 pattern Error :: e -> Error e ee
-pattern Error x = U_I_II (This x)
+pattern Error x = T'I'II (This x)
 
 pattern Break :: e -> Error e ee
-pattern Break x = U_I_II (This x)
+pattern Break x = T'I'II (This x)
 
-type Catch = U_I_II S
+type Catch = T'I'II S
 
 pattern Catch :: e -> Error e ee
-pattern Catch x = U_I_II (This x)
+pattern Catch x = T'I'II (This x)
 
-type Reach = U_I_II S
+type Reach = T'I'II S
 
 pattern Reach :: e -> Error e ee
-pattern Reach x = U_I_II (This x)
+pattern Reach x = T'I'II (This x)
 
 pattern Wrong :: e -> Error e ee
-pattern Wrong x = U_I_II (This x)
+pattern Wrong x = T'I'II (This x)
 
 -- TODO: remove
 pattern Close :: e -> Error e ee
-pattern Close x = U_I_II (This x)
+pattern Close x = T'I'II (This x)
 
 pattern Valid :: ee -> Error e ee
-pattern Valid x = U_I_II (That x)
+pattern Valid x = T'I'II (That x)
 
-pattern Ok x = U_I_II (That x)
+pattern Ok x = T'I'II (That x)
 
-type Probably = U_I_II S
+type Probably = T'I'II S
 
-pattern Probably x = U_I_II @S x
+pattern Probably x = T'I'II @S x
 
-type Perhaps = U_I_II S
+type Perhaps = T'I'II S
 
-pattern Perhaps x = U_I_II @S x
+pattern Perhaps x = T'I'II @S x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
@@ -129,10 +129,10 @@ type Scope = U_I_UU_II_U_II_I (->) P
 pattern Scope :: forall ee e . (e `AR_` P ee (ee -> e)) -> Scope e ee
 pattern Scope x = U_I_UU_II_U_II_I @(->) @P x
 
--- type Directive = U_I_UU_I_II (->) S
+-- type Directive = U_I_UT'I'II (->) S
 
 -- pattern Directive :: forall ee e . (e `AR_` S e ee) -> Directive e ee
--- pattern Directive x = U_I_UU_I_II @(->) @S x
+-- pattern Directive x = U_I_UT'I'II @(->) @S x
 
 type Match = U_I_UU_M_I_II_II (->) S
 
@@ -151,10 +151,10 @@ type Event = U_I_UU_II_I (->) P
 pattern Event :: Automation e ee e `AR__` Event e ee
 pattern Event x = U_I_UU_II_I @(->) @P x
 
-type State = U_I_II Transition
+type State = T'I'II Transition
 
 pattern State :: forall e o . Transition e o -> State e o
-pattern State x = U_I_II @Transition x
+pattern State x = T'I'II @Transition x
 
 type Construction = R_U_I_T_I P
 
@@ -180,10 +180,10 @@ pattern Item :: i -> t (Recursive (U_I_T_II t P i)) -> Recursive (U_I_T_II t P i
 pattern Item x xs = Recursive (U_I_T_II (These x xs))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
-pattern Next x = U_I_II (That x)
+pattern Next x = T'I'II (That x)
 
 pattern Last :: forall e ee . e `AR_` Progress e ee
-pattern Last x = U_I_II (This x)
+pattern Last x = T'I'II (This x)
 
 type family Brancher datastructure where
  Brancher (T'TT'I t (Construction t)) = t
