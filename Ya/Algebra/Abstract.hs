@@ -12,8 +12,8 @@ infixl 6 `T'TT'I_`
 
 infixr 9 `L`
 
-type T'I t i = t i
-type T'I_ t i = t i
+type T'I t = t
+type T'I_ t = t
 
 type family Supertype e
 
