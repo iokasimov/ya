@@ -2174,10 +2174,10 @@ lo'lu l r = lo
  (r `compose` (wrapped (right @T'I'II @into identity)))
 
 lo'yp, lo_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
- :: forall t l a o oo .
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P P t (l `L` t) o oo) t =>
- Arrow a (t o) -> Arrow a ((l `L` t) oo) -> Arrow a (t (Product o oo))
-lo'yp l r = yp `compose` lo @AR @(t o `P` (l `L` t) oo) l r
+ :: forall t tt l a o oo .
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P P t (l `L` tt) o oo) t =>
+ Arrow a (t o) -> Arrow a ((l `L` tt) oo) -> Arrow a (t (Product o oo))
+lo'yp l r = yp `compose` lo @AR @(t o `P` (l `L` tt) oo) l r
 
 lo_'yp = lo'yp
 lo__'yp = lo'yp
@@ -2203,8 +2203,8 @@ lo_______'ys = lo'ys
 
 lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo______'ys'la, lo_______'ys'la
  :: forall t tt l a o .
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P S t (l `L` t) o o) t =>
- Arrow a (t o) -> Arrow a ((l `L` t) o) -> Arrow a (t o)
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P S t (l `L` tt) o o) t =>
+ Arrow a (t o) -> Arrow a ((l `L` tt) o) -> Arrow a (t o)
 lo'ys'la l r = (\x -> ys'yo x (identity @AR `la` identity)) `compose` lo @AR @(_ `P` _) l r
 
 lo_'ys'la = lo'ys'la
@@ -2217,10 +2217,10 @@ lo_______'ys'la = lo'ys'la
 
 lu'ys'la, lu_'ys'la, lu__'ys'la, lu___'ys'la, lu____'ys'la, lu_____'ys'la, lu______'ys'la, lu_______'ys'la
  :: forall t tt l a o .
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P S t (l `L` t) o o) t =>
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P S t (l `L` tt) o o) t =>
  Covariant Yoneda Functor (->) (->) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (->) (->) (T'II'I Product ()) =>
- t o -> (l `L` t) o -> (t o)
+ t o -> (l `L` tt) o -> (t o)
 lu'ys'la l r = ys'yo (lu l r) (identity @AR `la` identity)
 
 lu_'ys'la = lu'ys'la
@@ -2449,11 +2449,10 @@ yp :: forall u e ee t tt l .
 yp = day @T'I'II @(->) @l @t @tt @u @P identity identity
 
 -- TODO: try to generalize
-yp'yo, yp_'yo :: forall e ee r t l .
- -- Covariant Monoidal Functor (->) (->) P P l t =>
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P P t (l `L` t) e ee) t =>
- t e `P` (l `L` t) ee -> (e `P` ee `AR` r) -> t r
-yp'yo x f = day @T'I'II @(->) @l @t @t @P @P identity f x
+yp'yo, yp_'yo :: forall e ee r t tt l .
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P P t (l `L` tt) e ee) t =>
+ t e `P` (l `L` tt) ee -> (e `P` ee `AR` r) -> t r
+yp'yo x f = day @T'I'II @(->) @l @t @tt @P @P identity f x
 
 yp_'yo = yp'yo
 
@@ -2499,12 +2498,12 @@ ys :: forall u e ee t tt l .
 ys = day @T'I'II @(->) @l @t @tt @u @S identity identity
 
 -- TODO: try to generalize
-ys'yo :: forall from t l e ee u r .
+ys'yo :: forall from t tt l e ee u r .
  Category from =>
  -- Covariant Monoidal Functor from (->) u S l t =>
- Mapping T'I'II T'I'II from (->) (Day T'I'II from u S t (l `L` t) e ee) t =>
- u (t e) ((l `L` t) ee) -> from (e `S` ee) r -> t r
-ys'yo x f = day @T'I'II @from @l @t @t @u @S identity f x
+ Mapping T'I'II T'I'II from (->) (Day T'I'II from u S t (l `L` tt) e ee) t =>
+ u (t e) ((l `L` tt) ee) -> from (e `S` ee) r -> t r
+ys'yo x f = day @T'I'II @from @l @t @tt @u @S identity f x
 
 -- TODO: try to generalize
 -- yis :: forall u e ee eee t .
@@ -2517,23 +2516,23 @@ ys'yo x f = day @T'I'II @from @l @t @t @u @S identity f x
  -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-ysp :: forall u e ee t l .
+ysp :: forall u e ee t tt l .
  -- Covariant Monoidal Functor (->) (->) u SP l t =>
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR u SP t (l `L` t) e ee) t =>
- u (t e) ((l `L` t) ee) -> t (e `S` ee `S_` e `P` ee)
-ysp = day @T'I'II @(->) @l @t @t @u @SP identity he
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR u SP t (l `L` tt) e ee) t =>
+ u (t e) ((l `L` tt) ee) -> t (e `S` ee `S_` e `P` ee)
+ysp = day @T'I'II @(->) @l @t @tt @u @SP identity he
 
 -- TODO: try to generalize
-yp'yp :: forall u e ee t tt l ll .
+yp'yp :: forall u e ee t tt ttt tttt l ll .
  -- Covariant Monoidal Functor (->) (->) u P l t =>
  -- Covariant Monoidal Functor (->) (->) P P ll tt =>
- Covariant Transformation Functor (->) (->) (Day T'I'II AR u P t (l `L` t) (tt e) (L ll tt ee)) t =>
- Covariant Transformation Functor (->) (->) (Day T'I'II AR P P tt (ll `L` tt) e ee) tt =>
- u (t (tt e)) ((l `L` t) ((ll `L` tt) ee)) -> t (tt (e `P` ee))
-yp'yp = day @T'I'II @(->) @l @t @t @u @P identity
- (day @T'I'II @(->) @ll @tt @tt @P @P identity identity)
+ Covariant Transformation Functor (->) (->) (Covariant Day AR u P t (l `L` ttt) (tt e) (L ll tttt ee)) t =>
+ Covariant Transformation Functor (->) (->) (Covariant Day AR P P tt (ll `L` tttt) e ee) tt =>
+ u (t (tt e)) ((l `L` ttt) (ll `L` tttt `T'I` ee)) -> t (tt (e `P` ee))
+yp'yp = day @T'I'II @(->) @l @t @ttt @u @P identity
+ (day @T'I'II @(->) @ll @tt @tttt @P @P identity identity)
 
--- TODO: try to generalize
+-- TODO: generalize
 yp'ys :: forall u e ee t tt l ll .
  Covariant Monoidal Functor (->) (->) u P l t =>
  Covariant Monoidal Functor (->) (->) P S ll tt =>
@@ -2569,37 +2568,37 @@ yp'ys = day @T'I'II @(->) @l @t @t @u @P identity
 -- yip'yis x = yip'yo x yis
 
 -- TODO: try to generalize
-yp'yok :: forall i ii from into t tt l ll o .
- Covariant Monoidal Functor (->) (->) P P l t =>
+yp'yok :: forall i ii from into t tt ttt l ll o .
+ Covariant Transformation Functor (->) (->) (Covariant Day AR P P t (l `L` ttt) i ii) t =>
  Covariant Endo Semi Functor into tt =>
  Covariant Endo Semi Functor into t =>
  Covariant Yoneda Functor from into t =>
  Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` tt) t =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (forall e . Wrapper into ((t `T'TT'I` ll `L` tt) e)) =>
- t i `P` (l `L` t) ii -> into (from (i `P` ii) ((ll `L` tt) o)) (t o)
+ t i `P` (l `L` ttt) ii -> into (from (i `P` ii) ((ll `L` tt) o)) (t o)
 yp'yok = yok @from @into `compose` yp
 
 -- TODO: try to generalize
-yp'yokl :: forall e ee from into t tt l' l ll o .
+yp'yokl :: forall e ee from into t tt ttt l ll lll o .
  Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` l `L` tt) (t `TT'T'I` tt) =>
- Covariant Monoidal Functor (->) (->) P P l' t =>
+ Covariant Transformation Functor (->) (->) (Covariant Day AR P P t (lll `L` ttt) e ee) t =>
  Covariant Yoneda Functor from into t =>
  Elicitable T'II'I into (T'I'II from (e `P` ee) (tt o)) =>
  (forall i . Wrapper into (T'TT'I t tt i)) =>
  (forall i . Wrapper into (TT'T'I t tt i)) =>
  (forall i . Wrapper into ((t `T'TT'I` L ll (L l tt)) i)) =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
- t e `P` (l' `L` t) ee -> into (from (e `P` ee) (L ll (L l tt) o)) (tt (t o))
+ t e `P` (lll `L` ttt) ee -> into (from (e `P` ee) (L ll (L l tt) o)) (tt (t o))
 yp'yokl = yokl @from @into `compose` yp
 
 -- TODO: try to generalize
-yp'yp'yo :: forall from e ee r t tt l ll .
- Covariant Monoidal Functor (->) (->) P P l t =>
- Covariant Monoidal Functor from (->) P P ll tt =>
- t (tt e) `P` (l `L` t) ((ll `L` tt) ee) -> from (e `P` ee) r -> t (tt r)
-yp'yp'yo x f = day @T'I'II @(->) @l @t @t @P @P identity
- (day @T'I'II @from @ll @tt @tt @P @P identity f) x
+yp'yp'yo :: forall from e ee r t tt ttt tttt l ll .
+ Covariant Transformation Functor (->) (->) (Covariant Day AR P P t (l `L` ttt) (tt e) (L ll tttt ee)) t =>
+ Covariant Transformation Functor from (->) (Covariant Day from P P tt (ll `L` tttt) e ee) tt =>
+ t (tt e) `P` (l `L` ttt) ((ll `L` tttt) ee) -> from (e `P` ee) r -> t (tt r)
+yp'yp'yo x f = day @T'I'II @(->) @l @t @ttt @P @P identity
+ (day @T'I'II @from @ll @tt @tttt @P @P identity f) x
 
 -- w'rw :: forall into a o
  -- Precategory into =>
@@ -3170,11 +3169,11 @@ lu'yp'ys l r = yp'ys (lu l r)
 -- lu'yip'yis l r = yip'yis (lu l r)
 
 lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_______'ysp
- :: forall e o oo t l .
- Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P SP t (l `L` t) o oo) t =>
+ :: forall e o oo t tt l .
+ Mapping T'I'II T'I'II (->) (->) (Day T'I'II AR P SP t (l `L` tt) o oo) t =>
  Covariant Yoneda Functor (->) (->) (T'II'I Product ()) =>
  Covariant Yoneda Functor (->) (->) (T'I'II Product (t o)) =>
- t o -> (l `L` t) oo -> t (o `S` oo `S_` o `P` oo)
+ t o -> (l `L` tt) oo -> t (o `S` oo `S_` o `P` oo)
 lu'ysp l r = ysp (lu l r)
 
 lu_'ysp = lu'ysp
