@@ -27,22 +27,22 @@ infixl 3 `S'T'I'TT'I`
 infixl 0 /
 
 type AR = (->)
-type AR_ = (->)
-type AR__ = (->)
-type AR___ = (->)
-type AR____ = (->)
-type AR_____ = (->)
-type AR______ = (->)
-type AR_______ = (->)
+type AR_ = (AR)
+type AR__ = (AR)
+type AR___ = (AR)
+type AR____ = (AR)
+type AR_____ = (AR)
+type AR______ = (AR)
+type AR_______ = (AR)
 
-type AT = U_I_UU_II_T'II'I (->) P
-type AT_ = U_I_UU_II_T'II'I (->) P
-type AT__ = U_I_UU_II_T'II'I (->) P
-type AT___ = U_I_UU_II_T'II'I (->) P
-type AT____ = U_I_UU_II_T'II'I (->) P
-type AT_____ = U_I_UU_II_T'II'I (->) P
-type AT______ = U_I_UU_II_T'II'I (->) P
-type AT_______ = U_I_UU_II_T'II'I (->) P
+type (AT) = U_I_UU_II_T'II'I (AR) P
+type AT_ = U_I_UU_II_T'II'I (AR) P
+type AT__ = U_I_UU_II_T'II'I (AR) P
+type AT___ = U_I_UU_II_T'II'I (AR) P
+type AT____ = U_I_UU_II_T'II'I (AR) P
+type AT_____ = U_I_UU_II_T'II'I (AR) P
+type AT______ = U_I_UU_II_T'II'I (AR) P
+type AT_______ = U_I_UU_II_T'II'I (AR) P
 
 class Dumb x
 instance Dumb x
@@ -142,7 +142,7 @@ class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t 
   Category from =>
   Precategory into =>
   (Supertype (v from a a) ~ from a a) =>
-  Elicitable T'II'I (->) (v from a a) =>
+  Elicitable T'II'I (AR) (v from a a) =>
   t a -> into (v from a o) (t o)
  yoneda x = unwrap (map @v @T'I'II @from @Arrow @t @(UU_V_T'I'II_T_II v from into t o) identity x)
 
@@ -157,7 +157,7 @@ type family Representation t where
   Representation t `P` Representation tt
  Representation (T'TTT'TT'I t ttt tt) =
   Representation t `P` Representation tt `P` Representation ttt
- Representation (U_I_I P) = () `S` ()
+ Representation (U_I_I (P)) = () `S` ()
 
 class
   ( Mapping v T'I'II from into t (v hom (Representation t))
@@ -175,28 +175,28 @@ data family Object o e ee
 data instance Object Unit e ee = These e ee
 data instance Object Void e ee = This e | That ee
 
-type P = Object Unit
+type (P) = Object Unit
 
 type P_ = P
 type P__ = P
 
-type S = Object Void
+type (S) = Object Void
 
-type S_ = S
-type S__ = S
+type S_ = (S)
+type S__ = (S)
 
-type family M r a where
- M ((_ # a) `S` aa) a = aa
- M (aa `S` (_ # a)) a = aa
- M (aa `S` aaa) a = aa `M` a `S` aaa
+type family (M) r a where
+ (M) ((_ # a) `S` aa) a = aa
+ (M) (aa `S` (_ # a)) a = aa
+ (M) (aa `S` aaa) a = aa `M` a `S` aaa
 
-type M_ a aa = M a aa
-type M__ a aa = M a aa
+type M_ a aa = (M) a aa
+type M__ a aa = (M) a aa
 
 type family Neutral p where
- Neutral P = Unit
- Neutral S = Void
- Neutral SP = Void
+ Neutral (P) = Unit
+ Neutral (S) = Void
+ Neutral (SP) = Void
 
 type family Aught p where
  Aught T'I'II = Unit
@@ -240,13 +240,13 @@ type Sum = Object Void
 class Initial into where
  initial' :: into Void e
 
-instance Initial (->) where
+instance Initial (AR) where
  initial' x = case x of {}
 
 class Terminal into where
  terminal :: into e ()
 
-instance Terminal (->) where
+instance Terminal (AR) where
  terminal _ = ()
 
 type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III P
@@ -279,23 +279,23 @@ deriving instance
 
 -- TODO: Yoneda version?
 day :: forall v from l t tt u uu a o e ee .
- Mapping v T'I'II from AR (Day v from u uu t (l `L` tt) e ee) t =>
- Wrapper AR (v from a o) =>
- Wrapper AR (v from (uu e ee) a) =>
+ Mapping v T'I'II from (AR) (Day v from u uu t (l `L` tt) e ee) t =>
+ Wrapper (AR) (v from a o) =>
+ Wrapper (AR) (v from (uu e ee) a) =>
  Supertype (v from a o)
   -> Supertype (v from (uu e ee) a)
   -> u (t e) ((l `L` tt) ee) -> t o
-day from t x = map @v @T'I'II @from @(->)
+day from t x = map @v @T'I'II @from @(AR)
  @(Day v from u uu t (l `L` tt) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 -- TODO: generalize
-empty :: forall t o . Covariant Monoidal Functor (->) (->) P S Void t => t o
-empty = component @(->) @(T'I'II (->) Void) @t (T'I'II initial')
+empty :: forall t o . Covariant Monoidal Functor (AR) (AR) (P) (S) Void t => t o
+empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Covariant Monoidal Functor (->) (->) P P Void t => t Unit
-enter = component @(->) @(T'I'II (->) Unit) @t (T'I'II identity)
+enter :: forall t . Covariant Monoidal Functor (AR) (AR) (P) P Void t => t Unit
+enter = component @(AR) @(T'I'II (AR) Unit) @t (T'I'II identity)
 
 rewrap :: forall o into a .
  Precategory into =>
@@ -340,14 +340,14 @@ ana :: forall into t e .
 ana into = wrap `compose` map @T'I'II @T'I'II (ana into) `compose` into
 
 type family Jointable effect where
- Jointable (T'I'II AR e) = ()
- Jointable (T'I'II S e) = ()
- Jointable (T'I'II (U_I_UT'II'I AR P) e) = ()
+ Jointable (T'I'II (AR) e) = ()
+ Jointable (T'I'II (S) e) = ()
+ Jointable (T'I'II (U_I_UT'II'I (AR) (P)) e) = ()
 
 type family JNT effect where
- JNT (T'I'II AR e) = T'TT'I (T'I'II AR e)
- JNT (T'I'II S e) = TT'T'I (T'I'II S e)
- JNT (T'I'II (U_I_UT'II'I AR P) e) = T'TTT'TT'I (T'I'II AR e) (T'II'I P e)
+ JNT (T'I'II (AR) e) = T'TT'I (T'I'II (AR) e)
+ JNT (T'I'II (S) e) = TT'T'I (T'I'II (S) e)
+ JNT (T'I'II (U_I_UT'II'I (AR) (P)) e) = T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e)
 
 type JNT_ effect = JNT effect
 
@@ -374,14 +374,14 @@ constant = unwrap @_ @(T'I'II from a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-type SP = U_T'I'II_UT'I'II S P
+type (SP) = U_T'I'II_UT'I'II (S) P
 
-instance Wrapper (->) x
- => Elicitable T'I'II (U_I_UU_II_T'II'I (->) P) x where
+instance Wrapper (AR) x
+ => Elicitable T'I'II (U_I_UU_II_T'II'I (AR) (P)) x where
  elicit = T'I'II (U_I_UU_II_T'II'I (\x -> These (unwrap x) wrap))
 
-instance Wrapper (->) x
- => Elicitable T'II'I (U_I_UU_II_T'II'I (->) P) x where
+instance Wrapper (AR) x
+ => Elicitable T'II'I (U_I_UU_II_T'II'I (AR) (P)) x where
  elicit = T'II'I (U_I_UU_II_T'II'I (\x -> These (wrap x) unwrap))
 
 class Setoid into e where
@@ -390,8 +390,8 @@ class Setoid into e where
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type P'T'I'TT'I = U_T_I_TT_I P
-type S'T'I'TT'I = U_T_I_TT_I S
+type P'T'I'TT'I = U_T_I_TT_I (P)
+type S'T'I'TT'I = U_T_I_TT_I (S)
 
 class Objective into st t where
  objective :: into t st
@@ -412,8 +412,8 @@ newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
 
 type instance Supertype (U_I_UU_M_I_II_II u uu i ii) = u i (uu (M i ii) ii)
 
-instance Elicitable T'II'I (->) (U_I_UU_M_I_II_II u uu i ii)
+instance Elicitable T'II'I (AR) (U_I_UU_M_I_II_II u uu i ii)
  where elicit = T'II'I U_I_UU_M_I_II_II
 
-instance Elicitable T'I'II (->) (U_I_UU_M_I_II_II u uu i ii)
+instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
  where elicit = T'I'II (\(U_I_UU_M_I_II_II x) -> x)

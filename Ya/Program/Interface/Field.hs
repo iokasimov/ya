@@ -7,7 +7,7 @@ import Ya.Program.Primitive
 import Ya.Program.Labels
 
 class Field e r where
- at :: Reference P r e e
+ at :: Reference (P) r e e
 
 instance Field e e where
  at = it

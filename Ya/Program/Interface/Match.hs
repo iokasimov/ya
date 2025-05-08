@@ -8,7 +8,7 @@ class Excludable a r where
  on :: r `AR_` (r `M` a) `S` a
 
 -- instance Excludable a aa => Excludable a (T e aa) where
- -- on = on `ha` unwrap @AR
+ -- on = on `ha` unwrap @(AR)
 
 instance Excludable a ((l # a) `S` aa) where
  on = That `ha'he` is `la` This
@@ -71,7 +71,7 @@ instance Layable (aaa `S` a) (a `S` aa `S` aaa) where
 -- TODO: define more Layable instances
 
 class Fittable a r where
- fit :: r `AR_` M a r `S` a
+ fit :: r `AR_` (M) a r `S` a
 
 instance
  ( Layable aa (M a (aa `S` aaa) `S` a)

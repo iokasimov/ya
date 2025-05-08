@@ -6,7 +6,7 @@ import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
 -- k :: forall into t o .
- -- Covariant Monoidal Functor into into P P t =>
+ -- Covariant Monoidal Functor into into (P) P t =>
  -- Component into I (T'I'II into Unit) =>
  -- Wrapper into (T'I'II into Unit o) =>
  -- Wrapper into (I o) =>
@@ -59,22 +59,22 @@ fa = map @T'II'I @T'I'II
 
 fu :: forall from into t a o .
  Covariant Functor from into t =>
- Component (->) I (T'I'II from a) =>
+ Component (AR) I (T'I'II from a) =>
  Wrapper into (I o) =>
  o -> into (t a) (t o)
 fu = fo @from @into @t
- `compose` constant @from @(->)
+ `compose` constant @from @(AR)
 
 fok :: forall from into t tt l a o .
  Component into (t `T'TT'I` l `L` tt) t =>
  Covariant Functor from into t =>
  Elicitable T'II'I into (t `T'TT'I` l `L` tt `T'I_` o) =>
- from a (L l tt o) -> into (t a) (t o)
+ from a (l `L` tt `T'I` o) -> into (t a) (t o)
 fok from = component @into @(t `T'TT'I` l `L` tt) @t
  `compose` wrap `compose` fo from
 
 fuk :: forall into t tt ll a o .
- Component (->) I (T'I'II into a) =>
+ Component (AR) I (T'I'II into a) =>
  Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` tt) t =>
  Constant Semi Functor into into t =>
  Wrapper into (t `T'TT'I` ll `L` tt `T'I_` o) =>
@@ -94,7 +94,7 @@ fokl from = wrapped (component @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` 
 fukl :: forall into t tt l ll a o .
  Covariant Semi Functor into into t =>
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
- Component (->) I (T'I'II into a) =>
+ Component (AR) I (T'I'II into a) =>
  Wrapper into (t `T'TT'I` l `L` ll `L` tt `T'I_` o) =>
  Wrapper into (t `TT'T'I` tt `T'I_` o) =>
  Wrapper into (I `T'I_` l `L` ll `L` tt `T'I` o) =>
@@ -149,17 +149,17 @@ fiu :: forall from into t a o i .
  Terminal from =>
  Covariant Functor from into (T'I'II t i) =>
  (forall e ee . Wrapper into (T'I'II t e ee)) =>
- Wrapper (->) (from Unit o) =>
+ Wrapper (AR) (from Unit o) =>
  Supertype (from Unit o) -> into (t i a) (t i o)
-fiu from = fio (wrap @(->) @(from Unit o) from `compose` terminal)
+fiu from = fio (wrap @(AR) @(from Unit o) from `compose` terminal)
 
 fui :: forall from into t a o i .
  Terminal from =>
  Covariant Functor from into (T'II'I t i) =>
  (forall e ee . Wrapper into (T'II'I t i ee)) =>
- Wrapper (->) (from Unit o) =>
+ Wrapper (AR) (from Unit o) =>
  Supertype (from Unit o) -> into (t a i) (t o i)
-fui from = foi (wrap @(->) @(from Unit o) from `compose` terminal)
+fui from = foi (wrap @(AR) @(from Unit o) from `compose` terminal)
 
 fd :: forall from into t tt a o .
  Adjoint Functor from from t tt =>
@@ -202,16 +202,16 @@ fij from = unwrap `compose` fo (from `compose` unwrap)
 -- TODO: effects are executed in reverse order, we can use it
 -- to alter execution order, in Scrolling List for example
 fc :: forall t a o .
- Covariant Endo Semi Functor (->) t =>
- Covariant Endo Semi Functor (->) (T'I'II AR a) =>
- Adjoint Functor (->) (->) (T'I'II P (t a)) (T'I'II AR (t a)) =>
- Adjoint Functor (->) (->) (T'I'II P a) (T'I'II AR a) =>
- Adjoint Functor (->) (->) (T'I'II P (t a `P` t (AR a o))) (T'I'II (->) (t a `P` t (AR a o))) =>
- Monoidal T'I'II Functor AR AR P P Void t =>
- t (AR a o) -> AR (t a) (t o)
-fc = unwrap @(->) @(T'I'II AR (t a) _)
- `compose` (fo @(->) @(->) `compose` fo @(->) @(->))
- (fd @(->) @(->) (wrap @_ @(T'I'II _ _ _)) `compose` wrap @_ @(T'I'II _ _ _))
- `compose` fj @(->) @(->) @(T'I'II P (t a)) @(T'I'II AR _)
- (day @T'I'II @AR @Void @t @t @P @P identity identity
- `compose` unwrap @(->) @(T'I'II P (t a) ((Void `L` t) (AR a o))) `compose` fo @AR wrap)
+ Covariant Endo Semi Functor (AR) t =>
+ Covariant Endo Semi Functor (AR) (T'I'II (AR) a) =>
+ Adjoint Functor (AR) (AR) (T'I'II (P) (t a)) (T'I'II (AR) (t a)) =>
+ Adjoint Functor (AR) (AR) (T'I'II (P) a) (T'I'II (AR) a) =>
+ Adjoint Functor (AR) (AR) (T'I'II (P) (t a `P` t (AR a o))) (T'I'II (AR) (t a `P` t (AR a o))) =>
+ Monoidal T'I'II Functor (AR) (AR) (P) P Void t =>
+ t (AR a o) -> (AR) (t a) (t o)
+fc = unwrap @(AR) @(T'I'II (AR) (t a) _)
+ `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR))
+ (fd @(AR) @(AR) (wrap @_ @(T'I'II _ _ _)) `compose` wrap @_ @(T'I'II _ _ _))
+ `compose` fj @(AR) @(AR) @(T'I'II (P) (t a)) @(T'I'II (AR) _)
+ (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity
+ `compose` unwrap @(AR) @(T'I'II (P) (t a) ((Void `L` t) (AR a o))) `compose` fo @(AR) wrap)

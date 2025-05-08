@@ -28,9 +28,9 @@ pattern Check e = Labeled e
 pattern Retry :: forall ee e . Error e ee `AR__` L Recursive (Error e) ee
 pattern Retry e = Labeled @Recursive e
 
-type Fore = T'I'II S () ()
+type Fore = T'I'II (S) () ()
 
-type Back = T'II'I S () ()
+type Back = T'II'I (S) () ()
 
 type Forward = L Void
 
@@ -48,7 +48,7 @@ pattern Forth e = Labeled e
 pattern Prior :: t e `AR__` (Void `P` Void) `L` t `T'I` e
 pattern Prior e = Labeled e
 
-pattern Use :: t e `AR__` L (T'I'II S Void Void) t e
+pattern Use :: t e `AR__` L (T'I'II (S) Void Void) t e
 pattern Use e = Labeled e
 
 pattern New e = Labeled @Void @(State _) e

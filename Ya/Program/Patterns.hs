@@ -32,7 +32,7 @@ type Apparently = I
 pattern Apparently :: e -> Apparently e
 pattern Apparently e = Identity e
 
-type Boolean = T'I'II S Unit Unit
+type Boolean = T'I'II (S) Unit Unit
 
 pattern Boolean :: Unit `S` Unit `AR_` Boolean
 pattern Boolean e = T'I'II e
@@ -43,7 +43,7 @@ pattern True x = T'I'II (That x)
 
 pattern Selfsame x = T'I'II (That x)
 
-type Provided = T'I'II (->)
+type Provided = T'I'II (AR)
 
 type Supplied = T'II'I P
 
@@ -52,7 +52,7 @@ type Equipped = T'II'I P
 pattern Equip :: e `P` ee -> Equipped ee e
 pattern Equip x = T'II'I x
 
-type Optional = T'I'II S Unit
+type Optional = T'I'II (S) Unit
 
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
@@ -62,24 +62,24 @@ pattern Some x = T'I'II (That x)
 
 pattern Optionally x = T'I'II x
 
-type Halts = T'I'II S Unit
+type Halts = T'I'II (S) Unit
 
-type Maybe = T'I'II S Unit
+type Maybe = T'I'II (S) Unit
 
 pattern Maybe :: Unit `S` e `AR_` Maybe e
-pattern Maybe x = T'I'II @S @Unit x
+pattern Maybe x = T'I'II @(S) @Unit x
 
-type Progress = T'I'II S
+type Progress = T'I'II (S)
 
-pattern Progress x = T'I'II @S x
+pattern Progress x = T'I'II @(S) x
 
 pattern Interrupt :: e -> Progress e ee
-pattern Interrupt x = T'I'II @S (This x)
+pattern Interrupt x = T'I'II @(S) (This x)
 
 pattern Continue :: ee -> Progress e ee
-pattern Continue x = T'I'II @S (That x)
+pattern Continue x = T'I'II @(S) (That x)
 
-type Error = T'I'II S
+type Error = T'I'II (S)
 
 pattern Error :: e -> Error e ee
 pattern Error x = T'I'II (This x)
@@ -87,12 +87,12 @@ pattern Error x = T'I'II (This x)
 pattern Break :: e -> Error e ee
 pattern Break x = T'I'II (This x)
 
-type Catch = T'I'II S
+type Catch = T'I'II (S)
 
 pattern Catch :: e -> Error e ee
 pattern Catch x = T'I'II (This x)
 
-type Reach = T'I'II S
+type Reach = T'I'II (S)
 
 pattern Reach :: e -> Error e ee
 pattern Reach x = T'I'II (This x)
@@ -109,47 +109,47 @@ pattern Valid x = T'I'II (That x)
 
 pattern Ok x = T'I'II (That x)
 
-type Probably = T'I'II S
+type Probably = T'I'II (S)
 
-pattern Probably x = T'I'II @S x
+pattern Probably x = T'I'II @(S) x
 
-type Perhaps = T'I'II S
+type Perhaps = T'I'II (S)
 
-pattern Perhaps x = T'I'II @S x
+pattern Perhaps x = T'I'II @(S) x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
-type Attribute = U_I_UU_II_T'II'I (->) P
+type Attribute = U_I_UU_II_T'II'I (AR) P
 
-pattern Attribute :: forall ee e . (e `AR_` P ee (ee -> e)) -> Attribute e ee
-pattern Attribute x = U_I_UU_II_T'II'I @(->) @P x
+pattern Attribute :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Attribute e ee
+pattern Attribute x = U_I_UU_II_T'II'I @(AR) @(P) x
 
-type Scope = U_I_UU_II_T'II'I (->) P
+type Scope = U_I_UU_II_T'II'I (AR) P
 
-pattern Scope :: forall ee e . (e `AR_` P ee (ee -> e)) -> Scope e ee
-pattern Scope x = U_I_UU_II_T'II'I @(->) @P x
+pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
+pattern Scope x = U_I_UU_II_T'II'I @(AR) @(P) x
 
--- type Directive = U_I_UT'I'II (->) S
+-- type Directive = U_I_UT'I'II (AR) (S)
 
--- pattern Directive :: forall ee e . (e `AR_` S e ee) -> Directive e ee
--- pattern Directive x = U_I_UT'I'II @(->) @S x
+-- pattern Directive :: forall ee e . (e `AR_` (S) e ee) -> Directive e ee
+-- pattern Directive x = U_I_UT'I'II @(AR) @(S) x
 
-type Match = U_I_UU_M_I_II_II (->) S
+type Match = U_I_UU_M_I_II_II (AR) (S)
 
-pattern Match :: forall ee e . (e `AR_` S (M e ee) ee) -> Match e ee
-pattern Match x = U_I_UU_M_I_II_II @(->) @S x
+pattern Match :: forall ee e . (e `AR_` (S) (M e ee) ee) -> Match e ee
+pattern Match x = U_I_UU_M_I_II_II @(AR) @(S) x
 
 type Automation e ee eee = e `AR_` ee `P` eee
 
-type Transition = U_I_UT'II'I (->) P
+type Transition = U_I_UT'II'I (AR) P
 
 pattern Transition :: Automation e ee e `AR__` Transition e ee
-pattern Transition x = U_I_UT'II'I @(->) @P x
+pattern Transition x = U_I_UT'II'I @(AR) @(P) x
 
-type Event = U_I_UT'II'I (->) P
+type Event = U_I_UT'II'I (AR) P
 
 pattern Event :: Automation e ee e `AR__` Event e ee
-pattern Event x = U_I_UT'II'I @(->) @P x
+pattern Event x = U_I_UT'II'I @(AR) @(P) x
 
 type State = T'I'II Transition
 
@@ -166,7 +166,7 @@ pattern Node x xs = Recursive (U_I_T_II (These x xs))
 
 -- pattern Yet x xs = Recursive (U_I_T_II (These x xs))
 
-type Instruction = R_U_I_T_I S
+type Instruction = R_U_I_T_I (S)
 
 pattern Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
 
@@ -176,7 +176,7 @@ type List = Optional `T'TT'I` Construction Optional
 
 pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
-pattern Item :: i -> t (Recursive (U_I_T_II t P i)) -> Recursive (U_I_T_II t P i)
+pattern Item :: i -> t (Recursive (U_I_T_II t (P) i)) -> Recursive (U_I_T_II t (P) i)
 pattern Item x xs = Recursive (U_I_T_II (These x xs))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
@@ -191,7 +191,7 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
  Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) P i) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) (P) i) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
@@ -203,7 +203,7 @@ type Tree = Construction List
 pattern Tree x xs = R_U_I_T_I (Recursive (U_I_T_II (These x (T'TT'I (Some (Construct xs))))))
 
 type family Binary t where
- Binary Tree = Construction (U_I_I P `T'TT'I` Optional)
+ Binary Tree = Construction (U_I_I (P) `T'TT'I` Optional)
 
 pattern Binary xs = T'TT'I (U_I_I xs)
 
@@ -226,17 +226,17 @@ pattern Fore x = That x
 pattern Passed x = This x
 pattern Future x = That x
 
-type Decision = S Unit Unit
+type Decision = (S) Unit Unit
 
 pattern No x = This x
 pattern Yes x = That x
 
-type Side = S Unit Unit
+type Side = (S) Unit Unit
 
 pattern Left x = This x
 pattern Right x = That x
 
-type Vertical = S Unit Unit
+type Vertical = (S) Unit Unit
 
 type Predicate = T'II'I Arrow Boolean
 
