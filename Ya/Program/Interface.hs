@@ -201,6 +201,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
   -- `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (get `ha` that `ha` pop) `he'he'hv___` x
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @(AR) where
 
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
+ (Construction Optional `T'TT'I` Void `L` (Only `P'T'I'TT'I` Shafted List)) where
+ mapping = rewrap / \from x -> x
+  `yi_` to @(Scrolling List)
+  `kyo` Range `ha` wrap @(AR) @(Void `L` Scrolling List `T'I` _) `ha'yo` from
+  `yi_` to @(Nonempty List) `ho` wrap @(AR)
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
  mapping = rewrap / \from -> rewrap / \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
 
