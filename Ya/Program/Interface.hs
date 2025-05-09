@@ -197,8 +197,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Void `L
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` Void `L` Construction Optional) where
  mapping = rewrap / \from x -> x
-  `yukl` Forth `ha` New `ha` State `ha` Event `hv_` get `ha` that `ha` pop `he'he'hv___` x
-  `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @(AR)
+  `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (\old -> pop old `yui` old) `he'he'hv___` x
+  -- `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (get `ha` that `ha` pop) `he'he'hv___` x
+  `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @(AR) where
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
  mapping = rewrap / \from -> rewrap / \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
