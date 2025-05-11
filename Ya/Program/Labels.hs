@@ -17,16 +17,16 @@ pattern Range x = Labeled (Only x)
 pattern First :: t o `AR__` Void `L` t `T'I` o
 pattern First i = Labeled i
 
-pattern Again :: forall t e . t e `AR__` Recursive `L` t `T'I` e
+pattern Again :: forall e t . t e `AR__` Recursive `L` t `T'I` e
 pattern Again i = Labeled @Recursive i
 
 pattern Check, Try
- :: forall t e .
+ :: forall e t .
  t e `AR__` Void `L` t `T'I` e
 pattern Check e = Labeled e
 pattern Try e = Labeled e
 
-pattern Retry :: forall t e . t e `AR__` Recursive `L` t `T'I` e
+pattern Retry :: forall e t . t e `AR__` Recursive `L` t `T'I` e
 pattern Retry e = Labeled @Recursive e
 
 type Fore = T'I'II (S) () ()
