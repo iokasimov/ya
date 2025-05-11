@@ -20,6 +20,7 @@ library
   other-modules:
     Ya.Algebra.Abstract
     Ya.Algebra.Definition
+    Ya.Algebra.Effectful
     Ya.Algebra.Instances
     Ya.Operators.Mappings
     Ya.Operators.Handcraft

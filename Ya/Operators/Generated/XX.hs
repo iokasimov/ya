@@ -168,6 +168,12 @@ yoi'yoi
  (t (tt a ii) i) -> into (from (a) o) (t (tt o ii) i)
 yoi'yoi x = fai (foi @from @from @tt) (yoi @from @into x)
 
+-- yoi'yoi :: forall into t tt i ii a o .
+--  Covariant Yoneda Functor into into (T'II'I tt ii) =>
+--  Covariant Yoneda Functor into into (T'II'I t i) =>
+--  (tt (t (a) (i)) (ii)) -> into (into a o) (tt (t (o) (i)) (ii))
+-- yoi'yoi = fai (is `compose` foi) `compose` yoi @into @into
+
 yoi'yai, yoi'ha
  :: forall from into t i tt ii a o .
  Contravariant Endo Semi Functor from (T'II'I tt ii) =>

@@ -3,6 +3,7 @@ module Ya.Operators.Handcraft where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
+import Ya.Algebra.Effectful
 import Ya.Algebra.Instances ()
 
 import Ya.Operators.Mappings
@@ -857,7 +858,7 @@ yok, yok_, yok__, yok___, yok____, yok_____, yok______
  Covariant Endo Transformation Functor into (t `T'TT'I` l `L` tt) t =>
  Covariant Yoneda Functor from into t =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
- (forall e . Wrapper into (T'TT'I t (L l tt) e)) =>
+ (forall e . Wrapper into (t `T'TT'I` l `L` tt `T'I_` e)) =>
  t a -> into (from a (L l tt o)) (t o)
 yok x = component @into @(T'TT'I t (L l tt))
  `compose` wrap @into @(T'TT'I t (L l tt) _)

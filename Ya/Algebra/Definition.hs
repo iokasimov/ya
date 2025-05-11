@@ -9,9 +9,6 @@ infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 
-infixr 7 `JNT`
-infixr 6 `JNT_`
-
 infixl 8 `AR`, `AT`
 infixl 7 `AR_`, `AT_`
 infixl 6 `AR__`, `AT__`
@@ -338,18 +335,6 @@ ana :: forall into t e .
  Elicitable T'II'I into (Recursive t) =>
  into e (t e) -> into e (Recursive t)
 ana into = wrap `compose` map @T'I'II @T'I'II (ana into) `compose` into
-
-type family Jointable effect where
- Jointable (T'I'II (AR) e) = ()
- Jointable (T'I'II (S) e) = ()
- Jointable (T'I'II (U_I_UT'II'I (AR) (P)) e) = ()
-
-type family JNT effect where
- JNT (T'I'II (AR) e) = T'TT'I (T'I'II (AR) e)
- JNT (T'I'II (S) e) = TT'T'I (T'I'II (S) e)
- JNT (T'I'II (U_I_UT'II'I (AR) (P)) e) = T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e)
-
-type JNT_ effect = JNT effect
 
 this :: forall e ee . e `P` ee -> e
 this (These x _) = x
