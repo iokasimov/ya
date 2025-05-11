@@ -372,6 +372,27 @@ instance Wrapper (AR) x
 class Setoid into e where
  equality :: into (e `P` e) (e `P` e `S` e)
 
+-- TODO: generalize over categories
+instance {-# OVERLAPPABLE #-}
+ (Setoid (AR) (Supertype e), Wrapper (AR) e)
+ => Setoid (AR) e where
+ equality (These x xx) = equality (unwrap x `lu` unwrap xx)
+  `yoi` (`yoi` wrap @(AR)) `ho` (`yio` wrap @(AR))
+  `yio` wrap @(AR)
+
+instance {-# OVERLAPS #-} Setoid (AR) Unit where
+ equality _ = That Unit
+
+instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `S` ee) where
+ equality (These (This x) (This xx)) = equality (x `lu` xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
+ equality (These (That x) (That xx)) = equality (x `lu` xx) `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
+ equality (These x xx) = This (These x xx)
+
+instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `P` ee) where
+ equality (These (These x xx) (These xxx xxxx)) = case equality (x `lu` xxx) `lu` equality (xx `lu` xxxx) of
+  These (That x') (That xx') -> That (These x' xx')
+  These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))
+
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
