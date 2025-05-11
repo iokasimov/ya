@@ -63,6 +63,7 @@ infixl 1 `ho________`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `h
 
 infixl 9 `ha`, `ha'hu`, `ha'yok`, `ha'yuk`, `ha'yokl`, `ha'yukl`
  , `ha'he`
+ , `he'ha`
  , `ha'hd`
  , `ha'hd'hd`
 infixl 8 `ha_`
@@ -1652,6 +1653,16 @@ ha_____'he'he = ha'he'he
 ha______'he'he = ha'he'he
 ha_______'he'he = ha'he'he
 ha________'he'he = ha'he'he
+
+he'ha :: forall from into (u :: * -> * -> *) i a o .
+ Contravariant Yoneda Functor from into (T'II'I u i) =>
+ Contravariant Semi Functor into into (T'II'I u i) =>
+ Wrapper into o =>
+ (forall e ee . Wrapper into (T'II'I from e ee)) =>
+ (forall e ee . Wrapper into (T'I'II u e ee)) =>
+ (forall e ee . Wrapper into (T'II'I u e ee)) =>
+ u a i -> into (from (Supertype o) a) (u o i)
+he'ha x = fai @into he `compose` yai @from @into @u x
 
 yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  :: forall into i .
