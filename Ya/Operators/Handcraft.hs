@@ -285,7 +285,7 @@ infixl 3 `yu_____`
 infixl 2 `yu______`
 infixl 1 `yu_______`
 
-infixl 8 `yp`, `yp'yo`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
+infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
 infixl 8 `ys`, `ys'yo`
@@ -2467,6 +2467,11 @@ yp'yo, yp_'yo :: forall e ee r t tt l .
 yp'yo x f = day @T'I'II @(AR) @l @t @tt @(P) @P identity f x
 
 yp_'yo = yp'yo
+
+yp'yo'hd :: forall e ee r t tt l .
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P t (l `L` tt) e ee) t =>
+ t e `P` (l `L` tt) ee -> (e `AR_` ee `AR` r) -> t r
+yp'yo'hd x f = day @T'I'II @(AR) @l @t @tt @(P) @P identity (fdi f) x
 
 -- TODO: try to generalize
 -- yip :: forall u e ee eee t .
