@@ -129,7 +129,7 @@ foi from = wrapped (fo @_ @_ @(T'II'I _ _) from)
 
 fio :: forall from into t a o i .
  Covariant Semi Functor from into (T'I'II t i) =>
- (forall e ee . Wrapper into (T'I'II t e ee)) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
  from a o -> into (t i a) (t i o)
 fio from = wrapped (fo @_ @_ @(T'I'II _ _) from)
 
@@ -148,7 +148,7 @@ fia from = wrapped (fa @_ @_ @(T'I'II _ _) from)
 fiu :: forall from into t a o i .
  Terminal from =>
  Covariant Functor from into (T'I'II t i) =>
- (forall e ee . Wrapper into (T'I'II t e ee)) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
  Wrapper (AR) (from Unit o) =>
  Supertype (from Unit o) -> into (t i a) (t i o)
 fiu from = fio (wrap @(AR) @(from Unit o) from `compose` terminal)
@@ -156,7 +156,7 @@ fiu from = fio (wrap @(AR) @(from Unit o) from `compose` terminal)
 fui :: forall from into t a o i .
  Terminal from =>
  Covariant Functor from into (T'II'I t i) =>
- (forall e ee . Wrapper into (T'II'I t i ee)) =>
+ (forall e . Wrapper into (T'II'I t i e)) =>
  Wrapper (AR) (from Unit o) =>
  Supertype (from Unit o) -> into (t a i) (t o i)
 fui from = foi (wrap @(AR) @(from Unit o) from `compose` terminal)
