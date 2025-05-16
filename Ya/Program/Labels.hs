@@ -52,3 +52,6 @@ pattern Prior e = Labeled e
 pattern New e = Labeled @Void e
 
 pattern Old e = Labeled @(Void `P` Void) e
+
+pattern Aloft :: (t `P'T'I'TT'I` Tree) e `AR___` Void `L` (t `P'T'I'TT'I` Tree) `T'I` e
+pattern Aloft x = Labeled x

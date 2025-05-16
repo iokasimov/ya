@@ -959,6 +959,22 @@ kyo x = yo (unwrap `identity` component @(AR) @t @(t `T'TT'I` ll `L` tt) x)
  `compose` fio @from (unwrap `compose` unwrap)
  `compose` fai @from unwrap
 
+-- kyok :: forall from into t tt ttt ll lll a o .
+ -- Precategory into =>
+ -- Component (AR) t (t `T'TT'I` ll `L` tt) =>
+ -- Covariant Yoneda Functor from into t =>
+ -- Covariant Functor from into (T'I'II from (ll `L` tt `T'I` a)) =>
+ -- Contravariant Functor from into (T'II'I from (ll `L` I `T'I` o)) =>
+ -- (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ -- (forall e ee . Wrapper into (T'II'I from e ee)) =>
+ -- (forall e . Wrapper from (I e)) =>
+ -- (forall e . Wrapper from (ll `L`I `T'I` e)) =>
+ -- (forall e . Wrapper from (ll `L`tt `T'I` e)) =>
+--  t a -> into (from (tt a) ((ll `L` I) ((lll `L` ttt) o))) (t o)
+-- kyok x = yo (unwrap `identity` component @(AR) @t @(t `T'TT'I` ll `L` tt) x)
+--  `compose` fio @from (unwrap `compose` unwrap)
+--  `compose` fai @from unwrap
+
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
  Category into =>

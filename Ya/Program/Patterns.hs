@@ -244,3 +244,6 @@ type Predicate = T'II'I Arrow Boolean
 
 pattern Predicate :: e `AR` Boolean `AR_` Predicate e
 pattern Predicate e = T'II'I e
+
+pattern Junction :: t e `P` tt e `AR__` (t `P'T'I'TT'I` tt) e
+pattern Junction x = U_T_I_TT_I  x

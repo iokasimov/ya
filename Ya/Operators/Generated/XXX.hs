@@ -3776,3 +3776,17 @@ yia'yia'yia
  (forall e ee . Wrapper into (T'II'I from e ee)) =>
  (t i ((tt ii ((ttt iii (o)))))) -> into (from (a) o) (t i ((tt ii ((ttt iii (a))))))
 yia'yia'yia x = fai (fia @from @from @tt `compose` fia @from @from @ttt) (yia @from @into x)
+
+yio'yio'yia'yoi' :: forall from into t tt ttt tttt i ii iii iiii a o .
+ Covariant Yoneda Functor from into (T'I'II tttt iiii) =>
+ (forall e . Wrapper into (T'I'II tttt iiii e)) =>
+ Covariant Endo Semi Functor from (T'I'II ttt iii) =>
+ (forall e . Wrapper from (T'I'II ttt iii e)) =>
+ Contravariant Endo Semi Functor from (T'I'II tt ii) =>
+ (forall e . Wrapper from (T'I'II tt ii e)) =>
+ Covariant Endo Semi Functor from (T'II'I t i) =>
+ (forall e . Wrapper from (T'II'I t i e)) =>
+ Contravariant Endo Semi Functor (->) (T'II'I into (tttt (iiii) (ttt (iii) (tt (ii) (t (a) (i)))))) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ (tttt (iiii) (ttt (iii) (tt (ii) (t (o) (i))))) -> into (from a o) (tttt (iiii) (ttt (iii) (tt (ii) (t (a) (i)))))
+yio'yio'yia'yoi' = fai (identity `compose` fio @from `compose` fia @from `compose` foi @from) `compose` yio @from @into

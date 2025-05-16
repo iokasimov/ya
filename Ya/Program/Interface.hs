@@ -235,4 +235,17 @@ type family Vector x xs where
 instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predicate where
  mapping = rewrap / \from -> rewrap / \x x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` from x'
 
+instance Mapping T'I'II T'I'II Arrow Arrow (Void `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree)) Tree where
+  mapping = rewrap / \from (Labeled (U_T_I_TT_I (These scrolling_list tree))) ->
+   rewrap (\x -> Only tree `lu` that @(Shafted List _) `ho'yo` intro @Tree `hv` x) scrolling_list
+    `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
+    `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
+    `yo` from
 
+-- inject x = this @(Only Name) `ho'he` Root `hv` x
+--  `ha___` is @(Scrolling List `T'I` Tree Name) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
+--  `ha___` Only `lo_` Some `hu_` that @(Shafted List `T'I` Name) `ho'yo` intro @Tree `hv` x
+
+
+   -- U_T_I_TT_I
+   -- (T'TT'I (U_T_I_TT_I ((Only `hv__` x `yo` from) `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu`Forward `hv` Empty @List Unit))) `lu` T'TT'I (Reverse `hv` Empty @List Unit))
