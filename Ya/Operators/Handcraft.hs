@@ -231,7 +231,7 @@ infixl 3 `yi_____`
 infixl 2 `yi______`
 infixl 1 `yi_______`
 
-infixl 8 `yo`, `yo'yp` --, `yo'hj`
+infixl 8 `yo`, `yo'yp`, `yo'yok` --, `yo'hj`
 infixl 7 `yo_`
 infixl 6 `yo__`
 infixl 5 `yo___`
@@ -2686,6 +2686,17 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
 -- TODO: define `rw'ha`
 -- TODO: define `rw'rw'ha`
 -- TODO: define `rw'rw'rw'ha`
+
+yo'yok
+ :: forall from into t tt ttt lll a o .
+ Covariant Endo Semi Functor from tt =>
+ Component from (tt `T'TT'I` lll `L` ttt) tt =>
+ Covariant Yoneda Functor from into t =>
+ Contravariant Endo Semi Functor (AR) (T'II'I into (t (tt o))) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ (forall e . Wrapper from (tt `T'TT'I` lll `L` ttt `T'I_` e)) =>
+ (t (tt a)) -> into (from (a) (lll `L` ttt `T'I` o)) (t (tt o))
+yo'yok = fai (fok @from @from @tt @ttt) `compose` yo @from @into
 
 ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall from u t tt l a o e .
  Covariant Endo Semi Functor from tt =>
