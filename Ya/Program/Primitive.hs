@@ -56,13 +56,7 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(AR) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
-intro :: forall t e . Covariant Monoidal Functor (AR) (AR) (P) P Void t => e -> t e
-intro x = enter `yu` x
-
--- layer :: forall g f e .
- -- Component (AR) f (f `JNT` g) =>
- -- f e -> (f `JNT` g) e
--- layer = component @(AR) @f @(f `JNT` g) @e
+-- TODO: outro = t e -> e
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
@@ -74,19 +68,6 @@ joint :: forall f g e .
  Elicitable T'II'I (AR) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
-
--- Define a special `Mapping` instance instead and use `Try` label constructor for it
-try :: forall t e o .
- Covariant Endo Semi Functor (AR) t =>
- Component (AR) (t `T'TT'I` Progress e) (t `JNT` Progress e) =>
- Elicitable T'II'I (AR) ((t `T'TT'I` Progress e) e) =>
- t (Progress e o) -> (t `JNT` Progress e) `T'I` o
-try = wrap @(AR) @((t `T'TT'I` Progress e) _) `ho` component @(AR)
-
--- prompt ::
- -- Elicitable T'II'I (AR) e =>
- -- Supertype e -> e
--- prompt = wrap
 
 to :: forall tt t e .
  Component (AR) t tt =>

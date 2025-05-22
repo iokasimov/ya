@@ -816,6 +816,7 @@ yio'yij x = fai fij (yio @from @into x)
 
 -- t i a -> into (from (a `P` ii) o) (t i (ii `AR` o))
 
+
 ho'hj = yio'yij
 
 yio'yij'yij, ho'hj'hj :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
@@ -859,7 +860,7 @@ yok, yok_, yok__, yok___, yok____, yok_____, yok______
  Covariant Yoneda Functor from into t =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (forall e . Wrapper into (t `T'TT'I` l `L` tt `T'I_` e)) =>
- t a -> into (from a (L l tt o)) (t o)
+ t a -> into (from a (l `L` tt `T'I` o)) (t o)
 yok x = component @into @(T'TT'I t (L l tt))
  `compose` wrap @into @(T'TT'I t (L l tt) _)
  `compose` yo x
@@ -1103,6 +1104,7 @@ yok____'yukl = yok'yukl
 yok_____'yukl = yok'yukl
 yok______'yukl = yok'yukl
 
+-- TODO: , yokl_'yokl, yokl__'yokl, yokl___'yokl, yokl____'yokl, yokl_____'yokl
 yokl'yokl :: forall from into t tt ttt l ll lll a o .
  Covariant Yoneda Functor from into t =>
  Covariant Semi Functor from into t =>
