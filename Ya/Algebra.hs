@@ -155,7 +155,7 @@ instance
  , Covariant Endo Monoidal Functor (AR) (P) P Void (R_U_I_T_I (P) tt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (t `T'TT'I` R_U_I_T_I (P) tt) where
  mapping = rewrap / \from (T'I'II f) -> T'TT'I /
-  intro @t `compose` intro @(R_U_I_T_I (P) tt) `compose` from `compose` f `identity` Unit
+  intro @t @(AR) `compose` intro @(R_U_I_T_I (P) tt) @(AR) `compose` from `compose` f `identity` Unit
 
 -- TODO: try to avoid mapping a datastructure twice here
 instance
@@ -300,7 +300,7 @@ instance
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap / \from -> rewrap `compose` rewrap / \(T'I'II x) ->
     \old -> x old `yok` \(T'II'I (These (Labeled (T'I'II (U_I_UT'II'I f))) btw))
-      -> Labeled @Void `compose` intro @tt / T'II'I (f btw `yiu` old) `yo` from
+      -> Labeled @Void `compose` intro @tt @(AR) / T'II'I (f btw `yiu` old) `yo` from
 
 -- TODO: introduce a label
 instance
@@ -554,7 +554,7 @@ instance
   --x `yok_'he'he` Labeled @Void
   x `yok_` Labeled @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II from (T'TT'I x))
-      `la` intro @t `ha` from
+      `la` intro @t @(AR) `ha` from
     `ha__` unwrap @(AR)
     `ha__` unwrap @(AR)
 

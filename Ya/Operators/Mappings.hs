@@ -68,7 +68,7 @@ fu = fo @from @into @t
 fok :: forall from into t tt l a o .
  Component into (t `T'TT'I` l `L` tt) t =>
  Covariant Functor from into t =>
- Elicitable T'II'I into (t `T'TT'I` l `L` tt `T'I_` o) =>
+ (forall e . Wrapper into (t `T'TT'I` l `L` tt `T'I_` e)) =>
  from a (l `L` tt `T'I` o) -> into (t a) (t o)
 fok from = component @into @(t `T'TT'I` l `L` tt) @t
  `compose` wrap `compose` fo from

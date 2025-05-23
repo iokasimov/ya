@@ -85,7 +85,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) (List 
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
  ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
- mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Reverse `ha` Empty @List) `yi` wrap @(AR)
+ mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Reverse `ha` Empty @List) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance
@@ -237,7 +237,7 @@ instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predica
 
 instance Mapping T'I'II T'I'II Arrow Arrow (Void `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree)) Tree where
   mapping = rewrap / \from (Labeled (U_T_I_TT_I (These scrolling_list tree))) ->
-   rewrap (\x -> Only tree `lu` that @(Shafted List _) `ho'yo` intro @Tree `hv` x) scrolling_list
+   rewrap (\x -> Only tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from

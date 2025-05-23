@@ -290,12 +290,15 @@ day from t x = map @v @T'I'II @from @(AR)
 empty :: forall t o . Covariant Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
--- TODO: generalize so I can use Attribute here
-intro :: forall t e .
+intro :: forall t into e .
+ Category into =>
  Covariant Monoidal Functor (AR) (AR) (P) P Void t =>
- Component (AR) I (T'I'II (AR) Unit) =>
- e `AR` t e
-intro = component @(AR) @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant
+ Mapping T'I'II T'I'II into into (T'I'II AR Unit) t =>
+ Component into I (T'I'II (AR) Unit) =>
+ Wrapper into (T'I'II AR Unit e) =>
+ Wrapper into (I e) =>
+ into `T'I` e `T'I` t e
+intro = component @into @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant @(AR) @into
 
 -- TODO: outro = t e -> e
 
