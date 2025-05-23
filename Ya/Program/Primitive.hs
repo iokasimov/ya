@@ -56,8 +56,6 @@ sub (R_U_I_T_I (Recursive (U_I_T_II (These x old)))) = These
   (wrap @(AR) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 
--- TODO: outro = t e -> e
-
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
  g e -> (f `JNT` g) e

@@ -72,7 +72,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) w
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
  mapping = rewrap / \from (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
   that `ho'yo` from
-  `hv_____` enter @(State `T'I` List _)
+  `hv_____` intro @(State `T'I` List _) Unit
     `yuk__` New (f `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
     `yuk__` New (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
     `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)

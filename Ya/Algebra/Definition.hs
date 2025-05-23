@@ -291,15 +291,13 @@ empty :: forall t o . Covariant Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
 -- TODO: generalize so I can use Attribute here
-enter :: forall t . Covariant Monoidal Functor (AR) (AR) (P) P Void t => t Unit
-enter = component @(AR) @(T'I'II (AR) Unit) @t (wrap identity)
-
--- TODO: generalize so I can use Attribute here
 intro :: forall t e .
  Covariant Monoidal Functor (AR) (AR) (P) P Void t =>
  Component (AR) I (T'I'II (AR) Unit) =>
  e `AR` t e
 intro = component @(AR) @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant
+
+-- TODO: outro = t e -> e
 
 rewrap :: forall o into a .
  Precategory into =>
