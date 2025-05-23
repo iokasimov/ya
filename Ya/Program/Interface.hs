@@ -92,7 +92,7 @@ instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
  , Covariant Endo Semi Functor (AR) ttt
- , Covariant Endo Monoidal Functor (AR) (P) P Void tttt
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
  , Covariant Endo Transformation Functor (AR) (t `T'TT'I` Void `L` ll `L` tttt) (t `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` Void `L` ll `L` tttt) (tt `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` Void `L` ll `L` tttt) (ttt `TT'T'I` tttt)
@@ -107,7 +107,7 @@ instance
 instance
  ( Covariant Endo Semi Functor (AR) tt
  , Covariant Endo Semi Functor (AR) ttt
- , Covariant Endo Monoidal Functor (AR) (P) P Void tttt
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` Void `L` ll `L` tttt) (tt `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` Void `L` ll `L` tttt) (ttt `TT'T'I` tttt)
  ) => Mapping T'I'II T'I'II (AR) (AR)

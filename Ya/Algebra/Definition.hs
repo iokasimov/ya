@@ -263,16 +263,32 @@ deriving instance
  ) => Adjoint Functor from into t tt
 
 class
- ( forall e ee . Mapping v T'I'II from into (Day v from u uu t (l `L` t) e ee) t
- , Mapping v T'I'II from into (v into (Neutral uu)) t
+ ( forall e ee . Mapping v vv from into (Day v from u uu t (l `L` t) e ee) t
+ , Mapping v vv from into (v into (Neutral uu)) t
  , x v from into t
- ) => Monoidal v x from into u uu l t where
+ ) => Monoidal v vv x from into u uu l t where
 
 deriving instance
- ( forall e ee . Mapping v T'I'II from into (Day v from u uu t (l `L` t) e ee) t
- , Mapping v T'I'II from into (v into (Neutral uu)) t
+ ( forall e ee . Mapping v vv from into (Day v from u uu t (l `L` t) e ee) t
+ , Mapping v vv from into (v into (Neutral uu)) t
  , x v from into t
- ) => Monoidal v x from into u uu l t
+ ) => Monoidal v vv x from into u uu l t
+
+class
+ ( x v T'I'II xx from into u uu l t
+ ) => Lax v x xx from into u uu l t where
+
+deriving instance
+ ( Monoidal v T'I'II Functor from into u uu l t
+ ) => Lax v Monoidal Functor from into u uu l t
+
+class
+ ( x v T'II'I xx from into u uu l t
+ ) => Oplax v x xx from into u uu l t where
+
+deriving instance
+ ( Monoidal v T'II'I Functor from into u uu l t
+ ) => Oplax v Monoidal Functor from into u uu l t
 
 -- TODO: Yoneda version?
 day :: forall v from l t tt u uu a o e ee .
@@ -286,13 +302,15 @@ day from t x = map @v @T'I'II @from @(AR)
  @(Day v from u uu t (l `L` tt) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
+-- TODO: coday -- Oplax Monoidal Functor
+
 -- TODO: generalize
-empty :: forall t o . Covariant Monoidal Functor (AR) (AR) (P) (S) Void t => t o
+empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
 intro :: forall t into e .
  Category into =>
- Covariant Monoidal Functor (AR) (AR) (P) P Void t =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  Mapping T'I'II T'I'II into into (T'I'II AR Unit) t =>
  Component into I (T'I'II (AR) Unit) =>
  Wrapper into (T'I'II AR Unit e) =>

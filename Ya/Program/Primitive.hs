@@ -35,7 +35,7 @@ switch new old = old `lu` new
 put = switch
 
 leaf :: forall t e .
- Covariant Monoidal Functor (AR) (AR) (P) (S) Void t =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
  e -> Recursive (U_I_T_II t (P) e)
 leaf x = Recursive `ha` U_I_T_II `ha` These x `li_` empty `yo` initial' @(AR)
 

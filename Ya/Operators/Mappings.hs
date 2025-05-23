@@ -207,7 +207,7 @@ fc :: forall t a o .
  Adjoint Functor (AR) (AR) (T'I'II (P) (t a)) (T'I'II (AR) (t a)) =>
  Adjoint Functor (AR) (AR) (T'I'II (P) a) (T'I'II (AR) a) =>
  Adjoint Functor (AR) (AR) (T'I'II (P) (t a `P` t (AR a o))) (T'I'II (AR) (t a `P` t (AR a o))) =>
- Monoidal T'I'II Functor (AR) (AR) (P) P Void t =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  t (AR a o) -> (AR) (t a) (t o)
 fc = unwrap @(AR) @(T'I'II (AR) (t a) _)
  `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR))

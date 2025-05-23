@@ -2569,8 +2569,8 @@ yp'yp = day @T'I'II @(AR) @l @t @ttt @u @(P) identity
 
 -- TODO: generalize
 yp'ys :: forall u e ee t tt l ll .
- Covariant Monoidal Functor (AR) (AR) u (P) l t =>
- Covariant Monoidal Functor (AR) (AR) (P) (S) ll tt =>
+ Covariant Lax Monoidal Functor (AR) (AR) u (P) l t =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) (S) ll tt =>
  u (t (tt e)) ((l `L` t) ((ll `L` tt) ee)) -> t (tt (e `S` ee))
 yp'ys = day @T'I'II @(AR) @l @t @t @u @(P) identity
  (day @T'I'II @(AR) @ll @tt @tt @(P) @(S) identity identity)
@@ -3134,11 +3134,12 @@ lu_______'yp = lu'yp
 -- lu_______'yip = lu'yip
 
 lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'ys
- :: forall o oo t l .
- Covariant Monoidal Functor (AR) (AR) (P) (S) l t =>
+ :: forall o oo t tt l .
+ -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) l t =>
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) t (l `L` tt) o oo) t =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II (P) (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
- t o -> (l `L` t) oo -> t (o `S` oo)
+ t o -> (l `L` tt) oo -> t (o `S` oo)
 lu'ys l r = ys (lu l r)
 
 lu_'ys = lu'ys
@@ -3176,8 +3177,8 @@ lu'yp'yp l r = yp'yp @(P) (lu l r)
 
 lu'yp'ys
  :: forall t tt l ll o oo .
- Covariant Monoidal Functor (AR) (AR) (P) P l t =>
- Covariant Monoidal Functor (AR) (AR) (P) (S) ll tt =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) P l t =>
+ Covariant Lax Monoidal Functor (AR) (AR) (P) (S) ll tt =>
  Covariant Endo Semi Functor (AR) t =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t (tt o))) =>
@@ -3186,7 +3187,7 @@ lu'yp'ys l r = yp'ys (lu l r)
 
 -- lu'yip'yp
  -- :: forall t tt o oo e .
- -- Covariant Monoidal Functor (AR) (AR) (P) P tt =>
+ -- Covariant Lax Monoidal Functor (AR) (AR) (P) P tt =>
  -- Covariant Monoidal Functor (AR) (AR) (P) P (T'I'II t e) =>
  -- Covariant Endo Semi Functor (AR) (T'I'II t e) =>
  -- Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
