@@ -318,7 +318,16 @@ intro :: forall t into e .
  into `T'I` e `T'I` t e
 intro = component @into @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant @(AR) @into
 
--- TODO: outro = t e -> e
+outro :: forall t into e .
+ Category into =>
+ Covariant Oplax Monoidal Functor (AR) (AR) (P) P Void t =>
+ Mapping T'I'II T'I'II into into t (T'I'II AR Unit) =>
+ Component into I (T'I'II (AR) Unit) =>
+ Wrapper into (T'I'II AR Unit e) =>
+ Wrapper into (AR Unit e) =>
+ Wrapper into (I e) =>
+ into `T'I` t e `T'I` e
+outro = unwrap `compose` unwrap `compose` component @into @t @(T'I'II (AR) Unit)
 
 rewrap :: forall o into a .
  Precategory into =>
