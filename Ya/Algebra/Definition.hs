@@ -274,21 +274,17 @@ deriving instance
  , x v from into t
  ) => Monoidal v vv x from into u uu l t
 
-class
- ( x v T'I'II xx from into u uu l t
- ) => Lax v x xx from into u uu l t where
+class x v T'I'II xx from into u uu l t
+ => Lax v x xx from into u uu l t where
 
-deriving instance
- ( Monoidal v T'I'II Functor from into u uu l t
- ) => Lax v Monoidal Functor from into u uu l t
+deriving instance Monoidal v T'I'II Functor from into u uu l t
+ => Lax v Monoidal Functor from into u uu l t
 
-class
- ( x v T'II'I xx from into u uu l t
- ) => Oplax v x xx from into u uu l t where
+class x v T'II'I xx from into u uu l t
+ => Oplax v x xx from into u uu l t where
 
-deriving instance
- ( Monoidal v T'II'I Functor from into u uu l t
- ) => Oplax v Monoidal Functor from into u uu l t
+deriving instance Monoidal v T'II'I Functor from into u uu l t
+ => Oplax v Monoidal Functor from into u uu l t
 
 -- TODO: Yoneda version?
 day :: forall v from l t tt u uu a o e ee .
