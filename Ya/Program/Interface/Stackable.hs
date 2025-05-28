@@ -32,6 +32,9 @@ instance Stackable (Construction Optional) where
 pattern Plane :: Stackable t => t i -> (Void `L` t) i
 pattern Plane i = Labeled i
 
+pattern Whirl :: Stackable t => t i -> ((Void `P` Void)  `L` t) i
+pattern Whirl i = Labeled i
+
 pattern Align :: Stackable t => t i -> (Void `L` t) i
 pattern Align i = Labeled i
 
