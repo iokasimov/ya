@@ -10,12 +10,7 @@ import Ya.Algebra.Instances as Exports ()
 
 import Ya.Operators
 
- -- ((R_U_I_T_I (P) (T'I'II (S) Unit)) (Void `L` R_U_I_T_I (P) (T'I'II (S) Unit)) i ii)
-
- -- Covariant Transformation Functor (AR) (AR) (Day T'I'II (AR) (P) (S) 
-
 instance
- -- ( Covariant Endo Monoidal Functor (AR) (P) (S) Void (R_U_I_T_I (P) (T'I'II (S) Unit))
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (T'I'II (S) Unit)
  ) => Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) (S) (R_U_I_T_I (P) (T'I'II (S) Unit)) (Void `L` R_U_I_T_I (P) (T'I'II (S) Unit)) i ii)
