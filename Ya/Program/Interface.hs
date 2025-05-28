@@ -31,8 +31,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (Shafted List)
 instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Void `L` (Only `P'T'I'TT'I` Shafted List)) where
  mapping = rewrap / \from x@(U_T_I_TT_I (These (Identity _) (U_T_I_TT_I (These rl fl)))) ->
   Identity `hv` Labeled x
-   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Reverse)
-    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Forward)
+   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Prior)
+    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Forth)
     `yi_` U_T_I_TT_I
    `yi__` U_T_I_TT_I `ho` T'TT'I
    `yo__` from where
@@ -48,7 +48,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only
 instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
  ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Construction List))) where
   mapping = rewrap / \from x -> U_T_I_TT_I
-   (T'TT'I (U_T_I_TT_I ((Only `hv__` x `yo` from) `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu`Forward `hv` Empty @List Unit))) `lu` T'TT'I (Reverse `hv` Empty @List Unit))
+   (T'TT'I (U_T_I_TT_I ((Only `hv__` x `yo` from) `lu` U_T_I_TT_I (Prior `hv` Empty @List Unit `lu` Forth `hv` Empty @List Unit))) `lu` T'TT'I (Prior `hv` Empty @List Unit))
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
  -- ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
@@ -64,10 +64,10 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
  mapping = rewrap / \from -> rewrap / wrap `ho'yo` from `ho` Some
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `ha` List `hv` unwrap x)) `yo` from
+ mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Prior `hv` Empty @List Unit `lu` Forth `ha` List `hv` unwrap x)) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Reverse `hv` Empty @List Unit `lu` Forward `hv` x)) `yo` from
+ mapping = rewrap / \from x -> U_T_I_TT_I (Empty @List Unit `lu` U_T_I_TT_I (Prior `hv` Empty @List Unit `lu` Forth `hv` x)) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
  mapping = rewrap / \from (U_T_I_TT_I (These w (U_T_I_TT_I (These (Labeled r) (Labeled f))))) ->
@@ -85,7 +85,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) (List 
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
  ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
- mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Reverse `ha` Empty @List) `yi` wrap @(AR)
+ mapping = rewrap / \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Prior `ha` Empty @List) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance
@@ -138,9 +138,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
  mapping = rewrap / \from x@(U_T_I_TT_I (These _ (U_T_I_TT_I (These rl fl)))) ->
   List `ha` Item (Labeled x) `ha` Last `hv` Unit
     `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Back) `ha_` is `hu` x)
-      `he'he'hv` Empty @List () `yi` that `ho` Reverse
+      `he'he'hv` Empty @List () `yi` that `ho` Prior
      `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
-      `he'he'hv` Empty @List () `yi` that `ho` Forward
+      `he'he'hv` Empty @List () `yi` that `ho` Forth
      `yi_` U_T_I_TT_I
     `yi__` U_T_I_TT_I `ho` T'TT'I
     `yo__` from

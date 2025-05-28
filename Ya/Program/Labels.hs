@@ -37,21 +37,13 @@ type Forward = L Void
 
 type Reverse = L (Void `P` Void)
 
-pattern Forward :: t e `AR__` Void `L` t `T'I` e
-pattern Forward e = Labeled e
+pattern Forth e = Labeled @Void e
+pattern Prior e = Labeled @(Void `P` Void) e
 
-pattern Reverse :: t e `AR__` (Void `P` Void) `L` t `T'I` e
-pattern Reverse e = Labeled e
-
-pattern Forth :: t e `AR__` Void `L` t `T'I` e
-pattern Forth e = Labeled e
-
-pattern Prior :: t e `AR__` (Void `P` Void) `L` t `T'I` e
-pattern Prior e = Labeled e
-
-pattern New e = Labeled @Void e
-
-pattern Old e = Labeled @(Void `P` Void) e
+pattern New e = Labeled @Void @(State _) e
+pattern Old e = Labeled @(Void `P` Void) @(State _) e
 
 pattern Aloft :: (t `P'T'I'TT'I` Tree) e `AR___` Void `L` (t `P'T'I'TT'I` Tree) `T'I` e
 pattern Aloft x = Labeled x
+
+pattern Every x = Labeled @Void @(Progress _) x
