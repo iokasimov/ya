@@ -183,6 +183,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` Void `L` List) List wher
   `yokl` Prior `ha` New `ha__'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from `ha__` unwrap @(AR) `he'he'hv___` Empty @List Unit
   `yi__` that
 
+instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` (Void `P` Void) `L` List) List where
+ mapping = rewrap / \from x -> unwrap x
+  `yokl` Prior `ha` Run
+  `ha__` intro @(State `T'I` List _ `JNT` Halts) @(AR)
+   `ho_'yok` Try `ha'he'he` is @(Maybe (Nonempty List _))
+   `ho_'yok` New `ha` (\xx -> xx `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from)
+  `he'he'hv___` empty @List
+  `yi__` Empty @List `la` is `ho'he` that @(List _)
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Void `L` Construction Optional) (Construction Optional) where
  mapping = rewrap / \from x -> let start = (unwrap (unwrap (unwrap (unwrap x)))) in
   that `hv` start
