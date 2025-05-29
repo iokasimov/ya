@@ -29,10 +29,6 @@ pattern Try e = Labeled e
 pattern Retry :: forall e t . t e `AR__` Recursive `L` t `T'I` e
 pattern Retry e = Labeled @Recursive e
 
-type Fore = T'I'II (S) () ()
-
-type Back = T'II'I (S) () ()
-
 type Forward = L Void
 
 type Reverse = L (Void `P` Void)
