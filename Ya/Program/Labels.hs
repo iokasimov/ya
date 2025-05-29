@@ -39,7 +39,12 @@ pattern Prior e = Labeled @(Void `P` Void) e
 pattern New e = Labeled @Void @(State _) e
 pattern Old e = Labeled @(Void `P` Void) @(State _) e
 
-pattern Aloft :: (t `P'T'I'TT'I` Tree) e `AR___` Void `L` (t `P'T'I'TT'I` Tree) `T'I` e
-pattern Aloft x = Labeled x
+pattern Every :: forall i ii iii e .
+ Component (AR) (Covariant Day (AR) (P) (P) (T'I'II (S) iii) (Void `L` T'I'II (S) iii) i ii) (T'I'II (S) iii) =>
+ T'I'II (S) i e `AR__` Void `L` T'I'II (S) i `T'I` e
+pattern Every x = Labeled @Void x
 
-pattern Every x = Labeled @Void @(Progress _) x
+pattern Prune :: forall i e .
+ Component (AR) (T'I'II (S) i) (T'I'II (S) Unit) =>
+ T'I'II (S) i e `AR__` (Void `P` Void) `L` T'I'II (S) i `T'I` e
+pattern Prune x = Labeled @(Void `P` Void) x
