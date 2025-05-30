@@ -7,7 +7,7 @@ import Ya.Program.Primitive
 import Ya.Program.Labels
 
 import Ya.Program.Interface.Field
-import Ya.Program.Interface.Match
+import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 
 type Shafted e = Reverse e `P'T'I'TT'I` Forward e
