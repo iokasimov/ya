@@ -22,10 +22,10 @@ type Singular = I
 pattern Singular :: e -> Singular e
 pattern Singular e = Identity e
 
-type Focused = I
+-- type Focused = I
 
-pattern Focused :: e -> Focused e
-pattern Focused e = Identity e
+-- pattern Focused :: e -> Focused e
+-- pattern Focused e = Identity e
 
 type Apparently = I
 
