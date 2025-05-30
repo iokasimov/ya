@@ -32,13 +32,16 @@ type Scrolling datastructure = Shifting Only datastructure
 
 type Sliding datastructure = Shifting List datastructure
 
+pattern Lift x = This x :: Shifter List
+pattern Down x = That x :: Shifter List
+
 instance Shiftable Only (Optional `T'TT'I` Construction Optional) where
  shift way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Some `li` shift' `he'he'hv` x where
 
   shift' = intro @(State `T'I` Scrolling List _ `JNT` Halts) Unit
    `yuk__` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
    `yok__` Try
-   -- `yok__` New `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Focused i) at `he'ho'he` Scope it
+   -- `yok__` New `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Only i) at `he'ho'he` Scope it
    `yok__` New `ha` State `ha__` Event `ha` switch `ho_'ha` Scope `hv` focus `ho'he` Scope it
    `yok__` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
 
@@ -73,9 +76,6 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
-pattern Down x = This x :: Shifter List
-pattern Lift x = That x :: Shifter List
-
 pattern Broad x = This x :: Shifter Tree
 pattern Level x = That x :: Shifter Tree
 
@@ -99,7 +99,7 @@ instance Shiftable Only (Construction List) where
   vertical_deep _ = intro @(State `T'I` Scrolling Tree i `JNT` Halts) Unit
    `yuk____` New `ha` State `hv____` Transition `hv` auto
    `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-   `ho__'he'he` ((Scope @(Focused (Tree i)) at `ho'he'he'he'he`  Scope @(i `P` _) it)
+   `ho__'he'he` ((Scope @(Only (Tree i)) at `ho'he'he'he'he`  Scope @(i `P` _) it)
         `lo` Scope @(Shafted List `T'I` Tree i) at)
    `yok____` New `ha` State `ha____` Transition
    `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
