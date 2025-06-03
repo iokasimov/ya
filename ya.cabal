@@ -29,7 +29,7 @@ library
     Ya.Operators.Generated.XXX
     Ya.Operators.Generated.XXXX
     Ya.Program.Interface
-    Ya.Program.Interface.Field
+    Ya.Program.Interface.Fieldable
     Ya.Program.Interface.Matchable
     Ya.Program.Interface.Stackable
     Ya.Program.Interface.Shiftable

@@ -9,7 +9,7 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 import Ya.Program.Labels
 
-import Ya.Program.Interface.Field as Exports
+import Ya.Program.Interface.Fieldable as Exports
 import Ya.Program.Interface.Matchable as Exports
 import Ya.Program.Interface.Stackable as Exports
 import Ya.Program.Interface.Shiftable as Exports

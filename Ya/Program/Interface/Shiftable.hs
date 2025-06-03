@@ -6,7 +6,7 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 import Ya.Program.Labels
 
-import Ya.Program.Interface.Field
+import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 
@@ -139,7 +139,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` (Reverse List `P'T'I
 
 locate :: forall window datastructure item .
  Shiftable window datastructure =>
- Field (window item) (Supertype (Shifting window datastructure item)) =>
+ Fieldable (window item) (Supertype (Shifting window datastructure item)) =>
  Wrapper (AR) (Shifting window datastructure item) =>
  Shifter datastructure `P` Predicate (window item) `AR_` Supertype (Event `T'I` Shifting window datastructure item `T'I` Optional (Shifting window datastructure item))
 locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @(AR) (None `hu` by None) `li` locate' `he'he'hv` x where
