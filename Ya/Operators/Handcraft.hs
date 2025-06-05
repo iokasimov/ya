@@ -710,7 +710,6 @@ yai'ydi, ha'hd :: forall from into t tt ttt i ii iii a o .
  Contravariant Functor from (AR) (T'II'I into (t o i)) =>
  Adjoint Functor from from (T'II'I tt ii) (T'I'II ttt iii) =>
  Covariant Functor from (AR) (T'I'II into (from (tt ii (t o i)) a)) =>
- Covariant Endo Semi Functor from (T'II'I ttt iii) =>
  Covariant Endo Semi Functor from (T'I'II tt ii) =>
  Contravariant Yoneda Functor from into (T'II'I t i) =>
  Contravariant Endo Semi Functor (AR) (T'II'I into (t (tt o ii) i)) =>
@@ -722,6 +721,8 @@ yai'ydi, ha'hd :: forall from into t tt ttt i ii iii a o .
  (forall e . Wrapper from (T'TT'I (T'II'I tt ii) (T'I'II ttt iii) e)) =>
  t a i -> into (from o (ttt iii a)) (t (tt o ii) i)
 yai'ydi x = fai (fdi @from) (yai @from @into x)
+
+-- t a i `AR__` into (o `AR_` (ii `AR_` a)) (t (o `P` ii) i)
 
 ha'hd = yai'ydi
 
