@@ -205,9 +205,9 @@ type Tree = Construction List
 pattern Tree x xs = R_U_I_T_I (Recursive (U_I_T_II (These x (T'TT'I (Some (Construct xs))))))
 
 type family Binary t where
- Binary Tree = Construction (U_I_I (P) `T'TT'I` Optional)
+ Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)
 
-pattern Binary xs = T'TT'I (U_I_I xs)
+pattern Binary xs = T'TT'I (T'I'I xs)
 
 type family Forest tree where
  Forest (Construction t) = t `T'TT'I` Construction t

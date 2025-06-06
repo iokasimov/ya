@@ -154,7 +154,7 @@ type family Representation t where
   Representation t `P` Representation tt
  Representation (T'TTT'TT'I t ttt tt) =
   Representation t `P` Representation tt `P` Representation ttt
- Representation (U_I_I (P)) = () `S` ()
+ Representation (T'I'I (P)) = () `S` ()
 
 class
   ( Mapping v T'I'II from into t (v hom (Representation t))

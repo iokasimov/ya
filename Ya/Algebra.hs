@@ -202,9 +202,9 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) e) (T'II'I (P) e) where
    let s = from x in T'II'I (These (this s) e) `lu` fo (that s)
 
 -- TODO: I'm not really sure about this instance... it could easily lead to an error!
-instance Mapping T'I'II T'I'II (AT) (AT) I (U_I_I (P)) where
+instance Mapping T'I'II T'I'II (AT) (AT) I (T'I'I (P)) where
  mapping = rewrap `compose` rewrap / \from (Identity x) ->
-   let s = from x in U_I_I (this s `lu`this s) `lu` (\(U_I_I (These _ _)) -> Identity (that s (this s)))
+   let s = from x in T'I'I (this s `lu`this s) `lu` (\(T'I'I (These _ _)) -> Identity (that s (this s)))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (P) e) I where
  mapping = rewrap `compose` rewrap / \from (T'I'II (These e x)) ->

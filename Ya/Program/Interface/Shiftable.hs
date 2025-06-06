@@ -20,7 +20,7 @@ type family Shifting window datastructure = result | result -> window datastruct
 
 type family Shifter t where
  Shifter (Optional `T'TT'I` Construction Optional) = Unit `S` Unit
- Shifter (Construction (U_I_I (P) `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
+ Shifter (Construction (T'I'I (P) `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
 class Shiftable window datastructure where

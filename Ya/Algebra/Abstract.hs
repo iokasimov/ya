@@ -93,15 +93,15 @@ instance Elicitable T'II'I (->) (T'TTT'TT'I f g h i)
 
 data U_ u i ii
 
-newtype U_I_I u i = U_I_I (u i i)
+newtype T'I'I u i = T'I'I (u i i)
 
-type instance Supertype (U_I_I u i) = u i i
+type instance Supertype (T'I'I u i) = u i i
 
-instance Elicitable T'I'II (->) (U_I_I u i)
- where elicit = T'I'II (\(U_I_I x) -> x)
+instance Elicitable T'I'II (->) (T'I'I u i)
+ where elicit = T'I'II (\(T'I'I x) -> x)
 
-instance Elicitable T'II'I (->) (U_I_I u i)
- where elicit = T'II'I U_I_I
+instance Elicitable T'II'I (->) (T'I'I u i)
+ where elicit = T'II'I T'I'I
 
 newtype T'I'II u i ii = T'I'II (u i ii)
 
@@ -129,7 +129,7 @@ newtype U_I_1 u i _' = U_I_1 (u i ())
 
 newtype U_I_T_II t u i ii = U_I_T_II (u i (t ii))
 
-newtype U_T_I_II t u i ii = U_T_I_II (u (t i) ii)
+newtype U_T'I'II t u i ii = U_T'I'II (u (t i) ii)
 
 newtype U_T_I_TT_I u t tt i = U_T_I_TT_I (u (t i) (tt i))
 
@@ -181,10 +181,10 @@ type Arrow = (->)
 
 type Function = (->)
 
-type Both = U_I_I
+type Both = T'I'I
 
-pattern Both :: u i i -> U_I_I u i
-pattern Both x = U_I_I x
+pattern Both :: u i i -> T'I'I u i
+pattern Both x = T'I'I x
 
 pattern In :: u e ee -> T'II'I u ee e
 pattern In x = T'II'I x
@@ -221,13 +221,13 @@ instance Elicitable T'I'II (->) (U_I_T_II u t i ii)
 instance Elicitable T'II'I (->) (U_I_T_II u f i ii)
  where elicit = T'II'I U_I_T_II
 
-type instance Supertype (U_T_I_II t u i ii) = u (t i) ii
+type instance Supertype (U_T'I'II t u i ii) = u (t i) ii
 
-instance Elicitable T'I'II (->) (U_T_I_II u t i ii)
- where elicit = T'I'II (\(U_T_I_II x) -> x)
+instance Elicitable T'I'II (->) (U_T'I'II u t i ii)
+ where elicit = T'I'II (\(U_T'I'II x) -> x)
 
-instance Elicitable T'II'I (->) (U_T_I_II u t i ii)
- where elicit = T'II'I U_T_I_II
+instance Elicitable T'II'I (->) (U_T'I'II u t i ii)
+ where elicit = T'II'I U_T'I'II
 
 type instance Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
 

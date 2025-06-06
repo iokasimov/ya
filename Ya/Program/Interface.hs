@@ -145,7 +145,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
     `yi__` U_T_I_TT_I `ho` T'TT'I
     `yo__` from
 
--- TODO: instance Scrollable (Construction (U_I_I (P) `T'TT'I` Optional)) item where
+-- TODO: instance Scrollable (Construction (T'I'I (P) `T'TT'I` Optional)) item where
 
 -- TODO: think about alternative implementations
 -- TODO: refactor, it's really hard to read

@@ -2346,13 +2346,13 @@ lu_______'ys'la = lu'ys'la
 
 lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall o oo .
  Limit T'I'II (AR) (AR) =>
- Mapping T'I'II T'I'II (AR) (AR) I (U_I_I Product) =>
+ Mapping T'I'II T'I'II (AR) (AR) I (T'I'I Product) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product o) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
- Wrapper (AR) (U_I_I Product ()) =>
+ Wrapper (AR) (T'I'I Product ()) =>
  Wrapper (AR) (I ()) =>
  o -> oo -> Product o oo
-lu l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(U_I_I Product) identity) () `yui` l `yiu` r
+lu l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(T'I'I Product) identity) () `yui` l `yiu` r
 
 lu_ = lu
 lu__ = lu
@@ -2364,13 +2364,13 @@ lu_______ = lu
 
 -- ho'lu :: forall o oo .
  -- Limit T'I'II (AR) (AR) =>
- -- Mapping T'I'II T'I'II (AR) (AR) I (U_I_I Product) =>
+ -- Mapping T'I'II T'I'II (AR) (AR) I (T'I'I Product) =>
  -- Covariant Yoneda Functor (AR) (AR) (T'I'II Product o) =>
  -- Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
- -- Wrapper (AR) (U_I_I Product ()) =>
+ -- Wrapper (AR) (T'I'I Product ()) =>
  -- Wrapper (AR) (I ()) =>
  -- from e o -> from e oo -> Product o oo
--- ho'lu l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(U_I_I Product) identity) () `yui` l `yiu` r
+-- ho'lu l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(T'I'I Product) identity) () `yui` l `yiu` r
 
 la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o oo .
  Category from =>
@@ -2380,7 +2380,7 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o 
  Covariant Endo Semi Functor from (T'II'I Sum i) =>
  (forall ee eee . Wrapper from (T'I'II Sum ee eee)) =>
  (forall ee eee . Wrapper from (T'II'I Sum ee eee)) =>
- (forall ee . Wrapper from (U_I_I Sum ee)) =>
+ (forall ee . Wrapper from (T'I'I Sum ee)) =>
  (forall ee . Wrapper from (I ee)) =>
  from o i -> from oo i -> from a i
 la l r = wrapped (map @T'II'I @T'II'I @from @from @I @(Both Sum) identity)
@@ -2403,7 +2403,7 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  Objective (AR) (aa `S` aaa) a =>
  (forall ee eee . Wrapper (AR) (T'I'II Sum ee eee)) =>
  (forall ee eee . Wrapper (AR) (T'II'I Sum ee eee)) =>
- (forall ee . Wrapper (AR) (U_I_I Sum ee)) =>
+ (forall ee . Wrapper (AR) (T'I'I Sum ee)) =>
  (forall ee . Wrapper (AR) (I ee)) =>
  Wrapper (AR) ((AR) Unit o) =>
  (Supertype ((AR) Unit o) ~ o) =>
