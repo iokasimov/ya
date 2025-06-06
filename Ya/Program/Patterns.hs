@@ -162,24 +162,24 @@ type Construction = R_U_I_T_I P
 
 pattern Construct xs = R_U_I_T_I xs
 
-pattern Root x xs = R_U_I_T_I (Recursive (U_I_T_II (These x xs)))
+pattern Root x xs = R_U_I_T_I (Recursive (TT'I'T'II (These x xs)))
 
-pattern Node x xs = Recursive (U_I_T_II (These x xs))
+pattern Node x xs = Recursive (TT'I'T'II (These x xs))
 
--- pattern Yet x xs = Recursive (U_I_T_II (These x xs))
+-- pattern Yet x xs = Recursive (TT'I'T'II (These x xs))
 
 type Instruction = R_U_I_T_I (S)
 
-pattern Instruct xs = R_U_I_T_I (Recursive (U_I_T_II (That xs)))
+pattern Instruct xs = R_U_I_T_I (Recursive (TT'I'T'II (That xs)))
 
-pattern Load x = R_U_I_T_I (Recursive (U_I_T_II (This x)))
+pattern Load x = R_U_I_T_I (Recursive (TT'I'T'II (This x)))
 
 type List = Optional `T'TT'I` Construction Optional
 
 pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
-pattern Item :: i -> t (Recursive (U_I_T_II t (P) i)) -> Recursive (U_I_T_II t (P) i)
-pattern Item x xs = Recursive (U_I_T_II (These x xs))
+pattern Item :: i -> t (Recursive (TT'I'T'II t (P) i)) -> Recursive (TT'I'T'II t (P) i)
+pattern Item x xs = Recursive (TT'I'T'II (These x xs))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
 pattern Next x = T'I'II (That x)
@@ -193,7 +193,7 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
  Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (U_I_T_II (Brancher t) (P) i) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (TT'I'T'II (Brancher t) (P) i) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
 pattern Empty :: forall t e . (Brancher t ~ Optional)
@@ -202,7 +202,7 @@ pattern Empty x = T'TT'I (None x)
 
 type Tree = Construction List
 
-pattern Tree x xs = R_U_I_T_I (Recursive (U_I_T_II (These x (T'TT'I (Some (Construct xs))))))
+pattern Tree x xs = R_U_I_T_I (Recursive (TT'I'T'II (These x (T'TT'I (Some (Construct xs))))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)
