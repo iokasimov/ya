@@ -143,7 +143,7 @@ pattern Match x = U_I_UU_M_I_II_II @(AR) @(S) x
 
 type Automation e ee eee = e `AR_` ee `P` eee
 
-type Transition = U_I_UT'II'I (AR) P
+type Transition = U_I_UT'II'I (AR) (P)
 
 pattern Transition :: Automation e ee e `AR__` Transition e ee
 pattern Transition x = U_I_UT'II'I @(AR) @(P) x

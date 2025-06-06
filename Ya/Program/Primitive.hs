@@ -8,7 +8,9 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 
-not :: e `S` ee `AR_` ee `S` e
+not :: forall e ee eee .
+ Objective (AR) (eee `S` ee) e =>
+ e `AR_` ee `S` eee
 not = That `la` This
 
 row :: forall e ee eee ee_eee eeee .
@@ -25,6 +27,8 @@ provide = T'I'II identity
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
   -- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
   -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
+
+-- TODO: we need to remove `Automation` type alias, it's confusing
 
 auto, get :: Automation e e e
 auto x = x `lu` x

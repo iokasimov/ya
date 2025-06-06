@@ -322,7 +322,6 @@ instance
     )
   `compose` unwrap @into
 
--- TODO: introduce a label
 -- TODO: rename type variables
 -- 1. t (tt't (tt'tt (ttt (L l tt't _))))
 -- 2. t (tt't (tt'tt (tt't (ttt _))))
