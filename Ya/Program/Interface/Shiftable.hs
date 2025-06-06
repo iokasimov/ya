@@ -102,7 +102,7 @@ instance Shiftable Only (Construction List) where
    `ho__'he'he` ((Scope @(Only (Tree i)) at `ho'he'he'he'he`  Scope @(i `P` _) it)
         `lo` Scope @(Shafted List `T'I` Tree i) at)
    `yok____` New `ha` State `ha____` Transition
-   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (U_T_I_TT_I (Only e `lu` wrap eee)) list)
+   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (T'TT'I'TTT'I (Only e `lu` wrap eee)) list)
    `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
    `ho'he'he` Scope @(List ((Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `yok____` Try
@@ -121,7 +121,7 @@ instance Shiftable Only (Construction List) where
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
       `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
-  restoring (U_T_I_TT_I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (U_T_I_TT_I
+  restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
     `hv__` Only (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      `lu` unwrap shafted)
 
@@ -129,10 +129,10 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)
  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap / \from (Root x xs) ->
-  U_T_I_TT_I (Only (from x) `lu` U_T_I_TT_I (Labeled (Empty @List Unit) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
+  T'TT'I'TTT'I (Only (from x) `lu` T'TT'I'TTT'I (Labeled (Empty @List Unit) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
- mapping = rewrap / \from (U_T_I_TT_I (These (Identity x) (U_T_I_TT_I (These l r)))) ->
+ mapping = rewrap / \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
   (unwrap l `yokl` Forth `ha` New `ha` State `ha` Event `ha` push)
    `he'he'hv__` Empty @List `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
    `yi_` that `ho'yo` from

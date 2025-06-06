@@ -90,10 +90,10 @@ instance
  , forall e . Covariant Endo Semi Functor into (T'II'I u (tt e))
  , Covariant Semi Functor from into tt
  , Covariant Semi Functor from into t
- , forall e . Wrapper into (U_T_I_TT_I u t tt e)
+ , forall e . Wrapper into (T'TT'I'TTT'I u t tt e)
  , forall e ee . Wrapper into (T'I'II u (t e) (tt ee))
  , forall e ee . Wrapper into (T'II'I u (tt e) (t ee))
- ) => Mapping T'I'II T'I'II from into (U_T_I_TT_I u t tt) (U_T_I_TT_I u t tt) where
+ ) => Mapping T'I'II T'I'II from into (T'TT'I'TTT'I u t tt) (T'TT'I'TTT'I u t tt) where
  mapping = rewrap / \from -> rewrap /
   i_ (map @T'I'II @T'I'II @into @into `compose` map @T'I'II @T'I'II @from @into @t @t / from) `compose`
   _i (map @T'I'II @T'I'II @into @into `compose` map @T'I'II @T'I'II @from @into @tt @tt / from)
@@ -104,30 +104,30 @@ instance
  -- , Covariant Monoidal Functor from (AR) u u Unit ttt
  -- , Covariant Transformation Functor from (AR) (t `T'TT'I` ttt) (t `TT'T'I` ttt)
  -- , Covariant Transformation Functor from (AR) (tt `T'TT'I` ttt) (tt `TT'T'I` ttt)
- -- , forall e . Wrapper from (U_T_I_TT_I u t tt e)
- -- , forall e . Wrapper (AR) (TT'T'I (U_T_I_TT_I u t tt) ttt e)
- -- , forall e . Wrapper (AR) (T'TT'I (U_T_I_TT_I u t tt) ttt e)
- -- ) => Mapping T'I'II T'I'II from (AR) (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt) where
+ -- , forall e . Wrapper from (T'TT'I'TTT'I u t tt e)
+ -- , forall e . Wrapper (AR) (TT'T'I (T'TT'I'TTT'I u t tt) ttt e)
+ -- , forall e . Wrapper (AR) (T'TT'I (T'TT'I'TTT'I u t tt) ttt e)
+ -- ) => Mapping T'I'II T'I'II from (AR) (T'TT'I'TTT'I u t tt `T'TT'I` ttt) (T'TT'I'TTT'I u t tt `TT'T'I` ttt) where
  -- mapping = rewrap / \from -> rewrap /
-  -- day @T'I'II @from @Unit @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity
+  -- day @T'I'II @from @Unit @ttt @u @u (wrap @_ @(T'TT'I'TTT'I u t tt _)) identity
    -- `compose` i_ (map @T'I'II @T'I'II @(AR) @(AR) (wrapped (map @T'I'II @T'I'II @from @(AR) @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from)))
    -- `compose` _i (map @T'I'II @T'I'II @(AR) @(AR) (wrapped (map @T'I'II @T'I'II @from @(AR) @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from)))
-   -- `compose` unwrap @(AR) @(U_T_I_TT_I u t tt _)
+   -- `compose` unwrap @(AR) @(T'TT'I'TTT'I u t tt _)
 
 -- TODO: here should be a generalized version of an instance above
 -- instance
  -- ( forall e . Covariant Endo Semi Functor into (T'I'II (u :: * -> * -> *) (t e))
- -- , forall e . Wrapper into (U_T_I_TT_I u t tt e)
- -- , forall e . Wrapper into (TT'T'I (U_T_I_TT_I u t tt) ttt e)
- -- , forall e . Wrapper into (T'TT'I (U_T_I_TT_I u t tt) ttt e)
- -- ) => Mapping T'I'II T'I'II from into (U_T_I_TT_I u t tt `T'TT'I` ttt) (U_T_I_TT_I u t tt `TT'T'I` ttt where
+ -- , forall e . Wrapper into (T'TT'I'TTT'I u t tt e)
+ -- , forall e . Wrapper into (TT'T'I (T'TT'I'TTT'I u t tt) ttt e)
+ -- , forall e . Wrapper into (T'TT'I (T'TT'I'TTT'I u t tt) ttt e)
+ -- ) => Mapping T'I'II T'I'II from into (T'TT'I'TTT'I u t tt `T'TT'I` ttt) (T'TT'I'TTT'I u t tt `TT'T'I` ttt where
  -- mapping = rewrap / \from -> rewrap /
-  -- day_ @T'I'II @from @from @ttt @u @u (wrap @_ @(U_T_I_TT_I u t tt _)) identity `compose`
+  -- day_ @T'I'II @from @from @ttt @u @u (wrap @_ @(T'TT'I'TTT'I u t tt _)) identity `compose`
    -- wrapped (map @T'I'II @into @into @(T'II'I u _)
     -- (wrapped (map @T'I'II @T'I'II @from @into @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) from))) `compose`
    -- wrapped (map @T'I'II @into @into @(T'I'II u _)
     -- (wrapped (map @T'I'II @T'I'II @from @into @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
-   -- unwrap @into @(U_T_I_TT_I u t tt _)
+   -- unwrap @into @(T'TT'I'TTT'I u t tt _)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap / \from -> rewrap / \(T'I'II (These e (T'I'II f))) -> from (f e)

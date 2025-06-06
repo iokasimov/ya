@@ -406,8 +406,8 @@ class Setoid into e where
 (/) :: (i -> o) -> i -> o
 (/) f x = f x
 
-type P'T'I'TT'I = U_T_I_TT_I (P)
-type S'T'I'TT'I = U_T_I_TT_I (S)
+type P'T'I'TT'I = T'TT'I'TTT'I (P)
+type S'T'I'TT'I = T'TT'I'TTT'I (S)
 
 class Objective into st t where
  objective :: into t st

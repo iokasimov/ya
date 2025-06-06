@@ -28,7 +28,7 @@ shaft x = unwrap `hv______` Scope `hv` it `ho____'he` Scope `hv` at @((Reverse t
      `li__` x
 
 focus :: forall t tt i . Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` t i)
-focus (U_T_I_TT_I (These x xs)) = x `lu` U_T_I_TT_I `ha` (`lu` xs)
+focus (T'TT'I'TTT'I (These x xs)) = x `lu` T'TT'I'TTT'I `ha` (`lu` xs)
 
 other :: forall t tt i . Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` (Reverse tt `P'T'I'TT'I` Forward tt) i)
-other (U_T_I_TT_I (These x xs)) = xs `lu` U_T_I_TT_I `ha` (x `lu`)
+other (T'TT'I'TTT'I (These x xs)) = xs `lu` T'TT'I'TTT'I `ha` (x `lu`)

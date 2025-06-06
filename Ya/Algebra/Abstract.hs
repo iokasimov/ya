@@ -131,7 +131,7 @@ newtype TT'I'T'II t u i ii = TT'I'T'II (u i (t ii))
 
 newtype U_T'I'II t u i ii = U_T'I'II (u (t i) ii)
 
-newtype U_T_I_TT_I u t tt i = U_T_I_TT_I (u (t i) (tt i))
+newtype T'TT'I'TTT'I u t tt i = T'TT'I'TTT'I (u (t i) (tt i))
 
 newtype U_I_UT'II'III u uu i ii iii = U_I_UT'II'III (u i (uu ii iii))
 
@@ -229,13 +229,13 @@ instance Elicitable T'I'II (->) (U_T'I'II u t i ii)
 instance Elicitable T'II'I (->) (U_T'I'II u t i ii)
  where elicit = T'II'I U_T'I'II
 
-type instance Supertype (U_T_I_TT_I u t tt i) = u (t i) (tt i)
+type instance Supertype (T'TT'I'TTT'I u t tt i) = u (t i) (tt i)
 
-instance Elicitable T'I'II (->) (U_T_I_TT_I u t tt i)
- where elicit = T'I'II (\(U_T_I_TT_I x) -> x)
+instance Elicitable T'I'II (->) (T'TT'I'TTT'I u t tt i)
+ where elicit = T'I'II (\(T'TT'I'TTT'I x) -> x)
 
-instance Elicitable T'II'I (->) (U_T_I_TT_I u t tt i)
- where elicit = T'II'I U_T_I_TT_I
+instance Elicitable T'II'I (->) (T'TT'I'TTT'I u t tt i)
+ where elicit = T'II'I T'TT'I'TTT'I
 
 type instance Supertype (U_I_UT'II'III u uu i ii iii) = u i (uu ii iii)
 
