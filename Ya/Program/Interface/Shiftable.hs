@@ -42,7 +42,7 @@ instance Shiftable Only (Optional `T'TT'I` Construction Optional) where
    `yuk__` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
    `yok__` Try
    -- `yok__` New `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Only i) at `he'ho'he` Scope it
-   `yok__` New `ha` State `ha__` Event `ha` switch `ho_'ha` Scope `hv` focus `ho'he` Scope it
+   `yok__` New `ha` State `ha__` Event `ha` relay `ho_'ha` Scope `hv` focus `ho'he` Scope it
    `yok__` New `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
 
 instance Shiftable List (Optional `T'TT'I` Construction Optional) where

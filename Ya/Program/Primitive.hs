@@ -34,9 +34,9 @@ auto, get :: Automation e e e
 auto x = x `lu` x
 get = auto
 
-switch, put :: ee -> Automation e e ee
-switch new old = old `lu` new
-put = switch
+relay, put :: ee -> Automation e e ee
+relay new old = old `lu` new
+put = relay
 
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
