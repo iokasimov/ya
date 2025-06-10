@@ -18,7 +18,7 @@ class Stackable datastructure where
 instance Stackable List where
  pop = \case
   Empty @List _ -> by None `lu` Empty @List ()
-  T'TT'I (Some (Construct (Recursive (TT'I'T'II (These x xs))))) -> Some x `lu` (T'TT'I / xs `yo` R_U_I_T_I)
+  T'TT'I (Some (Construct (Recursive (TT'I'T'II (These x xs))))) -> Some x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
  push item s = item `lu` rewrap
   (Some `ha` R_U_I_T_I `ha` Recursive `ha` TT'I'T'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 

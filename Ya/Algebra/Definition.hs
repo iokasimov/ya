@@ -21,8 +21,6 @@ infixl 1 `AR_______`, `AT_______`
 infixl 3 `P'T'I'TT'I`
 infixl 3 `S'T'I'TT'I`
 
-infixl 0 /
-
 type AR = (->)
 type AR_ = (AR)
 type AR__ = (AR)
@@ -402,9 +400,6 @@ instance Wrapper (AR) x
 
 class Setoid into e where
  equality :: into (e `P` e) (e `P` e `S` e)
-
-(/) :: (i -> o) -> i -> o
-(/) f x = f x
 
 type P'T'I'TT'I = T'TT'I'TTT'I (P)
 type S'T'I'TT'I = T'TT'I'TTT'I (S)

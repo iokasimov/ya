@@ -21,4 +21,4 @@ type family JNT effect where
 
 type JNT_ effect = JNT effect
 
-class Labeling label effect inside where
+-- class Labeling label effect inside where

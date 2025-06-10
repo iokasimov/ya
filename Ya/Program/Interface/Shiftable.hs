@@ -128,11 +128,11 @@ instance Shiftable Only (Construction List) where
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)
  (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
- mapping = rewrap / \from (Root x xs) ->
+ mapping = rewrap `identity` \from (Root x xs) ->
   T'TT'I'TTT'I (Only (from x) `lu` T'TT'I'TTT'I (Labeled (Empty @List Unit) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
- mapping = rewrap / \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
+ mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
   (unwrap l `yokl` Forth `ha` New `ha` State `ha` Event `ha` push)
    `he'he'hv__` Empty @List `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
    `yi_` that `ho'yo` from
