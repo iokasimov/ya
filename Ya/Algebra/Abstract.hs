@@ -67,17 +67,17 @@ instance Elicitable T'I'II (->) (TT'T'I f g i)
 instance Elicitable T'II'I (->) (TT'T'I f g i)
  where elicit = T'II'I TT'T'I
 
-newtype T e i = Tagged i
+newtype Tagged e i = Tag i
 
-type (#) = T
+type (#) = Tagged
 
-type instance Supertype (T e i) = i
+type instance Supertype (Tagged e i) = i
 
-instance Elicitable T'I'II (->) (T e i)
- where elicit = T'I'II (\(Tagged x) -> x)
+instance Elicitable T'I'II (->) (Tagged e i)
+ where elicit = T'I'II (\(Tag x) -> x)
 
-instance Elicitable T'II'I (->) (T e i)
- where elicit = T'II'I Tagged
+instance Elicitable T'II'I (->) (Tagged e i)
+ where elicit = T'II'I Tag
 
 newtype L l t i = Labeled (t i)
 

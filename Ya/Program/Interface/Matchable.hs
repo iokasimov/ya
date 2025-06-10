@@ -7,7 +7,7 @@ import Ya.Operators
 class Matchable a r where
  on :: r `AR_` (r `M` a) `S` a
 
--- instance Matchable a aa => Matchable a (T e aa) where
+-- instance Matchable a aa => Matchable a (Tagged e aa) where
  -- on = on `ha` unwrap @(AR)
 
 instance Matchable a ((l # a) `S` aa) where
@@ -47,7 +47,7 @@ class Layable a r where
 instance Layable a a where
  lay = identity
 
-instance Layable a aa => Layable a (T l aa) where
+instance Layable a aa => Layable a (Tagged l aa) where
  lay = wrap `ha` lay
 
 instance Layable a (a `S` aa) where
