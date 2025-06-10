@@ -43,7 +43,7 @@ pattern True x = T'I'II (That x)
 
 pattern Selfsame x = T'I'II (That x)
 
-type Provided = T'I'II (AR)
+type Given = T'I'II (AR)
 
 type Supplied = T'II'I P
 
