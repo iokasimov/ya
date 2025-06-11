@@ -4,41 +4,41 @@ import Ya.Algebra
 import Ya.Operators
 
 -- TODO: generalize over categories
-class Matchable a r where
- on :: r `AR_` (r `M` a) `S` a
+class Matchable target entire where
+ on :: entire `AR_` entire `M` target `S` target
 
 -- instance Matchable a aa => Matchable a (Tagged e aa) where
  -- on = on `ha` unwrap @(AR)
 
-instance Matchable a ((l # a) `S` aa) where
+instance Matchable e ((l # e) `S` ee) where
  on = That `ha'he` is `la` This
 
-instance ((aa `S` (l # a) `M` a) ~ (aa))
- => Matchable a (aa `S` (l # a)) where
+instance ((ee `S` (l # e) `M` e) ~ (ee))
+ => Matchable e (ee `S` (l # e)) where
  on = This `la` That `ha'he` is
 
-instance (((l # a) `S` aa `S` aaa `M` a) ~ (aa `S` aaa))
- => Matchable a ((l # a) `S` aa `S` aaa) where
+instance (((l # e) `S` ee `S` eee `M` e) ~ (ee `S` eee))
+ => Matchable e ((l # e) `S` ee `S` eee) where
  on = That `ha'he` is `la` This `ha` This `la` This `ha` That
 
-instance ((aa `S` (l # a) `S` aaa `M` a) ~ (aa `S` aaa))
- => Matchable a (aa `S` (l # a) `S` aaa) where
+instance ((ee `S` (l # e) `S` eee `M` e) ~ (ee `S` eee))
+ => Matchable e (ee `S` (l # e) `S` eee) where
  on = This `ha` This `la` That `ha'he` is `la` This `ha` That
 
-instance (((l # a) `S` aa `S` aaa `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
- => Matchable a ((l # a) `S` aa `S` aaa `S` aaaa) where
+instance (((l # e) `S` ee `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e ((l # e) `S` ee `S` eee `S` eeee) where
  on = That `ha'he` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance ((aa `S` (l # a) `S` aaa `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
- => Matchable a (aa `S` (l # a) `S` aaa `S` aaaa) where
+instance ((ee `S` (l # e) `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e (ee `S` (l # e) `S` eee `S` eeee) where
  on = This `ha` This `ha` This `la` That `ha'he` is `la` This `ha` This `ha` That `la` This `ha` That
 
-instance ((aa `S` aaa `S` (l # a) `S` aaaa `M` a) ~ (aa `S` aaa `S` aaaa))
- => Matchable a (aa `S` aaa `S` (l # a) `S` aaaa) where
+instance ((ee `S` eee `S` (l # e) `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e (ee `S` eee `S` (l # e) `S` eeee) where
  on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha'he` is `la` This `ha` That
 
 {-
-on' :: Excludable a r => r `AR_` Unit `S` a
+on' :: Excludable a entire => r `AR_` Unit `S` a
 on' x = on x `yui` Unit
 
 class Layable a r where
