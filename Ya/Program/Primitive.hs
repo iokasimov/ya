@@ -19,9 +19,6 @@ row :: forall e ee eee ee_eee eeee .
  eeee `AR__` (e `S` ee) `S` eee
 row = This `ha` This `la_` This `ha` That `la` That `ha_` is @ee_eee
 
-provide :: T'I'II (AR) e e
-provide = T'I'II identity
-
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
