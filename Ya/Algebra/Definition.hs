@@ -291,7 +291,7 @@ day :: forall v from l t tt u uu a o e ee .
  Wrapper (AR) (v from (uu e ee) a) =>
  Supertype (v from a o)
   -> Supertype (v from (uu e ee) a)
-  -> u (t e) ((l `L` tt) ee) -> t o
+  -> u (t e) (l `L` tt `T'I` ee) -> t o
 day from t x = map @v @T'I'II @from @(AR)
  @(Day v from u uu t (l `L` tt) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))

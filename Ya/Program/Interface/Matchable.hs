@@ -85,5 +85,4 @@ instance
  , Layable aaaa (M a (aa `S` aaa `S` aaaa) `S` a)
  ) => Fittable a (aa `S` aaa `S` aaaa) where
  fit = lay `la` lay `la` lay
-
 -}

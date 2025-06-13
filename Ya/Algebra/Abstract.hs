@@ -391,10 +391,14 @@ instance (i ~ Unit) => Elicitable T'I'II (->) (Arrow i ii)
 -- instance Elicitable T'I'II (->) (Arrow Unit ii)
  -- where elicit = T'I'II (\f -> f ())
 
-unwrap :: Elicitable T'I'II into i => into i (Supertype i)
+unwrap :: forall into i .
+ Elicitable T'I'II into i =>
+ into i (Supertype i)
 unwrap = let T'I'II x = elicit in x
 
-wrap :: Elicitable T'II'I into i => into (Supertype i) i
+wrap :: forall into i .
+ Elicitable T'II'I into i =>
+ into (Supertype i) i
 wrap = let T'II'I x = elicit in x
 
 -- Category: initial object
