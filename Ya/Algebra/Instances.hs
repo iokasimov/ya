@@ -463,23 +463,29 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (Void `L` t)
   These (These (T'TT'I x) (Labeled (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
    day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (from `compose` f) `identity` These (unwrap x e) (wrap (unwrap xx e))))
 
--- 1: (T'I'II (S) e `TT'T'I` t) ((T'I'II (S) e `TT'T'I` t) _)
--- 2: t ((T'I'II (S) e) ((T'I'II (S) e `TT'T'I` t) _))
+-- 0: (T'I'II (S) e `TT'T'I` t `T'TT'I_` Void `L`  (T'I'II (S) e `TT'T'I` t)) _
+-- 1: (T'I'II (S) e `TT'T'I` t) (Void `L` ((T'I'II (S) e `TT'T'I` t) _))
+-- 2: t ((T'I'II (S) e) (Void `L` (T'I'II (S) e `TT'T'I` t) _))
 -- 3: t ((T'I'II (S) e) (t (T'I'II (S) e) _))
--- 3: t (t ((T'I'II (S) e) (T'I'II (S) e) _))
+-- 4: t (t ((T'I'II (S) e) (T'I'II (S) e) _))
+-- 5: t ((T'I'II (S) e) (T'I'II (S) e) _)
+-- 6: t ((T'I'II (S) e) _)
 
--- instance
---  ( Mapping T'I'II T'I'II AR AR (t `T'TT'I` Void `L` t) t
---  , Covariant Endo Semi Functor AR t
---  , Covariant Endo Semi Functor AR (T'I'II (S) e `T'TT'I` t)
---  , Covariant Transformation Functor (AR) (AR) (T'I'II (S) e `T'TT'I` t) (T'I'II (S) e `TT'T'I` t)
---  , Covariant Transformation Functor (AR) (AR) (T'I'II (S) e `T'TT'I` Void `L` T'I'II (S) e) (T'I'II (S) e)
---  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) e `TT'T'I` t `T'TT'I_` Void `L` (T'I'II (S) e `TT'T'I` t)) (T'I'II (S) e `TT'T'I` t) where
---  mapping = rewrap `identity` \from -> rewrap `identity` \x ->
---   map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` t) @t
---    (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e `T'TT'I` Void `L` T'I'II (S) e) @(T'I'II (S) e) from `compose` wrap)
---   `compose` wrap
---   `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t (
---     wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e `T'TT'I` t) @(T'I'II (S) e `TT'T'I` t) identity)
---    `compose` map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e) @(T'I'II (S) e) (unwrap `compose` unwrap))
---    `identity` unwrap x
+instance
+ ( Covariant Endo Semi Functor AR t
+ , Covariant Endo Semi Functor AR (T'I'II (S) e `T'TT'I` t)
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` Void `L` t) t
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (S) e `T'TT'I` Void `L` Void `L` t) (T'I'II (S) e `TT'T'I` t)
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (S) e `T'TT'I` Void `L` T'I'II (S) e) (T'I'II (S) e)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) e `TT'T'I` t `T'TT'I_` Void `L` (T'I'II (S) e `TT'T'I` t)) (T'I'II (S) e `TT'T'I` t) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \x ->
+  map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` Void `L` t) @t
+   (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e `T'TT'I` Void `L` T'I'II (S) e) @(T'I'II (S) e) from
+   `compose` wrap @(AR) @(T'I'II (S) e `T'TT'I` Void `L` T'I'II (S) e `T'I_` _)
+   `compose` map  @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e) @(T'I'II (S) e) (wrap @(AR) @(Void `L` T'I'II (S) e `T'I` _))
+   ) `compose` wrap @(AR) @(t `T'TT'I` Void `L` t `T'I_` _)
+     `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
+   (wrap @(AR) @(Void `L` t `T'I` _)
+   `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e `T'TT'I` Void `L` Void `L` t) @(T'I'II (S) e `TT'T'I` t) identity)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (S) e) @(T'I'II (S) e) (Labeled `compose` Labeled `compose` unwrap `compose` unwrap)
+   ) `identity` unwrap x
