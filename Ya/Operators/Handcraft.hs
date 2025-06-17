@@ -194,15 +194,15 @@ infixl 3 `la_____`
 infixl 2 `la______`
 infixl 1 `la_______`
 
-infixl 8 `lu`, `lu'yp`, `lu'ys`, `lu'yp'yp`, `lu'ysp`
+infixl 8 `lu`, `lu'yp`, `lu'yp'yo'q`, `lu'ys`, `lu'yp'yp`, `lu'ysp`
 --, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`
-infixl 7 `lu_`, `lu_'yp`, `lu_'ys`, `lu_'ysp`
-infixl 6 `lu__`, `lu__'yp`, `lu__'ys`, `lu__'ysp`
-infixl 5 `lu___`, `lu___'yp`, `lu___'ys`, `lu___'ysp`
-infixl 4 `lu____`, `lu____'yp`, `lu____'ys`, `lu____'ysp`
-infixl 3 `lu_____`, `lu_____'yp`, `lu_____'ys`, `lu_____'ysp`
-infixl 2 `lu______`, `lu______'yp`, `lu______'ys`, `lu______'ysp`
-infixl 1 `lu_______`, `lu_______'yp`, `lu_______'ys`, `lu_______'ysp`
+infixl 7 `lu_`, `lu_'yp`, `lu_'yp'yo'q`, `lu_'ys`, `lu_'ysp`
+infixl 6 `lu__`, `lu__'yp`, `lu__'yp'yo'q`, `lu__'ys`, `lu__'ysp`
+infixl 5 `lu___`, `lu___'yp`, `lu___'yp'yo'q`, `lu___'ys`, `lu___'ysp`
+infixl 4 `lu____`, `lu____'yp`, `lu____'yp'yo'q`, `lu____'ys`, `lu____'ysp`
+infixl 3 `lu_____`, `lu_____'yp`, `lu_____'yp'yo'q`, `lu_____'ys`, `lu_____'ysp`
+infixl 2 `lu______`, `lu______'yp`, `lu______'yp'yo'q`, `lu______'ys`, `lu______'ysp`
+infixl 1 `lu_______`, `lu_______'yp`, `lu_______'yp'yo'q`, `lu_______'ys`, `lu_______'ysp`
 
 infixl 8 `lv`
 infixl 7 `lv_`
@@ -3117,6 +3117,24 @@ lu____'yp = lu'yp
 lu_____'yp = lu'yp
 lu______'yp = lu'yp
 lu_______'yp = lu'yp
+
+lu'yp'yo'q, lu_'yp'yo'q, lu__'yp'yo'q, lu___'yp'yo'q, lu____'yp'yo'q, lu_____'yp'yo'q, lu______'yp'yo'q, lu_______'yp'yo'q
+ :: forall o t tt l .
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P t (l `L` tt) o o) t =>
+ -- Covariant Monoidal Functor (AR) (AR) (P) P l t =>
+ Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
+ Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
+ Setoid (AR) o =>
+ t o -> (l `L` tt) o -> t (o `P` o `S` o)
+lu'yp'yo'q from_left r = yp'yo (lu from_left r) q
+
+lu_'yp'yo'q = lu'yp'yo'q
+lu__'yp'yo'q = lu'yp'yo'q
+lu___'yp'yo'q = lu'yp'yo'q
+lu____'yp'yo'q = lu'yp'yo'q
+lu_____'yp'yo'q = lu'yp'yo'q
+lu______'yp'yo'q = lu'yp'yo'q
+lu_______'yp'yo'q = lu'yp'yo'q
 
 -- lu'yip, lu_'yip, lu__'yip, lu___'yip, lu____'yip, lu_____'yip, lu______'yip, lu_______'yip
  -- :: forall e o oo t .
