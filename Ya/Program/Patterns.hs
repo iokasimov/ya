@@ -60,7 +60,7 @@ type Optional = T'I'II (S) Unit
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
 
-pattern Some :: ee -> T'I'II (S) e ee
+pattern Some :: ee -> T'I'II (S) Unit ee
 pattern Some x = T'I'II (That x)
 
 pattern Optionally x = T'I'II x

@@ -559,7 +559,7 @@ yj :: forall from into t tt a o .
 yj x = unwrap @into `compose` yo (component @(AR) @I @(tt `T'TT'I` t) (wrap x))
 
 yij, hj, hj_, hj__, hj___, hj____, hj_____, hj______, hj_______, hj________ :: forall from into t tt i ii a o .
- Adjoint Functor (AR) (AR) (T'II'I t i) (T'I'II tt ii) =>
+ Adjoint Functor (AR) (AR) (t `T'II'I` i) (T'I'II tt ii) =>
  Covariant Yoneda Functor from into (T'I'II tt ii `T'TT'I` T'II'I t i) =>
  Covariant Endo Semi Functor into (T'I'II tt ii) =>
  (forall e . Wrapper into ((T'I'II tt ii `T'TT'I` T'II'I t i) e)) =>
