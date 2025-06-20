@@ -242,15 +242,28 @@ instance (Covariant Lax Monoidal Functor (AR) (AR) (P) (P) Void t, e ~ ee)
   wrap @_ @(T'TTT'TT'I _ _ _ _) `compose` wrap @_ @(T'I'II _ _ _)
   `identity` (intro `compose` map @T'I'II @T'I'II from `compose` wrap @_ @(T'II'I _ _ _) `compose` x)
 
-instance {-# OVERLAPPABLE #-} Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt) t => Mapping T'I'II T'I'II (AR) (AR)
- (T'TT'I (T'I'II (AR) e `T'TT'I` t) tt) (T'I'II (AR) e `T'TT'I` t) where
+instance {-# OVERLAPPABLE #-} Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ll `L` tt) t => Mapping T'I'II T'I'II (AR) (AR)
+ (T'I'II (AR) e `T'TT'I` t `T'TT'I_` ll `L` tt) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
-  \(T'I'II f) e -> map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt) @t from (T'TT'I (f e))
+  \(T'I'II f) e -> map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ll `L` tt) @t from (T'TT'I (f e))
 
-instance {-# OVERLAPS #-} Covariant Endo Semi Functor (AR) t => Mapping T'I'II T'I'II (AR) (AR)
- (T'TT'I (T'I'II (AR) e `T'TT'I` t) (T'I'II (AR) e)) (T'I'II (AR) e `T'TT'I` t) where
+instance {-# OVERLAPS #-}
+ Covariant Endo Semi Functor (AR) t
+ => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) e `T'TT'I` t `T'TT'I_` T'I'II (AR) e) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
   \(T'I'II f) e -> f e `yo` unwrap @(AR) `ho` (`li` e) `ho` from
+
+instance {-# OVERLAPPABLE #-}
+ Covariant Transformation Functor (AR) (AR) (t `T'TT'I` Void `L` t) t
+ => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) e `T'TT'I` t `T'TT'I_` Void `L` (T'I'II (AR) e `T'TT'I` t)) (T'I'II (AR) e `T'TT'I` t) where
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
+  \(T'I'II f) e ->
+   map @T'I'II @T'I'II @AR @AR @(t `T'TT'I` Void `L` t) @t from `compose` wrap
+   `compose` map @T'I'II @T'I'II @AR @AR @t @t (wrap @AR @(Void `L` t `T'I` _) `compose` yi e `compose` unwrap `compose` unwrap `compose` unwrap)
+   `identity` f e
+
+-- f e: t (Void `L` (T'I'II AR e `T'TT'I` t) `T'I` a)
+
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 -- 1. T'I'II (AR) old (t (T'II'I (P) btw))
