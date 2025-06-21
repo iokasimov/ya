@@ -78,7 +78,7 @@ as :: forall tt t e .
  Supertype (t e `AT` tt e)
 as = unwrap (component @(AT))
 
-by :: Unit `AR` a `AR_` a
+by :: Unit `AR` a `AR` a
 by = unwrap
 
 same :: Setoid Arrow e => e `P` e `AR_` e `P` e `S`  e

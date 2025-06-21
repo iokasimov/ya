@@ -37,9 +37,8 @@ type Boolean = T'I'II (S) Unit Unit
 pattern Boolean :: Unit `S` Unit `AR_` Boolean
 pattern Boolean e = T'I'II e
 
-pattern False x = T'I'II (This x)
-
-pattern True x = T'I'II (That x)
+pattern False x = T'I'II (This x) :: Boolean
+pattern True x = T'I'II (That x) :: Boolean
 
 pattern Selfsame x = T'I'II (That x)
 
@@ -233,7 +232,7 @@ pattern Future x = That x
 
 type Decision = (S) Unit Unit
 
-pattern No x = This x
+pattern Not x = This x
 pattern Yes x = That x
 
 type Side = (S) Unit Unit
