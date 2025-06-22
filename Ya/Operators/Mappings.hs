@@ -10,10 +10,46 @@ fo :: forall from into t a o .
  from a o -> into (t a) (t o)
 fo = map @T'I'II @T'I'II
 
+foi :: forall from into t a o i .
+ Covariant Semi Functor from into (T'II'I t i) =>
+ (forall e . Wrapper into (T'II'I t i e)) =>
+ from a o -> into (t a i) (t o i)
+foi from = wrapped (fo @_ @_ @(T'II'I _ _) from)
+
+fio :: forall from into t a o i .
+ Covariant Semi Functor from into (T'I'II t i) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ from a o -> into (t i a) (t i o)
+fio from = wrapped (fo @_ @_ @(T'I'II _ _) from)
+
+foo :: forall from into t a o .
+ Covariant Semi Functor from into (T'I'I t) =>
+ (forall e . Wrapper into (T'I'I t e)) =>
+ from a o -> into (t a a) (t o o)
+foo from = wrapped (fo @_ @_ @(T'I'I _) from)
+
 fa :: forall from into t a o .
  Contravariant Semi Functor from into t =>
  from a o -> into (t o) (t a)
 fa = map @T'II'I @T'I'II
+
+faa :: forall from into t a o .
+ Contravariant Semi Functor from into (T'I'I t) =>
+ (forall e . Wrapper into (T'I'I t e)) =>
+ from a o -> into (t o o) (t a a)
+faa from = wrapped (fa @_ @_ @(T'I'I _) from)
+
+fai :: forall from into t a o i .
+ Contravariant Semi Functor from into (T'II'I t i) =>
+ (forall e . Wrapper into (T'II'I t i e)) =>
+ from a o -> into (t o i) (t a i)
+fai from = wrapped (fa @_ @_ @(T'II'I _ _) from)
+
+fia :: forall from into t a o i .
+ Contravariant Semi Functor from into (T'I'II t i) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ from a o -> into (t i o) (t i a)
+fia from = wrapped (fa @_ @_ @(T'I'II _ _) from)
 
 fu :: forall from into t a o .
  Covariant Functor from into t =>
@@ -77,30 +113,6 @@ fioi :: forall from into t a o i ii .
  (forall e . Wrapper into (W_III_I_II t ii i e)) =>
  from a o -> into (t i a ii) (t i o ii)
 fioi from = wrapped (fo @_ @_ @(W_III_I_II _ _ _) from)
-
-foi :: forall from into t a o i .
- Covariant Semi Functor from into (T'II'I t i) =>
- (forall e . Wrapper into (T'II'I t i e)) =>
- from a o -> into (t a i) (t o i)
-foi from = wrapped (fo @_ @_ @(T'II'I _ _) from)
-
-fio :: forall from into t a o i .
- Covariant Semi Functor from into (T'I'II t i) =>
- (forall e . Wrapper into (T'I'II t i e)) =>
- from a o -> into (t i a) (t i o)
-fio from = wrapped (fo @_ @_ @(T'I'II _ _) from)
-
-fai :: forall from into t a o i .
- Contravariant Semi Functor from into (T'II'I t i) =>
- (forall e . Wrapper into (T'II'I t i e)) =>
- from a o -> into (t o i) (t a i)
-fai from = wrapped (fa @_ @_ @(T'II'I _ _) from)
-
-fia :: forall from into t a o i .
- Contravariant Semi Functor from into (T'I'II t i) =>
- (forall e . Wrapper into (T'I'II t i e)) =>
- from a o -> into (t i o) (t i a)
-fia from = wrapped (fa @_ @_ @(T'I'II _ _) from)
 
 fiu :: forall from into t a o i .
  Terminal from =>
