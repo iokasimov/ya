@@ -242,7 +242,7 @@ type family Vector x xs where
 
 -- This transformation is not natural!
 instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predicate where
- mapping = rewrap `identity` \from -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li` x `hd'q` from x'
+ mapping = rewrap `identity` \from -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li_` x `lu'q` from x'
 
 pattern Aloft :: forall t e .
  Component (AR) (Void `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree)) Tree =>

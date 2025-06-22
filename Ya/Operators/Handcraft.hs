@@ -134,15 +134,15 @@ infixl 3 `hu______`, `hu______'he`, `he'hu______`
 infixl 2 `hu_______`, `hu_______'he`, `he'hu_______`
 infixl 1 `hu________`, `hu________'he`, `he'hu________`
 
-infixl 9 `hd`, `hd'q`, `hd's`
-infixl 8 `hd_`, `hd_'q`, `hd_'s`
-infixl 7 `hd__`, `hd__'q`, `hd__'s`
-infixl 6 `hd___`, `hd___'q`, `hd___'s`
-infixl 5 `hd____`, `hd____'q`, `hd____'s`
-infixl 4 `hd_____`, `hd_____'q`, `hd_____'s`
-infixl 3 `hd______`, `hd______'q`, `hd______'s`
-infixl 2 `hd_______`, `hd_______'q`, `hd_______'s`
-infixl 1 `hd________`, `hd________'q`, `hd________'s`
+infixl 9 `hd`
+infixl 8 `hd_`
+infixl 7 `hd__`
+infixl 6 `hd___`
+infixl 5 `hd____`
+infixl 4 `hd_____`
+infixl 3 `hd______`
+infixl 2 `hd_______`
+infixl 1 `hd________`
 
 infixl 9 `hj` --, `hj'hj`
 infixl 8 `hj_`
@@ -194,15 +194,14 @@ infixl 3 `la_____`
 infixl 2 `la______`
 infixl 1 `la_______`
 
-infixl 8 `lu`, `lu'yp`, `lu'yp'yo'q`, `lu'ys`, `lu'yp'yp`, `lu'ysp`
---, `lu'yip`, `lu'yis`, `lu'yip'yp`, `lu'yip'yip`, `lu'yip'yis`
-infixl 7 `lu_`, `lu_'yp`, `lu_'yp'yo'q`, `lu_'ys`, `lu_'ysp`
-infixl 6 `lu__`, `lu__'yp`, `lu__'yp'yo'q`, `lu__'ys`, `lu__'ysp`
-infixl 5 `lu___`, `lu___'yp`, `lu___'yp'yo'q`, `lu___'ys`, `lu___'ysp`
-infixl 4 `lu____`, `lu____'yp`, `lu____'yp'yo'q`, `lu____'ys`, `lu____'ysp`
-infixl 3 `lu_____`, `lu_____'yp`, `lu_____'yp'yo'q`, `lu_____'ys`, `lu_____'ysp`
-infixl 2 `lu______`, `lu______'yp`, `lu______'yp'yo'q`, `lu______'ys`, `lu______'ysp`
-infixl 1 `lu_______`, `lu_______'yp`, `lu_______'yp'yo'q`, `lu_______'ys`, `lu_______'ysp`
+infixl 8 `lu`, `lu'yp`, `lu'yp'yo'q`, `lu'ys`, `lu'yp'yp`, `lu'ysp`, `lu'q`, `lu's`
+infixl 7 `lu_`, `lu_'yp`, `lu_'yp'yo'q`, `lu_'ys`, `lu_'ysp`, `lu_'q`, `lu_'s`
+infixl 6 `lu__`, `lu__'yp`, `lu__'yp'yo'q`, `lu__'ys`, `lu__'ysp`, `lu__'q`, `lu__'s`
+infixl 5 `lu___`, `lu___'yp`, `lu___'yp'yo'q`, `lu___'ys`, `lu___'ysp`, `lu___'q`, `lu___'s`
+infixl 4 `lu____`, `lu____'yp`, `lu____'yp'yo'q`, `lu____'ys`, `lu____'ysp`, `lu____'q`, `lu____'s`
+infixl 3 `lu_____`, `lu_____'yp`, `lu_____'yp'yo'q`, `lu_____'ys`, `lu_____'ysp`, `lu_____'q`, `lu_____'s`
+infixl 2 `lu______`, `lu______'yp`, `lu______'yp'yo'q`, `lu______'ys`, `lu______'ysp`, `lu______'q`, `lu______'s`
+infixl 1 `lu_______`, `lu_______'yp`, `lu_______'yp'yo'q`, `lu_______'ys`, `lu_______'ysp`, `lu_______'q`, `lu_______'s`
 
 infixl 8 `lv`
 infixl 7 `lv_`
@@ -2023,7 +2022,7 @@ ra :: forall into hom t i .
 ra = he `compose` map @T'II'I @T'I'II @into @into @t @(T'II'I hom (Representation t)) identity
 
 -- TODO: it should be renamed since `hj` is used instead of `hd`
-hd'q, hd_'q, hd__'q, hd___'q, hd____'q, hd_____'q, hd______'q, hd_______'q, hd________'q
+lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall into a .
  Adjoint Functor into into (T'II'I (P) a) (T'I'II into a) =>
  (forall e . Wrapper into ((T'I'II into a `T'TT'I` T'II'I (P) a) e)) =>
@@ -2032,23 +2031,18 @@ hd'q, hd_'q, hd__'q, hd___'q, hd____'q, hd_____'q, hd______'q, hd_______'q, hd__
  Elicitable T'II'I into (I a) =>
  Setoid into a =>
  into a (into a (a `P` a `S` a))
-hd'q = fij @into @into @(P) @into q
+lu'q = fij @into @into @(P) @into q
 
-hd_'q = hd'q
-hd__'q = hd'q
-hd___'q = hd'q
-hd____'q = hd'q
-hd_____'q = hd'q
-hd______'q = hd'q
-hd_______'q = hd'q
-hd________'q = hd'q
+lu_'q = lu'q
+lu__'q = lu'q
+lu___'q = lu'q
+lu____'q = lu'q
+lu_____'q = lu'q
+lu______'q = lu'q
+lu_______'q = lu'q
+lu________'q = lu'q
 
--- x `lu'q` y
--- x `hj'q` y
--- x `lu's` y
--- x `hj's` y
-
-hd's, hd_'s, hd__'s, hd___'s, hd____'s, hd_____'s, hd______'s, hd_______'s, hd________'s
+lu's, lu_'s, lu__'s, lu___'s, lu____'s, lu_____'s, lu______'s, lu_______'s, lu________'s
  :: forall into a .
  Adjoint Functor into into (T'II'I (P) a) (T'I'II into a) =>
  (forall e . Wrapper into ((T'I'II into a `T'TT'I` T'II'I (P) a) e)) =>
@@ -2057,16 +2051,16 @@ hd's, hd_'s, hd__'s, hd___'s, hd____'s, hd_____'s, hd______'s, hd_______'s, hd__
  Elicitable T'II'I into (I a) =>
  Semigroup into a =>
  into a (into a a)
-hd's = fij @into @into @(P) @into s
+lu's = fij @into @into @(P) @into s
 
-hd_'s = hd's
-hd__'s = hd's
-hd___'s = hd's
-hd____'s = hd's
-hd_____'s = hd's
-hd______'s = hd's
-hd_______'s = hd's
-hd________'s = hd's
+lu_'s = lu's
+lu__'s = lu's
+lu___'s = lu's
+lu____'s = lu's
+lu_____'s = lu's
+lu______'s = lu's
+lu_______'s = lu's
+lu________'s = lu's
 
 -- hj'hj :: forall from into t tt ttt tttt i ii a o .
  -- Category into =>
