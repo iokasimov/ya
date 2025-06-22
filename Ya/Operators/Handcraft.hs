@@ -134,15 +134,15 @@ infixl 3 `hu______`, `hu______'he`, `he'hu______`
 infixl 2 `hu_______`, `hu_______'he`, `he'hu_______`
 infixl 1 `hu________`, `hu________'he`, `he'hu________`
 
-infixl 9 `hd`, `hd'q`
-infixl 8 `hd_`, `hd_'q`
-infixl 7 `hd__`, `hd__'q`
-infixl 6 `hd___`, `hd___'q`
-infixl 5 `hd____`, `hd____'q`
-infixl 4 `hd_____`, `hd_____'q`
-infixl 3 `hd______`, `hd______'q`
-infixl 2 `hd_______`, `hd_______'q`
-infixl 1 `hd________`, `hd________'q`
+infixl 9 `hd`, `hd'q`, `hd's`
+infixl 8 `hd_`, `hd_'q`, `hd_'s`
+infixl 7 `hd__`, `hd__'q`, `hd__'s`
+infixl 6 `hd___`, `hd___'q`, `hd___'s`
+infixl 5 `hd____`, `hd____'q`, `hd____'s`
+infixl 4 `hd_____`, `hd_____'q`, `hd_____'s`
+infixl 3 `hd______`, `hd______'q`, `hd______'s`
+infixl 2 `hd_______`, `hd_______'q`, `hd_______'s`
+infixl 1 `hd________`, `hd________'q`, `hd________'s`
 
 infixl 9 `hj` --, `hj'hj`
 infixl 8 `hj_`
@@ -2043,6 +2043,33 @@ hd______'q = hd'q
 hd_______'q = hd'q
 hd________'q = hd'q
 
+-- x `lu'q` y
+-- x `hj'q` y
+-- x `lu's` y
+-- x `hj's` y
+
+hd's, hd_'s, hd__'s, hd___'s, hd____'s, hd_____'s, hd______'s, hd_______'s, hd________'s
+ :: forall into a .
+ Adjoint Functor into into (T'II'I (P) a) (T'I'II into a) =>
+ (forall e . Wrapper into ((T'I'II into a `T'TT'I` T'II'I (P) a) e)) =>
+ (forall e . Wrapper into (T'II'I (P) a e)) =>
+ (forall e . Wrapper into (T'I'II into a e)) =>
+ Elicitable T'II'I into (I a) =>
+ Semigroup into a =>
+ into a (into a a)
+hd's = fij @into @into @(P) @into s
+
+hd_'s = hd's
+hd__'s = hd's
+hd___'s = hd's
+hd____'s = hd's
+hd_____'s = hd's
+hd______'s = hd's
+hd_______'s = hd's
+hd________'s = hd's
+
+-- hj'hj :: forall from into t tt ttt tttt i ii a o .
+ -- Category into =>
 -- hj'hj :: forall from into t tt ttt tttt i ii a o .
  -- Category into =>
  -- Adjoint Functor from from (T'II'I t ii) (T'I'II tttt ii) =>
