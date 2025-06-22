@@ -5,48 +5,6 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
--- k :: forall into t o .
- -- Covariant Monoidal Functor into into (P) P t =>
- -- Component into I (T'I'II into Unit) =>
- -- Wrapper into (T'I'II into Unit o) =>
- -- Wrapper into (I o) =>
- -- into o (t o)
--- k = component @into @(T'I'II into Unit) @t
- -- `compose` wrap `compose` constant
-
-d :: forall into t tt o .
- Adjoint Functor into into t tt =>
- (forall e . Wrapper into (t `T'TT'I` tt `T'I_` e)) =>
- (forall e . Wrapper into (I e)) =>
- into (t (tt o)) o
-d = wrapped `identity` component @into @(t `T'TT'I` tt) @I
-
-di :: forall into t tt i ii o .
- Adjoint Functor into into (T'II'I t i) (T'I'II tt ii) =>
- (forall e . Wrapper into (T'II'I t i `T'TT'I` T'I'II tt ii `T'I_` e)) =>
- (forall e . Wrapper into (T'II'I t i e)) =>
- (forall e . Wrapper into (T'I'II tt ii e)) =>
- (forall e . Wrapper into (I e)) =>
- into (t (tt ii o) i) o
-di = wrapped `identity` component @into @(T'II'I t i `T'TT'I` T'I'II tt ii) @I `compose` fo @into wrap `compose` wrap
-
-j :: forall into t tt o .
- Adjoint Functor into into t tt =>
- (forall e . Wrapper into (tt `T'TT'I` t `T'I_` e)) =>
- (forall e . Wrapper into (I e)) =>
- into o (tt (t o))
-j = wrapped `identity` component @into @I @(tt `T'TT'I` t)
-
-ij :: forall into t tt i ii o .
- Adjoint Functor into into (T'II'I t i) (T'I'II tt ii) =>
- (forall e . Wrapper into (T'I'II tt ii `T'TT'I` T'II'I t i `T'I_` e)) =>
- (forall e . Wrapper into (T'II'I t i e)) =>
- (forall e . Wrapper into (T'I'II tt ii e)) =>
- (forall e . Wrapper into (I e)) =>
- into o (tt ii (t o i))
-ij = unwrap @into `compose` fo @into unwrap
- `compose` (wrapped (component @into @I @(T'I'II tt ii `T'TT'I` T'II'I t i)))
-
 fo :: forall from into t a o .
  Covariant Semi Functor from into t =>
  from a o -> into (t a) (t o)
