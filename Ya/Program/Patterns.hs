@@ -232,7 +232,7 @@ pattern Future x = That x
 
 type Decision = (S) Unit Unit
 
-pattern Not x = This x
+pattern No x = This x
 pattern Yes x = That x
 
 type Side = (S) Unit Unit
