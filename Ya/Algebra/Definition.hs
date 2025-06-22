@@ -430,5 +430,5 @@ instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
  where elicit = T'I'II (\(U_I_UU_M_I_II_II x) -> x)
 
 -- TODO: these typeclasses are experimental
-class Semigroup e where s :: e `P` e `AR___` e
-class Quasigroup e where p :: e `P` e `AR___` e
+class Semigroup from e where s :: e `P` e `from` e
+class Quasigroup from e where p :: e `P` e `from` e

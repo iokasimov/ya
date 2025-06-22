@@ -255,3 +255,9 @@ instance Mapping T'I'II T'I'II Arrow Arrow (Void `L` ((Only `P'T'I'TT'I` Shafted
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
+
+instance Semigroup (AR) (List item) where
+ s (These x y) = x `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` y `yi__` that
+
+instance Semigroup (AR) (Construction Maybe item) where
+ s (These x y) = x `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` y `yi__` that
