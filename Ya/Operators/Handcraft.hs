@@ -230,7 +230,7 @@ infixl 3 `yi_____`
 infixl 2 `yi______`
 infixl 1 `yi_______`
 
-infixl 8 `yo`, `yo'yp`, `yo'yok` --, `yo'hj`
+infixl 8 `yo`, `yo'yp`, `yo'yok`, `yo'yuu`
 infixl 7 `yo_`
 infixl 6 `yo__`
 infixl 5 `yo___`
@@ -377,6 +377,20 @@ yo_____ = yo
 yo______ = yo
 yo_______ = yo
 yi'yo = yo
+
+yo'yuu :: forall into t tt a aa o .
+ Precategory into =>
+ Covariant Yoneda Functor into into (T'I t) =>
+ Covariant Functor into into (T'I'II tt a) =>
+ Covariant Functor into into (T'II'I tt o) =>
+ (forall e ee . Wrapper into (T'I'II tt e ee)) =>
+ (forall e ee . Wrapper into (T'II'I tt e ee)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e . Wrapper (AR) (into Unit e)) =>
+ Terminal into =>
+ Contravariant Functor (AR) (AR) (T'II'I into (t (tt o o))) =>
+ t (tt a aa) -> into (Supertype (into Unit o)) (t (tt o o))
+yo'yuu x = fai (fuu @into @into @tt) (yo @into @into x)
 
 yoi :: forall from into t i a o .
  Precategory into =>
