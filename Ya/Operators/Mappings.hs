@@ -28,6 +28,16 @@ foo :: forall from into t a o .
  from a o -> into (t a a) (t o o)
 foo from = wrapped (fo @_ @_ @(T'I'I _) from)
 
+fuu :: forall from into t a aa o .
+ Covariant Functor from into (T'I'II t a) =>
+ Covariant Functor from into (T'II'I t o) =>
+ (forall e ee . Wrapper into (T'I'II t e ee)) =>
+ (forall e ee . Wrapper into (T'II'I t e ee)) =>
+ (forall e . Wrapper (AR) (from Unit e)) =>
+ Terminal from =>
+ Supertype (from Unit o) -> into (t a aa) (t o o)
+fuu from = fui @from @into from `compose` fiu @from @into from
+
 fa :: forall from into t a o .
  Contravariant Semi Functor from into t =>
  from a o -> into (t o) (t a)
