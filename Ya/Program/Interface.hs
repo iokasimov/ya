@@ -256,6 +256,12 @@ instance Mapping T'I'II T'I'II Arrow Arrow (Void `L` ((Only `P'T'I'TT'I` Shafted
     `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
 
+instance Semigroup (AR) Boolean where
+ s (These x y) = x `lu'ys'la` Try y
+
+instance Quasigroup (AR) Boolean where
+ p (These x y) = x `lu'yp` Try `hv` y `yu` Unit
+
 instance Semigroup (AR) (List item) where
  s (These x y) = x `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` y `yi__` that
 
