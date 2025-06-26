@@ -3023,16 +3023,17 @@ yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, h
  (forall ee . Wrapper from (L l (L ll tt) ee)) =>
  (forall ee . Wrapper from (L ll tt ee)) =>
  u e (t a) -> from a (L l (L ll tt) o) -> u e (tt (t o))
-ho'yokl x = fai fokl (ho @from x)
+yio'yokl x = fai fokl (ho @from x)
 
-ho_'yokl = ho'yokl
-ho__'yokl = ho'yokl
-ho___'yokl = ho'yokl
-ho____'yokl = ho'yokl
-ho_____'yokl = ho'yokl
-ho______'yokl = ho'yokl
-ho_______'yokl = ho'yokl
-ho________'yokl = ho'yokl
+ho'yokl = yio'yokl
+ho_'yokl = yio'yokl
+ho__'yokl = yio'yokl
+ho___'yokl = yio'yokl
+ho____'yokl = yio'yokl
+ho_____'yokl = yio'yokl
+ho______'yokl = yio'yokl
+ho_______'yokl = yio'yokl
+ho________'yokl = yio'yokl
 
 yio'yokl'yokl
  , ho'yokl'yokl
