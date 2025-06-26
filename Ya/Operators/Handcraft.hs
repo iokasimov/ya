@@ -298,7 +298,7 @@ infixl 7 `yai`, `yai'yukl`, `yai'ydi`, `yai'ydi'ydi`, `yai'yij`
 
 infixl 7 `yui` --, `yui'he`
 
-infixl 7 `yio`, `yio'yokl'yokl`, `yio'yokl'yukl`, `yio'yukl`, `yio'yp`, `yio'yij`, `yio'ydi`, `yio'ydi'ydi`, `yio'yij'yij`
+infixl 7 `yio`, `yio'yokl`, `yio'yokl'yokl`, `yio'yokl'yukl`, `yio'yukl`, `yio'yp`, `yio'yij`, `yio'ydi`, `yio'ydi'ydi`, `yio'yij'yij`
 
 infixl 7 `yiu`, `yiu'he`, `he'yiu`
 
@@ -3010,7 +3010,8 @@ ha________'yukl = yai'yukl
 -- yokl__ x = fai fio (yokl @from @u x)
 
 -- TODO: generalize
-ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl :: forall from u t tt l ll a o e .
+yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
+ :: forall from u t tt l ll a o e .
  Covariant Semi Functor from (AR) (T'I'II u e) =>
  Covariant Endo Semi Functor from tt =>
  Covariant Endo Semi Functor from t =>
