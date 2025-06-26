@@ -273,6 +273,8 @@ infixl 3 `yukl___`
 infixl 2 `yukl____`
 infixl 1 `yukl_____`
 
+infixl 5 `yiokl`
+
 infixl 8 `ya`
 
 infixl 8 `yu`
@@ -1051,6 +1053,22 @@ yukl___ = yukl
 yukl____ = yukl
 yukl_____ = yukl
 
+yiokl :: forall from into t tt l ll a o i .
+ Category into =>
+ Covariant Endo Transformation Functor into (T'I'II t i `T'TT'I` l `L` ll `L` tt) (T'I'II t i `TT'T'I` tt) =>
+ Covariant Yoneda Functor from into (T'I'II t i) =>
+ Covariant Yoneda Functor from into tt =>
+ (forall e . Wrapper into (T'I'II t i `T'TT'I` l `L` ll `L` tt `T'I_` e)) =>
+ (forall e . Wrapper into ((T'I'II t i `TT'T'I` tt) e)) =>
+ (forall e . Wrapper from (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ t i a -> into (from a (l `L` ll `L` tt `T'I` o)) (tt (t i o))
+yiokl x = fo @from unwrap
+ `compose` unwrap @into @(TT'T'I (T'I'II t i) tt _)
+ `compose` component @into @(T'I'II t i `T'TT'I` l `L` ll `L` tt) @(T'I'II t i `TT'T'I` tt)
+ `compose` wrap @into @((T'I'II t i `T'TT'I` l `L` ll `L` tt) _)
+ `compose` yo (wrap x)
+
 -- TODO: labeling
 yiok :: forall from into tt t i a o .
  Category into =>
@@ -1167,6 +1185,7 @@ yokl'yokl x = fai
   `compose` fio @from unwrap
  )
  (yokl @from @into @t @ttt @l @lll @(tt a) @(tt o) x)
+
 
 -- yokl x: into (from (tt a) (L l (L lll ttt) o)) (ttt (t (tt o)))
 
