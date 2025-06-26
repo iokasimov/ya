@@ -290,7 +290,7 @@ infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 infixl 8 `ys`, `ys'yo`
 -- infixl 7 `yis`
 
-infixl 7 `ysp`
+infixl 7 `ysp`, `ysp'yo`
 
 infixl 7 `yoi`
 
@@ -2626,7 +2626,15 @@ ysp :: forall u e ee t tt l .
  -- Covariant Monoidal Functor (AR) (AR) u (SP) l t =>
  Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) u (SP) t (l `L` tt) e ee) t =>
  u (t e) ((l `L` tt) ee) -> t (e `S` ee `S_` e `P` ee)
-ysp = day @T'I'II @(AR) @l @t @tt @u @(SP) identity he
+ysp = day @T'I'II @(AR) @l @t @tt @u @(SP) identity unwrap
+
+-- TODO: try to generalize
+ysp'yo :: forall from u e ee r t tt l .
+ Category from =>
+ Mapping T'I'II T'I'II from (AR) (Day T'I'II from u (SP) t (l `L` tt) e ee) t =>
+ Wrapper from (e `SP` ee) =>
+ u (t e) (l `L` tt `T'I` ee) -> from (e `S` ee `S_` e `P` ee) r -> t r
+ysp'yo x f = day @T'I'II @from @l @t @tt @u @(SP) identity (f `compose` unwrap) x
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt ttt tttt l ll .
