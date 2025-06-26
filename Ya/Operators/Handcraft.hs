@@ -292,7 +292,7 @@ infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 infixl 8 `ys`, `ys'yo`
 -- infixl 7 `yis`
 
-infixl 7 `ysp`, `ysp'yo`
+infixl 7 `ysp`, `ysp'yo`, `ysp'yokl`
 
 infixl 7 `yoi`
 
@@ -2685,6 +2685,16 @@ ysp'yo :: forall from u e ee r t tt l .
  Wrapper from (e `SP` ee) =>
  u (t e) (l `L` tt `T'I` ee) -> from (e `S` ee `S_` e `P` ee) r -> t r
 ysp'yo x f = day @T'I'II @from @l @t @tt @u @(SP) identity (f `compose` unwrap) x
+
+-- TODO: try to generalize
+ysp'yokl :: forall from u e ee r t tt ttt l ll lll .
+ Category from =>
+ Covariant Endo Transformation Functor (AR) (t `T'TT'I` ll `L` lll `L` ttt) (t `TT'T'I` ttt) =>
+ Mapping T'I'II T'I'II from (AR) (Day T'I'II from u (SP) t (l `L` tt) e ee) t =>
+ Wrapper from (e `SP` ee) =>
+ u (t e) (l `L` tt `T'I` ee) -> from (e `S` ee `S_` e `P` ee) (ll `L` lll `L` ttt `T'I` r) -> ttt (t r)
+ysp'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ll `L` lll `L` ttt) @(t `TT'T'I` ttt))
+ (day @T'I'II @from @l @t @tt @u @(SP) identity (f `compose` unwrap) x)
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt ttt tttt l ll .
