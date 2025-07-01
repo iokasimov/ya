@@ -6,12 +6,12 @@ infixl 8 `T'I`
 infixl 7 `T'I_`
 
 infixl 9 #
+infixl 9 `T`
 
 infixl 7 `T'TT'I`, `TT'T'I`
 infixl 6 `T'TT'I_`
 
-infixr 9 `L`
-
+type T t = t
 type T'I t = t
 type T'I_ t = t
 
