@@ -674,7 +674,7 @@ instance
  ( t ~ tt
  , Covariant Lax Monoidal Functor into into u uu l t
  , Covariant Endo Semi Functor into (T'II'I u (t `L` l `T` ee))
- , Covariant Endo Semi Functor into (T'I'II u (l `L` t `T` e))
+ , Covariant Endo Semi Functor into (T'I'II u (t `L` l `T` e))
  , forall eee . Mapping T'I'II T'I'II into into (T'II'I (P) eee) (T'II'I (P) eee)
  , forall eee . Wrapper into (t `L` l `T` eee)
  , forall eee . Wrapper into (Day T'I'II into u uu t t e ee eee)

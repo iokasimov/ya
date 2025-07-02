@@ -4,7 +4,7 @@ module Ya.Program.Labels where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-pattern Run, Def, Usual, Default :: t e `AR__` t `L` Void `T'I` e
+pattern Run, Def, Usual, Default :: t e `AR__` t `L` Void `T` e
 pattern Run e = Labeled @_ @Void e
 pattern Def e = Labeled @_ @Void e
 pattern Usual e = Labeled @_ @Void e
