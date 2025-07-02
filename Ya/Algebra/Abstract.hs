@@ -2,12 +2,9 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
-infixl 9 `L`
+infixl 9 #, `T`, `L`
 infixl 8 `T'I`
 infixl 7 `T'I_`
-
-infixl 9 #
-infixl 9 `T`
 
 infixl 7 `T'TT'I`, `TT'T'I`
 infixl 6 `T'TT'I_`
