@@ -92,7 +92,7 @@ fokl :: forall from into t tt l ll a o .
  Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` ll `L` l) (t `TT'T'I` tt) =>
  (forall e . Wrapper into (t `T'TT'I` tt `L` ll `L` l `T'I_` e)) =>
  (forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)) =>
- from a (tt `L` ll `L` l `T'I` o) -> into (t a) (tt (t o))
+ from a (tt `L` ll `L` l `T` o) -> into (t a) (tt (t o))
 fokl from = wrapped (component @into @(t `T'TT'I` tt `L` ll `L` l) @(t `TT'T'I` tt)) `compose` fo from
 
 fukl :: forall into t tt l ll a o .
