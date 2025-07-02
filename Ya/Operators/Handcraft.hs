@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 
 import Ya.Operators.Mappings
 
-infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl` --, `ho'yokl'yokl`, `ho'yokl'yukl`, `ho'yukl`
+infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yukl` --, `ho'yokl'yokl`, `ho'yokl'yukl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -16,44 +16,44 @@ infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'y
  , `ho'he'he'he'he`
  , `ho'hd`
  , `ho'hd'hd`
-infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk` --, `ho_'yokl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`, `ho_'yukl`
+infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`--, `ho_'yokl'yokl`, `ho_'yokl'yukl`
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
  , `ho_'he'he'hv`
  , `ho_'he'he'he'he`
-infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`--, `ho__'yokl` --, `ho__'yokl'yokl`, `ho__'yokl'yukl`, `ho__'yukl`
+infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl` --, `ho__'yokl'yokl`, `ho__'yokl'yukl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
  , `ho__'he'he'hv`
  , `ho__'he'he'he'he`
-infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`--, `ho___'yokl` --, `ho___'yokl'yokl`, `ho___'yokl'yukl`, `ho___'yukl`
+infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`--, `ho___'yokl'yokl`, `ho___'yokl'yukl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
  , `ho___'he'he'hv`
  , `ho___'he'he'he'he`
-infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`--, `ho____'yokl` --, `ho____'yokl'yokl`, `ho____'yokl'yukl`, `ho____'yukl`
+infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl` --, `ho____'yokl'yokl`, `ho____'yokl'yukl`
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
  , `ho____'he'he'hv`
  , `ho____'he'he'he'he`
-infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`--, `ho_____'yokl` --, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`, `ho_____'yukl`
+infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl` --, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
  , `ho_____'he'he'hv`
  , `ho_____'he'he'he'he`
-infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`--, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`
-infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`--, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`
+infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`--, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`
+infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`--, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
  , `ho_______'he'he'hv`
  , `ho_______'he'he'he'he`
-infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl` --, `ho________'yokl'yokl`, `ho________'yokl'yukl`, `ho________'yukl`
+infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` --, `ho________'yokl'yokl`, `ho________'yokl'yukl`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
