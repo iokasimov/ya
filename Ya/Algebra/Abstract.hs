@@ -2,6 +2,7 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Abstract where
 
+infixl 9 `L`
 infixl 8 `T'I`
 infixl 7 `T'I_`
 
@@ -78,8 +79,6 @@ instance Elicitable T'I'II (->) (Tagged e i)
 
 instance Elicitable T'II'I (->) (Tagged e i)
  where elicit = T'II'I Tag
-
-newtype L l t i = Labeled (t i)
 
 newtype T'TTT'TT'I t ttt tt i = T'TTT'TT'I (t (tt (ttt i)))
 
@@ -205,12 +204,15 @@ instance Elicitable T'I'II (->) (U_I_1 u i ii)
 instance Elicitable T'II'I (->) (U_I_1 u i ii)
  where elicit = T'II'I U_I_1
 
-type instance Supertype (L e t i) = t i
+-- TODO: it should be phantom
+newtype L t l i = Labeled (t i)
 
-instance Elicitable T'I'II (->) (L e t i)
+type instance Supertype (L t l i) = t i
+
+instance Elicitable T'I'II (->) (L t l i)
  where elicit = T'I'II (\(Labeled x) -> x)
 
-instance Elicitable T'II'I (->) (L e t i)
+instance Elicitable T'II'I (->) (L t l i)
  where elicit = T'II'I Labeled
 
 type instance Supertype (TT'I'T'II t u i ii) = u i (t ii)

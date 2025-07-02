@@ -70,40 +70,40 @@ fu = fo @from @into @t
  `compose` constant @from @(AR)
 
 fok :: forall from into t tt l a o .
- Component into (t `T'TT'I` l `L` tt) t =>
+ Component into (t `T'TT'I` tt `L` l) t =>
  Covariant Functor from into t =>
- (forall e . Wrapper into (t `T'TT'I` l `L` tt `T'I_` e)) =>
- from a (l `L` tt `T'I` o) -> into (t a) (t o)
-fok from = component @into @(t `T'TT'I` l `L` tt) @t
+ (forall e . Wrapper into (t `T'TT'I` tt `L` l `T'I_` e)) =>
+ from a (tt `L` l `T` o) -> into (t a) (t o)
+fok from = component @into @(t `T'TT'I` tt `L` l) @t
  `compose` wrap `compose` fo from
 
 fuk :: forall into t tt ll a o .
  Component (AR) I (T'I'II into a) =>
- Covariant Endo Transformation Functor into (t `T'TT'I` ll `L` tt) t =>
+ Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` ll) t =>
  Constant Semi Functor into into t =>
- (forall e . Wrapper into (t `T'TT'I` ll `L` tt `T'I_` e)) =>
- (forall e . Wrapper into (I `T'I_` ll `L` tt `T'I` e)) =>
- (ll `L` tt) o -> into (t a) (t o)
-fuk from = map @T'I'II @T'I'II @into @into @(t `T'TT'I` ll `L` tt) @t identity
+ (forall e . Wrapper into (t `T'TT'I` tt `L` ll `T'I_` e)) =>
+ (forall e . Wrapper into (I `T'I` tt `L` ll `T` e)) =>
+ (tt `L` ll) o -> into (t a) (t o)
+fuk from = map @T'I'II @T'I'II @into @into @(t `T'TT'I` tt `L` ll) @t identity
  `compose` wrap `compose` fu @into from
 
 fokl :: forall from into t tt l ll a o .
  Covariant Semi Functor from into t =>
- Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
- (forall e . Wrapper into (t `T'TT'I` l `L` ll `L` tt `T'I_` e)) =>
+ Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` l `L` ll) (t `TT'T'I` tt) =>
+ (forall e . Wrapper into (t `T'TT'I` tt `L` l `L` ll `T'I_` e)) =>
  (forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)) =>
- from a (l `L` ll `L` tt `T'I` o) -> into (t a) (tt (t o))
-fokl from = wrapped (component @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` tt)) `compose` fo from
+ from a (tt `L` l `L` ll `T'I` o) -> into (t a) (tt (t o))
+fokl from = wrapped (component @into @(t `T'TT'I` tt `L` l `L` ll) @(t `TT'T'I` tt)) `compose` fo from
 
 fukl :: forall into t tt l ll a o .
  Covariant Semi Functor into into t =>
- Covariant Endo Transformation Functor into (t `T'TT'I` l `L` ll `L` tt) (t `TT'T'I` tt) =>
+ Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` l `L` ll) (t `TT'T'I` tt) =>
  Component (AR) I (T'I'II into a) =>
- (forall e . Wrapper into (t `T'TT'I` l `L` ll `L` tt `T'I_` e)) =>
+ (forall e . Wrapper into (t `T'TT'I` tt `L` l `L` ll `T'I_` e)) =>
  (forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)) =>
- (forall e . Wrapper into (I `T'I_` l `L` ll `L` tt `T'I` e)) =>
- l `L` ll `L` tt `T'I` o `AR__` into (t a) (tt (t o))
-fukl from = wrapped (component @into @(t `T'TT'I` l `L` ll `L` tt) @(t `TT'T'I` tt)) `compose` fu @into from
+ (forall e . Wrapper into (I `T'I_` tt `L` l `L` ll `T'I` e)) =>
+ tt `L` l `L` ll `T` o `AR__` into (t a) (tt (t o))
+fukl from = wrapped (component @into @(t `T'TT'I` tt `L` l `L` ll) @(t `TT'T'I` tt)) `compose` fu @into from
 
 fo'fo :: forall from into t tt a o .
  Covariant Semi Functor from into tt =>
@@ -193,4 +193,4 @@ fc = unwrap @(AR) @(T'I'II (AR) (t a) _)
  (fd @(AR) @(AR) (wrap @_ @(T'I'II _ _ _)) `compose` wrap @_ @(T'I'II _ _ _))
  `compose` fj @(AR) @(AR) @(T'I'II (P) (t a)) @(T'I'II (AR) _)
  (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity
- `compose` unwrap @(AR) @(T'I'II (P) (t a) ((Void `L` t) (AR a o))) `compose` fo @(AR) wrap)
+ `compose` unwrap @(AR) @(T'I'II (P) (t a) ((t `L` Void) (AR a o))) `compose` fo @(AR) wrap)

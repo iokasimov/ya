@@ -261,13 +261,13 @@ deriving instance
  ) => Adjoint Functor from into t tt
 
 class
- ( forall e ee . Mapping v vv from into (Day v from u uu t (l `L` t) e ee) t
+ ( forall e ee . Mapping v vv from into (Day v from u uu t (t `L` l) e ee) t
  , Mapping v vv from into (v into (Neutral uu)) t
  , x v from into t
  ) => Monoidal v vv x from into u uu l t where
 
 deriving instance
- ( forall e ee . Mapping v vv from into (Day v from u uu t (l `L` t) e ee) t
+ ( forall e ee . Mapping v vv from into (Day v from u uu t (t `L` l) e ee) t
  , Mapping v vv from into (v into (Neutral uu)) t
  , x v from into t
  ) => Monoidal v vv x from into u uu l t
@@ -286,14 +286,14 @@ deriving instance Monoidal v T'II'I Functor from into u uu l t
 
 -- TODO: Yoneda version?
 day :: forall v from l t tt u uu a o e ee .
- Mapping v T'I'II from (AR) (Day v from u uu t (l `L` tt) e ee) t =>
+ Mapping v T'I'II from (AR) (Day v from u uu t (tt `L` l) e ee) t =>
  Wrapper (AR) (v from a o) =>
  Wrapper (AR) (v from (uu e ee) a) =>
  Supertype (v from a o)
   -> Supertype (v from (uu e ee) a)
-  -> u (t e) (l `L` tt `T'I` ee) -> t o
+  -> u (t e) (tt `L` l `T'I` ee) -> t o
 day from t x = map @v @T'I'II @from @(AR)
- @(Day v from u uu t (l `L` tt) e ee) @t from
+ @(Day v from u uu t (tt `L` l) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
 -- TODO: coday -- Oplax Monoidal Functor
