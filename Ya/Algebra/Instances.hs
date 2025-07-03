@@ -132,10 +132,10 @@ instance
     -- (wrapped (map @T'I'II @T'I'II @from @into @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) from))) `compose`
    -- unwrap @into @(T'TT'I'TTT'I u t tt _)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) e `T'TT'I` T'I'II (AR) e) I where
+instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \from -> rewrap `identity` \(T'I'II (These e (T'I'II f))) -> from (f e)
 
-instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` T'I'II (P) e) where
+instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` P'I'II e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \x -> T'I'II `identity` \e -> T'I'II (These e (from x))
 
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` T'II'I (P) e) where
@@ -144,7 +144,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` T'II'I (P) e)
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \from -> rewrap `identity` \(T'II'I (These (T'I'II f) e)) -> from (f e)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) e) (T'I'II (P) e) where
+instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e) (P'I'II e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These e x -> These e (from x)
 
@@ -300,7 +300,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'I (P)) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'I (P)) where
  mapping (T'I'II from) = T'I'II `identity` \(T'I'I (These x y)) -> T'I'I (These (from x) (from y))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) e) I where
+instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e) I where
  mapping (T'I'II from) = T'I'II `identity` \(T'I'II (These _ x)) -> Identity (from x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e) I where

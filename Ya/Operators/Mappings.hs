@@ -183,14 +183,14 @@ fij from = unwrap `compose` fo (from `compose` unwrap)
 fc :: forall t a o .
  Covariant Endo Semi Functor (AR) t =>
  Covariant Endo Semi Functor (AR) (T'I'II (AR) a) =>
- Adjoint Functor (AR) (AR) (T'I'II (P) (t a)) (T'I'II (AR) (t a)) =>
- Adjoint Functor (AR) (AR) (T'I'II (P) a) (T'I'II (AR) a) =>
- Adjoint Functor (AR) (AR) (T'I'II (P) (t a `P` t (AR a o))) (T'I'II (AR) (t a `P` t (AR a o))) =>
+ Adjoint Functor (AR) (AR) (P'I'II (t a)) (T'I'II (AR) (t a)) =>
+ Adjoint Functor (AR) (AR) (P'I'II a) (T'I'II (AR) a) =>
+ Adjoint Functor (AR) (AR) (P'I'II (t a `P` t (AR a o))) (T'I'II (AR) (t a `P` t (AR a o))) =>
  Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  t (AR a o) -> (AR) (t a) (t o)
 fc = unwrap @(AR) @(T'I'II (AR) (t a) _)
  `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR))
  (fd @(AR) @(AR) (wrap @_ @(T'I'II _ _ _)) `compose` wrap @_ @(T'I'II _ _ _))
- `compose` fj @(AR) @(AR) @(T'I'II (P) (t a)) @(T'I'II (AR) _)
+ `compose` fj @(AR) @(AR) @(P'I'II (t a)) @(T'I'II (AR) _)
  (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity
- `compose` unwrap @(AR) @(T'I'II (P) (t a) ((t `L` Void) (AR a o))) `compose` fo @(AR) wrap)
+ `compose` unwrap @(AR) @(P'I'II (t a) ((t `L` Void) (AR a o))) `compose` fo @(AR) wrap)

@@ -193,7 +193,7 @@ instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t)
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (t `T'TT'I` R_U_I_T_I (P) tt) where
  mapping = rewrap `identity` \_ _ -> T'TT'I (empty @t `yo` initial' @(AR))
 
-instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (P) e) (T'I'II (P) e) where
+instance Mapping T'I'II T'I'II (AT) (AT) (P'I'II e) (P'I'II e) where
  mapping = rewrap `compose` rewrap `identity` \from (T'I'II (These e x)) ->
    let s = from x in T'I'II (These e (this s)) `lu` fo (that s)
 
@@ -206,7 +206,7 @@ instance Mapping T'I'II T'I'II (AT) (AT) I (T'I'I (P)) where
  mapping = rewrap `compose` rewrap `identity` \from (Identity x) ->
    let s = from x in T'I'I (this s `lu`this s) `lu` (\(T'I'I (These _ _)) -> Identity (that s (this s)))
 
-instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (P) e) I where
+instance Mapping T'I'II T'I'II (AT) (AT) (P'I'II e) I where
  mapping = rewrap `compose` rewrap `identity` \from (T'I'II (These e x)) ->
    let s = from x in Identity (this s) `lu` (T'I'II `compose` (e `lu`) `compose` that s `compose` unwrap)
 
@@ -642,7 +642,7 @@ instance
 
 -- TODO: generalize with limits
 instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) e `T'TT'I` t) (T'I'II (P) e `TT'T'I` t) where
+ Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   T'I'II (These e x) -> x `yo` from `ho` These e `ho` T'I'II
 

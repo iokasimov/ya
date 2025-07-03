@@ -2313,9 +2313,9 @@ lo_______ = lo
 lo'lu :: forall into a aa o oo .
  Category into =>
  Limit T'I'II into into =>
- Covariant Endo Semi Functor into (T'I'II (P) (a `P` aa)) =>
+ Covariant Endo Semi Functor into (P'I'II (a `P` aa)) =>
  Covariant Endo Semi Functor into (T'II'I (P) oo) =>
- (forall e ee . Wrapper into (T'I'II (P) e ee)) =>
+ (forall e ee . Wrapper into (e `P'I'II` ee)) =>
  (forall e ee . Wrapper into (T'II'I (P) e ee)) =>
  (forall e . Wrapper into (Both (P) e)) =>
  (forall e . Wrapper into (I e)) =>
@@ -2496,9 +2496,9 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o 
  Category from =>
  Limit T'II'I from from =>
  Objective from (o `S` oo) a =>
- Covariant Endo Semi Functor from (T'I'II Sum o) =>
+ Covariant Endo Semi Functor from (S'I'II o) =>
  Covariant Endo Semi Functor from (T'II'I Sum i) =>
- (forall ee eee . Wrapper from (T'I'II Sum ee eee)) =>
+ (forall ee eee . Wrapper from (S'I'II ee eee)) =>
  (forall ee eee . Wrapper from (T'II'I Sum ee eee)) =>
  (forall ee . Wrapper from (T'I'I Sum ee)) =>
  (forall ee . Wrapper from (I ee)) =>
@@ -2518,10 +2518,10 @@ la_______ = la
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
- Covariant Endo Semi Functor (AR) (T'I'II Sum aa) =>
+ Covariant Endo Semi Functor (AR) (S'I'II aa) =>
  Covariant Endo Semi Functor (AR) (T'II'I Sum o) =>
  Objective (AR) (aa `S` aaa) a =>
- (forall ee eee . Wrapper (AR) (T'I'II Sum ee eee)) =>
+ (forall ee eee . Wrapper (AR) (S'I'II ee eee)) =>
  (forall ee eee . Wrapper (AR) (T'II'I Sum ee eee)) =>
  (forall ee . Wrapper (AR) (T'I'I Sum ee)) =>
  (forall ee . Wrapper (AR) (I ee)) =>
@@ -2571,11 +2571,11 @@ lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity
 -- rwr'hs :: forall from into r o a aa .
  -- Category from =>
  -- Limit T'II'I from into =>
- -- Covariant Functor into into (T'I'II Sum a) =>
+ -- Covariant Functor into into (S'I'II a) =>
  -- Covariant Functor into into (T'II'I Sum (Sum (Supertype r) (Supertype r))) =>
  -- Elicitable T'II'I into (Both Sum (Sum (Supertype r) (Supertype r))) =>
- -- Elicitable T'II'I into (T'I'II Sum a aa) =>
- -- Elicitable T'I'II into (T'I'II Sum (Supertype r) (Supertype r)) =>
+ -- Elicitable T'II'I into (S'I'II a aa) =>
+ -- Elicitable T'I'II into (S'I'II (Supertype r) (Supertype r)) =>
  -- Elicitable T'I'II into (T'II'I Sum (Supertype r) (Supertype r)) =>
  -- Elicitable T'II'I into (Both Sum (Supertype r)) =>
  -- Elicitable T'I'II into (That Sum a (Sum (Supertype r) (Supertype r))) =>
@@ -3297,7 +3297,7 @@ lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'
  :: forall o oo t tt l .
  -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) l t =>
  Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) t (tt `L` l) o oo) t =>
- Covariant Yoneda Functor (AR) (AR) (T'I'II (P) (t o)) =>
+ Covariant Yoneda Functor (AR) (AR) (P'I'II (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
  t o -> (tt `L` l) oo -> t (o `S` oo)
 lu'ys l r = ys (lu l r)
@@ -3313,7 +3313,7 @@ lu_______'ys = lu'ys
 -- lu'yis, lu_'yis, lu__'yis, lu___'yis, lu____'yis, lu_____'yis, lu______'yis, lu_______'yis
  -- :: forall e o oo t .
  -- Covariant Monoidal Functor (AR) (AR) (P) (S) (T'I'II t e) =>
- -- Covariant Yoneda Functor (AR) (AR) (T'I'II (P) (t e o)) =>
+ -- Covariant Yoneda Functor (AR) (AR) (P'I'II (t e o)) =>
  -- Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
  -- t e o -> t e oo -> t e (o `S` oo)
 -- lu'yis l r = yis (lu l r)
