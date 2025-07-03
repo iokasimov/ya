@@ -197,6 +197,12 @@ type family Aught p where
  Aught T'I'II = Unit
  Aught T'II'I = Void
 
+type P'I'II = T'I'II P
+type P'II'I = T'II'I P
+
+type S'I'II = T'I'II S
+type S'II'I = T'II'I S
+
 class
  ( forall e . Mapping v v from into (T'II'I u e) I
  , forall e . Mapping v v from into (T'I'II u e) I
