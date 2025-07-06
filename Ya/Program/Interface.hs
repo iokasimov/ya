@@ -21,14 +21,14 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
  mapping = rewrap `identity` \_ _ -> T'TT'I'TTT'I (wrap empty `lu` wrap empty)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (Shafted List) (Shafted List `L` Void) i ii) (Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
   let These i' i'' = unwrap i in
   let These ii' ii'' = (unwrap `compose` unwrap) ii in
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` Void) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` (Only `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I'TTT'I (These rl fl)))) ->
   Identity `hv` Labeled x
    `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Prior)
@@ -39,10 +39,10 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only
 
   positions :: forall item label .
    Scrolling List item `P` List item `AR__`
-   List (Scrolling List `L` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Void `T` item))
+   List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
    `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` auto) `ha_` Scope `hv` at @(Scrolling List item)
-   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Void `T` item)
+   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Labeled `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `he'he'hv______` x `lu` by `hv` Empty @List
 
 instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
@@ -88,53 +88,53 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
  mapping = rewrap `identity` \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Prior `ha` Empty @List) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
-instance
- ( Covariant Endo Semi Functor (AR) t
- , Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
- , Covariant Endo Transformation Functor (AR) (t `T'TT'I` tttt `L` ll `L` Void) (t `TT'T'I` tttt)
- , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` ll `L` Void) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` ll `L` Void) (ttt `TT'T'I` tttt)
- ) => Mapping T'I'II T'I'II (AR) (AR)
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` tttt `L` ll `L` Void)
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
- where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
-   (r `yokl` is) `lu'yp` Run (w `yokl` is) `lu'yp` Run (f `yokl` is) -- `yo'yo` from
-    `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I (These (x `yo` from) (T'TT'I'TTT'I (These (Labeled @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @(Void)  (xs `yo` from))))))
+-- instance
+--  ( Covariant Endo Semi Functor (AR) t
+--  , Covariant Endo Semi Functor (AR) tt
+--  , Covariant Endo Semi Functor (AR) ttt
+--  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
+--  , Covariant Endo Transformation Functor (AR) (t `T'TT'I` tttt `L` ll `L` Void) (t `TT'T'I` tttt)
+--  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` ll `L` Void) (tt `TT'T'I` tttt)
+--  , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` ll `L` Void) (ttt `TT'T'I` tttt)
+--  ) => Mapping T'I'II T'I'II (AR) (AR)
+--  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` tttt `L` ll `L` Void)
+--  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt)
+--  where
+--   mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
+--    (r `yokl` is) `lu'yp` Run (w `yokl` is) `lu'yp` Run (f `yokl` is) -- `yo'yo` from
+--     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I (These (x `yo` from) (T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @(Void)  (xs `yo` from))))))
 
-instance
- ( Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
- , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` ll `L` Void) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` ll `L` Void) (ttt `TT'T'I` tttt)
- ) => Mapping T'I'II T'I'II (AR) (AR)
- ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` tttt `L` ll `L` Void)
- ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
- where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
-   (r `yokl` is) `lu'yp` Run (f `yokl` is)
-    `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @Void (xs `yo` from))))
+-- instance
+--  ( Covariant Endo Semi Functor (AR) tt
+--  , Covariant Endo Semi Functor (AR) ttt
+--  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
+--  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
+--  , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` tttt `T` ll `L` ttt `T` Void) (ttt `TT'T'I` tttt)
+--  ) => Mapping T'I'II T'I'II (AR) (AR)
+--  ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` tttt `L` tttt `T` ll `L` (Reverse tt `P'T'I'TT'I` Forward ttt) `T` Void)
+--  ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
+--  where
+--   mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
+--    (r `yokl` is) `lu'yp` Run (f `yokl` is)
+--     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @_ @Void (xs `yo` from))))
 
-instance
- ( Covariant Endo Semi Functor (AR) t
- -- , Covariant Endo Semi Functor (AR) tt
- -- , Covariant Endo Semi Functor (AR) ttt
- -- , Covariant Endo Monoidal Functor (AR) (P) P tttt
- -- , Covariant Endo Transformation Functor (AR) (t `T'TT'I` t `L` Void `L` lltt) (t `TT'T'I` tttt)
- -- , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` t `L` Void `L` lltt) (tt `TT'T'I` tttt)
- -- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` t `L` Void `L` lltt) (ttt `TT'T'I` tttt)
- ) => Mapping T'I'II T'I'II (AR) (AR)
- (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) `T'TT'I` ttt `L` ll `L` Void)
- (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Stacked Only Tree List) `TT'T'I` tttt)  where
+-- instance
+--  ( Covariant Endo Semi Functor (AR) t
+--  -- , Covariant Endo Semi Functor (AR) tt
+--  -- , Covariant Endo Semi Functor (AR) ttt
+--  -- , Covariant Endo Monoidal Functor (AR) (P) P tttt
+--  -- , Covariant Endo Transformation Functor (AR) (t `T'TT'I` t `L` t `T` Void `L` lltt) (t `TT'T'I` tttt)
+--  -- , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` t `L` t `T` Void `L` lltt) (tt `TT'T'I` tttt)
+--  -- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` t `L` t `T` Void `L` lltt) (ttt `TT'T'I` tttt)
+--  ) => Mapping T'I'II T'I'II (AR) (AR)
+--  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) `T'TT'I` ttt `L` ll `L` Void)
+--  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Stacked Only Tree List) `TT'T'I` tttt)  where
   -- mapping = rewrap `identity` \from -> rewrap `identity`
   --  \(T'TT'I'TTT'I (These (T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) (Labeled passed))) ->
   --  ()
 
 -- TODO: we are going to apply the same function to all items in a list but it's actually fine
-instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` Void) where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` (List `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These _ (T'TT'I'TTT'I (These rl fl)))) ->
   List `ha` Item (Labeled x) `ha` Last `hv` Unit
     `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Labeled `ha` that `ha` shift (by Back) `ha_` is `hu` x)
@@ -164,26 +164,26 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
 --      )
 --     ))))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P List (List `L` (Void `P` Void)) e ee) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e (Labeled ee)) (T'I'II f) ->
    (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @(AR)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (Construction Optional) (Construction Optional `L` (Void `P` Void)) e ee) (Construction Optional) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e (Labeled ee)) (T'I'II f) ->
    (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` (\r -> let (T'TT'I (T'I'II (That rr))) = r in rr) `ho` unwrap @(AR)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` Void) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` Void) List where
  mapping = rewrap `identity` \from x -> unwrap x
   `yokl` Prior `ha` New `ha__'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from `ha__` unwrap @(AR) `he'he'hv___` Empty @List Unit
   `yi__` that
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` (Void `P` Void)) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void `P` Void)) List where
  mapping = rewrap `identity` \from x -> unwrap x
   `yokl` Prior `ha` Run
   `ha__` intro @(State `T'I` List _ `JNT` Halts) @(AR)
@@ -192,30 +192,30 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` (Void `P` Void)
   `he'he'hv___` empty @List
   `yi__` Empty @List `la` is `ho'he` that @(List _)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Void) (Construction Optional) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \from x -> let start = (unwrap (unwrap (unwrap (unwrap x)))) in
   that `hv` start
   `yokl` Run `ha` New
   `ha__'yokl` Prior `ha` New
    `ha_'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @(Nonempty List) `ha` from
-   `ha_` unwrap @(AR) @(Nonempty List `L` Void `T` _)
-  `ha__` wrap @(AR) @(Nonempty List (Nonempty List `L` Void `T` _))
-  `he'he'hv___` unwrap @(AR) @(Nonempty List `L` Void `T` _) `ha` this `hv` start `yo` from
+   `ha_` unwrap @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _)
+  `ha__` wrap @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
+  `he'he'hv___` unwrap @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` this `hv` start `yo` from
   `yi__` that
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
- (Construction Optional `T'TT'I` Construction Optional `L` Void) where
+ (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) where
  mapping = rewrap `identity` \from x -> x
   `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (\old -> pop old `yui` old) `he'he'hv___` x
   -- `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (get `ha` that `ha` pop) `he'he'hv___` x
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @(AR) where
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
- (Construction Optional `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` Void) where
- mapping = rewrap `identity` \from x -> x
-  `yi_` to @(Scrolling List)
-  `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Void `T` _) `ha'yo` from
-  `yi_` to @(Nonempty List) `ho` wrap @(AR)
+-- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
+--  (Construction Optional `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` Void) where
+--  mapping = rewrap `identity` \from x -> x
+--   `yi_` to @(Scrolling List)
+--   `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Void `T` _) `ha'yo` from
+--   `yi_` to @(Nonempty List) `ho` wrap @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
@@ -245,11 +245,11 @@ instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predica
  mapping = rewrap `identity` \from -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li_` x `lu'q` from x'
 
 pattern Aloft :: forall t e .
- Component (AR) (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` Void) Tree =>
- (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` Void `T` e
+ Component (AR) (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree =>
+ (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
 pattern Aloft x = Labeled x
 
-instance Mapping T'I'II T'I'II Arrow Arrow (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` Void) Tree where
+instance Mapping T'I'II T'I'II Arrow Arrow (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \from (Labeled (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Only tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)

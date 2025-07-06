@@ -32,7 +32,7 @@ type Apparently = I
 pattern Apparently :: e -> Apparently e
 pattern Apparently e = Identity e
 
-type Boolean = T'I'II (S) Unit Unit
+type Boolean = S'I'II Unit Unit
 
 pattern Boolean :: Unit `S` Unit `AR_` Boolean
 pattern Boolean e = T'I'II e
@@ -54,19 +54,19 @@ type Equipped = T'II'I P
 pattern Equip :: e `P` ee -> Equipped ee e
 pattern Equip x = T'II'I x
 
-type Optional = T'I'II (S) Unit
+type Optional = S'I'II Unit
 
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
 
-pattern Some :: ee -> T'I'II (S) Unit ee
+pattern Some :: ee -> S'I'II Unit ee
 pattern Some x = T'I'II (That x)
 
 pattern Optionally x = T'I'II x
 
-type Halts = T'I'II (S) Unit
+type Halts = S'I'II Unit
 
-type Maybe = T'I'II (S) Unit
+type Maybe = S'I'II Unit
 
 pattern Maybe :: Unit `S` e `AR_` Maybe e
 pattern Maybe x = T'I'II @(S) @Unit x

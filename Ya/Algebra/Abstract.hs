@@ -201,15 +201,14 @@ instance Elicitable T'I'II (->) (U_I_1 u i ii)
 instance Elicitable T'II'I (->) (U_I_1 u i ii)
  where elicit = T'II'I U_I_1
 
--- TODO: it should be phantom
-newtype L t l i = Labeled (t i)
+newtype L t _t l i = Labeled (t i)
 
-type instance Supertype (L t l i) = t i
+type instance Supertype (L t _t l i) = t i
 
-instance Elicitable T'I'II (->) (L t l i)
+instance Elicitable T'I'II (->) (L t _t l i)
  where elicit = T'I'II (\(Labeled x) -> x)
 
-instance Elicitable T'II'I (->) (L t l i)
+instance Elicitable T'II'I (->) (L t _t l i)
  where elicit = T'II'I Labeled
 
 type instance Supertype (TT'I'T'II t u i ii) = u i (t ii)
