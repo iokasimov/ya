@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 
 import Ya.Operators.Mappings
 
-infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`--, `ho'yokl`, `ho'yukl`, `ho'yokl'yokl`, `ho'yokl'yukl`
+infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yukl`, `ho'yokl'yokl`, `ho'yokl'yukl`
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
@@ -16,44 +16,44 @@ infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`--, `ho
  , `ho'he'he'he'he`
  , `ho'hd`
  , `ho'hd'hd`
-infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`--, `ho_'yokl`, `ho_'yukl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`
+infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
  , `ho_'he'he'hv`
  , `ho_'he'he'he'he`
-infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`--, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`
+infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
  , `ho__'he'he'hv`
  , `ho__'he'he'he'he`
-infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`--, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`
+infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
  , `ho___'he'he'hv`
  , `ho___'he'he'he'he`
-infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`--, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`
+infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
  , `ho____'he'he'hv`
  , `ho____'he'he'he'he`
-infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`--, `ho_____'yokl`, `ho_____'yukl`, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`
+infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl`, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
  , `ho_____'he'he'hv`
  , `ho_____'he'he'he'he`
-infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`--, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`
-infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`--, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`
+infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`
+infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
  , `ho_______'he'he'hv`
  , `ho_______'he'he'he'he`
-infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`--, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`
+infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
@@ -1116,7 +1116,7 @@ yiok x = unwrap @into @(T'I'II t i o)
 -- TODO: yok'yo
 -- TODO: yok'he'yo
 
--- yok'yokl, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok______'yokl, li'yok'yokl
+-- yok'yokl--, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok______'yokl
 --  :: forall from into t tt ttt l ll lll a o .
 --  Covariant Yoneda Functor from into t =>
 --  Covariant Endo Semi Functor into t =>
@@ -1124,21 +1124,25 @@ yiok x = unwrap @into @(T'I'II t i o)
 --  Covariant Endo Semi Functor from ttt =>
 --  Covariant Semi Functor from into (T'I'II from a) =>
 --  Contravariant Endo Semi Functor (AR) (T'II'I into (t (ttt o))) =>
---  Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` lll) t =>
---  Covariant Endo Transformation Functor from (ttt `T'TT'I` tt `L` lll `L` ll) (ttt `TT'T'I` tt) =>
---  (forall e ee . Wrapper into (T'I'II from e ee)) =>
---  (forall e . Wrapper from (ttt `T'TT'I` t `L` ll `L` lll `T'I_` e)) =>
---  (forall e . Wrapper from (tt `L` tt `T` ll `T` e)) =>
---  (forall e . Wrapper from (tt `L` lll `T` e)) =>
---  (forall e . Wrapper into (t `T'TT'I` tt `L` tt `T` ll `T` e)) =>
---  (forall e . Wrapper into (t `T'TT'I` tt `L` lll `L` ll `T'I_` e)) =>
---  (forall e . Wrapper from (ttt `T'TT'I` tt `L` lll `L` ll `T'I_` e)) =>
---  (forall e . Wrapper into (ttt `TT'T'I` tt `L` lll `L` ll `T'I_` e)) =>
---  (forall e . Wrapper from (ttt `T'TT'I` tt `L` lll `T'I_` e)) =>
---  (forall e . Wrapper from (ttt `TT'T'I` tt `T'I_` e)) =>
---  t (ttt a) -> into (from a (tt `L` tt `T` ll `L` lll `T'I` o)) (t (ttt o))
--- yok'yokl x = fai (fio (wrap @from @(tt `L` _ `T` _)) `compose` fokl @from @from @ttt @tt @l @ll)
---   (yok @from @into @t @tt @ll x)
+
+--  Covariant Transformation Functor from into (t `T'TT'I` tt `L` tt `T` lll) t =>
+--  Covariant Endo Transformation Functor from (ttt `T'TT'I` tt `L` tt `T` lll `L` ttt `T` ll) (ttt `TT'T'I` tt) =>
+
+--  -- (forall e ee . Wrapper into (T'I'II from e ee)) =>
+--  -- (forall e . Wrapper from (ttt `T'TT'I` t `L` ll `L` lll `T'I_` e)) =>
+--  -- (forall e . Wrapper from (tt `L` tt `T` ll `T` e)) =>
+--  -- (forall e . Wrapper from (tt `L` lll `T` e)) =>
+--  -- (forall e . Wrapper into (t `T'TT'I` tt `L` tt `T` ll `T` e)) =>
+--  -- (forall e . Wrapper into (t `T'TT'I` tt `L` lll `L` ll `T'I_` e)) =>
+--  -- (forall e . Wrapper from (ttt `T'TT'I` tt `L` lll `L` ll `T'I_` e)) =>
+--  -- (forall e . Wrapper into (ttt `TT'T'I` tt `L` lll `L` ll `T'I_` e)) =>
+--  -- (forall e . Wrapper from (ttt `T'TT'I` tt `L` lll `T'I_` e)) =>
+--  -- (forall e . Wrapper from (ttt `TT'T'I` tt `T'I_` e)) =>
+--  t (ttt a) -> into (from a (tt `L` tt `T` ll `L` _ `T` lll `T'I` o)) (t (ttt o))
+-- yok'yokl x = fai (fio (wrap @from @(tt `L` _ `T` _ `T` _)) `compose` fokl @from @from @ttt @tt @l @ll)
+--  (yok @from @into @t @tt @ll x `compose` fio (unwrap @into @()))
+
+-- (tt `L` tt `T` ll `L` t `T` lll `T` _)
 
 -- yok_'yokl = yok'yokl
 -- yok__'yokl = yok'yokl
@@ -3083,154 +3087,152 @@ ha________'yukl = yai'yukl
 -- yokl__ x = fai fio (yokl @from @u x)
 
 -- TODO: generalize
--- yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
---  :: forall from u t tt l ll a o e .
---  Covariant Semi Functor from (AR) (T'I'II u e) =>
---  Covariant Endo Semi Functor from tt =>
---  Covariant Endo Semi Functor from t =>
---  Covariant Endo Transformation Functor from (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
---  Covariant Yoneda Functor from (AR) (T'I'II u e) =>
---  (forall ee . Wrapper from ((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) ee)) =>
---  (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
---  (forall ee . Wrapper from ((t `TT'T'I` tt) ee)) =>
---  (forall ee . Wrapper from (tt `L` tt `T` ll `L` t `T` l `T` ee)) =>
---  (forall ee . Wrapper from (tt `L` tt `T` ll `T` ee)) =>
---  u e (t a) -> from a (tt `L` tt `T` ll `L` t `T` l `T` o) -> u e (tt (t o))
--- yio'yokl x = fai fokl (ho @from x)
+yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
+ :: forall from u t tt l ll a o e .
+ Covariant Semi Functor from (AR) (T'I'II u e) =>
+ Covariant Endo Semi Functor from tt =>
+ Covariant Endo Semi Functor from t =>
+ Covariant Endo Transformation Functor from (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Covariant Yoneda Functor from (AR) (T'I'II u e) =>
+ (forall ee . Wrapper from ((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) ee)) =>
+ (forall ee . Wrapper from ((t `T'TT'I` tt) ee)) =>
+ (forall ee . Wrapper from ((t `TT'T'I` tt) ee)) =>
+ (forall ee . Wrapper from (tt `L` tt `T` ll `L` t `T` l `T` ee)) =>
+ (forall ee . Wrapper from (tt `L` tt `T` ll `T` ee)) =>
+ u e (t a) -> from a (tt `L` tt `T` ll `L` t `T` l `T` o) -> u e (tt (t o))
+yio'yokl x = fai fokl (ho @from x)
 
--- ho'yokl = yio'yokl
--- ho_'yokl = yio'yokl
--- ho__'yokl = yio'yokl
--- ho___'yokl = yio'yokl
--- ho____'yokl = yio'yokl
--- ho_____'yokl = yio'yokl
--- ho______'yokl = yio'yokl
--- ho_______'yokl = yio'yokl
--- ho________'yokl = yio'yokl
+ho'yokl = yio'yokl
+ho_'yokl = yio'yokl
+ho__'yokl = yio'yokl
+ho___'yokl = yio'yokl
+ho____'yokl = yio'yokl
+ho_____'yokl = yio'yokl
+ho______'yokl = yio'yokl
+ho_______'yokl = yio'yokl
+ho________'yokl = yio'yokl
 
--- yio'yokl'yokl
---  , ho'yokl'yokl
---  , ho_'yokl'yokl
---  , ho__'yokl'yokl
---  , ho___'yokl'yokl
---  , ho____'yokl'yokl
---  , ho_____'yokl'yokl
---  , ho______'yokl'yokl
---  , ho_______'yokl'yokl
---  , ho________'yokl'yokl
---  :: forall from into u t tt ttt l ll lll a o i .
---  Category from =>
---  Covariant Yoneda Functor from into (T'I'II u i) =>
---  Covariant Endo Semi Functor from t =>
---  Covariant Endo Semi Functor from tt =>
---  Covariant Semi Functor into from t =>
---  Covariant Endo Semi Functor from ttt =>
---  Covariant Semi Functor into from ttt =>
---  Contravariant Semi Functor (AR) (AR) (T'II'I into (u i (ttt (t (tt o))))) =>
---  Covariant Transformation Functor from from (t `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (t `TT'T'I` ttt) =>
---  Covariant Transformation Functor from from (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
---  Covariant Transformation Functor into from (t `T'TT'I` ttt `L` ll `L` l) (t `TT'T'I` ttt) =>
---  (forall e ee . Wrapper into (T'I'II from e ee)) =>
---  (forall e . Wrapper into (T'I'II u i e)) =>
---  (forall e . Wrapper from ((tt `TT'T'I` ttt) e)) =>
---  (forall e . Wrapper from ((t `TT'T'I` ttt) e)) =>
---  (forall e . Wrapper from (ttt `L` ttt `T` lll `T` e)) =>
---  (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T'I` e)) =>
---  (forall e . Wrapper from ((tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
---  (forall e . Wrapper from ((t `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
---  (forall e . Wrapper from (ttt `L` ttt `T` lll `L` t `T` l `T'I` e)) =>
---  (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `T'I` e)) =>
---  u i (t (tt a)) -> into (from a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (u i (ttt (t (tt o))))
--- yio'yokl'yokl x = fai @(AR)
---  (fokl @from @from @t @ttt @ll @lll
---   `compose` fio @from (wrap @from @(_ `L` ll `T` _) `compose` wrap @from @(_ `L` _ `T` _))
---   `compose` fokl @from @from @tt @ttt @ll @lll
---   `compose` fio @from (unwrap @from @(_ `L` _ `T` _)))
---  (yio @from x)
+yio'yokl'yokl
+ , ho'yokl'yokl
+ , ho_'yokl'yokl
+ , ho__'yokl'yokl
+ , ho___'yokl'yokl
+ , ho____'yokl'yokl
+ , ho_____'yokl'yokl
+ , ho______'yokl'yokl
+ , ho_______'yokl'yokl
+ , ho________'yokl'yokl
+ :: forall from into u t tt ttt l ll lll a o i .
+ Category from =>
+ Covariant Yoneda Functor from into (T'I'II u i) =>
+ Covariant Endo Semi Functor from t =>
+ Covariant Endo Semi Functor from tt =>
+ Covariant Semi Functor into from t =>
+ Covariant Endo Semi Functor from ttt =>
+ Covariant Semi Functor into from ttt =>
+ Contravariant Semi Functor (AR) (AR) (T'II'I into (u i (ttt (t (tt o))))) =>
+ Covariant Transformation Functor from from (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) (t `TT'T'I` ttt) =>
+ Covariant Transformation Functor from from (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ (forall e . Wrapper into (T'I'II u i e)) =>
+ (forall e . Wrapper from ((tt `TT'T'I` ttt) e)) =>
+ (forall e . Wrapper from ((t `TT'T'I` ttt) e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T'I` e)) =>
+ (forall e . Wrapper from ((tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
+ (forall e . Wrapper from (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll `T'I_` e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` t `T` ll `T` e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `T` e)) =>
+ u i (t (tt a)) -> into (from a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (u i (ttt (t (tt o))))
+yio'yokl'yokl x = fai @(AR)
+ (fokl @from @from @t @ttt @ll @lll
+  `compose` fio @from (wrap @from @(ttt `L` ttt `T` lll `L` t `T` ll `T` _) `compose` wrap @from @(_ `L` _ `T` _ `T` _))
+  `compose` fokl @from @from @tt @ttt @ll @lll
+  `compose` fio @from (unwrap @from @(_ `L` _ `T` _ `T` _)))
+ (yio @from x)
 
--- ho'yokl'yokl = yio'yokl'yokl
--- ho_'yokl'yokl = yio'yokl'yokl
--- ho__'yokl'yokl = yio'yokl'yokl
--- ho___'yokl'yokl = yio'yokl'yokl
--- ho____'yokl'yokl = yio'yokl'yokl
--- ho_____'yokl'yokl = yio'yokl'yokl
--- ho______'yokl'yokl = yio'yokl'yokl
--- ho_______'yokl'yokl = yio'yokl'yokl
--- ho________'yokl'yokl = yio'yokl'yokl
+ho'yokl'yokl = yio'yokl'yokl
+ho_'yokl'yokl = yio'yokl'yokl
+ho__'yokl'yokl = yio'yokl'yokl
+ho___'yokl'yokl = yio'yokl'yokl
+ho____'yokl'yokl = yio'yokl'yokl
+ho_____'yokl'yokl = yio'yokl'yokl
+ho______'yokl'yokl = yio'yokl'yokl
+ho_______'yokl'yokl = yio'yokl'yokl
+ho________'yokl'yokl = yio'yokl'yokl
 
--- yio'yokl'yukl
---  , ho'yokl'yukl
---  , ho_'yokl'yukl
---  , ho__'yokl'yukl
---  , ho___'yokl'yukl
---  , ho____'yokl'yukl
---  , ho_____'yokl'yukl
---  , ho______'yokl'yukl
---  , ho_______'yokl'yukl
---  , ho________'yokl'yukl
---  :: forall into u t tt ttt l ll lll a o i .
---  Covariant Yoneda Functor (AR) into (T'I'II u i) =>
---  Covariant Endo Semi Functor (AR) t =>
---  Covariant Endo Semi Functor (AR) tt =>
---  Covariant Semi Functor into (AR) t =>
---  Covariant Endo Semi Functor (AR) ttt =>
---  Covariant Semi Functor into (AR) ttt =>
---  Contravariant Semi Functor (AR) (AR) (T'II'I into (u i (ttt (t (tt o))))) =>
---  Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (t `TT'T'I` ttt) =>
---  Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
---  Covariant Transformation Functor into (AR) (t `T'TT'I` ttt `L` ll `L` l) (t `TT'T'I` ttt) =>
---  (forall e ee . Wrapper into (T'I'II (AR) e ee)) =>
---  (forall e . Wrapper into (T'I'II u i e)) =>
---  (forall e . Wrapper (AR) ((tt `TT'T'I` ttt) e)) =>
---  (forall e . Wrapper (AR) ((t `TT'T'I` ttt) e)) =>
---  (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `T` e)) =>
---  (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` e)) =>
---  (forall e . Wrapper (AR) ((tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
---  (forall e . Wrapper (AR) ((t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) e)) =>
---  (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
---  u i (t (tt a)) -> into (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o) (u i (ttt (t (tt o))))
--- yio'yokl'yukl x = fai @(AR)
---  (fokl @(AR) @(AR) @t @ttt @ll @lll
---   `compose` fio @(AR) (wrap @(AR) @(_ `L` ll `T` _) `compose` wrap @(AR) @(_ `L` _ `T` _))
---   `compose` fukl @(AR) @tt @ttt @ll @lll
---   `compose` unwrap @(AR) @(_ `L` _ `T` _))
---  (yio @(AR) x)
+yio'yokl'yukl
+ , ho'yokl'yukl
+ , ho_'yokl'yukl
+ , ho__'yokl'yukl
+ , ho___'yokl'yukl
+ , ho____'yokl'yukl
+ , ho_____'yokl'yukl
+ , ho______'yokl'yukl
+ , ho_______'yokl'yukl
+ , ho________'yokl'yukl
+ :: forall into u t tt ttt l ll lll a o i .
+ Covariant Yoneda Functor (AR) into (T'I'II u i) =>
+ Covariant Endo Semi Functor (AR) t =>
+ Covariant Endo Semi Functor (AR) tt =>
+ Covariant Semi Functor into (AR) t =>
+ Covariant Endo Semi Functor (AR) ttt =>
+ Covariant Semi Functor into (AR) ttt =>
+ Contravariant Semi Functor (AR) (AR) (T'II'I into (u i (ttt (t (tt o))))) =>
+ Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) (t `TT'T'I` ttt) =>
+ Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
+ (forall e ee . Wrapper into (T'I'II (AR) e ee)) =>
+ (forall e . Wrapper into (T'I'II u i e)) =>
+ (forall e . Wrapper (AR) ((tt `TT'T'I` ttt) e)) =>
+ (forall e . Wrapper (AR) ((t `TT'T'I` ttt) e)) =>
+ (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper (AR) ((tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
+ (forall e . Wrapper (AR) ((t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) e)) =>
+ (forall e . Wrapper (AR) (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ u i (t (tt a)) -> into (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o) (u i (ttt (t (tt o))))
+yio'yokl'yukl x = fai @(AR)
+ (fokl @(AR) @(AR) @t @ttt @ll @lll
+  `compose` fio @(AR) (wrap @(AR) @(_ `L` _ `T` ll `T` _) `compose` wrap @(AR) @(_ `L` _ `T` _ `T` _))
+  `compose` fukl @(AR) @tt @ttt @ll @lll
+  `compose` unwrap @(AR) @(_ `L` _ `T` _ `T` _))
+ (yio @(AR) x)
 
--- ho'yokl'yukl = yio'yokl'yukl
--- ho_'yokl'yukl = yio'yokl'yukl
--- ho__'yokl'yukl = yio'yokl'yukl
--- ho___'yokl'yukl = yio'yokl'yukl
--- ho____'yokl'yukl = yio'yokl'yukl
--- ho_____'yokl'yukl = yio'yokl'yukl
--- ho______'yokl'yukl = yio'yokl'yukl
--- ho_______'yokl'yukl = yio'yokl'yukl
--- ho________'yokl'yukl = yio'yokl'yukl
+ho'yokl'yukl = yio'yokl'yukl
+ho_'yokl'yukl = yio'yokl'yukl
+ho__'yokl'yukl = yio'yokl'yukl
+ho___'yokl'yukl = yio'yokl'yukl
+ho____'yokl'yukl = yio'yokl'yukl
+ho_____'yokl'yukl = yio'yokl'yukl
+ho______'yokl'yukl = yio'yokl'yukl
+ho_______'yokl'yukl = yio'yokl'yukl
+ho________'yokl'yukl = yio'yokl'yukl
 
--- yio'yukl, ho'yukl, ho_'yukl, ho__'yukl, ho___'yukl, ho____'yukl, ho_____'yukl, ho______'yukl, ho_______'yukl, ho________'yukl
---  :: forall u t tt l ll a o e .
---  Covariant Semi Functor (AR) (AR) (T'I'II u e) =>
---  Covariant Endo Semi Functor (AR) tt =>
---  Covariant Endo Semi Functor (AR) t =>
---  Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
---  Covariant Endo Transformation Functor (AR) I (T'I'II (AR) a) =>
---  Covariant Endo Yoneda Functor (AR) (T'I'II u e) =>
---  (forall ee . Wrapper (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` ee)) =>
---  (forall ee . Wrapper (AR) ((t `T'TT'I` tt) ee)) =>
---  (forall ee . Wrapper (AR) ((t `TT'T'I` tt) ee)) =>
---  (forall ee . Wrapper (AR) (tt `L` tt `T` ll `L` t `T` l `T` ee)) =>
---  (forall ee . Wrapper (AR) (tt `L` tt `T` ll `T` ee)) =>
---  u e (t a) -> tt `L` tt `T` ll `L` t `T` l `T` o -> u e (tt (t o))
--- yio'yukl x = fai fukl (ho @(AR) x)
+yio'yukl, ho'yukl, ho_'yukl, ho__'yukl, ho___'yukl, ho____'yukl, ho_____'yukl, ho______'yukl, ho_______'yukl, ho________'yukl
+ :: forall u t tt l ll a o e .
+ Covariant Semi Functor (AR) (AR) (T'I'II u e) =>
+ Covariant Endo Semi Functor (AR) tt =>
+ Covariant Endo Semi Functor (AR) t =>
+ Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Covariant Endo Transformation Functor (AR) I (T'I'II (AR) a) =>
+ Covariant Endo Yoneda Functor (AR) (T'I'II u e) =>
+ (forall ee . Wrapper (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` ee)) =>
+ (forall ee . Wrapper (AR) ((t `T'TT'I` tt) ee)) =>
+ (forall ee . Wrapper (AR) ((t `TT'T'I` tt) ee)) =>
+ (forall ee . Wrapper (AR) (tt `L` tt `T` ll `L` t `T` l `T` ee)) =>
+ (forall ee . Wrapper (AR) (tt `L` tt `T` ll `T` ee)) =>
+ u e (t a) -> tt `L` tt `T` ll `L` t `T` l `T` o -> u e (tt (t o))
+yio'yukl x = fai fukl (ho @(AR) x)
 
--- ho'yukl = yio'yukl
--- ho_'yukl = yio'yukl
--- ho__'yukl = yio'yukl
--- ho___'yukl = yio'yukl
--- ho____'yukl = yio'yukl
--- ho_____'yukl = yio'yukl
--- ho______'yukl = yio'yukl
--- ho_______'yukl = yio'yukl
--- ho________'yukl = yio'yukl
+ho'yukl = yio'yukl
+ho_'yukl = yio'yukl
+ho__'yukl = yio'yukl
+ho___'yukl = yio'yukl
+ho____'yukl = yio'yukl
+ho_____'yukl = yio'yukl
+ho______'yukl = yio'yukl
+ho_______'yukl = yio'yukl
+ho________'yukl = yio'yukl
 
 -- ha'yuk :: forall from t tt a o e .
 --  Covariant Functor (AR) (AR) tt =>
