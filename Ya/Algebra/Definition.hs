@@ -191,7 +191,7 @@ type M__ a aa = (M) a aa
 type family Neutral p where
  Neutral (P) = Unit
  Neutral (S) = Void
- Neutral (SP) = Void
+ Neutral (R) = Void
 
 type family Aught p where
  Aught T'I'II = Unit
@@ -394,7 +394,7 @@ constant = unwrap @_ @(T'I'II from a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-type (SP) = U_T'I'II_UT'I'II (S) P
+type (R) = U_T'I'II_UT'I'II (S) P
 
 instance Wrapper (AR) x
  => Elicitable T'I'II (U_I_UU_II_T'II'I (AR) (P)) x where
