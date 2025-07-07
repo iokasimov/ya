@@ -14,20 +14,23 @@ pattern Default e = Labeled @_ @_ @Void e
 pattern Range :: e `AR__` Only `L` t `T` Void `T` e
 pattern Range x = Labeled (Only x)
 
-pattern First :: t o `AR__` t `L` t `T` Void `T` o
+pattern First :: t o `AR__` t `L` tt `T` Void `T` o
 pattern First i = Labeled i
 
 pattern Again :: forall e t tt . t e `AR__` t `L` tt `T` Recursive `T` e
 pattern Again i = Labeled @_ @_ @Recursive i
 
 pattern Check, Try
- :: forall e t .
- t e `AR__` t `L` t `T` Void `T'I` e
+ :: forall e i t .
+ t e `AR__` t `L` S'I'II i `T` Void `T'I` e
 pattern Check e = Labeled e
 pattern Try e = Labeled e
 
-pattern Retry :: forall i e t . S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Recursive `T` e
+pattern Retry :: forall e i t . t e `AR__` t `L` S'I'II i `T` Recursive `T` e
 pattern Retry e = Labeled @_ @_ @Recursive e
+
+pattern Until :: forall i e t . t e `AR__` t `L` S'I'II i `T` Recursive `T` e
+pattern Until e = Labeled @_ @_ @Recursive e
 
 type Forward t = t `L` t `T` Void
 type Reverse t = t `L` t `T` (Void `P` Void)
