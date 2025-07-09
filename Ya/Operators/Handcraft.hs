@@ -194,14 +194,14 @@ infixl 3 `la_____`
 infixl 2 `la______`
 infixl 1 `la_______`
 
-infixl 8 `lu`, `lu'yp`, `lu'yp'yo'q`, `lu'ys`, `lu'yp'yp`, `lu'ysp`, `lu'q`, `lu's`
-infixl 7 `lu_`, `lu_'yp`, `lu_'yp'yo'q`, `lu_'ys`, `lu_'ysp`, `lu_'q`, `lu_'s`
-infixl 6 `lu__`, `lu__'yp`, `lu__'yp'yo'q`, `lu__'ys`, `lu__'ysp`, `lu__'q`, `lu__'s`
-infixl 5 `lu___`, `lu___'yp`, `lu___'yp'yo'q`, `lu___'ys`, `lu___'ysp`, `lu___'q`, `lu___'s`
-infixl 4 `lu____`, `lu____'yp`, `lu____'yp'yo'q`, `lu____'ys`, `lu____'ysp`, `lu____'q`, `lu____'s`
-infixl 3 `lu_____`, `lu_____'yp`, `lu_____'yp'yo'q`, `lu_____'ys`, `lu_____'ysp`, `lu_____'q`, `lu_____'s`
-infixl 2 `lu______`, `lu______'yp`, `lu______'yp'yo'q`, `lu______'ys`, `lu______'ysp`, `lu______'q`, `lu______'s`
-infixl 1 `lu_______`, `lu_______'yp`, `lu_______'yp'yo'q`, `lu_______'ys`, `lu_______'ysp`, `lu_______'q`, `lu_______'s`
+infixl 8 `lu`, `lu'yp`, `lu'yp'yo'q`, `lu'ys`, `lu'yp'yp`, `lu'yr`, `lu'q`, `lu's`
+infixl 7 `lu_`, `lu_'yp`, `lu_'yp'yo'q`, `lu_'ys`, `lu_'yr`, `lu_'q`, `lu_'s`
+infixl 6 `lu__`, `lu__'yp`, `lu__'yp'yo'q`, `lu__'ys`, `lu__'yr`, `lu__'q`, `lu__'s`
+infixl 5 `lu___`, `lu___'yp`, `lu___'yp'yo'q`, `lu___'ys`, `lu___'yr`, `lu___'q`, `lu___'s`
+infixl 4 `lu____`, `lu____'yp`, `lu____'yp'yo'q`, `lu____'ys`, `lu____'yr`, `lu____'q`, `lu____'s`
+infixl 3 `lu_____`, `lu_____'yp`, `lu_____'yp'yo'q`, `lu_____'ys`, `lu_____'yr`, `lu_____'q`, `lu_____'s`
+infixl 2 `lu______`, `lu______'yp`, `lu______'yp'yo'q`, `lu______'ys`, `lu______'yr`, `lu______'q`, `lu______'s`
+infixl 1 `lu_______`, `lu_______'yp`, `lu_______'yp'yo'q`, `lu_______'ys`, `lu_______'yr`, `lu_______'q`, `lu_______'s`
 
 infixl 8 `lv`
 infixl 7 `lv_`
@@ -292,7 +292,7 @@ infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 infixl 8 `ys`, `ys'yo`
 -- infixl 7 `yis`
 
-infixl 7 `ysp`, `ysp'yo`, `ysp'yokl`
+infixl 8 `yr`, `yr'yo`, `yr'yokl`
 
 infixl 7 `yoi`
 
@@ -2681,28 +2681,28 @@ ys'yo x f = day @T'I'II @from @l @t @tt @u @(S) identity f x
  -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-ysp :: forall u e ee t tt l .
+yr :: forall u e ee t tt l .
  -- Covariant Monoidal Functor (AR) (AR) u (R) l t =>
  Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) u (R) t (tt `L` tt `T` l) e ee) t =>
  u (t e) ((tt `L` tt `T` l) ee) -> t (e `S` ee `S_` e `P` ee)
-ysp = day @T'I'II @(AR) @l @t @tt @u @(R) identity unwrap
+yr = day @T'I'II @(AR) @l @t @tt @u @(R) identity unwrap
 
 -- TODO: try to generalize
-ysp'yo :: forall from u e ee r t tt ll .
+yr'yo :: forall from u e ee r t tt ll .
  Category from =>
  Mapping T'I'II T'I'II from (AR) (Day T'I'II from u (R) t (tt `L` tt `T` ll) e ee) t =>
  Wrapper from (e `R` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> from (e `S` ee `S_` e `P` ee) r -> t r
-ysp'yo x f = day @T'I'II @from @ll @t @tt @u @(R) identity (f `compose` unwrap) x
+yr'yo x f = day @T'I'II @from @ll @t @tt @u @(R) identity (f `compose` unwrap) x
 
 -- TODO: try to generalize
-ysp'yokl :: forall from u e ee r t tt ttt l ll lll .
+yr'yokl :: forall from u e ee r t tt ttt l ll lll .
  Category from =>
  Covariant Endo Transformation Functor (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
  Mapping T'I'II T'I'II from (AR) (Day T'I'II from u (R) t (tt `L` tt `T` ll) e ee) t =>
  Wrapper from (e `R` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> from (e `S` ee `S_` e `P` ee) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
-ysp'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
+yr'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
  (day @T'I'II @from @ll @t @tt @u @(R) identity (f `compose` unwrap) x)
 
 -- TODO: try to generalize
@@ -3382,21 +3382,21 @@ lu'yp'ys l r = yp'ys (lu l r)
  -- t e (tt ee o) -> (t `L` t `T` l) e ((tt `L` tt `T` ll) ee oo) -> t e (tt ee (o `S` oo))
 -- lu'yip'yis l r = yip'yis (lu l r)
 
-lu'ysp, lu_'ysp, lu__'ysp, lu___'ysp, lu____'ysp, lu_____'ysp, lu______'ysp, lu_______'ysp
+lu'yr, lu_'yr, lu__'yr, lu___'yr, lu____'yr, lu_____'yr, lu______'yr, lu_______'yr
  :: forall e o oo t tt l .
  Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (R) t (tt `L` tt `T` l) o oo) t =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `S` oo `S_` o `P` oo)
-lu'ysp l r = ysp (lu l r)
+lu'yr l r = yr (lu l r)
 
-lu_'ysp = lu'ysp
-lu__'ysp = lu'ysp
-lu___'ysp = lu'ysp
-lu____'ysp = lu'ysp
-lu_____'ysp = lu'ysp
-lu______'ysp = lu'ysp
-lu_______'ysp = lu'ysp
+lu_'yr = lu'yr
+lu__'yr = lu'yr
+lu___'yr = lu'yr
+lu____'yr = lu'yr
+lu_____'yr = lu'yr
+lu______'yr = lu'yr
+lu_______'yr = lu'yr
 
 -- jt :: forall into f g e .
  -- Covariant Transformation Functor (AR) into (f `T'TT'I` g) (f `JNT` g) =>
