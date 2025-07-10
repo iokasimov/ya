@@ -256,9 +256,9 @@ instance {-# OVERLAPPABLE #-} Covariant Transformation Functor (AR) (AR) (t `T'T
 
 instance {-# OVERLAPS #-}
  Covariant Endo Semi Functor (AR) t
- => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) e `T'TT'I` t `T'TT'I_` T'I'II (AR) e) (T'I'II (AR) e `T'TT'I` t) where
+ => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) e `T'TT'I` t `T'TT'I_` T'I'II (AR) e `L` T'I'II (AR) e `T` Void) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
-  \(T'I'II f) e -> f e `yo` unwrap @(AR) `ho` (`li` e) `ho` from
+  \(T'I'II f) e -> f e `yo` unwrap @(AR) `ho` unwrap @(AR) `ho` (`li` e) `ho` from
 
 instance {-# OVERLAPPABLE #-}
  Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
