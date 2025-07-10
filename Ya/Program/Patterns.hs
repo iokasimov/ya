@@ -51,7 +51,7 @@ type Supplied = T'II'I P
 
 type Equipped = T'II'I P
 
-pattern Equip :: e `P` ee -> Equipped ee e
+pattern Equip :: forall e ee . e `P` ee -> Equipped ee e
 pattern Equip x = T'II'I x
 
 type Optional = S'I'II Unit
@@ -111,6 +111,7 @@ pattern Close x = T'I'II (This x)
 pattern Valid :: ee -> Error e ee
 pattern Valid x = T'I'II (That x)
 
+pattern Ok :: ee -> Error e ee
 pattern Ok x = T'I'II (That x)
 
 type Probably = T'I'II (S)
