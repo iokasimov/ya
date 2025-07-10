@@ -274,6 +274,7 @@ infixl 2 `yukl____`
 infixl 1 `yukl_____`
 
 infixl 5 `yiokl`, `yiokl'yokl`
+infixl 5 `yoikl`, `yoikl'yokl`
 
 infixl 8 `ya`
 
@@ -1098,6 +1099,53 @@ yiokl'yokl x = fai
   `compose` fio @from unwrap
  )
  (yiokl @from @into @t @ttt @l @lll @(tt a) @(tt o) x)
+
+yoikl :: forall from into t tt l ll a o i .
+ Category into =>
+ Covariant Endo Transformation Functor into (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (T'II'I t i `TT'T'I` tt) =>
+ Covariant Yoneda Functor from into (T'II'I t i) =>
+ Covariant Functor from into tt =>
+ (forall e . Wrapper into (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper into (T'II'I t i `TT'T'I` tt `T'I_` e)) =>
+ (forall e . Wrapper from (T'II'I t i e)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ t a i -> into (from a (tt `L` tt `T` ll `L` t `T` l `T'I` o)) (tt (t o i))
+yoikl x = fo @from unwrap
+ `compose` unwrap @into @(TT'T'I (T'II'I t i) tt _)
+ `compose` component @into @(T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(T'II'I t i `TT'T'I` tt)
+ `compose` wrap @into @((T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) _)
+ `compose` yo (wrap x)
+
+yoikl'yokl :: forall from into t tt ttt l ll lll a o i .
+ Covariant Yoneda Functor from into (T'II'I t i) =>
+ Covariant Endo Semi Functor from tt =>
+ Covariant Functor from into ttt =>
+ Covariant Endo Transformation Functor into (T'II'I t i `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (T'II'I t i `TT'T'I` ttt) =>
+ Covariant Endo Transformation Functor from (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
+ Contravariant Endo Semi Functor (AR) (T'II'I into (ttt (t (tt o) i))) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper from (TT'T'I tt (ttt `L` ttt `T` lll) e)) =>
+ (forall e . Wrapper from (T'II'I t i e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper from (ttt `L` ttt `T` lll `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper from (T'TT'I tt (ttt `L` ttt `T` lll `L` tt `T` ll) e)) =>
+ (forall e . Wrapper into (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper into (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper into (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper into (T'II'I t i `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper into (T'II'I t i `TT'T'I` ttt `L` ttt `T` lll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper into (T'TT'I (T'II'I t i) ttt e)) =>
+ (forall e . Wrapper into (TT'T'I (T'II'I t i) ttt e)) =>
+ (forall e . Wrapper from (TT'T'I tt ttt e)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ t (tt a) i -> into (from a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (ttt (t (tt o) i))
+yoikl'yokl x = fai
+ (fio @from (wrap `compose` wrap)
+  `compose` fokl @from @from @tt @ttt @ll @lll
+  `compose` fio @from unwrap
+ )
+ (yoikl @from @into @t @ttt @l @lll @(tt a) @(tt o) x)
 
 -- TODO: labeling
 yiok :: forall from into tt t i a o .
