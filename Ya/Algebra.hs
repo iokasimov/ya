@@ -772,3 +772,19 @@ instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `P` 
  equality (These (These x xx) (These xxx xxxx)) = case equality (x `lu` xxx) `lu` equality (xx `lu` xxxx) of
   These (That x') (That xx') -> That (These x' xx')
   These _ _ -> This ((x `lu` xx) `lu` (xxx `lu` xxxx))
+
+type instance Supertype (e `P` (ee `P` eee)) = e `P` ee `P` eee
+
+instance Elicitable T'II'I (AR) (e `P` (ee `P` eee))
+ where elicit = T'II'I (\(These (These x xx) xxx) -> These x (These xx xxx))
+
+instance Elicitable T'I'II (AR) (e `P` (ee `P` eee))
+ where elicit = T'I'II (\(These x (These xx xxx)) -> These (These x xx) xxx)
+
+type instance Supertype (e `S` (ee `S` eee)) = e `S` ee `S` eee
+
+instance Elicitable T'II'I (AR) (e `S` (ee `S` eee))
+ where elicit = T'II'I (This `la` (That `ha` This) `la_` That `ha` That)
+
+instance Elicitable T'I'II (AR) (e `S` (ee `S` eee))
+ where elicit = T'I'II (This `ha` This `la_` This `ha` That `la` That)
