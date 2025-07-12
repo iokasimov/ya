@@ -13,6 +13,7 @@ not :: forall e ee eee .
  e `AR_` ee `S` eee
 not = That `la` This
 
+-- TODO: try to use `unwrap` instead
 row :: forall e ee eee ee_eee eeee .
  Objective (AR) (e `S` ee_eee) eeee =>
  Objective (AR) (ee `S` eee) ee_eee =>

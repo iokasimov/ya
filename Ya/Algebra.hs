@@ -312,25 +312,29 @@ instance
 
 -- TODO: introduce a label
 instance
- ( Covariant Functor into into t
- , Covariant Endo Semi Functor into ttt
- , Mapping T'I'II T'I'II into into (t `T'TT'I` t `L` t `T` l) t
- , Mapping T'I'II T'I'II into into (tt `T'TT'I` t `L` t `T` l) (tt `TT'T'I` t)
- , forall ee . Wrapper into (tt `T'TT'I` t `L` t `T` l `T'I_` ee)
- , forall ee . Wrapper into (t `L` t `T` l `T` ee)
- , forall ee . Wrapper into (T'TTT'TT'I ttt tt t ee)
- , forall ee . Wrapper into ((tt `T'TT'I` t) ee)
- , forall ee . Wrapper into ((tt `TT'T'I` t) ee)
- , forall ee . Wrapper into ((t `T'TT'I` t `L` t `T` l) ee)
- , forall ee . Wrapper into (T'TT'I (T'TTT'TT'I ttt tt t) (t `L` t `T` l) ee)
- ) => Mapping T'I'II T'I'II into into
-  (T'TTT'TT'I ttt tt t `T'TT'I` t `L` t `T` l)
-  (T'TTT'TT'I ttt tt t) where
+ ( Covariant Functor into into tt
+ , Covariant Functor into into ttt
+ , Covariant Endo Semi Functor into t
+ , Covariant Endo Transformation Functor into (tt `T'TT'I` tt `L` tt `T` l) tt
+ , Covariant Endo Transformation Functor into (ttt `T'TT'I` tt `L` tt `T` l `L` ttt `T` l) (ttt `TT'T'I` tt)
+ , forall e . Wrapper into (ttt `T'TT'I` tt `L` tt `T` l `T'I_` e)
+ , forall e . Wrapper into (tt `L` tt `T` l `T` e)
+ , forall e . Wrapper into (T'TTT'TT'I t ttt tt e)
+ , forall e . Wrapper into (ttt `T'TT'I` tt `T'I_` e)
+ , forall e . Wrapper into (ttt `TT'T'I` tt `T'I_` e)
+ , forall e . Wrapper into (tt `T'TT'I` tt `L` tt `T` l `T'I_` e)
+ , forall e . Wrapper into (ttt `T'TT'I` tt `L` tt `T` l `L` ttt `T` l `T'I_` e)
+ , forall e . Wrapper into (tt `L` tt `T` l `L` ttt `T` l `T` e)
+ , forall e . Wrapper into ((T'TTT'TT'I t ttt tt) `T'TT'I` (tt `L` tt `T` l) `T'I_` e)
+ ) => Mapping T'I'II T'I'II into into (T'TTT'TT'I t ttt tt `T'TT'I` tt `L` tt `T` l) (T'TTT'TT'I t ttt tt) where
  mapping = rewrap `identity` \from -> rewrap `identity`
-  map @T'I'II @T'I'II @into @into @ttt
-   (component @into @(t `T'TT'I` t `L` t `T` l) @t `compose` wrap @into
-    `compose` map @T'I'II @T'I'II @into @into @t
-     (wrap @into @(t `L` t `T` l `T` _) `compose` wrapped (map @T'I'II @T'I'II @into @into @(tt `T'TT'I` t `L` t `T` l) @(tt `TT'T'I` t) from))
+  map @T'I'II @T'I'II @into @into @t
+   (component @into @(tt `T'TT'I` tt `L` tt `T` l) @tt `compose` wrap @into
+    `compose` map @T'I'II @T'I'II @into @into @tt
+     (wrap @into @(tt `L` tt `T` l `T` _)
+      `compose` wrapped (map @T'I'II @T'I'II @into @into @(ttt `T'TT'I` tt `L` tt `T` l `L` ttt `T` l) @(ttt `TT'T'I` tt) from)
+      `compose` map @T'I'II @T'I'II @into @into @ttt (wrap)
+     )
     )
   `compose` unwrap @into
 
@@ -343,8 +347,9 @@ instance
  ( Covariant Functor into into tt'tt
  , Covariant Endo Semi Functor into t
  , Covariant Endo Semi Functor into tt't
- , Component into (tt't `T'TT'I` tt't `L` tt't `T` l) tt't
- , Covariant Transformation Functor into into (ttt `T'TT'I` tt't `L` tt't `T` l) (ttt `TT'T'I` tt't)
+ , Covariant Endo Semi Functor into ttt
+ , Covariant Endo Transformation Functor into (tt't `T'TT'I` tt't `L` tt't `T` l) tt't
+ , Covariant Endo  Transformation Functor into (ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l) (ttt `TT'T'I` tt't)
  , Component into (tt'tt `T'TT'I` tt't `L` tt't `T` l) (tt'tt `TT'T'I` tt't)
  , forall ee . Wrapper into (tt't `L` tt't `T` l `T` ee)
  , forall ee . Wrapper into (ttt `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
@@ -352,6 +357,8 @@ instance
  , forall ee . Wrapper into (tt'tt `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
  , forall ee . Wrapper into (tt'tt `TT'T'I` tt't `T'I_` ee)
  , forall ee . Wrapper into (tt't `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
+ , forall ee . Wrapper into (ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l `T'I_` ee)
+ , forall ee . Wrapper into (tt't `L` tt't `T` l `L` ttt `T` l `T'I_` ee)
  , forall ee . Wrapper into (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't) `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
  , forall ee . Wrapper into (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't) ee)
  ) => Mapping T'I'II T'I'II into into
@@ -368,7 +375,8 @@ instance
      `compose` map @T'I'II @T'I'II @into @into @(tt'tt) @(tt'tt) (wrap @into @(tt't `L` tt't `T` l `T` _)))
     `compose` unwrap @into @(TT'T'I tt'tt tt't _)
     `compose` map @T'I'II @T'I'II @into @into @(TT'T'I tt'tt tt't) @(TT'T'I tt'tt tt't)
-     (wrapped (map @T'I'II @T'I'II @into @into @(ttt `T'TT'I` tt't `L` tt't `T` l) @(ttt `TT'T'I` tt't) from))
+     (wrapped (map @T'I'II @T'I'II @into @into @(ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l) @(ttt `TT'T'I` tt't) from)
+     `compose` map @T'I'II @T'I'II @into @into @ttt @ttt wrap)
    )
   `compose` unwrap @into
 
@@ -379,18 +387,20 @@ instance
 instance
  ( Covariant Functor into into ttt't
  , Covariant Endo Semi Functor into t
+ , Covariant Endo Semi Functor into tt
  , Covariant Endo Semi Functor into ttt'tt
- , Component into (ttt't `T'TT'I` ttt't `L` ttt't `T` l) ttt't
- , Covariant Transformation Functor into into (tt `T'TT'I` ttt't `L` ttt't `T` l) (tt `TT'T'I` ttt't)
- , forall ee . Wrapper into ((ttt't `T'TT'I` ttt't `L` ttt't `T` l) ee)
- , forall ee . Wrapper into ((tt `T'TT'I` ttt't `L` ttt't `T` l) ee)
- , forall ee . Wrapper into (ttt't `L` ttt't `T` l `T` ee)
- , forall ee . Wrapper into (T'TT'I ttt't ttt't ee)
- , forall ee . Wrapper into (T'TT'I ttt't ttt'tt ee)
- , forall ee . Wrapper into (T'TT'I (T'TTT'TT'I t tt (TT'T'I ttt't ttt'tt)) (ttt't `L` ttt't `T` l) ee)
- , forall ee . Wrapper into (TT'T'I tt ttt't ee)
- , forall ee . Wrapper into (TT'T'I ttt't ttt'tt ee)
- , forall ee . Wrapper into (T'TTT'TT'I t tt (TT'T'I ttt't ttt'tt) ee)
+ , Covariant Endo Transformation Functor into (ttt't `T'TT'I` ttt't `L` ttt't `T` l) ttt't
+ , Covariant Endo Transformation Functor into (tt `T'TT'I` ttt't `L` ttt't `T` l `L` tt `T` l) (tt `TT'T'I` ttt't)
+ , forall e . Wrapper into ((ttt't `T'TT'I` ttt't `L` ttt't `T` l) e)
+ , forall e . Wrapper into ((tt `T'TT'I` ttt't `L` ttt't `T` l `L` tt `T` l) e)
+ , forall e . Wrapper into (ttt't `L` ttt't `T` l `T` e)
+ , forall e . Wrapper into (ttt't `L` ttt't `T` l `L` tt `T` l `T` e)
+ , forall e . Wrapper into (T'TT'I ttt't ttt't e)
+ , forall e . Wrapper into (T'TT'I ttt't ttt'tt e)
+ , forall e . Wrapper into (T'TT'I (T'TTT'TT'I t tt (TT'T'I ttt't ttt'tt)) (ttt't `L` ttt't `T` l) e)
+ , forall e . Wrapper into (TT'T'I tt ttt't e)
+ , forall e . Wrapper into (TT'T'I ttt't ttt'tt e)
+ , forall e . Wrapper into (T'TTT'TT'I t tt (TT'T'I ttt't ttt'tt) e)
  ) => Mapping T'I'II T'I'II into into
   (T'TTT'TT'I t tt (ttt't `TT'T'I` ttt'tt) `T'TT'I` ttt't `L` ttt't `T` l)
   (T'TTT'TT'I t tt (ttt't `TT'T'I` ttt'tt)) where
@@ -404,7 +414,7 @@ instance
      )
     `compose` unwrap @into @(TT'T'I ttt't ttt'tt _)
     `compose` map @T'I'II @T'I'II @into @into @(ttt't `TT'T'I` ttt'tt) @(ttt't `TT'T'I` ttt'tt)
-     (wrapped (map @T'I'II @T'I'II @into @into @(tt `T'TT'I` ttt't `L` ttt't `T` l) @(tt `TT'T'I` ttt't) from))
+     (wrapped (map @T'I'II @T'I'II @into @into @(tt `T'TT'I` ttt't `L` ttt't `T` l `L` tt `T` l) @(tt `TT'T'I` ttt't) from) `compose` map @T'I'II @T'I'II @into @into @tt @tt wrap)
    )
   `compose` unwrap @into
 
@@ -626,45 +636,53 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 -- 2. t (t (tt (tt _)))
 -- 3. t (t (tt _))
 -- 4. t (tt _)
-instance
- ( Covariant Endo Semi Functor into t
- , Covariant Endo Semi Functor into tt
- , Component into (t `T'TT'I` t) t
- , Component into (tt `T'TT'I` t) (tt `TT'T'I` t)
- , Covariant Transformation Functor into into (tt `T'TT'I` tt) tt
- , forall e . Wrapper into (((tt `T'TT'I` t) `T'TT'I` (tt `TT'T'I` t)) e)
- , forall e . Wrapper into (((tt `TT'T'I` t) `T'TT'I` (tt `TT'T'I` t)) e)
- , forall e . Wrapper into ((tt `T'TT'I` t) ((tt `TT'T'I` t) e))
- , forall e . Wrapper into ((t `T'TT'I` t) e)
- , forall e . Wrapper into ((tt `TT'T'I` t) e)
- , forall e . Wrapper into ((tt `T'TT'I` t) e)
- , forall e . Wrapper into ((tt `T'TT'I` tt) e)
- ) => Mapping T'I'II T'I'II into into (TT'T'I tt t `T'TT'I` TT'T'I tt t) (TT'T'I tt t) where
- mapping = rewrap `identity` \from -> rewrap
-  `li` component @into @(t `T'TT'I` t) @t `compose` wrap @into
-  `compose` map @T'I'II @T'I'II @into @into @t @t
-  (map @T'I'II @T'I'II @into @into @t @t
-    (map @T'I'II @T'I'II @into @into @(tt `T'TT'I` tt) @tt from `compose` wrap @into)
-    `compose` wrapped (component @into @(tt `T'TT'I` t) @(tt `TT'T'I` t))
-    `compose` map @T'I'II @T'I'II @into @into @tt @tt unwrap
-   ) `compose` unwrap @into @(TT'T'I _ _ _)
+-- instance
+--  ( Covariant Endo Semi Functor into t
+--  , Covariant Endo Semi Functor into tt
+--  , Covariant Endo Transformation Functor into (t `T'TT'I` t `L` t `T` Void) t
+--  , Covariant Endo Transformation Functor into (tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void) (tt `TT'T'I` t)
+--  , Covariant Endo Transformation Functor into (tt `T'TT'I` tt) tt
+--  , forall e . Wrapper into (((tt `T'TT'I` t) `T'TT'I` (tt `TT'T'I` t)) e)
+--  , forall e . Wrapper into (((tt `TT'T'I` t) `T'TT'I` (tt `TT'T'I` t) `L` (tt `TT'T'I` t) `T` Void) e)
+--  , forall e . Wrapper into ((tt `T'TT'I` t) ((tt `TT'T'I` t) e))
+--  , forall e . Wrapper into (t `T'TT'I` t `L` t `T` Void `T'I_` e)
+--  , forall e . Wrapper into (tt `TT'T'I` t `T'I_` e)
+--  , forall e . Wrapper into (tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void `T'I_` e)
+--  , forall e . Wrapper into (tt `T'TT'I` t `L` t `T` Void `T'I_` e)
+--  , forall e . Wrapper into (tt `T'TT'I` tt `T'I_` e)
+--  , forall e . Wrapper into (t `L` t `T` Void `L` tt `T` Void `T` e)
+--  , forall e . Wrapper into (t `L` t `T` Void `T` e)
+--  , forall e . Wrapper into ((tt `TT'T'I` t) `L` (tt `TT'T'I` t) `T` Void `T` e)
+--  ) => Mapping T'I'II T'I'II into into ((tt `TT'T'I` t) `T'TT'I` (tt `TT'T'I` t) `L` (tt `TT'T'I` t) `T` Void) (tt `TT'T'I` t) where
+--  mapping = rewrap `identity` \from -> rewrap
+--   `li` component @into @(t `T'TT'I` t `L` t `T` Void) @t
+--   `compose` wrap @into
+--   `compose` map @T'I'II @T'I'II @into @into @t @t
+--   (wrap @_ @(t `L` t `T` Void `T` _)
+--    `compose` map @T'I'II @T'I'II @into @into @t @t
+--     (map @T'I'II @T'I'II @into @into @(tt `T'TT'I` tt) @tt from `compose` wrap @into)
+--     `compose` wrapped (component @into @(tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void) @(tt `TT'T'I` t))
+--     `compose` map @T'I'II @T'I'II @into @into @tt @tt
+--      (wrap @into @(t `L` t `T` Void `L` tt `T` Void `T` _) `compose` wrap @into @(t `L` t `T` Void `T` _) `compose` unwrap `compose` unwrap)
+--    )
+--    `compose` unwrap @into @(TT'T'I _ _ _)
 
 -- TODO: generalize with limits
 instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t) (P'I'II e `TT'T'I` t) where
+ Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  T'I'II (These e x) -> x `yo` from `ho` These e `ho` T'I'II
+  T'I'II (These e x) -> unwrap (unwrap x) `yo` from `ho` These e `ho` T'I'II
 
 -- TODO: generalize with limits
 instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` t `L` t `T` Void) (T'II'I (P) e `TT'T'I` t) where
+ Mapping T'I'II T'I'II (AR) (AR) (P'II'I e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'II'I e `TT'T'I` t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  T'II'I (These x e) -> unwrap x `yo` from `ho` (`lu` e) `ho` T'II'I
+  T'II'I (These x e) -> unwrap (unwrap x) `yo` from `ho` (`lu` e) `ho` T'II'I
 
-instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` T'I'II (AR) e) (t `TT'T'I` T'I'II (AR) e) where
- mapping = rewrap `identity` \from -> rewrap `identity` \x ->
-  T'I'II `identity` \e -> x `yo` from `compose` (`li` e) `compose` unwrap
+-- instance Covariant Endo Semi Functor (AR) t =>
+--  Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` T'I'II (AR) e `L` T'I'II (AR) e `T` Void `L` t `T` Void) (t `TT'T'I` T'I'II (AR) e) where
+--  mapping = rewrap `identity` \from -> rewrap `identity` \x ->
+--   T'I'II `identity` \e -> x `yo` from `compose` (`li` e) `compose` unwrap
 
 -- TODO: generalize
 -- We need this instance to make `yok'yoklKL` work
