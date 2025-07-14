@@ -13,13 +13,6 @@ not :: forall e ee eee .
  e `AR_` ee `S` eee
 not = That `la` This
 
--- TODO: try to use `unwrap` instead
-row :: forall e ee eee ee_eee eeee .
- Objective (AR) (e `S` ee_eee) eeee =>
- Objective (AR) (ee `S` eee) ee_eee =>
- eeee `AR__` (e `S` ee) `S` eee
-row = This `ha` This `la_` This `ha` That `la` That `ha_` is @ee_eee
-
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
