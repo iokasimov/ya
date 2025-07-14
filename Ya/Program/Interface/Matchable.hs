@@ -10,32 +10,32 @@ class Matchable target entire where
 -- instance Matchable a aa => Matchable a (Tagged e aa) where
  -- on = on `ha` unwrap @(AR)
 
-instance Matchable e ((l # e) `S` ee) where
- on = That `ha'he` is `la` This
+instance Matchable e (e `S` ee) where
+ on = That `ha` is `la` This
 
-instance ((ee `S` (l # e) `M` e) ~ (ee))
- => Matchable e (ee `S` (l # e)) where
- on = This `la` That `ha'he` is
+instance ((ee `S` e `M` e) ~ (ee))
+ => Matchable e (ee `S` e) where
+ on = This `la` That `ha` is
 
-instance (((l # e) `S` ee `S` eee `M` e) ~ (ee `S` eee))
- => Matchable e ((l # e) `S` ee `S` eee) where
- on = That `ha'he` is `la` This `ha` This `la` This `ha` That
+instance ((e `S` ee `S` eee `M` e) ~ (ee `S` eee))
+ => Matchable e (e `S` ee `S` eee) where
+ on = That `ha` is `la` This `ha` This `la` This `ha` That
 
-instance ((ee `S` (l # e) `S` eee `M` e) ~ (ee `S` eee))
- => Matchable e (ee `S` (l # e) `S` eee) where
- on = This `ha` This `la` That `ha'he` is `la` This `ha` That
+instance ((ee `S` e `S` eee `M` e) ~ (ee `S` eee))
+ => Matchable e (ee `S` e `S` eee) where
+ on = This `ha` This `la` That `ha` is `la` This `ha` That
 
-instance (((l # e) `S` ee `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
- => Matchable e ((l # e) `S` ee `S` eee `S` eeee) where
- on = That `ha'he` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
+instance ((e `S` ee `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e (e `S` ee `S` eee `S` eeee) where
+ on = That `ha` is `la` This `ha` This `ha` This `la` This `ha` This `ha` That `la` This `ha` That
 
-instance ((ee `S` (l # e) `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
- => Matchable e (ee `S` (l # e) `S` eee `S` eeee) where
- on = This `ha` This `ha` This `la` That `ha'he` is `la` This `ha` This `ha` That `la` This `ha` That
+instance ((ee `S` e `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e (ee `S` e `S` eee `S` eeee) where
+ on = This `ha` This `ha` This `la` That `ha` is `la` This `ha` This `ha` That `la` This `ha` That
 
-instance ((ee `S` eee `S` (l # e) `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
- => Matchable e (ee `S` eee `S` (l # e) `S` eeee) where
- on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha'he` is `la` This `ha` That
+instance ((ee `S` eee `S` e `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
+ => Matchable e (ee `S` eee `S` e `S` eeee) where
+ on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha` is `la` This `ha` That
 
 {-
 on' :: Excludable a entire => r `AR_` Unit `S` a
