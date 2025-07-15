@@ -9,14 +9,14 @@ infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 
-infixl 8 `AR`, `AT`
-infixl 7 `AR_`, `AT_`
-infixl 6 `AR__`, `AT__`
-infixl 5 `AR___`, `AT___`
-infixl 4 `AR____`, `AT____`
-infixl 3 `AR_____`, `AT_____`
-infixl 2 `AR______`, `AT______`
-infixl 1 `AR_______`, `AT_______`
+infixl 8 `AR`, `AT`, `AL`
+infixl 7 `AR_`, `AT_`, `AL_`
+infixl 6 `AR__`, `AT__`, `AL__`
+infixl 5 `AR___`, `AT___`, `AL___`
+infixl 4 `AR____`, `AT____`, `AL____`
+infixl 3 `AR_____`, `AT_____`, `AL_____`
+infixl 2 `AR______`, `AT______`, `AL______`
+infixl 1 `AR_______`, `AT_______`, `AL_______`
 
 infixl 3 `P'T'I'TT'I`
 infixl 3 `S'T'I'TT'I`
@@ -30,7 +30,7 @@ type AR_____ = (AR)
 type AR______ = (AR)
 type AR_______ = (AR)
 
-type (AT) = U_I_UU_II_T'II'I (AR) P
+type AT = U_I_UU_II_T'II'I (AR) P
 type AT_ = U_I_UU_II_T'II'I (AR) P
 type AT__ = U_I_UU_II_T'II'I (AR) P
 type AT___ = U_I_UU_II_T'II'I (AR) P
@@ -38,6 +38,15 @@ type AT____ = U_I_UU_II_T'II'I (AR) P
 type AT_____ = U_I_UU_II_T'II'I (AR) P
 type AT______ = U_I_UU_II_T'II'I (AR) P
 type AT_______ = U_I_UU_II_T'II'I (AR) P
+
+type AL = U_I_UU_M_I_II_II (AR) (S)
+type AL_ = U_I_UU_M_I_II_II (AR) (S)
+type AL__ = U_I_UU_M_I_II_II (AR) (S)
+type AL___ = U_I_UU_M_I_II_II (AR) (S)
+type AL____ = U_I_UU_M_I_II_II (AR) (S)
+type AL_____ = U_I_UU_M_I_II_II (AR) (S)
+type AL______ = U_I_UU_M_I_II_II (AR) (S)
+type AL_______ = U_I_UU_M_I_II_II (AR) (S)
 
 class Dumb x
 instance Dumb x
