@@ -124,15 +124,15 @@ pattern Perhaps x = T'I'II @(S) x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
-type Attribute = U_I_UU_II_T'II'I (AR) P
+type Attribute = T'I'TT'II'T'II'I (AR) P
 
 pattern Attribute :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Attribute e ee
-pattern Attribute x = U_I_UU_II_T'II'I @(AR) @(P) x
+pattern Attribute x = T'I'TT'II'T'II'I @(AR) @(P) x
 
-type Scope = U_I_UU_II_T'II'I (AR) P
+type Scope = T'I'TT'II'T'II'I (AR) P
 
 pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
-pattern Scope x = U_I_UU_II_T'II'I @(AR) @(P) x
+pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 
 -- type Directive = U_I_UT'I'II (AR) (S)
 

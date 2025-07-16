@@ -330,7 +330,7 @@ instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
   These target (source_origin `compose` target_source)
 
 instance Category (AT) where
- identity = U_I_UU_II_T'II'I `identity` \x -> These x identity
+ identity = T'I'TT'II'T'II'I `identity` \x -> These x identity
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))

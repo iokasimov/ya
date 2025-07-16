@@ -89,7 +89,7 @@ rep :: forall r t e .
  Setoid Arrow (Representation t) =>
  Covariant (Representable (AR)) (AR) (AR) t =>
  Representation t `AR_` Attribute `T'I` t e `T'I` e
-rep index = U_I_UU_II_T'II'I `li` \origin ->
+rep index = T'I'TT'II'T'II'I `li` \origin ->
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `he'hv` index `lu`

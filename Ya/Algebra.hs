@@ -719,20 +719,20 @@ instance
  ( Covariant Transformation Functor (AR) (AR) t tt
  , Covariant Transformation Functor (AR) (AR) tt t
  ) => Component (AT) t tt where
- component = U_I_UU_II_T'II'I `identity` \x ->
+ component = T'I'TT'II'T'II'I `identity` \x ->
   map @T'I'II @T'I'II @(AR) @(AR) @t @tt identity x
   `lu` map @T'I'II @T'I'II @(AR) @(AR) @tt @t identity
 
 instance {-# OVERLAPPABLE #-}
  Mapping T'I'II T'I'II (AR) (AR) t t
  => Mapping T'I'II T'I'II (AT) (AR) t t where
- mapping = rewrap `identity` \(U_I_UU_II_T'II'I from) x ->
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I from) x ->
   map @T'I'II @T'I'II @(AR) @(AR) @t @t (this `compose` from) x
 
 instance Mapping T'II'I T'I'II (AT) (AR)
  (T'II'I (T'I'TT'II'I (AR) (P)) e)
  (T'II'I (T'I'TT'II'I (AR) (P)) e) where
- mapping = rewrap `identity` \(U_I_UU_II_T'II'I from) ->
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I from) ->
   rewrap `compose` rewrap `identity` \state old ->
    let (These new f) = from old in f `fio` state new
 
@@ -741,7 +741,7 @@ instance Mapping T'II'I T'I'II (AT) (AT)
  (T'II'I (T'I'TT'II'I (AR) (P)) i)
  (T'II'I (T'I'TT'II'I (AR) (P)) i) where
  mapping = rewrap `compose` rewrap `identity` \from x ->
-  These (map @T'II'I @T'I'II (U_I_UU_II_T'II'I from) x)
+  These (map @T'II'I @T'I'II (T'I'TT'II'T'II'I from) x)
    (constant @(AR) x)
 
 -- instance

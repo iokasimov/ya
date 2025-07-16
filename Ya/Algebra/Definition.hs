@@ -30,14 +30,14 @@ type AR_____ = (AR)
 type AR______ = (AR)
 type AR_______ = (AR)
 
-type AT = U_I_UU_II_T'II'I (AR) P
-type AT_ = U_I_UU_II_T'II'I (AR) P
-type AT__ = U_I_UU_II_T'II'I (AR) P
-type AT___ = U_I_UU_II_T'II'I (AR) P
-type AT____ = U_I_UU_II_T'II'I (AR) P
-type AT_____ = U_I_UU_II_T'II'I (AR) P
-type AT______ = U_I_UU_II_T'II'I (AR) P
-type AT_______ = U_I_UU_II_T'II'I (AR) P
+type AT = T'I'TT'II'T'II'I (AR) P
+type AT_ = T'I'TT'II'T'II'I (AR) P
+type AT__ = T'I'TT'II'T'II'I (AR) P
+type AT___ = T'I'TT'II'T'II'I (AR) P
+type AT____ = T'I'TT'II'T'II'I (AR) P
+type AT_____ = T'I'TT'II'T'II'I (AR) P
+type AT______ = T'I'TT'II'T'II'I (AR) P
+type AT_______ = T'I'TT'II'T'II'I (AR) P
 
 type AL = U_I_UU_M_I_II_II (AR) (S)
 type AL_ = U_I_UU_M_I_II_II (AR) (S)
@@ -406,12 +406,12 @@ is = identity
 type (R) = U_T'I'II_UT'I'II (S) P
 
 instance Wrapper (AR) x
- => Elicitable T'I'II (U_I_UU_II_T'II'I (AR) (P)) x where
- elicit = T'I'II (U_I_UU_II_T'II'I (\x -> These (unwrap x) wrap))
+ => Elicitable T'I'II (T'I'TT'II'T'II'I (AR) (P)) x where
+ elicit = T'I'II (T'I'TT'II'T'II'I (\x -> These (unwrap x) wrap))
 
 instance Wrapper (AR) x
- => Elicitable T'II'I (U_I_UU_II_T'II'I (AR) (P)) x where
- elicit = T'II'I (U_I_UU_II_T'II'I (\x -> These (wrap x) unwrap))
+ => Elicitable T'II'I (T'I'TT'II'T'II'I (AR) (P)) x where
+ elicit = T'II'I (T'I'TT'II'T'II'I (\x -> These (wrap x) unwrap))
 
 class Setoid into e where
  equality :: into (e `P` e) (e `P` e `S` e)
