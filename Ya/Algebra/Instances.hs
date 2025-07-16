@@ -455,11 +455,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (S Unit Unit))
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
 
--- instance Mapping T'I'II T'I'II (AR) (AR)
---  (W_III_I_II (U_I_UT'II'III (AR) (P)) e ee)
---  (W_III_I_II (U_I_UT'II'III (AR) (P)) e ee) where
---  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \f x -> i_ (map @T'I'II @T'I'II from) (f x)
-
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T` Void) ee eee) t
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
