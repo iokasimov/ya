@@ -146,15 +146,15 @@ pattern Match x = U_I_UU_M_I_II_II @(AR) @(S) x
 
 type Automation e ee eee = e `AR_` ee `P` eee
 
-type Transition = U_I_UT'II'I (AR) (P)
+type Transition = T'I'TT'II'I (AR) (P)
 
 pattern Transition :: Automation e ee e `AR__` Transition e ee
-pattern Transition x = U_I_UT'II'I @(AR) @(P) x
+pattern Transition x = T'I'TT'II'I @(AR) @(P) x
 
-type Event = U_I_UT'II'I (AR) P
+type Event = T'I'TT'II'I (AR) P
 
 pattern Event :: Automation e ee e `AR__` Event e ee
-pattern Event x = U_I_UT'II'I @(AR) @(P) x
+pattern Event x = T'I'TT'II'I @(AR) @(P) x
 
 type State = T'I'II Transition
 

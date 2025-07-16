@@ -195,17 +195,17 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) o) (T'II'I (S) o) where
 
 -- TODO: to fix
 instance Mapping T'I'II T'I'II (AR) (AR)
- (T'I'II (U_I_UT'II'I (AR) (P)) e)
- (T'I'II (U_I_UT'II'I (AR) (P)) e) where
+ (T'I'II (T'I'TT'II'I (AR) (P)) e)
+ (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \f x ->
   i_ (map @T'I'II @T'I'II from) (f x)
 
 -- TODO: it doesn't work correctly?
 instance Mapping T'I'II T'I'II
- (U_I_UT'II'I (AR) (P)) (AR)
- (T'I'II (U_I_UT'II'I (AR) (P)) e)
- (T'I'II (U_I_UT'II'I (AR) (P)) e) where
- mapping = rewrap `identity` \(U_I_UT'II'I from)
+ (T'I'TT'II'I (AR) (P)) (AR)
+ (T'I'II (T'I'TT'II'I (AR) (P)) e)
+ (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+ mapping = rewrap `identity` \(T'I'TT'II'I from)
   -> rewrap `compose` rewrap `identity` \trstn e ->
    let These old e' = trstn e in
    let These new _ = from old in
@@ -213,17 +213,17 @@ instance Mapping T'I'II T'I'II
 
 -- TODO: it doesn't work correctly?
 instance Mapping T'II'I T'I'II
- (U_I_UT'II'I (AR) (P)) (AR)
- (T'II'I (U_I_UT'II'I (AR) (P)) e)
- (T'II'I (U_I_UT'II'I (AR) (P)) e) where
- mapping = rewrap `identity` \(U_I_UT'II'I from)
+ (T'I'TT'II'I (AR) (P)) (AR)
+ (T'II'I (T'I'TT'II'I (AR) (P)) e)
+ (T'II'I (T'I'TT'II'I (AR) (P)) e) where
+ mapping = rewrap `identity` \(T'I'TT'II'I from)
   -> rewrap `compose` rewrap `identity` \trstn new ->
    let These old new' = from new in
    let These e old' = trstn old in
    These e new'
 
-instance Category (U_I_UT'II'I (AR) (P)) where
- identity = U_I_UT'II'I (\e -> These e e)
+instance Category (T'I'TT'II'I (AR) (P)) where
+ identity = T'I'TT'II'I (\e -> These e e)
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (UU_V_T'I'II_T_II T'I'II (AR) (AR) t e)
@@ -241,9 +241,9 @@ instance Mapping T'II'I T'I'II (AR) (AR)
 --  (UU_V_T'I'II_T_II T'I'II (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'I'II (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) ee) e)
 
 -- TODO: implement `mapping` method
--- instance Mapping T'II'I T'I'II (U_I_UT'II'I (AR) (P))) (AR)
---  (UU_V_T'I'II_T_II T'II'I (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'II'I (U_I_UT'II'I (AR) (P))) ee) e)
---  (UU_V_T'I'II_T_II T'II'I (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'II'I (U_I_UT'II'I (AR) (P))) ee) e)
+-- instance Mapping T'II'I T'I'II (T'I'TT'II'I (AR) (P))) (AR)
+--  (UU_V_T'I'II_T_II T'II'I (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'II'I (T'I'TT'II'I (AR) (P))) ee) e)
+--  (UU_V_T'I'II_T_II T'II'I (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'II'I (T'I'TT'II'I (AR) (P))) ee) e)
 
 instance
  ( forall e . Covariant Semi Functor from into (T'I'II (TT'I'T'II t u) e)

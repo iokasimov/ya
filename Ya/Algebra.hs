@@ -224,28 +224,28 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) e) I where
 -- This instance for normal state propagation. How unnormal should look like?
 instance (e ~ ee) =>
  Mapping T'I'II T'I'II (AR) (AR)
- (T'I'II (U_I_UT'II'I (AR) (P)) e `T'TT'I` T'I'II (U_I_UT'II'I (AR) (P)) ee `L` T'I'II (U_I_UT'II'I (AR) (P)) ee `T` Void)
- (T'I'II (U_I_UT'II'I (AR) (P)) e) where
- mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(U_I_UT'II'I state) old ->
+ (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void)
+ (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(T'I'TT'II'I state) old ->
     let These trn btw = state old in
     let These res new = unwrap (unwrap (unwrap trn)) btw in
         These (from res) new
 
--- T'I'II (U_I_UT'II'I (AR) (P))
+-- T'I'II (T'I'TT'II'I (AR) (P))
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
- (T'I'II (U_I_UT'II'I (AR) (P)) e `T'TT'I` T'I'II (U_I_UT'II'I (AR) (P)) ee `L` T'I'II (U_I_UT'II'I (AR) (P)) ee `T` (Void `P` Void))
- (T'I'II (U_I_UT'II'I (AR) (P)) e) where
- mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(U_I_UT'II'I state) old ->
+ (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void))
+ (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(T'I'TT'II'I state) old ->
     let These trn btw = state old in
     let These res _ = unwrap (unwrap (unwrap trn)) btw in
         These (from res) old
 
 instance (Covariant Lax Monoidal Functor (AR) (AR) (P) (P) Void t, e ~ ee)
  => Mapping T'I'II T'I'II (AR) (AR)
-  (T'I'II (U_I_UT'II'I (AR) (P)) ee)
+  (T'I'II (T'I'TT'II'I (AR) (P)) ee)
   (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) t) where
- mapping = rewrap `identity` \from (T'I'II (U_I_UT'II'I x)) ->
+ mapping = rewrap `identity` \from (T'I'II (T'I'TT'II'I x)) ->
   wrap @_ @(T'TTT'TT'I _ _ _ _) `compose` wrap @_ @(T'I'II _ _ _)
   `identity` (intro `compose` map @T'I'II @T'I'II from `compose` wrap @_ @(T'II'I _ _ _) `compose` x)
 
@@ -291,10 +291,10 @@ instance
  , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` tt `L` tt `T` Void) tt
  , e ~ ee
  ) => Mapping T'I'II T'I'II (AR) (AR)
- (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt `T'TT'I` T'I'II (U_I_UT'II'I (AR) (P)) ee `L` T'I'II (U_I_UT'II'I (AR) (P)) ee `T` Void)
+ (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt `T'TT'I` T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void)
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(T'I'II x) ->
-    \old -> x old `yok` \(T'II'I (These (Labeled @_ @_ @Void (T'I'II (U_I_UT'II'I f))) btw))
+    \old -> x old `yok` \(T'II'I (These (Labeled @_ @_ @Void (T'I'II (T'I'TT'II'I f))) btw))
       -> (Labeled @_ @_ @Void `compose` intro @tt) `identity` (T'II'I (f btw) `yo` from)
 
 instance
@@ -303,11 +303,11 @@ instance
  , e ~ ee
  ) => Mapping T'I'II T'I'II (AR) (AR)
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt `T'TT'I`
-  T'I'II (U_I_UT'II'I (AR) (P)) ee `L` T'I'II (U_I_UT'II'I (AR) (P)) ee `T` (Void `P` Void)
+  T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)
  )
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \(T'I'II x) ->
-    \old -> x old `yok` \(T'II'I (These (Labeled @_ @_ @(Void `P` Void) (T'I'II (U_I_UT'II'I f))) btw))
+    \old -> x old `yok` \(T'II'I (These (Labeled @_ @_ @(Void `P` Void) (T'I'II (T'I'TT'II'I f))) btw))
       -> (Labeled @_ @_ @Void `compose` intro @tt @(AR)) `identity` (T'II'I (f btw `yiu` old) `yo` from)
 
 -- TODO: introduce a label
@@ -430,9 +430,9 @@ instance
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` L (S'I'II () ()) tt) (T'II'I (P) e `TT'T'I` tt) =>
  -- Mapping T'I'II T'I'II (AR) (AR)
-  -- (T'I'II (U_I_UT'II'I (AR) (P)) e `T'TT'I` tt)
+  -- (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` tt)
   -- (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
- -- mapping = rewrap `identity` \from (T'TT'I (T'I'II (U_I_UT'II'I x))) ->
+ -- mapping = rewrap `identity` \from (T'TT'I (T'I'II (T'I'TT'II'I x))) ->
   -- T'TTT'TT'I `compose` T'I'II `identity` \old -> wrapped @(AR)
    -- `li` map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) e `T'TT'I` L (S'I'II () ()) tt) @(T'II'I (P) e `TT'T'I` tt) from
    -- `li` T'II'I (x old)
@@ -448,14 +448,14 @@ instance
  , forall e . Wrapper into (T'II'I t i e)
  , forall e . Wrapper into (T'I'II into Unit e)
  , forall e . Wrapper into (T'I'II tt i e)
- , forall e . Wrapper into (U_I_UT'II'I tt t i e)
- , forall e . Wrapper into (T'I'II (U_I_UT'II'I tt t) i e)
+ , forall e . Wrapper into (T'I'TT'II'I tt t i e)
+ , forall e . Wrapper into (T'I'II (T'I'TT'II'I tt t) i e)
  , forall e . Wrapper into (T'TT'I (T'I'II tt i) (T'II'I t i) e)
  , forall e . Wrapper into (T'TT'I (T'II'I t i) (T'I'II tt i) e)
  , forall e . Wrapper into (I e)
- ) => Mapping T'I'II T'I'II into into (T'I'II into Unit) (T'I'II (U_I_UT'II'I tt t) i) where
+ ) => Mapping T'I'II T'I'II into into (T'I'II into Unit) (T'I'II (T'I'TT'II'I tt t) i) where
  mapping = rewrap `identity` \from -> rewrap
-  `li` wrap @into @(U_I_UT'II'I _ _ _ _)
+  `li` wrap @into @(T'I'TT'II'I _ _ _ _)
    `compose` fij @into @into identity
    `compose` from
    `compose` yi Unit
@@ -589,10 +589,10 @@ instance
 -- TODO: generalize using adjunctions
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
-  (Day T'I'II (AR) (P) P (T'I'II (U_I_UT'II'I (AR) (P)) e) (T'I'II (U_I_UT'II'I (AR) (P)) ee `L` T'I'II (U_I_UT'II'I (AR) (P)) ee `T` Void) eee eeee)
-  (T'I'II (U_I_UT'II'I (AR) (P)) e) where
+  (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void) eee eeee)
+  (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These ee eee) (T'I'II f) -> U_I_UT'II'I `li` \old ->
+  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `li` \old ->
    let These x new = ee `he'he'hv` old in
    let These y upd  = eee `he'he'he` new in
    These (from `li` f (These x y)) upd
@@ -730,16 +730,16 @@ instance {-# OVERLAPPABLE #-}
   map @T'I'II @T'I'II @(AR) @(AR) @t @t (this `compose` from) x
 
 instance Mapping T'II'I T'I'II (AT) (AR)
- (T'II'I (U_I_UT'II'I (AR) (P)) e)
- (T'II'I (U_I_UT'II'I (AR) (P)) e) where
+ (T'II'I (T'I'TT'II'I (AR) (P)) e)
+ (T'II'I (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \(U_I_UU_II_T'II'I from) ->
   rewrap `compose` rewrap `identity` \state old ->
    let (These new f) = from old in f `fio` state new
 
 -- TODO: I'm not sure about this instance
 instance Mapping T'II'I T'I'II (AT) (AT)
- (T'II'I (U_I_UT'II'I (AR) (P)) i)
- (T'II'I (U_I_UT'II'I (AR) (P)) i) where
+ (T'II'I (T'I'TT'II'I (AR) (P)) i)
+ (T'II'I (T'I'TT'II'I (AR) (P)) i) where
  mapping = rewrap `compose` rewrap `identity` \from x ->
   These (map @T'II'I @T'I'II (U_I_UU_II_T'II'I from) x)
    (constant @(AR) x)
