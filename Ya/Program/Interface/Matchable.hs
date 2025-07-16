@@ -2,6 +2,7 @@ module Ya.Program.Interface.Matchable where
 
 import Ya.Algebra
 import Ya.Operators
+import Ya.Program.Primitive
 
 -- TODO: generalize over categories
 class Matchable target entire where
@@ -36,6 +37,11 @@ instance ((ee `S` e `S` eee `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
 instance ((ee `S` eee `S` e `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
  => Matchable e (ee `S` eee `S` e `S` eeee) where
  on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha` is `la` This `ha` That
+
+be :: forall target entire .
+ Matchable target entire =>
+ entire `AR_` Unit `S` target
+be = on `ho` elide
 
 {-
 on' :: Excludable a entire => r `AR_` Unit `S` a
