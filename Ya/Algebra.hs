@@ -744,8 +744,6 @@ instance Mapping T'II'I T'I'II (AT) (AT)
   These (map @T'II'I @T'I'II (U_I_UU_II_T'II'I from) x)
    (constant @(AR) x)
 
--- instance Mapping T'I'II T'I'II AL AR (T'I'II AL) (T'I'II AL) where
-
 -- instance
  -- ( Mapping T'I'II T'I'II (AR) (AR) (t `TT'T'I` tt) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l)
  -- , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt)

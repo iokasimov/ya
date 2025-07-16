@@ -189,10 +189,10 @@ type (S) = Object Void
 type S_ = (S)
 type S__ = (S)
 
-type family (M) r a where
- (M) (a `S` aa) a = aa
- (M) (aa `S` a) a = aa
- (M) (aa `S` aaa) a = aa `M` a `S` aaa
+type family (M) r e where
+ (M) (e `S` ee) e = ee
+ (M) (ee `S` e) e = ee
+ (M) (ee `S` eee) e = ee `M` e `S` eee
 
 type M_ a aa = (M) a aa
 type M__ a aa = (M) a aa
@@ -434,6 +434,7 @@ instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `P` ee) (eee `P` eeee) where
  objective = identity
 
+-- TODO: generalize, move to `Abstract` module
 newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
 
 type instance Supertype (U_I_UU_M_I_II_II u uu i ii) = u i (uu (M i ii) ii)

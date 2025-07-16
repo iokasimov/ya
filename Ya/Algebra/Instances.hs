@@ -317,15 +317,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (S'I'II e) where
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'II'I (S) e) where
  mapping (T'I'II from) = T'I'II `identity` \(Identity x) -> T'II'I (This (from x))
 
-instance Mapping T'I'II T'I'II (AT) (AR) (T'I'II (AT) origin) (T'I'II (AT) origin) where
- mapping = rewrap `identity` \into -> rewrap `compose` rewrap `identity` \from origin ->
-  let These source source_origin = from origin in
+instance Mapping T'I'II T'I'II (AT) (AR) (T'I'II (AT) i) (T'I'II (AT) i) where
+ mapping = rewrap `identity` \into -> rewrap `compose` rewrap `identity` \from x ->
+  let These source source_origin = from x in
   let These target target_source = unwrap into source in
   These target (source_origin `compose` target_source)
 
-instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) origin) (T'II'I (AT) origin) where
- mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \into origin ->
-  let These source source_origin = unwrap from origin in
+instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity` \into x ->
+  let These source source_origin = unwrap from x in
   let These target target_source = into source in
   These target (source_origin `compose` target_source)
 
