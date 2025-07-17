@@ -144,6 +144,11 @@ type Match = U_I_UU_M_I_II_II (AR) (S)
 pattern Match :: forall ee e . (e `AR_` (S) (M e ee) ee) -> Match e ee
 pattern Match x = U_I_UU_M_I_II_II @(AR) @(S) x
 
+type Shall = T'II'TT'I'III (AR) (S) Unit
+
+pattern Shall :: forall ee e . (e `AR_` Unit `S` ee) `AR___` Shall e ee
+pattern Shall x = T'II'TT'I'III @(AR) @(S) x
+
 type Automation e ee eee = e `AR_` ee `P` eee
 
 type Transition = T'I'TT'II'I (AR) (P)
