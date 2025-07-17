@@ -48,6 +48,15 @@ type AL_____ = U_I_UU_M_I_II_II (AR) (S)
 type AL______ = U_I_UU_M_I_II_II (AR) (S)
 type AL_______ = U_I_UU_M_I_II_II (AR) (S)
 
+type AP = T'II'TT'I'III (AR) (S) Unit
+type AP_ = T'II'TT'I'III (AR) (S) Unit
+type AP__ = T'II'TT'I'III (AR) (S) Unit
+type AP___ = T'II'TT'I'III (AR) (S) Unit
+type AP____ = T'II'TT'I'III (AR) (S) Unit
+type AP_____ = T'II'TT'I'III (AR) (S) Unit
+type AP______ = T'II'TT'I'III (AR) (S) Unit
+type AP_______ = T'II'TT'I'III (AR) (S) Unit
+
 class Dumb x
 instance Dumb x
 
