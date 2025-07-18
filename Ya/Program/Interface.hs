@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
-module Ya.Program.Interface (module Exports, focus, shaft, pattern Aloft) where
+module Ya.Program.Interface (module Exports, focus, shaft, pattern Aloft, pattern Stump) where
 
 import Ya.Algebra
 import Ya.Operators
@@ -255,6 +255,15 @@ instance Mapping T'I'II T'I'II Arrow Arrow (((Only `P'T'I'TT'I` Shafted List) `P
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
+
+pattern Stump :: forall i e .
+ Component (AR) (S'I'II i) (S'I'II Unit) =>
+ S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Void `T` e
+pattern Stump x = Labeled x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II e `T` Void) (S'I'II Unit) where
+ mapping = rewrap `identity` \from ->
+  rewrap `identity` ((This `compose` constant Unit `la` That `compose` from) `compose` unwrap)
 
 instance Semigroup (AR) Boolean where
  s (These x y) = x `lu'ys'la` Try y
