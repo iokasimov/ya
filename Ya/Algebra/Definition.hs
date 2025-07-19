@@ -198,13 +198,15 @@ type (S) = Object Void
 type S_ = (S)
 type S__ = (S)
 
-type family (M) r e where
- (M) (e `S` ee) e = ee
- (M) (ee `S` e) e = ee
- (M) (ee `S` eee) e = ee `M` e `S` eee
+type family Minus r e where
+ Minus (e `S` ee) e = ee
+ Minus (ee `S` e) e = ee
+ Minus (ee `S` eee) e = ee `M` e `S` eee
+ Minus e e = Void
 
-type M_ a aa = (M) a aa
-type M__ a aa = (M) a aa
+type M = a aa = Minus a aa
+type M_ a aa = Minus a aa
+type M__ a aa = Minus a aa
 
 type family Neutral p where
  Neutral (P) = Unit
