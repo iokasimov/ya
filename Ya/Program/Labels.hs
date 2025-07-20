@@ -45,8 +45,3 @@ pattern Every :: forall i ii iii e .
  Component (AR) (Covariant Day (AR) (P) (P) (S'I'II iii) (S'I'II iii `L` S'I'II iii `T` Void) i ii) (S'I'II iii) =>
  S'I'II iii e `AR__` S'I'II iii `L` S'I'II iii `T` Void `T` e
 pattern Every x = Labeled @_ @_ @Void x
-
-pattern Prune :: forall i e .
- Component (AR) (S'I'II i) (S'I'II Unit) =>
- S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` (Void `P` Void) `T` e
-pattern Prune x = Labeled @_ @_ @(Void `P` Void) x
