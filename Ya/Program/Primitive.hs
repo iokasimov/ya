@@ -37,11 +37,11 @@ leaf x = Recursive `ha` TT'I'T'II `ha` These x `li_` empty `yo` initial' @(AR)
 it :: forall e . Reference (P) e e e
 it x = x `lu` identity
 
-elide :: forall a t i .
+dim :: forall a t i .
  Covariant Functor (AR) (AR) (T'II'I t i) =>
  (forall e . Wrapper (AR) (T'II'I t i e)) =>
  t a i `AR` t Unit i
-elide = fui @AR @AR Unit
+dim = fui @AR @AR Unit
 
 top :: forall tt t e .
  (tt ~ Construction t) =>
