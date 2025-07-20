@@ -204,7 +204,7 @@ type family Minus r e where
  Minus (ee `S` eee) e = ee `M` e `S` eee
  Minus e e = Void
 
-type M = a aa = Minus a aa
+type M a aa = Minus a aa
 type M_ a aa = Minus a aa
 type M__ a aa = Minus a aa
 
