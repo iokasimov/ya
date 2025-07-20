@@ -38,11 +38,6 @@ instance ((ee `S` eee `S` e `S` eeee `M` e) ~ (ee `S` eee `S` eeee))
  => Matchable e (ee `S` eee `S` e `S` eeee) where
  on = This `ha` This `ha` This `la` This `ha` This `ha` That `la` That `ha` is `la` This `ha` That
 
-be :: forall target entire .
- Matchable target entire =>
- entire `AR_` Unit `S` target
-be = on `ho` elide
-
 {-
 on' :: Excludable a entire => r `AR_` Unit `S` a
 on' x = on x `yui` Unit
