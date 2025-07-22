@@ -597,6 +597,15 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
    let These y upd  = eee `he'he'he` new in
    These (from `li` f (These x y)) upd
 
+instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
+  (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
+  (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \case
+  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `li` \old ->
+   let These x _ = ee `he'he'hv` old in
+   let These y _  = eee `he'he'he` old in
+   These (from `li` f (These x y)) old
+
 instance
  ( i ~ ii
  , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
