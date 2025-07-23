@@ -81,6 +81,8 @@ pattern Interrupt x = T'I'II @(S) (This x)
 pattern Continue :: ee -> Progress e ee
 pattern Continue x = T'I'II @(S) (That x)
 
+type Stops = T'I'II (S)
+
 type Error = T'I'II (S)
 
 pattern Error :: e -> Error e ee
