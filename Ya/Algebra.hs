@@ -350,20 +350,22 @@ instance
  , Covariant Endo Semi Functor into ttt
  , Covariant Endo Transformation Functor into (tt't `T'TT'I` tt't `L` tt't `T` l) tt't
  , Covariant Endo  Transformation Functor into (ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l) (ttt `TT'T'I` tt't)
- , Component into (tt'tt `T'TT'I` tt't `L` tt't `T` l) (tt'tt `TT'T'I` tt't)
+ , Covariant Endo Transformation Functor into (tt'tt `T'TT'I` tt't `L` tt't `T` l `L` tt'tt `T` Void) (tt'tt `TT'T'I` tt't)
  , forall ee . Wrapper into (tt't `L` tt't `T` l `T` ee)
  , forall ee . Wrapper into (ttt `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
  , forall ee . Wrapper into (ttt `TT'T'I` tt't `T'I_` ee)
  , forall ee . Wrapper into (tt'tt `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
  , forall ee . Wrapper into (tt'tt `TT'T'I` tt't `T'I_` ee)
  , forall ee . Wrapper into (tt't `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
+ , forall ee . Wrapper into (tt't `L` tt't `T` l `L` tt'tt `T` Void `T'I_` ee)
  , forall ee . Wrapper into (ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l `T'I_` ee)
  , forall ee . Wrapper into (tt't `L` tt't `T` l `L` ttt `T` l `T'I_` ee)
+ , forall ee . Wrapper into (tt'tt `T'TT'I` tt't `L` tt't `T` l `L` tt'tt `T` Void `T'I_` ee)
  , forall ee . Wrapper into (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't) `T'TT'I` tt't `L` tt't `T` l `T'I_` ee)
  , forall ee . Wrapper into (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't) ee)
  ) => Mapping T'I'II T'I'II into into
-  (T'TTT'TT'I t ttt (TT'T'I tt'tt tt't) `T'TT'I` tt't `L` tt't `T` l)
-  (T'TTT'TT'I t ttt (TT'T'I tt'tt tt't)) where
+  (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't) `T'TT'I` tt't `L` tt't `T` l)
+  (T'TTT'TT'I t ttt (tt'tt `TT'T'I` tt't)) where
  mapping = rewrap `identity` \from -> rewrap `identity`
   map @T'I'II @T'I'II @into @into @t @t
    (wrap @into @(TT'T'I _ _ _)
@@ -371,8 +373,10 @@ instance
     `compose` wrap @into @(tt't `T'TT'I` tt't `L` tt't `T` l `T'I_` _)
     `compose` map @T'I'II @T'I'II @into @into @tt't @tt't (wrap @into @(tt't `L` tt't `T` l `T` _))
     `compose` map @T'I'II @T'I'II @into @into @tt't
-     (wrapped (component @into @(tt'tt `T'TT'I` tt't `L` tt't `T` l) @(tt'tt `TT'T'I` tt't))
-     `compose` map @T'I'II @T'I'II @into @into @(tt'tt) @(tt'tt) (wrap @into @(tt't `L` tt't `T` l `T` _)))
+     (wrapped (component @into @(tt'tt `T'TT'I` tt't `L` tt't `T` l `L` tt'tt `T` Void) @(tt'tt `TT'T'I` tt't))
+     `compose` map @T'I'II @T'I'II @into @into @(tt'tt) @(tt'tt)
+      (wrap @into `compose` wrap @into @(tt't `L` tt't `T` l `T` _))
+    )
     `compose` unwrap @into @(TT'T'I tt'tt tt't _)
     `compose` map @T'I'II @T'I'II @into @into @(TT'T'I tt'tt tt't) @(TT'T'I tt'tt tt't)
      (wrapped (map @T'I'II @T'I'II @into @into @(ttt `T'TT'I` tt't `L` tt't `T` l `L` ttt `T` l) @(ttt `TT'T'I` tt't) from)
