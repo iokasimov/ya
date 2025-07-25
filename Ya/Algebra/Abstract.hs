@@ -123,6 +123,13 @@ newtype U_1_I u _' i = U_1_I (u () i)
 
 newtype U_I_1 u i _' = U_I_1 (u i ())
 
+newtype T''II u i ii = T''II ii
+
+type instance Supertype (T''II u i ii) = ii
+
+instance Elicitable T'II'I (->) (T''II u i ii) where elicit = T'II'I T''II
+instance Elicitable T'I'II (->) (T''II u i ii) where elicit = T'I'II (\(T''II x) -> x)
+
 newtype TT'I'T'II t u i ii = TT'I'T'II (u i (t ii))
 
 newtype U_T'I'II t u i ii = U_T'I'II (u (t i) ii)
