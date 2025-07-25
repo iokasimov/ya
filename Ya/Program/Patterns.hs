@@ -59,8 +59,9 @@ type Optional = S'I'II Unit
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
 
-pattern Some :: ee -> S'I'II Unit ee
+pattern Some, Exist :: ee -> S'I'II Unit ee
 pattern Some x = T'I'II (That x)
+pattern Exist x = T'I'II (That x)
 
 pattern Optionally x = T'I'II x
 
