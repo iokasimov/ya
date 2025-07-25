@@ -145,7 +145,7 @@ type Covariant t = t T'I'II
 
 type Contravariant t = t T'II'I
 
-type Constant t = t U_1_I
+type Constant t = t T''II
 
 type Kleisli u t = TT'I'T'II t u
 
