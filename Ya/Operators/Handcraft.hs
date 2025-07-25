@@ -2919,15 +2919,11 @@ ho________'yok = ho'yok
 ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_______'yuk, ho________'yuk
  :: forall from t tt ll a o i .
  Covariant Endo Semi Functor from tt =>
- Covariant Endo Semi Functor from t =>
- Constant Semi Functor from from t =>
+ Constant Functor (AR) from t =>
  Covariant Endo Transformation Functor from (t `T'TT'I` tt `L` tt `T` ll) t =>
- Component (AR) I (T'I'II from a) =>
  Covariant Yoneda Functor from (AR) (T'I'II from i) =>
  (forall e . Wrapper from (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
  (forall e . Wrapper from (I `T'I` tt `L` tt `T` ll `T` e)) =>
- -- Wrapper (AR) (U_1_I from a (tt o)) =>
- -- (forall ee . Wrapper from (t `T'TT'I` tt `L` tt `T` ll `T'I_` ee)) =>
  from i (t a) -> (tt `L` tt `T` ll) o -> from i (t o)
 ho'yuk x = fai (fuk @from @t @tt) (ho @from x)
 ho_'yuk x = fai (fuk @from @t @tt) (ho @from x)
