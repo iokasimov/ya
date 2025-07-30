@@ -42,6 +42,8 @@ pattern Prior e = Labeled @_ @_ @(Void `P` Void) e
 pattern New e = Labeled @(State _) @(State _) @Void e
 pattern Old e = Labeled @(State _) @(State _) @(Void `P` Void) e
 
+pattern Lease e = Labeled @(State _) @(State _) @(Void `P` Void) e
+
 pattern Every :: forall i ii iii e .
  Component (AR) (Covariant Day (AR) (P) (P) (S'I'II iii) (S'I'II iii `L` S'I'II iii `T` Void) i ii) (S'I'II iii) =>
  S'I'II iii e `AR__` S'I'II iii `L` S'I'II iii `T` Void `T` e
