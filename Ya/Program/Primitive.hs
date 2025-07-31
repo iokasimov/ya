@@ -37,6 +37,9 @@ leaf x = Recursive `ha` TT'I'T'II `ha` These x `li_` empty `yo` initial' @(AR)
 it :: forall e . Reference (P) e e e
 it x = x `lu` identity
 
+be :: o `AR__` a `AR_` o
+be = constant
+
 dim :: forall a t i .
  Covariant Functor (AR) (AR) (T'II'I t i) =>
  (forall e . Wrapper (AR) (T'II'I t i e)) =>
