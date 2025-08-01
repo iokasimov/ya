@@ -328,6 +328,7 @@ day from t x = map @v @T'I'II @from @(AR)
 empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
+-- TODO: forall t e into .
 intro :: forall t into e .
  Category into =>
  Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
@@ -455,6 +456,8 @@ instance Elicitable T'II'I (AR) (U_I_UU_M_I_II_II u uu i ii)
 
 instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
  where elicit = T'I'II (\(U_I_UU_M_I_II_II x) -> x)
+
+type Ultimate = T'I'
 
 -- TODO: these typeclasses are experimental
 class Semigroup from e where s :: e `P` e `from` e
