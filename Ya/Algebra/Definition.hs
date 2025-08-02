@@ -459,6 +459,8 @@ instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
 
 type Instead = T'I'
 
+pattern Instead x = T'I' x
+
 type Twice = Both (P)
 
 -- TODO: these typeclasses are experimental
