@@ -459,6 +459,8 @@ instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
 
 type Instead = T'I'
 
+type Twice = Both (P)
+
 -- TODO: these typeclasses are experimental
 class Semigroup from e where s :: e `P` e `from` e
 class Quasigroup from e where p :: e `P` e `from` e
