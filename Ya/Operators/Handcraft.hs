@@ -3003,7 +3003,7 @@ ha________'yokl = ha'yokl
 -- TODO: generalize
 yai'yukl, ha'yukl, ha_'yukl, ha__'yukl, ha___'yukl, ha____'yukl, ha_____'yukl, ha______'yukl, ha_______'yukl, ha________'yukl
  :: forall u t tt l ll a o i .
- Covariant Endo Semi Functor (AR) t =>
+ Constant Endo Semi Functor (AR) t =>
  Covariant Endo Semi Functor (AR) tt =>
  Covariant Endo Transformation Functor (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Endo Transformation Functor (AR) I (T'I'II (AR) a) =>
@@ -3218,7 +3218,7 @@ yio'yokl'yukl
  :: forall into u t tt ttt l ll lll a o i .
  Covariant Yoneda Functor (AR) into (T'I'II u i) =>
  Covariant Endo Semi Functor (AR) t =>
- Covariant Endo Semi Functor (AR) tt =>
+ Constant Endo Semi Functor (AR) tt =>
  Covariant Semi Functor into (AR) t =>
  Covariant Endo Semi Functor (AR) ttt =>
  Covariant Semi Functor into (AR) ttt =>
@@ -3256,8 +3256,8 @@ yio'yukl, ho'yukl, ho_'yukl, ho__'yukl, ho___'yukl, ho____'yukl, ho_____'yukl, h
  :: forall u t tt l ll a o e .
  Covariant Semi Functor (AR) (AR) (T'I'II u e) =>
  Covariant Endo Semi Functor (AR) tt =>
- Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Constant Endo Semi Functor (AR) t =>
+ Covariant Endo Transformation Functor (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Endo Transformation Functor (AR) I (T'I'II (AR) a) =>
  Covariant Endo Yoneda Functor (AR) (T'I'II u e) =>
  (forall ee . Wrapper (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` ee)) =>

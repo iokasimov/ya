@@ -186,7 +186,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` Void) 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void `P` Void)) List where
  mapping = rewrap `identity` \from x -> unwrap x
   `yokl` Prior `ha` Run
-  `ha__` intro @(State `T'I` List _ `JNT` Halts) @(AR)
+  `ha__` intro @(Halts `JNT` State `T'I` List _) @(AR)
    `ho_'yok` Try `ha'he'he` is @(Maybe (Nonempty List _))
    `ho_'yok` New `ha` (\xx -> xx `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` from)
   `he'he'hv___` empty @List
