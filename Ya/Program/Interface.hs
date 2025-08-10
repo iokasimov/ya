@@ -13,6 +13,7 @@ import Ya.Program.Interface.Fieldable as Exports
 import Ya.Program.Interface.Matchable as Exports
 import Ya.Program.Interface.Stackable as Exports
 import Ya.Program.Interface.Shiftable as Exports
+import Ya.Program.Interface.Keyable as Exports
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Labeled bs) (Labeled fs))) -> that

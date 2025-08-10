@@ -33,6 +33,7 @@ library
     Ya.Program.Interface.Matchable
     Ya.Program.Interface.Stackable
     Ya.Program.Interface.Shiftable
+    Ya.Program.Interface.Keyable
     Ya.Program.Patterns
     Ya.Program.Primitive
     Ya.Program.Labels
