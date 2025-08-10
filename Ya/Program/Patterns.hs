@@ -82,6 +82,12 @@ pattern Interrupt x = T'I'II @(S) (This x)
 pattern Continue :: ee -> Progress e ee
 pattern Continue x = T'I'II @(S) (That x)
 
+pattern Erase :: e -> Progress e ee
+pattern Erase x = T'I'II (This x)
+
+pattern Allot :: ee -> Progress e ee
+pattern Allot x = T'I'II (That x)
+
 type Stops = T'I'II (S)
 
 type Error = T'I'II (S)
