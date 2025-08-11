@@ -176,14 +176,14 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
-infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'ys`, `lo'ys'la`, `lu'ys'la`
-infixl 7 `lo_`, `lo_'yp`, `lo_'ys`, `lo_'ys'la`, `lu_'ys'la`
-infixl 6 `lo__`, `lo__'yp`, `lo__'ys`, `lo__'ys'la`, `lu__'ys'la`
-infixl 5 `lo___`, `lo___'yp`, `lo___'ys`, `lo___'ys'la`, `lu___'ys'la`
-infixl 4 `lo____`, `lo____'yp`, `lo____'ys`, `lo____'ys'la`, `lu____'ys'la`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'ys`, `lo_____'ys'la`, `lu_____'ys'la`
-infixl 2 `lo______`, `lo______'yp`, `lo______'ys`, `lo______'ys'la`, `lu______'ys'la`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'ys`, `lo_______'ys'la`, `lu_______'ys'la`
+infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lu'ys'la`
+infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lu_'ys'la`
+infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lu__'ys'la`
+infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'la`, `lu___'ys'la`
+infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'la`, `lu____'ys'la`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'la`, `lu_____'ys'la`
+infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'la`, `lu______'ys'la`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'la`, `lu_______'ys'la`
 
 infixl 8 `la`
 infixl 7 `la_`
@@ -2394,6 +2394,23 @@ lo____'yp = lo'yp
 lo_____'yp = lo'yp
 lo______'yp = lo'yp
 lo_______'yp = lo'yp
+
+lo'yp'yo'q, lo_'yp'yo'q, lo__'yp'yo'q, lo___'yp'yo'q, lo____'yp'yo'q, lo_____'yp'yo'q, lo______'yp'yo'q, lo_______'yp'yo'q
+ :: forall a o t tt l .
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P t (tt `L` tt `T` l) o o) t =>
+ Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
+ Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
+ Setoid (AR) o =>
+ Arrow a (t o) -> Arrow a (tt `L` tt `T` l `T` o) -> Arrow a (t (o `P` o `S` o))
+lo'yp'yo'q x xx xxx = yp'yo (lo x xx xxx) q
+
+lo_'yp'yo'q = lo'yp'yo'q
+lo__'yp'yo'q = lo'yp'yo'q
+lo___'yp'yo'q = lo'yp'yo'q
+lo____'yp'yo'q = lo'yp'yo'q
+lo_____'yp'yo'q = lo'yp'yo'q
+lo______'yp'yo'q = lo'yp'yo'q
+lo_______'yp'yo'q = lo'yp'yo'q
 
 lo'ys, lo_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
  :: forall t tt l a o oo .
