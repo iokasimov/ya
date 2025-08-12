@@ -623,6 +623,21 @@ instance
    T'I'II `identity` \old -> x old `yok` \(T'II'I (These e btw)) ->
     Labeled @_ @_ @Void (from `compose` f `compose` (e `lu`) `fo'fo` y btw)
 
+instance
+ ( i ~ ii
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
+ , forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , Covariant Yoneda Functor (AR) (AR) t
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  (Day T'I'II (AR) (P) P (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) (t `L` t `T` Void) eee eeee)
+  (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \case
+  These (These (T'TTT'TT'I (T'I'II x)) xx) (T'I'II f) ->
+   T'I'II `identity` \old ->
+    day @T'I'II @(AR) @Void @t @t @(P) @(P) identity
+    (\(These i ii) -> i `yo` (`lu` ii) `ho` f `ho` from)
+    (x old `lu` xx)
+
 -- instance
  -- ( Component (AR) (t `T'TT'I` t) t
  -- , Covariant Endo Monoidal Functor (AR) (P) P t
