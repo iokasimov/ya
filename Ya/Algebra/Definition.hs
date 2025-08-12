@@ -322,6 +322,10 @@ day from t x = map @v @T'I'II @from @(AR)
  @(Day v from u uu t (tt `L` tt `T` l) e ee) @t from
  (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
 
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
+ (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
+
 -- TODO: coday -- Oplax Monoidal Functor
 
 -- TODO: generalize
