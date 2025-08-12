@@ -711,21 +711,20 @@ instance
  mapping = rewrap `identity` \from -> rewrap `identity` \f -> intro `compose` from `identity` f Unit
 
 instance
- ( t ~ tt
- , Covariant Lax Monoidal Functor into into u uu l t
- , Covariant Endo Semi Functor into (T'II'I u (t `L` t `T` l `T` ee))
+ ( forall e ee . Covariant Transformation Functor into into (Covariant Day into u uu t (tt `L` tt `T` ll) e ee) t
+ , Covariant Endo Semi Functor into (T'II'I u (tt `L` tt `T` ll `T` ee))
  , Covariant Endo Semi Functor into (T'I'II u (t `L` t `T` l `T` e))
  , forall eee . Mapping T'I'II T'I'II into into (T'II'I (P) eee) (T'II'I (P) eee)
  , forall eee . Wrapper into (t `L` t `T` l `T` eee)
  , forall eee . Wrapper into (Day T'I'II into u uu t t e ee eee)
- , forall eee . Wrapper into (Day T'I'II into u uu (t `L` t `T` l) (t `L` t `T` l) e ee eee)
- , forall eee . Wrapper into (Day T'I'II into u uu t (t `L` t `T` l) e ee eee)
+ , forall eee . Wrapper into (Day T'I'II into u uu (t `L` t `T` l) (tt `L` tt `T` ll) e ee eee)
+ , forall eee . Wrapper into (Day T'I'II into u uu t (tt `L` tt `T` ll) e ee eee)
  , forall eee eeee . Wrapper into (T'I'II u eee eeee)
  , forall eee eeee . Wrapper into (T'II'I u eee eeee)
  , forall eee eeee . Wrapper into (T'II'I (P) eee eeee)
- ) => Mapping T'I'II T'I'II into into (Day T'I'II into u uu (t `L` t `T` l) (tt `L` tt `T` l) e ee) (t `L` t `T` l) where
+ ) => Mapping T'I'II T'I'II into into (Day T'I'II into u uu (t `L` t `T` l) (tt `L` tt `T` ll) e ee) (t `L` t `T` l) where
  mapping = rewrap `identity` \from -> rewrap `li`
-   map @T'I'II @T'I'II @into @into @(Day T'I'II into u uu t (tt `L` tt `T` l) _ _) @t from
+   map @T'I'II @T'I'II @into @into @(Day T'I'II into u uu t (tt `L` tt `T` ll) _ _) @t from
    `compose` wrap `compose` foi (foi @into @into unwrap)
 
 instance
