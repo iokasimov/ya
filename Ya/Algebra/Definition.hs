@@ -147,7 +147,7 @@ type Contravariant t = t T'II'I
 
 type Constant t = t T''II
 
-type Kleisli u t = TT'I'T'II t u
+type Kleisli u t = T'I'TT'II u t
 
 class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t (UU_V_T'I'II_T_II v from into t o)) =>
  Yoneda v x from into t where

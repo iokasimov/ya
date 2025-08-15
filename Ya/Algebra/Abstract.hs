@@ -137,7 +137,7 @@ type instance Supertype (T''II u i ii) = ii
 instance Elicitable T'II'I (->) (T''II u i ii) where elicit = T'II'I T''II
 instance Elicitable T'I'II (->) (T''II u i ii) where elicit = T'I'II (\(T''II x) -> x)
 
-newtype TT'I'T'II t u i ii = TT'I'T'II (u i (t ii))
+newtype T'I'TT'II u t i ii = T'I'TT'II (u i (t ii))
 
 newtype U_T'I'II t u i ii = U_T'I'II (u (t i) ii)
 
@@ -168,7 +168,7 @@ newtype U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii =
 newtype UU_V_T'I'II_T_II v u uu t i ii =
  UU_V_T'I'II_T_II (uu (v u ii i) (t i))
 
-newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (TT'I'T'II t u i))
+newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (T'I'TT'II u t i))
 
 newtype U_III_UT'I'II u uu iii i ii =
  U_III_UT'I'II (u i (uu ii iii))
@@ -233,13 +233,13 @@ instance Elicitable T'I'II (->) (L t _t l i)
 instance Elicitable T'II'I (->) (L t _t l i)
  where elicit = T'II'I Labeled
 
-type instance Supertype (TT'I'T'II t u i ii) = u i (t ii)
+type instance Supertype (T'I'TT'II u t i ii) = u i (t ii)
 
-instance Elicitable T'I'II (->) (TT'I'T'II u t i ii)
- where elicit = T'I'II (\(TT'I'T'II x) -> x)
+instance Elicitable T'I'II (->) (T'I'TT'II u t i ii)
+ where elicit = T'I'II (\(T'I'TT'II x) -> x)
 
-instance Elicitable T'II'I (->) (TT'I'T'II u f i ii)
- where elicit = T'II'I TT'I'T'II
+instance Elicitable T'II'I (->) (T'I'TT'II u t i ii)
+ where elicit = T'II'I T'I'TT'II
 
 type instance Supertype (U_T'I'II t u i ii) = u (t i) ii
 
@@ -315,7 +315,7 @@ instance Elicitable T'I'II (->) (Recursive f)
 instance Elicitable T'II'I (->) (Recursive f)
  where elicit = T'II'I Recursive
 
-type instance Supertype (R_U_I_T_I u t i) = Recursive (TT'I'T'II t u i)
+type instance Supertype (R_U_I_T_I u t i) = Recursive (T'I'TT'II u t i)
 
 instance Elicitable T'I'II (->) (R_U_I_T_I u t i)
  where elicit = T'I'II (\(R_U_I_T_I x) -> x)
