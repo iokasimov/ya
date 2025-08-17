@@ -230,14 +230,40 @@ instance Category (T'I'TT'II'I (AR) (P)) where
  identity = T'I'TT'II'I (\e -> These e e)
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- (UU_V_T'I'II_T_II T'I'II (AR) (AR) t e)
- (UU_V_T'I'II_T_II T'I'II (AR) (AR) t e) where
- mapping = rewrap `identity` \from -> rewrap (`compose` (rewrap (`compose` from)))
+ (Covariant Embedding (AR) (AR) t e)
+ (Covariant Embedding (AR) (AR) t e) where
+ mapping = rewrap `identity` \from ->
+  rewrap (`compose` (rewrap (`compose` from)))
 
 instance Mapping T'II'I T'I'II (AR) (AR)
- (UU_V_T'I'II_T_II T'II'I (AR) (AR) t e)
- (UU_V_T'I'II_T_II T'II'I (AR) (AR) t e) where
- mapping = rewrap `identity` \from -> rewrap (`compose` (rewrap (compose from)))
+ (Contravariant Embedding (AR) (AR) t e)
+ (Contravariant Embedding (AR) (AR) t e) where
+ mapping = rewrap `identity` \from ->
+  rewrap (`compose` (rewrap (from `compose`)))
+
+instance
+ ( Covariant Semi Functor from (AR) t
+ , forall e . Covariant Semi Functor into (AR) (T'I'II from e)
+ ) => Mapping T'I'II T'I'II from (AR) t (Covariant Embedding into (AR) t r) where
+ mapping = rewrap `identity` \from x ->
+  Embedding `identity` \e -> map @T'I'II @T'I'II @from
+   (wrapped (map @T'I'II @T'I'II @into @(AR) @(T'I'II from _) @(T'I'II from _) (unwrap e)) from) x
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II (AR) e)
+ ) => Mapping U_1_I T'I'II (AR) (AR) t (Embedding U_1_I (AR) (AR) t r) where
+ mapping = rewrap `identity` \_ x ->
+  Embedding (\(U_1_I e) -> map @T'I'II @T'I'II (\_ -> e Unit) x)
+
+instance
+ ( Contravariant Semi Functor from (AR) t
+ , forall e . Contravariant Semi Functor into (AR) (T'II'I from e)
+ ) => Mapping T'II'I T'I'II from (AR) t (Contravariant Embedding into (AR) t r) where
+ mapping = rewrap `identity` \from x ->
+  Embedding `identity` \e -> map @T'II'I @T'I'II @from
+   (wrapped (map @T'II'I @T'I'II @into @(AR) @(T'II'I from _) @(T'II'I from _) (unwrap e)) from) x
+
 
 -- TODO: implement `mapping` method
 -- instance Mapping T'I'II T'I'II (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR)
@@ -436,6 +462,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (T'II'I (S) Unit) wh
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (S'I'II Unit) where
  mapping = rewrap `identity` \_ _ -> T'I'II (This Unit)
+
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (S Unit Unit)) (T'I'I (P)) where
  mapping = rewrap `identity` \from -> rewrap `identity` \f -> These
   (from `compose` f `identity` This Unit)

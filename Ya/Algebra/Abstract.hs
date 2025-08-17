@@ -168,7 +168,9 @@ newtype U_V_UU_UUU_UUUU_T'TT'I_II_III u v uu uuu uuuu t tt i ii iii =
 newtype UU_V_T'I'II_T_II v u uu t i ii =
  UU_V_T'I'II_T_II (uu (v u ii i) (t i))
 
-newtype R_U_I_T_I u t i = R_U_I_T_I (Recursive (T'I'TT'II u t i))
+type Embedding = UU_V_T'I'II_T_II
+
+pattern Embedding i = UU_V_T'I'II_T_II i
 
 newtype U_III_UT'I'II u uu iii i ii =
  U_III_UT'I'II (u i (uu ii iii))

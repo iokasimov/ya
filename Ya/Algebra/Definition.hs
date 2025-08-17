@@ -149,7 +149,7 @@ type Constant t = t T''II
 
 type Kleisli u t = T'I'TT'II u t
 
-class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t (UU_V_T'I'II_T_II v from into t o)) =>
+class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t (Embedding v from into t o)) =>
  Yoneda v x from into t where
  yoneda :: forall a o .
   Category from =>
@@ -157,10 +157,10 @@ class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t 
   (Supertype (v from a a) ~ from a a) =>
   Elicitable T'II'I (AR) (v from a a) =>
   t a -> into (v from a o) (t o)
- yoneda x = unwrap (map @v @T'I'II @from @Arrow @t @(UU_V_T'I'II_T_II v from into t o) identity x)
+ yoneda x = unwrap (map @v @T'I'II @from @Arrow @t @(Embedding v from into t o) identity x)
 
 deriving instance
- (Category from, x v from into t, forall r . Mapping v T'I'II from Arrow t (UU_V_T'I'II_T_II v from into t r)) =>
+ (Category from, x v from into t, forall r . Mapping v T'I'II from Arrow t (Embedding v from into t r)) =>
  Yoneda v x from into t
 
 type family Representation t where
