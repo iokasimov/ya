@@ -534,24 +534,6 @@ instance
   `compose` fj (wrapped (map @T'I'II @T'I'II @from @into @(tt `T'TT'I` TT'T'I tttt t) @(tt `TT'T'I` TT'T'I tttt t) from))
   `compose` component @into @t @(tttt `TT'T'I` t)
 
-instance
- ( Covariant Semi Functor from (AR) t
- , forall e . Covariant Semi Functor into (AR) (T'I'II from e)
- ) => Mapping T'I'II T'I'II from (AR) t (UU_V_T'I'II_T_II T'I'II into (AR) t r) where
- mapping = rewrap `identity` \from x -> UU_V_T'I'II_T_II (\(T'I'II e) -> fo @from (fio @into @(AR) e from) x)
-
-instance
- ( Covariant Endo Semi Functor (AR) t
- , forall e . Covariant Endo Semi Functor (AR) (T'I'II (AR) e)
- ) => Mapping U_1_I T'I'II (AR) (AR) t (UU_V_T'I'II_T_II U_1_I (AR) (AR) t r) where
- mapping = rewrap `identity` \_ x -> UU_V_T'I'II_T_II (\(U_1_I e) -> (\_ -> e Unit) `fo` x)
-
-instance
- ( Contravariant Semi Functor from (AR) t
- , forall e . Contravariant Semi Functor into (AR) (T'II'I from e)
- ) => Mapping T'II'I T'I'II from (AR) t (UU_V_T'I'II_T_II T'II'I into (AR) t r) where
- mapping = rewrap `identity` \from x -> UU_V_T'I'II_T_II (\(T'II'I e) -> fa @from (fai @into @(AR) e from) x)
-
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` S'I'II e `L` S'I'II e `T` l) (S'I'II e) where
  mapping = rewrap `identity` \from -> \case
   T'TT'I (T'I'II (That (Labeled (T'I'II (That x))))) -> T'I'II (That `identity` from x)
