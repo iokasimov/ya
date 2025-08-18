@@ -982,13 +982,13 @@ kyo :: forall from into t tt ll a o .
  Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
  Covariant Yoneda Functor from into t =>
  Covariant Functor from into (T'I'II from (tt `L` tt `T` ll `T'I` a)) =>
- Contravariant Functor from into (T'II'I from (I `L` I `T` ll `T'I` o)) =>
+ Contravariant Functor from into (T'II'I from (I `L` tt `T` ll `T'I` o)) =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (forall e ee . Wrapper into (T'II'I from e ee)) =>
  (forall e . Wrapper from (I e)) =>
- (forall e . Wrapper from (I `L` I `T` ll `T'I` e)) =>
+ (forall e . Wrapper from (I `L` tt `T` ll `T'I` e)) =>
  (forall e . Wrapper from (tt `L` tt `T` ll `T'I` e)) =>
- t a -> into (from (tt a) ((I `L` I `T` ll) o)) (t o)
+ t a -> into (from (tt a) (I `L` tt `T` ll `T` o)) (t o)
 kyo x = yo (unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x)
  `compose` fio @from (unwrap `compose` unwrap)
  `compose` fai @from unwrap
