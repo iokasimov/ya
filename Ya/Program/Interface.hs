@@ -105,19 +105,20 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
 --    (r `yokl` is) `lu'yp` Run (w `yokl` is) `lu'yp` Run (f `yokl` is) -- `yo'yo` from
 --     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I (These (x `yo` from) (T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @(Void)  (xs `yo` from))))))
 
--- instance
---  ( Covariant Endo Semi Functor (AR) tt
---  , Covariant Endo Semi Functor (AR) ttt
---  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
---  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
---  , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` tttt `T` ll `L` ttt `T` Void) (ttt `TT'T'I` tttt)
---  ) => Mapping T'I'II T'I'II (AR) (AR)
---  ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` tttt `L` tttt `T` ll `L` (Reverse tt `P'T'I'TT'I` Forward ttt) `T` Void)
---  ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
---  where
---   mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
---    (r `yokl` is) `lu'yp` Run (f `yokl` is)
---     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @_ @Void (xs `yo` from))))
+instance
+ ( Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
+ , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` tttt `T` ll `L` ttt `T` Void) (ttt `TT'T'I` tttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+ ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` tttt `L` tttt `T` ll `L` (Reverse tt `P'T'I'TT'I` Forward ttt) `T` Void)
+ ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt)
+ where
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
+   (r `yokl` wrap @(AR) @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) `compose` unwrap)
+   `lu'yp` Run (f `yokl` wrap @(AR) @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) `compose` unwrap)
+     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @_ @Void (xs `yo` from))))
 
 -- instance
 --  ( Covariant Endo Semi Functor (AR) t
