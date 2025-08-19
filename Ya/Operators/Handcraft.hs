@@ -978,36 +978,19 @@ yuk______ = yuk @into @tt
 yi'yuk = yuk @into @tt
 
 kyo :: forall from into t tt ll a o .
- Precategory into =>
  Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
  Covariant Yoneda Functor from into t =>
- Covariant Functor from into (T'I'II from (tt `L` tt `T` ll `T'I` a)) =>
- Contravariant Functor from into (T'II'I from (I `L` tt `T` ll `T'I` o)) =>
+ Covariant Functor from into (T'I'II from (tt a)) =>
+ Contravariant Functor from into (T'II'I from o) =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
  (forall e ee . Wrapper into (T'II'I from e ee)) =>
  (forall e . Wrapper from (I e)) =>
  (forall e . Wrapper from (I `L` tt `T` ll `T'I` e)) =>
  (forall e . Wrapper from (tt `L` tt `T` ll `T'I` e)) =>
  t a -> into (from (tt a) (I `L` tt `T` ll `T` o)) (t o)
-kyo x = yo (unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x)
- `compose` fio @from (unwrap `compose` unwrap)
- `compose` fai @from unwrap
-
--- kyok :: forall from into t tt ttt ll lll a o .
- -- Precategory into =>
- -- Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
- -- Covariant Yoneda Functor from into t =>
- -- Covariant Functor from into (T'I'II from (tt `L` tt `T` ll `T'I` a)) =>
- -- Contravariant Functor from into (T'II'I from (ll `L` I `T'I` o)) =>
- -- (forall e ee . Wrapper into (T'I'II from e ee)) =>
- -- (forall e ee . Wrapper into (T'II'I from e ee)) =>
- -- (forall e . Wrapper from (I e)) =>
- -- (forall e . Wrapper from (ll `L`I `T'I` e)) =>
- -- (forall e . Wrapper from (ll `L`tt `T'I` e)) =>
---  t a -> into (from (tt a) ((ll `L` I) ((ttt `L` ttt `T` lll) o))) (t o)
--- kyok x = yo (unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x)
---  `compose` fio @from (unwrap `compose` unwrap)
---  `compose` fai @from unwrap
+kyo x = fai @into (fai @from unwrap `compose` fio @from (unwrap @_ @(I _) `compose` unwrap)) 
+ `compose` yo @from @into @t
+ `compose` unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
