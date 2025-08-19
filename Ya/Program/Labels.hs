@@ -11,10 +11,6 @@ pattern Apply e = Labeled @_ @_ @Void e
 pattern Usual e = Labeled @_ @_ @Void e
 pattern Default e = Labeled @_ @_ @Void e
 
--- TODO: restrict to Scrolling List, Scrolling Tree
-pattern Range :: e `AR__` Only `L` t `T` Void `T` e
-pattern Range x = Labeled (Only x)
-
 pattern First :: t o `AR__` t `L` tt `T` Void `T` o
 pattern First i = Labeled i
 

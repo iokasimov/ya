@@ -30,6 +30,11 @@ type Leveled e = Shifting Only List `T'TT'I` e
 
 type Scrolling datastructure = Shifting Only datastructure
 
+type Scrollable datastructure = Shiftable Only datastructure
+
+pattern Range :: forall t e . Scrollable t => e `AR__` Only `L` Scrolling t `T` Void `T` e
+pattern Range x = Labeled (Only x)
+
 type Sliding datastructure = Shifting List datastructure
 
 pattern Lift x = This x :: Shifter List
