@@ -176,14 +176,14 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
-infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lu'ys'la`
-infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lu_'ys'la`
-infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lu__'ys'la`
-infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'la`, `lu___'ys'la`
-infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'la`, `lu____'ys'la`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'la`, `lu_____'ys'la`
-infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'la`, `lu______'ys'la`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'la`, `lu_______'ys'la`
+infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `lu'ys'la`
+infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lo_'q`, `lu_'ys'la`
+infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lo__'q`, `lu__'ys'la`
+infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'la`, `lo___'q`, `lu___'ys'la`
+infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'la`, `lo____'q`, `lu____'ys'la`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'la`, `lo_____'q`, `lu_____'ys'la`
+infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'la`, `lo______'q`, `lu______'ys'la`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'la`, `lo_______'q`,  `lu_______'ys'la`
 
 infixl 8 `la`
 infixl 7 `la_`
@@ -2200,6 +2200,29 @@ lu_____'q = lu'q
 lu______'q = lu'q
 lu_______'q = lu'q
 lu________'q = lu'q
+
+lo'q, lo_'q, lo__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, lo________'q
+ :: forall into i a .
+ Category into =>
+ Covariant Limit into into =>
+ (forall e . Covariant Endo Semi Functor into (T'I'II Product e)) =>
+ (forall e . Covariant Endo Semi Functor into (T'II'I Product e)) =>
+ (forall e . Wrapper into (T'I'I P e)) =>
+ (forall e ee . Wrapper into (P'II'I e ee)) =>
+ (forall e ee . Wrapper into (P'I'II e ee)) =>
+ (forall e . Wrapper into (I e)) =>
+ Setoid into a =>
+ into i a `AR__` into i a `AR_` into i (a `P` a `S` a)
+lo'q x y = q `compose` lo x y
+
+lo_'q = lo'q
+lo__'q = lo'q
+lo___'q = lo'q
+lo____'q = lo'q
+lo_____'q = lo'q
+lo______'q = lo'q
+lo_______'q = lo'q
+lo________'q = lo'q
 
 lu's, lu_'s, lu__'s, lu___'s, lu____'s, lu_____'s, lu______'s, lu_______'s, lu________'s
  :: forall into a .
