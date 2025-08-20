@@ -22,7 +22,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
  mapping = rewrap `identity` \_ _ -> T'TT'I'TTT'I (wrap empty `lu` wrap empty)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
   let These i' i'' = unwrap i in
   let These ii' ii'' = (unwrap `compose` unwrap) ii in
@@ -100,11 +100,11 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T` Void)
  ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt) where
-  -- mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
-            -- (r `yokl` rewrap @((tttt `L` tttt `T` ll) `L` tt `T` Void `T` _) is)
-   -- `lu'yp` Run (w `yokl` rewrap @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
-   -- `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) is)
-     -- `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I (These (x `yo` from) (T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @(Void)  (xs `yo` from))))))
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) -> (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) @AR is)
+   `lu'yp` Run (w `yokl` rewrap @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
+   `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) is)
+     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
+      (Labeled (sx `yo` from)) `lu_` (Labeled (xs `yo` from))))))
 
 instance
  ( Covariant Endo Semi Functor (AR) tt
@@ -166,14 +166,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
 --      )
 --     ))))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Covariant Day (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These e (Labeled ee)) (T'I'II f) ->
-   (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
+  These (These e ee) (T'I'II f) ->
+   e `yokl` (\x -> Prior `ha` New `hv` (unwrap ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx))))))
    `he'he'hv____` Empty @List Unit
    `yi______` that `ho` unwrap @(AR)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e (Labeled ee)) (T'I'II f) ->
    (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx)))))))
@@ -218,6 +219,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
   `yi_` to @(Scrolling List)
   `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` from
   `yi_` to @(Nonempty List) `ho` wrap @(AR)
+
+instance Mapping T'I'II T'I'II (AR) (AR) List
+ (List `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` (Only `P'T'I'TT'I` Shafted List) `T` Void) where
+ mapping = rewrap `identity` \from -> wrap @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
+  `ha__` Empty @List `hu` Empty @List Unit
+    `la` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) from `ho'he` to @List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
