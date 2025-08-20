@@ -3,15 +3,29 @@
 module Ya.Algebra.Abstract where
 
 infixl 9 #, `T`, `L`
-infixl 8 `T'I`
-infixl 7 `T'I_`
-
-infixl 7 `T'TT'I`, `TT'T'I`
-infixl 6 `T'TT'I_`
+infixl 8 `T_`, `T'I`
+infixl 7 `T__`, `T'I_`, `T'TT'I`, `TT'T'I`
+infixl 6 `T___`, `T'I__`, `T'TT'I_`
+infixl 5 `T____`, `T'I___`
+infixl 4 `T_____`
+infixl 3 `T______`
+infixl 2 `T_______`
+infixl 1 `T________`
 
 type T t = t
+type T_ t = t
+type T__ t = t
+type T___ t = t
+type T____ t = t
+type T_____ t = t
+type T______ t = t
+type T_______ t = t
+type T________ t = t
+
 type T'I t = t
 type T'I_ t = t
+type T'I__ t = t
+type T'I___ t = t
 
 type family Supertype e
 
