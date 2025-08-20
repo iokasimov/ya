@@ -2180,7 +2180,6 @@ ra :: forall into hom t i .
  into (t i) (hom i (Representation t))
 ra = he `compose` map @T'II'I @T'I'II @into @into @t @(T'II'I hom (Representation t)) identity
 
--- TODO: it should be renamed since `hj` is used instead of `hd`
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall into a .
  Adjoint Functor into into (T'II'I (P) a) (T'I'II into a) =>

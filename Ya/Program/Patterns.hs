@@ -190,6 +190,8 @@ type List = Optional `T'TT'I` Construction Optional
 
 pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
 
+type Quest = List
+
 pattern Item :: i -> t (Recursive (T'I'TT'II (P) t i)) -> Recursive (T'I'TT'II (P) t i)
 pattern Item x xs = Recursive (T'I'TT'II (These x xs))
 
