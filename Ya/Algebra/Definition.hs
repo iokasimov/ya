@@ -467,6 +467,9 @@ pattern Instead x = T'I' x
 
 type Twice = Both (P)
 
+pattern Twice :: i `P` i `AR___` T'I'I P i
+pattern Twice x = T'I'I x
+
 -- TODO: these typeclasses are experimental
 class Semigroup from e where s :: e `P` e `from` e
 class Quasigroup from e where p :: e `P` e `from` e
