@@ -96,28 +96,50 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
  , Covariant Endo Transformation Functor (AR) (t `T'TT'I` tttt `L` tttt `T` ll `L` t `T` Void) (t `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` tttt `T` ll `L` ttt `T` Void) (ttt `TT'T'I` tttt)
- ) => Mapping T'I'II T'I'II (AR) (AR)
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `T` Void)
- ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward ttt)) `TT'T'I` tttt) where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) -> (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) @AR is)
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Shafted tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Shafted tt) `T` Void) ((t `P'T'I'TT'I` Shafted tt) `TT'T'I` tttt) where
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
+            (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (w `yokl` rewrap @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
    `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) is)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
       (Labeled (sx `yo` from)) `lu_` (Labeled (xs `yo` from))))))
 
 instance
- ( Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
+ , Covariant Endo Transformation Functor (AR) (t `T'TT'I` tttt `L` tttt `T` ll `L` t `T` (Void `P` Void)) (t `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` tttt `L` tttt `T` ll `L` ttt `T` Void) (ttt `TT'T'I` tttt)
- ) => Mapping T'I'II T'I'II (AR) (AR)
- ((Reverse tt `P'T'I'TT'I` Forward ttt) `T'TT'I` tttt `L` tttt `T` ll `L` (Reverse tt `P'T'I'TT'I` Forward ttt) `T` Void)
- ((Reverse tt `P'T'I'TT'I` Forward ttt) `TT'T'I` tttt) where
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Shafted tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Shafted tt) `T` (Void `P` Void)) ((t `P'T'I'TT'I` Shafted tt) `TT'T'I` tttt) where
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
+            (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
+   `lu'yp` Run (w `yokl` rewrap @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
+   `lu'yp` Run (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
+     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
+      (Labeled (sx `yo` from)) `lu_` (Labeled (xs `yo` from))))))
+
+instance
+ ( Covariant Endo Semi Functor (AR) tt
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void ttt
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Shafted tt `T'TT'I` ttt `L` ttt `T` ll `L` Shafted tt `T` Void) (Shafted tt `TT'T'I` ttt) where
   mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
-            (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
-   `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) is)
+            (r `yokl` rewrap @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
+   `lu'yp` Run (f `yokl` rewrap @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
+     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @_ @Void (xs `yo` from))))
+
+instance
+ ( Covariant Endo Semi Functor (AR) tt
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void ttt
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
+ , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Shafted tt `T'TT'I` ttt `L` ttt `T` ll `L` Shafted tt `T` (Void `P` Void)) (Shafted tt `TT'T'I` ttt) where
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Labeled r) (Labeled f))) ->
+            (f `yokl` rewrap @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
+   `lu'yp` Run (r `yokl` rewrap @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Labeled @_ @_ @(Void `P` Void) (sx `yo` from)) (Labeled @_ @_ @Void (xs `yo` from))))
 
 -- instance
