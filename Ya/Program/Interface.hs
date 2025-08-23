@@ -123,7 +123,7 @@ instance
   mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) ->
             (r `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (w `yokl` rewrap @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
-   `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` ttt `T` Void `T` _) is)
+   `lu'yp` Run (f `yokl` rewrap @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
       (Labeled (sx `yo` from)) `lu_` (Labeled (xs `yo` from))))))
 
