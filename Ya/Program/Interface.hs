@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
-module Ya.Program.Interface (module Exports, focus, shaft, pattern Aloft, pattern Stump) where
+module Ya.Program.Interface (module Exports, focus, shaft, pattern Aloft, pattern Stump, pattern Merge) where
 
 import Ya.Algebra
 import Ya.Operators
@@ -114,7 +114,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
  , Covariant Endo Transformation Functor (AR) (t `T'TT'I` tttt `L` tttt `T` ll `L` t `T` Void) (t `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
