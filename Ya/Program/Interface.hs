@@ -15,9 +15,31 @@ import Ya.Program.Interface.Stackable as Exports
 import Ya.Program.Interface.Shiftable as Exports
 import Ya.Program.Interface.Keyable as Exports
 
+instance
+ ( Stackable tt
+ , Covariant Endo Semi Functor (->) tt
+ , Covariant Yoneda Functor (->) (->) t
+ , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((T'TT'I'TTT'I (P) t tt) `L` tt `T` Void) tt where
+ mapping = rewrap `identity` \from (Labeled (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
+    `he'he'hv___` xx `yi__` that `ho'yo` from
+
+pattern Merge :: forall t tt i .
+ ( Stackable tt
+ , Covariant Endo Semi Functor (->) tt
+ , Covariant Endo Yoneda Functor (->) t
+ , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ ) =>
+ t i `P` tt i `AR____` (T'TT'I'TTT'I (P) t tt) `L` tt `T` Void `T` i
+pattern Merge x = Labeled (T'TT'I'TTT'I x)
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Labeled bs) (Labeled fs))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
+
+instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (These (Labeled `hv` empty @List) (Labeled `hv__` x `yo` from))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
  mapping = rewrap `identity` \_ _ -> T'TT'I'TTT'I (wrap empty `lu` wrap empty)
