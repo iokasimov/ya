@@ -85,6 +85,9 @@ pattern Continue x = T'I'II @(S) (That x)
 pattern Erase :: e -> Progress e ee
 pattern Erase x = T'I'II (This x)
 
+pattern Store :: ee -> Progress e ee
+pattern Store x = T'I'II (That x)
+
 pattern Allot :: ee -> Progress e ee
 pattern Allot x = T'I'II (That x)
 
