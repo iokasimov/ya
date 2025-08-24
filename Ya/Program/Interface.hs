@@ -238,6 +238,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
   `he'he'hv___` empty @List
   `yi__` Empty @List `la` is `ho'he` that @(List _)
 
+instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
+ mapping = rewrap `identity` \from x -> unwrap x
+  `yokl` Prior `ha` Apply `ha` State `ha` Event
+  `ha__` Error `hu` auto `la` push @List `ho'ho` (auto `ha` that) `ha` from
+  `he'he'hv___` Empty @List Unit
+  `yi__` that
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \from x -> let start = (unwrap (unwrap (unwrap (unwrap x)))) in
   that `hv` start
