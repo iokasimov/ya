@@ -249,6 +249,8 @@ infixl 1 `yok______` --, `yok______'yokl`, `yok______'yukl`
 
 infixl 7 `kyo`
 
+infixl 6 `kyok`
+
 infixl 5 `kyokl`
 
 infixl 6 `yiok`
@@ -994,6 +996,24 @@ kyo x = fai @into (fai @from unwrap `compose` fio @from (unwrap @_ @(I _) `compo
  `compose` yo @from @into @t
  `compose` unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x
 
+kyok :: forall from into t tt ttt l ll lll a o .
+ Covariant Yoneda Functor from into t =>
+ Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
+ Component from (t `T'TT'I` ttt `L` ttt `T` lll) t =>
+ (forall e . Contravariant Functor from into (T'II'I from e)) =>
+ (forall e . Covariant Functor from into (T'I'II from e)) =>
+ (forall e . Covariant Functor from (AR) (T'I'II into e)) =>
+ (forall e ee . Wrapper into (T'I'II from e ee)) =>
+ (forall e ee . Wrapper into (T'II'I from e ee)) =>
+ (forall e . Wrapper from (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper from (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper from (t `TT'T'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper from (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
+ (forall e . Wrapper from (I e)) =>
+ t a -> into (from (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `T` o)) (t o)
+kyok = fio @from (component @from @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` wrap)
+ `compose` kyo @from @into @t @tt @ll
+
 kyokl :: forall from into t tt ttt l ll lll a o .
  Covariant Yoneda Functor from into t =>
  Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -1014,7 +1034,7 @@ kyokl = fio @from (wrapped (component @from @(t `T'TT'I` ttt `L` ttt `T` lll `L`
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall from into t tt l ll a o .
- Category into =>
+ -- Category into =>
  Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Yoneda Functor from into t =>
  (forall i . Wrapper into (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` i)) =>
