@@ -164,13 +164,13 @@ deriving instance
  Yoneda v x from into t
 
 type family Representation t where
- Representation I = ()
+ Representation I = Unit
  Representation (T'I'II Arrow a) = a
  Representation (T'TT'I t tt) =
   Representation t `P` Representation tt
  Representation (T'TTT'TT'I t ttt tt) =
   Representation t `P` Representation tt `P` Representation ttt
- Representation (T'I'I (P)) = () `S` ()
+ Representation (T'I'I (P)) = Unit `S` Unit
 
 class
   ( Mapping v T'I'II from into t (v hom (Representation t))
