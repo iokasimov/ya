@@ -433,7 +433,13 @@ class Setoid into e where
  equality :: into (e `P` e) (e `P` e `S` e)
 
 type P'T'I'TT'I = T'TT'I'TTT'I (P)
+
+pattern LRT x xx = T'TT'I'TTT'I (These x xx)
+
 type S'T'I'TT'I = T'TT'I'TTT'I (S)
+
+pattern LT x = T'TT'I'TTT'I (This x)
+pattern RT x = T'TT'I'TTT'I (That x)
 
 class Objective into st t where
  objective :: into t st
