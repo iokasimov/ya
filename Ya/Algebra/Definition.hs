@@ -461,9 +461,9 @@ instance Elicitable T'II'I (AR) (U_I_UU_M_I_II_II u uu i ii)
 instance Elicitable T'I'II (AR) (U_I_UU_M_I_II_II u uu i ii)
  where elicit = T'I'II (\(U_I_UU_M_I_II_II x) -> x)
 
-type Instead = T'I'
+type Final = T'I'
 
-pattern Instead x = T'I' x
+pattern Final x = T'I' x
 
 type Twice = Both (P)
 
