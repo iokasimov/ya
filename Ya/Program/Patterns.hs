@@ -12,10 +12,10 @@ type Once = I
 pattern Once :: e -> Once e
 pattern Once e = Identity e
 
-type Only = I
+type Alone = I
 
-pattern Only :: e -> Only e
-pattern Only e = Identity e
+pattern Alone :: e -> Alone e
+pattern Alone e = Identity e
 
 type Singular = I
 
@@ -229,7 +229,7 @@ pattern Binary xs = T'TT'I (T'I'I xs)
 type family Forest tree where
  Forest (Construction t) = t `T'TT'I` Construction t
 
-type Stream = Construction Only
+type Stream = Construction Alone
 
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs

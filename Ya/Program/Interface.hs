@@ -51,7 +51,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) (Shafted Li
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` (Only `P'T'I'TT'I` Shafted List) `T` Void) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I'TTT'I (These rl fl)))) ->
   Identity `hv` Labeled x
    `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Prior)
@@ -69,18 +69,18 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) ((Only
    `he'he'hv______` x `lu` by `hv` Empty @List
 
 instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
- ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Construction List))) where
+ ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Construction List))) where
   mapping = rewrap `identity` \from x -> T'TT'I'TTT'I
-   (T'TT'I (T'TT'I'TTT'I ((Only `hv__` x `yo` from) `lu` T'TT'I'TTT'I (Prior `hv` Empty @List Unit `lu` Forth `hv` Empty @List Unit))) `lu` T'TT'I (Prior `hv` Empty @List Unit))
+   (T'TT'I (T'TT'I'TTT'I ((Alone `hv__` x `yo` from) `lu` T'TT'I'TTT'I (Prior `hv` Empty @List Unit `lu` Forth `hv` Empty @List Unit))) `lu` T'TT'I (Prior `hv` Empty @List Unit))
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
- -- ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
- -- ((Only `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
+ -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
+ -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List) where
  -- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These sl xs)) ->
   -- T'TT'I `he` that ((unwrap xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `lu`)) `he_'he` unwrap sl) `yo` from where
 
    -- restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = T'TT'I'TTT'I
-    -- `he__` Only (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
+    -- `he__` Alone (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      -- `lu` unwrap shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
@@ -101,13 +101,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List w
     `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
   `he'he'hv____` Empty @List Unit
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \x -> x
   `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
   `yio'yo` from
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Only `P'T'I'TT'I` Shafted List)
- ((Only `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Only `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List)
+ ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
  mapping = rewrap `identity` \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Prior `ha` Empty @List) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
@@ -173,7 +173,7 @@ instance
 --  -- , Covariant Endo Transformation Functor (AR) (ttt `T'TT'I` t `L` t `T` Void `L` lltt) (ttt `TT'T'I` tttt)
 --  ) => Mapping T'I'II T'I'II (AR) (AR)
 --  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) `T'TT'I` ttt `L` ll `L` Void)
---  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Stacked Only Tree List) `TT'T'I` tttt)  where
+--  (((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Stacked Alone Tree List) `TT'T'I` tttt)  where
   -- mapping = rewrap `identity` \from -> rewrap `identity`
   --  \(T'TT'I'TTT'I (These (T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Labeled r) (Labeled f))))) (Labeled passed))) ->
   --  ()
@@ -264,14 +264,14 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
   `yi__` this @(Nonempty List _) `ho'yo` (Labeled `ho'yo` from) `ho` wrap @(AR) where
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
- (Construction Optional `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` (Only `P'T'I'TT'I` Shafted List) `T` Void) where
+ (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x -> x
   `yi_` to @(Scrolling List)
   `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` from
   `yi_` to @(Nonempty List) `ho` wrap @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) List
- (List `T'TT'I` (Only `P'T'I'TT'I` Shafted List) `L` (Only `P'T'I'TT'I` Shafted List) `T` Void) where
+ (List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from -> wrap @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
   `ha__` Empty @List `hu` Empty @List Unit
     `la` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) from `ho'he` to @List
@@ -304,15 +304,15 @@ instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predica
  mapping = rewrap `identity` \from -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li_` x `lu'q` from x'
 
 pattern Aloft :: forall t e .
- Component (AR) (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree =>
+ Component (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree =>
  (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
 pattern Aloft x = Labeled x
 
-instance Mapping T'I'II T'I'II Arrow Arrow (((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Only `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
+instance Mapping T'I'II T'I'II Arrow Arrow (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \from (Labeled (T'TT'I'TTT'I (These scrolling_list tree))) ->
-   rewrap (\x -> Only tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
+   rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
-    `yi` this @(Only _) `ho'he` Root `hv` unwrap scrolling_list
+    `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
 
 pattern Stump :: forall i e .
