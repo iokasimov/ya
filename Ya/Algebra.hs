@@ -282,7 +282,10 @@ instance
   \(T'I'II x) -> component @(AR) @(t `T'TT'I` t `L` t `T` Void) @t
   `compose` wrap @(AR) @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
   `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
-   (wrap @(AR) @(t `L` t `T` Void `T` _) `compose` fd @(AR) @(AR) (unwrap @(AR) @(T'TTT'TT'I (T'I'II (AR) btw) (T'II'I (P) new) t _) `compose` fo from `compose` unwrap @(AR) @(_ `L` _ `T` Void `T` _)))
+   (wrap @(AR) @(t `L` t `T` Void `T` _)
+    `compose` fd @(AR) @(AR) (unwrap @(AR) @(T'TTT'TT'I (T'I'II (AR) btw) (T'II'I (P) new) t _)
+    `compose` fo from
+    `compose` unwrap @(AR) @(_ `L` _ `T` Void `T` _)))
   `compose` x
 
 -- TODO: try to use adjunctions here
@@ -310,7 +313,6 @@ instance
     \old -> x old `yok` \(T'II'I (These (Labeled @_ @_ @(Void `P` Void) (T'I'II (T'I'TT'II'I f))) btw))
       -> (Labeled @_ @_ @Void `compose` intro @tt @(AR)) `identity` (T'II'I (f btw `yiu` old) `yo` from)
 
--- TODO: introduce a label
 instance
  ( Covariant Functor into into tt
  , Covariant Functor into into ttt
@@ -325,7 +327,7 @@ instance
  , forall e . Wrapper into (tt `T'TT'I` tt `L` tt `T` l `T'I_` e)
  , forall e . Wrapper into (ttt `T'TT'I` tt `L` tt `T` l `L` ttt `T` l `T'I_` e)
  , forall e . Wrapper into (tt `L` tt `T` l `L` ttt `T` l `T` e)
- , forall e . Wrapper into ((T'TTT'TT'I t ttt tt) `T'TT'I` (tt `L` tt `T` l) `T'I_` e)
+ , forall e . Wrapper into (T'TTT'TT'I t ttt tt `T'TT'I` tt `L` tt `T` l `T'I_` e)
  ) => Mapping T'I'II T'I'II into into (T'TTT'TT'I t ttt tt `T'TT'I` tt `L` tt `T` l) (T'TTT'TT'I t ttt tt) where
  mapping = rewrap `identity` \from -> rewrap `identity`
   map @T'I'II @T'I'II @into @into @t

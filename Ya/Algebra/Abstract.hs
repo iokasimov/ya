@@ -61,7 +61,7 @@ newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
 type T'TT'I_ = T'TT'I
 
-type instance Supertype (T'TT'I t tt i) = t (tt i)
+type instance Supertype (t `T'TT'I` tt `T'I_` i) = t (tt i)
 
 instance Elicitable T'I'II (->) (T'TT'I f g i)
  where elicit = T'I'II (\(T'TT'I x) -> x)

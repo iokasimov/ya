@@ -294,7 +294,7 @@ infixl 1 `yu_______`
 infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
-infixl 8 `ys`, `ys'yo`
+infixl 8 `ys`, `ys'yo`, `ys'yu`
 -- infixl 7 `yis`
 
 infixl 8 `yr`, `yr'yo`, `yr'yokl`
@@ -2715,7 +2715,7 @@ lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity
 yp :: forall u e ee t tt l .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (P) t (tt `L` tt `T` l) e ee) t =>
  -- Covariant Monoidal Functor (AR) (AR) u (P) l t =>
- u (t e) ((tt `L` tt `T` l) ee) -> t (e `P` ee)
+ u (t e) (tt `L` tt `T` l `T` ee) -> t (e `P` ee)
 yp = day @T'I'II @(AR) @l @t @tt @u @(P) identity identity
 
 -- TODO: try to generalize
@@ -2779,6 +2779,14 @@ ys'yo :: forall from t tt l e ee u r .
  Mapping T'I'II T'I'II from (AR) (Covariant Day from u (S) t (tt `L` tt `T` l) e ee) t =>
  u (t e) ((tt `L` tt `T` l) ee) -> from (e `S` ee) r -> t r
 ys'yo x f = day @T'I'II @from @l @t @tt @u @(S) identity f x
+
+-- TODO: try to generalize
+ys'yu :: forall from t tt l e ee u r .
+ (forall e . Mapping T'I'II T'I'II (->) (->) I (T'I'II from e)) =>
+ Category from =>
+ Mapping T'I'II T'I'II from (AR) (Covariant Day from u (S) t (tt `L` tt `T` l) e ee) t =>
+ u (t e) ((tt `L` tt `T` l) ee) -> r -> t r
+ys'yu x r = day @T'I'II @from @l @t @tt @u @(S) identity (constant r) x
 
 -- TODO: try to generalize
 -- yis :: forall u e ee eee t .
@@ -2878,7 +2886,7 @@ yp'yokl :: forall e ee from into t tt ttt l ll lll o .
  Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) P t (ttt `L` ttt `T` lll) e ee) t =>
  Covariant Yoneda Functor from into t =>
  Elicitable T'II'I into (T'I'II from (e `P` ee) (tt o)) =>
- (forall i . Wrapper into (T'TT'I t tt i)) =>
+ (forall i . Wrapper into (t `T'TT'I` tt `T'I_` i)) =>
  (forall i . Wrapper into (TT'T'I t tt i)) =>
  (forall i . Wrapper into ((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) i)) =>
  (forall e ee . Wrapper into (T'I'II from e ee)) =>
