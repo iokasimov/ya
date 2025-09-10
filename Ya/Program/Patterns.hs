@@ -56,9 +56,6 @@ pattern Equip x = T'II'I x
 
 type Optional = S'I'II Unit
 
-pattern None :: Unit -> Optional e
-pattern None x = T'I'II (This x)
-
 pattern Empty :: Unit -> Maybe i
 pattern Empty x = T'I'II (This x)
 
