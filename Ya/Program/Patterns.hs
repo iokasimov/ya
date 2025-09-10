@@ -59,11 +59,10 @@ type Optional = S'I'II Unit
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
 
-pattern Empty :: Unit -> Optional e
+pattern Empty :: Unit -> Maybe i
 pattern Empty x = T'I'II (This x)
 
-pattern Some, Exist :: ee -> S'I'II Unit ee
-pattern Some x = T'I'II (That x)
+pattern Exist :: i -> Maybe i
 pattern Exist x = T'I'II (That x)
 
 pattern Optionally x = T'I'II x
@@ -194,7 +193,7 @@ pattern Load x = R_U_I_T_I (Recursive (T'I'TT'II (This x)))
 
 type List = Optional `T'TT'I` Construction Optional
 
-pattern List xs = T'TT'I @Optional @(Construction Optional) (Some (R_U_I_T_I xs))
+pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (R_U_I_T_I xs))
 
 type Quest = List
 
@@ -216,13 +215,9 @@ type family Nonempty datastructure where
 pattern Nonempty :: forall t i . Recursive (T'I'TT'II (P) (Brancher t) i) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
--- pattern Empty :: forall t e . (Brancher t ~ Optional)
- -- => Unit -> T'TT'I Optional (Construction Optional) e
--- pattern Empty x = T'TT'I (None x)
-
 type Tree = Construction List
 
-pattern Tree x xs = R_U_I_T_I (Recursive (T'I'TT'II (These x (T'TT'I (Some (Construct xs))))))
+pattern Tree x xs = R_U_I_T_I (Recursive (T'I'TT'II (These x (T'TT'I (Exist (Construct xs))))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)

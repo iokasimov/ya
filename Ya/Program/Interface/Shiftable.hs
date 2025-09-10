@@ -41,7 +41,7 @@ pattern Lift x = This x :: Shifter List
 pattern Down x = That x :: Shifter List
 
 instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
- shift way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Some `li` shift' `he'he'hv` x where
+ shift way x = is `li` None `hu` (None Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` shift' `he'he'hv` x where
 
   shift' = intro @(Halts `JNT` State `T` Scrolling List _) Unit
    `yuk__` New `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
@@ -53,7 +53,7 @@ instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
 instance Shiftable List (Optional `T'TT'I` Construction Optional) where
  shift way x = is
   `li` is `hu` (by None `lu` x)
-  `la` is `ho'he` foi @_ @(AR) Some
+  `la` is `ho'he` foi @_ @(AR) Exist
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
   slide_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
@@ -88,7 +88,7 @@ pattern Level x = That x :: Shifter Tree
 instance Shiftable Alone (Construction List) where
  shift way x = is
   `li` is `hu` (by None `lu` x)
-  `la` is `ho'he` foi @_ @(AR) Some
+  `la` is `ho'he` foi @_ @(AR) Exist
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
   horizontally :: forall i . Way `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
@@ -147,7 +147,7 @@ locate :: forall window datastructure item .
  Fieldable (window item) (Supertype (Shifting window datastructure item)) =>
  Wrapper (AR) (Shifting window datastructure item) =>
  Shifter datastructure `P` Predicate (window item) `AR_` Supertype (Event `T'I` Shifting window datastructure item `T'I` Optional (Shifting window datastructure item))
-locate (These way predicate) x = foi Some `ha` auto `la` is `ho'he` foi @_ @(AR) (None `hu` by None) `li` locate' `he'he'hv` x where
+locate (These way predicate) x = foi Exist `ha` auto `la` is `ho'he` foi @_ @(AR) (None `hu` by None) `li` locate' `he'he'hv` x where
 
  locate' = intro @(Stops `T` Shifting window  datastructure item `JNT` State `T` Shifting window datastructure item) Unit
   `yuk____` State `ho` New `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___'he` Scope `hv` at @(window item)
@@ -161,14 +161,14 @@ rewind :: forall window datastructure item .
 rewind way = unwrap @(AR) `ha` unwrap @(AR)
  `hv_______` intro @(State `T` Shifting window datastructure item) Unit
    `yuk____` State `ho` New `hv____` Event `hv___` shift way
-   `yok____` Retry `ha__` Some `la` Some `hu` by None
+   `yok____` Retry `ha__` Exist `la` Exist `hu` by None
 
 pattern Shrink e = This e
 pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 adjust :: forall item . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List item `T'I` Optional item)
-adjust way x = is `hu` (by None `lu` x) `la` is `ho'he` foi @_ @(AR) Some `li` router way `he'he'hv` x where
+adjust way x = is `hu` (by None `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
 
  -- TODO: there should be a way to shorten it
  router (These (This _) (This _)) = shrink_passed

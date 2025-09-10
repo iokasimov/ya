@@ -18,14 +18,14 @@ class Stackable datastructure where
 instance Stackable List where
  pop = \case
   T'TT'I (T'I'II (This _)) -> by None `lu` empty @List
-  T'TT'I (Some (Construct (Recursive (T'I'TT'II (These x xs))))) -> Some x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
+  T'TT'I (Exist (Construct (Recursive (T'I'TT'II (These x xs))))) -> Exist x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
  push item s = item `lu` rewrap
-  (Some `ha` R_U_I_T_I `ha` Recursive `ha` T'I'TT'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+  (Exist `ha` R_U_I_T_I `ha` Recursive `ha` T'I'TT'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stackable (Construction Optional) where
  pop = \case
-  R_U_I_T_I (Recursive (T'I'TT'II (These x (Some xs)))) -> Some x `lu` R_U_I_T_I xs
+  R_U_I_T_I (Recursive (T'I'TT'II (These x (Exist xs)))) -> Exist x `lu` R_U_I_T_I xs
   R_U_I_T_I (Recursive (T'I'TT'II (These x (None xs)))) -> by None `lu` R_U_I_T_I (Recursive (T'I'TT'II (These x (None xs))))
  push x = \old -> These x (Item x `ha` Next  `rewrap` old)
 

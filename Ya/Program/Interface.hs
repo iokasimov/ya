@@ -84,7 +84,7 @@ instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
      -- `lu` unwrap shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
- mapping = rewrap `identity` \from -> rewrap `li_` wrap `ho'yo` from `ho` Some
+ mapping = rewrap `identity` \from -> rewrap `li_` wrap `ho'yo` from `ho` Exist
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Prior `hv` empty @List `lu` Forth `ha` List `hv` unwrap x)) `yo` from
@@ -280,7 +280,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) wher
  mapping = rewrap `identity` \from -> rewrap `identity` \(These x y) -> Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) List where
- mapping = rewrap `identity` \from -> rewrap `identity` \(These x y) -> Some `ha` Nonempty @List `ha` Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
+ mapping = rewrap `identity` \from -> rewrap `identity` \(These x y) -> Exist `ha` Nonempty @List `ha` Item (from x) `ha` Next `ha` Item (from y) `ha` Last `hv` Unit
 
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
