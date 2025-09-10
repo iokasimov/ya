@@ -17,7 +17,7 @@ class Stackable datastructure where
 -- TODO: refactor, it's hard to read
 instance Stackable List where
  pop = \case
-  Empty @List _ -> by None `lu` Empty @List ()
+  T'TT'I (T'I'II (This _)) -> by None `lu` empty @List
   T'TT'I (Some (Construct (Recursive (T'I'TT'II (These x xs))))) -> Some x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
  push item s = item `lu` rewrap
   (Some `ha` R_U_I_T_I `ha` Recursive `ha` T'I'TT'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s

@@ -59,6 +59,9 @@ type Optional = S'I'II Unit
 pattern None :: Unit -> Optional e
 pattern None x = T'I'II (This x)
 
+pattern Empty :: Unit -> Optional e
+pattern Empty x = T'I'II (This x)
+
 pattern Some, Exist :: ee -> S'I'II Unit ee
 pattern Some x = T'I'II (That x)
 pattern Exist x = T'I'II (That x)
@@ -213,9 +216,9 @@ type family Nonempty datastructure where
 pattern Nonempty :: forall t i . Recursive (T'I'TT'II (P) (Brancher t) i) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
-pattern Empty :: forall t e . (Brancher t ~ Optional)
- => Unit -> T'TT'I Optional (Construction Optional) e
-pattern Empty x = T'TT'I (None x)
+-- pattern Empty :: forall t e . (Brancher t ~ Optional)
+ -- => Unit -> T'TT'I Optional (Construction Optional) e
+-- pattern Empty x = T'TT'I (None x)
 
 type Tree = Construction List
 

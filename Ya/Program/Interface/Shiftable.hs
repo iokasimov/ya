@@ -76,7 +76,7 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
   window_extract_last passed w =
    push @List passed w `yi` that
     `yokl` Forth `ha` New `ha` State `ha` Event `ha` push
-    `he'he'hv___` by `hv` Empty @List
+    `he'he'hv___` empty @List
     `yi__` that `ho` pop @List
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
@@ -134,12 +134,12 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)
  (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap `identity` \from (Root x xs) ->
-  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Labeled (Empty @List Unit) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
+  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Labeled (empty @List) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
   (unwrap l `yokl` Forth `ha` New `ha` State `ha` Event `ha` push)
-   `he'he'hv__` Empty @List `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
+   `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
    `yi_` that `ho'yo` from
 
 locate :: forall window datastructure item .
@@ -206,8 +206,8 @@ adjust way x = is `hu` (by None `lu` x) `la` is `ho'he` foi @_ @(AR) Some `li` r
  get_last_window_item window = window
   `yokl` New `ha` State `ha` Event `ha` push @List `ho` Prior
   `yuk_` New `ha` State `ha` Event `hv` pop @List
-  `he'he'hv_____` by `hv` Empty @List
+  `he'he'hv_____` empty @List
 
  rearrange_window_back popped window =
   (window `yokl` New `ha` State `ha` Event `ha` push @List `ho` Prior
-  `he'he'hv_____` by `hv` Empty @List) `yui` popped
+  `he'he'hv_____` empty @List) `yui` popped
