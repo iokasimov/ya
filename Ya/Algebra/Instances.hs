@@ -11,7 +11,7 @@ instance Mapping T'I'II T'I'II AR into t tt
   mapping = rewrap `identity` (map @T'I'II @T'I'II @AR @into `compose` constant)
 
 instance
- ( Covariant Semi Functor from into t 
+ ( Covariant Semi Functor from into t
  , forall e . Wrapper into (t `L` tt `T` l `T` e)
  ) => Mapping T'I'II T'I'II from into (t `L` tt `T` l) (t `L` tt `T` l) where
  mapping = rewrap `identity` (rewrap `compose` map @T'I'II @T'I'II @from @into @t @t)
@@ -19,6 +19,10 @@ instance
 instance (Precategory into, forall e . Wrapper into (I e))
  => Mapping T'I'II T'I'II into into I I where
  mapping = rewrap rewrap
+
+instance (Precategory into, forall i ii . Wrapper into (T'I' i ii))
+ => Mapping T'I'II T'I'II into (AR) (T'I' i) (T'I' i) where
+ mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
 
 instance
  ( forall e . Wrapper into (I e)
