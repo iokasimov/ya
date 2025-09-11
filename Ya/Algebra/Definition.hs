@@ -9,14 +9,14 @@ infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 
-infixl 8 `AR`, `AT`, `AL`
-infixl 7 `AR_`, `AT_`, `AL_`
-infixl 6 `AR__`, `AT__`, `AL__`
-infixl 5 `AR___`, `AT___`, `AL___`
-infixl 4 `AR____`, `AT____`, `AL____`
-infixl 3 `AR_____`, `AT_____`, `AL_____`
-infixl 2 `AR______`, `AT______`, `AL______`
-infixl 1 `AR_______`, `AT_______`, `AL_______`
+infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `AL`
+infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `AL_`
+infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `AL__`
+infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `AL___`
+infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `AL____`
+infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `AL_____`
+infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `AL______`
+infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `AL_______`
 
 infixl 3 `P'T'I'TT'I`
 infixl 3 `S'T'I'TT'I`
@@ -78,6 +78,26 @@ map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
 
 class Component into t tt where
  component :: into (t i) (tt i)
+
+type C'AR t tt = forall i . Component (AR) t tt => t i `AR` tt i
+
+type C'AR_ t tt = C'AR t tt
+type C'AR__ t tt = C'AR t tt
+type C'AR___ t tt = C'AR t tt
+type C'AR____ t tt = C'AR t tt
+type C'AR_____ t tt = C'AR t tt
+type C'AR______ t tt = C'AR t tt
+type C'AR_______ t tt = C'AR t tt
+
+type C'AT t tt = forall i . Component (AT) t tt => t i `AT` tt i
+
+type C'AT_ t tt = C'AT t tt
+type C'AT__ t tt = C'AT t tt
+type C'AT___ t tt = C'AT t tt
+type C'AT____ t tt = C'AT t tt
+type C'AT_____ t tt = C'AT t tt
+type C'AT______ t tt = C'AT t tt
+type C'AT_______ t tt = C'AT t tt
 
 instance {-# OVERLAPPABLE #-} (Category into, Mapping T'I'II T'I'II into into t tt) => Component into t tt where
  component = map @T'I'II @T'I'II @into @into identity

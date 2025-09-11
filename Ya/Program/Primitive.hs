@@ -71,14 +71,13 @@ joint :: forall f g e .
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
-to :: forall tt t e .
- Component (AR) t tt =>
- t e `AR` tt e
-to = component @(AR)
+to :: forall tt t . t `C'AR___` tt
+to = component
 
-as :: forall tt t e .
+-- TODO: use `C'AT` here
+as :: forall tt t i .
  Component (AT) t tt =>
- Supertype (t e `AT` tt e)
+ Supertype (t i `AT` tt i)
 as = unwrap (component @(AT))
 
 by :: Unit `AR` a `AR` a

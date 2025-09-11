@@ -241,6 +241,8 @@ instance Elicitable T'II'I (->) (U_I_1 u i ii)
 
 newtype L t _t l i = Label (t i)
 
+type Label = L
+
 type instance Supertype (L t _t l i) = t i
 
 instance Elicitable T'I'II (->) (L t _t l i)
