@@ -30,13 +30,13 @@ instance Stackable (Construction Optional) where
  push x = \old -> These x (Item x `ha` Next  `rewrap` old)
 
 pattern Plane :: Stackable t => t i -> t `L` t `T` Void `T` i
-pattern Plane i = Labeled i
+pattern Plane i = Label i
 
 pattern Whirl :: Stackable t => t i -> t `L` t `T` (Void `P` Void) `T` i
-pattern Whirl i = Labeled i
+pattern Whirl i = Label i
 
 pattern Align :: Stackable t => t i -> t `L` t `T` Void `T` i
-pattern Align i = Labeled i
+pattern Align i = Label i
 
 pattern Cross :: Stackable t => t i -> t `L` t `T` (Void `P` Void) `T` i
-pattern Cross i = Labeled i
+pattern Cross i = Label i

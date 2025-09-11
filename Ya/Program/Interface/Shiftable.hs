@@ -33,7 +33,7 @@ type Scrolling datastructure = Shifting Alone datastructure
 type Scrollable datastructure = Shiftable Alone datastructure
 
 pattern Range :: forall t e . Scrollable t => e `AR__` Alone `L` Scrolling t `T` Void `T` e
-pattern Range x = Labeled (Alone x)
+pattern Range x = Label (Alone x)
 
 type Sliding datastructure = Shifting List datastructure
 
@@ -134,7 +134,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)
  (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap `identity` \from (Root x xs) ->
-  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Labeled (empty @List) `lu` (Labeled (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
+  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Label (empty @List) `lu` (Label (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->

@@ -412,7 +412,7 @@ instance Category (AP) where
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P I (I `L` I `T` Void) e ee) I where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These (Identity e) (Labeled (Identity ee))) (T'I'II f) -> from (f (These e ee))
+  These (These (Identity e) (Label (Identity ee))) (T'I'II f) -> from (f (These e ee))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) I where
  mapping = rewrap `identity` \from (T'I'II f) -> Identity (from (f Unit))
@@ -420,7 +420,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) I where
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) P (T'II'I (S) e) (T'II'I (S) e `L` T'II'I (S) e `T` Void) ee eee) (T'II'I (S) e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These (T'II'I (This ee)) (Labeled (T'II'I (This eee)))) (T'I'II f) -> This (from (f (These ee eee)))
+  These (These (T'II'I (This ee)) (Label (T'II'I (This eee)))) (T'I'II f) -> This (from (f (These ee eee)))
   These (These (T'II'I (That e)) _) _ -> That e
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'II'I (S) e) where
@@ -429,20 +429,20 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'II'I (S) e) where
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) P (S'I'II e) (S'I'II e `L` S'I'II e `T` Void) ee eee) (S'I'II e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These (T'I'II (That ee)) (Labeled (T'I'II (That eee)))) (T'I'II f) -> That (from (f (These ee eee)))
+  These (These (T'I'II (That ee)) (Label (T'I'II (That eee)))) (T'I'II f) -> That (from (f (These ee eee)))
   These (These (T'I'II (This e)) _) _ -> This e
-  These (These _ (Labeled (T'I'II (This e)))) _ -> This e
+  These (These _ (Label (T'I'II (This e)))) _ -> This e
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) (R) (S'I'II e) (S'I'II e `L` S'I'II e `T` Void) ee eee) (S'I'II e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These (T'I'II (That ee)) (Labeled (T'I'II (That eee)))) (T'I'II f) ->
+  These (These (T'I'II (That ee)) (Label (T'I'II (That eee)))) (T'I'II f) ->
    That `compose` from `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity` These ee eee
   These (These (T'I'II (That ee)) _) (T'I'II f) ->
    That `compose` from `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity` This ee
-  These (These (T'I'II (This _)) (Labeled (T'I'II (That eee)))) (T'I'II f) ->
+  These (These (T'I'II (This _)) (Label (T'I'II (That eee)))) (T'I'II f) ->
    That `compose` from `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity` That eee
-  These (These (T'I'II (This e)) (Labeled (T'I'II (This _)))) (T'I'II _) ->
+  These (These (T'I'II (This e)) (Label (T'I'II (This _)))) (T'I'II _) ->
    This e
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (S'I'II e) where
@@ -451,8 +451,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (S'I'II e) where
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (S'I'II e) (S'I'II e `L` S'I'II e `T` Void) ee eee) (S'I'II e) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These (T'I'II (That ee)) _) (T'I'II f) -> That (from (f (This ee)))
-  These (These _ (Labeled (T'I'II (That eee)))) (T'I'II f) -> That (from (f (That eee)))
-  These (These _ (Labeled (T'I'II (This eee)))) (T'I'II _) -> This eee
+  These (These _ (Label (T'I'II (That eee)))) (T'I'II f) -> That (from (f (That eee)))
+  These (These _ (Label (T'I'II (This eee)))) (T'I'II _) -> This eee
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (T'II'I (S) Unit) where
  mapping = rewrap `identity` \_ _ -> T'II'I (That Unit)
@@ -510,7 +510,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (S Unit Unit))
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T` Void) ee eee) t
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
-  These (These (T'TT'I x) (Labeled (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
+  These (These (T'TT'I x) (Label (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
    day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (from `compose` f) `identity` These (unwrap x e) (wrap (unwrap xx e))))
 
 -- 0: (S'I'II e `TT'T'I` t `T'TT'I_` Void `L`  (S'I'II e `TT'T'I` t)) _
@@ -537,5 +537,5 @@ instance {-# OVERLAPS #-}
      `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
    (wrap @(AR) @(t `L` t `T` Void `T'I` _)
    `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void) @(tt `TT'T'I` t) identity)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @(tt) @(tt) (Labeled `compose` Labeled `compose` unwrap `compose` unwrap)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @(tt) @(tt) (Label `compose` Label `compose` unwrap `compose` unwrap)
    ) `identity` unwrap x
