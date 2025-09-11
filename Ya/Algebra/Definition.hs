@@ -476,6 +476,11 @@ type Twice = Both (P)
 pattern Twice :: i `P` i `AR___` T'I'I P i
 pattern Twice x = T'I'I x
 
+type Opted = Both (S)
+
+pattern Opted :: i `S` i `AR___` T'I'I S i
+pattern Opted x = T'I'I x
+
 -- TODO: these typeclasses are experimental
 class Semigroup from e where s :: e `P` e `from` e
 class Quasigroup from e where p :: e `P` e `from` e
