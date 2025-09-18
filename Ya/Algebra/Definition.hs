@@ -285,10 +285,13 @@ instance Initial (AR) where
  initial' x = case x of {}
 
 class Terminal into where
- terminal :: into e ()
+ terminal :: into i Unit
 
 instance Terminal (AR) where
- terminal _ = ()
+ terminal _ = Unit
+
+instance Terminal (AT) where
+ terminal = T'I'TT'II'T'II'I (\x -> These Unit (\_ -> x))
 
 type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III P
 
