@@ -1864,10 +1864,10 @@ he'ha :: forall from into (u :: * -> * -> *) i a o .
 he'ha x = fai @into he `compose` yai @from @into @u x
 
 yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
- :: forall into i .
+ :: forall into a o .
  Category into =>
  Terminal into =>
- into i i
+ into a o `AR` into a o
 yvi = identity
 
 -- hu: t i a -> into (from Unit o) (t i o)
