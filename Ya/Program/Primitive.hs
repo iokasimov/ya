@@ -13,6 +13,11 @@ not :: forall e ee eee .
  e `AR_` ee `S` eee
 not = That `la` This
 
+swap :: forall e ee eee .
+ Objective (AR) e (eee `P` ee) =>
+ ee `P` eee `AR_` e
+swap (These x y) = y `lu` x
+
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 

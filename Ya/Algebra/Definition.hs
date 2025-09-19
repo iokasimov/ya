@@ -425,9 +425,6 @@ this (These x _) = x
 that :: forall ee e . e `P` ee -> ee
 that (These _ x) = x
 
-swap :: e `P` ee `AR_` ee `P` e
-swap (These x y) = These y x
-
 constant :: forall from into a o .
  Category from =>
  Precategory into =>
