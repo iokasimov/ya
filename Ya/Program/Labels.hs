@@ -11,8 +11,8 @@ pattern Apply e = Label @_ @_ @Void e
 pattern Usual e = Label @_ @_ @Void e
 pattern Default e = Label @_ @_ @Void e
 
-pattern First :: t o `AR__` t `L` T'I'I (S) `T` Void `T` o
-pattern First i = Label i
+pattern First :: t i `AR__` t `L` T'I'II (S) `T` Void `T` i
+pattern First x = Label x
 
 pattern Again :: forall e t tt . t e `AR__` t `L` tt `T` Recursive `T` e
 pattern Again i = Label @_ @_ @Recursive i
