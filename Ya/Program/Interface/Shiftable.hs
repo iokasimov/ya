@@ -122,10 +122,11 @@ instance Shiftable Alone (Construction List) where
    `ha_'he` Scope @((Reverse List `T'TT'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
    `ho'he'he` Scope @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
    `yok___` Try
-   `yok___` New `ha` State `ha__` Transition `ha_` restoring
+   `yok___` New `ha` State `ha__` Transition `ha` restoring
    `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
       `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
+  restoring :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR___` Scrolling List (Tree i) `AR__` i `P` Scrolling List (Tree i)
   restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
     `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      `lu` unwrap shafted)

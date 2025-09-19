@@ -2491,7 +2491,7 @@ lu'ys'la, lu_'ys'la, lu__'ys'la, lu___'ys'la, lu____'ys'la, lu_____'ys'la, lu___
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  t o -> (tt `L` tt `T` l) o -> (t o)
-lu'ys'la l r = ys'yo (lu l r) (identity @(AR) `la` identity)
+lu'ys'la l r = ys'yo (lu @(t o `P` _) l r) (identity @(AR) `la` identity)
 
 lu_'ys'la = lu'ys'la
 lu__'ys'la = lu'ys'la
@@ -2583,15 +2583,16 @@ lu_______'ys'la = lu'ys'la
  -- wrapped (map @U_1_I @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity) `compose`
  -- wrapped (map @U_1_I @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity)
 
-lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall o oo .
+lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall ooo o oo .
  Limit T'I'II (AR) (AR) =>
  Mapping T'I'II T'I'II (AR) (AR) I (T'I'I Product) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product o) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
+ Objective (AR) ooo (o `P` oo) =>
  Wrapper (AR) (T'I'I Product ()) =>
  Wrapper (AR) (I ()) =>
- o -> oo -> Product o oo
-lu l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(T'I'I Product) identity) () `yui` l `yiu` r
+ o -> oo -> ooo
+lu l r = objective (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(T'I'I Product) identity) Unit `yui` l `yiu` r)
 
 lu_ = lu
 lu__ = lu
@@ -3396,7 +3397,7 @@ lu'yp, lu_'yp, lu__'yp, lu___'yp, lu____'yp, lu_____'yp, lu______'yp, lu_______'
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `P` oo)
-lu'yp from_left r = yp (lu from_left r)
+lu'yp from_left r = yp (lu @(t o `P` _) from_left r)
 
 lu_'yp = lu'yp
 lu__'yp = lu'yp
@@ -3414,7 +3415,7 @@ lu'yp'yo'q, lu_'yp'yo'q, lu__'yp'yo'q, lu___'yp'yo'q, lu____'yp'yo'q, lu_____'yp
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Setoid (AR) o =>
  t o -> (tt `L` tt `T` l) o -> t (o `P` o `S` o)
-lu'yp'yo'q from_left r = yp'yo (lu from_left r) q
+lu'yp'yo'q from_left r = yp'yo (lu @(t o `P` _) from_left r) q
 
 lu_'yp'yo'q = lu'yp'yo'q
 lu__'yp'yo'q = lu'yp'yo'q
@@ -3447,7 +3448,7 @@ lu'ys, lu_'ys, lu__'ys, lu___'ys, lu____'ys, lu_____'ys, lu______'ys, lu_______'
  Covariant Yoneda Functor (AR) (AR) (P'I'II (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `S` oo)
-lu'ys l r = ys (lu l r)
+lu'ys l r = ys (lu @(t o `P` _) l r)
 
 lu_'ys = lu'ys
 lu__'ys = lu'ys
@@ -3480,7 +3481,7 @@ lu'yp'yp :: forall o oo t tt l ll .
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t (tt o))) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product Unit) =>
  t (tt o) -> (t `L` t `T` l) ((tt `L` tt `T` ll) oo) -> t (tt (o `P` oo))
-lu'yp'yp l r = yp'yp @(P) (lu l r)
+lu'yp'yp l r = yp'yp @(P) (lu @(t (tt o) `P` _) l r)
 
 lu'yp'ys
  :: forall t tt l ll o oo .
@@ -3490,7 +3491,7 @@ lu'yp'ys
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t (tt o))) =>
  t (tt o) -> (t `L` t `T` l) ((tt `L` tt `T` ll) oo) -> t (tt (o `S` oo))
-lu'yp'ys l r = yp'ys (lu l r)
+lu'yp'ys l r = yp'ys (lu @(t (tt o) `P` _) l r)
 
 -- lu'yip'yp
  -- :: forall t tt o oo e .
@@ -3528,7 +3529,7 @@ lu'yr, lu_'yr, lu__'yr, lu___'yr, lu____'yr, lu_____'yr, lu______'yr, lu_______'
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `S` oo `S_` o `P` oo)
-lu'yr l r = yr (lu l r)
+lu'yr l r = yr (lu @(t o `P` _) l r)
 
 lu_'yr = lu'yr
 lu__'yr = lu'yr
