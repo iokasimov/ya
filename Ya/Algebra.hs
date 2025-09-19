@@ -16,9 +16,9 @@ instance
  (Day T'I'II (AR) (P) (S) (R_U_I_T_I (P) (S'I'II Unit)) (R_U_I_T_I (P) (S'I'II Unit) `L` R_U_I_T_I (P) (S'I'II Unit) `T` Void) i ii)
  (R_U_I_T_I (P) (S'I'II Unit)) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
-   let These x xs = he'he'he i in
-   let These _ ys = he'he'he'he ii in
-   Recursive `compose` T'I'TT'II `identity` These
+   let These x xs = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` i in
+   let These _ ys = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` ii in
+   Recursive `compose` T'TT'I `compose` T'I'II `identity` These
     (from `compose` f `identity` This x)
     (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
      (unwrap `compose` day @T'I'II @(AR) @Void @(R_U_I_T_I (P) _) @(R_U_I_T_I (P) _) @(P) @(S) identity (from `compose` f)
@@ -80,7 +80,7 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tt
  , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) (t `TT'T'I` tt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (R_U_I_T_I (P) t `T'TT'I` tt `L` tt `T` ll `L` R_U_I_T_I (P) t `T` Void) (R_U_I_T_I (P) t `TT'T'I` tt) where
- mapping = rewrap `identity` \from -> rewrap `identity` \(R_U_I_T_I (Recursive (T'I'TT'II (These x xs)))) ->
+ mapping = rewrap `identity` \from -> rewrap `identity` \(R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x xs))))) ->
     unwrap (unwrap x) `yo` from
      `lu_` xs
       `yo` wrap @(AR) @(R_U_I_T_I _ _ _)
@@ -89,7 +89,7 @@ instance
       `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
       `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt) (unwrap @(AR) @(R_U_I_T_I _ _ _)))
       `ho` wrap @(AR) @(_ `L` _ `T` Void `T` _)
-     `yp_'yo` wrap @(AR) @(R_U_I_T_I _ _ _) `ha` wrap @(AR) @(Recursive _) `ha` wrap @(AR) @(T'I'TT'II _ _ _ _)
+     `yp_'yo` wrap @(AR) @(R_U_I_T_I _ _ _) `compose` wrap @(AR) @(Recursive _) `compose` wrap @(AR) @(T'TT'I _ _ _) `compose` wrap @(AR) @(T'I'II _ _ _)
 
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -100,9 +100,9 @@ instance
   (R_U_I_T_I (P) t `T'TT'I` tt `L` tt `T` ll `L` R_U_I_T_I (P) t `T` (Void `P` Void))
   (R_U_I_T_I (P) t `TT'T'I` tt) where
  mapping = rewrap `identity` \from -> rewrap
-  `identity` \(R_U_I_T_I (Recursive (T'I'TT'II (These x xs)))) ->
+  `identity` \(R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x xs))))) ->
    (These
-    `ho_'ho` wrap @(AR) @(T'I'TT'II _ _ _ _)
+    `ho_'ho` (wrap @(AR) @(T'TT'I _ _ _) `compose` wrap @(AR) @(T'I'II _ _ _))
     `ho` wrap @(AR) @(Recursive _)
     `ho` wrap @(AR) @(R_U_I_T_I _ _ _))
    `fo` (unwrap (unwrap x) `yo` from)
@@ -123,9 +123,9 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (R_U_I_T_I (P) t) (R_U_I_T_I (P) t `L` R_U_I_T_I (P) t `T` Void) e ee) (R_U_I_T_I (P) t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
-   let These e_ e__ = he'he'he e in
-   let These ee_ ee__ = he'he'he'he ee in
-   Recursive `compose` T'I'TT'II `identity` These
+   let These e_ e__ = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` e in
+   let These ee_ ee__ = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` ee in
+   Recursive `compose` T'TT'I `compose` T'I'II `identity` These
     (from `compose` f `identity` These e_ ee_)
     (day @T'I'II @(AR) @Void @t @t @(P) @P identity
      (unwrap
@@ -137,7 +137,7 @@ instance
 instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t) =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (R_U_I_T_I (P) t) where
  mapping = rewrap `identity` \from (T'I'II f) ->
-  R_U_I_T_I `compose` Recursive `compose` T'I'TT'II
+  R_U_I_T_I `compose` Recursive `compose` T'TT'I `compose` T'I'II
    `identity` These (from `identity` f Unit) (empty @t `yo` initial' @(AR))
 
 instance
@@ -182,9 +182,12 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (R) (R_U_I_T_I (P) t) (R_U_I_T_I (P) t `L` R_U_I_T_I (P) t `T` Void) e ee) (R_U_I_T_I (P) t) where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
-   let These e_ e__ = he'he'he e in
-   let These ee_ ee__ = he'he'he'he ee in
-   Recursive `compose` T'I'TT'II `identity` These
+   -- let These e_ e__ = he'he'he e in
+   let These e_ e__ = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` e in
+   -- let These ee_ ee__ = he'he'he'he ee in
+   let These ee_ ee__ = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` ee in
+   -- Recursive `compose` T'I'TT'II `identity` These
+   Recursive `compose` T'TT'I `compose` T'I'II `identity` These
     (from `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity` These e_ ee_)
     (day @T'I'II @(AR) @Void @t @t @(P) @(R) identity
      (unwrap @(AR) `compose` \case

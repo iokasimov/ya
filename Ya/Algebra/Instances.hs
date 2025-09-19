@@ -280,33 +280,26 @@ instance
 --  (UU_V_T'I'II_T_II T'II'I (W_I_II_II (U_I_UU_III_T'II'I (AR) (P))) (AR) (T'II'I (T'I'TT'II'I (AR) (P))) ee) e)
 
 instance
- ( forall e . Covariant Semi Functor from into (T'I'II (T'I'TT'II u t) e)
- , forall e . Covariant Semi Functor from into (T'II'I (T'I'TT'II u t) e)
- , forall e . Covariant Endo Semi Functor from (T'I'II (T'I'TT'II u t) e)
- , forall e . Covariant Endo Semi Functor from (T'II'I (T'I'TT'II u t) e)
+ ( forall i . Covariant Semi Functor from into (T'I'II u i `T'TT'I` t)
+ , forall i . Covariant Endo Semi Functor from (T'I'II u i `T'TT'I` t)
+ , forall i . Covariant Endo Semi Functor from (T'II'I u (t i))
+ , forall i . Covariant Semi Functor from into (T'II'I u (t i))
  , forall e . Wrapper from (R_U_I_T_I u t e)
  , forall e . Wrapper into (R_U_I_T_I u t e)
- , forall e . Wrapper from (Recursive (T'I'TT'II u t e))
- , forall e . Wrapper into (Recursive (T'I'TT'II u t e))
- , forall e ee . Wrapper from (T'II'I (T'I'TT'II u t) e ee)
- , forall e ee . Wrapper into (T'II'I (T'I'TT'II u t) e ee)
- , forall e ee . Wrapper from (T'I'II (T'I'TT'II u t) e ee)
- , forall e ee . Wrapper into (T'I'II (T'I'TT'II u t) e ee)
+ , forall i . Wrapper from (Recursive (T'I'II u i `T'TT'I` t))
+ , forall i . Wrapper into (Recursive (T'I'II u i `T'TT'I` t))
+ , forall i ii . Wrapper from (T'II'I u (t i) ii)
+ , forall i ii . Wrapper into (T'II'I u (t i) ii)
+ , forall i ii . Wrapper from (T'I'II u i ii)
+ , forall i ii . Wrapper into (T'I'II u i ii)
+ , forall i ii . Wrapper from ((T'I'II u i `T'TT'I` t) ii)
+ , forall i ii . Wrapper into ((T'I'II u i `T'TT'I` t) ii)
  ) => Mapping T'I'II T'I'II from into (R_U_I_T_I u t) (R_U_I_T_I u t) where
- mapping = rewrap `identity` \from ->
-  wrap @into @(R_U_I_T_I u t _)
-  `compose` wrap @into @(Recursive _)
-  `compose` unwrap @into @(T'II'I _ _ _)
-  `compose` map @T'I'II @T'I'II @_ @_ from
-  `compose` wrap @into @(T'II'I _ _ _)
-  `compose` unwrap @into @(T'I'II _ _ _)
-  `compose` map @T'I'II @T'I'II @from @into @(T'I'II (T'I'TT'II u t) _) @(T'I'II (T'I'TT'II u t) _)
-   (unwrap @from
-   `compose` map @T'I'II @T'I'II @from @_ @(R_U_I_T_I u t) @(R_U_I_T_I u t) from
-   `compose` wrap @from @(R_U_I_T_I u t _))
-  `compose` wrap @into @(T'I'II _ _ _)
-  `compose` unwrap @into @(Recursive _)
-  `compose` unwrap @into @(R_U_I_T_I u t _)
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
+  ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'II'I u (t _)) @(T'II'I u (t _)) from))
+  `compose` map @T'I'II @T'I'II @from @into @(T'I'II u _ `T'TT'I` t) @(T'I'II u _ `T'TT'I` t)
+   (wrapped (map @T'I'II @T'I'II @from @_ @(R_U_I_T_I u t) @(R_U_I_T_I u t) from))
+  )
 
 instance {-# OVERLAPPABLE #-} Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) a) (T'I'II (AR) a) where
  mapping (T'I'II from) = T'I'II `identity` \(T'I'II between) -> T'I'II (\x -> from (between x))

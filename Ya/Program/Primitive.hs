@@ -36,8 +36,8 @@ put = relay
 
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
- e -> Recursive (T'I'TT'II (P) t e)
-leaf x = Recursive `ha` T'I'TT'II `ha` These x `li_` empty `yo` initial' @(AR)
+ e -> Recursive (T'I'II (P) e `T'TT'I` t)
+leaf x = Recursive `ha` T'TT'I `ha` T'I'II `ha` These x `li_` empty `yo` initial' @(AR)
 
 it :: forall e . Reference (P) e e e
 it x = x `lu` identity
@@ -54,14 +54,14 @@ dim = fui @AR @AR Unit
 top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
-top (R_U_I_T_I (Recursive (T'I'TT'II (These old xs)))) =
+top (R_U_I_T_I (Recursive (T'TT'I (T'I'II (These old xs))))) =
   old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
-sub (R_U_I_T_I (Recursive (T'I'TT'II (These x old)))) = These
+sub (R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x old))))) = These
   (wrap @(AR) @(R_U_I_T_I _ _ _) `fo` old)
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
 

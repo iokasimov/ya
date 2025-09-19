@@ -176,17 +176,26 @@ type Construction = R_U_I_T_I P
 
 pattern Construct xs = R_U_I_T_I xs
 
-pattern Root x xs = R_U_I_T_I (Recursive (T'I'TT'II (These x xs)))
+pattern Root x xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x xs))))
 
-pattern Node x xs = Recursive (T'I'TT'II (These x xs))
+pattern Node x xs = Recursive (T'TT'I (T'I'II (These x xs)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))
 
 type Instruction = R_U_I_T_I (S)
 
-pattern Instruct xs = R_U_I_T_I (Recursive (T'I'TT'II (That xs)))
+-- x `kyokl` Level `ha` ...
 
-pattern Load x = R_U_I_T_I (Recursive (T'I'TT'II (This x)))
+-- TODO: t `C'AR___` Instruction t
+
+-- pattern Value x = R_U_I_T_I (Recursive (T'I'TT'II (This x)))
+-- pattern Impel x = R_U_I_T_I (Recursive (T'I'TT'II (That x)))
+
+pattern Instruct :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Instruction t i
+pattern Instruct xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (That xs))))
+
+pattern Load :: i `AR____` Instruction t i
+pattern Load x = R_U_I_T_I (Recursive (T'TT'I (T'I'II (This x))))
 
 type List = Optional `T'TT'I` Construction Optional
 
@@ -194,8 +203,8 @@ pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (R_U_I_T_I xs
 
 type Quest = List
 
-pattern Item :: i -> t (Recursive (T'I'TT'II (P) t i)) -> Recursive (T'I'TT'II (P) t i)
-pattern Item x xs = Recursive (T'I'TT'II (These x xs))
+pattern Item :: i -> t (Recursive (T'I'II (P) i `T'TT'I` t)) -> Recursive (T'I'II (P) i `T'TT'I` t)
+pattern Item x xs = Recursive (T'TT'I (T'I'II (These x xs)))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
 pattern Next x = T'I'II (That x)
@@ -209,12 +218,12 @@ type family Brancher datastructure where
 type family Nonempty datastructure where
  Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
 
-pattern Nonempty :: forall t i . Recursive (T'I'TT'II (P) (Brancher t) i) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (T'I'II (P) i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
 type Tree = Construction List
 
-pattern Tree x xs = R_U_I_T_I (Recursive (T'I'TT'II (These x (T'TT'I (Exist (Construct xs))))))
+pattern Tree x xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (T'TT'I (Exist (Construct xs)))))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)

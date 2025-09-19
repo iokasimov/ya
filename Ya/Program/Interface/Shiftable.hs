@@ -85,51 +85,51 @@ pattern Broad x = This x :: Shifter Tree
 pattern Level x = That x :: Shifter Tree
 
 -- TODO: implement `locate` method
-instance Shiftable Alone (Construction List) where
- shift way x = is
-  `li` is `hu` (by Empty `lu` x)
-  `la` is `ho'he` foi @_ @(AR) Exist
-  `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
+-- instance Shiftable Alone (Construction List) where
+ -- shift way x = is
+  -- `li` is `hu` (by Empty `lu` x)
+  -- `la` is `ho'he` foi @_ @(AR) Exist
+  -- `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
-  horizontally :: forall i . Way `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
-  horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
-   `yuk__` New `ha` State `hv__` Transition `hv` shift way
-   `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-    `ho'he` Scope @(Scrolling List `T'I` Tree i) at
-   -- TODO: rewrite it, we need `ha'yo` operator for it
-   `yok__` Try `ha___` is `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
+  -- horizontally :: forall i . Way `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
+  -- horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
+   -- `yuk__` New `ha` State `hv__` Transition `hv` shift way
+   -- `ha_'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+    -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+   -- -- TODO: rewrite it, we need `ha'yo` operator for it
+   -- `yok__` Try `ha___` is `ho_'yo` this `compose` unwrap `compose` unwrap `compose` unwrap
 
-  -- TODO: refactor, it's hard to catch an error here
-  vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
-  vertical_deep _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
-   `yuk____` New `ha` State `hv____` Transition `hv` auto
-   `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-   `ho__'he'he` ((Scope @(Alone (Tree i)) at `ho'he'he'he'he`  Scope @(i `P` _) it)
-        `lo` Scope @(Shafted List `T'I` Tree i) at)
-   `yok____` New `ha` State `ha____` Transition
-   `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (T'TT'I'TTT'I (Alone e `lu` wrap eee)) list)
-   `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
-   `ho'he'he` Scope @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
-   `yok____` Try
-   `yok____` New `ha` State `ha____` Transition
-   `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
-   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+  -- -- TODO: refactor, it's hard to catch an error here
+  -- vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
+  -- vertical_deep _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
+   -- `yuk____` New `ha` State `hv____` Transition `hv` auto
+   -- `ha___'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+   -- `ho__'he'he` ((Scope @(Alone (Tree i)) at `ho'he'he'he'he` Scope @(i `P` _) it)
+        -- `lo` Scope @(Shafted List `T'I` Tree i) at)
+   -- `yok____` New `ha` State `ha____` Transition
+   -- `ha_` (\(These (These e ee) eee) list -> (unwrap ee `yo` (e `lu`)) `lu` that `hv` push (T'TT'I'TTT'I (Alone e `lu` wrap eee)) list)
+   -- `ho_'ha'he` Scope @((Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
+   -- `ho'he'he` Scope @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
+   -- `yok____` Try
+   -- `yok____` New `ha` State `ha____` Transition
+   -- `ha_` (\(These previous new) _ -> previous `lu` to @(Scrolling List) (new `yo` R_U_I_T_I))
+   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
-  vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` i
-  vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
-   `yuk___` New `ha` State `hv__` Transition `hv` pop
-   `ha_'he` Scope @((Reverse List `T'TT'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
-   `ho'he'he` Scope @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
-   `yok___` Try
-   `yok___` New `ha` State `ha__` Transition `ha` restoring
-   `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
-      `ho'he` Scope @(Scrolling List `T'I` Tree i) at
+  -- vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` i
+  -- vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
+   -- `yuk___` New `ha` State `hv__` Transition `hv` pop
+   -- `ha_'he` Scope @((Reverse List `T'TT'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) i) at
+   -- `ho'he'he` Scope @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)) at
+   -- `yok___` Try
+   -- `yok___` New `ha` State `ha__` Transition `ha` restoring
+   -- `ho_'ha'he` Scope @((Scrolling List `T'TT'I` Tree) i) at
+      -- `ho'he` Scope @(Scrolling List `T'I` Tree i) at
 
-  restoring :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR___` Scrolling List (Tree i) `AR__` i `P` Scrolling List (Tree i)
-  restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
-    `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
-     `lu` unwrap shafted)
+  -- restoring :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR___` Scrolling List (Tree i) `AR__` i `P` Scrolling List (Tree i)
+  -- restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
+    -- `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
+     -- `lu` unwrap shafted)
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)

@@ -18,15 +18,15 @@ class Stackable datastructure where
 instance Stackable List where
  pop = \case
   T'TT'I (T'I'II (This _)) -> by Empty `lu` empty @List
-  T'TT'I (Exist (Construct (Recursive (T'I'TT'II (These x xs))))) -> Exist x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
+  T'TT'I (Exist (Construct (Recursive (T'TT'I (T'I'II (These x xs)))))) -> Exist x `lu` (xs `yo` R_U_I_T_I `yi` T'TT'I)
  push item s = item `lu` rewrap
-  (Exist `ha` R_U_I_T_I `ha` Recursive `ha` T'I'TT'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
+  (Exist `ha` R_U_I_T_I `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` These item `ha` (`yo` unwrap @Arrow @(R_U_I_T_I _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stackable (Construction Optional) where
  pop = \case
-  R_U_I_T_I (Recursive (T'I'TT'II (These x (Exist xs)))) -> Exist x `lu` R_U_I_T_I xs
-  R_U_I_T_I (Recursive (T'I'TT'II (These x (Empty xs)))) -> by Empty `lu` R_U_I_T_I (Recursive (T'I'TT'II (These x (Empty xs))))
+  R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (Exist xs))))) -> Exist x `lu` R_U_I_T_I xs
+  R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (Empty xs))))) -> by Empty `lu` R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (Empty xs)))))
  push x = \old -> These x (Item x `ha` Next  `rewrap` old)
 
 pattern Plane :: Stackable t => t i -> t `L` t `T` Void `T` i

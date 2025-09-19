@@ -333,9 +333,11 @@ instance Elicitable T'I'II (->) (Recursive f)
 instance Elicitable T'II'I (->) (Recursive f)
  where elicit = T'II'I Recursive
 
-newtype R_U_I_T_I t tt i = R_U_I_T_I (Recursive (T'I'TT'II t tt i))
+-- newtype R_U_I_T_I t tt i = R_U_I_T_I (Recursive (T'I'TT'II t tt i))
 
-type instance Supertype (R_U_I_T_I t tt i) = Recursive (T'I'TT'II t tt i)
+newtype R_U_I_T_I t tt i = R_U_I_T_I (Recursive (T'I'II t i `T'TT'I` tt))
+
+type instance Supertype (R_U_I_T_I t tt i) = Recursive (T'I'II t i `T'TT'I` tt)
 
 instance Elicitable T'I'II (->) (R_U_I_T_I t tt i)
  where elicit = T'I'II (\(R_U_I_T_I x) -> x)
