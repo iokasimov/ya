@@ -81,8 +81,8 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 
 -- TODO: define instances to compose attributes like: attr `ha` attr
 
-pattern Broad x = This x :: Shifter Tree
-pattern Level x = That x :: Shifter Tree
+-- pattern Broad x = This x :: Shifter Tree
+-- pattern Level x = That x :: Shifter Tree
 
 -- TODO: implement `locate` method
 -- instance Shiftable Alone (Construction List) where
