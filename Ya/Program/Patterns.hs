@@ -172,6 +172,8 @@ type State = T'I'II Transition
 pattern State :: forall e o . Transition e o -> State e o
 pattern State x = T'I'II @Transition x
 
+type Branching t tt i = T'I'II t i `T'TT'I` tt
+
 type Construction = R_U_I_T_I P
 
 pattern Construct xs = R_U_I_T_I xs
@@ -191,11 +193,11 @@ type Instruction = R_U_I_T_I (S)
 -- pattern Value x = R_U_I_T_I (Recursive (T'I'TT'II (This x)))
 -- pattern Impel x = R_U_I_T_I (Recursive (T'I'TT'II (That x)))
 
-pattern Instruct :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Instruction t i
-pattern Instruct xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (That xs))))
+pattern Impel :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Instruction t i
+pattern Impel xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (That xs))))
 
-pattern Load :: i `AR____` Instruction t i
-pattern Load x = R_U_I_T_I (Recursive (T'TT'I (T'I'II (This x))))
+pattern Value :: i `AR____` Instruction t i
+pattern Value x = R_U_I_T_I (Recursive (T'TT'I (T'I'II (This x))))
 
 type List = Optional `T'TT'I` Construction Optional
 
