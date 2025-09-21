@@ -44,3 +44,6 @@ pattern Every :: forall i ii iii e .
  Component (AR) (Covariant Day (AR) (P) (P) (S'I'II iii) (S'I'II iii `L` S'I'II iii `T` Void) i ii) (S'I'II iii) =>
  S'I'II iii e `AR__` S'I'II iii `L` S'I'II iii `T` Void `T` e
 pattern Every x = Label @_ @_ @Void x
+
+pattern Level :: forall t i . i `AR__` Alone `L` t `T` Void `T` i
+pattern Level x = Label (Alone x)
