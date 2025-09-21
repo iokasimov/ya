@@ -49,9 +49,9 @@ pattern Given e = T'I'II e
 
 type Supplied = T'II'I P
 
-type Equipped = T'II'I P
+type Along = T'II'I P
 
-pattern Equip :: forall e ee . e `P` ee -> Equipped ee e
+pattern Equip :: forall e ee . e `P` ee -> Along ee e
 pattern Equip x = T'II'I x
 
 type Optional = S'I'II Unit
