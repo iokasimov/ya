@@ -51,8 +51,8 @@ type Supplied = T'II'I P
 
 type Along = T'II'I P
 
-pattern Equip :: forall e ee . e `P` ee -> Along ee e
-pattern Equip x = T'II'I x
+pattern Along :: forall e ee . e `P` ee -> Along ee e
+pattern Along x = T'II'I x
 
 type Optional = S'I'II Unit
 
