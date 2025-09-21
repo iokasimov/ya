@@ -116,6 +116,28 @@ instance
       `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt) (unwrap @(AR) @(R_U_I_T_I _ _ _)))
     )
 
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) (t `TT'T'I` tt)
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  (R_U_I_T_I (S) t `T'TT'I` tt `L` tt `T` ll `L` R_U_I_T_I (S) t `T` Void)
+  (R_U_I_T_I (S) t `TT'T'I` tt) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \(R_U_I_T_I (Recursive (T'TT'I (T'I'II x)))) -> case x of
+  This xx -> unwrap (unwrap xx) `yo` R_U_I_T_I `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` This `ha` from
+  That xx -> xx
+   `yo` R_U_I_T_I
+   `ho` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
+    @(R_U_I_T_I (S) t `T'TT'I` tt `L` tt `T` ll `L` R_U_I_T_I (S) t `T` Void)
+    @(R_U_I_T_I (S) t `TT'T'I` tt) from)
+   `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
+   `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
+     @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void)
+     @(t `TT'T'I` tt)
+     (unwrap @(AR) @(R_U_I_T_I _ _ _)))
+   `yo` R_U_I_T_I `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` That
+
 -- TODO: try to simplify
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
