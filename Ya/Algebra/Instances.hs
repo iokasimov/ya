@@ -25,6 +25,13 @@ instance (Precategory into, forall i ii . Wrapper into (T'I' i ii))
  mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
 
 instance
+ ( Precategory into
+ , forall i ii . Wrapper into (T'I' i ii)
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
+ ) => Mapping T'I'II T'I'II into (AR) (T'I' i `T'TT'I` t `L` t `T` l `L` T'I' i `T` ll) (T'I' i `TT'T'I` t) where
+ mapping = rewrap `identity` \_ -> rewrap `identity` \(T'I' x) -> intro (T'I' x)
+
+instance
  ( forall e . Wrapper into (I e)
  , forall e . Wrapper into (t `L` t `T` l `L` I `T` ll `T` e)
  , forall e . Wrapper into (t `L` t `T` l `T` e)
@@ -170,16 +177,21 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) o) (T'II'I (S) o) where
   This x -> This (from x)
   That e -> That e
 
--- instance
- -- ( Covariant Semi Functor from (AR) t
- -- , Covariant Functor from from (T'I'I u)
- -- , Covariant Monoidal Functor from (AR) u u t
- -- , forall e . Elicitable T'II'I from (T'I'I u e)
- -- ) => Mapping T'I'II T'I'II from (AR) (T'I'I u `T'TT'I` t) (T'I'I u `TT'T'I` t) where
- -- mapping = rewrap `identity` \from -> rewrap `identity`
-  -- day @T'I'II @from @t @u @u
-   -- (map @T'I'II @T'I'II from `compose` wrap @from @(T'I'I _ _)) identity
-  -- `compose` unwrap @(AR) @(T'I'I u _)
+instance
+ ( Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) (T'I'I t)
+ , forall i . Covariant Endo Semi Functor (AR) (T'I'II t i)
+ , forall i . Covariant Endo Semi Functor (AR) (T'II'I t i)
+ , Covariant Lax Monoidal Functor (AR) (AR) t t l tt
+ , forall i . Wrapper (AR) (T'I'I t i)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I t `T'TT'I` tt `L` tt `T` l `L` T'I'I t `T` Void) (T'I'I t `TT'T'I` tt) where
+ mapping = rewrap `identity` \from -> rewrap `identity`
+  (day @T'I'II @(AR) @l @tt @tt @t @t identity
+   (map @T'I'II @T'I'II from `compose` wrap @(AR) @(T'I'I t _))
+  `compose` i_ (map @T'I'II @T'I'II (unwrap @(AR) @(tt `L` tt `T` l `T` _) `compose` unwrap @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
+  `compose` _i (map @T'I'II @T'I'II (unwrap @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
+  `compose` unwrap @(AR) @(T'I'I t _)
+  )
 
 -- instance
  -- ( Covariant Semi Functor (AR) (AR) t
