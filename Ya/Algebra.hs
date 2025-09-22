@@ -11,19 +11,61 @@ import Ya.Algebra.Instances as Exports ()
 import Ya.Operators
 
 instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt)
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` l) (tt `TT'T'I` ttt)
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) (P) lll ttt
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  (T'TT'I'TTT'I P t tt `T'TT'I` ttt `L` ttt `T` lll `L` T'TT'I'TTT'I P t tt `T` l)
+  (T'TT'I'TTT'I P t tt `TT'T'I` ttt) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These x xx)) ->
+  x `yo` wrap @(AR) @(ttt `L` ttt `T` lll `L` t `T` l `T` _)
+     `ha` unwrap @(AR) @(ttt `L` ttt `T` lll `L` T'TT'I'TTT'I P t tt `T` l `T` _)
+     `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt) from)
+  `lu_`
+  xx `yo` wrap @(AR) @(ttt `L` ttt `T` lll `L` tt `T` l `T` _)
+     `ha` unwrap @(AR) @(ttt `L` ttt `T` lll `L` T'TT'I'TTT'I P t tt `T` l `T` _)
+     `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` l) @(tt `TT'T'I` ttt) from)
+     `ho` wrap @(AR) @(ttt `L` ttt `T` lll `T` _)
+  `yi_` day @T'I'II @(AR) @lll @ttt @ttt @(P) @(P) identity T'TT'I'TTT'I
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` ll `L` t `T` l) (t `TT'T'I` ttt)
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) (tt `TT'T'I` ttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  (T'TT'I'TTT'I S t tt `T'TT'I` ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l)
+  (T'TT'I'TTT'I S t tt `TT'T'I` ttt) where
+ mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I x) -> case x of
+  This xx -> xx
+   `yo` wrap @(AR) @(ttt `L` ttt `T` ll `L` t `T` l `T` _)
+   `ha` unwrap @(AR) @(ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l `T` _)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` ll `L` t `T` l) @(t `TT'T'I` ttt) from)
+   `yo` T'TT'I'TTT'I `ha` This
+  That xx -> xx
+   `yo` wrap @(AR) @(ttt `L` ttt `T` ll `L` tt `T` l `T` _)
+   `ha` unwrap @(AR) @(ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l `T` _)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) @(tt `TT'T'I` ttt) from)
+   `yo` T'TT'I'TTT'I `ha` That
+
+instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (S'I'II Unit)
  ) => Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) (S) (R_U_I_T_I (P) (S'I'II Unit)) (R_U_I_T_I (P) (S'I'II Unit) `L` R_U_I_T_I (P) (S'I'II Unit) `T` Void) i ii)
  (R_U_I_T_I (P) (S'I'II Unit)) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
-   let These x xs = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` i in
-   let These _ ys = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` ii in
-   Recursive `compose` T'TT'I `compose` T'I'II `identity` These
-    (from `compose` f `identity` This x)
-    (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
-     (unwrap `compose` day @T'I'II @(AR) @Void @(R_U_I_T_I (P) _) @(R_U_I_T_I (P) _) @(P) @(S) identity (from `compose` f)
-      `compose` fio (wrap `compose` R_U_I_T_I) `compose` foi R_U_I_T_I)
-     `identity` These xs (wrap ys))
+  let These x xs = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` i in
+  let These _ ys = unwrap `compose` unwrap `compose` unwrap `compose` unwrap `compose` unwrap `identity` ii in
+  Recursive `compose` T'TT'I `compose` T'I'II `identity` These
+   (from `compose` f `identity` This x)
+   (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
+    (unwrap `compose` day @T'I'II @(AR) @Void @(R_U_I_T_I (P) _) @(R_U_I_T_I (P) _) @(P) @(S) identity (from `compose` f)
+     `compose` fio (wrap `compose` R_U_I_T_I) `compose` foi R_U_I_T_I)
+    `identity` These xs (wrap ys))
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (S'I'II Unit)
