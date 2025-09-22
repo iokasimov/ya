@@ -1926,7 +1926,7 @@ he'yvi, he'hv, he'hv_, he'hv__, he'hv___, he'hv____, he'hv_____, he'hv______, he
  Terminal into =>
  Wrapper (AR) e =>
  (Supertype e ~ into a o) =>
- e -> into a o
+ e -> Supertype e
 he'yvi = hv `compose` unwrap
 
 he'hv = hv `compose` unwrap
