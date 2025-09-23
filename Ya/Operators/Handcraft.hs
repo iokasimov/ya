@@ -2391,7 +2391,7 @@ lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______
  :: forall into r a o oo .
  Category into =>
  Limit T'I'II into into =>
- Objective into r (o `P` oo) =>
+ Objective into (o `P` oo) r =>
  Covariant Endo Semi Functor into (T'I'II Product a) =>
  Covariant Endo Semi Functor into (T'II'I Product oo) =>
  (forall e ee . Wrapper into (T'I'II Product e ee)) =>
@@ -2399,7 +2399,7 @@ lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______
  (forall e . Wrapper into (Both Product e)) =>
  (forall e . Wrapper into (I e)) =>
  into a o -> into a oo -> into a r
-lo l r = objective @into @_ @(o `P` oo)
+lo l r = objective @into @(o `P` oo) @_
  `compose` foi @into @into l `compose` fio @into @into r
  `compose` wrapped (map @T'II'I @T'II'I @into @into @(Both Product) @I identity)
 
@@ -2588,7 +2588,7 @@ lu, lu_, lu__, lu___, lu____, lu_____, lu______, lu_______ :: forall ooo o oo .
  Mapping T'I'II T'I'II (AR) (AR) I (T'I'I Product) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product o) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
- Objective (AR) ooo (o `P` oo) =>
+ Objective (AR) (o `P` oo) ooo =>
  Wrapper (AR) (T'I'I Product ()) =>
  Wrapper (AR) (I ()) =>
  o -> oo -> ooo
@@ -2615,7 +2615,7 @@ lu_______ = lu
 la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o oo .
  Category from =>
  Limit T'II'I from from =>
- Objective from (o `S` oo) a =>
+ Objective from a (o `S` oo) =>
  Covariant Endo Semi Functor from (S'I'II o) =>
  Covariant Endo Semi Functor from (T'II'I Sum i) =>
  (forall ee eee . Wrapper from (S'I'II ee eee)) =>
@@ -2626,7 +2626,7 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall from i a o 
 la l r = wrapped (map @T'II'I @T'II'I @from @from @I @(Both Sum) identity)
  `compose` foi @from @from l
  `compose` fio @from @from r
- `compose` objective @_ @(o `S` oo)
+ `compose` objective @from @a @(o `S` oo)
 
 la_ = la
 la__ = la
@@ -2640,7 +2640,7 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
  Covariant Endo Semi Functor (AR) (S'I'II aa) =>
  Covariant Endo Semi Functor (AR) (T'II'I Sum o) =>
- Objective (AR) (aa `S` aaa) a =>
+ Objective (AR) a (aa `S` aaa) =>
  (forall ee eee . Wrapper (AR) (S'I'II ee eee)) =>
  (forall ee eee . Wrapper (AR) (T'II'I Sum ee eee)) =>
  (forall ee . Wrapper (AR) (T'I'I Sum ee)) =>
@@ -2651,36 +2651,36 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
 lv l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 
 lv_ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv__ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv___ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv_____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
- `compose` objective @(AR) @(aa `S` aaa) @a
+ `compose` objective @(AR) @a @(aa `S` aaa)
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: from o i -> from oo i -> from (o `S` oo) i

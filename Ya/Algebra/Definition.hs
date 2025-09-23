@@ -461,14 +461,20 @@ type S'T'I'TT'I = T'TT'I'TTT'I (S)
 pattern LT x = T'TT'I'TTT'I (This x)
 pattern RT x = T'TT'I'TTT'I (That x)
 
-class Objective into st t where
+class Objective into t st where
  objective :: into t st
 
-instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `S` ee) (Supertype t))
- => Objective into (e `S` ee) t where objective = objective @into `compose` unwrap @into
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (Supertype t) (e `S` ee))
+ => Objective into t (e `S` ee) where objective = objective @into `compose` unwrap @into
 
 instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (Supertype t) (e `P` ee))
- => Objective into t (e `P` ee) where objective = wrap @into `compose` objective @into
+ => Objective into t (e `P` ee) where objective = objective @into `compose` unwrap @into
+
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `P` ee) (Supertype t))
+ => Objective into (e `P` ee) t where objective = wrap @into `compose` objective @into
+
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `S` ee) (Supertype t))
+ => Objective into (e `S` ee) t where objective = wrap @into `compose` objective @into
 
 instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `S` eeee) where
  objective = identity
