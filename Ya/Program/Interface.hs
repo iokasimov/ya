@@ -20,7 +20,7 @@ instance
  , Covariant Endo Semi Functor (->) tt
  , Covariant Yoneda Functor (->) (->) t
  , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) => Mapping T'I'II T'I'II (AR) (AR) ((T'TT'I'TTT'I (P) t tt) `L` tt `T` Void) tt where
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` Void) tt where
  mapping = rewrap `identity` \from (Label (T'TT'I'TTT'I (These x xx))) ->
   x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
     `he'he'hv___` xx `yi__` that `ho'yo` from
@@ -31,7 +31,7 @@ pattern Merge :: forall t tt i .
  , Covariant Endo Yoneda Functor (->) t
  , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
  ) =>
- t i `P` tt i `AR____` (T'TT'I'TTT'I (P) t tt) `L` tt `T` Void `T` i
+ t i `P` tt i `AR____` (t `P'T'I'TT'I` tt) `L` tt `T` Void `T` i
 pattern Merge x = Label (T'TT'I'TTT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
@@ -44,7 +44,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
  mapping = rewrap `identity` \_ _ -> T'TT'I'TTT'I (wrap empty `lu` wrap empty)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Covariant Day (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
   let These i' i'' = unwrap i in
   let These ii' ii'' = (unwrap `compose` unwrap) ii in
@@ -111,7 +112,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List)
  mapping = rewrap `identity` \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Prior `ha` wrap @AR `ha` Empty) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
-instance
+instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
@@ -126,7 +127,7 @@ instance
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
       (Label (sx `yo` from)) `lu_` (Label (xs `yo` from))))))
 
-instance
+instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tttt
@@ -141,7 +142,7 @@ instance
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
       (Label (sx `yo` from)) `lu_` (Label (xs `yo` from))))))
 
-instance
+instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void ttt
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
@@ -152,7 +153,7 @@ instance
    `lu'yp` Run (f `yokl` rewrap @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Label @_ @_ @(Void `P` Void) (sx `yo` from)) (Label @_ @_ @Void (xs `yo` from))))
 
-instance
+instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void ttt
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
