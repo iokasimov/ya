@@ -237,6 +237,10 @@ pattern Binary xs = T'TT'I (T'I'I xs)
 type family Forest tree where
  Forest (Construction t) = t `T'TT'I` Construction t
 
+type family Prefix k t where
+ Prefix k Tree = (List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k)
+ Prefix k t = t `T'TT'I` Along k
+
 type Stream = Construction Alone
 
 pattern Stream :: Stream i -> Stream i
