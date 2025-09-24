@@ -9,12 +9,12 @@ import Ya.Operators
 import Ya.Program.Patterns
 
 not :: forall e ee eee .
- Objective (AR) e (eee `S` ee) =>
+ Covariant Objective (AR) e (eee `S` ee) =>
  e `AR_` ee `S` eee
 not = That `la` This
 
 swap :: forall e ee eee .
- Objective (AR) (eee `P` ee) e =>
+ Contravariant Objective (AR) e (eee `P` ee) =>
  ee `P` eee `AR_` e
 swap (These x y) = y `lu` x
 

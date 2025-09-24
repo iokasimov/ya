@@ -461,25 +461,25 @@ type S'T'I'TT'I = T'TT'I'TTT'I (S)
 pattern LT x = T'TT'I'TTT'I (This x)
 pattern RT x = T'TT'I'TTT'I (That x)
 
-class Objective into t st where
- objective :: into t st
+class Objective v into a o where
+ objective :: Supertype (v into a o)
 
-instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (Supertype t) (e `S` ee))
- => Objective into t (e `S` ee) where objective = objective @into `compose` unwrap @into
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into a, Objective T'I'II into (Supertype a) o)
+ => Objective T'I'II into a o where objective = objective @T'I'II @into `compose` unwrap @into
 
-instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (Supertype t) (e `P` ee))
- => Objective into t (e `P` ee) where objective = objective @into `compose` unwrap @into
+instance {-# OVERLAPPABLE #-} (Category into, Wrapper into a, Objective T'II'I into (Supertype a) o)
+ => Objective T'II'I into a o where objective = wrap @into `compose` objective @T'II'I @into
 
-instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `P` ee) (Supertype t))
- => Objective into (e `P` ee) t where objective = wrap @into `compose` objective @into
-
-instance {-# OVERLAPPABLE #-} (Category into, Wrapper into t, Objective into (e `S` ee) (Supertype t))
- => Objective into (e `S` ee) t where objective = wrap @into `compose` objective @into
-
-instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `S` ee) (eee `S` eeee) where
+instance (e ~ eee, ee ~ eeee, Category into) => Objective T'I'II into (e `S` ee) (eee `S` eeee) where
  objective = identity
 
-instance (e ~ eee, ee ~ eeee, Category into) => Objective into (e `P` ee) (eee `P` eeee) where
+instance (e ~ eee, ee ~ eeee, Category into) => Objective T'I'II into (e `P` ee) (eee `P` eeee) where
+ objective = identity
+
+instance (e ~ eee, ee ~ eeee, Category into) => Objective T'II'I into (e `S` ee) (eee `S` eeee) where
+ objective = identity
+
+instance (e ~ eee, ee ~ eeee, Category into) => Objective T'II'I into (e `P` ee) (eee `P` eeee) where
  objective = identity
 
 -- TODO: generalize, move to `Abstract` module
