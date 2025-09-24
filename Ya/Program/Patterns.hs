@@ -92,6 +92,8 @@ pattern Allot x = T'I'II (That x)
 
 type Stops = T'I'II (S)
 
+pattern Stops x = T'I'II @(S) x
+
 type Error = T'I'II (S)
 
 pattern Error :: e -> Error e ee
