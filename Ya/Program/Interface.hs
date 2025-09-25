@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
-module Ya.Program.Interface (module Exports, focus, shaft, pattern Aloft, pattern Stump, pattern Merge) where
+module Ya.Program.Interface (module Exports, shaft, pattern Aloft, pattern Stump, pattern Merge) where
 
 import Ya.Algebra
 import Ya.Operators
