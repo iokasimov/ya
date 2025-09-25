@@ -38,7 +38,3 @@ shaft x = unwrap `hv______` Scope `hv` at @((Reverse tt `P'T'I'TT'I` Forward tt)
  `ho____` Left `hu__` Scope `hv` at @(Reverse tt i) @((Reverse tt `P'T'I'TT'I` Forward tt) i) `ho_'he` Scope `hv` it @(tt i)
   `la__` Right `hu__` Scope `hv` at @(Forward tt i) @((Reverse tt `P'T'I'TT'I` Forward tt) i) `ho_'he` Scope `hv` it @(tt i)
   `li__` x
-
--- TODO: deprecated, use at @(Shafted List _) instead
-other :: forall t tt i . Supertype ((t `P'T'I'TT'I` (Reverse tt `P'T'I'TT'I` Forward tt)) i `AT` (Reverse tt `P'T'I'TT'I` Forward tt) i)
-other (T'TT'I'TTT'I (These x xs)) = xs `lu` T'TT'I'TTT'I `ha` (x `lu`)
