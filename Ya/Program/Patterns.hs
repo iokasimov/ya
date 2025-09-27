@@ -22,11 +22,6 @@ type Singular = I
 pattern Singular :: e -> Singular e
 pattern Singular e = Identity e
 
--- type Focused = I
-
--- pattern Focused :: e -> Focused e
--- pattern Focused e = Identity e
-
 type Apparently = I
 
 pattern Apparently :: e -> Apparently e
@@ -220,13 +215,15 @@ type family Brancher datastructure where
  Brancher (T'TT'I t (Construction t)) = t
 
 type family Nonempty datastructure where
- Nonempty (T'TT'I Optional (Construction Optional)) = Construction Optional
+ Nonempty (Maybe `T'TT'I` Construction Maybe) = Construction Maybe
+ Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
 pattern Nonempty :: forall t i . Recursive (T'I'II (P) i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = R_U_I_T_I xs
 
 type Tree = Construction List
 
+-- TODO: fix it, it shouldn't be too complicated
 pattern Tree x xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (T'TT'I (Exist (Construct xs)))))))
 
 type family Binary t where
@@ -235,11 +232,12 @@ type family Binary t where
 pattern Binary xs = T'TT'I (T'I'I xs)
 
 type family Forest tree where
- Forest (Construction t) = t `T'TT'I` Construction t
+ Forest (Construction t) = List `T'TT'I` Construction t
 
-type family Prefix k t where
- Prefix k Tree = (List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k)
- Prefix k t = t `T'TT'I` Along k
+type family Prefix t k where
+ Prefix Tree k = (List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k)
+ Prefix List k = List `T'TT'I` Along k
+ Prefix (Construction Maybe) k = Construction Maybe `T'TT'I` Along k
 
 type Stream = Construction Alone
 
