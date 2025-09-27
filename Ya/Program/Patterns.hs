@@ -235,7 +235,7 @@ type family Forest tree where
  Forest (Construction t) = List `T'TT'I` Construction t
 
 type family Prefix t k where
- Prefix Tree k = (List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k)
+ Prefix Tree k = List `T'TT'I` Construction List `T'TT'I` Along k
  Prefix List k = List `T'TT'I` Along k
  Prefix (Construction Maybe) k = Construction Maybe `T'TT'I` Along k
 
