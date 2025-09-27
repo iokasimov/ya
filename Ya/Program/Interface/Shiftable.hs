@@ -84,6 +84,12 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 -- pattern Broad x = This x :: Shifter Tree
 -- pattern Level x = That x :: Shifter Tree
 
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Construction Maybe `T'TT'I` Construction List)
+ ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Chassis List Alone Tree) where
+ mapping = rewrap `identity` \from x ->
+  T'TT'I (to @(Scrolling List) `hv'he` x) `yo` from `lu` T'TT'I (Label `hv` empty @List) `yi` T'TT'I'TTT'I
+
 -- TODO: implement `locate` method
 instance Shiftable Alone (Construction List) where
  shift way x = is
@@ -153,11 +159,11 @@ locate :: forall t tt i .
  Fieldable (t i) (Shifting t tt i) =>
  Wrapper (AR) (Shifting t tt i) =>
  Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
-locate (These way predicate) x = foi Exist `ha` auto `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` locate' `he'he'hv` x where
+locate (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` locate' `he'he'hv` x where
 
  locate' = intro @(Stops `T` Shifting t  tt i `JNT` State `T` Shifting t tt i) Unit
-  `yuk____` Apply `ha` State `hv____` Event `hv___` auto `ho'yoi` unwrap predicate `ha___` Scope `hv` at @(t i)
-  `yok____` Apply `ha` State `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` auto `ho'yoi` Break)
+  `yuk____` Apply `ha` State `hv____` Event `hv___` get `ho'yoi` unwrap predicate `ha___` Scope `hv` at @(t i)
+  `yok____` Apply `ha` State `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` get `ho'yoi` Break)
   `yok____` Check `ha__` Break `la` Continue
   `yok____` Retry `ha__` Break `hu` by Ok `la` Again `ha` Same `hu` by Break
 
