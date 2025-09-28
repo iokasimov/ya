@@ -154,16 +154,16 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
    `yi_` that `ho'yo` from
 
-locate :: forall t tt i .
+spot :: forall t tt i .
  Shiftable t tt =>
  Fieldable (t i) (Shifting t tt i) =>
  Wrapper (AR) (Shifting t tt i) =>
  Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
-locate (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` locate' `he'he'hv` x where
+spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _locate_ `he'he'hv` x where
 
  found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
 
- locate' = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
+ _locate_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
   `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(t i) `lo` Scope `hv` it
   `yok____` Check `ha` Stops `ha___` not `ha` found
   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way

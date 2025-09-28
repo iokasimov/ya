@@ -23,7 +23,8 @@ instance
  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
  key k x =
   let prepared = unwrap x `yi` to @(Scrolling List) in
-  let adjusted = prepared `yi` locate (That Unit `lu` Predicate `hv` _exact_key_ k) `ho` this in
+  let predicate = Predicate `hv_` _exact_key_ k `ha` unwrap @AR in
+  let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
   case unwrap adjusted of
    This Unit ->
     Break k `lu` ((\_ -> x) `la` (\i -> push (Along (i `lu` k)) `hv` unwrap x `yi` that `ho` wrap @(AR)))
@@ -42,7 +43,8 @@ instance
 
   on_nonempty_list x =
    let prepared = x `yi` to @(Scrolling List) @(Nonempty List) in
-   let adjusted = prepared `yi` locate (That Unit `lu` Predicate `hv` _exact_key_ k) `ho` this in
+   let predicate = Predicate `hv_` _exact_key_ k `ha` unwrap @AR in
+   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
    case unwrap adjusted of
     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `hv` x `la` (\i -> push (Along (i `lu` k)) `hv` x `yi` that `ho` to @List `ho` T'TT'I))
     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
