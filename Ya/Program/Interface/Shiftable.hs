@@ -25,6 +25,7 @@ type family Shifter t where
 
 class Shiftable t tt where
  shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional i)
+ spot :: Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
 
 type Leveled e = Shifting Alone List `T'TT'I` e
 
@@ -41,14 +42,24 @@ pattern Lift x = This x :: Shifter List
 pattern Down x = That x :: Shifter List
 
 instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
- shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` shift' `he'he'hv` x where
+ shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `he'he'hv` x where
 
-  shift' = intro @(Halts `JNT` State `T` Scrolling List _) Unit
+  _shift_ = intro @(Halts `JNT` State `T` Scrolling List _) Unit
    `yuk__` Apply `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
    `yok__` Check
    -- `yok__` Apply `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Alone i) at `he'ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` relay `ho_'ha` Scope `hv` at @(Alone _) `ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
+
+ spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+
+  found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
+
+  _spot_ = intro @(Stops `T` Scrolling List _ `JNT` State `T` Scrolling List _) Unit
+   `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(Alone _) `lo` Scope `hv` it
+   `yok____` Check `ha` Stops `ha___` not `ha` found
+   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
 
 instance Shiftable List (Optional `T'TT'I` Construction Optional) where
  shift way x = is
@@ -154,20 +165,20 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
    `yi_` that `ho'yo` from
 
-spot :: forall t tt i .
- Shiftable t tt =>
- Fieldable (t i) (Shifting t tt i) =>
- Wrapper (AR) (Shifting t tt i) =>
- Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
-spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _locate_ `he'he'hv` x where
+-- spot :: forall t tt i .
+--  Shiftable t tt =>
+--  Fieldable (t i) (Shifting t tt i) =>
+--  Wrapper (AR) (Shifting t tt i) =>
+--  Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
+-- spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
- found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
+--  found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
 
- _locate_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
-  `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(t i) `lo` Scope `hv` it
-  `yok____` Check `ha` Stops `ha___` not `ha` found
-  `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
-  `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
+--  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
+--   `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(t i) `lo` Scope `hv` it
+--   `yok____` Check `ha` Stops `ha___` not `ha` found
+--   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+--   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
 
 rewind :: forall t tt i .
  Shiftable t tt =>
