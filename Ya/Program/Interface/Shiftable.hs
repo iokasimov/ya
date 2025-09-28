@@ -10,13 +10,13 @@ import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 
-type Shafted e = Reverse e `P'T'I'TT'I` Forward e
+type Shafted t = Reverse t `P'T'I'TT'I` Forward t
 
-type Chassis t tt ttt = Reverse t `T'TT'I` (tt `P'T'I'TT'I` Shafted t `T'TT'I` ttt)
+type Unfoldings t tt = Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` tt)
 
 type family Shifting t tt = r | r -> t tt where
  Shifting t (Optional `T'TT'I` Construction Optional) = t `P'T'I'TT'I` Shafted List
- Shifting t (Construction List) = Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Chassis List t Tree
+ Shifting t (Construction List) = Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree
 
 type family Shifter t where
  Shifter (Optional `T'TT'I` Construction Optional) = Unit `S` Unit
@@ -86,7 +86,7 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `T'TT'I` Construction List)
- ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Chassis List Alone Tree) where
+ ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Unfoldings Alone Tree) where
  mapping = rewrap `identity` \from x ->
   T'TT'I (to @(Scrolling List) `hv'he` x) `yo` from `lu` T'TT'I (Label `hv` empty @List) `yi` T'TT'I'TTT'I
 
@@ -161,11 +161,13 @@ locate :: forall t tt i .
  Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
 locate (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` locate' `he'he'hv` x where
 
- locate' = intro @(Stops `T` Shifting t  tt i `JNT` State `T` Shifting t tt i) Unit
-  `yuk____` Apply `ha` State `hv____` Event `hv___` get `ho'yoi` unwrap predicate `ha___` Scope `hv` at @(t i)
-  `yok____` Apply `ha` State `ha____` Event `ha___` (Next `hu_` shift `hv` way `ho'yoi` Continue `la_` Same `hu_` get `ho'yoi` Break)
-  `yok____` Check `ha__` Break `la` Continue
-  `yok____` Retry `ha__` Break `hu` by Ok `la` Again `ha` Same `hu` by Break
+ found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
+
+ locate' = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
+  `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(t i) `lo` Scope `hv` it
+  `yok____` Check `ha` Stops `ha___` not `ha` found
+  `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+  `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
 
 rewind :: forall t tt i .
  Shiftable t tt =>
