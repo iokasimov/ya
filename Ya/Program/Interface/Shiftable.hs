@@ -30,7 +30,7 @@ type family Shifter t where
 -- TODO: flux, axis, rest
 class Shiftable t tt where
  shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional i)
- spot :: Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional `T` Shifting t tt i)
+ spot :: Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional `T` Shifting t tt i)
 
 type Leveled e = Shifting Alone List `T'TT'I` e
 

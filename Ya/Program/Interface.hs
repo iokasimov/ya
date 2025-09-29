@@ -301,7 +301,7 @@ type family Vector x xs where
  Vector x y = x ~ y
 
 -- This transformation is not natural!
-instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Predicate where
+instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
  mapping = rewrap `identity` \from -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li_` x `lu'q` from x'
 
 pattern Aloft :: forall t e .

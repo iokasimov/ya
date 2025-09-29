@@ -253,10 +253,10 @@ pattern Right x = That x
 
 type Vertical = (S) Unit Unit
 
-type Predicate = T'II'I Arrow Boolean
+type Match = T'II'I Arrow Boolean
 
-pattern Predicate :: e `AR` Boolean `AR_` Predicate e
-pattern Predicate e = T'II'I e
+pattern Match :: e `AR` Boolean `AR_` Match e
+pattern Match e = T'II'I e
 
 pattern Junction :: t e `P` tt e `AR__` (t `P'T'I'TT'I` tt) e
 pattern Junction x = T'TT'I'TTT'I  x
