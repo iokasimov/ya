@@ -23,9 +23,10 @@ type family Shifter t where
  Shifter (Construction (T'I'I (P) `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
+-- TODO: flux, axis, rest
 class Shiftable t tt where
  shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional i)
- spot :: Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
+ spot :: Shifter tt `P` Predicate (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional `T` Shifting t tt i)
 
 type Leveled e = Shifting Alone List `T'TT'I` e
 
@@ -152,6 +153,20 @@ instance Shiftable Alone (Construction List) where
   restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
     `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      `lu` unwrap shafted)
+
+ spot :: forall i . Shifter Tree `P` Predicate (Alone i) `AR_` Supertype (Event `T'I` Scrolling Tree i `T'I` Optional `T` Scrolling Tree i)
+ spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+
+  found (These w st) = unwrap (predicate `ya` rewrap (top @Tree `ho` this) `he'hv_` w) `yui` st `yiu` st
+
+  _spot_ = intro @(Stops `T` Scrolling Tree i `JNT` State `T` Scrolling Tree i) Unit
+   `yuk____` Lease `ha` State `hv____` Event `hv___` get
+     `ha___` Scope `hv` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
+       `ho_` Scope `hv` at @(Alone `T'I_` Tree `T` i)
+        `lo` Scope `hv` it @(Scrolling Tree i)
+   `yok____` Check `ha` Stops `ha___` not `ha` found
+   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Optional)
