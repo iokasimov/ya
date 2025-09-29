@@ -138,11 +138,6 @@ pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 -- pattern Directive :: forall ee e . (e `AR_` (S) e ee) -> Directive e ee
 -- pattern Directive x = U_I_UT'I'II @(AR) @(S) x
 
-type Match = U_I_UU_M_I_II_II (AR) (S)
-
-pattern Match :: forall ee e . (e `AR_` (S) (M e ee) ee) -> Match e ee
-pattern Match x = U_I_UU_M_I_II_II @(AR) @(S) x
-
 type Automation e ee eee = e `AR_` ee `P` eee
 
 type Transition = T'I'TT'II'I (AR) (P)
