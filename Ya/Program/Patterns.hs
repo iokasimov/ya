@@ -112,8 +112,9 @@ pattern Wrong x = T'I'II (This x)
 pattern Close :: i -> Stops i ii
 pattern Close x = T'I'II (This x)
 
-pattern Valid :: ii -> Stops i ii
+pattern Valid, Going :: ii -> Stops i ii
 pattern Valid x = T'I'II (That x)
+pattern Going x = T'I'II (That x)
 
 pattern Ok :: ii -> Stops i ii
 pattern Ok x = T'I'II (That x)
