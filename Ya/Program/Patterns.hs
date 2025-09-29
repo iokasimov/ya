@@ -89,37 +89,35 @@ type Stops = T'I'II (S)
 
 pattern Stops x = T'I'II @(S) x
 
-type Error = T'I'II (S)
-
-pattern Error :: e -> Error e ee
+pattern Error :: e -> Stops e ee
 pattern Error x = T'I'II (This x)
 
-pattern Break :: e -> Error e ee
+pattern Break :: e -> Stops e ee
 pattern Break x = T'I'II (This x)
 
 type Catch = T'I'II (S)
 
-pattern Catch :: e -> Error e ee
+pattern Catch :: e -> Stops e ee
 pattern Catch x = T'I'II (This x)
 
 type Reach = T'I'II (S)
 
-pattern Reach :: e -> Error e ee
+pattern Reach :: e -> Stops e ee
 pattern Reach x = T'I'II (This x)
 
 type Until = T'I'II (S)
 
-pattern Wrong :: e -> Error e ee
+pattern Wrong :: e -> Stops e ee
 pattern Wrong x = T'I'II (This x)
 
 -- TODO: remove
-pattern Close :: e -> Error e ee
+pattern Close :: e -> Stops e ee
 pattern Close x = T'I'II (This x)
 
-pattern Valid :: ee -> Error e ee
+pattern Valid :: ee -> Stops e ee
 pattern Valid x = T'I'II (That x)
 
-pattern Ok :: ee -> Error e ee
+pattern Ok :: ee -> Stops e ee
 pattern Ok x = T'I'II (That x)
 
 type Probably = T'I'II (S)
