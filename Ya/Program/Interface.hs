@@ -55,8 +55,8 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I'TTT'I (These rl fl)))) ->
   Identity `hv` Label x
-   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Prior)
-    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Forth)
+   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Label)
+    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Label)
     `yi_` T'TT'I'TTT'I
    `yi__` T'TT'I'TTT'I `ho` T'TT'I
    `yo__` from where
@@ -72,7 +72,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alo
 instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Construction List))) where
   mapping = rewrap `identity` \from x -> T'TT'I'TTT'I
-   (T'TT'I (T'TT'I'TTT'I ((Alone `hv__` x `yo` from) `lu` T'TT'I'TTT'I (Prior `hv` empty @List `lu` Forth `hv` empty @List))) `lu` T'TT'I (Prior `hv` empty @List))
+   (T'TT'I (T'TT'I'TTT'I ((Alone `hv__` x `yo` from) `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `hv` empty @List))) `lu` T'TT'I (Label `hv` empty @List))
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
  -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
@@ -88,18 +88,18 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
  mapping = rewrap `identity` \from -> rewrap `li_` wrap `ho'yo` from `ho` Exist
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Prior `hv` empty @List `lu` Forth `ha` List `hv` unwrap x)) `yo` from
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `ha` List `hv` unwrap x)) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Prior `hv` empty @List `lu` Forth `hv` x)) `yo` from
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `hv` x)) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Label r) (Label f))))) ->
   that `ho'yo` from
   `hv_____` intro @(State `T'I` List _) Unit
-    `yuk__` New (f `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
-    `yuk__` New (w `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List)
-    `yuk__` New (r `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List)
+    `yuk__` New (f `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List)
+    `yuk__` New (w `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List)
+    `yuk__` New (r `yokl` Label @_ @_ @(Void) `ha` New `ha` State `ha` Event `ha` push @List)
   `he'he'hv____` empty @List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
@@ -109,7 +109,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List)
  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
- mapping = rewrap `identity` \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Prior `ha` wrap @AR `ha` Empty) `yi` wrap @(AR)
+ mapping = rewrap `identity` \from x -> x `yo` from `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Label `ha` wrap @AR `ha` Empty) `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance {-# OVERLAPS #-}
@@ -183,10 +183,10 @@ instance {-# OVERLAPS #-}
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` (List `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These _ (T'TT'I'TTT'I (These rl fl)))) ->
   List `ha` Item (Label x) `ha` Last `hv` Unit
-    `lu__` (unwrap rl `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
-      `he'he'hv` empty @List `yi` that `ho` Prior
-     `lu_` (unwrap fl `yokl` Forth `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
-      `he'he'hv` empty @List `yi` that `ho` Forth
+    `lu__` (unwrap rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
+      `he'he'hv` empty @List `yi` that `ho` Label @_ @_ @(Void `P` Void)
+     `lu_` (unwrap fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
+      `he'he'hv` empty @List `yi` that `ho` Label  @_ @_ @Void
      `yi_` T'TT'I'TTT'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
     `yo__` from
