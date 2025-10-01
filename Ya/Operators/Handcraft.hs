@@ -497,7 +497,7 @@ hu______ = yiu
 hu_______ = yiu
 hu________ = yiu
 
-yiu'he, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
+yiu'he --, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
  :: forall into t i a o .
  Terminal into =>
  Category into =>
@@ -509,20 +509,173 @@ yiu'he, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu
  (forall e ee . Wrapper into (T'I'II into e ee)) =>
  (forall e ee . Wrapper into (T'II'I into e ee)) =>
  Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
  Wrapper into (T'II'I into o Unit) =>
  (forall e . Wrapper into (T'I'II t i e)) =>
- t i a -> into (Supertype (Supertype (into Unit o))) (t i o)
-yiu'he x = yio @into x `compose` fai @into terminal `compose` wrap `compose` wrap
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+yiu'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
 
-hu'he = yiu'he
-hu_'he = yiu'he
-hu__'he = yiu'he
-hu___'he = yiu'he
-hu____'he = yiu'he
-hu_____'he = yiu'he
-hu______'he = yiu'he
-hu_______'he = yiu'he
-hu________'he = yiu'he
+hu'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu_'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu_'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu__'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu__'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu___'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu___'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu____'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu____'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu_____'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu_____'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu______'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu______'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu_______'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu_______'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
+
+hu________'he
+ :: forall into t i a o .
+ Terminal into =>
+ Category into =>
+ Covariant Yoneda Functor into into (T'I'II t i) =>
+ Covariant Functor into into (T'I'II into a) =>
+ Contravariant Functor into into (T'II'I into o) =>
+ Wrapper into (into Unit o) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ (forall e ee . Wrapper into (T'I'II into e ee)) =>
+ (forall e ee . Wrapper into (T'II'I into e ee)) =>
+ Wrapper into (Supertype (into Unit o)) =>
+ Wrapper into o =>
+ Wrapper into (T'II'I into o Unit) =>
+ (forall e . Wrapper into (T'I'II t i e)) =>
+ t i a -> into (Supertype (into Unit o)) (t i (Supertype o))
+hu________'he = fai @into (fio (unwrap @into @o) `compose` fai @into terminal `compose` wrap) `compose` yio @into
 
 he'yiu, he'hu, he'hu_, he'hu__, he'hu___, he'hu____, he'hu_____, he'hu______, he'hu_______, he'hu________
  :: forall into t i a o .
