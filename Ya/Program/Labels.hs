@@ -14,8 +14,8 @@ pattern Default e = Label @_ @_ @Void e
 pattern First :: t ii `AR__` t `L` T'I'II (S) i `T` Void `T` ii
 pattern First x = Label x
 
-pattern Again :: forall e t tt . t e `AR__` t `L` tt `T` Recursive `T` e
-pattern Again i = Label @_ @_ @Recursive i
+pattern Again :: forall e t . e `AR__` Alone `L` t `T` Recursive `T` e
+pattern Again i = Label @_ @_ @Recursive (Alone i)
 
 pattern Check, Try
  :: forall e i t .
