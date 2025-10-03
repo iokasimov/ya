@@ -50,9 +50,5 @@ instance
     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `hv` xxx `la` (\i -> T'TT'I `ha` to @List `ha` to @(Nonempty List) `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
--- TODO: I think it should work. Here I'm going to use an instance above and then _locate_ (Down Unit `P` ) with Scrolling Tree
--- instance Keyable (List k) ((List `T'TT'I` Along k) `T'TT'I_` Construction (List `T'TT'I` Along k)) where
---  key k x = k `yokl` Forth `ha` 
-
-_exact_key_ k (Alone (T'II'I (These _ kk))) =
+_exact_key_ k (T'II'I (These _ kk)) =
  Wrong `hu` by False `la` Valid `hu` by True `li_` (k `lu'q` kk)
