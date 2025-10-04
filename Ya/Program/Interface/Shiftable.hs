@@ -15,7 +15,7 @@ type Shafted t = Reverse t `P'T'I'TT'I` Forward t
 type Unfoldings t tt = Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` tt)
 
 type family Shifting t tt = r | r -> t tt where
- Shifting t (Optional `T'TT'I` Construction Optional) = t `P'T'I'TT'I` Shafted List
+ Shifting t (Maybe `T'TT'I` Construction Maybe) = t `P'T'I'TT'I` Shafted List
  Shifting t (Construction List) = Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree
 
 type family Focus t where
@@ -23,8 +23,8 @@ type family Focus t where
  Focus ((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) = t
 
 type family Shifter t where
- Shifter (Optional `T'TT'I` Construction Optional) = Unit `S` Unit
- Shifter (Construction (T'I'I (P) `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
+ Shifter (Maybe `T'TT'I` Construction Maybe) = Unit `S` Unit
+ Shifter (Construction (T'I'I (P) `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
  -- TODO: Replace with a natural transformation?
@@ -32,8 +32,8 @@ type family Shifter t where
 
 -- TODO: flux, axis, rest
 class Shiftable t tt where
- shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (t i))
- spot :: Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional `T` Shifting t tt i)
+ shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (t i))
+ spot :: Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe `T` Shifting t tt i)
 
 type Leveled e = Shifting Alone List `T'TT'I` e
 
@@ -49,7 +49,7 @@ type Sliding t = Shifting List t
 pattern Lift x = This x :: Shifter List
 pattern Down x = That x :: Shifter List
 
-instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
+instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `he'he'hv` x where
 
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List _) Unit
@@ -58,7 +58,8 @@ instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
    -- `yok__` Apply `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Alone i) at `he'ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` relay `ho_'ha` Scope `hv` at @(Alone _) `ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
-   `yuk__` Lease `ha` State `hv__` Event `hv` get `ha_` Scope `hv` at @(Alone _)
+   -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
+   `yuk__` Apply `ha` State `hv__` Event `hv` get `ha_` Scope `hv` at @(Alone _)
 
  spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
@@ -70,7 +71,7 @@ instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
    `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
    `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
 
-instance Shiftable List (Optional `T'TT'I` Construction Optional) where
+instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift way x = is
   `li` is `hu` (by Empty `lu` x)
   `la` is `ho'he` foi @_ @(AR) Exist
@@ -90,8 +91,8 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
    `yok____` Apply `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
    `yok____` Check
    `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
-   `yuk____` Lease `ha` State `hv____` Event `hv` get `ha_` Scope `hv` at @(List _)
-  
+   `yuk____` Apply `ha` State `hv____` Event `hv` get `ha_` Scope `hv` at @(List _)
+
   window_future :: i `AR_____` List i `AR___` List i `P` List i
   window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit -- `yui` r
 
@@ -164,7 +165,7 @@ instance Shiftable Alone (Construction List) where
     `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      `lu` unwrap shafted)
 
- spot :: forall i . Shifter Tree `P` Match (Alone i) `AR_` Supertype (Event `T'I` Scrolling Tree i `T'I` Optional `T` Scrolling Tree i)
+ spot :: forall i . Shifter Tree `P` Match (Alone i) `AR_` Supertype (Event `T'I` Scrolling Tree i `T'I` Maybe `T` Scrolling Tree i)
  spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
   found (These w st) = unwrap (predicate `ya` rewrap (top @Tree `ho` this) `he'hv_` w) `yui` st `yiu` st
@@ -179,12 +180,12 @@ instance Shiftable Alone (Construction List) where
    `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- (Construction Optional)
+ (Construction Maybe)
  (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap `identity` \from (Root x xs) ->
   T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Label (empty @List) `lu` (Label (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Optional) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Maybe) where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
   (unwrap l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
@@ -194,7 +195,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'
 --  Shiftable t tt =>
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
---  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (Shifting t tt i))
+--  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
 -- spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
 --  found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
@@ -217,7 +218,7 @@ pattern Shrink e = This e
 pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
-adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Optional i)
+adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
 adjust way x = is `hu` (by Empty `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
 
  -- TODO: there should be a way to shorten it
