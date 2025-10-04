@@ -3,9 +3,7 @@ module Ya.Program.Patterns where
 
 import Ya.Algebra
 
-type Same = I
-
-pattern Same e = Identity e
+pattern Same e = e
 
 type Once = I
 
