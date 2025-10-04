@@ -27,9 +27,12 @@ type family Shifter t where
  Shifter (Construction (T'I'I (P) `T'TT'I` Optional)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
+ -- TODO: Replace with a natural transformation?
+ -- focus :: Supertype (Scope `T'I` Shifting t tt i `T'I` t i)
+
 -- TODO: flux, axis, rest
 class Shiftable t tt where
- shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional i)
+ shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Optional (t i))
  spot :: Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Optional `T` Shifting t tt i)
 
 type Leveled e = Shifting Alone List `T'TT'I` e
@@ -55,6 +58,7 @@ instance Shiftable Alone (Optional `T'TT'I` Construction Optional) where
    -- `yok__` Apply `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Alone i) at `he'ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` relay `ho_'ha` Scope `hv` at @(Alone _) `ho'he` Scope it
    `yok__` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
+   `yuk__` Lease `ha` State `hv__` Event `hv` get `ha_` Scope `hv` at @(Alone _)
 
  spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
@@ -86,8 +90,10 @@ instance Shiftable List (Optional `T'TT'I` Construction Optional) where
    `yok____` Apply `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
    `yok____` Check
    `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
-
-  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
+   `yuk____` Lease `ha` State `hv____` Event `hv` get `ha_` Scope `hv` at @(List _)
+  
+  window_future :: i `AR_____` List i `AR___` List i `P` List i
+  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit -- `yui` r
 
   window_extract_last passed w =
    push @List passed w `yi` that
@@ -113,15 +119,15 @@ instance Shiftable Alone (Construction List) where
   `la` is `ho'he` foi @_ @(AR) Exist
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
-  horizontally :: forall i . Way `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` i
+  horizontally :: forall i . Way `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I` Alone i
   horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk__` Apply `ha` State @(Scrolling Tree i)
    `hv___` Event `hv` shift way
     `ha__` Scope `hv` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
    `ho_'he` Scope `hv` it @(Scrolling List `T'I_` Tree i)
-   `yok__` Check `ha_'yo` is `ho'he'he'he'he` this
+   `yok__` Check `ha_'yo'yo` top @Tree `ho` this
 
-  vertical_deep :: forall i . Unit `AR___` Halts `JNT` State `T'I` Scrolling Tree i `T'I_` i
+  vertical_deep :: forall i . Unit `AR___` Halts `JNT` State `T'I` Scrolling Tree i `T'I_` Alone i
   vertical_deep _ = intro @(Halts `JNT` State `T'I` Scrolling Tree i) Unit
    `yuk___` Apply `ha` State @(Scrolling Tree i)
    `hv____` Event `hv` get @(Alone (Tree i) `P` Shafted List (Tree i))
@@ -137,12 +143,12 @@ instance Shiftable Alone (Construction List) where
    `ho_'he'he` Scope `hv` at @(List ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i))
    `yok___` Check `ha` unwrap @(AR)
    `yok___` Apply `ha` State
-   `ha____` Event `ha` (\x _ -> top @(Nonempty List) `ho` this `ho` top @Tree `ho` this `lo` to @(Scrolling List) @(Nonempty List) `li` x)
+   `ha____` Event `ha` (\x _ -> top @(Nonempty List) `ho` this `ho` top @Tree `ho` this `ho` Alone `lo` to @(Scrolling List) @(Nonempty List) `li` x)
    -- `ha____` Event `ha` put `ha` to @(Scrolling List) @(Nonempty List)
    `ho__'ha` Scope `hv` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
     `ho_'he` Scope `hv` at @(Scrolling List `T'I_` Tree i)
 
-  vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` i
+  vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk___` Apply `ha` State
    `hv____` Event `hv` pop @List @((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)
@@ -153,8 +159,8 @@ instance Shiftable Alone (Construction List) where
    `ho__'ha` Scope `hv` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
     `ho_'he` Scope `hv` at @(Scrolling List `T'I_` Tree i)
 
-  restoring :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR___` Scrolling List (Tree i) `AR__` i `P` Scrolling List (Tree i)
-  restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = unwrap focus `lu` (T'TT'I'TTT'I
+  restoring :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR___` Scrolling List (Tree i) `AR__` Alone i `P` Scrolling List (Tree i)
+  restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = focus `lu` (T'TT'I'TTT'I
     `hv__` Alone (Tree `hv` unwrap focus `hv__` to @(Nonempty List) `hv` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
      `lu` unwrap shafted)
 
