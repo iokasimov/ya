@@ -22,18 +22,21 @@ infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl
  , `ho_'he'he'he`
  , `ho_'he'he'hv`
  , `ho_'he'he'he'he`
+ , `ho_'hd`
 infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`, `ho__'yoikl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
  , `ho__'he'he'hv`
  , `ho__'he'he'he'he`
+ , `ho__'hd`
 infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`, `ho___'yoikl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
  , `ho___'he'he'hv`
  , `ho___'he'he'he'he`
+ , `ho___'hd`
 infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`, `ho____'yoikl`
  , `ho____'he`
  , `ho____'he'he`
@@ -46,6 +49,7 @@ infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `
  , `ho_____'he'he'he`
  , `ho_____'he'he'hv`
  , `ho_____'he'he'he'he`
+ , `ho____'hd`
 infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`, `ho______'yoikl`
 infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`, `ho_______'yoikl`
  , `ho_______'he`
@@ -53,12 +57,14 @@ infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho____
  , `ho_______'he'he'he`
  , `ho_______'he'he'hv`
  , `ho_______'he'he'he'he`
+ , `ho_____'hd`
 infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`, `ho________'yoikl`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
  , `ho________'he'he'hv`
  , `ho________'he'he'he'he`
+ , `ho______'hd`
  -- , `ho________'yo`
  -- , `ho________'yoi`
 
@@ -943,7 +949,8 @@ yai'ydi'ydi x = fai (fdi @from `compose` fdi @from) (yai @from @into x)
 
 ha'hd'hd = yai'ydi'ydi
 
-yio'ydi, ho'hd :: forall from into t tt ttt i ii iii a o .
+yio'ydi, ho'hd, ho_'hd, ho__'hd, ho___'hd, ho____'hd, ho_____'hd, ho______'hd, ho_______'hd, ho________'hd
+ :: forall from into t tt ttt i ii iii a o .
  Precategory into =>
  Contravariant Endo Semi Functor (AR) (T'II'I into (t o i)) =>
  Adjoint Functor from from (T'II'I tt ii) (T'I'II ttt iii) =>
@@ -962,6 +969,14 @@ yio'ydi, ho'hd :: forall from into t tt ttt i ii iii a o .
 yio'ydi x = fai fdi (yio @from @into x)
 
 ho'hd = yio'ydi
+ho_'hd = yio'ydi
+ho__'hd = yio'ydi
+ho___'hd = yio'ydi
+ho____'hd = yio'ydi
+ho_____'hd = yio'ydi
+ho______'hd = yio'ydi
+ho_______'hd = yio'ydi
+ho________'hd = yio'ydi
 
 yio'ydi'ydi, ho'hd'hd :: forall from into t tt ttt tttt ttttt i ii iii iiii iiiii a o .
  Precategory into =>
