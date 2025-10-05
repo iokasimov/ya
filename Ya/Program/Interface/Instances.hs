@@ -36,9 +36,20 @@ pattern Aloft :: forall t e .
  (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
 pattern Aloft x = Label x
 
-instance Mapping T'I'II T'I'II Arrow Arrow (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
+instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \from (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
+
+pattern Alter :: forall t i .
+ Component (AR) (T'I'I t `L` T'I'I t `T` Void) (T'I'I t) =>
+ T'I'I t i `AR__` T'I'I t `L` T'I'I t `T` Void `T` i
+pattern Alter x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I P `L` T'I'I P `T` Void) (T'I'I P) where
+ mapping = rewrap `identity` \from -> rewrap `identity` (from `ha` that `lo` from `ha` this `ha__` unwrap @(AR))
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I S `L` T'I'I S `T` Void) (T'I'I S) where
+ mapping = rewrap `identity` \from -> rewrap `identity` (from `ho` That `la` from `ho` This `ha__` unwrap @(AR))
