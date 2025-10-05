@@ -300,14 +300,7 @@ class
  , Covariant x from into tt
  , Covariant Transformation x into from (T'TT'I t tt) I
  , Covariant Transformation x from into I (T'TT'I tt t)
- ) => Adjoint x from into t tt
-
-deriving instance
- ( Covariant Functor into from t
- , Covariant Functor from into tt
- , Covariant Transformation Functor into from (T'TT'I t tt) I
- , Covariant Transformation Functor from into I (T'TT'I tt t)
- ) => Adjoint Functor from into t tt
+ ) => Adjoint x from into t tt | t -> tt
 
 class
  ( forall e ee . Mapping v vv from into (Day v from u uu t (t `L` t `T` l) e ee) t

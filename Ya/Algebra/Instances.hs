@@ -544,3 +544,6 @@ instance {-# OVERLAPS #-}
    `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void) @(tt `TT'T'I` t) identity)
    `compose` map @T'I'II @T'I'II @(AR) @(AR) @(tt) @(tt) (Label `compose` Label `compose` unwrap `compose` unwrap)
    ) `identity` unwrap x
+
+instance Adjoint Functor (AR) (AR) (T'II'I (P) i) (T'I'II (AR) i)
+instance Adjoint Functor (AR) (AR) (T'I'II (P) i) (T'I'II (AR) i)
