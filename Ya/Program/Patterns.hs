@@ -3,6 +3,7 @@ module Ya.Program.Patterns where
 
 import Ya.Algebra
 
+pattern Same :: i `AR_` i
 pattern Same e = e
 
 type Once = I
