@@ -297,7 +297,7 @@ infixl 3 `yu_____`
 infixl 2 `yu______`
 infixl 1 `yu_______`
 
-infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
+infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys`, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
 infixl 8 `ys`, `ys'yo`, `ys'yu`
@@ -2900,6 +2900,11 @@ yp'yo'hd :: forall e ee r t tt l .
  t e `P` (tt `L` tt `T` l) ee -> (e `AR_` ee `AR` r) -> t r
 yp'yo'hd x f = day @T'I'II @(AR) @l @t @tt @(P) @P identity (fdi f) x
 
+yp'yu :: forall e ee r t tt l .
+ Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` l) e ee) t =>
+ t e `P` (tt `L` tt `T` l) ee -> r -> t r
+yp'yu x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
+
 -- TODO: try to generalize
 -- yip :: forall u e ee eee t .
  -- Covariant Endo Semi Functor (AR) (T'II'I u (t e eee)) =>
@@ -2950,12 +2955,11 @@ ys'yo :: forall from t tt l e ee u r .
 ys'yo x f = day @T'I'II @from @l @t @tt @u @(S) identity f x
 
 -- TODO: try to generalize
-ys'yu :: forall from t tt l e ee u r .
- (forall e . Mapping T'I'II T'I'II (->) (->) I (T'I'II from e)) =>
- Category from =>
- Mapping T'I'II T'I'II from (AR) (Covariant Day from u (S) t (tt `L` tt `T` l) e ee) t =>
+ys'yu :: forall t tt l e ee u r .
+ (forall e . Mapping T'I'II T'I'II (->) (->) I (T'I'II (AR) e)) =>
+ Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (S) t (tt `L` tt `T` l) e ee) t =>
  u (t e) ((tt `L` tt `T` l) ee) -> r -> t r
-ys'yu x r = day @T'I'II @from @l @t @tt @u @(S) identity (constant r) x
+ys'yu x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
 
 -- TODO: try to generalize
 -- yis :: forall u e ee eee t .
