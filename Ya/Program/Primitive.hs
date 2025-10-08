@@ -21,8 +21,8 @@ swap (These x y) = y `lu` x
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Construct x xs) -> These 
-  -- ((T'TT'I / wrap @Arrow @(R_U_I_T_I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
-  -- (\new -> Construct x (unwrap @Arrow @(R_U_I_T_I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
+  -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
+  -- (\new -> Construct x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
 
 -- TODO: we need to remove `Automation` type alias, it's confusing
 
@@ -54,16 +54,16 @@ dim = fui @AR @AR Unit
 top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
-top (R_U_I_T_I (Recursive (T'TT'I (T'I'II (These old xs))))) =
+top (F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These old xs))))) =
   old `lu` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
-sub (R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x old))))) = These
-  (wrap @(AR) @(R_U_I_T_I _ _ _) `fo` old)
-  (\new -> Root x `li_` new `yo` unwrap @Arrow @(R_U_I_T_I _ _ _))
+sub (F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These x old))))) = These
+  (wrap @(AR) @(F'T'I'TT'I _ _ _) `fo` old)
+  (\new -> Root x `li_` new `yo` unwrap @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>

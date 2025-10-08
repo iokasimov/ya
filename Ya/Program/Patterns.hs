@@ -151,34 +151,34 @@ pattern State x = T'I'II @Transition x
 
 type Branching t tt i = T'I'II t i `T'TT'I` tt
 
-type Construction = R_U_I_T_I (T'I'II P)
+type Construction = F'T'I'TT'I (T'I'II P)
 
-pattern Construct xs = R_U_I_T_I xs
+pattern Construct xs = F'T'I'TT'I xs
 
-pattern Root x xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x xs))))
+pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These x xs))))
 
 pattern Node x xs = Recursive (T'TT'I (T'I'II (These x xs)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))
 
-type Instruction = R_U_I_T_I Stops
+type Instruction = F'T'I'TT'I Stops
 
 -- x `kyokl` Level `ha` ...
 
 -- TODO: t `C'AR___` Instruction t
 
--- pattern Value x = R_U_I_T_I (Recursive (T'I'TT'II (This x)))
--- pattern Impel x = R_U_I_T_I (Recursive (T'I'TT'II (That x)))
+-- pattern Value x = F'T'I'TT'I (Recursive (T'I'TT'II (This x)))
+-- pattern Impel x = F'T'I'TT'I (Recursive (T'I'TT'II (That x)))
 
 pattern Impel :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Instruction t i
-pattern Impel xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (That xs))))
+pattern Impel xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (That xs))))
 
 pattern Value :: i `AR____` Instruction t i
-pattern Value x = R_U_I_T_I (Recursive (T'TT'I (T'I'II (This x))))
+pattern Value x = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (This x))))
 
 type List = Optional `T'TT'I` Construction Optional
 
-pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (R_U_I_T_I xs))
+pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (F'T'I'TT'I xs))
 
 type Quest = List
 
@@ -199,12 +199,12 @@ type family Nonempty datastructure where
  Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
 pattern Nonempty :: forall t i . Recursive (T'I'II (P) i `T'TT'I` Brancher t) -> Construction (Brancher t) i
-pattern Nonempty xs = R_U_I_T_I xs
+pattern Nonempty xs = F'T'I'TT'I xs
 
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
-pattern Tree x xs = R_U_I_T_I (Recursive (T'TT'I (T'I'II (These x (T'TT'I (Exist (Construct xs)))))))
+pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These x (T'TT'I (Exist (Construct xs)))))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)

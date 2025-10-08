@@ -183,7 +183,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe)
  (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
  mapping = rewrap `identity` \from (Root x xs) ->
-  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Label (empty @List) `lu` (Label (T'TT'I (xs `yo` R_U_I_T_I) `yo` from))))
+  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Label (empty @List) `lu` (Label (T'TT'I (xs `yo` F'T'I'TT'I) `yo` from))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Maybe) where
  mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->

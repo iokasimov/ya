@@ -198,13 +198,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
 --  mapping = rewrap `identity` \from -> \case
 --   T'TT'I (T'TT'I (T'I'II (This ())))
 --    -> T'TT'I (T'I'II (This ()))
---   T'TT'I (T'TT'I (T'I'II (That (R_U_I_T_I (Recursive (T'I'TT'II (These (Cascading (T'TT'I (T'I'II (This ())))) _)))))))
+--   T'TT'I (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'I'TT'II (These (Cascading (T'TT'I (T'I'II (This ())))) _)))))))
 --    -> T'TT'I (T'I'II (This ()))
---   T'TT'I (T'TT'I (T'I'II (That (R_U_I_T_I (Recursive (T'I'TT'II (These (Cascading (T'TT'I (T'I'II (That
---    (R_U_I_T_I (Recursive (T'I'TT'II (These x xx)))))))) xxx)))))))
---    -> T'TT'I (T'I'II (That (R_U_I_T_I (Recursive (T'I'TT'II (These (from x)
+--   T'TT'I (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'I'TT'II (These (Cascading (T'TT'I (T'I'II (That
+--    (F'T'I'TT'I (Recursive (T'I'TT'II (These x xx)))))))) xxx)))))))
+--    -> T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'I'TT'II (These (from x)
 --      (fo @Arrow unwrap `compose` unwrap @Arrow `identity` map @T'I'II @T'I'II @(AR) @(AR) @(List `T'TT'I` Cascading List) @List from
---       (T'TT'I (T'TT'I (T'I'II (That (R_U_I_T_I (Recursive (T'I'TT'II (These (Cascading `ha` T'TT'I `identity` xx `yo` R_U_I_T_I) xxx))))))))
+--       (T'TT'I (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'I'TT'II (These (Cascading `ha` T'TT'I `identity` xx `yo` F'T'I'TT'I) xxx))))))))
 --      )
 --     ))))))
 
@@ -284,13 +284,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) List where
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  -- mapping = rewrap `identity` \from -> \case
-  -- R_U_I_T_I (Recursive (T'I'TT'II (These e (T'I'II (This ()))))) ->
-   -- T'TT'I `ha` R_U_I_T_I
-    -- `li` Last (R_U_I_T_I (Recursive (T'I'TT'II (These (from e) (T'I'II (This ()))))))
-  -- R_U_I_T_I (Recursive (T'I'TT'II (These e (T'I'II (That es))))) ->
-   -- T'TT'I `ha` R_U_I_T_I
-    -- `ha` Next (R_U_I_T_I (Recursive (T'I'TT'II (These (from e) (T'I'II (That `identity` unwrap (R_U_I_T_I es `yo` from)))))))
-    -- `li` Last (map @T'I'II @T'I'II @(AR) @(AR) from (R_U_I_T_I es))
+  -- F'T'I'TT'I (Recursive (T'I'TT'II (These e (T'I'II (This ()))))) ->
+   -- T'TT'I `ha` F'T'I'TT'I
+    -- `li` Last (F'T'I'TT'I (Recursive (T'I'TT'II (These (from e) (T'I'II (This ()))))))
+  -- F'T'I'TT'I (Recursive (T'I'TT'II (These e (T'I'II (That es))))) ->
+   -- T'TT'I `ha` F'T'I'TT'I
+    -- `ha` Next (F'T'I'TT'I (Recursive (T'I'TT'II (These (from e) (T'I'II (That `identity` unwrap (F'T'I'TT'I es `yo` from)))))))
+    -- `li` Last (map @T'I'II @T'I'II @(AR) @(AR) from (F'T'I'TT'I es))
 
 -- Define `Rewindable` typeclass, there should be instances for `Scrolling List``identity``Sliding List`
 
