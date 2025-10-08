@@ -151,7 +151,7 @@ pattern State x = T'I'II @Transition x
 
 type Branching t tt i = T'I'II t i `T'TT'I` tt
 
-type Construction = R_U_I_T_I P
+type Construction = R_U_I_T_I (T'I'II P)
 
 pattern Construct xs = R_U_I_T_I xs
 
@@ -161,7 +161,7 @@ pattern Node x xs = Recursive (T'TT'I (T'I'II (These x xs)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))
 
-type Instruction = R_U_I_T_I (S)
+type Instruction = R_U_I_T_I Stops
 
 -- x `kyokl` Level `ha` ...
 

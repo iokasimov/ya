@@ -18,6 +18,7 @@ infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `AL_____`
 infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `AL______`
 infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `AL_______`
 
+-- TODO: I think this precedence is way too low, probably 5 is better (compare with `T'TT'I)
 infixl 3 `P'T'I'TT'I`
 infixl 3 `S'T'I'TT'I`
 

@@ -296,8 +296,8 @@ instance
  , forall i . Covariant Endo Semi Functor from (T'I'II u i `T'TT'I` t)
  , forall i . Covariant Endo Semi Functor from (T'II'I u (t i))
  , forall i . Covariant Semi Functor from into (T'II'I u (t i))
- , forall e . Wrapper from (R_U_I_T_I u t e)
- , forall e . Wrapper into (R_U_I_T_I u t e)
+ , forall e . Wrapper from (R_U_I_T_I (T'I'II u) t e)
+ , forall e . Wrapper into (R_U_I_T_I (T'I'II u) t e)
  , forall i . Wrapper from (Recursive (T'I'II u i `T'TT'I` t))
  , forall i . Wrapper into (Recursive (T'I'II u i `T'TT'I` t))
  , forall i ii . Wrapper from (T'II'I u (t i) ii)
@@ -306,11 +306,11 @@ instance
  , forall i ii . Wrapper into (T'I'II u i ii)
  , forall i ii . Wrapper from ((T'I'II u i `T'TT'I` t) ii)
  , forall i ii . Wrapper into ((T'I'II u i `T'TT'I` t) ii)
- ) => Mapping T'I'II T'I'II from into (R_U_I_T_I u t) (R_U_I_T_I u t) where
+ ) => Mapping T'I'II T'I'II from into (R_U_I_T_I (T'I'II u) t) (R_U_I_T_I (T'I'II u) t) where
  mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
   ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'II'I u (t _)) @(T'II'I u (t _)) from))
   `compose` map @T'I'II @T'I'II @from @into @(T'I'II u _ `T'TT'I` t) @(T'I'II u _ `T'TT'I` t)
-   (wrapped (map @T'I'II @T'I'II @from @_ @(R_U_I_T_I u t) @(R_U_I_T_I u t) from))
+   (wrapped (map @T'I'II @T'I'II @from @_ @(R_U_I_T_I (T'I'II u) t) @(R_U_I_T_I (T'I'II u) t) from))
   )
 
 instance {-# OVERLAPPABLE #-} Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) a) (T'I'II (AR) a) where
