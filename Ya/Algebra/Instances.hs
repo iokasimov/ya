@@ -300,8 +300,8 @@ instance
  , forall e . Wrapper into (F'T'I'TT'I (T'I'II u) t e)
  , forall i . Wrapper from (Recursive (T'I'II u i `T'TT'I` t))
  , forall i . Wrapper into (Recursive (T'I'II u i `T'TT'I` t))
- , forall i ii . Wrapper from (T'II'I u (t i) ii)
- , forall i ii . Wrapper into (T'II'I u (t i) ii)
+ , forall i ii . Wrapper from (T'II'I u i ii)
+ , forall i ii . Wrapper into (T'II'I u i ii)
  , forall i ii . Wrapper from (T'I'II u i ii)
  , forall i ii . Wrapper into (T'I'II u i ii)
  , forall i ii . Wrapper from ((T'I'II u i `T'TT'I` t) ii)
@@ -311,6 +311,28 @@ instance
   ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'II'I u (t _)) @(T'II'I u (t _)) from))
   `compose` map @T'I'II @T'I'II @from @into @(T'I'II u _ `T'TT'I` t) @(T'I'II u _ `T'TT'I` t)
    (wrapped (map @T'I'II @T'I'II @from @_ @(F'T'I'TT'I (T'I'II u) t) @(F'T'I'TT'I (T'I'II u) t) from))
+  )
+
+instance
+ ( forall i . Covariant Semi Functor from into (T'II'I u i `T'TT'I` t)
+ , forall i . Covariant Endo Semi Functor from (T'II'I u i `T'TT'I` t)
+ , forall i . Covariant Endo Semi Functor from (T'I'II u (t i))
+ , forall i . Covariant Semi Functor from into (T'I'II u (t i))
+ , forall e . Wrapper from (F'T'I'TT'I (T'II'I u) t e)
+ , forall e . Wrapper into (F'T'I'TT'I (T'II'I u) t e)
+ , forall i . Wrapper from (Recursive (T'II'I u i `T'TT'I` t))
+ , forall i . Wrapper into (Recursive (T'II'I u i `T'TT'I` t))
+ , forall i ii . Wrapper from (T'II'I u i ii)
+ , forall i ii . Wrapper into (T'II'I u i ii)
+ , forall i ii . Wrapper from (T'I'II u i ii)
+ , forall i ii . Wrapper into (T'I'II u i ii)
+ , forall i ii . Wrapper from ((T'II'I u i `T'TT'I` t) ii)
+ , forall i ii . Wrapper into ((T'II'I u i `T'TT'I` t) ii)
+ ) => Mapping T'I'II T'I'II from into (F'T'I'TT'I (T'II'I u) t) (F'T'I'TT'I (T'II'I u) t) where
+ mapping = rewrap `identity` \from -> rewrap `compose` rewrap `identity`
+  ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'I'II u (t _)) @(T'I'II u (t _)) from))
+  `compose` map @T'I'II @T'I'II @from @into @(T'II'I u _ `T'TT'I` t) @(T'II'I u _ `T'TT'I` t)
+   (wrapped (map @T'I'II @T'I'II @from @_ @(F'T'I'TT'I (T'II'I u) t) @(F'T'I'TT'I (T'II'I u) t) from))
   )
 
 instance {-# OVERLAPPABLE #-} Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) a) (T'I'II (AR) a) where

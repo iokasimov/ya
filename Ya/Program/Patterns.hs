@@ -149,15 +149,15 @@ type State = T'I'II Transition
 pattern State :: forall e o . Transition e o -> State e o
 pattern State x = T'I'II @Transition x
 
-type Branching t tt i = T'I'II t i `T'TT'I` tt
+type Branching t tt i = t i `T'TT'I` tt
 
-type Construction = F'T'I'TT'I (T'I'II P)
+type Construction = F'T'I'TT'I Along
 
 pattern Construct xs = F'T'I'TT'I xs
 
-pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These x xs))))
+pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))
 
-pattern Node x xs = Recursive (T'TT'I (T'I'II (These x xs)))
+pattern Node x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))
 
@@ -182,8 +182,8 @@ pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (F'T'I'TT'I x
 
 type Quest = List
 
-pattern Item :: i -> t (Recursive (T'I'II (P) i `T'TT'I` t)) -> Recursive (T'I'II (P) i `T'TT'I` t)
-pattern Item x xs = Recursive (T'TT'I (T'I'II (These x xs)))
+pattern Item :: i -> t (Recursive (Along i `T'TT'I` t)) -> Recursive (Along i `T'TT'I` t)
+pattern Item x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 pattern Next :: forall ee e . ee `AR_` Progress e ee
 pattern Next x = T'I'II (That x)
@@ -198,13 +198,13 @@ type family Nonempty datastructure where
  Nonempty (Maybe `T'TT'I` Construction Maybe) = Construction Maybe
  Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
-pattern Nonempty :: forall t i . Recursive (T'I'II (P) i `T'TT'I` Brancher t) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (Along i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = F'T'I'TT'I xs
 
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
-pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (These x (T'TT'I (Exist (Construct xs)))))))
+pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Construct xs))) x))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)

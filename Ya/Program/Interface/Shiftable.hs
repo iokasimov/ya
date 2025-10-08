@@ -137,7 +137,7 @@ instance Shiftable Alone (Construction List) where
        `lo` Scope `hv` at @(Shafted List `T'I` Tree i)
    `yok___` Apply `ha` State
    `ha____` Event `ha__` (\(These (Alone tree) shafted) list ->
-      let (These focus subtree) = objective @T'I'II @(AR) @(Tree i) @(i `P` List (Supertype (Tree i))) tree in
+      let (These subtree focus) = objective @T'I'II @(AR) @(Tree i) @(List (Supertype (Tree i)) `P` i) tree in
       (subtree `yo` wrap @(AR) @(Tree i)) `lu` that `hv` push (T'TT'I'TTT'I (Alone focus `lu` wrap shafted)) list
      )
    `ho__'ha` Scope `hv` at @(Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I_` i)
