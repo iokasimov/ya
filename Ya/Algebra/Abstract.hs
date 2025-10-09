@@ -57,6 +57,10 @@ instance Elicitable T'I'II (->) (U_T'I'II_UT'I'II u uu i ii)
 
 newtype Recursive f = Recursive (f (Recursive f))
 
+type Fixed = Recursive
+
+pattern Fixed x = Recursive x
+
 newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
 type T'TT'I_ = T'TT'I
