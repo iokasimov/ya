@@ -153,6 +153,7 @@ type Branching t tt i = t i `T'TT'I` tt
 
 type Construction = F'T'I'TT'I Along
 
+pattern Construct :: forall t i . Supertype (Construction t i) `AR____` Construction t i
 pattern Construct xs = F'T'I'TT'I xs
 
 pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))
