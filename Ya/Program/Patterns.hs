@@ -163,18 +163,16 @@ pattern Node x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 type Instruction = F'T'I'TT'I Stops
 
--- x `kyokl` Level `ha` ...
-
 -- TODO: t `C'AR___` Instruction t
 
--- pattern Value x = F'T'I'TT'I (Recursive (T'I'TT'II (This x)))
--- pattern Impel x = F'T'I'TT'I (Recursive (T'I'TT'II (That x)))
+pattern Instruction :: forall t i . Supertype (Instruction t i) `AR____` Instruction t i
+pattern Instruction xs = F'T'I'TT'I xs
 
-pattern Impel :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Instruction t i
-pattern Impel xs = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (That xs))))
+pattern Impel :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Supertype (Instruction t i)
+pattern Impel xs = Recursive (T'TT'I (T'I'II (That xs)))
 
-pattern Value :: i `AR____` Instruction t i
-pattern Value x = F'T'I'TT'I (Recursive (T'TT'I (T'I'II (This x))))
+pattern Value :: i `AR____` Supertype (Instruction t i)
+pattern Value x = Recursive (T'TT'I (T'I'II (This x)))
 
 type List = Optional `T'TT'I` Construction Optional
 
