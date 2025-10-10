@@ -371,7 +371,7 @@ outro :: forall t into e .
  into `T'I` t e `T'I` e
 outro = unwrap `compose` unwrap `compose` component @into @t @(T'I'II (AR) Unit)
 
-rewrap :: forall o into a .
+rewrap :: forall into a o .
  Precategory into =>
  Elicitable T'II'I into o =>
  Elicitable T'I'II into a =>
@@ -405,7 +405,16 @@ cata :: forall into t e .
  into (t e) e -> into (Recursive t) e
 cata into = into `compose`
  map @T'I'II @T'I'II (cata into) `compose`
- (let T'I'II x = elicit in x)
+ unwrap
+
+-- cata' :: forall into t e .
+--  Covariant Endo Semi Functor into t =>
+--  Elicitable T'I'II into (Recursive t) =>
+--  into (t e) e -> into (Recursive t) e
+-- cata' into = into `compose`
+--  map @T'I'II @T'I'II (cata into) `compose`
+--  (let T'I'II x = elicit in x)
+
 
 ana :: forall into t e .
  Covariant Endo Semi Functor into t =>

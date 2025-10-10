@@ -96,7 +96,7 @@ instance
   ((t `T'TT'I` F'T'I'TT'I (T'II'I P) t) `T'TT'I` tt `L` tt `T` ll `L` (t `T'TT'I` F'T'I'TT'I (T'II'I P) t) `T` l)
   ((t `T'TT'I` F'T'I'TT'I (T'II'I P) t) `TT'T'I` tt) where
  mapping = rewrap `identity` \from -> rewrap `identity` \x -> unwrap x
-  `yo'yo` rewrap @(tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` l `T` _) @(AR) identity
+  `yo'yo` rewrap @(AR) @_ @(tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` l `T` _) identity
   `yo` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
    @(F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` l)
    @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) from)
