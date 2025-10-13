@@ -153,8 +153,8 @@ type Branching t tt i = t i `T'TT'I` tt
 
 type Construction = F'T'I'TT'I Along
 
-pattern Construct :: forall t i . Supertype (Construction t i) `AR____` Construction t i
-pattern Construct xs = F'T'I'TT'I xs
+pattern Build :: forall t i . Supertype (Construction t i) `AR____` Construction t i
+pattern Build xs = F'T'I'TT'I xs
 
 pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))
 
@@ -203,7 +203,7 @@ pattern Nonempty xs = F'T'I'TT'I xs
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
-pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Construct xs))) x))))
+pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Build xs))) x))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)
