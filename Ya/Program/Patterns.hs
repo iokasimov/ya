@@ -178,9 +178,10 @@ pattern Impel xs = Recursive (T'TT'I (T'I'II (That xs)))
 pattern Value :: i `AR____` Supertype (Instruction t i)
 pattern Value x = Recursive (T'TT'I (T'I'II (This x)))
 
-type List = Optional `T'TT'I` Construction Optional
+type List = Maybe `T'TT'I` Construction Maybe
 
-pattern List xs = T'TT'I @Optional @(Construction Optional) (Exist (F'T'I'TT'I xs))
+pattern List :: forall i . Maybe (Nonempty List i) `AR___` List i
+pattern List x = T'TT'I x
 
 type Quest = List
 

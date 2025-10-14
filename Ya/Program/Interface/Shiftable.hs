@@ -94,7 +94,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Apply `ha` State `hv____` Event `hv` get `ha_` Scope `hv` at @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
-  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit -- `yui` r
+  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` Last `hv` Unit -- `yui` r
 
   window_extract_last passed w =
    push @List passed w `yi` that
@@ -245,7 +245,7 @@ adjust way x = is `hu` (by Empty `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li`
   `yok____` Check
   `yok____` Apply `ha` State `ha__` Event `ha` window_future `ho_'ha` Scope `hv` at @(List i)
 
- window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Item r `ha` Last `hv` Unit) `yui` r
+ window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` Last `hv` Unit) `yui` r
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit

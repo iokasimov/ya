@@ -86,7 +86,7 @@ instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
      -- `lu` unwrap shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `ha` List `hv` unwrap x)) `yo` from
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `ha` List `ha` Exist `ha` Build `hv` unwrap x)) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `hv` x)) `yo` from
@@ -102,7 +102,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List w
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \x -> x
-  `yoi` is `he'ho` (\i -> List `ha` Item (from i) `ha` Last `hv` Unit)
+  `yoi` is `he'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (from i) `ha` Last `hv` Unit)
   `yio'yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List)
@@ -180,7 +180,7 @@ instance {-# OVERLAPS #-}
 -- TODO: we are going to apply the same function to all items in a list but it's actually fine
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` (List `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These _ (T'TT'I'TTT'I (These rl fl)))) ->
-  List `ha` Item (Label x) `ha` Last `hv` Unit
+  List `ha` Exist `ha` Build `ha` Item (Label x) `ha` Last `hv` Unit
     `lu__` (unwrap rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
       `he'he'hv` empty @List `yi` that `ho` Label @_ @_ @(Void `P` Void)
      `lu_` (unwrap fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
