@@ -121,16 +121,16 @@ instance
  , Covariant Endo Semi Functor (AR) tt
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tt
  , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) (t `TT'T'I` tt)
- ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` Void) (F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void `P` Void)) (F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) ->
     (xs
       `yo` wrap @(AR) @(F'T'I'TT'I _ _ _)
       `ho` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
-        @(F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` Void)
+        @(F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void `P` Void))
         @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) from)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
-      `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
-      `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt) (unwrap @(AR) @(F'T'I'TT'I _ _ _)))
+      `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` (Void) `T` _)
+      `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` (Void)) @(t `TT'T'I` tt) (unwrap @(AR) @(F'T'I'TT'I _ _ _)))
      `lu_` unwrap (unwrap x) `yo` from `yi` wrap @(AR) @(_ `L` _ `T` Void `T` _))
      `yp_'yo` wrap @(AR) @(F'T'I'TT'I _ _ _)
       `ha` wrap @(AR) @(Recursive _)
@@ -143,7 +143,7 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tt
  , Transformation T'I'II Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) (t `TT'T'I` tt)
  ) => Mapping T'I'II T'I'II (AR) (AR)
-  (F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void `P` Void))
+  (F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void))
   (F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) where
  mapping = rewrap `identity` \from -> rewrap
   `identity` \(F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) ->
@@ -154,7 +154,7 @@ instance
    `fo` (xs
       `yo` wrap @(AR) @(F'T'I'TT'I _ _ _)
       `ho` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
-       @(F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void `P` Void))
+       @(F'T'I'TT'I (T'II'I P) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT'I (T'II'I P) t `T` (Void))
        @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) from)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
