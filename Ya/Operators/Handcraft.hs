@@ -1160,7 +1160,7 @@ kyo :: forall from into t tt ll a o .
  (forall e . Wrapper from (I `L` tt `T` ll `T'I` e)) =>
  (forall e . Wrapper from (tt `L` tt `T` ll `T'I` e)) =>
  t a -> into (from (tt a) (I `L` tt `T` ll `T` o)) (t o)
-kyo x = fai @into (fai @from unwrap `compose` fio @from (unwrap @_ @(I _) `compose` unwrap)) 
+kyo x = fai @into (fai @from unwrap `compose` fio @from (unwrap @_ @(I _) `compose` unwrap))
  `compose` yo @from @into @t
  `compose` unwrap `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x
 
