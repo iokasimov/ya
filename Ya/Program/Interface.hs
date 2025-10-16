@@ -53,7 +53,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
   (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I'TTT'I (These rl fl)))) ->
   Identity `hv` Label x
    `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Label)
