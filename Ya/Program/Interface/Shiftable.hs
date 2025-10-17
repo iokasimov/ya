@@ -18,6 +18,7 @@ type family Shifting t tt = r | r -> t tt where
  Shifting t (Maybe `T'TT'I` Construction Maybe) = t `P'T'I'TT'I` Shafted List
  Shifting t (Construction List) = Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree
 
+-- TODO: remove
 type family Focus t where
  Focus (t `P'T'I'TT'I` Shafted List) = t
  Focus ((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) = t
@@ -27,8 +28,8 @@ type family Shifter t where
  Shifter (Construction (T'I'I (P) `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
- -- TODO: Replace with a natural transformation?
- -- focus :: Supertype (Scope `T'I` Shifting t tt i `T'I` t i)
+-- TODO: Replace with a natural transformation?
+-- focus :: Supertype (Scope `T'I` Shifting t tt i `T'I` t i)
 
 -- TODO: flux, axis, rest
 class Shiftable t tt where
@@ -181,16 +182,14 @@ instance Shiftable Alone (Construction List) where
    `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
    `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
-instance Mapping T'I'II T'I'II (AR) (AR)
- (Construction Maybe)
- (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) where
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (I `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \from (Root x xs) ->
-  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I'TTT'I (Label (empty @List) `lu` (Label (T'TT'I (xs `yo` F'T'I'TT'I) `yo` from))))
+  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I (T'I'I (empty @List `lu` (T'TT'I (xs `yo` F'T'I'TT'I) `yo` from))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Maybe) where
- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I'TTT'I (These l r)))) ->
-  (unwrap l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
-   `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` unwrap r
+instance Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) (Construction Maybe) where
+ mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r))))) ->
+  (l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
+   `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` r
    `yi_` that `ho'yo` from
 
 -- spot :: forall t tt i .

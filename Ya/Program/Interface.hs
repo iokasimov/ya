@@ -36,29 +36,29 @@ pattern Merge :: forall t tt i .
 pattern Merge x = Label (T'TT'I'TTT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
- mapping = rewrap `identity` \from (T'TT'I (T'I'I ((These (Label bs) (Label fs))))) -> that
+ mapping = rewrap `identity` \from (T'TT'I (T'I'I ((These bs fs)))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (These (Label `hv` empty @List) (Label `hv__` x `yo` from))
+ mapping = rewrap `identity` \from x -> empty @List `lu` x `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
- mapping = rewrap `identity` \_ _ -> T'TT'I'TTT'I (wrap empty `lu` wrap empty)
+ mapping = rewrap `identity` \_ _ -> empty `lu` empty
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Day (AR) (P) (S) (Shafted List) (Shafted List `L` Shafted List `T` Void) i ii) (Shafted List) where
  mapping = rewrap `identity` \from -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
-  let These i' i'' = unwrap i in
-  let These ii' ii'' = (unwrap `compose` unwrap) ii in
-  (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii')))) `lu`
-  (wrap (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (unwrap i' `lu` wrap (unwrap ii'))))
+  let These i' i'' = unwrap `compose` unwrap `identity` i in
+  let These ii' ii'' = unwrap `compose` unwrap `compose` unwrap `identity` ii in
+  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (i' `lu` wrap ii')) `lu`
+  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (from `compose` f) (i'' `lu` wrap ii''))
 
-instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
- mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I'TTT'I (These rl fl)))) ->
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` (I `P'T'I'TT'I` Shafted List) `L` (I `P'T'I'TT'I` Shafted List) `T` Void) where
+ mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I (T'I'I (These rl fl))))) ->
   Identity `hv` Label x
-   `lu__` (positions (x `lu` unwrap rl) `yi` that `ho` that `ho` Label)
-    `lu_` (positions (x `lu` unwrap fl) `yi` that `ho` that `ho` Label)
-    `yi_` T'TT'I'TTT'I
+   `lu__` (positions (x `lu` rl) `yi` that `ho` that)
+    `lu_` (positions (x `lu` fl) `yi` that `ho` that)
+    `yi_` T'TT'I `ha` T'I'I
    `yi__` T'TT'I'TTT'I `ho` T'TT'I
    `yo__` from where
 
@@ -70,10 +70,10 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Sh
    `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Label `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `he'he'hv______` x `lu` empty @List
 
-instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Construction List))) where
   mapping = rewrap `identity` \from x -> T'TT'I'TTT'I
-   (T'TT'I (T'TT'I'TTT'I ((Alone `hv__` x `yo` from) `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `hv` empty @List))) `lu` T'TT'I (Label `hv` empty @List))
+   (T'TT'I (T'TT'I'TTT'I ((x `yo` from `yi` Alone) `lu` T'TT'I (T'I'I (empty @List `lu` empty @List)))) `lu` T'TT'I (Label `hv` empty @List))
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
  -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
@@ -82,17 +82,17 @@ instance Mapping T'I'II T'I'II Arrow Arrow (Construction List)
   -- T'TT'I `he` that ((unwrap xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `lu`)) `he_'he` unwrap sl) `yo` from where
 
    -- restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = T'TT'I'TTT'I
-    -- `he__` Alone (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @(AR) `yi` unwrap @(AR))
+    -- `he__` Alone (Tree `he` unwrap focus `he__` to @(Nonempty List) `he` scrolling_list_tree `yo` unwrap @((AR)) `yi` unwrap @(AR))
      -- `lu` unwrap shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `ha` List `ha` Exist `ha` Build `hv` unwrap x)) `yo` from
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I (T'I'I (empty @List `lu` List `ha` Exist `ha` Build `hv` unwrap x))) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I'TTT'I (Label `hv` empty @List `lu` Label `hv` x)) `yo` from
+ mapping = rewrap `identity` \from x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I (T'I'I (empty @List `lu` x))) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Label r) (Label f))))) ->
+ mapping = rewrap `identity` \from (T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
   that `ho'yo` from
   `hv_____` intro @(State `T'I` List _) Unit
     `yuk__` New (f `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List)
@@ -118,12 +118,12 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Shafted tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Shafted tt) `T` Void) ((t `P'T'I'TT'I` Shafted tt) `TT'T'I` tttt) where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Label r) (Label f))))) ->
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
             (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
    `lu'yp` Run (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
-      (Label (sx `yo` from)) `lu_` (Label (xs `yo` from))))))
+     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I (T'I'I (
+      (sx `yo` from `lu_` xs `yo` from))))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
@@ -133,12 +133,12 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` Void) (tt `TT'T'I` tttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Shafted tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Shafted tt) `T` (Void `P` Void)) ((t `P'T'I'TT'I` Shafted tt) `TT'T'I` tttt) where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I'TTT'I (These (Label r) (Label f))))) ->
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
             (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I'TTT'I (
-      (Label (sx `yo` from)) `lu_` (Label (xs `yo` from))))))
+     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` from) `lu` (T'TT'I (T'I'I (
+      (sx `yo` from) `lu_` (xs `yo` from))))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
@@ -146,10 +146,10 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (Shafted tt `T'TT'I` ttt `L` ttt `T` ll `L` Shafted tt `T` Void) (Shafted tt `TT'T'I` ttt) where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Label r) (Label f))) ->
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Label @_ @_ @(Void `P` Void) (sx `yo` from)) (Label @_ @_ @Void (xs `yo` from))))
+     `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` from) (xs `yo` from))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
@@ -157,10 +157,10 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` Void) (tt `TT'T'I` ttt)
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (Shafted tt `T'TT'I` ttt `L` ttt `T` ll `L` Shafted tt `T` (Void `P` Void)) (Shafted tt `TT'T'I` ttt) where
-  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I'TTT'I (These (Label r) (Label f))) ->
+  mapping = rewrap `identity` \from -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `lu'yp` Run (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These sx xs) -> T'TT'I'TTT'I (These (Label @_ @_ @(Void `P` Void) (sx `yo` from)) (Label @_ @_ @Void (xs `yo` from))))
+     `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` from) (xs `yo` from))))
 
 -- instance
 --  ( Covariant Endo Semi Functor (AR) t
@@ -179,13 +179,13 @@ instance {-# OVERLAPS #-}
 
 -- TODO: we are going to apply the same function to all items in a list but it's actually fine
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` (List `P'T'I'TT'I` Shafted List) `T` Void) where
- mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These _ (T'TT'I'TTT'I (These rl fl)))) ->
+ mapping = rewrap `identity` \from x@(T'TT'I'TTT'I (These _ (T'TT'I (T'I'I (These rl fl))))) ->
   List `ha` Exist `ha` Build `ha` Item (Label x) `ha` Last `hv` Unit
-    `lu__` (unwrap rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
-      `he'he'hv` empty @List `yi` that `ho` Label @_ @_ @(Void `P` Void)
-     `lu_` (unwrap fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
-      `he'he'hv` empty @List `yi` that `ho` Label  @_ @_ @Void
-     `yi_` T'TT'I'TTT'I
+    `lu__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
+      `he'he'hv` empty @List `yi` that
+     `lu_` (fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
+      `he'he'hv` empty @List `yi` that
+     `yi_` T'TT'I `ha` T'I'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
     `yo__` from
 
@@ -208,8 +208,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List
 --      )
 --     ))))))
 
-instance Mapping T'I'II T'I'II (AR) (AR)
- (Covariant Day (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
  mapping = rewrap `identity` \from -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
    e `yokl` (\x -> Prior `ha` New `hv` (unwrap ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (from (f (x `lu` xx))))))

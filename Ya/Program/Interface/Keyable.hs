@@ -18,8 +18,8 @@ class Keyable k t where
 
 instance
  ( Setoid (AR) k
- , Component (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Construction Maybe)
- , Component (AR) (Reverse List `P'T'I'TT'I` Forward List) (Construction Maybe)
+ , Component (AR) (Alone `P'T'I'TT'I` (Shafted List)) (Construction Maybe)
+ , Component (AR) (Shafted List) (Construction Maybe)
  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
  key k x =
   let prepared = unwrap x `yi` to @(Scrolling List) in
@@ -33,9 +33,9 @@ instance
 
 instance
  ( Setoid (AR) k
- , Component (AR) (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) (Nonempty List)
+ , Component (AR) (Alone `P'T'I'TT'I` Shafted List) (Nonempty List)
  , Component (AR) (Nonempty List) List
- , Component (AR) (Reverse List `P'T'I'TT'I` Forward List) List
+ , Component (AR) (Shafted List) List
  ) => Keyable k (List `T'TT'I` Along k) where
  key k = on_empty_list `la` on_nonempty_list where
 
