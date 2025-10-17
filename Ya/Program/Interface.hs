@@ -36,7 +36,7 @@ pattern Merge :: forall t tt i .
 pattern Merge x = Label (T'TT'I'TTT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Label bs) (Label fs))) -> that
+ mapping = rewrap `identity` \from (T'TT'I (T'I'I ((These (Label bs) (Label fs))))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` from
 
 instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where

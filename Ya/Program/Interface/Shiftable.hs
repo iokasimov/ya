@@ -10,7 +10,7 @@ import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 
-type Shafted t = Reverse t `P'T'I'TT'I` Forward t
+type Shafted t = Twice `T'TT'I` t
 
 type Unfoldings t tt = Reverse List `T'TT'I` (t `P'T'I'TT'I` Shafted List `T'TT'I` tt)
 
@@ -50,48 +50,50 @@ pattern Lift x = This x :: Shifter List
 pattern Down x = That x :: Shifter List
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
+ shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `he'he'hv` x where
 
-  _shift_ = intro @(Halts `JNT` State `T` Scrolling List _) Unit
-   `yuk__` Apply `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `ha` (Back `la` Fore) `hv` way
+  _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
+   `yuk__` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep @Twice `ha` (Back `la` Fore) `hv` way
    `yok__` Check
-   -- `yok__` Apply `ha` State `ha__` Event `ha` (auto `ho'hu`) `ho_'ha` Scope @(Alone i) at `he'ho'he` Scope it
-   `yok__` Apply `ha` State `ha__` Event `ha` relay `ho_'ha` Scope `hv` at @(Alone _) `ho'he` Scope it
-   `yok__` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `ha` (Fore `la` Back) `hv` way
+   `yok__` Apply `ha` State `ha___` Event `ha` put `ho__'ha` Scope `hv` at @(Alone i) `ho_'he` Scope `hv` it
+   `yok__` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `ha` (Fore `la` Back) `hv` way
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
-   `yuk__` Apply `ha` State `hv__` Event `hv` get `ha_` Scope `hv` at @(Alone _)
+   `yuk__` Apply `ha` State `hv__` Event `hv` get `ha_` Scope `hv` at @(Alone i)
 
+ spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` get `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
   found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
 
-  _spot_ = intro @(Stops `T` Scrolling List _ `JNT` State `T` Scrolling List _) Unit
-   `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(Alone _) `lo` Scope `hv` it
+  _spot_ = intro @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i) Unit
+   `yuk____` Lease `ha` State `hv___` Event `hv__` get `ha__` Scope `hv` at @(Alone i) `lo` Scope `hv` it
    `yok____` Check `ha` Stops `ha___` not `ha` found
    `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
    `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
+ shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
   `li` is `hu` (by Empty `lu` x)
   `la` is `ho'he` foi @_ @(AR) Exist
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
-  slide_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
-   `yuk____` Apply `ha` State `hv__` Event `hv` pop `ha_` Scope `hv` at @(List _)
+  slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha_` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Passed
-   `yuk____` Apply `ha` State `hv____` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` at @(List _)
 
-  slide_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
-   `yuk____` Apply `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Passed
+  slide_passed = intro @(Halts `JNT` State `T` Sliding List _) `hv` Unit
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
    `yok____` Check
-   `yok____` Apply `ha` State `ha__` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
+   `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
-   `yuk____` Apply `ha` State `hv____` Event `hv` get `ha_` Scope `hv` at @(List _)
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
+   `yuk____` Apply `ha` State `hv___` Event `hv` get `ha__` Scope `hv` at @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
   window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` Last `hv` Unit -- `yui` r
@@ -229,30 +231,30 @@ adjust way x = is `hu` (by Empty `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li`
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [2 1] (3 4 5 6) [7 8 9]
  expand_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
-  `yuk____` Apply `ha` State `hv__` Event `hv` pop @List `ha_` Scope `ha` shaft `hv` by Passed
+  `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
   `yok____` Check
-  `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `hv` at @(List i)
+  `yok____` Apply `ha` State `ha___` Event `ha` push `ho_'ha` Scope `hv` at @(List i)
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [4 3 2 1] (5 6) [7 8 9]
  shrink_passed = intro @(Halts `JNT` State `T` Sliding List i) Unit
-  `yuk____` Apply `ha` State `hv__` Event `hv` pop @List `ha_` Scope `hv` at @(List i)
+  `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha_` Scope `hv` at @(List i)
   `yok____` Check
-  `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Passed
+  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5 6 7) [8 9]
  expand_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
-  `yuk____` Apply `ha` State `hv__` Event `hv` pop `ha_` Scope `ha` shaft `hv` by Future
+  `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
   `yok____` Check
-  `yok____` Apply `ha` State `ha__` Event `ha` window_future `ho_'ha` Scope `hv` at @(List i)
+  `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hv` at @(List i)
 
  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` Last `hv` Unit) `yui` r
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
-  `yuk____` Old `ha` State `hv__` Event `hv` get_last_window_item `ha_` Scope `hv` at @(List i)
-  `yok____` Apply `ha` State `ha__` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` at @(List i)
+  `yuk____` Apply `ha` State `hv___` Event `hv` get_last_window_item `ha_` Scope `hv` at @(List i)
+  `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` at @(List i)
   `yok____` Check
-  `yok____` Apply `ha` State `ha__` Event `ha` push `ho_'ha` Scope `ha` shaft `hv` by Future
+  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
 
  get_last_window_item window = window
   `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior
