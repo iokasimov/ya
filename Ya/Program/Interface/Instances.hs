@@ -54,37 +54,3 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I P `L` T'I'I P `T` Void) (T'I'I P
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I S `L` T'I'I S `T` Void) (T'I'I S) where
  mapping = rewrap `identity` \from -> rewrap `identity` (from `ho` That `la` from `ho` This `ha__` unwrap @(AR))
-
-instance
- ( Covariant Endo Semi Functor (AR) t
- , Covariant Endo Semi Functor (AR) tt
- , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
- , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
- ) => Mapping T'I'II T'I'II (AR) (AR) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `T'TT'I` (t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hv` \from -> T'TT'I'TTT'I `ho` T'TT'I
-  `ha____` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) from
-    `ho__` unwrap @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hv_` This `ho` T'TT'I'TTT'I
-    `ho__` This
-    `la__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) from
-    `ho__` unwrap @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hv_` That `ho` T'TT'I'TTT'I
-    `ho__` That
-
-instance
- ( Covariant Endo Semi Functor (AR) t
- , Covariant Endo Semi Functor (AR) tt
- , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
- , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
- ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `T'TT'I` (t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hv` \from -> T'TT'I'TTT'I `ho` T'TT'I
-  `ha____` (is `ho'he` this
-    `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) from
-    `ho` unwrap @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `lo` is `ho'he` that `ho'yo` from
-   `ho__` (\(These x xx) -> x `yo` rewrap ((`lu_` xx) `ho` T'TT'I'TTT'I)))
-   `lo__` (is `ho'he` that
-    `ho` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) from
-    `ho` unwrap @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `lo` is `ho'he` this `ho'yo` from
-   `ho__` (\(These x xx) -> x `yo` rewrap ((xx `lu_`) `ho` T'TT'I'TTT'I)))
