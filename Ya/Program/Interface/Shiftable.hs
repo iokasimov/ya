@@ -25,7 +25,7 @@ type family Focus t where
 
 type family Shifter t where
  Shifter (Maybe `T'TT'I` Construction Maybe) = Unit `S` Unit
- Shifter (Construction (T'I'I (P) `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
+ Shifter (Construction (Twice `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
 -- TODO: Replace with a natural transformation?
