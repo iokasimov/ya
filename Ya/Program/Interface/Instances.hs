@@ -44,6 +44,14 @@ instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` from
 
+pattern Locus :: forall i . i `AR__` I `L` Opted `T` Void `T` i
+pattern Locus x = Label (Alone x)
+
+-- This is a special instance to be able to distinguish a focused item from other ones
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Opted `L` Opted `T` Void) where
+ mapping = rewrap `identity` \from (T'TT'I'TTT'I (These x xs)) ->
+  T'TT'I (T'TT'I'TTT'I (These (x `yo` Label `ha` Opted `ha` This `ha` from) (xs `yo` Label `ha` Opted `ha` That `ha` from)))
+
 pattern Alter :: forall t i .
  Component (AR) (T'I'I t `L` T'I'I t `T` Void) (T'I'I t) =>
  T'I'I t i `AR__` T'I'I t `L` T'I'I t `T` Void `T` i
