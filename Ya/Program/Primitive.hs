@@ -103,3 +103,6 @@ rep index origin =
   (\x -> tbt `ha` T'I'II `hv`
    (\index' -> is `hu_` idx origin `he'hv` index' `la` is `hu` x `li` q (index' `lu` index))
   )
+
+exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
+exact x xx = is `hu` False Unit `la` is `hu` True Unit `hv__` x `lu'q` xx
