@@ -349,9 +349,9 @@ empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
 
 -- TODO: forall t e into .
 intro :: forall t into e .
+ Category (AR) =>
  Category into =>
- Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
- Mapping T'I'II T'I'II into into (T'I'II AR Unit) t =>
+ Component into (T'I'II (AR) Unit) t =>
  Component into I (T'I'II (AR) Unit) =>
  Wrapper into (T'I'II AR Unit e) =>
  Wrapper into (I e) =>
@@ -360,8 +360,7 @@ intro = component @into @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant
 
 outro :: forall t into e .
  Category into =>
- Covariant Oplax Monoidal Functor (AR) (AR) (P) P Void t =>
- Mapping T'I'II T'I'II into into t (T'I'II AR Unit) =>
+ Component into t (T'I'II AR Unit) =>
  Component into I (T'I'II (AR) Unit) =>
  Wrapper into (T'I'II AR Unit e) =>
  Wrapper into (AR Unit e) =>
