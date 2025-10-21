@@ -16,7 +16,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
  mapping = rewrap `identity` \from -> rewrap `li_` wrap `ho'yo` from `ho` Exist
 
 pattern Stump :: forall i e .
- Component (AR) (S'I'II i) (S'I'II Unit) =>
+ Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
  S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Void `T` e
 pattern Stump x = Label x
 
