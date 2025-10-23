@@ -5,61 +5,61 @@ import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 import Ya.Algebra.Instances ()
 
-fo :: forall from into t a o .
- Covariant Semi Functor from into t =>
- from a o -> into (t a) (t o)
+fo :: forall source into t a o .
+ Covariant Semi Functor source into t =>
+ source a o -> into (t a) (t o)
 fo = map @T'I'II @T'I'II
 
-foi :: forall from into t a o i .
- Covariant Semi Functor from into (T'II'I t i) =>
+foi :: forall source into t a o i .
+ Covariant Semi Functor source into (T'II'I t i) =>
  (forall e . Wrapper into (T'II'I t i e)) =>
- from a o -> into (t a i) (t o i)
-foi from = wrapped (fo @_ @_ @(T'II'I _ _) from)
+ source a o -> into (t a i) (t o i)
+foi source = wrapped (fo @_ @_ @(T'II'I _ _) source)
 
-fio :: forall from into t a o i .
- Covariant Semi Functor from into (T'I'II t i) =>
+fio :: forall source into t a o i .
+ Covariant Semi Functor source into (T'I'II t i) =>
  (forall e . Wrapper into (T'I'II t i e)) =>
- from a o -> into (t i a) (t i o)
-fio from = wrapped (fo @_ @_ @(T'I'II _ _) from)
+ source a o -> into (t i a) (t i o)
+fio source = wrapped (fo @_ @_ @(T'I'II _ _) source)
 
-foo :: forall from into t a o .
- Covariant Semi Functor from into (T'I'I t) =>
+foo :: forall source into t a o .
+ Covariant Semi Functor source into (T'I'I t) =>
  (forall e . Wrapper into (T'I'I t e)) =>
- from a o -> into (t a a) (t o o)
-foo from = wrapped (fo @_ @_ @(T'I'I _) from)
+ source a o -> into (t a a) (t o o)
+foo source = wrapped (fo @_ @_ @(T'I'I _) source)
 
-fuu :: forall from into t a aa o .
- Covariant Functor from into (T'I'II t a) =>
- Covariant Functor from into (T'II'I t o) =>
+fuu :: forall source into t a aa o .
+ Covariant Functor source into (T'I'II t a) =>
+ Covariant Functor source into (T'II'I t o) =>
  (forall e ee . Wrapper into (T'I'II t e ee)) =>
  (forall e ee . Wrapper into (T'II'I t e ee)) =>
- (forall e . Wrapper (AR) (from Unit e)) =>
- Terminal from =>
- Supertype (from Unit o) -> into (t a aa) (t o o)
-fuu from = fui @from @into from `compose` fiu @from @into from
+ (forall e . Wrapper (AR) (source Unit e)) =>
+ Terminal source =>
+ Supertype (source Unit o) -> into (t a aa) (t o o)
+fuu source = fui @source @into source `compose` fiu @source @into source
 
-fa :: forall from into t a o .
- Contravariant Semi Functor from into t =>
- from a o -> into (t o) (t a)
+fa :: forall source into t a o .
+ Contravariant Semi Functor source into t =>
+ source a o -> into (t o) (t a)
 fa = map @T'II'I @T'I'II
 
-faa :: forall from into t a o .
- Contravariant Semi Functor from into (T'I'I t) =>
+faa :: forall source into t a o .
+ Contravariant Semi Functor source into (T'I'I t) =>
  (forall e . Wrapper into (T'I'I t e)) =>
- from a o -> into (t o o) (t a a)
-faa from = wrapped (fa @_ @_ @(T'I'I _) from)
+ source a o -> into (t o o) (t a a)
+faa source = wrapped (fa @_ @_ @(T'I'I _) source)
 
-fai :: forall from into t a o i .
- Contravariant Semi Functor from into (T'II'I t i) =>
+fai :: forall source into t a o i .
+ Contravariant Semi Functor source into (T'II'I t i) =>
  (forall e . Wrapper into (T'II'I t i e)) =>
- from a o -> into (t o i) (t a i)
-fai from = wrapped (fa @_ @_ @(T'II'I _ _) from)
+ source a o -> into (t o i) (t a i)
+fai source = wrapped (fa @_ @_ @(T'II'I _ _) source)
 
-fia :: forall from into t a o i .
- Contravariant Semi Functor from into (T'I'II t i) =>
+fia :: forall source into t a o i .
+ Contravariant Semi Functor source into (T'I'II t i) =>
  (forall e . Wrapper into (T'I'II t i e)) =>
- from a o -> into (t i o) (t i a)
-fia from = wrapped (fa @_ @_ @(T'I'II _ _) from)
+ source a o -> into (t i o) (t i a)
+fia source = wrapped (fa @_ @_ @(T'I'II _ _) source)
 
 fu :: forall into t a o .
  Constant Functor (AR) into t =>
@@ -67,13 +67,13 @@ fu :: forall into t a o .
  o -> into (t a) (t o)
 fu = map @T''II @T'I'II @AR
 
-fok :: forall from into t tt l a o .
+fok :: forall source into t tt l a o .
  Component into (t `T'TT'I` tt `L` tt `T` l) t =>
- Covariant Functor from into t =>
+ Covariant Functor source into t =>
  (forall e . Wrapper into (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
- from a (tt `L` tt `T` l `T` o) -> into (t a) (t o)
-fok from = component @into @(t `T'TT'I` tt `L` tt `T` l) @t
- `compose` wrap `compose` fo from
+ source a (tt `L` tt `T` l `T` o) -> into (t a) (t o)
+fok source = component @into @(t `T'TT'I` tt `L` tt `T` l) @t
+ `compose` wrap `compose` fo source
 
 fuk :: forall into t tt l a o .
  Constant Functor (AR) into t =>
@@ -81,26 +81,26 @@ fuk :: forall into t tt l a o .
  (forall e . Wrapper into (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
  (forall e . Wrapper into (I `T'I` tt `L` tt `T` l `T` e)) =>
  (tt `L` tt `T` l) o -> into (t a) (t o)
-fuk from = map @T'I'II @T'I'II @into @into @(t `T'TT'I` tt `L` tt `T` l) @t identity
- `compose` wrap `compose` fu @into from
+fuk source = map @T'I'II @T'I'II @into @into @(t `T'TT'I` tt `L` tt `T` l) @t identity
+ `compose` wrap `compose` fu @into source
 
-fokl :: forall from into t tt l ll a o .
- Covariant Semi Functor from into t =>
+fokl :: forall source into t tt l ll a o .
+ Covariant Semi Functor source into t =>
  Covariant Endo Transformation Functor into (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  (forall e . Wrapper into (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` e)) =>
  (forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)) =>
- from a (tt `L` tt `T` ll `L` t `T` l `T` o) -> into (t a) (tt (t o))
-fokl from = wrapped (component @into @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)) `compose` fo from
+ source a (tt `L` tt `T` ll `L` t `T` l `T` o) -> into (t a) (tt (t o))
+fokl source = wrapped (component @into @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)) `compose` fo source
 
-foikl :: forall from into t tt l ll a o i .
- Covariant Semi Functor from into (T'II'I t i) =>
+foikl :: forall source into t tt l ll a o i .
+ Covariant Semi Functor source into (T'II'I t i) =>
  Covariant Endo Semi Functor into tt =>
  Covariant Endo Transformation Functor into (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l) (T'II'I t i `TT'T'I` tt) =>
  (forall e . Wrapper into (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l `T'I_` e)) =>
  (forall e . Wrapper into (T'II'I t i `TT'T'I` tt `T'I_` e)) =>
  (forall e . Wrapper into (T'II'I t i e)) =>
- from a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o) -> into (t a i) (tt (t o i))
-foikl from = fo @into @into unwrap `compose` fokl from `compose` wrap @_ @(T'II'I t i _)
+ source a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o) -> into (t a i) (tt (t o i))
+foikl source = fo @into @into unwrap `compose` fokl source `compose` wrap @_ @(T'II'I t i _)
 
 fukl :: forall into t tt l ll a o .
  Constant Functor (AR) into t =>
@@ -109,79 +109,79 @@ fukl :: forall into t tt l ll a o .
  (forall e . Wrapper into (t `TT'T'I` tt `T'I_` e)) =>
  (forall e . Wrapper into (I `T'I_` tt `L` tt `T` ll `L` t `T` l `T'I` e)) =>
  tt `L` tt `T` ll `L` t `T` l `T` o `AR__` into (t a) (tt (t o))
-fukl from = wrapped (component @into @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)) `compose` fu @into from
+fukl source = wrapped (component @into @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)) `compose` fu @into source
 
-fo'fo :: forall from into t tt a o .
- Covariant Semi Functor from into tt =>
+fo'fo :: forall source into t tt a o .
+ Covariant Semi Functor source into tt =>
  Covariant Endo Semi Functor into t =>
- from a o -> into (t (tt a)) (t (tt o))
-fo'fo from = fo @into @into (fo @from @into from)
+ source a o -> into (t (tt a)) (t (tt o))
+fo'fo source = fo @into @into (fo @source @into source)
 
-fo'fo'fo :: forall from into t tt h a o .
- Covariant Semi Functor from into h =>
+fo'fo'fo :: forall source into t tt h a o .
+ Covariant Semi Functor source into h =>
  Covariant Endo Semi Functor into tt =>
  Covariant Endo Semi Functor into t =>
- from a o -> into (t (tt (h a))) (t (tt (h o)))
-fo'fo'fo from = fo @into @into (fo @into @into (fo @from @into from))
+ source a o -> into (t (tt (h a))) (t (tt (h o)))
+fo'fo'fo source = fo @into @into (fo @into @into (fo @source @into source))
 
-fioi :: forall from into t a o i ii .
- Covariant Semi Functor from into (W_III_I_II t ii i) =>
+fioi :: forall source into t a o i ii .
+ Covariant Semi Functor source into (W_III_I_II t ii i) =>
  (forall e . Wrapper into (W_III_I_II t ii i e)) =>
- from a o -> into (t i a ii) (t i o ii)
-fioi from = wrapped (fo @_ @_ @(W_III_I_II _ _ _) from)
+ source a o -> into (t i a ii) (t i o ii)
+fioi source = wrapped (fo @_ @_ @(W_III_I_II _ _ _) source)
 
-fiu :: forall from into t a o i .
- Terminal from =>
- Covariant Functor from into (T'I'II t i) =>
+fiu :: forall source into t a o i .
+ Terminal source =>
+ Covariant Functor source into (T'I'II t i) =>
  (forall e . Wrapper into (T'I'II t i e)) =>
- (forall e . Wrapper (AR) (from Unit e)) =>
- Supertype (from Unit o) -> into (t i a) (t i o)
-fiu from = fio (wrap @(AR) @(from Unit o) from `compose` terminal)
+ (forall e . Wrapper (AR) (source Unit e)) =>
+ Supertype (source Unit o) -> into (t i a) (t i o)
+fiu source = fio (wrap @(AR) @(source Unit o) source `compose` terminal)
 
-fui :: forall from into t a o i .
- Terminal from =>
- Covariant Functor from into (T'II'I t i) =>
+fui :: forall source into t a o i .
+ Terminal source =>
+ Covariant Functor source into (T'II'I t i) =>
  (forall e . Wrapper into (T'II'I t i e)) =>
- (forall e . Wrapper (AR) (from Unit e)) =>
- Supertype (from Unit o) -> into (t a i) (t o i)
-fui from = foi (wrap @(AR) @(from Unit o) from `compose` terminal)
+ (forall e . Wrapper (AR) (source Unit e)) =>
+ Supertype (source Unit o) -> into (t a i) (t o i)
+fui source = foi (wrap @(AR) @(source Unit o) source `compose` terminal)
 
-fd :: forall from into t tt a o .
- Adjoint Functor from from t tt =>
- Covariant Functor into from t =>
- (forall e . Wrapper from (t `T'TT'I` tt `T'I_` e)) =>
- (forall e . Wrapper from (I e)) =>
- into a (tt o) -> from (t a) o
-fd from = wrapped (component @from @(t `T'TT'I` tt) @I) `compose` fo @into @from from
+fd :: forall source into t tt a o .
+ Adjoint Functor source source t tt =>
+ Covariant Functor into source t =>
+ (forall e . Wrapper source (t `T'TT'I` tt `T'I_` e)) =>
+ (forall e . Wrapper source (I e)) =>
+ into a (tt o) -> source (t a) o
+fd source = wrapped (component @source @(t `T'TT'I` tt) @I) `compose` fo @into @source source
 
-fdi :: forall from into t tt i ii a o .
- Adjoint Functor from from (T'II'I t i) (T'I'II tt ii) =>
- Covariant Functor into from (T'II'I t i) =>
+fdi :: forall source into t tt i ii a o .
+ Adjoint Functor source source (T'II'I t i) (T'I'II tt ii) =>
+ Covariant Functor into source (T'II'I t i) =>
  (forall e . Wrapper into (T'I'II tt ii e)) =>
- (forall e . Wrapper from (T'II'I t i `T'TT'I` T'I'II tt ii `T'I_` e)) =>
- (forall e . Wrapper from (T'II'I t i e)) =>
- (forall e . Wrapper from (I e)) =>
- into a (tt ii o) -> from (t a i) o
-fdi from = wrapped (component @from @(T'II'I t i `T'TT'I` T'I'II tt ii) @I)
- `compose` fo @into @from (wrap `compose` from) `compose` wrap
+ (forall e . Wrapper source (T'II'I t i `T'TT'I` T'I'II tt ii `T'I_` e)) =>
+ (forall e . Wrapper source (T'II'I t i e)) =>
+ (forall e . Wrapper source (I e)) =>
+ into a (tt ii o) -> source (t a i) o
+fdi source = wrapped (component @source @(T'II'I t i `T'TT'I` T'I'II tt ii) @I)
+ `compose` fo @into @source (wrap `compose` source) `compose` wrap
 
-fj :: forall from into t tt a o .
- Covariant Functor from into tt =>
+fj :: forall source into t tt a o .
+ Covariant Functor source into tt =>
  Adjoint Functor into into t tt =>
  (forall e . Wrapper into (tt `T'TT'I` t `T'I_` e)) =>
  (forall e . Wrapper into (I e)) =>
- from (t a) o -> into a (tt o)
-fj from = fo from `compose` wrapped (component @into @I @(tt `T'TT'I` t))
+ source (t a) o -> into a (tt o)
+fj source = fo source `compose` wrapped (component @into @I @(tt `T'TT'I` t))
 
-fij :: forall from into t tt i ii a o .
- Covariant Functor from into (T'I'II tt ii) =>
+fij :: forall source into t tt i ii a o .
+ Covariant Functor source into (T'I'II tt ii) =>
  Adjoint Functor into into (T'II'I t i) (T'I'II tt ii) =>
  (forall e . Wrapper into (T'I'II tt ii `T'TT'I` T'II'I t i `T'I_` e)) =>
  (forall e . Wrapper into (T'I'II tt ii e)) =>
- (forall e . Wrapper from (T'II'I t i e)) =>
+ (forall e . Wrapper source (T'II'I t i e)) =>
  (forall e . Wrapper into (I e)) =>
- from (t a i) o -> into a (tt ii o)
-fij from = unwrap `compose` fo (from `compose` unwrap)
+ source (t a i) o -> into a (tt ii o)
+fij source = unwrap `compose` fo (source `compose` unwrap)
  `compose` wrapped (component @into @I @(T'I'II tt ii `T'TT'I` T'II'I t i))
 
 -- TODO: effects are executed in reverse order, we can use it

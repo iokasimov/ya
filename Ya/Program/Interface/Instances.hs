@@ -13,7 +13,7 @@ import Ya.Program.Interface.Stackable
 import Ya.Program.Interface.Shiftable
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
- mapping = rewrap `identity` \from -> rewrap `li_` wrap `ho'yo` from `ho` Exist
+ mapping = rewrap `identity` \source -> rewrap `li_` wrap `ho'yo` source `ho` Exist
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
@@ -21,8 +21,8 @@ pattern Stump :: forall i e .
 pattern Stump x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II e `T` Void) (S'I'II Unit) where
- mapping = rewrap `identity` \from ->
-  rewrap `identity` ((This `compose` constant Unit `la` That `compose` from) `compose` unwrap)
+ mapping = rewrap `identity` \source ->
+  rewrap `identity` ((This `compose` constant Unit `la` That `compose` source) `compose` unwrap)
 
 pattern Spare :: forall i ii .
  Component (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) =>
@@ -30,7 +30,7 @@ pattern Spare :: forall i ii .
 pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
- mapping = rewrap `identity` \from (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `la` Valid `ha` from `li` x
+ mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `la` Valid `ha` source `li` x
 
 pattern Aloft :: forall t e .
  Component (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree =>
@@ -38,19 +38,19 @@ pattern Aloft :: forall t e .
 pattern Aloft x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
-  mapping = rewrap `identity` \from (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
+  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
-    `yo` from
+    `yo` source
 
 pattern Locus :: forall i . i `AR__` I `L` Opted `T` Void `T` i
 pattern Locus x = Label (Alone x)
 
--- This is a special instance to be able to distinguish a focused item from other ones
+-- This is a special instance to be able to distinguish a focused item source other ones
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Opted `L` Opted `T` Void) where
- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These x xs)) ->
-  T'TT'I (T'TT'I'TTT'I (These (x `yo` Label `ha` Opted `ha` This `ha` from) (xs `yo` Label `ha` Opted `ha` That `ha` from)))
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
+  T'TT'I (T'TT'I'TTT'I (These (x `yo` Label `ha` Opted `ha` This `ha` source) (xs `yo` Label `ha` Opted `ha` That `ha` source)))
 
 pattern Alter :: forall t i .
  Component (AR) (T'I'I t `L` T'I'I t `T` Void) (T'I'I t) =>
@@ -58,7 +58,7 @@ pattern Alter :: forall t i .
 pattern Alter x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I P `L` T'I'I P `T` Void) (T'I'I P) where
- mapping = rewrap `identity` \from -> rewrap `identity` (from `ha` that `lo` from `ha` this `ha__` unwrap @(AR))
+ mapping = rewrap `identity` \source -> rewrap `identity` (source `ha` that `lo` source `ha` this `ha__` unwrap @(AR))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I S `L` T'I'I S `T` Void) (T'I'I S) where
- mapping = rewrap `identity` \from -> rewrap `identity` (from `ho` That `la` from `ho` This `ha__` unwrap @(AR))
+ mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `la` source `ho` This `ha__` unwrap @(AR))

@@ -20,9 +20,9 @@ swap (These x y) = y `lu` x
 
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
- -- where mapping = rewrap `compose` rewrap `compose` rewrap / \from (Build x xs) -> These 
-  -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` from `ho` (\(These y _) -> y))
-  -- (\new -> Build x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` from `ho` (\(These _ y) -> y))
+ -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
+  -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
+  -- (\new -> Build x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` source `ho` (\(These _ y) -> y))
 
 -- TODO: we need to remove `Automation` type alias, it's confusing
 

@@ -5,8 +5,8 @@ import Ya.Operators
 import Ya.Program.Primitive
 
 -- TODO: try generalize over categories
-class Matchable target entire where
- on :: entire `AR_` entire `M` target `S` target
+class Matchable goal entire where
+ on :: entire `AR_` entire `M` goal `S` goal
 
 instance Matchable e (e `S` ee) where
  on = That `ha` is `la` This

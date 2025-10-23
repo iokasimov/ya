@@ -89,5 +89,5 @@ _exact_key_ k (T'II'I (These _ kk)) =
 
   -- Scope `hv` as @(Shifting Alone List `T'TT'I` Tree) @(Scrolling Tree) `ho` 
 
--- from a (tt o) `AR___` into (t a) (tt ( t o))
+-- source a (tt o) `AR___` into (t a) (tt ( t o))
 

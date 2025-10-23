@@ -61,21 +61,21 @@ type AP_______ = T'II'TT'I'III (AR) (S) Unit
 class Dumb x
 instance Dumb x
 
-class Mapping v vv from into t tt where
- mapping :: v from a o -> vv into (t a) (tt o)
+class Mapping v vv source into t tt where
+ mapping :: v source a o -> vv into (t a) (tt o)
 
-instance Mapping T'I'II T'I'II from into t tt => Mapping T'II'I T'II'I from into tt t
- where mapping (T'II'I from) = T'II'I (map @T'I'II @T'I'II @from @into @t @tt from)
+instance Mapping T'I'II T'I'II source into t tt => Mapping T'II'I T'II'I source into tt t
+ where mapping (T'II'I source) = T'II'I (map @T'I'II @T'I'II @source @into @t @tt source)
 
-instance Mapping T'II'I T'I'II from into t tt => Mapping T'I'II T'II'I from into tt t
- where mapping (T'I'II from) = T'II'I (map @T'II'I @T'I'II @from @into @t @tt from)
+instance Mapping T'II'I T'I'II source into t tt => Mapping T'I'II T'II'I source into tt t
+ where mapping (T'I'II source) = T'II'I (map @T'II'I @T'I'II @source @into @t @tt source)
 
-map :: forall v vv from into t tt a o .
- Mapping v vv from into t tt =>
- Elicitable T'II'I Arrow (v from a o) =>
+map :: forall v vv source into t tt a o .
+ Mapping v vv source into t tt =>
+ Elicitable T'II'I Arrow (v source a o) =>
  Elicitable T'I'II Arrow (vv into (t a) (tt o)) =>
- Supertype (v from a o) -> Supertype (vv into (t a) (tt o))
-map from = unwrap @Arrow (mapping @v @vv @from @into @t @tt @a @o (wrap from))
+ Supertype (v source a o) -> Supertype (vv into (t a) (tt o))
+map source = unwrap @Arrow (mapping @v @vv @source @into @t @tt @a @o (wrap source))
 
 class Component into t tt where
  component :: into (t i) (tt i)
@@ -105,40 +105,40 @@ instance {-# OVERLAPPABLE #-} (Category into, Mapping T'I'II T'I'II into into t 
 
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
- ( forall e . Mapping T'I'II T'I'II from Arrow (T'I'II from e) (T'I'II from e)
- , forall e . Mapping T'II'I T'I'II from Arrow (T'II'I from e) (T'II'I from e)
- ) => Precategory from where
- compose :: from a o -> from e a -> from e o
+ ( forall e . Mapping T'I'II T'I'II source Arrow (T'I'II source e) (T'I'II source e)
+ , forall e . Mapping T'II'I T'I'II source Arrow (T'II'I source e) (T'II'I source e)
+ ) => Precategory source where
+ compose :: source a o -> source e a -> source e o
  compose post pre = let T'I'II y = map @T'I'II @T'I'II post (T'I'II pre) in y
 
 deriving instance
- ( forall e . Mapping T'I'II T'I'II from Arrow (T'I'II from e) (T'I'II from e)
- , forall e . Mapping T'II'I T'I'II from Arrow (T'II'I from e) (T'II'I from e)
- ) => Precategory from
+ ( forall e . Mapping T'I'II T'I'II source Arrow (T'I'II source e) (T'I'II source e)
+ , forall e . Mapping T'II'I T'I'II source Arrow (T'II'I source e) (T'II'I source e)
+ ) => Precategory source
 
 {- [LAW] Left identity: identity . f ≡ f -}
 {- [LAW] Right identity: f . identity ≡ f -}
-class Precategory from => Category from
- where identity :: from a a
+class Precategory source => Category source
+ where identity :: source a a
 
 {- [LAW] I preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
-class (Category from, Category into, Mapping v T'I'II from into t t) => Functor v from into t
-deriving instance (Category from, Category into, Mapping v T'I'II from into t t) => Functor v from into t
+class (Category source, Category into, Mapping v T'I'II source into t t) => Functor v source into t
+deriving instance (Category source, Category into, Mapping v T'I'II source into t t) => Functor v source into t
 
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
 class
- ( Precategory from, Precategory into
- , Mapping v T'I'II from into t t
- , Dumb (x v from into t)
- ) => Semi v x from into t
+ ( Precategory source, Precategory into
+ , Mapping v T'I'II source into t t
+ , Dumb (x v source into t)
+ ) => Semi v x source into t
 
 deriving instance
- ( Precategory from, Precategory into
- , Mapping v T'I'II from into t t
- , Dumb (Functor v from into t)
- ) => Semi v Functor from into t
+ ( Precategory source, Precategory into
+ , Mapping v T'I'II source into t t
+ , Dumb (Functor v source into t)
+ ) => Semi v Functor source into t
 
 -- TODO: Semi Transformation?
 -- TODO: Semi Monoidal Functor?
@@ -149,16 +149,16 @@ type Endo v x c into = x v c into into
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 class
- ( Mapping v T'I'II from into t tt
- , x v from into t
- , x v from into tt
- ) => Transformation v x from into t tt
+ ( Mapping v T'I'II source into t tt
+ , x v source into t
+ , x v source into tt
+ ) => Transformation v x source into t tt
 
 deriving instance
- ( Mapping v T'I'II from into t tt
- , x v from into t
- , x v from into tt
- ) => Transformation v x from into t tt
+ ( Mapping v T'I'II source into t tt
+ , x v source into t
+ , x v source into tt
+ ) => Transformation v x source into t tt
 
 type Dinatural = T'II'I
 
@@ -170,19 +170,19 @@ type Constant t = t T''II
 
 type Kleisli u t = T'I'TT'II u t
 
-class (Category from, x v from into t, forall o . Mapping v T'I'II from Arrow t (Embedding v from into t o)) =>
- Yoneda v x from into t where
+class (Category source, x v source into t, forall o . Mapping v T'I'II source Arrow t (Embedding v source into t o)) =>
+ Yoneda v x source into t where
  yoneda :: forall a o .
-  Category from =>
+  Category source =>
   Precategory into =>
-  (Supertype (v from a a) ~ from a a) =>
-  Elicitable T'II'I (AR) (v from a a) =>
-  t a -> into (v from a o) (t o)
- yoneda x = unwrap (map @v @T'I'II @from @Arrow @t @(Embedding v from into t o) identity x)
+  (Supertype (v source a a) ~ source a a) =>
+  Elicitable T'II'I (AR) (v source a a) =>
+  t a -> into (v source a o) (t o)
+ yoneda x = unwrap (map @v @T'I'II @source @Arrow @t @(Embedding v source into t o) identity x)
 
 deriving instance
- (Category from, x v from into t, forall r . Mapping v T'I'II from Arrow t (Embedding v from into t r)) =>
- Yoneda v x from into t
+ (Category source, x v source into t, forall r . Mapping v T'I'II source Arrow t (Embedding v source into t r)) =>
+ Yoneda v x source into t
 
 type family Representation t where
  Representation I = Unit
@@ -192,14 +192,14 @@ type family Representation t where
  Representation (T'I'I (P)) = Unit `S` Unit
 
 class
-  ( Mapping v T'I'II from into t (v hom (Representation t))
-  , Mapping v T'I'II from into (v hom (Representation t)) t
-  ) => Representable hom v from into t
+  ( Mapping v T'I'II source into t (v hom (Representation t))
+  , Mapping v T'I'II source into (v hom (Representation t)) t
+  ) => Representable hom v source into t
 
 deriving instance
- ( Mapping v T'I'II from into t (v hom (Representation t))
- , Mapping v T'I'II from into (v hom (Representation t)) t
- ) => Representable hom v from into t
+ ( Mapping v T'I'II source into t (v hom (Representation t))
+ , Mapping v T'I'II source into (v hom (Representation t)) t
+ ) => Representable hom v source into t
 
 type family Co x where Co (x T'I'II) = x T'II'I
 
@@ -243,32 +243,32 @@ type S'I'II = T'I'II S
 type S'II'I = T'II'I S
 
 class
- ( forall e . Mapping v v from into (T'II'I u e) I
- , forall e . Mapping v v from into (T'I'II u e) I
- ) => Cone v from into u
+ ( forall e . Mapping v v source into (T'II'I u e) I
+ , forall e . Mapping v v source into (T'I'II u e) I
+ ) => Cone v source into u
 
 deriving instance
- ( forall e . Mapping v v from into (T'II'I u e) I
- , forall e . Mapping v v from into (T'I'II u e) I
- ) => Cone v from into u
+ ( forall e . Mapping v v source into (T'II'I u e) I
+ , forall e . Mapping v v source into (T'I'II u e) I
+ ) => Cone v source into u
 
-left :: forall v from into a o e .
- Cone v from into (Object (Aught v)) =>
- Elicitable T'II'I Arrow (v from a o) =>
+left :: forall v source into a o e .
+ Cone v source into (Object (Aught v)) =>
+ Elicitable T'II'I Arrow (v source a o) =>
  Elicitable T'I'II Arrow (v into ((T'II'I (Object (Aught v))) e a) (I o)) =>
- Supertype (v from a o) -> Supertype (v into (T'II'I (Object (Aught v)) e a) (I o))
-left from = map @v @v @from @into @(T'II'I (Object (Aught v)) e) @I @a @o from
+ Supertype (v source a o) -> Supertype (v into (T'II'I (Object (Aught v)) e a) (I o))
+left source = map @v @v @source @into @(T'II'I (Object (Aught v)) e) @I @a @o source
 
-right :: forall v from into a o e .
- Cone v from into (Object (Aught v)) =>
- Elicitable T'II'I Arrow (v from a o) =>
+right :: forall v source into a o e .
+ Cone v source into (Object (Aught v)) =>
+ Elicitable T'II'I Arrow (v source a o) =>
  Elicitable T'I'II Arrow (v into (T'I'II (Object (Aught v)) e a) (I o)) =>
- Supertype (v from a o) -> Supertype (v into (T'I'II (Object (Aught v)) e a) (I o))
-right from = map @v @v @from @into @(T'I'II (Object (Aught v)) e) @I @a @o from
+ Supertype (v source a o) -> Supertype (v into (T'I'II (Object (Aught v)) e a) (I o))
+right source = map @v @v @source @into @(T'I'II (Object (Aught v)) e) @I @a @o source
 
-type Limit v from into =
- ( Cone v from into (Object (Aught v))
- , Mapping v v from into I (Both (Object (Aught v)))
+type Limit v source into =
+ ( Cone v source into (Object (Aught v))
+ , Mapping v v source into I (Both (Object (Aught v)))
  )
 
 type Product = Object Unit
@@ -295,47 +295,47 @@ instance Terminal (AT) where
 type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III P
 
 class
- ( Covariant x into from t
- , Covariant x from into tt
- , Covariant Transformation x into from (T'TT'I t tt) I
- , Covariant Transformation x from into I (T'TT'I tt t)
- ) => Adjoint x from into t tt | t -> tt
+ ( Covariant x into source t
+ , Covariant x source into tt
+ , Covariant Transformation x into source (T'TT'I t tt) I
+ , Covariant Transformation x source into I (T'TT'I tt t)
+ ) => Adjoint x source into t tt | t -> tt
 
 class
- ( forall e ee . Mapping v vv from into (Day v from u uu t (t `L` t `T` l) e ee) t
- , Mapping v vv from into (v into (Neutral uu)) t
- , x v from into t
- ) => Monoidal v vv x from into u uu l t where
+ ( forall e ee . Mapping v vv source into (Day v source u uu t (t `L` t `T` l) e ee) t
+ , Mapping v vv source into (v into (Neutral uu)) t
+ , x v source into t
+ ) => Monoidal v vv x source into u uu l t where
 
 deriving instance
- ( forall e ee . Mapping v vv from into (Day v from u uu t (t `L` t `T` l) e ee) t
- , Mapping v vv from into (v into (Neutral uu)) t
- , x v from into t
- ) => Monoidal v vv x from into u uu l t
+ ( forall e ee . Mapping v vv source into (Day v source u uu t (t `L` t `T` l) e ee) t
+ , Mapping v vv source into (v into (Neutral uu)) t
+ , x v source into t
+ ) => Monoidal v vv x source into u uu l t
 
-class x v T'I'II xx from into u uu l t
- => Lax v x xx from into u uu l t where
+class x v T'I'II xx source into u uu l t
+ => Lax v x xx source into u uu l t where
 
-deriving instance Monoidal v T'I'II Functor from into u uu l t
- => Lax v Monoidal Functor from into u uu l t
+deriving instance Monoidal v T'I'II Functor source into u uu l t
+ => Lax v Monoidal Functor source into u uu l t
 
-class x v T'II'I xx from into u uu l t
- => Oplax v x xx from into u uu l t where
+class x v T'II'I xx source into u uu l t
+ => Oplax v x xx source into u uu l t where
 
-deriving instance Monoidal v T'II'I Functor from into u uu l t
- => Oplax v Monoidal Functor from into u uu l t
+deriving instance Monoidal v T'II'I Functor source into u uu l t
+ => Oplax v Monoidal Functor source into u uu l t
 
 -- TODO: Yoneda version?
-day :: forall v from l t tt u uu a o e ee .
- Mapping v T'I'II from (AR) (Day v from u uu t (tt `L` tt `T` l) e ee) t =>
- Wrapper (AR) (v from a o) =>
- Wrapper (AR) (v from (uu e ee) a) =>
- Supertype (v from a o)
-  -> Supertype (v from (uu e ee) a)
+day :: forall v source l t tt u uu a o e ee .
+ Mapping v T'I'II source (AR) (Day v source u uu t (tt `L` tt `T` l) e ee) t =>
+ Wrapper (AR) (v source a o) =>
+ Wrapper (AR) (v source (uu e ee) a) =>
+ Supertype (v source a o)
+  -> Supertype (v source (uu e ee) a)
   -> u (t e) (tt `L` tt `T` l `T'I` ee) -> t o
-day from t x = map @v @T'I'II @from @(AR)
- @(Day v from u uu t (tt `L` tt `T` l) e ee) @t from
- (wrap (These x (wrap @_ @(v from (uu e ee) a) t)))
+day source t x = map @v @T'I'II @source @(AR)
+ @(Day v source u uu t (tt `L` tt `T` l) e ee) @t source
+ (wrap (These x (wrap @_ @(v source (uu e ee) a) t)))
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
@@ -425,14 +425,14 @@ this (These x _) = x
 that :: forall ee e . e `P` ee -> ee
 that (These _ x) = x
 
-constant :: forall from into a o .
- Category from =>
+constant :: forall source into a o .
+ Category source =>
  Precategory into =>
- Component into I (T'I'II from a) =>
- Elicitable T'I'II into (T'I'II from a o) =>
+ Component into I (T'I'II source a) =>
+ Elicitable T'I'II into (T'I'II source a o) =>
  Elicitable T'II'I into (I o) =>
- into o (from a o)
-constant = unwrap @_ @(T'I'II from a _)
+ into o (source a o)
+constant = unwrap @_ @(T'I'II source a _)
  `compose` component @into
  `compose` wrap @into @(I o)
 
@@ -508,5 +508,5 @@ pattern Opted :: i `S` i `AR___` T'I'I S i
 pattern Opted x = T'I'I x
 
 -- TODO: these typeclasses are experimental
-class Semigroup from e where s :: e `P` e `from` e
-class Quasigroup from e where p :: e `P` e `from` e
+class Semigroup source e where s :: e `P` e `source` e
+class Quasigroup source e where p :: e `P` e `source` e

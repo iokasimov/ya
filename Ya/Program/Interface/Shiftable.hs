@@ -113,8 +113,8 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `T'TT'I` Construction List)
  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Unfoldings Alone Tree) where
- mapping = rewrap `identity` \from x ->
-  T'TT'I (to @(Scrolling List) `hv'he` x) `yo` from `lu` T'TT'I (Label `hv` empty @List) `yi` T'TT'I'TTT'I
+ mapping = rewrap `identity` \source x ->
+  T'TT'I (to @(Scrolling List) `hv'he` x) `yo` source `lu` T'TT'I (Label `hv` empty @List) `yi` T'TT'I'TTT'I
 
 -- TODO: implement `locate` method
 instance Shiftable Alone (Construction List) where
@@ -183,14 +183,14 @@ instance Shiftable Alone (Construction List) where
    `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (I `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \from (Root x xs) ->
-  T'TT'I'TTT'I (Alone (from x) `lu` T'TT'I (T'I'I (empty @List `lu` (T'TT'I (xs `yo` F'T'I'TT'I) `yo` from))))
+ mapping = rewrap `identity` \source (Root x xs) ->
+  T'TT'I'TTT'I (Alone (source x) `lu` T'TT'I (T'I'I (empty @List `lu` (T'TT'I (xs `yo` F'T'I'TT'I) `yo` source))))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) (Construction Maybe) where
- mapping = rewrap `identity` \from (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r))))) ->
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r))))) ->
   (l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` r
-   `yi_` that `ho'yo` from
+   `yi_` that `ho'yo` source
 
 -- spot :: forall t tt i .
 --  Shiftable t tt =>
