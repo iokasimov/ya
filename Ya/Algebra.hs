@@ -867,6 +867,9 @@ instance
     `lo` is `ho'he` this `ho'yo` from
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `lu_`) `ho` T'TT'I'TTT'I)))
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
+ mapping = rewrap `hv` \from -> T'I'II `ha` wrap @AR `ha` from `la` T'I'II `ha` wrap @AR `ha` from
+
 -- TODO: generalize over categories
 instance {-# OVERLAPPABLE #-}
  (Setoid (AR) (Supertype e), Wrapper (AR) e)
