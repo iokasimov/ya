@@ -118,6 +118,18 @@ fukl :: forall target t tt l ll a o .
  tt `L` tt `T` ll `L` t `T` l `T` o `AR__` target (t a) (tt (t o))
 fukl source = wrapped (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)) `compose` fu @target source
 
+kfokl :: forall source target t tt ttt l ll lll a o .
+ Covariant Semi Functor source target t =>
+ Covariant Endo Transformation Functor target t (t `T'TT'I` ttt `L` ttt `T` lll) =>
+ Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ (forall e . Wrapper target (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
+ (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)) =>
+ source (ttt `L` ttt `T` lll `T` a) (tt `L` tt `T` ll `L` t `T` l `T` o) -> target (t a) (tt (t o))
+kfokl source = wrapped (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt))
+ `compose` fo source
+ `compose` unwrap @target `compose` component @target @t @(t `T'TT'I` ttt `L` ttt `T` lll)
+
 fo'fo :: forall source target t tt a o .
  Covariant Semi Functor source target tt =>
  Covariant Endo Semi Functor target t =>
