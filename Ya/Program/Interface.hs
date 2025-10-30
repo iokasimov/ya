@@ -254,12 +254,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
   `he'he'hv___` unwrap @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `hv` start `yo` source
   `yi__` that
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
- (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) where
- mapping = rewrap `identity` \source x -> x
-  `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (\old -> pop old `yui` old) `he'he'hv___` x
-  -- `yukl` Forth `ha` New `ha` State `ha` Event `hv_` (get `ha` that `ha` pop) `he'he'hv___` x
-  `yi__` this @(Nonempty List _) `ho'yo` (Label `ho'yo` source) `ho` wrap @(AR) where
+instance
+ ( Covariant Endo Semi Functor (->) t
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
+ mapping = rewrap `hv` \source -> rewrap `ha` rewrap `ha` rewrap `ha` rewrap `hv` \(These xx x) ->
+  (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
+   `lu` Label (xx `lu` x `yo` source)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
