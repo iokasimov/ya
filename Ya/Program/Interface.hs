@@ -259,7 +259,19 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
  mapping = rewrap `hv` \source -> rewrap `ha` rewrap `ha` rewrap `ha` rewrap `hv` \(These xx x) ->
   (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
-   `lu` Label (xx `lu` x `yo` source)
+  `lu` Label (xx `lu` x `yo` source)
+
+-- TODO: define a special Radix label for it
+-- TODO: hasn't been tested yet
+instance
+ ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Opted `L` Opted `T` Void) where
+ mapping = rewrap `hv` \source x -> T'TT'I `hv___` x
+  `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Opted
+   `ha` (Exist `hu` That (source `ha` this `ha` top `hv` xx) `la` Exist `hu` This (source `ha` this `ha` top `hv` xx))
+   `ha` (\xxx -> this `ha` sub `hv` xxx `lu'ys` Apply `hv` empty @t @Unit `yokl` Apply `ha` Check `ha__` Exist `la` Empty)
+   `hv` xx)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Shafted List) `L` (Alone `P'T'I'TT'I` Shafted List) `T` Void) where
