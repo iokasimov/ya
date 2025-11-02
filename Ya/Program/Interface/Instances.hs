@@ -59,8 +59,8 @@ instance
   (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
   `lu` Label (xx `lu` x `yo` source)
 
-pattern Radix :: forall i . i `AR__` I `L` Opted `T` Void `T` i
-pattern Radix x = Label (Alone x)
+pattern Shoot :: forall i . i `AR__` I `L` Opted `T` Void `T` i
+pattern Shoot x = Label (Alone x)
 
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
