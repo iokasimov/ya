@@ -44,8 +44,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` source
 
-pattern Locus :: forall i . i `AR__` I `L` Opted `T` Void `T` i
-pattern Locus x = Label (Alone x)
+pattern Focus :: forall i . i `AR__` I `L` Opted `T` Void `T` i
+pattern Focus x = Label (Alone x)
 
 -- This is a special instance to be able to distinguish a focused item source other ones
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Opted `L` Opted `T` Void) where
