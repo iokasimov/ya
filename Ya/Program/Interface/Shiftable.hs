@@ -18,11 +18,6 @@ type family Shifting t tt = r | r -> t tt where
  Shifting t (Maybe `T'TT'I` Construction Maybe) = t `P'T'I'TT'I` Shafted List
  Shifting t (Construction List) = Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree
 
--- TODO: remove
-type family Focus t where
- Focus (t `P'T'I'TT'I` Shafted List) = t
- Focus ((t `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) = t
-
 type family Shifter t where
  Shifter (Maybe `T'TT'I` Construction Maybe) = Unit `S` Unit
  Shifter (Construction (Twice `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
