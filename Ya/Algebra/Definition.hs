@@ -19,8 +19,8 @@ infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `AL______`
 infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `AL_______`
 
 -- TODO: I think this precedence is way too low, probably 5 is better (compare with `T'TT'I)
-infixl 3 `P'T'I'TT'I`
-infixl 3 `S'T'I'TT'I`
+infixl 5 `P'T'I'TT'I`
+infixl 5 `S'T'I'TT'I`
 
 type AR = (->)
 type AR_ = (AR)
