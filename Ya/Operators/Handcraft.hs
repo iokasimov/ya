@@ -71,6 +71,7 @@ infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho
 infixl 9 `ha`, `ha'hu`
  , `ha'yok`
  , `ha'yuk`
+ , `ha'kyo`
  , `ha'yokl`, `ha'yukl`
  , `ha'he`
  , `he'ha`
@@ -81,6 +82,7 @@ infixl 8 `ha_`
  , `ha_'hu`
  , `ha_'yok`
  , `ha_'yuk`
+ , `ha_'kyo`
  , `ha_'yokl`
  , `ha_'yukl`
 infixl 7 `ha__`
@@ -88,6 +90,7 @@ infixl 7 `ha__`
  , `ha__'hu`
  , `ha__'yok`
  , `ha__'yuk`
+ , `ha__'kyo`
  , `ha__'yokl`
  , `ha__'yukl`
 infixl 6 `ha___`
@@ -95,6 +98,7 @@ infixl 6 `ha___`
  , `ha___'hu`
  , `ha___'yok`
  , `ha___'yuk`
+ , `ha___'kyo`
  , `ha___'yokl`
  , `ha___'yukl`
 infixl 5 `ha____`
@@ -102,6 +106,7 @@ infixl 5 `ha____`
  , `ha____'hu`
  , `ha____'yok`
  , `ha____'yuk`
+ , `ha____'kyo`
  , `ha____'yokl`
  , `ha____'yukl`
 infixl 4 `ha_____`
@@ -109,6 +114,7 @@ infixl 4 `ha_____`
  , `ha_____'hu`
  , `ha_____'yok`
  , `ha_____'yuk`
+ , `ha_____'kyo`
  , `ha_____'yokl`
  , `ha_____'yukl`
 infixl 3 `ha______`
@@ -116,6 +122,7 @@ infixl 3 `ha______`
  , `ha______'hu`
  , `ha______'yok`
  , `ha______'yuk`
+ , `ha______'kyo`
  , `ha______'yokl`
  , `ha______'yukl`
 infixl 2 `ha_______`
@@ -123,6 +130,7 @@ infixl 2 `ha_______`
  , `ha_______'hu`
  , `ha_______'yok`
  , `ha_______'yuk`
+ , `ha_______'kyo`
  , `ha_______'yokl`
  , `ha_______'yukl`
 infixl 1 `ha________`
@@ -3195,7 +3203,7 @@ ho______'yuk x = fai (fuk @source @t @tt) (ho @source x)
 ho_______'yuk x = fai (fuk @source @t @tt) (ho @source x)
 ho________'yuk x = fai (fuk @source @t @tt) (ho @source x)
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, replace with generated version later
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
  :: forall source target t tt ttt l a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -3404,6 +3412,31 @@ ha________'yukl = yai'yukl
  -- -- t (source a o) -> source (u e a) (t o)
  -- t (u e a) -> u (source a o) (t o)
 -- yokl__ x = fai fio (yokl @source @u x)
+
+ha'kyo, ha_'kyo, ha__'kyo, ha___'kyo, ha____'kyo, ha_____'kyo, ha______'kyo, ha_______'kyo
+ :: forall source target t tt ttt l a o i .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Covariant Endo Semi Functor source tt =>
+ Covariant Endo Semi Functor source ttt =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II source e)) =>
+ Covariant Endo Transformation Functor source tt (tt `T'TT'I` ttt `L` ttt `T` l) =>
+ (forall e . Contravariant Endo Yoneda Functor (AR) (T'II'I target e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` l) e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt) e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` l `T` e)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ t (tt o) i -> target (source (ttt a) (I `L` ttt `T` l `T` o)) (t (tt a) i)
+ha'kyo = fai (kfo `compose` fai (unwrap @source @(ttt `L` ttt `T` l `T` _)) `compose` fio (unwrap @(AR) `compose` unwrap @(AR)))
+ `compose` ha @source @target @t
+
+ha_'kyo = ha'kyo
+ha__'kyo = ha'kyo
+ha___'kyo = ha'kyo
+ha____'kyo = ha'kyo
+ha_____'kyo = ha'kyo
+ha______'kyo = ha'kyo
+ha_______'kyo = ha'kyo
 
 -- TODO: generalize
 yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
