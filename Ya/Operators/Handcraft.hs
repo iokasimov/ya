@@ -3219,8 +3219,7 @@ ha'kyo, ha_'kyo, ha__'kyo, ha___'kyo, ha____'kyo, ha_____'kyo, ha______'kyo, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  t (tt o) i -> target (source (ttt a) (I `L` ttt `T` l `T` o)) (t (tt a) i)
-ha'kyo = fai kfo
- `compose` ha @source @target @t
+ha'kyo = fai kfo `compose` ha @source @target @t
 
 ha_'kyo = ha'kyo
 ha__'kyo = ha'kyo
