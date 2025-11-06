@@ -3203,6 +3203,31 @@ ho______'yuk x = fai (fuk @source @t @tt) (ho @source x)
 ho_______'yuk x = fai (fuk @source @t @tt) (ho @source x)
 ho________'yuk x = fai (fuk @source @t @tt) (ho @source x)
 
+ha'kyo, ha_'kyo, ha__'kyo, ha___'kyo, ha____'kyo, ha_____'kyo, ha______'kyo, ha_______'kyo
+ :: forall source target t tt ttt l a o i .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Covariant Endo Semi Functor source tt =>
+ Covariant Endo Semi Functor source ttt =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II source e)) =>
+ Covariant Endo Transformation Functor source tt (tt `T'TT'I` ttt `L` ttt `T` l) =>
+ (forall e . Contravariant Endo Yoneda Functor (AR) (T'II'I target e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` l) e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt) e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` l `T` e)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ t (tt o) i -> target (source (ttt a) (I `L` ttt `T` l `T` o)) (t (tt a) i)
+ha'kyo = fai (kfo `compose` fai (unwrap @source @(ttt `L` ttt `T` l `T` _)) `compose` fio (unwrap @(AR) `compose` unwrap @(AR)))
+ `compose` ha @source @target @t
+
+ha_'kyo = ha'kyo
+ha__'kyo = ha'kyo
+ha___'kyo = ha'kyo
+ha____'kyo = ha'kyo
+ha_____'kyo = ha'kyo
+ha______'kyo = ha'kyo
+ha_______'kyo = ha'kyo
+
 -- TODO: defined manually temporarily, replace with generated version later
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
  :: forall source target t tt ttt l a o i .
