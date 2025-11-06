@@ -84,12 +84,23 @@ fuk :: forall target t tt l a o .
 fuk source = map @T'I'II @T'I'II @target @target @(t `T'TT'I` tt `L` tt `T` l) @t identity
  `compose` wrap `compose` fu @target source
 
+-- kfo :: forall source target t tt l a o .
+ -- Component target t (t `T'TT'I` tt `L` tt `T` l) =>
+ -- Covariant Functor source target t =>
+ -- (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ -- source (tt `L` tt `T` l `T` a) o -> target (t a) (t o)
+-- kfo source = fo source `compose` unwrap `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` l)
+
 kfo :: forall source target t tt l a o .
  Component target t (t `T'TT'I` tt `L` tt `T` l) =>
  Covariant Functor source target t =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` tt `T` l `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` l `T` e)) =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
- source (tt `L` tt `T` l `T` a) o -> target (t a) (t o)
-kfo source = fo source `compose` unwrap `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` l)
+ source (tt a) (I `L` tt `T` l `T` o) -> target (t a) (t o)
+kfo source = fo (unwrap `compose` unwrap `compose` source `compose` unwrap)
+ `compose` unwrap `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` l)
 
 fokl :: forall source target t tt l ll a o .
  Covariant Semi Functor source target t =>

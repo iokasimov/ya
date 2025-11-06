@@ -3214,10 +3214,12 @@ ha'kyo, ha_'kyo, ha__'kyo, ha___'kyo, ha____'kyo, ha_____'kyo, ha______'kyo, ha_
  (forall e . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` l) e)) =>
  (forall e . Wrapper source ((tt `T'TT'I` ttt) e)) =>
  (forall e . Wrapper source (ttt `L` ttt `T` l `T` e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` l `T` e)) =>
+ (forall e . Wrapper source (I e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  t (tt o) i -> target (source (ttt a) (I `L` ttt `T` l `T` o)) (t (tt a) i)
-ha'kyo = fai (kfo `compose` fai (unwrap @source @(ttt `L` ttt `T` l `T` _)) `compose` fio (unwrap @(AR) `compose` unwrap @(AR)))
+ha'kyo = fai kfo
  `compose` ha @source @target @t
 
 ha_'kyo = ha'kyo
