@@ -72,6 +72,7 @@ infixl 9 `ha`, `ha'hu`
  , `ha'yok`
  , `ha'yuk`
  , `ha'kyo`
+ , `ha'kyok`
  , `ha'yokl`, `ha'yukl`
  , `ha'he`
  , `he'ha`
@@ -83,6 +84,7 @@ infixl 8 `ha_`
  , `ha_'yok`
  , `ha_'yuk`
  , `ha_'kyo`
+ , `ha_'kyok`
  , `ha_'yokl`
  , `ha_'yukl`
 infixl 7 `ha__`
@@ -91,6 +93,7 @@ infixl 7 `ha__`
  , `ha__'yok`
  , `ha__'yuk`
  , `ha__'kyo`
+ , `ha__'kyok`
  , `ha__'yokl`
  , `ha__'yukl`
 infixl 6 `ha___`
@@ -99,6 +102,7 @@ infixl 6 `ha___`
  , `ha___'yok`
  , `ha___'yuk`
  , `ha___'kyo`
+ , `ha___'kyok`
  , `ha___'yokl`
  , `ha___'yukl`
 infixl 5 `ha____`
@@ -107,6 +111,7 @@ infixl 5 `ha____`
  , `ha____'yok`
  , `ha____'yuk`
  , `ha____'kyo`
+ , `ha____'kyok`
  , `ha____'yokl`
  , `ha____'yukl`
 infixl 4 `ha_____`
@@ -115,6 +120,7 @@ infixl 4 `ha_____`
  , `ha_____'yok`
  , `ha_____'yuk`
  , `ha_____'kyo`
+ , `ha_____'kyok`
  , `ha_____'yokl`
  , `ha_____'yukl`
 infixl 3 `ha______`
@@ -123,6 +129,7 @@ infixl 3 `ha______`
  , `ha______'yok`
  , `ha______'yuk`
  , `ha______'kyo`
+ , `ha______'kyok`
  , `ha______'yokl`
  , `ha______'yukl`
 infixl 2 `ha_______`
@@ -131,6 +138,7 @@ infixl 2 `ha_______`
  , `ha_______'yok`
  , `ha_______'yuk`
  , `ha_______'kyo`
+ , `ha_______'kyok`
  , `ha_______'yokl`
  , `ha_______'yukl`
 infixl 1 `ha________`
@@ -3229,7 +3237,7 @@ ha_____'kyo = ha'kyo
 ha______'kyo = ha'kyo
 ha_______'kyo = ha'kyo
 
-ha'kyok
+ha'kyok, ha_'kyok, ha__'kyok, ha___'kyok, ha____'kyok, ha_____'kyok, ha______'kyok, ha_______'kyok
  :: forall source target t tt ttt tttt lll llll a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  Covariant Endo Semi Functor source tt =>
@@ -3248,6 +3256,14 @@ ha'kyok
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  t (tt o) i -> target (source (ttt a) (I `L` ttt `T` lll `T'I` tttt `L` tttt `T` llll `T` o)) (t (tt a) i)
 ha'kyok = fai kfok `compose` ha @source @target @t
+
+ha_'kyok = ha'kyok
+ha__'kyok = ha'kyok
+ha___'kyok = ha'kyok
+ha____'kyok = ha'kyok
+ha_____'kyok = ha'kyok
+ha______'kyok = ha'kyok
+ha_______'kyok = ha'kyok
 
 -- TODO: defined manually temporarily, replace with generated version later
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
