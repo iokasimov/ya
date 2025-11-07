@@ -3229,6 +3229,26 @@ ha_____'kyo = ha'kyo
 ha______'kyo = ha'kyo
 ha_______'kyo = ha'kyo
 
+ha'kyok
+ :: forall source target t tt ttt tttt lll llll a o i .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Covariant Endo Semi Functor source tt =>
+ Covariant Endo Semi Functor source ttt =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II source e)) =>
+ Covariant Endo Transformation Functor source tt (tt `T'TT'I` ttt `L` ttt `T` lll) =>
+ Covariant Endo Transformation Functor source (tt `T'TT'I` tttt `L` tttt `T` llll) tt =>
+ (forall e . Contravariant Endo Yoneda Functor (AR) (T'II'I target e)) =>
+ (forall e . Wrapper source (tt `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
+ (forall e . Wrapper source (tt `T'TT'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper source (tt `T'TT'I` tttt `L` tttt `T` llll `T'I_` e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ t (tt o) i -> target (source (ttt a) (I `L` ttt `T` lll `T'I` tttt `L` tttt `T` llll `T` o)) (t (tt a) i)
+ha'kyok = fai kfok `compose` ha @source @target @t
+
 -- TODO: defined manually temporarily, replace with generated version later
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
  :: forall source target t tt ttt l a o i .
