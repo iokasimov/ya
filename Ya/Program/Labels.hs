@@ -24,6 +24,7 @@ pattern Check e = Label e
 pattern Try e = Label e
 
 pattern Retry :: forall e i t . t e `AR__` t `L` S'I'II i `T` Recursive `T` e
+-- pattern Retry :: forall t tt e . t e `AR__` t `L` tt ` Recursive `T` e
 pattern Retry e = Label @_ @_ @Recursive e
 
 pattern Until :: forall i e t . t e `AR__` t `L` S'I'II i `T` Void `T` e
