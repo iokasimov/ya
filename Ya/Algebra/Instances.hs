@@ -12,9 +12,18 @@ instance Mapping T'I'II T'I'II AR target t tt
 
 instance
  ( Covariant Semi Functor source target t
- , forall e . Wrapper target (t `L` tt `T` l `T` e)
- ) => Mapping T'I'II T'I'II source target (t `L` tt `T` l) (t `L` tt `T` l) where
+ , forall e . Wrapper target (t `L` tt `T` ll `T` e)
+ ) => Mapping T'I'II T'I'II source target (t `L` tt `T` ll) (t `L` tt `T` ll) where
  mapping = rewrap `identity` (rewrap `compose` map @T'I'II @T'I'II @source @target @t @t)
+
+instance
+ ( Covariant Semi Functor source target t
+ , forall e . Wrapper target (t `L` t `T` l `T` e)
+ , forall e . Wrapper target (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)
+ , forall e . Wrapper target (t `L` t `T` l `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)
+ , Mapping T'I'II T'I'II source target (t `T'TT'I` ttt `L` ttt `T` lll) t
+ ) => Mapping T'I'II T'I'II source target (t `L` t `T` l `T'TT'I` ttt `L` ttt `T` lll) (t `L` t `T` l) where
+ mapping = rewrap `identity` ((`compose` unwrap) `compose` rewrap `compose` (`compose` wrap) `compose` (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t))
 
 instance (Precategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II T'I'II target target I I where

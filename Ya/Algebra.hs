@@ -616,31 +616,40 @@ instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
   T'I'II (This e) -> intro `ha` T'I'II `hv` This e
   T'I'II (That x) -> unwrap (unwrap x) `yo` source `ho` That  `ho` T'I'II
 
- -- (T'TT'I
- --  (T'TTT'TT'I (T'I'II AR shift) (T'II'I P shift) (T'I Reach shift)) 
- --  (T'TTT'TT'I (T'I'II AR shift) (T'II'I P shift) (T'I Reach shift) `L` T'TTT'TT'I (T'I'II AR shift) (T'II'I P shift) (T'I Reach shift) `T` Void)
- -- )
- -- (T'TTT'TT'I (T'I'II AR shift) (T'II'I P shift) (T'I Reach shift))
-
-instance
- ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
- , Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e)
- ) => Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` S'I'II e `L` S'I'II e `T` Recursive) t where
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` S'I'II e `L` S'I'II e `T` Recursive)
+ (T'I'II (T'I'TT'II'I (AR) (P)) i) where
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
-      `la` intro @t @(AR) `ha` source
-    `ha__` unwrap @(AR)
-    `ha__` unwrap @(AR)
+      `la` intro @(T'I'II (T'I'TT'II'I (AR) (P)) i) @(AR) `ha` source
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` I `L` I `T` Recursive)
+ (T'I'II (T'I'TT'II'I (AR) (P)) i) where
+ mapping = rewrap `identity` \source -> \(T'TT'I x) ->
+  x `yok` Label @_ @_ @Void `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @(T'I'II (T'I'TT'II'I (AR) (P)) i) source (T'TT'I x)) `ha` unwrap @(AR) `ha` unwrap @(AR)
 
 instance
- ( Mapping T'I'II T'I'II (AR) (AR) t t
- , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
- ) => Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` I `L` I `T` Recursive) t where
+ ( Covariant Yoneda Functor (AR) (AR) t
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) Unit) t
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+ (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t `T'TT'I` S'I'II e `L` S'I'II e `T` Recursive)
+ (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) where
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
-  -- x `yok'he'he` Label `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @t source (T'TT'I x))
-  x `yok` Label @_ @_ @Void `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @t source (T'TT'I x)) `ha` unwrap @(AR) `ha` unwrap @(AR)
+  x `yok_` Label @_ @_ @Void
+    `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
+      `la` intro @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) @(AR) `ha` source
+
+instance
+ ( Covariant Yoneda Functor (AR) (AR) t
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+ (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t `T'TT'I` I `L` I `T` Recursive)
+ (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) where
+ mapping = rewrap `identity` \source -> \(T'TT'I x) ->
+  x `yok` Label @_ @_ @Void `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) source (T'TT'I x)) `ha` unwrap @(AR) `ha` unwrap @(AR)
 
 -- TODO: generalize using adjunctions
 
