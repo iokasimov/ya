@@ -65,23 +65,7 @@ type Maybe = S'I'II Unit
 pattern Maybe :: Unit `S` e `AR_` Maybe e
 pattern Maybe x = T'I'II @(S) @Unit x
 
-type Progress = T'I'II (S)
-
-pattern Progress x = T'I'II @(S) x
-
-pattern Interrupt :: e -> Progress e ee
-pattern Interrupt x = T'I'II @(S) (This x)
-
-pattern Continue :: ee -> Progress e ee
-pattern Continue x = T'I'II @(S) (That x)
-
-pattern Erase :: e -> Progress e ee
-pattern Erase x = T'I'II (This x)
-
-pattern Store :: ee -> Progress e ee
-pattern Store x = T'I'II (That x)
-
-pattern Allot :: ee -> Progress e ee
+pattern Allot :: ee -> Stops e ee
 pattern Allot x = T'I'II (That x)
 
 type Stops = T'I'II (S)
@@ -111,14 +95,6 @@ pattern Valid, Going, Ok :: ii -> Stops i ii
 pattern Valid x = T'I'II (That x)
 pattern Going x = T'I'II (That x)
 pattern Ok x = T'I'II (That x)
-
-type Probably = T'I'II (S)
-
-pattern Probably x = T'I'II @(S) x
-
-type Perhaps = T'I'II (S)
-
-pattern Perhaps x = T'I'II @(S) x
 
 type Reference u i ii iii = i `AR_` u ii (iii `AR_` i)
 
@@ -188,10 +164,10 @@ type Quest = List
 pattern Item :: i -> t (Recursive (Along i `T'TT'I` t)) -> Recursive (Along i `T'TT'I` t)
 pattern Item x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
-pattern Next :: forall ee e . ee `AR_` Progress e ee
+pattern Next :: forall ee e . ee `AR_` Stops e ee
 pattern Next x = T'I'II (That x)
 
-pattern Last :: forall e ee . e `AR_` Progress e ee
+pattern Last :: forall e ee . e `AR_` Stops e ee
 pattern Last x = T'I'II (This x)
 
 type family Brancher datastructure where
