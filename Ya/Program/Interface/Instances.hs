@@ -44,13 +44,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` source
 
-pattern Focus :: forall i . i `AR__` I `L` Opted `T` Void `T` i
+pattern Focus :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Focus x = Label (Alone x)
 
 -- This is a special instance to be able to distinguish a focused item source other ones
-instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Opted `L` Opted `T` Void) where
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
-  T'TT'I (T'TT'I'TTT'I (These (x `yo` Label `ha` Opted `ha` This `ha` source) (xs `yo` Label `ha` Opted `ha` That `ha` source)))
+  T'TT'I (T'TT'I'TTT'I (These (x `yo` Label `ha` Along `ha` (`lu` This Unit) `ha` source) (xs `yo` Label `ha` Along `ha` (`lu` That Unit) `ha` source)))
 
 instance
  ( Covariant Endo Semi Functor (->) t
@@ -59,17 +59,17 @@ instance
   (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
   `lu` Label (xx `lu` x `yo` source)
 
-pattern Final :: forall i . i `AR__` I `L` Opted `T` Void `T` i
+pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Final x = Label (Alone x)
 
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Opted `L` Opted `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
  mapping = rewrap `hv` \source x -> T'TT'I `hv___` x
-  `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Opted
-   `ha` (Exist `hu` This (source `ha` this `ha` top `hv` xx) `la` Exist `hu` That (source `ha` this `ha` top `hv` xx))
+  `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
+   `ha` (is `hu` (source `ha` this `ha` top `hv` xx `lu` This Unit) `la` is `hu` (source `ha` this `ha` top `hv` xx `lu` That Unit))
    `ha` (\xxx -> this `ha` sub `hv` xxx `lu'ys` Apply `hv` intro @t Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `la` Valid)
    `hv` xx)
 
