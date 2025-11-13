@@ -26,9 +26,9 @@ swap (These x y) = y `lu` x
 
 -- TODO: we need to remove `Automation` type alias, it's confusing
 
-auto, get :: Automation e e e
+auto, fetch :: Automation e e e
 auto x = x `lu` x
-get = auto
+fetch = auto
 
 relay, put :: ee -> Automation e e ee
 relay new old = old `lu` new
