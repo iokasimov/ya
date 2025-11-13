@@ -16,6 +16,7 @@ infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'y
  , `ho'he'he'he'he`
  , `ho'hd`
  , `ho'hd'hd`
+ , `ho'hu`
 infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`, `ho_'yoikl`
  , `ho_'he`
  , `ho_'he'he`
@@ -1727,21 +1728,20 @@ ho'ho'yui = yio'yio'yui
  -- u i (uu ee (uuu eee a)) -> Supertype (source Unit o) -> u i (uu ee (uuu eee o))
 -- ho'ho'hu = fai (fio @source `compose` fiu @source) `compose` ho @uuu
 
--- ho'hu :: forall source u uu o e ee a .
- -- Category source =>
- -- Terminal source =>
- -- Covariant Yoneda Functor u source (T'I'II u e) =>
- -- Contravariant Yoneda Functor (AR) (AR) (T'II'I u e) =>
- -- Covariant Semi Functor source u (T'I'II uu ee) =>
- -- Covariant Endo Semi Functor (AR) (T'I'II (AR) (u e (uu a ee))) =>
- -- Contravariant Semi Functor (AR) (AR) (T'II'I source (u e (uu ee o))) =>
- -- (forall eee . Wrapper u (T'I'II uu ee eee)) =>
- -- Wrapper source (T'I'II uu ee o) =>
- -- Wrapper source (T'I'II u e (uu ee o)) =>
- -- Wrapper source (T'I'II u (uu ee a) (uu ee o)) =>
- -- -- Wrapper (AR) (source Unit o) =>
- -- u e (uu ee a) -> source (Supertype (source Unit o)) (u e (uu ee o))
--- ho'hu = fai (fiu @source) `compose` ho @u
+ho'hu :: forall source t tt o i ii a .
+ Category source =>
+ Terminal source =>
+ Covariant Yoneda Functor t source (T'I'II t i) =>
+ Contravariant Yoneda Functor (AR) (AR) (T'II'I t i) =>
+ Covariant Semi Functor source t (T'I'II tt ii) =>
+ Covariant Endo Semi Functor (AR) (T'I'II (AR) (t i (tt a ii))) =>
+ Contravariant Semi Functor (AR) (AR) (T'II'I source (t i (tt ii o))) =>
+ (forall e . Wrapper t (T'I'II tt ii e)) =>
+ (forall e . Wrapper (AR) (source Unit e)) =>
+ Wrapper source (T'I'II tt ii o) =>
+ (forall e ee . Wrapper source (T'I'II t e ee)) =>
+ t i (tt ii a) -> source (Supertype (source Unit o)) (t i (tt ii o))
+ho'hu = fai (fiu @source) `compose` ho @t
 
 -- ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
 --  :: forall source u uu o i ii a .
