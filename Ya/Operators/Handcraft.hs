@@ -1231,6 +1231,39 @@ kyokl :: forall source target t tt ttt l ll lll a o .
 kyokl = fio @source (wrapped (component @source @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt)))
  `compose` kyo @source @target @t @tt @ll
 
+-- TODO: Let's define ha'kyo first...
+
+-- ha'kyokl :: forall source target t tt ttt tttt ll lll llll i a o .
+--  Covariant Yoneda Functor source target tt =>
+--  Component (AR) tt (tt `T'TT'I` ttt `L` ttt `T` lll) =>
+--  Component source (tt `T'TT'I` tttt `L` tttt `T` llll `L` tt `T` ll) (tt `TT'T'I` tttt) =>
+--  (forall e . Contravariant Functor source target (T'II'I source e)) =>
+--  (forall e . Covariant Functor source target (T'I'II source e)) =>
+--  (forall e . Covariant Functor source (AR) (T'I'II target e)) =>
+--  (forall e ee . Wrapper target (T'I'II source e ee)) =>
+--  (forall e ee . Wrapper target (T'II'I source e ee)) =>
+--  (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+--  (forall e . Wrapper source (ttt `L` ttt `T` lll `T` e)) =>
+--  (forall e . Wrapper source (tt `TT'T'I` tttt `T'I_` e)) =>
+--  (forall e . Wrapper source (tt `T'TT'I` tttt `L` tttt `T` llll `L` tt `T` ll `T'I_` e)) =>
+--  (forall e . Wrapper source (I e)) =>
+--  t (tt o) i -> target
+--   (source (ttt `L` ttt `T` lll `T` a) (tttt `L` tttt `T` llll `L` tt `T` ll `T` o))
+--   (t ((tttt (tt a))) i)
+-- ha'kyokl = fai (kfokl @source) `compose` ha @source @target @t
+
+-- ha'yok = fai fok `compose` ha @source @target @t
+
+-- fai wrap `compose` fio (wrap `compose` wrap)
+
+-- t (tt a) i `AR___` target (source o a) (t ((tttt (tt o))) i)
+
+-- fio (wrap `compose` wrap) `compose` fai wrap `compose`
+-- kfokl `compose` fai wrap `compose` fio (wrap `compose` wrap)
+
+-- kfokl: source (ttt `L` ttt `T` lll `T` a) (tt `L` tt `T` ll `L` t `T` l `T` o) -> target (t a) (tt (t o))
+-- ha'yuk = fai fuk `compose` ha @(AR) @u
+
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall source target t tt l ll a o .
  -- Category target =>
@@ -1240,9 +1273,7 @@ yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  (forall i . Wrapper target ((t `TT'T'I` tt) i)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  t a -> target (source a (tt `L` tt `T` ll `L` t `T` l `T` o)) (tt (t o))
-yokl x = unwrap @target @(TT'T'I t tt _)
- `compose` component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt)
- `compose` wrap @target @((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) _)
+yokl x = wrapped @target @((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) _) (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt))
  `compose` yo x
 
 yokl_ = yokl
@@ -3474,31 +3505,6 @@ ha________'yukl = yai'yukl
  -- -- t (source a o) -> source (u e a) (t o)
  -- t (u e a) -> u (source a o) (t o)
 -- yokl__ x = fai fio (yokl @source @u x)
-
-ha'kyo, ha_'kyo, ha__'kyo, ha___'kyo, ha____'kyo, ha_____'kyo, ha______'kyo, ha_______'kyo
- :: forall source target t tt ttt l a o i .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Covariant Endo Semi Functor source tt =>
- Covariant Endo Semi Functor source ttt =>
- (forall e . Covariant Endo Semi Functor (AR) (T'I'II source e)) =>
- Covariant Endo Transformation Functor source tt (tt `T'TT'I` ttt `L` ttt `T` l) =>
- (forall e . Contravariant Endo Yoneda Functor (AR) (T'II'I target e)) =>
- (forall e . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` l) e)) =>
- (forall e . Wrapper source ((tt `T'TT'I` ttt) e)) =>
- (forall e . Wrapper source (ttt `L` ttt `T` l `T` e)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- t (tt o) i -> target (source (ttt a) (I `L` ttt `T` l `T` o)) (t (tt a) i)
-ha'kyo = fai (kfo `compose` fai (unwrap @source @(ttt `L` ttt `T` l `T` _)) `compose` fio (unwrap @(AR) `compose` unwrap @(AR)))
- `compose` ha @source @target @t
-
-ha_'kyo = ha'kyo
-ha__'kyo = ha'kyo
-ha___'kyo = ha'kyo
-ha____'kyo = ha'kyo
-ha_____'kyo = ha'kyo
-ha______'kyo = ha'kyo
-ha_______'kyo = ha'kyo
 
 -- TODO: generalize
 yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
