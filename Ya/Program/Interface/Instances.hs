@@ -73,6 +73,23 @@ instance
    `ha` (\xxx -> this `ha` sub `hv` xxx `lu'ys` Apply `hv` intro @t Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `la` Valid)
    `hv` xx)
 
+pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
+pattern Depth x = Label (Alone x)
+
+instance
+ ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t)
+  (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
+ mapping = rewrap `hv` \source -> T'TT'I `compose` rewrap @AR (worker `hv` source `hv` empty @List) where
+
+  worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `hv`
+   (\xx -> xx
+    `yoi` fo @AR @AR (worker source (that (push @List `hv` Unit `hv` depth)))
+    `yio` (\xxx -> source xxx `lu` depth)
+   )
+
 pattern Alter :: forall t i .
  Component (AR) (T'I'I t `L` T'I'I t `T` Void) (T'I'I t) =>
  T'I'I t i `AR__` T'I'I t `L` T'I'I t `T` Void `T` i
