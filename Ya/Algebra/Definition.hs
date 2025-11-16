@@ -278,10 +278,10 @@ type Sum = Object Void
 -- TODO: maybe we can unify `Initial`/`Terminal` typeclasses target one `Morphism`?
 
 class Initial target where
- initial' :: target Void e
+ initial :: target Void e
 
 instance Initial (AR) where
- initial' x = case x of {}
+ initial x = case x of {}
 
 class Terminal target where
  terminal :: target i Unit
@@ -345,7 +345,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 -- TODO: generalize
 empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
-empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial')
+empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial)
 
 -- TODO: forall t e target .
 intro :: forall t target e .

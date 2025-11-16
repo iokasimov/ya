@@ -37,7 +37,7 @@ put = relay
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
  e -> Recursive (T'I'II (P) e `T'TT'I` t)
-leaf x = Recursive `ha` T'TT'I `ha` T'I'II `ha` These x `li_` empty `yo` initial' @(AR)
+leaf x = Recursive `ha` T'TT'I `ha` T'I'II `ha` These x `li_` empty `yo` initial @(AR)
 
 it :: forall e . Reference (P) e e e
 it x = x `lu` identity

@@ -206,7 +206,7 @@ instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t)
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (F'T'I'TT'I (T'II'I P) t) where
  mapping = rewrap `identity` \source (T'I'II f) ->
   F'T'I'TT'I `compose` Recursive `compose` T'TT'I `compose` T'II'I
-   `identity` These (empty @t `yo` initial' @(AR)) (source `identity` f Unit)
+   `identity` These (empty @t `yo` initial @(AR)) (source `identity` f Unit)
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
@@ -264,7 +264,7 @@ instance
 
 instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t) =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (t `T'TT'I` F'T'I'TT'I (T'II'I P) tt) where
- mapping = rewrap `identity` \_ _ -> T'TT'I (empty @t `yo` initial' @(AR))
+ mapping = rewrap `identity` \_ _ -> T'TT'I (empty @t `yo` initial @(AR))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (P'I'II e) (P'I'II e) where
  mapping = rewrap `compose` rewrap `identity` \source (T'I'II (These e x)) ->
