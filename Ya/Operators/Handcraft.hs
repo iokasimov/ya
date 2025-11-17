@@ -2085,15 +2085,15 @@ ha______'he'he = ha'he'he
 ha_______'he'he = ha'he'he
 ha________'he'he = ha'he'he
 
-he'ha :: forall source target (u :: * -> * -> *) i a o .
- Contravariant Yoneda Functor source target (T'II'I u i) =>
- Contravariant Semi Functor target target (T'II'I u i) =>
- Wrapper target o =>
+he'ha :: forall source target t i a o .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Contravariant Semi Functor target (AR) (T'II'I t i) =>
+ Wrapper target a =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'I'II u e ee)) =>
- (forall e ee . Wrapper target (T'II'I u e ee)) =>
- u a i -> target (source (Supertype o) a) (u o i)
-he'ha x = fai @target he `compose` yai @source @target @u x
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ t (Supertype a) i -> target (source o a) (t o i)
+he'ha = yai @source @target @t `compose` fai @target unwrap
 
 yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  :: forall target a o .
