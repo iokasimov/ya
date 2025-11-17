@@ -2045,11 +2045,14 @@ he________'ho'he = he'ho'he
 -- ha_______ = ha
 -- ha________ = ha
 
-ha'he, ha_'he, ha__'he, ha___'he, ha____'he, ha_____'he, ha______'he, ha_______'he, ha________'he :: forall source u e a o .
- Contravariant Yoneda Functor source (AR) (T'II'I u e) =>
+ha'he, ha_'he, ha__'he, ha___'he, ha____'he, ha_____'he, ha______'he, ha_______'he, ha________'he
+ :: forall source target t i a o .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ (forall e . Wrapper target (T'II'I t i e)) =>
+ (forall e . Wrapper target (T'II'I source a e)) =>
  Wrapper source o =>
- u a e -> source (Supertype o) a -> u o e
-ha'he x = yai @source @(AR) @u x `compose` fai (he @source)
+ t a i -> target (source (Supertype o) a) (t o i)
+ha'he x = fai @source @target unwrap `compose` yai @source @target @t x
 
 ha_'he = ha'he
 ha__'he = ha'he
