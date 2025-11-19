@@ -58,7 +58,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk__` Apply `ha` State `hv__` Event `hv` fetch `ha_` Scope `hv` at @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `li` _spot_ `he'he'hv` x where
 
   found (These w sl) = unwrap (predicate `he'hv` w) `yui` sl `yiu` sl
 
@@ -66,12 +66,12 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hv` at @(Alone i) `lo` Scope `hv` it
    `yok____` Check `ha` Stops `ha___` not `ha` found
    `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
-   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
+   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
-  `li` is `hu` (by Empty `lu` x)
+  `li` is `hu` (Empty Unit `lu` x)
   `la` is `ho'he` foi @_ @(AR) Exist
   `li` (slide_passed `lv` slide_future `li` way) `he'he'hv` x where
 
@@ -114,7 +114,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 -- TODO: implement `locate` method
 instance Shiftable Alone (Construction List) where
  shift way x = is
-  `li` is `hu` (by Empty `lu` x)
+  `li` is `hu` (Empty Unit `lu` x)
   `la` is `ho'he` foi @_ @(AR) Exist
   `li` (horizontally `la_` vertical_deep `la` vertical_up `li_` way) `he'he'hv` x where
 
@@ -164,7 +164,7 @@ instance Shiftable Alone (Construction List) where
      `lu` unwrap shafted)
 
  spot :: forall i . Shifter Tree `P` Match (Alone i) `AR_` Supertype (Event `T'I` Scrolling Tree i `T'I` Maybe `T` Scrolling Tree i)
- spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `li` _spot_ `he'he'hv` x where
 
   found (These w st) = unwrap (predicate `ya` rewrap (top @Tree `ho` this) `he'hv_` w) `yui` st `yiu` st
 
@@ -187,6 +187,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) (C
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` r
    `yi_` that `ho'yo` source
 
+-- instance Mapping T'I'II T'I'II (AR) (AR)
+ -- ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)
+ -- ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `TT'T'I` t) where
+ -- mapping = rewrap `identity` \source -> rewrap `identity`
+  -- \(T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r))))) ->
+
 -- spot :: forall t tt i .
 --  Shiftable t tt =>
 --  Fieldable (t i) (Shifting t tt i) =>
@@ -208,14 +214,14 @@ rewind :: forall t tt i .
 rewind way = unwrap @(AR) `ha` unwrap @(AR)
  `hv_______` intro @(State `T` Shifting t tt i) Unit
    `yuk____` Apply `ha` State `ha` Event `hv` shift way
-   `yok____` Retry `ha__` Exist `la` Exist `hu` by Empty
+   `yok____` Retry `ha__` Exist `la` Exist `hu` Empty Unit
 
 pattern Shrink e = This e
 pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
-adjust way x = is `hu` (by Empty `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
+adjust way x = is `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
 
  -- TODO: there should be a way to shorten it
  router (These (This _) (This _)) = shrink_passed
