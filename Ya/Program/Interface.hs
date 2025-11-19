@@ -66,7 +66,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafte
    Scrolling List item `P` List item `AR__`
    List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
-   `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` auto) `ha_` Scope `hv` at @(Scrolling List item)
+   `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` fetch) `ha_` Scope `hv` at @(Scrolling List item)
    `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Label `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `he'he'hv______` x `lu` empty @List
 
@@ -239,7 +239,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `identity` \source x -> unwrap x
   `yokl` Prior `ha` Apply `ha` State `ha` Event
-  `ha__` Error `hu` auto `la` push @List `ho'ho` (auto `ha` that) `ha` source
+  `ha__` Error `hu` fetch `la` push @List `ho'ho` (fetch `ha` that) `ha` source
   `he'he'hv___` empty @List
   `yi__` that
 

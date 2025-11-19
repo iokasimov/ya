@@ -24,9 +24,8 @@ swap (These x y) = y `lu` x
   -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
   -- (\new -> Build x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` source `ho` (\(These _ y) -> y))
 
-auto, fetch :: e `AR__` e `P` e
-auto x = x `lu` x
-fetch = auto
+fetch :: e `AR__` e `P` e
+fetch = is `lo` is
 
 relay, put :: ee -> e `AR__` e `P` ee
 relay new old = old `lu` new
