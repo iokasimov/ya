@@ -6,25 +6,10 @@ import Ya.Algebra
 pattern Same :: i `AR_` i
 pattern Same e = e
 
-type Once = I
-
-pattern Once :: e -> Once e
-pattern Once e = Identity e
-
 type Alone = I
 
 pattern Alone :: e -> Alone e
 pattern Alone e = Identity e
-
-type Singular = I
-
-pattern Singular :: e -> Singular e
-pattern Singular e = Identity e
-
-type Apparently = I
-
-pattern Apparently :: e -> Apparently e
-pattern Apparently e = Identity e
 
 type Boolean = S'I'II Unit Unit
 
