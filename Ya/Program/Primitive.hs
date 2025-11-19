@@ -27,9 +27,8 @@ swap (These x y) = y `lu` x
 fetch :: e `AR__` e `P` e
 fetch = is `lo` is
 
-relay, put :: ee -> e `AR__` e `P` ee
+relay :: ee -> e `AR__` e `P` ee
 relay new old = old `lu` new
-put = relay
 
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>

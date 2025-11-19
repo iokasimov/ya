@@ -52,7 +52,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
    `yuk__` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep @Twice `ha` (Back `la` Fore) `hv` way
    `yok__` Check
-   `yok__` Apply `ha` State `ha___` Event `ha` put `ho__'ha` Scope `hv` at @(Alone i) `ho_'he` Scope `hv` it
+   `yok__` Apply `ha` State `ha___` Event `ha` relay `ho__'ha` Scope `hv` at @(Alone i) `ho_'he` Scope `hv` it
    `yok__` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `ha` (Fore `la` Back) `hv` way
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk__` Apply `ha` State `hv__` Event `hv` fetch `ha_` Scope `hv` at @(Alone i)
