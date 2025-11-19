@@ -24,13 +24,11 @@ swap (These x y) = y `lu` x
   -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
   -- (\new -> Build x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` source `ho` (\(These _ y) -> y))
 
--- TODO: we need to remove `Automation` type alias, it's confusing
-
-auto, fetch :: Automation e e e
+auto, fetch :: e `AR__` e `P` e
 auto x = x `lu` x
 fetch = auto
 
-relay, put :: ee -> Automation e e ee
+relay, put :: ee -> e `AR__` e `P` ee
 relay new old = old `lu` new
 put = relay
 
@@ -61,8 +59,8 @@ sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
-sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These old x))))) = These
-  (wrap @(AR) @(F'T'I'TT'I _ _ _) `fo` old)
+sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
+  (xs `yo` wrap @(AR) @(F'T'I'TT'I _ _ _))
   (\new -> Root x `li_` new `yo` unwrap @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .

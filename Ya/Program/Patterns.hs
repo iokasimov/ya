@@ -108,16 +108,14 @@ type Scope = T'I'TT'II'T'II'I (AR) P
 pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
 pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 
-type Automation e ee eee = e `AR_` ee `P` eee
-
 type Transition = T'I'TT'II'I (AR) (P)
 
-pattern Transition :: Automation e ee e `AR__` Transition e ee
+pattern Transition :: e `AR_` ee `P` e `AR__` Transition e ee
 pattern Transition x = T'I'TT'II'I @(AR) @(P) x
 
 type Event = T'I'TT'II'I (AR) P
 
-pattern Event :: Automation e ee e `AR__` Event e ee
+pattern Event :: e `AR_` ee `P` e `AR__` Event e ee
 pattern Event x = T'I'TT'II'I @(AR) @(P) x
 
 type State = T'I'II Transition

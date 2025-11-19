@@ -11,8 +11,8 @@ type family Popped datastructure where
  Popped (Optional `T'TT'I` Construction Optional) = Optional
 
 class Stackable datastructure where
- pop :: Automation `T'I` datastructure item `T'I` Optional item `T'I` datastructure item
- push :: item -> Automation `T'I` datastructure item `T'I` item `T'I` datastructure item
+ pop :: datastructure item `AR__` Optional item `P` datastructure item
+ push :: item -> datastructure item `AR__` item `P` datastructure item
 
 -- TODO: refactor, it's hard to read
 instance Stackable List where
