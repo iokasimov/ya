@@ -66,7 +66,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafte
    Scrolling List item `P` List item `AR__`
    List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
-   `hv____` State `hv__` Event `hv_` (shift (by Fore) `ho` that `ho` fetch) `ha_` Scope `hv` at @(Scrolling List item)
+   `hv____` State `hv__` Event `hv_` (shift `hv'he` Fore `ho` that `ho` fetch) `ha_` Scope `hv` at @(Scrolling List item)
    `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Label `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `he'he'hv______` x `lu` empty @List
 
@@ -107,7 +107,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List)
  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)) where
- mapping = rewrap `identity` \source x -> x `yo` source `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` by (wrap @(AR) `ha` Label `ha` wrap @AR `ha` Empty) `yi` wrap @(AR)
+ mapping = rewrap `identity` \source x -> x `yo` source `ho` intro @Tree @(AR) `yi` wrap @(AR) `lu` (wrap @(AR) `ha` Label `ha` wrap @AR `ha` Empty) Unit `yi` wrap @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance {-# OVERLAPS #-}
@@ -181,9 +181,9 @@ instance {-# OVERLAPS #-}
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) ((List `P'T'I'TT'I` Shafted List) `T'TT'I` (List `P'T'I'TT'I` Shafted List) `L` (List `P'T'I'TT'I` Shafted List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These _ (T'TT'I (T'I'I (These rl fl))))) ->
   List `ha` Exist `ha` Build `ha` Item (Label x) `ha` Last `hv` Unit
-    `lu__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Back) `ha_` is `hu` x)
+    `lu__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha_` is `hu` x)
       `he'he'hv` empty @List `yi` that
-     `lu_` (fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (by Fore) `ha_` is `hu` x)
+     `lu_` (fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `hu` x)
       `he'he'hv` empty @List `yi` that
      `yi_` T'TT'I `ha` T'I'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
@@ -292,7 +292,7 @@ type family Vector x xs where
 
 -- This transformation is not natural!
 instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
- mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` by False `la` Same `hu` by True `li_` x `lu'q` source x'
+ mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `la` Same `hu` True Unit `li_` x `lu'q` source x'
 
 instance Semigroup (AR) Boolean where
  s (These x y) = x `lu'ys'la` Try y

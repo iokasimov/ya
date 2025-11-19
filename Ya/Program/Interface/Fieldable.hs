@@ -6,7 +6,6 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 import Ya.Program.Primitive
-import Ya.Program.Labels
 
 class Fieldable e r where
  at :: Reference (P) r e e
