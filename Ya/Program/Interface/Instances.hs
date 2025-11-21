@@ -59,6 +59,16 @@ instance
   (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
   `lu` Label (xx `lu` x `yo` source)
 
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
+ (((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+ mapping = rewrap `identity` \source -> rewrap `identity`
+  \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
+   xx `yo` wrapped @(AR) @(Tree _) (fo ((`lu` That Unit) `ha` source))
+    `lu_` x `yi` (`lu` This Unit) `ha` source
+    `lu_` xxx `yo'yo` (`lu` That Unit) `ha` source
+    `lu_` xxxx `yo` (`lu` That Unit) `ha` source
+
 pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Final x = Label (Alone x)
 
