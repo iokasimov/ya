@@ -174,7 +174,7 @@ type family Binary t where
 pattern Binary xs = T'TT'I (T'I'I xs)
 
 type family Forest tree where
- Forest (Construction t) = List `T'TT'I` Construction t
+ Forest (Construction List) = List `T'TT'I` Construction List
 
 type family Prefix t k where
  Prefix Tree k = List `T'TT'I` Construction List `T'TT'I` Along k
