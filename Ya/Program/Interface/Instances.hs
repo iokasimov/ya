@@ -63,12 +63,49 @@ pattern Aloft :: forall t e .
  (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
 pattern Aloft x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` source
+
+-- Unfoldings ~ Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
+
+-- TODO: We haven't finished yet!
+-- TODO: I need to heavily test it...
+-- instance Mapping T'I'II T'I'II (AR) (AR)
+--  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) (List `T'TT'I` Tree) where
+--  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These basement unfoldings)) ->
+--   let result = to @List `ha` to @(Nonempty List) `hv'he` basement in
+--   Empty `hu` wrap result
+--   -- `la______` (\x -> x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker `he'he'hv___` result `yi__` that `ho` wrap @(AR))
+--   `la______` proceed result
+--   `hv_______` unfoldings `yo_______` source where
+
+--    topping unfolding forest = Unit `lu_____` forest
+   
+--    starting :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
+--    starting (T'TT'I'TTT'I (These (Identity focused) (T'TT'I (T'TT'I (T'I'I (These sx xs)))))) forest = that `ha` sub @Tree
+--     `hv__` intro @Tree `hv` focused `hv__` sx `lu` (forest `lu` xs `yi` Merge @List @List `ho` to @List) `yi` to @List @(Shafted List) @(Tree _)
+
+   -- proceed forest nonempty_list =
+   --  let (These x xx) = this `ha` top @(Nonempty List) `lo` this `ha` sub @(Nonempty List) `hv_` nonempty_list in
+   --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `he'he'hv___` starting x forest `yi__` that -- `ho` wrap @(
+ 
+  -- unwrap (unwrap unfoldings)
+  --  `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker
+  --  `he'he'hv___` wrap @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` to @List `ha` to @(Nonempty List) `hv'he` basement
+  --  `yi__` that `ho'yo` source where
+
+  --  -- TODO: we haven't finished yet...
+  --  worker unfolding forest =
+  --   Unit `lu` (forest)
+
+--  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `TT'T'I` t) where
+--  mapping = rewrap `identity` \source -> rewrap `identity`
+--   \(T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r))))) ->
 
 pattern Focus :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Focus x = Label (Alone x)
@@ -85,15 +122,15 @@ instance
   (xx `yo` unwrap @AR `ha` unwrap @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
   `lu` Label (xx `lu` x `yo` source)
 
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
- (((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
- mapping = rewrap `identity` \source -> rewrap `identity`
-  \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
-   xx `yo` wrapped @(AR) @(Tree _) (fo ((`lu` That Unit) `ha` source))
-    `lu_` x `yi` (`lu` This Unit) `ha` source
-    `lu_` xxx `yo'yo` (`lu` That Unit) `ha` source
-    `lu_` xxxx `yo` (`lu` That Unit) `ha` source
+-- instance Mapping T'I'II T'I'II (AR) (AR)
+--  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
+--  (((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+--  mapping = rewrap `identity` \source -> rewrap `identity`
+--   \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
+--    xx `yo` wrapped @(AR) @(Tree _) (fo ((`lu` That Unit) `ha` source))
+--     `lu_` x `yi` (`lu` This Unit) `ha` source
+--     `lu_` xxx `yo'yo` (`lu` That Unit) `ha` source
+--     `lu_` xxxx `yo` (`lu` That Unit) `ha` source
 
 pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Final x = Label (Alone x)
@@ -116,8 +153,7 @@ instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t)
-  (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
  mapping = rewrap `hv` \source -> T'TT'I `compose` rewrap @AR (worker `hv` source `hv` empty @List) where
 
   worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `hv`
@@ -125,6 +161,13 @@ instance
     `yoi` fo @AR @AR (worker source (that (push @List `hv` Unit `hv` depth)))
     `yio` (\xxx -> source xxx `lu` depth)
    )
+
+-- instance Mapping T'I'II T'I'II (AR) (AR)
+ -- (Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree)
+ -- ((Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
+
+--  mapping = rewrap `identity` \source -> rewrap `identity`
+--   \(T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r))))) ->
 
 pattern Alter :: forall t i .
  Component (AR) (T'I'I t `L` T'I'I t `T` Void) (T'I'I t) =>
