@@ -62,9 +62,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \source x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I (T'I'I (empty @List `lu` List `ha` Exist `ha` Build `hv` unwrap x))) `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \source x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I (T'I'I (empty @List `lu` x))) `yo` source
-
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> x
   `yoi` is `he'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hv` Unit)
