@@ -15,6 +15,13 @@ import Ya.Program.Interface.Shiftable
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
  mapping = rewrap `identity` \source -> rewrap `li_` wrap `ho'yo` source `ho` Exist
 
+instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
+ mapping = rewrap `identity` \source (T'TT'I (T'I'I ((These bs fs)))) -> that
+  (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
+ mapping = rewrap `identity` \source x -> empty @List `lu` x `yo` source
+
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
  S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Void `T` e
@@ -31,6 +38,25 @@ pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
  mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `la` Valid `ha` source `li` x
+
+pattern Merge :: forall t tt i .
+ ( Stackable tt
+ , Covariant Endo Semi Functor (->) tt
+ , Covariant Endo Yoneda Functor (->) t
+ , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ ) =>
+ t i `P` tt i `AR____` (t `P'T'I'TT'I` tt) `L` tt `T` Void `T` i
+pattern Merge x = Label (T'TT'I'TTT'I x)
+
+instance
+ ( Stackable tt
+ , Covariant Endo Semi Functor (->) tt
+ , Covariant Yoneda Functor (->) (->) t
+ , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` Void) tt where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
+    `he'he'hv___` xx `yi__` that `ho'yo` source
 
 pattern Aloft :: forall t e .
  Component (AR) ((Scrolling List `P'T'I'TT'I` Tree) `L` (Scrolling List `P'T'I'TT'I` Tree) `T` Void) Tree =>

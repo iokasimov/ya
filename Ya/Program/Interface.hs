@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
-module Ya.Program.Interface (module Exports, pattern Aloft, pattern Spare, pattern Merge) where
+module Ya.Program.Interface (module Exports, pattern Aloft, pattern Spare) where
 
 import Ya.Algebra
 import Ya.Operators
@@ -15,32 +15,6 @@ import Ya.Program.Interface.Stackable as Exports
 import Ya.Program.Interface.Shiftable as Exports
 import Ya.Program.Interface.Keyable as Exports
 import Ya.Program.Interface.Instances as Exports
-
-instance
- ( Stackable tt
- , Covariant Endo Semi Functor (->) tt
- , Covariant Yoneda Functor (->) (->) t
- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` Void) tt where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
-    `he'he'hv___` xx `yi__` that `ho'yo` source
-
-pattern Merge :: forall t tt i .
- ( Stackable tt
- , Covariant Endo Semi Functor (->) tt
- , Covariant Endo Yoneda Functor (->) t
- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) =>
- t i `P` tt i `AR____` (t `P'T'I'TT'I` tt) `L` tt `T` Void `T` i
-pattern Merge x = Label (T'TT'I'TTT'I x)
-
-instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
- mapping = rewrap `identity` \source (T'TT'I (T'I'I ((These bs fs)))) -> that
-  (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
- mapping = rewrap `identity` \source x -> empty @List `lu` x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Shafted List) where
  mapping = rewrap `identity` \_ _ -> empty `lu` empty
