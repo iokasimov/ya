@@ -105,11 +105,8 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 -- pattern Broad x = This x :: Shifter Tree
 -- pattern Level x = That x :: Shifter Tree
 
--- instance Mapping T'I'II T'I'II (AR) (AR)
---  (Construction Maybe `T'TT'I` Construction List)
---  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Unfoldings Alone Tree) where
---  mapping = rewrap `identity` \source x ->
---   T'TT'I (to @(Scrolling List) `hv'he` x) `yo` source `lu` T'TT'I (Label `hv` empty @List) `yi` T'TT'I'TTT'I
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction List) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
+ mapping = rewrap `identity` \source x -> x `yo` source `lu` wrap `hv` empty @List
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Construction List `P'T'I'TT'I` Unfoldings Alone Tree)
