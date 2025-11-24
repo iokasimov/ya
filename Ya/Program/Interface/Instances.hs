@@ -22,6 +22,10 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
 instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
  mapping = rewrap `identity` \source x -> empty @List `lu` x `yo` source
 
+instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs))))) ->
+  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
+
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
  S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Void `T` e

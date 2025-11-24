@@ -65,15 +65,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT
 instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \source x -> T'TT'I'TTT'I (empty @List `lu` T'TT'I (T'I'I (empty @List `lu` x))) `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
- mapping = rewrap `identity` \source (T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
-  that `ho'yo` source
-  `hv_____` intro @(State `T'I` List _) Unit
-    `yuk__` New (f `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List)
-    `yuk__` New (w `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List)
-    `yuk__` New (r `yokl` Label @_ @_ @(Void) `ha` New `ha` State `ha` Event `ha` push @List)
-  `he'he'hv____` empty @List
-
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Shafted List) (List `P'T'I'TT'I` Shafted List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> x
   `yoi` is `he'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hv` Unit)
