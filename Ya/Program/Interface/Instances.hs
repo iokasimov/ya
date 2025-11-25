@@ -26,6 +26,19 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List w
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs))))) ->
   sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
 
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction List) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
+ mapping = rewrap `identity` \source x -> x `yo` source `lu` wrap `hv` empty @List
+
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) (Construction List) where
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These tree unfoldings)) ->
+  unwrap unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `he'he'hv___` tree `yi__` that `ho'yo` source where
+
+   cover (T'TT'I'TTT'I (These parent siblings)) tree =
+    Unit `lu__` that `ha` sub @Tree
+     `hv__` intro @Tree `hv'he` parent
+     `hv__` Alone `hv` tree `lu` unwrap siblings
+       `yi` to @List `ha` to @(Nonempty List) @(Scrolling List)
+
 pattern Fresh :: forall i e .
  Component (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void)) (List `P'T'I'TT'I` Shafted List) =>
  List i `AR__` List `L` Scrolling List `T` (Void) `T` i
