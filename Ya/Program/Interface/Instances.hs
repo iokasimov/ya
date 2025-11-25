@@ -26,10 +26,21 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List w
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs))))) ->
   sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
 
--- New label `Fresh`? Another instance with filled sliding window could be `Seize`?
--- TODO: this instance starts a `Sliding` list with a empty sliding window, better having varieties of this one with labels!
-instance Mapping T'I'II T'I'II (AR) (AR) List (List `P'T'I'TT'I` Shafted List) where
- mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` x) `yo` source
+pattern Fresh :: forall i e .
+ Component (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void)) (List `P'T'I'TT'I` Shafted List) =>
+ List i `AR__` List `L` Scrolling List `T` (Void) `T` i
+pattern Fresh x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void)) (List `P'T'I'TT'I` Shafted List) where
+ mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` unwrap x) `yo` source
+
+pattern Stock :: forall i e .
+ Component (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Shafted List) =>
+ List i `AR__` List `L` Scrolling List `T` (Void `P` Void) `T` i
+pattern Stock x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Shafted List) where
+ mapping = rewrap `identity` \source x -> unwrap x `lu` (empty @List `lu` empty @List) `yo` source
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
