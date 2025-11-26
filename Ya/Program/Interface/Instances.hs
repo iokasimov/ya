@@ -92,7 +92,7 @@ instance
     `he'he'hv___` xx `yi__` that `ho'yo` source
 
 pattern Aloft :: forall t e .
- Component (AR) ((Scrolling List `P'T'I'TT'I` Tree) `L` (Scrolling List `P'T'I'TT'I` Tree) `T` Void) Tree =>
+ Component (AR) ((t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void) Tree =>
  (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
 pattern Aloft x = Label x
 
@@ -103,6 +103,14 @@ instance Mapping T'I'II T'I'II (AR) (AR)
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `P'T'I'TT'I` Tree) `T` Void) Tree where
+  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
+   that `ha` sub @Tree
+    `hv__` intro @Tree `hv'he` root
+    `hv__` Alone tree `lu` unwrap siblings `yi` to @(Nonempty List) @(Scrolling List) `ho` to @List
+    `yo__` source
 
 -- Unfoldings ~ Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
