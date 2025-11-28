@@ -758,7 +758,7 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 
 -- TODO: generalize with limits
 instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'I'II e `TT'T'I` t) where
+ Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'I'II e `T` Void) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   T'I'II (These e x) -> unwrap (unwrap x) `yo` source `ho` These e `ho` T'I'II
 
