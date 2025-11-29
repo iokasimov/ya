@@ -94,13 +94,13 @@ instance
   x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
     `he'he'hv___` xx `yi__` that `ho'yo` source
 
-pattern Aloft :: forall t e .
+pattern Aloft :: forall t i .
  Component (AR) ((t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void) Tree =>
- (t `P'T'I'TT'I` Tree) e `AR___` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` e
+ t `P'T'I'TT'I` Tree `T'I___` i `AR_____` (t `P'T'I'TT'I` Tree) `L` (t `P'T'I'TT'I` Tree) `T` Void `T` i
 pattern Aloft x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- (((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List) `P'T'I'TT'I` Tree) `T` Void) Tree where
+ ((Alone `P'T'I'TT'I` Shafted List `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Shafted List `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
@@ -108,14 +108,12 @@ instance Mapping T'I'II T'I'II (AR) (AR)
     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- (((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `P'T'I'TT'I` Tree) `L` ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `P'T'I'TT'I` Tree) `T` Void) Tree where
+ ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
     `hv__` intro @Tree `hv'he` root
     `hv__` Alone tree `lu` unwrap siblings `yi` to @(Nonempty List) @(Scrolling List) `ho` to @List
     `yo__` source
-
--- Unfoldings ~ Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
 -- TODO: We haven't finished yet!
 -- TODO: I need to heavily test it...
@@ -218,11 +216,14 @@ pattern Alter :: forall t i .
  T'I'I t i `AR__` T'I'I t `L` T'I'I t `T` Void `T` i
 pattern Alter x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I P `L` T'I'I P `T` Void) (T'I'I P) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ha` that `lo` source `ha` this `ha__` unwrap @(AR))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I S `L` T'I'I S `T` Void) (T'I'I S) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `la` source `ho` This `ha__` unwrap @(AR))
+
+pattern Width e = This e :: Shifter Tree
+pattern Pitch e = This e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
  shift way x = is
