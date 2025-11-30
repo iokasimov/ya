@@ -234,7 +234,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `la` source `ho` This `ha__` unwrap @(AR))
 
 pattern Aside e = This e :: Shifter Tree
-pattern Pitch e = This e :: Shifter Tree
+pattern Pitch e = That e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
  shift way x = is
