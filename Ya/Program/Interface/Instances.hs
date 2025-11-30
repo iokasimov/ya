@@ -195,7 +195,7 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `hv` \source x -> T'TT'I `hv___` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (is `hu` (source `ha` this `ha` top `hv` xx `lu` This Unit) `la` is `hu` (source `ha` this `ha` top `hv` xx `lu` That Unit))
+   `ha` (is `hu` (source `ha` this `ha` top `hv` xx `lu` That Unit) `la` is `hu` (source `ha` this `ha` top `hv` xx `lu` This Unit))
    `ha` (\xxx -> this `ha` sub `hv` xxx `lu'ys` Apply `hv` intro @t Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `la` Valid)
    `hv` xx)
 
