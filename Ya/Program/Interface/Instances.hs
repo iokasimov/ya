@@ -174,14 +174,25 @@ instance
 --     `lu_` xxx `yo'yo` (`lu` That Unit) `ha` source
 --     `lu_` xxxx `yo` (`lu` That Unit) `ha` source
 
-pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
+pattern Start :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
+pattern Start x = Label (Alone x)
+
+instance
+ ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
+ , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void)) where
+ mapping = rewrap `hv` \source (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) -> 
+  xs `yo` wrapped @(AR) @(F'T'I'TT'I Along t _) (`yo` source `ho` (`lu` That Unit)) `lu_` source x `lu` This Unit
+
+pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` (Void `P` Void) `T` i
 pattern Final x = Label (Alone x)
 
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `hv` \source x -> T'TT'I `hv___` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
    `ha` (is `hu` (source `ha` this `ha` top `hv` xx `lu` This Unit) `la` is `hu` (source `ha` this `ha` top `hv` xx `lu` That Unit))
