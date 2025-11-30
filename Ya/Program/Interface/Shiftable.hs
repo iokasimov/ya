@@ -45,8 +45,8 @@ type Sliding t = Shifting List t
 pattern Aback x = This x :: Shifter List
 pattern Ahead x = That x :: Shifter List
 
-pattern Climb x = This x :: Shifter List
-pattern Lower x = That x :: Shifter List
+pattern Above x = This x :: Shifter List
+pattern Below x = That x :: Shifter List
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
