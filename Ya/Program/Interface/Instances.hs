@@ -303,7 +303,8 @@ instance Shiftable Alone (Construction List) where
    `AR_____` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I` i
    `AR____` Tree i
    `AR___` (Tree i) `P` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `T'I___` i)
-  scroll way unfolding tree = Alone `hv` tree
-   `lu` this `ha` at @(Shafted List `T'TT'I` Tree `T'I_` i) `ho'he` is `hv` unfolding
+  scroll way unfolding tree = 
+   let siblings = this `ha` at @(Shafted List `T'TT'I` Tree `T'I_` i) `ho'he` is `hv` unfolding in
+   Alone `hv` tree `lu` siblings
    `yi` shift `hv` way `ha` is @(Scrolling List `T'I` Tree i)
-   `yi` (\x -> tree `lu_` this `ha` at @(Alone i) `hv` unfolding `lu` wrap @(AR) `ha` this `ha` at @(Shafted List `T'I` Tree i) `hv` x) `ha` that
+   `yi` (\x -> unwrap @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hv` x `lu_` this `ha` at @(Alone i) `hv` unfolding `lu` wrap @(AR) `ha` this `ha` at @(Shafted List `T'I` Tree i) `hv` x) `ha` that
