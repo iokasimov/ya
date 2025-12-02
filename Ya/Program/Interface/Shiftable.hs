@@ -81,17 +81,17 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
    `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha_` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
-   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` at @(List _)
 
   slide_passed = intro @(Halts `JNT` State `T` Sliding List _) `hv` Unit
-   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
    `yuk____` Apply `ha` State `hv___` Event `hv` fetch `ha__` Scope `hv` at @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
@@ -171,7 +171,7 @@ adjust way x = is `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `l
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [2 1] (3 4 5 6) [7 8 9]
  expand_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
-  `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
+  `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
   `yok____` Check
   `yok____` Apply `ha` State `ha___` Event `ha` push `ho_'ha` Scope `hv` at @(List i)
 
@@ -179,11 +179,11 @@ adjust way x = is `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `l
  shrink_passed = intro @(Halts `JNT` State `T` Sliding List i) Unit
   `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha_` Scope `hv` at @(List i)
   `yok____` Check
-  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Passed
+  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
 
  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5 6 7) [8 9]
  expand_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
-  `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
+  `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
   `yok____` Check
   `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hv` at @(List i)
 
@@ -194,7 +194,7 @@ adjust way x = is `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `l
   `yuk____` Apply `ha` State `hv___` Event `hv` get_last_window_item `ha_` Scope `hv` at @(List i)
   `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` at @(List i)
   `yok____` Check
-  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Future
+  `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
 
  get_last_window_item window = window
   `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior

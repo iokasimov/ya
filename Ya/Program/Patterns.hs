@@ -194,21 +194,6 @@ pattern Back x = This x
 pattern Fore :: forall r ee e . (r ~ e `S` ee) => ee -> r
 pattern Fore x = That x
 
-pattern Passed x = This x
-pattern Future x = That x
-
-type Decision = (S) Unit Unit
-
-pattern No x = This x
-pattern Yes x = That x
-
-type Side = (S) Unit Unit
-
-pattern Left x = This x
-pattern Right x = That x
-
-type Vertical = (S) Unit Unit
-
 type Match = T'II'I Arrow Boolean
 
 pattern Match :: e `AR` Boolean `AR_` Match e
