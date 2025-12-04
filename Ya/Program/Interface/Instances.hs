@@ -15,14 +15,14 @@ import Ya.Program.Interface.Shiftable
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) List where
  mapping = rewrap `identity` \source -> rewrap `li_` wrap `ho'yo` source `ho` Exist
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Shafted List) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (Twice `T'TT'I` List) List where
  mapping = rewrap `identity` \source (T'TT'I (T'I'I ((These bs fs)))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) List (Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) List (Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> empty @List `lu` x `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Shafted List) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List) List where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs))))) ->
   sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
 
@@ -43,19 +43,19 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T
        `yi` to @List `ha` to @(Nonempty List) @(Scrolling List)
 
 pattern Fresh :: forall i e .
- Component (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void)) (List `P'T'I'TT'I` Shafted List) =>
+ Component (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) =>
  List i `AR__` List `L` Scrolling List `T` (Void) `T` i
 pattern Fresh x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void)) (List `P'T'I'TT'I` Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` unwrap x) `yo` source
 
 pattern Stock :: forall i e .
- Component (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Shafted List) =>
+ Component (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) =>
  List i `AR__` List `L` Scrolling List `T` (Void `P` Void) `T` i
 pattern Stock x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Shafted List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Shafted List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> unwrap x `lu` (empty @List `lu` empty @List) `yo` source
 
 pattern Stump :: forall i e .
@@ -100,15 +100,15 @@ pattern Aloft :: forall t i .
 pattern Aloft x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- ((Alone `P'T'I'TT'I` Shafted List `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Shafted List `P'T'I'TT'I` Tree) `T` Void) Tree where
+ ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
-   rewrap (\x -> Alone tree `lu` that @(Shafted List _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
+   rewrap (\x -> Alone tree `lu` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` intro @Tree @(AR) `hv` x) scrolling_list
     `yi` is @(Scrolling List _) `ho` to @(Nonempty List) `ho` to @List `ho'yo` unwrap @(AR)
     `yi` this @(Alone _) `ho'he` Root `hv` unwrap scrolling_list
     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
- ((Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree) `T` Void) Tree where
+ ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `T` Void) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
     `hv__` intro @Tree `hv'he` root
@@ -118,7 +118,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 -- TODO: We haven't finished yet!
 -- TODO: I need to heavily test it...
 -- instance Mapping T'I'II T'I'II (AR) (AR)
---  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) (List `T'TT'I` Tree) where
+--  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) (List `T'TT'I` Tree) where
 --  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These basement unfoldings)) ->
 --   let result = to @List `ha` to @(Nonempty List) `hv'he` basement in
 --   Empty `hu` wrap result
@@ -128,9 +128,9 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 --    topping unfolding forest = Unit `lu_____` forest
    
---    starting :: (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
+--    starting :: (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
 --    starting (T'TT'I'TTT'I (These (Identity focused) (T'TT'I (T'TT'I (T'I'I (These sx xs)))))) forest = that `ha` sub @Tree
---     `hv__` intro @Tree `hv` focused `hv__` sx `lu` (forest `lu` xs `yi` Merge @List @List `ho` to @List) `yi` to @List @(Shafted List) @(Tree _)
+--     `hv__` intro @Tree `hv` focused `hv__` sx `lu` (forest `lu` xs `yi` Merge @List @List `ho` to @List) `yi` to @List @(Twice `T'TT'I` List) @(Tree _)
 
    -- proceed forest nonempty_list =
    --  let (These x xx) = this `ha` top @(Nonempty List) `lo` this `ha` sub @(Nonempty List) `hv_` nonempty_list in
@@ -152,7 +152,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 pattern Focus :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Focus x = Label (Alone x)
 
-instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Shafted List) ((I `P'T'I'TT'I` Shafted List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   T'TT'I (T'TT'I'TTT'I (These (x `yo` (`lu` This Unit) `ha` source) (xs `yo` (`lu` That Unit) `ha` source)))
 
@@ -169,8 +169,8 @@ instance
   `lu` Label (xx `lu` x `yo` source)
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
---  ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
---  (((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+--  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
+--  (((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
 --  mapping = rewrap `identity` \source -> rewrap `identity`
 --   \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
 --    xx `yo` wrapped @(AR) @(Tree _) (fo ((`lu` That Unit) `ha` source))
@@ -250,13 +250,13 @@ instance Shiftable Alone (Construction List) where
   vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk___` Apply `ha` State
    `hv____` Event `hv` pop
-    `ha___` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I_` i) `ho_'he` Scope `hv` it
-   `yok___` Check `ha` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)
+    `ha___` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho_'he` Scope `hv` it
+   `yok___` Check `ha` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok___` Apply `ha` State
    `ha____` Event `ha` aloft
    `ho__'ha` Scope `hv` at @(Tree `T'I` i)
 
-  aloft :: forall i . (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
+  aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
   aloft unfolding tree = Alone `ha` this `ha` top `hv` tree `lu_` unfolding `lu` tree `yi` to @Tree `ha` Aloft
 
   vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
@@ -270,23 +270,23 @@ instance Shiftable Alone (Construction List) where
    `yok____` Apply `ha` State `ha___` Event `ha` relay `ha` this
     `ho__'ha` Scope `hv` at @(Tree i)
    `lo___'yp` Apply `ha` State `ha___` Event `ha` push `ha` that
-    `ho__'ha` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I_` i)
-     `ho_'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)
+    `ho__'ha` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+     `ho_'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `ho_____'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   moves :: forall i . i `P` List (Tree i) `AR___` Maybe (i `P` Nonempty List (Tree i))
   moves x = x `yiokl` Apply `ha` Check `ha` unwrap @(AR)
 
-  splash :: forall i . i `P` (Nonempty List (Tree i)) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i
+  splash :: forall i . i `P` (Nonempty List (Tree i)) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
   splash (These root descendants) = this `ha` top `hv` descendants
-   `lu_` Alone `hv` root `lu` wrap @(AR) `ha` to @(Shafted List) `ha` wrap @(AR) @(List _) `ha` this `ha` sub `hv` descendants
+   `lu_` Alone `hv` root `lu` wrap @(AR) `ha` to @(Twice `T'TT'I` List) `ha` wrap @(AR) @(List _) `ha` this `ha` sub `hv` descendants
 
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk____` Apply `ha` State
    `hv_____` Event `hv` pop
-    `ha____` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I_` i)
-    `ho__'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)
+    `ha____` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+    `ho__'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Check
    `yok____` Apply `ha` State
      `ha___` Event `ha` (\unfolding tree -> scroll `hv` way `hv` unfolding `hv` tree `lu` tree)
@@ -294,17 +294,17 @@ instance Shiftable Alone (Construction List) where
    `yok____` Apply `ha` State `ha___` Event `ha` relay `ha` this
     `ho__'ha` Scope `hv` at @(Tree i)
    `lo___'yp` Apply `ha` State `ha___` Event `ha` push `ha` that
-    `ho__'ha` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I_` i)
-     `ho_'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) i)
+    `ho__'ha` Scope `hv` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+     `ho_'he` Scope `hv` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `ho_____'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   -- TODO: the problem here is that we ignore information about successfulness of horizontal shifting!
   scroll :: forall i . Shifter List
-   `AR_____` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree) `T'I` i
+   `AR_____` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i
    `AR____` Tree i
-   `AR___` (Tree i) `P` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `T'I___` i)
+   `AR___` (Tree i) `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `T'I___` i)
   scroll way unfolding tree = 
-   let siblings = this `ha` at @(Shafted List `T'TT'I` Tree `T'I_` i) `ho'he` is `hv` unfolding in
+   let siblings = this `ha` at @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'he` is `hv` unfolding in
    Alone `hv` tree `lu` siblings
    `yi` shift `hv` way `ha` is @(Scrolling List `T'I` Tree i)
-   `yi` (\x -> unwrap @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hv` x `lu_` this `ha` at @(Alone i) `hv` unfolding `lu` wrap @(AR) `ha` this `ha` at @(Shafted List `T'I` Tree i) `hv` x) `ha` that
+   `yi` (\x -> unwrap @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hv` x `lu_` this `ha` at @(Alone i) `hv` unfolding `lu` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hv` x) `ha` that

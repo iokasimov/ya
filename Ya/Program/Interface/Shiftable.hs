@@ -10,13 +10,15 @@ import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 
-type Shafted t = Twice `T'TT'I` t
+type family Shafted t where
+ Shafted List = Twice `T'TT'I` List
+ Shafted Tree = List `T'TT'I` (Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
-type Unfolding t tt = t `P'T'I'TT'I` Shafted List `T'TT'I` tt
+type Unfolding t tt = t `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` tt
 
 type family Shifting t tt = r | r -> t tt where
- Shifting t (Maybe `T'TT'I` Construction Maybe) = t `P'T'I'TT'I` Shafted List
- Shifting t (Construction List) = Tree `P'T'I'TT'I` List `T'TT'I` Unfolding t Tree
+ Shifting t (Maybe `T'TT'I` Construction Maybe) = t `P'T'I'TT'I` Twice `T'TT'I` List
+ Shifting Alone (Construction List) = Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)
 
 type family Shifter t where
  Shifter (Maybe `T'TT'I` Construction Maybe) = Unit `S` Unit
