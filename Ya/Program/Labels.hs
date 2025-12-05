@@ -4,8 +4,9 @@ module Ya.Program.Labels where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-pattern Apply :: t e `AR__` t `L` tt `T` Void `T` e
+pattern Apply, Adapt :: t e `AR__` t `L` tt `T` Void `T` e
 pattern Apply e = Label @_ @_ @Void e
+pattern Adapt e = Label @_ @_ @Void e
 
 pattern First :: t ii `AR__` t `L` T'I'II (S) i `T` Void `T` ii
 pattern First x = Label x
