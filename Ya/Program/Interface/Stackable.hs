@@ -12,7 +12,7 @@ type family Popped datastructure where
 
 class Stackable datastructure where
  pop :: datastructure item `AR__` Optional item `P` datastructure item
- push :: item -> datastructure item `AR__` item `P` datastructure item
+ push :: item `AR__` datastructure item `AR` item `P` datastructure item
 
 -- TODO: refactor, it's hard to read
 instance Stackable List where

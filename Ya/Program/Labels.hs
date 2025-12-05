@@ -4,12 +4,8 @@ module Ya.Program.Labels where
 import Ya.Algebra
 import Ya.Program.Patterns
 
-pattern Run, Def, Apply, Usual, Default :: t e `AR__` t `L` tt `T` Void `T` e
-pattern Run e = Label @_ @_ @Void e
-pattern Def e = Label @_ @_ @Void e
+pattern Apply :: t e `AR__` t `L` tt `T` Void `T` e
 pattern Apply e = Label @_ @_ @Void e
-pattern Usual e = Label @_ @_ @Void e
-pattern Default e = Label @_ @_ @Void e
 
 pattern First :: t ii `AR__` t `L` T'I'II (S) i `T` Void `T` ii
 pattern First x = Label x
