@@ -19,9 +19,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Twice `T'TT'I` List) List where
  mapping = rewrap `identity` \source (T'TT'I (T'I'I ((These bs fs)))) -> that
   (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `he'he'hv____` fs) `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) List (Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source x -> empty @List `lu` x `yo` source
-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List) List where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs))))) ->
   sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
@@ -42,10 +39,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T
      `hv__` Alone `hv` tree `lu` unwrap siblings
        `yi` to @List `ha` to @(Nonempty List) @(Scrolling List)
 
-pattern Fresh :: forall i e .
- Component (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) =>
- List i `AR__` List `L` Scrolling List `T` (Void) `T` i
+pattern Fresh :: forall t i e .
+ Component (AR) (List `L` t `T` (Void)) t =>
+ List i `AR__` List `L` t `T` (Void) `T` i
 pattern Fresh x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` Void) (Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source x -> empty @List `lu` unwrap x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` unwrap x) `yo` source
@@ -279,7 +279,7 @@ instance Shiftable Alone (Construction List) where
 
   splash :: forall i . i `P` (Nonempty List (Tree i)) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
   splash (These root descendants) = this `ha` top `hv` descendants
-   `lu_` Alone `hv` root `lu` wrap @(AR) `ha` to @(Twice `T'TT'I` List) `ha` wrap @(AR) @(List _) `ha` this `ha` sub `hv` descendants
+   `lu_` Alone `hv` root `lu` wrap @(AR) `ha` to `ha` Fresh @(Shafted List) `ha` wrap @(AR) @(List _) `ha` this `ha` sub `hv` descendants
 
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
