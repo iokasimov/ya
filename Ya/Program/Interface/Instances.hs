@@ -80,9 +80,8 @@ pattern Merge :: forall t tt i .
  , Covariant Endo Semi Functor (->) tt
  , Covariant Endo Yoneda Functor (->) t
  , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) =>
- t i `P` tt i `AR____` (t `P'T'I'TT'I` tt) `L` tt `T` Void `T` i
-pattern Merge x = Label (T'TT'I'TTT'I x)
+ ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` tt `T` Void `T` i
+pattern Merge x = Label x
 
 instance
  ( Stackable tt
