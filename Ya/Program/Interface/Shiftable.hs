@@ -33,8 +33,6 @@ class Shiftable t tt where
  shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (t i))
  spot :: Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe `T` Shifting t tt i)
 
-type Leveled e = Shifting Alone List `T'TT'I` e
-
 type Scrolling t = Shifting Alone t
 
 type Scrollable t = Shiftable Alone t
