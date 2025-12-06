@@ -72,7 +72,8 @@ joint :: forall f g e .
  f (g e) -> (f `JNT` g) `T'I` e
 joint = wrap @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
-to :: forall tt t . t `C'AR___` tt
+to :: forall tt t l i .
+ t `L` tt `T` l `C'AR___` tt
 to = component
 
 -- TODO: use `C'AT` here

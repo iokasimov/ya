@@ -219,15 +219,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x -> x
-  `yi_` to @(Scrolling List)
+  `yi_` Adapt `ho` to @(Scrolling List)
   `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` source
-  `yi_` to @(Nonempty List) `ho` wrap @(AR)
+  `yi_` Adapt `ho` to @(Nonempty List) `ho` wrap @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source -> wrap @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
   `ha__` Empty `hu` empty @List
-    `la` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'he` to @List
+    `la` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'he` Adapt `ho` to @List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> Item (source x) `ha` Next `ha` Item (source y) `ha` Last `hv` Unit

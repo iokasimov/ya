@@ -117,12 +117,15 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
  --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (I `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source (Root x xs) ->
+ 
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
+ (I `P'T'I'TT'I` Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source (Label (Root x xs)) ->
   T'TT'I'TTT'I (Alone (source x) `lu` T'TT'I (T'I'I (empty @List `lu` (T'TT'I (xs `yo` F'T'I'TT'I) `yo` source))))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) (Construction Maybe) where
- mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r))))) ->
+instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
   (l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
    `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` r
    `yi_` that `ho'yo` source
