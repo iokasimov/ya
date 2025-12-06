@@ -16,42 +16,42 @@ class Keyable k t where
 
 -- instance Keyable k ((Alone `P'T'I'TT'I` Shafted List) `T'TT'I` Along k) where
 
-instance
- ( Setoid (AR) k
- , Component (AR) (Alone `P'T'I'TT'I` (Shafted List)) (Construction Maybe)
- , Component (AR) (Shafted List) (Construction Maybe)
- ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
- key k x =
-  let prepared = unwrap x `yi` to @(Scrolling List) in
-  let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
-  let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
-  case unwrap adjusted of
-   This Unit ->
-    Break k `lu` ((\_ -> x) `la` (\i -> push (Along (i `lu` k)) `hv` unwrap x `yi` that `ho` wrap @(AR)))
-   That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
-    Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `hv` xxx) `la` (\i -> wrap @(AR) `ha` to @(Nonempty List) `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
+-- instance
+--  ( Setoid (AR) k
+--  , Component (AR) (Alone `P'T'I'TT'I` (Shafted List)) (Construction Maybe)
+--  , Component (AR) (Shafted List) (Construction Maybe)
+--  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
+--  key k x =
+--   let prepared = unwrap x `yi` Adapt `ho` to @(Scrolling List) in
+--   let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
+--   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
+--   case unwrap adjusted of
+--    This Unit ->
+--     Break k `lu` ((\_ -> x) `la` (\i -> push (Along (i `lu` k)) `hv` unwrap x `yi` that `ho` wrap @(AR)))
+--    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
+--     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` xxx) `la` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
-instance
- ( Setoid (AR) k
- , Component (AR) (Alone `P'T'I'TT'I` Shafted List) (Nonempty List)
- , Component (AR) (Nonempty List) List
- , Component (AR) (Shafted List) List
- ) => Keyable k (List `T'TT'I` Along k) where
- key k = on_empty_list `la` on_nonempty_list where
+-- instance
+--  ( Setoid (AR) k
+--  , Component (AR) (Alone `P'T'I'TT'I` Shafted List) (Nonempty List)
+--  , Component (AR) (Nonempty List `L` List `T` Void) List
+--  , Component (AR) (Shafted List `L` List `T` Void) List
+--  ) => Keyable k (List `T'TT'I` Along k) where
+--  key k = on_empty_list `la` on_nonempty_list where
 
-  on_empty_list _ = Break k `lu` (Error `hu` T'TT'I empty `la` (`lu` k) `ho` Along `ho` intro @List @(AR) `ho` T'TT'I)
+--   on_empty_list _ = Break k `lu` (Error `hu` T'TT'I empty `la` (`lu` k) `ho` Along `ho` intro @List @(AR) `ho` T'TT'I)
 
-  on_nonempty_list x =
-   let prepared = x `yi` to @(Scrolling List) @(Nonempty List) in
-   let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
-   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
-   case unwrap adjusted of
-    This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `hv` x `la` (\i -> push (Along (i `lu` k)) `hv` x `yi` that `ho` to @List `ho` T'TT'I))
-    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
-     Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `hv` xxx `la` (\i -> T'TT'I `ha` to @List `ha` to @(Nonempty List) `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
+--   on_nonempty_list x =
+--    let prepared = x `yi` Adapt @(Nonempty List) `ho` to @(Scrolling List) in
+--    let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
+--    let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
+--    case unwrap adjusted of
+--     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` x `la` (\i -> push (Along (i `lu` k)) `hv` x `yi` that `ho` Adapt `ho` to @List `ho` T'TT'I))
+--     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
+--      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` xxx `la` (\i -> T'TT'I `ha` to @List `ha` Adapt `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
-_exact_key_ k (T'II'I (These _ kk)) =
- Wrong `hu` False Unit `la` Valid `hu` True Unit `li_` (k `lu'q` kk)
+-- _exact_key_ k (T'II'I (These _ kk)) =
+--  Wrong `hu` False Unit `la` Valid `hu` True Unit `li_` (k `lu'q` kk)
 
 -- TODO: I think it should work. Here I'm going to use an instance above and then _locate_ (Down Unit `P` ) with Scrolling Tree
 -- instance Keyable (Construction Maybe k) (Construction Maybe `T'TT'I` Construction List `T'TT'I` Along k) where
