@@ -77,10 +77,10 @@ to :: forall tt t l i .
 to = component
 
 -- TODO: use `C'AT` here
-as :: forall tt t i .
- Component (AT) t tt =>
- Supertype (t i `AT` tt i)
-as = unwrap (component @(AT))
+as :: forall tt t l i .
+ Component (AT) (t `L` tt `T` l) tt =>
+ t `L` tt `T` l `T` i `AR____` tt `T` i `P` (tt `T` i `AR__` t `T` i)
+as = unwrap (component @(AT)) `ho'ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
 
 rep :: forall t r e .
  (r ~ Representation t) =>
