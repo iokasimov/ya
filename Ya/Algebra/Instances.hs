@@ -402,23 +402,6 @@ instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
 instance Category (AT) where
  identity = T'I'TT'II'T'II'I `identity` \x -> These x identity
 
-instance Mapping T'I'II T'I'II AP (AR) (T'I'II AP i) (T'I'II AP i) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \target i -> case target i of
-  This _ -> This Unit
-  That a -> case unwrap source a of
-   This _ -> This Unit
-   That o -> That o
-
-instance Mapping T'II'I T'I'II AP (AR) (T'II'I AP i) (T'II'I AP i) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \target i -> case unwrap source i of
-  This _ -> This Unit
-  That a -> case target a of
-   This _ -> This Unit
-   That o -> That o
-
-instance Category (AP) where
- identity = T'II'TT'I'III `identity` \x -> That x
-
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
