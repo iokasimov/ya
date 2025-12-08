@@ -18,7 +18,6 @@ infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `TR_____`
 infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `TR______`
 infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `TR_______`
 
--- TODO: I think this precedence is way too low, probably 5 is better (compare with `T'TT'I)
 infixl 5 `P'T'I'TT'I`
 infixl 5 `S'T'I'TT'I`
 
@@ -48,24 +47,6 @@ type TR____ = T'I'TT'II'I (AR) (P)
 type TR_____ = T'I'TT'II'I (AR) (P)
 type TR______ = T'I'TT'II'I (AR) (P)
 type TR_______ = T'I'TT'II'I (AR) (P)
-
-type AL = U_I_UU_M_I_II_II (AR) (S)
-type AL_ = U_I_UU_M_I_II_II (AR) (S)
-type AL__ = U_I_UU_M_I_II_II (AR) (S)
-type AL___ = U_I_UU_M_I_II_II (AR) (S)
-type AL____ = U_I_UU_M_I_II_II (AR) (S)
-type AL_____ = U_I_UU_M_I_II_II (AR) (S)
-type AL______ = U_I_UU_M_I_II_II (AR) (S)
-type AL_______ = U_I_UU_M_I_II_II (AR) (S)
-
-type AP = T'II'TT'I'III (AR) (S) Unit
-type AP_ = T'II'TT'I'III (AR) (S) Unit
-type AP__ = T'II'TT'I'III (AR) (S) Unit
-type AP___ = T'II'TT'I'III (AR) (S) Unit
-type AP____ = T'II'TT'I'III (AR) (S) Unit
-type AP_____ = T'II'TT'I'III (AR) (S) Unit
-type AP______ = T'II'TT'I'III (AR) (S) Unit
-type AP_______ = T'II'TT'I'III (AR) (S) Unit
 
 class Dumb x
 instance Dumb x
