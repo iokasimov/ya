@@ -9,14 +9,14 @@ infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 
-infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `AL`
-infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `AL_`
-infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `AL__`
-infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `AL___`
-infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `AL____`
-infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `AL_____`
-infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `AL______`
-infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `AL_______`
+infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `TR`
+infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `TR_`
+infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `TR__`
+infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `TR___`
+infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `TR____`
+infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `TR_____`
+infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `TR______`
+infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `TR_______`
 
 -- TODO: I think this precedence is way too low, probably 5 is better (compare with `T'TT'I)
 infixl 5 `P'T'I'TT'I`
@@ -31,14 +31,23 @@ type AR_____ = (AR)
 type AR______ = (AR)
 type AR_______ = (AR)
 
-type AT = T'I'TT'II'T'II'I (AR) P
-type AT_ = T'I'TT'II'T'II'I (AR) P
-type AT__ = T'I'TT'II'T'II'I (AR) P
-type AT___ = T'I'TT'II'T'II'I (AR) P
-type AT____ = T'I'TT'II'T'II'I (AR) P
-type AT_____ = T'I'TT'II'T'II'I (AR) P
-type AT______ = T'I'TT'II'T'II'I (AR) P
-type AT_______ = T'I'TT'II'T'II'I (AR) P
+type AT = T'I'TT'II'T'II'I (AR) (P)
+type AT_ = T'I'TT'II'T'II'I (AR) (P)
+type AT__ = T'I'TT'II'T'II'I (AR) (P)
+type AT___ = T'I'TT'II'T'II'I (AR) (P)
+type AT____ = T'I'TT'II'T'II'I (AR) (P)
+type AT_____ = T'I'TT'II'T'II'I (AR) (P)
+type AT______ = T'I'TT'II'T'II'I (AR) (P)
+type AT_______ = T'I'TT'II'T'II'I (AR) (P)
+
+type TR = T'I'TT'II'I (AR) (P)
+type TR_ = T'I'TT'II'I (AR) (P)
+type TR__ = T'I'TT'II'I (AR) (P)
+type TR___ = T'I'TT'II'I (AR) (P)
+type TR____ = T'I'TT'II'I (AR) (P)
+type TR_____ = T'I'TT'II'I (AR) (P)
+type TR______ = T'I'TT'II'I (AR) (P)
+type TR_______ = T'I'TT'II'I (AR) (P)
 
 type AL = U_I_UU_M_I_II_II (AR) (S)
 type AL_ = U_I_UU_M_I_II_II (AR) (S)
