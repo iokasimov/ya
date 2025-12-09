@@ -66,6 +66,7 @@ embed :: forall f g e .
  g e -> (f `JNT` g) e
 embed = component @(AR) @g @(f `JNT` g) @e
 
+-- TODO: replace this expression with a label
 joint :: forall f g e .
  Component (AR) (f `T'TT'I` g) (f `JNT` g) =>
  Elicitable T'II'I (AR) ((f `T'TT'I` g) e) =>
@@ -73,14 +74,21 @@ joint :: forall f g e .
 joint = wrap @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 to :: forall tt t l i .
- t `L` tt `T` l `C'AR___` tt
+ Component (->) (t `L` tt `T` l) tt =>
+ t `L` tt `T` l `T` i `AR____` tt `T` i
 to = component
 
 -- TODO: use `C'AT` here
 as :: forall tt t l i .
  Component (AT) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` tt `T` i `P` (tt `T` i `AR__` t `T` i)
-as = unwrap (component @(AT)) `ho'ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
+as = unwrap `hv` component @(AT) `ho'ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
+
+-- TODO: use `C'TR` here
+go :: forall tt t l i .
+ Component (TR) (t `L` tt `T` l) tt =>
+ t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
+go = unwrap (component @(TR)) `ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
 
 rep :: forall t r e .
  (r ~ Representation t) =>
