@@ -9,14 +9,14 @@ infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 
-infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `TR`
-infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `TR_`
-infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `TR__`
-infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `TR___`
-infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `TR____`
-infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `TR_____`
-infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `TR______`
-infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `TR_______`
+infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `TR`, `C'TR`
+infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `TR_`, `C'TR_`
+infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `TR__`, `C'TR__`
+infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `TR___`, `C'TR___`
+infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `TR____`, `C'TR____`
+infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `TR_____`, `C'TR_____`
+infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `TR______`, `C'TR______`
+infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `TR_______`, `C'TR_______`
 
 infixl 5 `P'T'I'TT'I`
 infixl 5 `S'T'I'TT'I`
@@ -90,6 +90,16 @@ type C'AT_____ t tt = C'AT t tt
 type C'AT______ t tt = C'AT t tt
 type C'AT_______ t tt = C'AT t tt
 
+type C'TR t tt = forall i . Component (TR) t tt => Unlabeled t i `TR` Unlabeled tt i
+
+type C'TR_ t tt = C'TR t tt
+type C'TR__ t tt = C'TR t tt
+type C'TR___ t tt = C'TR t tt
+type C'TR____ t tt = C'TR t tt
+type C'TR_____ t tt = C'TR t tt
+type C'TR______ t tt = C'TR t tt
+type C'TR_______ t tt = C'TR t tt
+
 instance {-# OVERLAPPABLE #-} (Category target, Mapping T'I'II T'I'II target target t tt) => Component target t tt where
  component = map @T'I'II @T'I'II @target @target identity
 
@@ -111,7 +121,7 @@ deriving instance
 class Precategory source => Category source
  where identity :: source a a
 
-{- [LAW] I preserving: mapping identity ≡ identity -}
+{- [LAW] Identity preserving: mapping identity ≡ identity -}
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 class (Category source, Category target, Mapping v T'I'II source target t t) => Functor v source target t
 deriving instance (Category source, Category target, Mapping v T'I'II source target t t) => Functor v source target t
