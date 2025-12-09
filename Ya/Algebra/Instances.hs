@@ -168,18 +168,24 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` T'II'I (P) e)
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'II'I (These (T'I'II f) e)) -> source (f e)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e) (P'I'II e) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) i) (T'I'II (P) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These e x -> These e (source x)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) o) (T'II'I (P) o) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) i) (T'II'I (P) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These x e -> These (source x) e
 
-instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II o) (S'I'II o) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) i) (T'I'II (S) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   That x -> That (source x)
   This e -> This e
+
+instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (S) i) (T'I'II (S) i) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \case
+   T'I'II (This i) -> These (T'I'II (This i)) (\_ -> T'I'II (This i))
+   T'I'II (That x) -> These (T'I'II (That (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) o) (T'II'I (S) o) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
