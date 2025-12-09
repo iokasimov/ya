@@ -70,7 +70,7 @@ map source = unwrap @Arrow (mapping @v @vv @source @target @t @tt @a @o (wrap so
 class Component target t tt where
  component :: target (t i) (tt i)
 
-type C'AR t tt = forall i . Component (AR) t tt => t i `AR` tt i
+type C'AR t tt = forall i . Component (AR) t tt => Unlabeled t i `AT` Unlabeled tt i
 
 type C'AR_ t tt = C'AR t tt
 type C'AR__ t tt = C'AR t tt
@@ -80,7 +80,7 @@ type C'AR_____ t tt = C'AR t tt
 type C'AR______ t tt = C'AR t tt
 type C'AR_______ t tt = C'AR t tt
 
-type C'AT t tt = forall i . Component (AT) t tt => t i `AT` tt i
+type C'AT t tt = forall i . Component (AT) t tt => Unlabeled t i `AT` Unlabeled tt i
 
 type C'AT_ t tt = C'AT t tt
 type C'AT__ t tt = C'AT t tt
@@ -500,3 +500,7 @@ pattern Opted x = T'I'I x
 -- TODO: these typeclasses are experimental
 class Semigroup source e where s :: e `P` e `source` e
 class Quasigroup source e where p :: e `P` e `source` e
+
+type family Unlabeled t where
+ Unlabeled (t `L` tt `T` l) = t
+ Unlabeled t = t
