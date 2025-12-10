@@ -12,6 +12,9 @@ import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 import Ya.Program.Interface.Shiftable
 
+pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
+pattern Adapt x = Label @t @tt @Void x
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Void)) List where
  mapping = rewrap `identity` \source -> rewrap `li_` unwrap `ho` wrap @AR `ho'yo` source `ho` Exist
 
