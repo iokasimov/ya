@@ -229,12 +229,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
   `ha__` Empty `hu` empty @List
     `la` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'he` Adapt `ho` to @List
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) (Construction Optional) where
- mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> Item (source x) `ha` Next `ha` Item (source y) `ha` Last `hv` Unit
-
-instance Mapping T'I'II T'I'II (AR) (AR) (Both (P)) List where
- mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source y) `ha` Last `hv` Unit
-
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
  -- mapping = rewrap `identity` \source -> \case

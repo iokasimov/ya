@@ -29,18 +29,25 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `lo` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
 
--- instance Mapping T'I'II T'I'II (AR) (AR) (Construction List) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
- -- mapping = rewrap `identity` \source x -> x `yo` source `lu` wrap `hv` empty @List
+instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `T` Void) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
+ mapping = rewrap `identity` \source x -> unwrap x `yo` source `lu` wrap `hv` empty @List
 
--- instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) (Construction List) where
- -- mapping = rewrap `identity` \source (T'TT'I'TTT'I (These tree unfoldings)) ->
-  -- unwrap unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `he'he'hv___` tree `yi__` that `ho'yo` source where
+instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `L` Construction List `T` Void) (Construction List) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These tree unfoldings))) ->
+  unwrap unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `he'he'hv___` tree `yi__` that `ho'yo` source where
 
-   -- cover (T'TT'I'TTT'I (These parent siblings)) tree =
-    -- Unit `lu__` that `ha` sub @Tree
-     -- `hv__` intro @Tree `hv'he` parent
-     -- `hv__` Alone `hv` tree `lu` unwrap siblings
-       -- `yi` to @List `ha` Adapt @(Nonempty List) `ha` to @(Nonempty List) @(Scrolling List)
+   cover (T'TT'I'TTT'I (These parent siblings)) tree =
+    Unit `lu__` that `ha` sub @Tree
+     `hv__` intro @Tree `hv'he` parent
+     `hv__` Alone `hv` tree `lu` unwrap siblings
+       `yi` to @List `ha` Adapt @(Nonempty List)
+       `ha` to @(Nonempty List) `ha` Adapt @(Scrolling List)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T` Void) (Construction Optional) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `hv` Unit
+
+instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` List `T` Void) List where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `hv` Unit
 
 pattern Fresh :: forall t i e .
  Component (AR) (List `L` t `T` (Void)) t =>
