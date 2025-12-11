@@ -198,6 +198,3 @@ type Match = T'II'I Arrow Boolean
 
 pattern Match :: e `AR` Boolean `AR_` Match e
 pattern Match e = T'II'I e
-
-pattern Junction :: t e `P` tt e `AR__` (t `P'T'I'TT'I` tt) e
-pattern Junction x = T'TT'I'TTT'I  x
