@@ -235,30 +235,25 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \f x ->
   i_ (map @T'I'II @T'I'II source) (f x)
 
--- TODO: it doesn't work correctly?
 instance Mapping T'I'II T'I'II
  (T'I'TT'II'I (AR) (P)) (AR)
- (T'I'II (T'I'TT'II'I (AR) (P)) e)
- (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+ (T'I'II (T'I'TT'II'I (AR) (P)) i)
+ (T'I'II (T'I'TT'II'I (AR) (P)) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \trstn e ->
-   let These old e' = trstn e in
-   let These new _ = source old in
-   These new e'
+  -> rewrap `compose` rewrap `identity` \origin i ->
+   let These result ii = origin i in
+   let These update _ = source result in
+   These update i
 
--- TODO: it doesn't work correctly?
 instance Mapping T'II'I T'I'II
  (T'I'TT'II'I (AR) (P)) (AR)
- (T'II'I (T'I'TT'II'I (AR) (P)) e)
- (T'II'I (T'I'TT'II'I (AR) (P)) e) where
+ (T'II'I (T'I'TT'II'I (AR) (P)) i)
+ (T'II'I (T'I'TT'II'I (AR) (P)) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \trstn new ->
-   let These old new' = source new in
-   let These e old' = trstn old in
-   These e new'
-
-instance Category (T'I'TT'II'I (AR) (P)) where
- identity = T'I'TT'II'I (\e -> These e e)
+  -> rewrap `compose` rewrap `identity` \origin o ->
+   let These a oo = source o in
+   let These i _ = origin a in
+   These i oo
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Embedding (AR) (AR) t e)
