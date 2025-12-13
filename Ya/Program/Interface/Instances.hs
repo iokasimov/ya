@@ -49,24 +49,22 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T`
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` List `T` Void) List where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `hv` Unit
 
-pattern Fresh :: forall t i e .
- Component (AR) (List `L` t `T` (Void)) t =>
+pattern Stock :: forall t i .
  List i `AR__` List `L` t `T` (Void) `T` i
-pattern Fresh x = Label x
-
-instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` Void) (Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source x -> empty @List `lu` unwrap x `yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` unwrap x) `yo` source
-
-pattern Stock :: forall i e .
- Component (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) =>
- List i `AR__` List `L` Scrolling List `T` (Void `P` Void) `T` i
 pattern Stock x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> unwrap x `lu` (empty @List `lu` empty @List) `yo` source
+
+pattern Fresh :: forall t i target .
+ List i `AR__` List `L` t `T` (Void `P` Void) `T` i
+pattern Fresh x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source x -> empty @List `lu` unwrap x `yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source x -> empty @List `lu` (empty @List `lu` unwrap x) `yo` source
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
