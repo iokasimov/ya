@@ -27,9 +27,9 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Maybe `T'TT'I` Construction Maybe) `L
    Label (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
     Exist `ha` this `ha` source `hv` x `lu` Label `ha` (Empty `hu_` empty @List `la` intro @List `ha` that (source x))
 
-instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void) `L` Maybe `T` (Void)) Maybe where
+instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void `P` Void) `L` Alone `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label (Label x)) ->
-  unwrap Empty `lu` Label `ha` Label `ha` (Empty `hu` x `la` (\xx -> rewrap (`yo` (`lu` xx) `ha` Exist `ha` unwrap @(AR)) x))
+  unwrap Empty `lu` Label `ha` Label `ha` (Empty `hu` x `la` (\xx -> that (push xx x)))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
@@ -287,8 +287,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ha____` Event `ha` relay `ha` Exist
     `ho___'ha` Scope `hv_` at @(Shafted List i)
      `ho__'he` Scope `ha_` rep `ha` (Fore `la` Back) `hv_` way
-       `ho__` Scope `hv_` as @Maybe @List `ha` First @_ @_ @Unit `ha` Fresh @Maybe
-       -- `ho__` Scope `hv_` as `ha` Fresh `ha` Front
+       `ho__` Scope `hv_` as `ha` Front `ha` Fresh @Alone
 
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha` State `hv__` Event `hv` fetch `ha_` Scope `hv` at @(Alone i)
