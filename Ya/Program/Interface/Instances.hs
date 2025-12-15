@@ -271,6 +271,10 @@ pattern Ahead x = That x :: Shifter List
 pattern Above x = This x :: Shifter List
 pattern Below x = That x :: Shifter List
 
+pattern Front :: forall i tt target .
+ tt i `AR__` tt `L` Alone `T` (Void) `T` i
+pattern Front x = Label x
+
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `he'he'hv` x where
