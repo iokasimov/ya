@@ -1,4 +1,5 @@
 {-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE AllowAmbiguousTypes #-}
 module Ya.Program.Interface.Instances where
 
 import Ya.Algebra
@@ -11,6 +12,24 @@ import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Stackable
 import Ya.Program.Interface.Shiftable
+
+-- TODO: think about labels for these two instances below!
+
+instance Mapping T'I'II T'I'II (AT) (AT) ((Construction Maybe) `L` Alone `T` Void) Alone where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
+   Alone `ha` this `ha` source `hv` x `lu` (\xx -> xxx `lu` that `ha` source `hv` x `hv'he` xx)
+
+instance Mapping T'I'II T'I'II (AT) (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` Void) Maybe where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \case
+   Label (T'TT'I (T'I'II (This _))) -> unwrap Empty `lu` Label `ha` (is `hu` empty @List)
+   Label (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
+    Exist `ha` this `ha` source `hv` x `lu` Label `ha` (Empty `hu_` empty @List `la` intro @List `ha` that (source x))
+
+instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void) `L` Maybe `T` (Void)) Maybe where
+ component = T'I'TT'II'T'II'I `identity` \(Label (Label x)) ->
+  unwrap Empty `lu` Label `ha` Label `ha` (Empty `hu` x `la` (\xx -> rewrap (`yo` (`lu` xx) `ha` Exist `ha` unwrap @(AR)) x))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
