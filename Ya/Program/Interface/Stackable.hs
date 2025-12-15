@@ -6,6 +6,16 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 import Ya.Program.Labels
 
+instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `lu_` (\xx -> x `yo` that `ha` source `lu'yp` Align `hv` xx `yo` (\(These f xxx) -> f xxx))
+
+instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `lu_` (\xx -> x `yo` that `ha` source `lu'yp` Align `hv` xx `yo` (\(These f xxx) -> f xxx))
+
 type family Popped datastructure where
  Popped (Construction Optional) = Optional
  Popped (Optional `T'TT'I` Construction Optional) = Optional
