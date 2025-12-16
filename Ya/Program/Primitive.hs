@@ -78,13 +78,13 @@ to :: forall tt t l i .
  t `L` tt `T` l `T` i `AR____` tt `T` i
 to = component
 
--- TODO: use `C'AT` here
-as :: forall tt t l i .
- Component (AT) (t `L` tt `T` l) tt =>
- t `L` tt `T` l `T` i `AR____` tt `T` i `P` (tt `T` i `AR__` t `T` i)
-as = unwrap `hv` component @(AT) `ho'ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
+as :: forall tt ttt t i .
+ Component (AT) t tt =>
+ Unlabelable (AR) t =>
+ (Unlabeled t ~ ttt) =>
+ t i `AR____` tt i `P` (tt i `AR__` ttt i)
+as = unwrap @(AR) `hv` component @(AT) `ho'ho'ho` unlabel @(AR)
 
--- TODO: use `C'TR` here
 go :: forall tt t l i .
  Component (TR) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
