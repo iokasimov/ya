@@ -515,5 +515,23 @@ class Semigroup source e where s :: e `P` e `source` e
 class Quasigroup source e where p :: e `P` e `source` e
 
 type family Unlabeled t where
- Unlabeled (t `L` tt `T` l) = t
+ Unlabeled (t `L` tt `T` l) = Unlabeled t
  Unlabeled t = t
+
+class Unlabelable target t where
+ unlabel :: target (t i) (Unlabeled t i)
+
+instance {-# OVERLAPPABLE #-}
+ ( Precategory target
+ , forall i . Wrapper target (t `L` tt `T` l `T` i)
+ , Unlabeled (t `L` tt `T` l) ~ t
+ ) => Unlabelable target (t `L` tt `T` l) where
+ unlabel = unwrap @target
+
+instance {-# OVERLAPPABLE #-}
+ ( Precategory target
+ , forall i . Wrapper target (t `L` tt `T` l `T` i)
+ , forall i . Wrapper target (t `L` tt `T` l `L` ttt `T` ll `T` i)
+ , Unlabeled (t `L` tt `T` l `L` ttt `T` ll) ~ t
+ ) => Unlabelable target (t `L` tt `T` l `L` ttt `T` ll) where
+ unlabel = unwrap @target `compose` unwrap @target
