@@ -70,7 +70,7 @@ map source = unwrap @Arrow (mapping @v @vv @source @target @t @tt @a @o (wrap so
 class Component target t tt where
  component :: target (t i) (tt i)
 
-type C'AR t tt = forall i . Component (AR) t tt => Unlabeled t i `AT` Unlabeled tt i
+type C'AR t tt = forall i . Component (AR) t tt => Unlabeled t i `AR` Unlabeled tt i
 
 type C'AR_ t tt = C'AR t tt
 type C'AR__ t tt = C'AR t tt
