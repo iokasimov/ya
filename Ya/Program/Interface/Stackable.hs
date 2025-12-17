@@ -16,10 +16,6 @@ instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Ma
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
    `lu_` (\xx -> x `yo` that `ha` source `lu'yp` Align `hv` xx `yo` (\(These f xxx) -> f xxx))
 
-type family Popped datastructure where
- Popped (Construction Optional) = Optional
- Popped (Optional `T'TT'I` Construction Optional) = Optional
-
 class Stackable datastructure where
  pop :: datastructure item `AR__` Optional item `P` datastructure item
  push :: item `AR__` datastructure item `AR` item `P` datastructure item
