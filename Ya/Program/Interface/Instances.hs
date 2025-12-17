@@ -75,7 +75,8 @@ pattern Stock x = Label x
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> unwrap x `lu` (empty @List `lu` empty @List) `yo` source
 
-pattern Fresh :: forall t i target .
+-- TODO: generalise
+pattern Fresh :: forall t i .
  List i `AR__` List `L` t `T` (Void `P` Void) `T` i
 pattern Fresh x = Label x
 
@@ -280,17 +281,24 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift way x = is `li` Empty `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `he'he'hv` x where
 
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
-   `yuk___` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep @Twice `ha` (Back `la` Fore) `hv` way
+   `yuk___` Apply `ha` State
+   `hv____` Event `ha` relay `hv'he` Empty
+    `ha___` Scope `hv` at @(Shafted List i)
+   `ho__'he` Scope `ha` rep @Twice `ha` (Back `la` Fore) `hv` way
+     `ho__` Scope `hv` (as `ha` Front `ha` Stock @Alone)
    `yok___` Check
-   `yok___` Apply `ha` State `ha___` Event `ha` relay `ho__'ha` Scope `hv` at @(Alone i) `ho_'he` Scope `hv` it
    `yok___` Apply `ha` State
-   `ha____` Event `ha` relay `ha` Exist
-    `ho___'ha` Scope `hv_` at @(Shafted List i)
-     `ho__'he` Scope `ha_` rep `ha` (Fore `la` Back) `hv_` way
-       `ho__` Scope `hv_` as `ha` Front `ha` Fresh @Alone
-
+   `ha____` Event `ha` relay `ha` Alone
+   `ho__'ha` Scope `hv` at @(Alone i)
+   `yok___` Apply `ha` State
+   `ha____` Event `ha` relay `ha'he` Exist
+   `ho__'ha` Scope `hv` at @(Shafted List i)
+    `ho_'he` Scope `ha` rep `ha` (Fore `la` Back) `hv` way
+      `ho_` Scope `hv` (as `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
-   `yuk___` Apply `ha` State `hv__` Event `hv` fetch `ha_` Scope `hv` at @(Alone i)
+   `yuk___` Apply `ha` State
+   `hv____` Event `hv` fetch
+    `ha___` Scope `hv` at @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `li` _spot_ `he'he'hv` x where
