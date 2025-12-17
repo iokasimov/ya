@@ -190,6 +190,20 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->
   xx `yo` wrapped @(AR) @(F'T'I'TT'I Along _ _) (`yo` source `ho` (`lu` That Unit)) `lu_` source x `lu` This Unit `lu_` xxx `yo` source `ho` (`lu` That Unit)
 
+pattern Frame :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` (Void `P` Void) `T` i
+pattern Frame x = Label (Alone x)
+
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
+ (I `P'T'I'TT'I` Twice `T'TT'I` List)
+ ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
+  T'TT'I (T'TT'I'TTT'I (These (x `yo` (`lu` That Unit) `ha` source) (xs `yo` (`lu` This Unit) `ha` source)))
+
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
+ ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
+ mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->
+  xx `yo` wrapped @(AR) @(F'T'I'TT'I Along _ _) (`yo` source `ho` (`lu` This Unit)) `lu_` source x `lu` That Unit `lu_` xxx `yo` source `ho` (`lu` This Unit)
+
 instance
  ( Covariant Endo Semi Functor (->) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
