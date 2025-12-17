@@ -485,6 +485,12 @@ instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `S`
 instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `P` ee) (eee `P` eeee) where
  objective = identity
 
+instance (e ~ eee, ee ~ eeee, Category target) => Objective T'I'II target (e `AR` ee) (eee `AR` eeee) where
+ objective = identity
+
+instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `AR` ee) (eee `AR` eeee) where
+ objective = identity
+
 -- TODO: generalize, move to `Abstract` module
 newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
 
