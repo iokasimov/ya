@@ -803,7 +803,7 @@ instance
    map @T'I'II @T'I'II @target @target @(Day T'I'II target u uu t (tt `L` tt `T` ll) _ _) @t source
    `compose` wrap `compose` foi (foi @target @target unwrap)
 
-instance
+instance {-# OVERLAPPABLE #-}
  ( Covariant Transformation Functor (AR) (AR) t tt
  , Covariant Transformation Functor (AR) (AR) tt t
  ) => Component (AT) t tt where
