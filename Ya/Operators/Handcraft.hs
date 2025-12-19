@@ -2418,19 +2418,19 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 -- vvvvvvvv = v
 -- vvvvvvvvv = v
 
-ro :: forall target hom t i .
- Category target =>
- Covariant (Representable hom) target target t =>
- Elicitable T'I'II target (T'I'II hom (Representation t) i) =>
- target (t i) (hom (Representation t) i)
-ro = he `compose` map @T'I'II @T'I'II @target @target @t @(T'I'II hom (Representation t)) identity
+-- ro :: forall target source t i .
+--  Category target =>
+--  Covariant Representable target target t =>
+--  Elicitable T'I'II target (T'I'II source (Representation t) i) =>
+--  target (t i) (source (Representation t) i)
+-- ro = he `compose` map @T'I'II @T'I'II @target @target @t @(T'I'II source (Representation t)) identity
 
-ra :: forall target hom t i .
- Category target =>
- Contravariant (Representable hom) target target t =>
- Elicitable T'I'II target (T'II'I hom (Representation t) i) =>
- target (t i) (hom i (Representation t))
-ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I hom (Representation t)) identity
+-- ra :: forall target source t i .
+--  Category target =>
+--  Contravariant Representable target target t =>
+--  Elicitable T'I'II target (T'II'I source (Representation t) i) =>
+--  target (t i) (source i (Representation t))
+-- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
 
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall target a .
