@@ -194,12 +194,12 @@ type family Representation t where
 class
   ( Mapping v T'I'II source target t (v source (Representation t))
   , Mapping v T'I'II source target (v source (Representation t)) t
-  ) => Representable v source target t
+  ) => Naperian v source target t
 
 deriving instance
  ( Mapping v T'I'II source target t (v source (Representation t))
  , Mapping v T'I'II source target (v source (Representation t)) t
- ) => Representable v source target t
+ ) => Naperian v source target t
 
 type family Co x where Co (x T'I'II) = x T'II'I
 
