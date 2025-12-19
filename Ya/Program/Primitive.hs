@@ -93,7 +93,7 @@ go = unwrap (component @(TR)) `ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
 rep :: forall t r e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
- Covariant (Representable (AR)) (AR) (AR) t =>
+ Covariant Representable (AR) (AR) t =>
  Representation t `AR_` Supertype (Attribute `T'I` t e `T'I` e)
 rep index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in

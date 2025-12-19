@@ -192,14 +192,14 @@ type family Representation t where
  Representation (T'I'I (P)) = Unit `S` Unit
 
 class
-  ( Mapping v T'I'II source target t (v hom (Representation t))
-  , Mapping v T'I'II source target (v hom (Representation t)) t
-  ) => Representable hom v source target t
+  ( Mapping v T'I'II source target t (v source (Representation t))
+  , Mapping v T'I'II source target (v source (Representation t)) t
+  ) => Representable v source target t
 
 deriving instance
- ( Mapping v T'I'II source target t (v hom (Representation t))
- , Mapping v T'I'II source target (v hom (Representation t)) t
- ) => Representable hom v source target t
+ ( Mapping v T'I'II source target t (v source (Representation t))
+ , Mapping v T'I'II source target (v source (Representation t)) t
+ ) => Representable v source target t
 
 type family Co x where Co (x T'I'II) = x T'II'I
 
