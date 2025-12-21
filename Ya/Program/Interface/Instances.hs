@@ -298,7 +298,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk___` Apply `ha` State
    `hv____` Event `ha` relay `hv'he` Empty
     `ha___` Scope `hv` at @(Shafted List i)
-   `ho__'he` Scope `ha` rep @Twice `ha` (Back `la` Fore) `hv` way
+   `ho__'he` Scope `ha` by @Twice `ha` (Back `la` Fore) `hv` way
      `ho__` Scope `hv` (as `ha` Front `ha` Stock @Alone)
    `yok___` Check
    `yok___` Apply `ha` State
@@ -307,7 +307,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok___` Apply `ha` State
    `ha____` Event `ha` relay `ha'he` Exist
    `ho__'ha` Scope `hv` at @(Shafted List i)
-    `ho_'he` Scope `ha` rep `ha` (Fore `la` Back) `hv` way
+    `ho_'he` Scope `ha` by `ha` (Fore `la` Back) `hv` way
       `ho_` Scope `hv` (as `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha` State
@@ -335,17 +335,17 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
    `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha_` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
-   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Aback
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Ahead
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hv` at @(List _)
 
   slide_passed = intro @(Halts `JNT` State `T` Sliding List _) `hv` Unit
-   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hv` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Ahead
    `yuk____` Apply `ha` State `hv___` Event `hv` fetch `ha__` Scope `hv` at @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
