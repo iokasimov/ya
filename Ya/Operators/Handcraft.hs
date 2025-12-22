@@ -202,6 +202,8 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
+infixl 8 `khv`
+
 infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `lu'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lo_'q`, `lu_'ys'la`
 infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lo__'q`, `lu__'ys'la`
@@ -2190,6 +2192,16 @@ he'he'hv_____ = hv `compose` unwrap `compose` unwrap
 he'he'hv______ = hv `compose` unwrap `compose` unwrap
 he'he'hv_______ = hv `compose` unwrap `compose` unwrap
 he'he'hv________ = hv `compose` unwrap `compose` unwrap
+
+kyvi, khv :: forall target t a o .
+ Category target =>
+ Component target t (T'I'II AR Unit) =>
+ (forall e . Wrapper target (T'I'II AR Unit e)) =>
+ (forall e . Wrapper target (AR Unit e)) =>
+ target a o `AR_____` target (t a) o
+kyvi f = f `compose` unwrap `compose` unwrap `compose` component @target @t @(T'I'II (AR) Unit)
+
+khv = kyvi
 
 -- he'ho: u (Supertype i) a -> target (source a o) (u i o)
 -- ho'he: u i a -> target (source (Supertype a) o) (u i o)
