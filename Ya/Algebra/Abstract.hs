@@ -424,14 +424,6 @@ instance (i ~ Unit) => Elicitable T'II'I (->) (Arrow i ii)
 instance (i ~ Unit) => Elicitable T'I'II (->) (Arrow i ii)
  where elicit = T'I'II (\f -> f ())
 
--- type instance Supertype (Arrow i Void) = Arrow i i
-
--- instance Elicitable T'II'I (->) (Arrow i Void)
- -- where elicit = T'II'I (\ii -> (\_ -> ii))
-
--- instance Elicitable T'I'II (->) (Arrow Unit ii)
- -- where elicit = T'I'II (\f -> f ())
-
 unwrap :: forall target i .
  Elicitable T'I'II target i =>
  target i (Supertype i)
@@ -442,7 +434,6 @@ wrap :: forall target i .
  target (Supertype i) i
 wrap = let T'II'I x = elicit in x
 
--- Category: initial object
 data Void
 
 type Unit = ()
