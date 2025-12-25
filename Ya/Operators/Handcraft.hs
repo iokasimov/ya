@@ -379,6 +379,8 @@ li_____ = li
 li______ = li
 li_______ = li
 
+infixl 8 `rho`
+
 -- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
 
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
@@ -2443,6 +2445,14 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  Elicitable T'I'II target (T'II'I source (Representation t) i) =>
 --  target (t i) (source i (Representation t))
 -- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
+
+rho :: forall source target t object i .
+ Category source =>
+ Category target =>
+ Mapping T'I'II T'I'II source target t (T'I'II source object) =>
+ Wrapper target (T'I'II source object i) =>
+ target (t i) (source object i)
+rho = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall target a .
