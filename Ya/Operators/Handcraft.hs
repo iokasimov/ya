@@ -379,7 +379,9 @@ li_____ = li
 li______ = li
 li_______ = li
 
-infixl 8 `rho`, `rha`
+infixl 8 `yor`
+
+infixl 8 `ryo`
 
 -- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
 
@@ -2454,13 +2456,13 @@ yor :: forall source target t object i .
  target (t i) (source object i)
 yor = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
-rha :: forall source target t object i .
+ryo :: forall source target t object i .
  Category source =>
  Category target =>
- Mapping T'II'I T'I'II source target t (T'II'I source object) =>
- Wrapper target (T'II'I source object i) =>
- target (t i) (source i object)
-rha = unwrap `compose` map @T'II'I @T'I'II @source @target @t @(T'II'I source object) identity
+ Mapping T'I'II T'I'II source target (T'I'II source object) t =>
+ Wrapper target (T'I'II source object i) =>
+ source object object `AR____` target (source object i) (t i)
+ryo _ = map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` wrap
 
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall target a .
