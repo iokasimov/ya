@@ -2448,21 +2448,17 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  target (t i) (source i (Representation t))
 -- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
 
-yor :: forall source target t object i .
- Category source =>
- Category target =>
- Mapping T'I'II T'I'II source target t (T'I'II source object) =>
- Wrapper target (T'I'II source object i) =>
- target (t i) (source object i)
+yor :: forall source target t object o .
+ Covariant Transformation Functor source target t (T'I'II source object) =>
+ (forall i . Wrapper target (T'I'II source object i)) =>
+ target (t o) (source object o)
 yor = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
-ryo :: forall source target t object i .
- Category source =>
- Category target =>
- Mapping T'I'II T'I'II source target (T'I'II source object) t =>
- Wrapper target (T'I'II source object i) =>
- source object object `AR____` target (source object i) (t i)
-ryo _ = map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` wrap
+ryo :: forall source target t object o .
+ Covariant Transformation Functor source target (T'I'II source object) t =>
+ (forall i . Wrapper target (T'I'II source object i)) =>
+ target (source object o) (t o)
+ryo = map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` wrap
 
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall target a .
