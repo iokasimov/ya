@@ -2454,6 +2454,27 @@ yor :: forall source target t object o .
  target (t o) (source object o)
 yor = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
+yior :: forall source target t object o i .
+ Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t i o) (source object o)
+yior = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'I'II t i) @(T'I'II source object) identity `compose` wrap
+
+yoir :: forall source target t object o i .
+ Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t o i) (source object o)
+yoir = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'II'I t i) @(T'I'II source object) identity `compose` wrap
+
+yoor :: forall source target t object o .
+ Covariant Transformation Functor source target (T'I'I t) (T'I'II source object) =>
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ (forall e ee . Wrapper target (T'I'I t e)) =>
+ target (t o o) (source object o)
+yoor = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap
+
 ryo :: forall source target t object o .
  Covariant Transformation Functor source target (T'I'II source object) t =>
  (forall i . Wrapper target (T'I'II source object i)) =>
