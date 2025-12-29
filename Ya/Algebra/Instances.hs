@@ -436,6 +436,12 @@ instance Category (AT) where
  -- mapping = rewrap `identity` \(W_I_II_II (U_I_UU_III_T'II'I source)) ->
   -- map @T'II'I @T'I'II `identity` (\(These x _) -> x) `compose` source
 
+instance Covariant Endo Semi Functor (AR) t =>
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (S) (S) t (t `L` t `T` l) ee eee) t where
+ mapping = rewrap `identity` \source (U_V_UU_UUU_UUUU_T'TT'I_II_III (These x (T'I'II f))) -> case x of
+  This xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` This) `identity` xx
+  That xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` That) `identity` unwrap xx
+
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P I (I `L` I `T` Void) e ee) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (Identity e) (Label (Identity ee))) (T'I'II f) -> source (f (These e ee))
