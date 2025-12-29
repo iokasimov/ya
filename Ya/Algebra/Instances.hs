@@ -206,7 +206,7 @@ instance
  , Covariant Endo Semi Functor (AR) (T'I'I t)
  , forall i . Covariant Endo Semi Functor (AR) (T'I'II t i)
  , forall i . Covariant Endo Semi Functor (AR) (T'II'I t i)
- , Covariant Lax Monoidal Functor (AR) (AR) t t l tt
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) t t tt (tt `L` tt `T` l) e ee) tt
  , forall i . Wrapper (AR) (T'I'I t i)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I t `T'TT'I` tt `L` tt `T` l `L` T'I'I t `T` Void) (T'I'I t `TT'T'I` tt) where
  mapping = rewrap `identity` \source -> rewrap `identity`
