@@ -7,7 +7,10 @@ pattern Arrow :: forall i ii . Arrow i ii -> Arrow i ii
 pattern Arrow x = x
 
 pattern Same :: i `AR_` i
-pattern Same e = e
+pattern Same x = x
+
+pattern Enter :: t i `AR_` t i
+pattern Enter x = x
 
 type Alone = I
 
