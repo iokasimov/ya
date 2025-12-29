@@ -193,6 +193,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) o) (T'II'I (S) o) where
   That e -> That e
 
 instance
+ ( forall e . Mapping T'I'II T'I'II (AR) (AR) (T'I'II t e) (T'I'II t e)
+ , forall e . Mapping T'I'II T'I'II (AR) (AR) (T'II'I t e) (T'II'I t e)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I t) (T'I'I t) where
+ mapping = rewrap `identity` \source ->
+  wrap `compose` unwrap
+  `compose` map @T'I'II @T'I'II @AR @AR @(T'I'II t _) @(T'I'II t _) source `compose` wrap `compose` unwrap
+  `compose` map @T'I'II @T'I'II @AR @AR @(T'II'I t _) @(T'II'I t _) source `compose` wrap `compose` unwrap
+
+instance
  ( Covariant Endo Semi Functor (AR) tt
  , Covariant Endo Semi Functor (AR) (T'I'I t)
  , forall i . Covariant Endo Semi Functor (AR) (T'I'II t i)
