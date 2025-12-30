@@ -264,11 +264,11 @@ instance Mapping T'II'I T'I'II
    let These i _ = origin a in
    These i oo
 
-instance
- Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (TR) (TR) t t where
- mapping = rewrap `identity` \(T'I'TT'II'I source) ->
-  T'I'TT'II'I `identity` \x -> x `yo` this `ha` source `lu_` x `yo` that `ha` source
+-- instance
+ -- Covariant Endo Semi Functor (AR) t =>
+ -- Mapping T'I'II T'I'II (TR) (TR) t t where
+ -- mapping = rewrap `identity` \(T'I'TT'II'I source) ->
+  -- T'I'TT'II'I `identity` \x -> x `yo` this `ha` source `lu_` x `yo` that `ha` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Embedding (AR) (AR) t e)
