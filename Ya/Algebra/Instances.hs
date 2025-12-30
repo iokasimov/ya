@@ -382,10 +382,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e) where
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'I (P)) where
  mapping (T'I'II source) = T'I'II `identity` \(Identity x) -> T'I'I (These (source x) (source x))
 
--- TODO: redefine using limits
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'I (P)) where
- mapping (T'I'II source) = T'I'II `identity` \(T'I'I (These x y)) -> T'I'I (These (source x) (source y))
-
 instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e) I where
  mapping (T'I'II source) = T'I'II `identity` \(T'I'II (These _ x)) -> Identity (source x)
 
