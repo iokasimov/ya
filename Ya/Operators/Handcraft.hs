@@ -2448,32 +2448,40 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  target (t i) (source i (Representation t))
 -- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
 
-yor :: forall source target t object o .
+yir :: forall source target t object o .
  Covariant Transformation Functor source target t (T'I'II source object) =>
  (forall i . Wrapper target (T'I'II source object i)) =>
  target (t o) (source object o)
-yor = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
+yir = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
-yior :: forall source target t object o i .
- Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
- (forall e . Wrapper target (T'I'II source object e)) =>
- (forall e ee . Wrapper target (T'I'II t e ee)) =>
- target (t i o) (source object o)
-yior = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'I'II t i) @(T'I'II source object) identity `compose` wrap
+yor :: forall source target t object a o .
+ Covariant Yoneda Functor source target t =>
+ Component target t (T'I'II source object) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ t a `AR_____` target (source a o) (source object o)
+yor x = unwrap `compose` component @target @t @(T'I'II source object) `compose` yo x
 
-yoir :: forall source target t object o i .
- Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
- (forall e . Wrapper target (T'I'II source object e)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- target (t o i) (source object o)
-yoir = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'II'I t i) @(T'I'II source object) identity `compose` wrap
+yior :: forall source target t object a o i .
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ Component target (T'I'II t i) (T'I'II source object) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ t i a `AR_____` target (source a o) (source object o)
+yior x = unwrap `compose` component @target @_ @(T'I'II source object) `compose` yo (T'I'II x)
 
-yoor :: forall source target t object o .
- Covariant Transformation Functor source target (T'I'I t) (T'I'II source object) =>
+yoir :: forall source target t object a o i .
+ Covariant Yoneda Functor source target (T'II'I t i) =>
+ Component target (T'II'I t i) (T'I'II source object) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ t a i `AR_____` target (source a o) (source object o)
+yoir x = unwrap `compose` component @target @_ @(T'I'II source object) `compose` yo (T'II'I x)
+
+yoor :: forall source target t object a o .
+ Covariant Yoneda Functor source target (T'I'I t) =>
+ Component target (T'I'I t) (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
- (forall e ee . Wrapper target (T'I'I t e)) =>
- target (t o o) (source object o)
-yoor = unwrap `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ t a a `AR_____` target (source a o) (source object o)
+yoor x = unwrap `compose` component @target @_ @(T'I'II source object) `compose` yo (T'I'I x)
 
 ryo :: forall source target t object o .
  Covariant Transformation Functor source target (T'I'II source object) t =>
