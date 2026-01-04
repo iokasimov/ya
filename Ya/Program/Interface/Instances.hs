@@ -185,6 +185,12 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   T'TT'I (T'TT'I'TTT'I (These (x `yo` (`lu` This Unit) `ha` source) (xs `yo` (`lu` That Unit) `ha` source)))
 
+-- instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AT) (AT) (I `P'T'I'TT'I` Twice `T'TT'I` List)
+--  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+  
+ -- component = T'I'TT'II'T'II'I `identity` \(Label (Label x)) ->
+  -- unwrap Empty `lu` Label `ha` Label `ha` (Empty `hu` x `la` (\xx -> that (push xx x)))
+
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
  ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->

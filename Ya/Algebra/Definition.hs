@@ -363,10 +363,8 @@ intro = component @target @(T'I'II (AR) Unit) @t `compose` wrap `compose` consta
 outro :: forall t target e .
  Category target =>
  Component target t (T'I'II AR Unit) =>
- Component target I (T'I'II (AR) Unit) =>
  Wrapper target (T'I'II AR Unit e) =>
  Wrapper target (AR Unit e) =>
- Wrapper target (I e) =>
  target `T'I` t e `T'I` e
 outro = unwrap `compose` unwrap `compose` component @target @t @(T'I'II (AR) Unit)
 
