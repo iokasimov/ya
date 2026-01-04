@@ -379,9 +379,11 @@ li_____ = li
 li______ = li
 li_______ = li
 
-infixl 8 `yor`
 
-infixl 8 `ryo`
+infixl 7 `yir`, `yor`
+infixl 7 `ryo`, `ryi`
+
+infixl 6 `yior`, `yoir`, `yoor`
 
 -- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
 
@@ -2108,9 +2110,6 @@ yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  target a o `AR` target a o
 yvi = identity
 
--- hu: t i a -> target (source Unit o) (t i o)
--- hv: t a i -> target (source o Void) (t o i)
-
 hv = yvi
 hv_ = yvi
 hv__ = yvi
@@ -2483,11 +2482,19 @@ yoor :: forall source target t object a o .
  t a a `AR_____` target (source a o) (source object o)
 yoor x = unwrap `compose` component @target @_ @(T'I'II source object) `compose` yo (T'I'I x)
 
-ryo :: forall source target t object o .
- Covariant Transformation Functor source target (T'I'II source object) t =>
- (forall i . Wrapper target (T'I'II source object i)) =>
+ryi :: forall source target t object o .
+ Component target (T'I'II source object) t =>
+ Covariant Yoneda Functor source target t =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
  target (source object o) (t o)
-ryo = map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` wrap
+ryi = component @target @(T'I'II source object) @t `compose` wrap
+
+ryo :: forall source target t object a o i .
+ Covariant Yoneda Functor source target (T'I'II source object) =>
+ Component target (T'I'II source object) t =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ source object a `AR___` target (source a o) (t o)
+ryo x = component @target @(T'I'II source object) @t `compose` yo (T'I'II x)
 
 lu'q, lu_'q, lu__'q, lu___'q, lu____'q, lu_____'q, lu______'q, lu_______'q, lu________'q
  :: forall target a .
