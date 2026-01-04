@@ -3101,28 +3101,28 @@ ys'yu x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
 
 -- TODO: try to generalize
 yr :: forall u e ee t tt l .
- -- Covariant Monoidal Functor (AR) (AR) u (R) l t =>
- Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (R) t (tt `L` tt `T` l) e ee) t =>
+ -- Covariant Monoidal Functor (AR) (AR) u (W) l t =>
+ Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (W) t (tt `L` tt `T` l) e ee) t =>
  u (t e) ((tt `L` tt `T` l) ee) -> t (e `S` ee `S_` e `P` ee)
-yr = day @T'I'II @(AR) @l @t @tt @u @(R) identity unwrap
+yr = day @T'I'II @(AR) @l @t @tt @u @(W) identity unwrap
 
 -- TODO: try to generalize
 yr'yo :: forall source u e ee r t tt ll .
  Category source =>
- Mapping T'I'II T'I'II source (AR) (Covariant Day source u (R) t (tt `L` tt `T` ll) e ee) t =>
- Wrapper source (e `R` ee) =>
+ Mapping T'I'II T'I'II source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t =>
+ Wrapper source (e `W` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> source (e `S` ee `S_` e `P` ee) r -> t r
-yr'yo x f = day @T'I'II @source @ll @t @tt @u @(R) identity (f `compose` unwrap) x
+yr'yo x f = day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` unwrap) x
 
 -- TODO: try to generalize
 yr'yokl :: forall source u e ee r t tt ttt l ll lll .
  Category source =>
  Covariant Endo Transformation Functor (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
- Mapping T'I'II T'I'II source (AR) (Covariant Day source u (R) t (tt `L` tt `T` ll) e ee) t =>
- Wrapper source (e `R` ee) =>
+ Mapping T'I'II T'I'II source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t =>
+ Wrapper source (e `W` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> source (e `S` ee `S_` e `P` ee) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
 yr'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
- (day @T'I'II @source @ll @t @tt @u @(R) identity (f `compose` unwrap) x)
+ (day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` unwrap) x)
 
 -- TODO: try to generalize
 yp'yp :: forall u e ee t tt ttt tttt l ll .
@@ -3897,7 +3897,7 @@ lu'yp'ys l r = yp'ys (lu @(t (tt o) `P` _) l r)
 
 lu'yr, lu_'yr, lu__'yr, lu___'yr, lu____'yr, lu_____'yr, lu______'yr, lu_______'yr
  :: forall e o oo t tt l .
- Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (R) t (tt `L` tt `T` l) o oo) t =>
+ Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (W) t (tt `L` tt `T` l) o oo) t =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `S` oo `S_` o `P` oo)

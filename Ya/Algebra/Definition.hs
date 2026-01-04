@@ -232,7 +232,7 @@ type M__ a aa = Minus a aa
 type family Neutral p where
  Neutral (P) = Unit
  Neutral (S) = Void
- Neutral (R) = Void
+ Neutral (W) = Void
 
 type family Aught p where
  Aught T'I'II = Unit
@@ -439,7 +439,9 @@ constant = unwrap @_ @(T'I'II source a _)
 is :: Category AR_ => e `AR_` e
 is = identity
 
-type (R) = U_T'I'II_UT'I'II (S) P
+type Whether = U_T'I'II_UT'I'II Sum Product
+
+type W = Whether
 
 instance Wrapper (AR) x
  => Elicitable T'I'II (T'I'TT'II'T'II'I (AR) (P)) x where
