@@ -379,14 +379,14 @@ li_____ = li
 li______ = li
 li_______ = li
 
-
-infixl 7 `yir`, `yor`
-infixl 7 `ryo`, `ryi`
+infixl 7 `yvr`, `yor`
+infixl 7 `ryo`, `ryv`
 
 infixl 6 `yior`, `yoir`, `yoor`
 
 -- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
 
+-- TODO: don't oversimplify - designate a functor
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target a o .
  Precategory target =>
@@ -2447,11 +2447,11 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  target (t i) (source i (Representation t))
 -- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
 
-yir :: forall source target t object o .
+yvr :: forall source target t object i .
  Covariant Transformation Functor source target t (T'I'II source object) =>
- (forall i . Wrapper target (T'I'II source object i)) =>
- target (t o) (source object o)
-yir = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ target (t i) (source object i)
+yvr = unwrap `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
 yor :: forall source target t object a o .
  Covariant Yoneda Functor source target t =>
@@ -2482,12 +2482,12 @@ yoor :: forall source target t object a o .
  t a a `AR_____` target (source a o) (source object o)
 yoor x = unwrap `compose` component @target @_ @(T'I'II source object) `compose` yo (T'I'I x)
 
-ryi :: forall source target t object o .
+ryv :: forall source target t object o .
  Component target (T'I'II source object) t =>
  Covariant Yoneda Functor source target t =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  target (source object o) (t o)
-ryi = component @target @(T'I'II source object) @t `compose` wrap
+ryv = component @target @(T'I'II source object) @t `compose` wrap
 
 ryo :: forall source target t object a o i .
  Covariant Yoneda Functor source target (T'I'II source object) =>
