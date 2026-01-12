@@ -466,6 +466,12 @@ pattern RT x = T'TT'I'TTT'I (That x)
 pattern Clasp :: forall t tt ttt i . t (tt i) (ttt i) `AR___` T'TT'I'TTT'I t tt ttt i
 pattern Clasp x = T'TT'I'TTT'I x
 
+type family Basetype x where
+ Basetype (i `P` ii) = i `P` ii
+ Basetype (i `S` ii) = i `S` ii
+ Basetype (i `AR` ii) = i `AR` ii
+ Basetype i = Basetype (Supertype i)
+
 class Objective v target a o where
  objective :: Supertype (v target a o)
 
