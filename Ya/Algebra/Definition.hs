@@ -499,6 +499,21 @@ instance (e ~ eee, ee ~ eeee, Category target) => Objective T'I'II target (e `AR
 instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `AR` ee) (eee `AR` eeee) where
  objective = identity
 
+basic :: forall target i .
+ Covariant Objective target i (Basetype i) =>
+ target i (Basetype i)
+basic = objective @T'I'II @target
+
+bound :: forall target i .
+ Contravariant Objective target i (Basetype i) =>
+ target (Basetype i) i
+bound = objective @T'II'I @target
+
+super :: forall target i .
+ Covariant Elicitable target i =>
+ target i (Supertype i)
+super = let T'I'II x = elicit in x
+
 -- TODO: generalize, move to `Abstract` module
 newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
 
