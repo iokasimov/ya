@@ -202,6 +202,8 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
+infixl 9 `hvb`, `hbv`
+
 infixl 8 `khv`
 
 infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `lu'ys'la`
@@ -2119,6 +2121,24 @@ hv_____ = yvi
 hv______ = yvi
 hv_______ = yvi
 hv________ = yvi
+
+hvb
+ :: forall target a o .
+ Category target =>
+ Terminal target =>
+ Wrapper target a =>
+ Covariant Objective target a (Basetype a) =>
+ target (Basetype a) o -> target a o
+hvb = fai @target (objective @T'I'II @target)
+
+hbv
+ :: forall target a o .
+ Category target =>
+ Terminal target =>
+ Wrapper target a =>
+ Contravariant Objective target a (Basetype a) =>
+ target a o -> target (Basetype a) o
+hbv = fai @target (objective @T'II'I @target)
 
 yvi'he, hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
  :: forall target a o .
