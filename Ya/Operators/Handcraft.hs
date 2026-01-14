@@ -206,6 +206,10 @@ infixl 9 `hvb`, `hbv`
 
 infixl 8 `khv`
 
+infixl 9 `hc`
+infixl 8 `hdj`
+infixl 8 `hjd`
+
 infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `lu'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lo_'q`, `lu_'ys'la`
 infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lo__'q`, `lu__'ys'la`
@@ -3960,6 +3964,37 @@ lu_______'yr = lu'yr
  -- (forall e . Wrapper target (T'TT'I (JNT t tt) ttt e)) =>
  -- t (tt e) `P` t (tt ee) -> target (source (e `P` ee) (ttt o)) ((t `JNT` tt) o)
 -- yp'yp'jt'yok = yok @source @target `compose` yp'yp'jt
+
+hjd :: forall target tt i eee e ee .
+ Adjoint Functor target target (T'II'I P e) (T'I'II tt ee) =>
+ (forall eee . Wrapper target (T'I'II tt ee `T'TT'I` T'II'I P e `T'I_` eee)) =>
+ (forall eee . Wrapper target (I eee)) =>
+ (forall eee . Wrapper target (T'II'I P e eee)) =>
+ (forall eee . Wrapper target (T'I'II tt ee eee)) =>
+ Contravariant Objective target eee (P i e) =>
+ target i (tt ee eee)
+hjd = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+
+hdj :: forall target t tt i e ee .
+ Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
+ (forall eee . Wrapper target (T'II'I t e `T'TT'I` T'I'II tt ee `T'I_` eee)) =>
+ (forall eee . Wrapper target (I eee)) =>
+ (forall eee . Wrapper target (T'II'I t e eee)) =>
+ (forall eee . Wrapper target (T'I'II tt ee eee)) =>
+ target (t (tt ee i) e) i
+hdj = unwrap `compose` component @target @(T'II'I t e `T'TT'I` T'I'II tt ee) @I 
+ `compose` wrap `compose` wrap `compose` foi @target wrap
+
+hc :: forall target i tt o a .
+ Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
+ (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (T'II'I (P) a e)) =>
+ (forall e . Wrapper target (T'I'II tt a e)) =>
+ (forall e . Wrapper target (T'TT'I (T'I'II tt a) (T'II'I (P) a) e)) =>
+ Covariant Objective target i (tt a o) =>
+ target i (tt a o)
+hc = objective @T'I'II @target @i @(tt a o)
 
 q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
  forall target e .
