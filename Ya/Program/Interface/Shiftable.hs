@@ -57,18 +57,17 @@ type Sliding t = Shifting List t
  --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
  --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
 
- 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
  (I `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source (Label (Root x xs)) ->
-  T'TT'I'TTT'I (Alone (source x) `lu` T'TT'I (T'I'I (empty @List `lu` (T'TT'I (xs `yo` F'T'I'TT'I) `yo` source))))
+  Alone `hc` source x `hjd___` empty @List `hjd_` T'TT'I (xs `yo` F'T'I'TT'I) `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
-  (l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push)
-   `he'he'hv__` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `li` r
-   `yi_` that `ho'yo` source
+  l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
+  `hc___` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `hc_` r
+  `yi__` that `ho'yo` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)
@@ -96,7 +95,7 @@ rewind :: forall t tt i .
  Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Unit)
 rewind way = unwrap @(AR) `ha` unwrap @(AR)
  `hv_______` intro @(State `T` Shifting t tt i) Unit
-   `yuk____` Apply `ha` State `ha` Event `hv` shift way
+   `yuk____` Apply `ha` State `ha` Event `hc` shift way
    `yok____` Retry `ha__` Exist `la` Exist `hu` Empty Unit
 
 pattern Shrink e = This e
