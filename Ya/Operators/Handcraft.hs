@@ -202,8 +202,6 @@ infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv___
 infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
 infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
 
-infixl 9 `hvb`, `hbv`
-
 infixl 8 `khv`
 
 infixl 9 `hc`
@@ -1811,24 +1809,6 @@ ho'hu = fai (fiu @source) `compose` ho @t
 -- ho_______'ha = ho'ha
 -- ho________'ha = ho'ha
 
--- ho'ha'he, ho_'ha'he, ho__'ha'he, ho___'ha'he, ho____'ha'he, ho_____'ha'he, ho______'ha'he, ho_______'ha'he, ho________'ha'he
---  :: forall source u uu o i ii a .
---  Covariant Yoneda Functor u (AR) (T'I'II u i) =>
---  Contravariant Semi Functor source u (T'II'I uu ii) =>
---  (forall e ee . Wrapper u (T'II'I uu e ee)) =>
---  Wrapper source a =>
---  u i (uu o ii) -> source (Supertype a) o -> u i (uu a ii)
--- ho'ha'he x = fai (fai `compose` fai @source unwrap) (ho @u x)
-
--- ho_'ha'he = ho'ha'he
--- ho__'ha'he = ho'ha'he
--- ho___'ha'he = ho'ha'he
--- ho____'ha'he = ho'ha'he
--- ho_____'ha'he = ho'ha'he
--- ho______'ha'he = ho'ha'he
--- ho_______'ha'he = ho'ha'he
--- ho________'ha'he = ho'ha'he
-
 -- ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'ha'he'he, ho_____'ha'he'he, ho______'ha'he'he, ho_______'ha'he'he, ho________'ha'he'he
 --  :: forall source u uu o i ii a .
 --  Covariant Yoneda Functor u (AR) (T'I'II u i) =>
@@ -2129,24 +2109,6 @@ hv______ = yvi
 hv_______ = yvi
 hv________ = yvi
 
-hvb
- :: forall target a o .
- Category target =>
- Terminal target =>
- Wrapper target a =>
- Covariant Objective target a (Basetype a) =>
- target (Basetype a) o -> target a o
-hvb = fai @target (objective @T'I'II @target)
-
-hbv
- :: forall target a o .
- Category target =>
- Terminal target =>
- Wrapper target a =>
- Contravariant Objective target a (Basetype a) =>
- target a o -> target (Basetype a) o
-hbv = fai @target (objective @T'II'I @target)
-
 yvi'he, hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
  :: forall target a o .
  Category target =>
@@ -2384,95 +2346,6 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 -- hu______ = hu
 -- hu_______ = hu
 -- hu________ = hu
-
--- hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
---  :: forall source target a o .
---  Precategory target =>
---  Precategory source =>
---  Covariant Yoneda Functor source target (U_1_I source ()) =>
---  Contravariant Endo Semi Functor source (T'II'I source o) =>
---  Elicitable T'II'I target (T'I'II source a o) =>
---  Elicitable T'II'I target (U_1_I source a o) =>
---  Elicitable T'I'II target (U_1_I source a o) =>
---  Elicitable T'I'II source a =>
---  Wrapper source (T'II'I source o a) =>
---  Wrapper source (T'II'I source o (Supertype a)) =>
---  Elicitable T'I'II target (T'I'II source a o) =>
---  Elicitable T'I'II target (U_1_I source a o) =>
---  Contravariant Yoneda Functor source (AR) (T'II'I target (Supertype (U_1_I source a o))) =>
---  Supertype (U_1_I source a o) -> target (source (Supertype a) o) (Supertype (U_1_I source a o))
--- hu'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu_'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu__'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu___'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu____'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu_____'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu______'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu_______'he x = hu @source @target @a x `yai'yai` he @source @a
--- hu________'he x = hu @source @target @a x `yai'yai` he @source @a
-
--- hu_'he = hu'he
--- hu__'he = hu'he
--- hu___'he = hu'he
--- hu____'he = hu'he
--- hu_____'he = hu'he
--- hu______'he = hu'he
--- hu_______'he = hu'he
--- hu________'he = hu'he
-
--- hu'he'he, hu_'he'he, hu__'he'he, hu___'he'he, hu____'he'he, hu_____'he'he, hu______'he'he, hu_______'he'he, hu________'he'he
- -- :: forall source target a o .
- -- Precategory target =>
- -- Precategory source =>
- -- Covariant Yoneda Functor source target (U_1_I source a) =>
- -- Constant Yoneda Functor source target (U_1_I source a) =>
- -- Contravariant Endo Semi Functor source (T'II'I source o) =>
- -- Elicitable T'II'I target (T'I'II source a o) =>
- -- Elicitable T'II'I target (U_1_I source a a) =>
- -- Elicitable T'I'II target (U_1_I source a o) =>
- -- Elicitable T'I'II source a =>
- -- Elicitable T'I'II source (Supertype a) =>
- -- Wrapper source (T'II'I source o a) =>
- -- Wrapper source (T'II'I source o (Supertype (Supertype a))) =>
- -- Elicitable T'I'II target (T'I'II source a o) =>
- -- Wrapper target (U_1_I source a o) =>
- -- Contravariant Yoneda Functor source (AR) (T'II'I target (Supertype (U_1_I source a o))) =>
- -- a -> target (source (Supertype (Supertype a)) o) o
--- hu'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu_'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu__'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu___'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu____'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu_____'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu______'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu_______'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
--- hu________'he'he x = hu @source @target @a x `yai'yai` he'he @source @a
-
--- v :: (a -> o) -> a -> e -> o
--- v source x y = source (constant x y)
-
--- vv = v
--- vvv = v
--- vvvv = v
--- vvvvv = v
--- vvvvvv = v
--- vvvvvvv = v
--- vvvvvvvv = v
--- vvvvvvvvv = v
-
--- ro :: forall target source t i .
---  Category target =>
---  Covariant Representable target target t =>
---  Elicitable T'I'II target (T'I'II source (Representation t) i) =>
---  target (t i) (source (Representation t) i)
--- ro = he `compose` map @T'I'II @T'I'II @target @target @t @(T'I'II source (Representation t)) identity
-
--- ra :: forall target source t i .
---  Category target =>
---  Contravariant Representable target target t =>
---  Elicitable T'I'II target (T'II'I source (Representation t) i) =>
---  target (t i) (source i (Representation t))
--- ra = he `compose` map @T'II'I @T'I'II @target @target @t @(T'II'I source (Representation t)) identity
 
 yvr :: forall source target t object i .
  Covariant Transformation Functor source target t (T'I'II source object) =>
