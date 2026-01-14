@@ -207,8 +207,11 @@ infixl 9 `hvb`, `hbv`
 infixl 8 `khv`
 
 infixl 9 `hc`
-infixl 8 `hdj`
-infixl 8 `hjd`
+infixl 8 `hc_`, `hjd`, `hdj`
+infixl 7 `hc__`, `hjd_`, `hdj_`
+infixl 6 `hc___`, `hjd__`, `hdj__`
+infixl 5 `hc____`, `hjd___`, `hdj___`
+infixl 4 `hc_____`, `hjd____`, `hdj____`
 
 infixl 8 `lo`, `lo'lu`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `lu'ys'la`
 infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lo_'q`, `lu_'ys'la`
@@ -3965,7 +3968,7 @@ lu_______'yr = lu'yr
  -- t (tt e) `P` t (tt ee) -> target (source (e `P` ee) (ttt o)) ((t `JNT` tt) o)
 -- yp'yp'jt'yok = yok @source @target `compose` yp'yp'jt
 
-hjd :: forall target tt i eee e ee .
+hjd, hjd_, hjd__, hjd___, hjd____ :: forall target tt i eee e ee .
  Adjoint Functor target target (T'II'I P e) (T'I'II tt ee) =>
  (forall eee . Wrapper target (T'I'II tt ee `T'TT'I` T'II'I P e `T'I_` eee)) =>
  (forall eee . Wrapper target (I eee)) =>
@@ -3975,7 +3978,12 @@ hjd :: forall target tt i eee e ee .
  target i (tt ee eee)
 hjd = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
 
-hdj :: forall target t tt i e ee .
+hjd_ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+hjd__ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+hjd___ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+hjd____ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` unwrap) `compose` unwrap `compose` unwrap `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+
+hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
  (forall eee . Wrapper target (T'II'I t e `T'TT'I` T'I'II tt ee `T'I_` eee)) =>
  (forall eee . Wrapper target (I eee)) =>
@@ -3985,7 +3993,12 @@ hdj :: forall target t tt i e ee .
 hdj = unwrap `compose` component @target @(T'II'I t e `T'TT'I` T'I'II tt ee) @I 
  `compose` wrap `compose` wrap `compose` foi @target wrap
 
-hc :: forall target i tt o a .
+hdj_ = hdj
+hdj__ = hdj
+hdj___ = hdj
+hdj____ = hdj
+
+hc, hc_, hc__, hc___, hc____, hc_____ :: forall target i tt o a .
  Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
  (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
  (forall e . Wrapper target (I e)) =>
@@ -3995,6 +4008,12 @@ hc :: forall target i tt o a .
  Covariant Objective target i (tt a o) =>
  target i (tt a o)
 hc = objective @T'I'II @target @i @(tt a o)
+
+hc_ = hc
+hc__ = hc
+hc___ = hc
+hc____ = hc
+hc_____ = hc
 
 q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
  forall target e .
