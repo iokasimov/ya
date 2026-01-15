@@ -25,7 +25,7 @@ type family Shifter t where
  Shifter (Construction (Twice `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
--- TODO: Replace with a natural transformation?
+-- TODO: Rephsce with a natural transformation?
 -- focus :: Supertype (Scope `T'I` Shifting t tt i `T'I` t i)
 
 -- TODO: flux, axis, rest
@@ -55,7 +55,7 @@ type Sliding t = Shifting List t
  --        `lo` Scope `hv` it @(Scrolling Tree i)
  --   `yok____` Check `ha` Stops `ha___` not `ha` found
  --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
- --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `la` Again `hu` Reach Unit
+ --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `hs` Again `hu` Reach Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
@@ -66,7 +66,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
-  `hc___` Empty `hu` intro @(Nonempty List) x `la` push x `ho` that `hc_` r
+  `hc___` Empty `hu` intro @(Nonempty List) x `hs` push x `ho` that `hc_` r
   `yi__` that `ho'yo` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
@@ -80,7 +80,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
--- spot (These way predicate) x = foi Exist `ha` fetch `la` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+-- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
 
 --  found (These w sl) = super (predicate `he'hv` w) `yui` sl `yiu` sl
 
@@ -88,7 +88,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hv` at @(t i) `lo` Scope `hv` it
 --   `yok____` Check `ha` Stops `ha___` not `ha` found
 --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
---   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `la` Again `hu` Reach Unit
+--   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `hs` Again `hu` Reach Unit
 
 rewind :: forall t tt i .
  Shiftable t tt =>
@@ -96,14 +96,14 @@ rewind :: forall t tt i .
 rewind way = super @(AR) `ha` super @(AR)
  `hv_______` intro @(State `T` Shifting t tt i) Unit
    `yuk____` Apply `ha` State `ha` Event `hc` shift way
-   `yok____` Retry `ha__` Exist `la` Exist `hu` Empty Unit
+   `yok____` Retry `ha__` Exist `hs` Exist `hu` Empty Unit
 
 pattern Shrink e = This e
 pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 -- adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
--- adjust way x = is `hu` (Empty Unit `lu` x) `la` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
+-- adjust way x = is `hu` (Empty Unit `lu` x) `hs` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
 
 --  -- TODO: there should be a way to shorten it
 --  router (These (This _) (This _)) = shrink_passed
@@ -133,12 +133,12 @@ pattern Expand e = That e
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
 --  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hv` get_last_window_item `ha_` Scope `hv` at @(List i)
+--   `yuk____` Apply `ha` State `hv___` Event `hv` get_hsst_window_item `ha_` Scope `hv` at @(List i)
 --   `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` at @(List i)
 --   `yok____` Check
 --   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
 
---  get_last_window_item window = window
+--  get_hsst_window_item window = window
 --   `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior
 --   `yuk_` Apply `ha` State `ha` Event `hv` pop @List
 --   `he'he'hv_____` empty @List

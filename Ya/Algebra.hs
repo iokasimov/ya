@@ -622,7 +622,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
-      `la` intro @(T'I'II (T'I'TT'II'I (AR) (P)) i) @(AR) `ha` source
+      `hs` intro @(T'I'II (T'I'TT'II'I (AR) (P)) i) @(AR) `ha` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` I `L` I `T` Recursive)
@@ -640,7 +640,7 @@ instance
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
-      `la` intro @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) @(AR) `ha` source
+      `hs` intro @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) @(AR) `ha` source
 
 instance
  ( Covariant Yoneda Functor (AR) (AR) t
@@ -852,9 +852,9 @@ instance
     `ho__` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
     `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hv_` This `ho` T'TT'I'TTT'I
     `ho__` This
-    `la__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
+    `hs__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho__` super @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hv_` That `ho` T'TT'I'TTT'I
+    `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hc_` That `ho` T'TT'I'TTT'I
     `ho__` That
 
 -- TODO: try to generalise
@@ -877,7 +877,7 @@ instance
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
- mapping = rewrap `hv` \source -> T'I'II `ha` wrap @AR `ha` source `la` T'I'II `ha` wrap @AR `ha` source
+ mapping = rewrap `hv` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
 
 -- TODO: generalize over categories
 instance {-# OVERLAPPABLE #-}
@@ -911,7 +911,7 @@ instance Elicitable T'I'II (AR) (e `P` (ee `P` eee))
 type instance Supertype (e `S` (ee `S` eee)) = e `S` ee `S` eee
 
 instance Elicitable T'II'I (AR) (e `S` (ee `S` eee))
- where elicit = T'II'I (This `la` (That `ha` This) `la_` That `ha` That)
+ where elicit = T'II'I (This `hs` (That `ha` This) `hs_` That `ha` That)
 
 instance Elicitable T'I'II (AR) (e `S` (ee `S` eee))
- where elicit = T'I'II (This `ha` This `la_` This `ha` That `la` That)
+ where elicit = T'I'II (This `ha` This `hs_` This `ha` That `hs` That)

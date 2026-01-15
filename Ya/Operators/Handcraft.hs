@@ -211,23 +211,23 @@ infixl 6 `hc___`, `hdj__`
 infixl 5 `hc____`, `hdj___`
 infixl 4 `hc_____`, `hdj____`
 
-infixl 8 `lo`, `lo'hjd`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'la`, `lo'q`, `hjd'ys'la`
-infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'la`, `lo_'q`, `hjd_'ys'la`
-infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'la`, `lo__'q`, `hjd__'ys'la`
-infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'la`, `lo___'q`, `hjd___'ys'la`
-infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'la`, `lo____'q`, `hjd____'ys'la`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'la`, `lo_____'q`, `hjd_____'ys'la`
-infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'la`, `lo______'q`, `hjd______'ys'la`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'la`, `lo_______'q`,  `hjd_______'ys'la`
+infixl 8 `lo`, `lo'hjd`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'hs`, `lo'q`, `hjd'ys'hs`
+infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'hs`, `lo_'q`, `hjd_'ys'hs`
+infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'hs`, `lo__'q`, `hjd__'ys'hs`
+infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'hs`, `lo___'q`, `hjd___'ys'hs`
+infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'hs`, `lo____'q`, `hjd____'ys'hs`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'hs`, `lo_____'q`, `hjd_____'ys'hs`
+infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'hs`, `lo______'q`, `hjd______'ys'hs`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'hs`, `lo_______'q`,  `hjd_______'ys'hs`
 
-infixl 8 `la`
-infixl 7 `la_`
-infixl 6 `la__`
-infixl 5 `la___`
-infixl 4 `la____`
-infixl 3 `la_____`
-infixl 2 `la______`
-infixl 1 `la_______`
+infixl 8 `hs`
+infixl 7 `hs_`
+infixl 6 `hs__`
+infixl 5 `hs___`
+infixl 4 `hs____`
+infixl 3 `hs_____`
+infixl 2 `hs______`
+infixl 1 `hs_______`
 
 infixl 8 `hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yr`, `hjd'q`, `hjd's`
 infixl 7 `hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yr`, `hjd_'q`, `hjd_'s`
@@ -1412,7 +1412,7 @@ yoikl'yokl x = fai
  )
  (yoikl @source @target @t @ttt @l @lll @(tt a) @(tt o) x)
 
--- TODO: labeling
+-- TODO: hsbeling
 yiok :: forall source target tt t i a o .
  Category target =>
  Component target (T'I'II t i `T'TT'I` tt) (T'I'II t i) =>
@@ -2291,7 +2291,7 @@ ha'yioi :: forall source u t o i ii iii a .
  u (t ii a iii) i -> source o a -> u (t ii o iii) i
 ha'yioi x = fai (fioi @source) (ha @source x)
 
--- -- TODO: replace with `ho_`
+-- -- TODO: rephsce with `ho_`
 -- ho_yi :: forall source u e a o .
 --  Covariant Endo Semi Functor source (T'I'II source a) =>
 --  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
@@ -2304,7 +2304,7 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  u e a -> source a o -> u e (Supertype o)
 -- ho_yi x = fai @source (fio @source he) (ho x)
 
--- -- TODO: replace with `ho_ho`
+-- -- TODO: rephsce with `ho_ho`
 -- ho_yi'ho :: forall source u e a o .
 --  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
 --  Elicitable T'I'II source a =>
@@ -2664,127 +2664,37 @@ lo_____'ys = lo'ys
 lo______'ys = lo'ys
 lo_______'ys = lo'ys
 
-lo'ys'la, lo_'ys'la, lo__'ys'la, lo___'ys'la, lo____'ys'la, lo_____'ys'la, lo______'ys'la, lo_______'ys'la
+lo'ys'hs, lo_'ys'hs, lo__'ys'hs, lo___'ys'hs, lo____'ys'hs, lo_____'ys'hs, lo______'ys'hs, lo_______'ys'hs
  :: forall t tt l a o .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o o) t =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) o) -> Arrow a (t o)
-lo'ys'la l r = (\x -> ys'yo x (identity @(AR) `la` identity)) `compose` lo @(AR) @(_ `P` _) l r
+lo'ys'hs l r = (\x -> ys'yo x (identity @(AR) `hs` identity)) `compose` lo @(AR) @(_ `P` _) l r
 
-lo_'ys'la = lo'ys'la
-lo__'ys'la = lo'ys'la
-lo___'ys'la = lo'ys'la
-lo____'ys'la = lo'ys'la
-lo_____'ys'la = lo'ys'la
-lo______'ys'la = lo'ys'la
-lo_______'ys'la = lo'ys'la
+lo_'ys'hs = lo'ys'hs
+lo__'ys'hs = lo'ys'hs
+lo___'ys'hs = lo'ys'hs
+lo____'ys'hs = lo'ys'hs
+lo_____'ys'hs = lo'ys'hs
+lo______'ys'hs = lo'ys'hs
+lo_______'ys'hs = lo'ys'hs
 
-hjd'ys'la, hjd_'ys'la, hjd__'ys'la, hjd___'ys'la, hjd____'ys'la, hjd_____'ys'la, hjd______'ys'la, hjd_______'ys'la
+hjd'ys'hs, hjd_'ys'hs, hjd__'ys'hs, hjd___'ys'hs, hjd____'ys'hs, hjd_____'ys'hs, hjd______'ys'hs, hjd_______'ys'hs
  :: forall t tt l a o .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o o) t =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  t o -> (tt `L` tt `T` l) o -> (t o)
-hjd'ys'la l r = ys'yo (hjd @AR @AR @_ @(t o `P` _) l r) (identity @(AR) `la` identity)
+hjd'ys'hs l r = ys'yo (hjd @AR @AR @_ @(t o `P` _) l r) (identity @(AR) `hs` identity)
 
-hjd_'ys'la = hjd'ys'la
-hjd__'ys'la = hjd'ys'la
-hjd___'ys'la = hjd'ys'la
-hjd____'ys'la = hjd'ys'la
-hjd_____'ys'la = hjd'ys'la
-hjd______'ys'la = hjd'ys'la
-hjd_______'ys'la = hjd'ys'la
+hjd_'ys'hs = hjd'ys'hs
+hjd__'ys'hs = hjd'ys'hs
+hjd___'ys'hs = hjd'ys'hs
+hjd____'ys'hs = hjd'ys'hs
+hjd_____'ys'hs = hjd'ys'hs
+hjd______'ys'hs = hjd'ys'hs
+hjd_______'ys'hs = hjd'ys'hs
 
--- target a o -> target a oo -> target a (Product o oo)
-
--- cn :: forall target a aa o oo .
- -- Cone T'I'II target target Product =>
- -- Functor T'I'II target target (T'I'II Product o) =>
- -- Functor T'I'II target target (T'I'II Product aa) =>
- -- Functor T'I'II target target (T'II'I Product aa) =>
- -- Wrapper target (T'I'II Product o aa) =>
- -- Wrapper target (T'I'II Product o oo) =>
- -- Wrapper target (T'II'I Product aa o) =>
- -- Wrapper target (T'II'I Product aa a) =>
- -- (forall e . Wrapper target (T'II'I Product aa e)) =>
- -- target a o -> target aa oo -> target (Product a aa) (Product o oo)
--- cn l r = fio r `compose` foi l
-
--- target a o -> target a oo -> target a (Product target o oo)
-
--- cnz :: forall target e a aa o oo .
- -- Cone T'I'II target target (Object T'I'II target) =>
- -- Functor T'I'II target target (T'I'II (Product target) o) =>
- -- Functor T'I'II target target (T'I'II (Product target) aa) =>
- -- Functor T'I'II target target (T'II'I (Product target) aa) =>
- -- Wrapper target (T'I'II (Product target) o aa) =>
- -- Wrapper target (T'I'II (Product target) o oo) =>
- -- Wrapper target (T'II'I (Product target) aa o) =>
- -- Wrapper target (T'II'I (Product target) aa a) =>
- -- Elicitable T'I'II target e =>
- -- (Supertype e ~ (Product target a aa)) =>
- -- target a o -> target aa oo -> target e (Product target o oo)
--- cnz l r = fio r `compose` foi l `compose` _' @target
-
--- TODO: try to generalize
--- cn'yp, yi'cn'yp :: forall t a aa o oo .
- -- Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (Product (AR)) (Product (AR)) t t o oo) t =>
- -- Arrow a (t o) -> Arrow aa (t oo) -> Arrow (Product (AR) a aa) (t (Product Arrow o oo))
--- cn'yp l r = yp `compose` cn l r
-
--- yi'cn'yp = cn'yp
-
--- TODO: try to generalize
--- cnz'yp, yi'cnz'yp :: forall e t a aa o oo .
---  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (Product (AR)) (Product (AR)) t t o oo) t =>
---  Elicitable T'I'II (AR) e =>
---  (Supertype e ~ Product (AR) a aa) =>
---  Arrow a (t o) -> Arrow aa (t oo) -> Arrow e (t (Product Arrow o oo))
--- cnz'yp l r = yp `compose` cn l r `compose` he
-
--- yi'cnz'yp = cnz'yp
-
--- TODO: try to generalize
--- hjd, hjd_, hjd__, hjd___, hjd____, hjd_____, hjd______, hjd_______ :: forall o oo .
---  Limit T'I'II (AR) (AR) =>
---  Covariant Functor (AR) (AR) (T'I'II (Product (AR)) o) =>
---  Covariant Functor (AR) (AR) (T'II'I (Product (AR)) (Product (AR) () ())) =>
---  Elicitable T'I'II (AR) (Both (Product (AR)) (Product (AR) () ())) =>
---  Elicitable T'I'II (AR) (T'I'II (Product (AR)) o oo) =>
---  Elicitable T'II'I (AR) (T'II'I (Product (AR)) () ()) =>
---  Elicitable T'II'I (AR) (T'I'II (Product (AR)) () ()) =>
---  Elicitable T'I'II (AR) (Both (Product (AR)) ()) =>
---  Elicitable T'I'II (AR) (T'II'I (Product (AR)) (Product (AR) () ()) o) =>
---  Elicitable T'II'I (AR) (T'II'I (Product (AR)) (Product (AR) () ()) (Product (AR) () ())) =>
---  Wrapper (AR) (T'I'II (Product (AR)) o (Product (AR) () ())) =>
---  (forall e . Wrapper (AR) (I e)) =>
---  Elicitable T'II'I (AR) (U_1_I (AR) () o) =>
---  Elicitable T'II'I (AR) (U_1_I (AR) () oo) =>
---  Elicitable T'I'II (AR) (U_1_I (AR) () (Product (AR) o oo)) =>
---  Supertype (U_1_I (AR) () o) ->
---  Supertype (U_1_I (AR) () oo) ->
---  Supertype (U_1_I (AR) () (Product (AR) o oo))
--- hjd l r = -- he /
---  -- __ (map @T'I'II @T'I'II (wrapped (right @T'I'II (wrap @_ @(U_1_I (AR) () oo) r)))) `compose`
---  -- i_ (map @T'I'II @T'I'II (wrapped (left @T'I'II (wrap @_ @(U_1_I (AR) () o) l)))) `compose`
---  -- wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity) `compose`
---  -- wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity)
-
---  __ (map @U_1_I @T'I'II (wrapped (right @T'I'II r))) `compose`
---  i_ (map @U_1_I @T'I'II (wrapped (left @T'I'II l))) `compose`
- -- wrapped (map @U_1_I @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity) `compose`
- -- wrapped (map @U_1_I @T'I'II @(AR) @(AR) @I @(Both (Product (AR))) identity)
-
--- ho'hjd :: forall o oo .
- -- Limit T'I'II (AR) (AR) =>
- -- Mapping T'I'II T'I'II (AR) (AR) I (T'I'I Product) =>
- -- Covariant Yoneda Functor (AR) (AR) (T'I'II Product o) =>
- -- Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
- -- Wrapper (AR) (T'I'I Product ()) =>
- -- Wrapper (AR) (I ()) =>
- -- source e o -> source e oo -> Product o oo
--- ho'hjd l r = wrapped (map @T'I'II @T'I'II @(AR) @(AR) @I @(T'I'I Product) identity) () `yui` l `yiu` r
-
-la, la_, la__, la___, la____, la_____, la______, la_______ :: forall source i a o oo .
+hs, hs_, hs__, hs___, hs____, hs_____, hs______, hs_______ :: forall source i a o oo .
  Category source =>
  Limit T'II'I source source =>
  Covariant Objective source a (o `S` oo) =>
@@ -2795,18 +2705,18 @@ la, la_, la__, la___, la____, la_____, la______, la_______ :: forall source i a 
  (forall ee . Wrapper source (T'I'I Sum ee)) =>
  (forall ee . Wrapper source (I ee)) =>
  source o i -> source oo i -> source a i
-la l r = wrapped (map @T'II'I @T'II'I @source @source @I @(Both Sum) identity)
+hs l r = wrapped (map @T'II'I @T'II'I @source @source @I @(Both Sum) identity)
  `compose` foi @source @source l
  `compose` fio @source @source r
  `compose` objective @T'I'II @source @a @(o `S` oo)
 
-la_ = la
-la__ = la
-la___ = la
-la____ = la
-la_____ = la
-la______ = la
-la_______ = la
+hs_ = hs
+hs__ = hs
+hs___ = hs
+hs____ = hs
+hs_____ = hs
+hs______ = hs
+hs_______ = hs
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
@@ -3132,7 +3042,7 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
 -- TODO: define `rw'rw'ha`
 -- TODO: define `rw'rw'rw'ha`
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 yo'yok
  :: forall source target t tt ttt lll a o .
  Covariant Endo Semi Functor source tt =>
@@ -3144,7 +3054,7 @@ yo'yok
  (t (tt a)) -> target (source (a) (ttt `L` ttt `T` lll `T'I` o)) (t (tt o))
 yo'yok = fai (fok @source @source @tt @ttt) `compose` yo @source @target
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall source u t tt ll a o e .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source t =>
@@ -3165,7 +3075,7 @@ ho______'yok = ho'yok
 ho_______'yok = ho'yok
 ho________'yok = ho'yok
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_______'yuk, ho________'yuk
  :: forall source t tt ll a o i .
  Covariant Endo Semi Functor source tt =>
@@ -3239,7 +3149,7 @@ ha_____'kyok = ha'kyok
 ha______'kyok = ha'kyok
 ha_______'kyok = ha'kyok
 
--- TODO: defined manually temporarily, replace with generated version later
+-- TODO: defined manually temporarily, rephsce with generated version hster
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
  :: forall source target t tt ttt l a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -3265,7 +3175,7 @@ ha______'yok = ha'yok
 ha_______'yok = ha'yok
 ha________'yok = ha'yok
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 ha'yuk, ha_'yuk, ha__'yuk, ha___'yuk, ha____'yuk, ha_____'yuk, ha______'yuk, ha_______'yuk, ha________'yuk
  :: forall target t tt ttt l a o i .
  Contravariant Yoneda Functor (AR) target (T'II'I t i) =>
@@ -3290,7 +3200,7 @@ ha______'yuk = ha'yuk
 ha_______'yuk = ha'yuk
 ha________'yuk = ha'yuk
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 ha'yokl, ha_'yokl, ha__'yokl, ha___'yokl, ha____'yokl, ha_____'yokl, ha______'yokl, ha_______'yokl, ha________'yokl
  :: forall source target t tt ttt l ll a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -3317,7 +3227,7 @@ ha______'yokl = ha'yokl
 ha_______'yokl = ha'yokl
 ha________'yokl = ha'yokl
 
--- TODO: defined manually temporarily, replace with generated version
+-- TODO: defined manually temporarily, rephsce with generated version
 yai'yukl, ha'yukl, ha_'yukl, ha__'yukl, ha___'yukl, ha____'yukl, ha_____'yukl, ha______'yukl, ha_______'yukl, ha________'yukl
  :: forall target t ttt tt l ll a o i .
  Constant Endo Semi Functor (AR) ttt =>
