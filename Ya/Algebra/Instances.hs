@@ -23,7 +23,7 @@ instance
  , forall e . Wrapper target (t `L` t `T` l `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)
  , Mapping T'I'II T'I'II source target (t `T'TT'I` ttt `L` ttt `T` lll) t
  ) => Mapping T'I'II T'I'II source target (t `L` t `T` l `T'TT'I` ttt `L` ttt `T` lll) (t `L` t `T` l) where
- mapping = rewrap `identity` ((`compose` unwrap) `compose` rewrap `compose` (`compose` wrap) `compose` (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t))
+ mapping = rewrap `identity` ((`compose` super) `compose` rewrap `compose` (`compose` wrap) `compose` (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t))
 
 instance (Precategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II T'I'II target target I I where
@@ -50,23 +50,23 @@ instance
  ) => Mapping T'I'II T'I'II target target (I `T'TT'I` t `L` t `T` l `L` I `T` ll) (I `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap (
   map @T'I'II @T'I'II @target @target (wrap @target @(I _) `compose` source)
-   `compose` unwrap @target @(t `L` t `T` l `T` _)
-   `compose` unwrap @target @(t `L` t `T` l `L` I `T` ll `T` _)
-   `compose` unwrap @target @(I _))
+   `compose` super @target @(t `L` t `T` l `T` _)
+   `compose` super @target @(t `L` t `T` l `L` I `T` ll `T` _)
+   `compose` super @target @(I _))
 
 instance
  ( Covariant Semi Functor source target tt
  , Covariant Endo Semi Functor target t
  , forall e . Wrapper target (t `T'TT'I` tt `T'I_` e)
  ) => Mapping T'I'II T'I'II source target (t `T'TT'I` tt) (t `T'TT'I` tt) where
- mapping = rewrap `identity` \source -> wrap @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` unwrap @target
+ mapping = rewrap `identity` \source -> wrap @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` super @target
 
 instance
  ( Covariant Semi Functor source target t
  , Covariant Endo Semi Functor target tt
  , forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)
  ) => Mapping T'I'II T'I'II source target (t `TT'T'I` tt) (t `TT'T'I` tt) where
- mapping = rewrap `identity` \source -> wrap @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` unwrap @target
+ mapping = rewrap `identity` \source -> wrap @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` super @target
 
 instance
  ( Covariant Semi Functor source target t
@@ -78,11 +78,11 @@ instance
  mapping = rewrap `identity` \source ->
   wrap @target @(T'I'II _ _ _)
   `compose` wrap @target @(T'I'TT'II _ _ _ _)
-  `compose` unwrap @target @(T'I'II _ _ _)
+  `compose` super @target @(T'I'II _ _ _)
   `compose` map @T'I'II @T'I'II @target @target (map @T'I'II @T'I'II @source @target source)
   `compose` wrap @target @(T'I'II _ _ _)
-  `compose` unwrap @target @(T'I'TT'II _ _ _ _)
-  `compose` unwrap @target @(T'I'II _ _ _)
+  `compose` super @target @(T'I'TT'II _ _ _ _)
+  `compose` super @target @(T'I'II _ _ _)
 
 instance
  ( forall ee . Covariant Semi Functor source target (T'II'I u ee)
@@ -93,11 +93,11 @@ instance
  mapping = rewrap `identity` \source ->
   wrap @target @(T'II'I _ _ _)
   `compose` wrap @target @(T'I'TT'II _ _ _ _)
-  `compose` unwrap @target @(T'II'I _ _ _)
+  `compose` super @target @(T'II'I _ _ _)
   `compose` map @T'I'II @T'I'II @source @target source
   `compose` wrap @target @(T'II'I _ _ _)
-  `compose` unwrap @target @(T'I'TT'II _ _ _ _)
-  `compose` unwrap @target @(T'II'I _ _ _)
+  `compose` super @target @(T'I'TT'II _ _ _ _)
+  `compose` super @target @(T'II'I _ _ _)
 
 instance
  ( Covariant Semi Functor source target h
@@ -110,7 +110,7 @@ instance
    `compose` map @T'I'II @T'I'II @target @target
    `compose` map @T'I'II @T'I'II @source @target
    ) source
-  `compose` unwrap @target
+  `compose` super @target
 
 instance
  ( forall e . Covariant Endo Semi Functor target (T'I'II u (t e))
@@ -139,7 +139,7 @@ instance
   -- day @T'I'II @source @Unit @ttt @u @u (wrap @_ @(T'TT'I'TTT'I u t tt _)) identity
    -- `compose` i_ (map @T'I'II @T'I'II @(AR) @(AR) (wrapped (map @T'I'II @T'I'II @source @(AR) @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) source)))
    -- `compose` _i (map @T'I'II @T'I'II @(AR) @(AR) (wrapped (map @T'I'II @T'I'II @source @(AR) @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) source)))
-   -- `compose` unwrap @(AR) @(T'TT'I'TTT'I u t tt _)
+   -- `compose` super @(AR) @(T'TT'I'TTT'I u t tt _)
 
 -- TODO: here should be a generalized version of an instance above
 -- instance
@@ -154,7 +154,7 @@ instance
     -- (wrapped (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt) @(t `TT'T'I` ttt) source))) `compose`
    -- wrapped (map @T'I'II @target @target @(T'I'II u _)
     -- (wrapped (map @T'I'II @T'I'II @source @target @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) source))) `compose`
-   -- unwrap @target @(T'TT'I'TTT'I u t tt _)
+   -- super @target @(T'TT'I'TTT'I u t tt _)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'II (These e (T'I'II f))) -> source (f e)
@@ -197,9 +197,9 @@ instance
  , forall e . Mapping T'I'II T'I'II (AR) (AR) (T'II'I t e) (T'II'I t e)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I t) (T'I'I t) where
  mapping = rewrap `identity` \source ->
-  wrap `compose` unwrap
-  `compose` map @T'I'II @T'I'II @AR @AR @(T'I'II t _) @(T'I'II t _) source `compose` wrap `compose` unwrap
-  `compose` map @T'I'II @T'I'II @AR @AR @(T'II'I t _) @(T'II'I t _) source `compose` wrap `compose` unwrap
+  wrap `compose` super
+  `compose` map @T'I'II @T'I'II @AR @AR @(T'I'II t _) @(T'I'II t _) source `compose` wrap `compose` super
+  `compose` map @T'I'II @T'I'II @AR @AR @(T'II'I t _) @(T'II'I t _) source `compose` wrap `compose` super
 
 instance
  ( Covariant Endo Semi Functor (AR) tt
@@ -212,9 +212,9 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity`
   (day @T'I'II @(AR) @l @tt @tt @t @t identity
    (map @T'I'II @T'I'II source `compose` wrap @(AR) @(T'I'I t _))
-  `compose` i_ (map @T'I'II @T'I'II (unwrap @(AR) @(tt `L` tt `T` l `T` _) `compose` unwrap @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
-  `compose` _i (map @T'I'II @T'I'II (unwrap @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
-  `compose` unwrap @(AR) @(T'I'I t _)
+  `compose` i_ (map @T'I'II @T'I'II (super @(AR) @(tt `L` tt `T` l `T` _) `compose` super @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
+  `compose` _i (map @T'I'II @T'I'II (super @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
+  `compose` super @(AR) @(T'I'I t _)
   )
 
 -- instance
@@ -230,7 +230,7 @@ instance
   -- wrapped (component @(AR) @(T'I'I u `T'TT'I` tt) @(T'I'I u `TT'T'I` tt)) `compose`
   -- map @T'I'II @T'I'II @(AR) @(AR) @(T'I'I u)
    -- (wrapped `identity` map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt) @(t `TT'T'I` tt) source) `compose`
-  -- unwrap @(AR)
+  -- super @(AR)
 
 -- instance Covariant Yoneda (AR) (AR) tt =>
 --  Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` tt) (T'II'I (P) e `TT'T'I` tt) where
@@ -288,7 +288,7 @@ instance
  ) => Mapping T'I'II T'I'II source (AR) t (Covariant Embedding target (AR) t r) where
  mapping = rewrap `identity` \source x ->
   Embedding `identity` \e -> map @T'I'II @T'I'II @source
-   (wrapped (map @T'I'II @T'I'II @target @(AR) @(T'I'II source _) @(T'I'II source _) (unwrap e)) source) x
+   (wrapped (map @T'I'II @T'I'II @target @(AR) @(T'I'II source _) @(T'I'II source _) (super e)) source) x
 
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -303,7 +303,7 @@ instance
  ) => Mapping T'II'I T'I'II source (AR) t (Contravariant Embedding target (AR) t r) where
  mapping = rewrap `identity` \source x ->
   Embedding `identity` \e -> map @T'II'I @T'I'II @source
-   (wrapped (map @T'II'I @T'I'II @target @(AR) @(T'II'I source _) @(T'II'I source _) (unwrap e)) source) x
+   (wrapped (map @T'II'I @T'I'II @target @(AR) @(T'II'I source _) @(T'II'I source _) (super e)) source) x
 
 
 -- TODO: implement `mapping` method
@@ -402,12 +402,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'II'I (S) e) where
 instance Mapping T'I'II T'I'II (AT) (AR) (T'I'II (AT) i) (T'I'II (AT) i) where
  mapping = rewrap `identity` \target -> rewrap `compose` rewrap `identity` \source x ->
   let These i i_origin = source x in
-  let These ii ii_i = unwrap target i in
+  let These ii ii_i = super target i in
   These ii (i_origin `compose` ii_i)
 
 instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \target x ->
-  let These i i_origin = unwrap source x in
+  let These i i_origin = super source x in
   let These ii ii_i = target i in
   These ii (i_origin `compose` ii_i)
 
@@ -445,7 +445,7 @@ instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (S) (S) t (t `L` t `T` l) ee eee) t where
  mapping = rewrap `identity` \source (U_V_UU_UUU_UUUU_T'TT'I_II_III (These x (T'I'II f))) -> case x of
   This xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` This) `identity` xx
-  That xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` That) `identity` unwrap xx
+  That xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` That) `identity` super xx
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P I (I `L` I `T` Void) e ee) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
@@ -548,7 +548,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T`
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TT'I x) (Label (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
-   day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `identity` These (unwrap x e) (wrap (unwrap xx e))))
+   day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `identity` These (super x e) (wrap (super xx e))))
 
 -- 0: (S'I'II e `TT'T'I` t `T'TT'I_` Void `L`  (S'I'II e `TT'T'I` t)) _
 -- 1: (S'I'II e `TT'T'I` t) (Void `L` ((S'I'II e `TT'T'I` t) _))
@@ -574,8 +574,8 @@ instance {-# OVERLAPS #-}
      `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
    (wrap @(AR) @(t `L` t `T` Void `T'I` _)
    `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` Void `L` tt `T` Void) @(tt `TT'T'I` t) identity)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @(tt) @(tt) (Label `compose` Label `compose` unwrap `compose` unwrap)
-   ) `identity` unwrap x
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @(tt) @(tt) (Label `compose` Label `compose` super `compose` super)
+   ) `identity` super x
 
 instance Adjoint Functor (AR) (AR) (T'II'I (P) i) (T'I'II (AR) i)
 instance Adjoint Functor (AR) (AR) (T'I'II (P) i) (T'I'II (AR) i)

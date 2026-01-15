@@ -16,19 +16,19 @@ not = That `la` This
 swap :: forall e ee eee .
  Contravariant Objective (AR) e (eee `P` ee) =>
  ee `P` eee `AR_` e
-swap (These x y) = y `lu` x
+swap (These x y) = y `hjd` x
 
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
   -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
-  -- (\new -> Build x (unwrap @Arrow @(F'T'I'TT'I _ _ _) `fo` unwrap new) `yo` source `ho` (\(These _ y) -> y))
+  -- (\new -> Build x (super @Arrow @(F'T'I'TT'I _ _ _) `fo` super new) `yo` source `ho` (\(These _ y) -> y))
 
 fetch :: e `AR__` e `P` e
 fetch = is `lo` is
 
 relay :: ee -> e `AR__` e `P` ee
-relay new old = old `lu` new
+relay new old = old `hjd` new
 
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
@@ -36,7 +36,7 @@ leaf :: forall t e .
 leaf x = Recursive `ha` T'TT'I `ha` T'I'II `ha` These x `li_` empty `yo` initial @(AR)
 
 it :: forall e . Reference (P) e e e
-it x = x `lu` identity
+it x = x `hjd` identity
 
 be :: o `AR__` a `AR_` o
 be = constant
@@ -51,7 +51,7 @@ top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
 top (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs old))))) =
-  old `lu` (\new -> Root new xs)
+  old `hjd` (\new -> Root new xs)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
@@ -59,7 +59,7 @@ sub :: forall tt t e .
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
   (xs `yo` wrap @(AR) @(F'T'I'TT'I _ _ _))
-  (\new -> Root x `li_` new `yo` unwrap @Arrow @(F'T'I'TT'I _ _ _))
+  (\new -> Root x `li_` new `yo` super @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
@@ -83,12 +83,12 @@ as :: forall tt ttt t i .
  Unlabelable (AR) t =>
  (Unlabeled t ~ ttt) =>
  t i `AR____` tt i `P` (tt i `AR__` ttt i)
-as = unwrap @(AR) `hv` component @(AT) `ho'ho'ho` unlabel @(AR)
+as = super @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
 
 go :: forall tt t l i .
  Component (TR) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
-go = unwrap (component @(TR)) `ho'ho` unwrap @(AR) @(t `L` tt `T` l `T` i)
+go = super (component @(TR)) `ho'ho` super @(AR) @(t `L` tt `T` l `T` i)
 
 by :: forall t r e .
  (r ~ Representation t) =>
@@ -98,9 +98,9 @@ by :: forall t r e .
 by index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
- idx origin `he'hv` index `lu`
+ idx origin `he'hv` index `hjd`
   (\x -> tbt `ha` T'I'II `hv`
-   (\index' -> is `hu_` idx origin `he'hv` index' `la` is `hu` x `li` q (index' `lu` index))
+   (\index' -> is `hu_` idx origin `he'hv` index' `la` is `hu` x `li` q (index' `hjd` index))
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean

@@ -22,12 +22,12 @@ class Keyable k t where
 --  , Component (AR) (Shafted List) (Construction Maybe)
 --  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
 --  key k x =
---   let prepared = unwrap x `yi` Adapt `ho` to @(Scrolling List) in
---   let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
+--   let prepared = super x `yi` Adapt `ho` to @(Scrolling List) in
+--   let predicate = Match `hv_` _exact_key_ k `ha` super @AR in
 --   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
---   case unwrap adjusted of
+--   case super adjusted of
 --    This Unit ->
---     Break k `lu` ((\_ -> x) `la` (\i -> push (Along (i `lu` k)) `hv` unwrap x `yi` that `ho` wrap @(AR)))
+--     Break k `lu` ((\_ -> x) `la` (\i -> push (Along (i `lu` k)) `hv` super x `yi` that `ho` wrap @(AR)))
 --    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
 --     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` xxx) `la` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
@@ -43,9 +43,9 @@ class Keyable k t where
 
 --   on_nonempty_list x =
 --    let prepared = x `yi` Adapt @(Nonempty List) `ho` to @(Scrolling List) in
---    let predicate = Match `hv_` _exact_key_ k `ha` unwrap @AR in
+--    let predicate = Match `hv_` _exact_key_ k `ha` super @AR in
 --    let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
---    case unwrap adjusted of
+--    case super adjusted of
 --     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` x `la` (\i -> push (Along (i `lu` k)) `hv` x `yi` that `ho` Adapt `ho` to @List `ho` T'TT'I))
 --     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
 --      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` xxx `la` (\i -> T'TT'I `ha` to @List `ha` Adapt `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
@@ -70,12 +70,12 @@ class Keyable k t where
 -- Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Chassis List t Tree
 -- Scrolling Tree 
 
- -- key (Root k ks) = unwrap @(AR)
- --  `hv__` unwrap @(AT) @((List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k) `T'I_` _)
+ -- key (Root k ks) = super @(AR)
+ --  `hv__` super @(AT) @((List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k) `T'I_` _)
  --   `ho_` Scope `ha` key @k @(List `T'TT'I` Along k) `hv` k
 
-  -- `ho_` unwrap @(AT) @((List `T'TT'I` Along k) (Construction (List `T'TT'I` Along k) _))
-  -- `ho_` unwrap @(AT) @(List (Along k (Construction (List `T'TT'I` Along k) _)))
+  -- `ho_` super @(AT) @((List `T'TT'I` Along k) (Construction (List `T'TT'I` Along k) _))
+  -- `ho_` super @(AT) @(List (Along k (Construction (List `T'TT'I` Along k) _)))
 
 -- Construction Maybe k 
 
