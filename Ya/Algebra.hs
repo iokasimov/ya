@@ -58,14 +58,14 @@ instance
  (Day T'I'II (AR) (P) (S) (F'T'I'TT'I (T'II'I P) (S'I'II Unit)) (F'T'I'TT'I (T'II'I P) (S'I'II Unit) `L` F'T'I'TT'I (T'II'I P) (S'I'II Unit) `T` Void) i ii)
  (F'T'I'TT'I (T'II'I P) (S'I'II Unit)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
-  let These xs x = super `compose` super `compose` super `compose` super `identity` i in
-  let These ys _ = super `compose` super `compose` super `compose` super `compose` super `identity` ii in
-  Recursive `compose` T'TT'I `compose` T'II'I `identity` These
+  let These xs x = super `compose` super `compose` super `compose` super `identity`i in
+  let These ys _ = super `compose` super `compose` super `compose` super `compose` super `identity`ii in
+  Recursive `compose` T'TT'I `compose` T'II'I `identity`These
    (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
     (super `compose` day @T'I'II @(AR) @Void @(F'T'I'TT'I (T'II'I P) _) @(F'T'I'TT'I (T'II'I P) _) @(P) @(S) identity (source `compose` f)
      `compose` fio (wrap `compose` F'T'I'TT'I) `compose` foi F'T'I'TT'I)
-    `identity` These xs (wrap ys))
-   (source `compose` f `identity` This x)
+    `identity`These xs (wrap ys))
+   (source `compose` f `identity`This x)
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (S'I'II Unit)
@@ -191,22 +191,22 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (F'T'I'TT'I (T'II'I P) t) (F'T'I'TT'I (T'II'I P) t `L` F'T'I'TT'I (T'II'I P) t `T` Void) e ee) (F'T'I'TT'I (T'II'I P) t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
-   let These e__ e_ = super `compose` super `compose` super `compose` super `identity` e in
-   let These ee__ ee_ = super `compose` super `compose` super `compose` super `compose` super `identity` ee in
-   Recursive `compose` T'TT'I `compose` T'II'I `identity` These
+   let These e__ e_ = super `compose` super `compose` super `compose` super `identity`e in
+   let These ee__ ee_ = super `compose` super `compose` super `compose` super `compose` super `identity`ee in
+   Recursive `compose` T'TT'I `compose` T'II'I `identity`These
     (day @T'I'II @(AR) @Void @t @t @(P) @P identity
      (super
       `compose` day @T'I'II @(AR) @Void @(F'T'I'TT'I (T'II'I P) t) @(F'T'I'TT'I (T'II'I P) t) @(P) @P identity (source `compose` f)
       `compose` fio (wrap `compose` F'T'I'TT'I)
       `compose` foi F'T'I'TT'I)
-     `identity` These e__ (wrap ee__))
-    (source `compose` f `identity` These e_ ee_)
+     `identity`These e__ (wrap ee__))
+    (source `compose` f `identity`These e_ ee_)
 
 instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t) =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (F'T'I'TT'I (T'II'I P) t) where
  mapping = rewrap `identity` \source (T'I'II f) ->
   F'T'I'TT'I `compose` Recursive `compose` T'TT'I `compose` T'II'I
-   `identity` These (empty @t `yo` initial @(AR)) (source `identity` f Unit)
+   `identity`These (empty @t `yo` initial @(AR)) (source `identity`f Unit)
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
@@ -223,7 +223,7 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (F'T'I'TT'I (T'II'I P) tt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (t `T'TT'I` F'T'I'TT'I (T'II'I P) tt) where
  mapping = rewrap `identity` \source (T'I'II f) -> T'TT'I `li`
-  intro @t @(AR) `compose` intro @(F'T'I'TT'I (T'II'I P) tt) @(AR) `compose` source `compose` f `identity` Unit
+  intro @t @(AR) `compose` intro @(F'T'I'TT'I (T'II'I P) tt) @(AR) `compose` source `compose` f `identity`Unit
 
 -- TODO: try to avoid mapping a datastructure twice here
 instance
@@ -250,17 +250,17 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (W) (F'T'I'TT'I (T'II'I P) t) (F'T'I'TT'I (T'II'I P) t `L` F'T'I'TT'I (T'II'I P) t `T` Void) e ee) (F'T'I'TT'I (T'II'I P) t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
-   let These e__ e_ = super `compose` super `compose` super `compose` super `identity` e in
-   let These ee__ ee_ = super `compose` super `compose` super `compose` super `compose` super `identity` ee in
-   Recursive `compose` T'TT'I `compose` T'II'I `identity` These
+   let These e__ e_ = super `compose` super `compose` super `compose` super `identity`e in
+   let These ee__ ee_ = super `compose` super `compose` super `compose` super `compose` super `identity`ee in
+   Recursive `compose` T'TT'I `compose` T'II'I `identity`These
     (day @T'I'II @(AR) @Void @t @t @(P) @(W) identity
      (super @(AR) `compose` \case
       U_T'I'II_UT'I'II (This (This x)) -> F'T'I'TT'I x `yo` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `compose` This
       U_T'I'II_UT'I'II (This (That x)) -> F'T'I'TT'I x `yo` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `compose` That
       U_T'I'II_UT'I'II (That (These x xx)) -> day @T'I'II @(AR) @Void @(F'T'I'TT'I (T'II'I P) t) @(F'T'I'TT'I (T'II'I P) t) @(P) @(W) identity (source `compose` f) (F'T'I'TT'I x `hjd` wrap (F'T'I'TT'I xx))
      )
-     `identity` These e__ (wrap ee__))
-    (source `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity` These e_ ee_)
+     `identity`These e__ (wrap ee__))
+    (source `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity`These e_ ee_)
 
 instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t) =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (t `T'TT'I` F'T'I'TT'I (T'II'I P) tt) where
@@ -315,7 +315,7 @@ instance (Covariant Lax Monoidal Functor (AR) (AR) (P) (P) Void t, e ~ ee)
   (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) t) where
  mapping = rewrap `identity` \source (T'I'II (T'I'TT'II'I x)) ->
   wrap @_ @(T'TTT'TT'I _ _ _ _) `compose` wrap @_ @(T'I'II _ _ _)
-  `identity` (intro `compose` map @T'I'II @T'I'II source `compose` wrap @_ @(T'II'I _ _ _) `compose` x)
+  `identity`(intro `compose` map @T'I'II @T'I'II source `compose` wrap @_ @(T'II'I _ _ _) `compose` x)
 
 instance {-# OVERLAPPABLE #-} Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll) t => Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (AR) e `T'TT'I` t `T'TT'I_` tt `L` tt `T` ll) (T'I'II (AR) e `T'TT'I` t) where
@@ -335,7 +335,7 @@ instance {-# OVERLAPPABLE #-}
   \(T'I'II f) e ->
    map @T'I'II @T'I'II @AR @AR @(t `T'TT'I` t `L` t `T` Void) @t source `compose` wrap
    `compose` map @T'I'II @T'I'II @AR @AR @t @t (wrap @AR @(t `L` t `T` Void `T` _) `compose` yv e `compose` super `compose` super `compose` super)
-   `identity` f e
+   `identity`f e
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
 -- 1. T'I'II (AR) old (t (T'II'I (P) btw))
@@ -366,7 +366,7 @@ instance
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(T'I'II x) ->
     \old -> x old `yok` \(T'II'I (These (Label @_ @_ @Void (T'I'II (T'I'TT'II'I f))) btw))
-      -> (Label @_ @_ @Void `compose` intro @tt) `identity` (T'II'I (f btw) `yo` source)
+      -> (Label @_ @_ @Void `compose` intro @tt) `identity`(T'II'I (f btw) `yo` source)
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void tt
@@ -379,7 +379,7 @@ instance
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(T'I'II x) ->
     \old -> x old `yok` \(T'II'I (These (Label @_ @_ @(Void `P` Void) (T'I'II (T'I'TT'II'I f))) btw))
-      -> (Label @_ @_ @Void `compose` intro @tt @(AR)) `identity` (T'II'I (f btw `yiu` old) `yo` source)
+      -> (Label @_ @_ @Void `compose` intro @tt @(AR)) `identity`(T'II'I (f btw `yiu` old) `yo` source)
 
 instance
  ( Covariant Functor target target tt
@@ -606,7 +606,7 @@ instance
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` S'I'II e `L` S'I'II e `T` l) (S'I'II e) where
  mapping = rewrap `identity` \source -> \case
-  T'TT'I (T'I'II (That (Label (T'I'II (That x))))) -> T'I'II (That `identity` source x)
+  T'TT'I (T'I'II (That (Label (T'I'II (That x))))) -> T'I'II (That `identity`source x)
   T'TT'I (T'I'II (That (Label (T'I'II (This e))))) -> T'I'II (This e)
   T'TT'I (T'I'II (This e)) -> T'I'II (This e)
 
@@ -712,7 +712,7 @@ instance
 instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (S'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source (T'I'II f) ->
-  TT'T'I `compose` intro `compose` T'I'II `compose` That `compose` source `identity` f Unit
+  TT'T'I `compose` intro `compose` T'I'II `compose` That `compose` source `identity`f Unit
 
 -- TODO: Finish, it's for Halts transformer
 instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
@@ -784,7 +784,7 @@ instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (t `L` t `T` l) where
- mapping = rewrap `identity` \source -> rewrap `identity` \f -> intro `compose` source `identity` f Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> intro `compose` source `identity`f Unit
 
 instance
  ( forall e ee . Covariant Transformation Functor target target (Covariant Day target u uu t (tt `L` tt `T` ll) e ee) t
@@ -847,7 +847,7 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `T'TT'I` (t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hc` \source -> T'TT'I'TTT'I `ho` T'TT'I
+ mapping = rewrap `identity` \source -> T'TT'I'TTT'I `ho` T'TT'I
   `ha____` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho__` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
     `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hc_` This `ho` T'TT'I'TTT'I
@@ -864,7 +864,7 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `T'TT'I` (t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hc` \source -> T'TT'I'TTT'I `ho` T'TT'I
+ mapping = rewrap `identity` \source -> T'TT'I'TTT'I `ho` T'TT'I
   `ha____` (is `ho'he` this
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
@@ -877,7 +877,7 @@ instance
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
- mapping = rewrap `hc` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
+ mapping = rewrap `identity` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
 
 -- TODO: generalize over categories
 instance {-# OVERLAPPABLE #-}

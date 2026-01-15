@@ -229,11 +229,11 @@ infixl 3 `hs_____`
 infixl 2 `hs______`
 infixl 1 `hs_______`
 
-infixl 8 `hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yr`, `hjd'q`, `hjd's`
-infixl 7 `hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yr`, `hjd_'q`, `hjd_'s`
-infixl 6 `hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yr`, `hjd__'q`, `hjd__'s`
-infixl 5 `hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yr`, `hjd___'q`, `hjd___'s`
-infixl 4 `hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yr`, `hjd____'q`, `hjd____'s`
+infixl 8 `hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'q`, `hjd's`
+infixl 7 `hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yw`, `hjd_'q`, `hjd_'s`
+infixl 6 `hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yw`, `hjd__'q`, `hjd__'s`
+infixl 5 `hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yw`, `hjd___'q`, `hjd___'s`
+infixl 4 `hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yw`, `hjd____'q`, `hjd____'s`
 
 infixl 8 `lv`
 infixl 7 `lv_`
@@ -329,7 +329,7 @@ infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 infixl 8 `ys`, `ys'yo`, `ys'yu`
 -- infixl 7 `yis`
 
-infixl 8 `yr`, `yr'yo`, `yr'yokl`
+infixl 8 `yw`, `yw'yo`, `yw'yokl`
 
 infixl 7 `yoi`
 
@@ -1191,7 +1191,7 @@ kyo :: forall source target t tt ll a o .
  t a -> target (source (tt a) (I `L` tt `T` ll `T` o)) (t o)
 kyo x = fai @target (fai @source super `compose` fio @source (super @_ @(I _) `compose` super))
  `compose` yo @source @target @t
- `compose` super `identity` component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x
+ `compose` super `hc`component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x
 
 kyok :: forall source target t tt ttt l ll lll a o .
  Covariant Yoneda Functor source target t =>
@@ -2818,7 +2818,7 @@ yp'yu x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
 -- yip'yo x f = super @Arrow
  -- `compose` day @T'I'II @(AR) @(T'I'II t e) @u @(P) identity f
  -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
- -- `identity` x
+ -- `hc`x
 
 -- TODO: try to generalize
 yo'yp :: forall u e ee t tt ll .
@@ -2866,28 +2866,28 @@ ys'yu x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
  -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
 
 -- TODO: try to generalize
-yr :: forall u e ee t tt l .
+yw :: forall u e ee t tt l .
  -- Covariant Monoidal Functor (AR) (AR) u (W) l t =>
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (W) t (tt `L` tt `T` l) e ee) t =>
  u (t e) ((tt `L` tt `T` l) ee) -> t (e `S` ee `S_` e `P` ee)
-yr = day @T'I'II @(AR) @l @t @tt @u @(W) identity super
+yw = day @T'I'II @(AR) @l @t @tt @u @(W) identity super
 
 -- TODO: try to generalize
-yr'yo :: forall source u e ee r t tt ll .
+yw'yo :: forall source u e ee r t tt ll .
  Category source =>
  Mapping T'I'II T'I'II source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t =>
  Wrapper source (e `W` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> source (e `S` ee `S_` e `P` ee) r -> t r
-yr'yo x f = day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` super) x
+yw'yo x f = day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` super) x
 
 -- TODO: try to generalize
-yr'yokl :: forall source u e ee r t tt ttt l ll lll .
+yw'yokl :: forall source u e ee r t tt ttt l ll lll .
  Category source =>
  Covariant Endo Transformation Functor (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
  Mapping T'I'II T'I'II source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t =>
  Wrapper source (e `W` ee) =>
  u (t e) (tt `L` tt `T` ll `T` ee) -> source (e `S` ee `S_` e `P` ee) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
-yr'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
+yw'yokl x f = wrapped (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
  (day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` super) x)
 
 -- TODO: try to generalize
@@ -3662,21 +3662,21 @@ hjd'yp'ys l r = yp'ys (hjd @AR @AR @_ @(t (tt o) `P` _) l r)
 
  -- forall target tt i eee e ee . target i (tt ee eee)
 
-hjd'yr, hjd_'yr, hjd__'yr, hjd___'yr, hjd____'yr, hjd_____'yr, hjd______'yr, hjd_______'yr
+hjd'yw, hjd_'yw, hjd__'yw, hjd___'yw, hjd____'yw, hjd_____'yw, hjd______'yw, hjd_______'yw
  :: forall e o oo t tt l .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (W) t (tt `L` tt `T` l) o oo) t =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  t o -> (tt `L` tt `T` l) oo -> t (o `S` oo `S_` o `P` oo)
-hjd'yr l r = yr (hjd @AR @AR @_ @(t o `P` _) l r)
+hjd'yw l r = yw (hjd @AR @AR @_ @(t o `P` _) l r)
 
-hjd_'yr = hjd'yr
-hjd__'yr = hjd'yr
-hjd___'yr = hjd'yr
-hjd____'yr = hjd'yr
-hjd_____'yr = hjd'yr
-hjd______'yr = hjd'yr
-hjd_______'yr = hjd'yr
+hjd_'yw = hjd'yw
+hjd__'yw = hjd'yw
+hjd___'yw = hjd'yw
+hjd____'yw = hjd'yw
+hjd_____'yw = hjd'yw
+hjd______'yw = hjd'yw
+hjd_______'yw = hjd'yw
 
 -- jt :: forall target f g e .
  -- Covariant Transformation Functor (AR) target (f `T'TT'I` g) (f `JNT` g) =>

@@ -60,11 +60,11 @@ type Sliding t = Shifting List t
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
  (I `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source (Label (Root x xs)) ->
+ mapping = rewrap `hc` \source (Label (Root x xs)) ->
   Alone `hc` source x `hjd___` empty @List `hjd_` T'TT'I (xs `yo` F'T'I'TT'I) `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
+ mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
   `hc___` Empty `hu` intro @(Nonempty List) x `hs` push x `ho` that `hc_` r
   `yv__` that `ho'yo` source
@@ -72,7 +72,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `TT'T'I` t) where
---  mapping = rewrap `identity` \source -> rewrap `identity`
+--  mapping = rewrap `hc` \source -> rewrap `identity`
 --   \(T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r))))) ->
 
 -- spot :: forall t tt i .
