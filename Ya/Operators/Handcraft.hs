@@ -211,8 +211,8 @@ infixl 6 `hc___`, `hdj__`
 infixl 5 `hc____`, `hdj___`
 infixl 4 `hc_____`, `hdj____`
 
-infixl 8 `lo`, `lo'hjd`, `lo'yp`, `lo'yp'yo'q`, `lo'ys`, `lo'ys'hs`, `lo'q`, `hjd'ys'hs`
-infixl 7 `lo_`, `lo_'yp`, `lo_'yp'yo'q`, `lo_'ys`, `lo_'ys'hs`, `lo_'q`, `hjd_'ys'hs`
+infixl 8 `hp`, `hp'hjd`, `hp'yp`, `hp'yp'yo'q`, `hp'ys`, `hp'ys'hs`, `hp'q`, `hjd'ys'hs`
+infixl 7 `hp_`, `hp_'yp`, `hp_'yp'yo'q`, `hp_'ys`, `hp_'ys'hs`, `hp_'q`, `hjd_'ys'hs`
 infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'hs`, `lo__'q`, `hjd__'ys'hs`
 infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'hs`, `lo___'q`, `hjd___'ys'hs`
 infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'hs`, `lo____'q`, `hjd____'ys'hs`
@@ -2413,7 +2413,7 @@ hjd______'q = hjd'q
 hjd_______'q = hjd'q
 hjd________'q = hjd'q
 
-lo'q, lo_'q, lo__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, lo________'q
+hp'q, hp_'q, lo__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, lo________'q
  :: forall target i a .
  Category target =>
  Covariant Limit target target =>
@@ -2425,16 +2425,16 @@ lo'q, lo_'q, lo__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, lo__
  (forall e . Wrapper target (I e)) =>
  Setoid target a =>
  target i a `AR__` target i a `AR_` target i (a `P` a `S` a)
-lo'q x y = q `compose` lo x y
+hp'q x y = q `compose` hp x y
 
-lo_'q = lo'q
-lo__'q = lo'q
-lo___'q = lo'q
-lo____'q = lo'q
-lo_____'q = lo'q
-lo______'q = lo'q
-lo_______'q = lo'q
-lo________'q = lo'q
+hp_'q = hp'q
+lo__'q = hp'q
+lo___'q = hp'q
+lo____'q = hp'q
+lo_____'q = hp'q
+lo______'q = hp'q
+lo_______'q = hp'q
+lo________'q = hp'q
 
 hjd's, hjd_'s, hjd__'s, hjd___'s, hjd____'s, hjd_____'s, hjd______'s, hjd_______'s, hjd________'s
  :: forall target a .
@@ -2580,7 +2580,7 @@ he'yu :: forall target t a o e .
  t a -> target o (t o)
 he'yu = yu @target
 
-lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______
+hp, hp_, lo__, lo___, lo____, lo_____, lo______, lo_______
  :: forall target r a o oo .
  Category target =>
  Limit T'I'II target target =>
@@ -2592,20 +2592,20 @@ lo, lo_, lo__, lo___, lo____, lo_____, lo______, lo_______
  (forall e . Wrapper target (Both Product e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target a oo -> target a r
-lo l r = objective @T'II'I @target @_ @(o `P` oo)
+hp l r = objective @T'II'I @target @_ @(o `P` oo)
  `compose` foi @target @target l `compose` fio @target @target r
  `compose` wrapped (map @T'II'I @T'II'I @target @target @(Both Product) @I identity)
 
-lo_ = lo
-lo__ = lo
-lo___ = lo
-lo____ = lo
-lo_____ = lo
-lo______ = lo
-lo_______ = lo
+hp_ = hp
+lo__ = hp
+lo___ = hp
+lo____ = hp
+lo_____ = hp
+lo______ = hp
+lo_______ = hp
 
 -- TODO: define longer versions of this operator
-lo'hjd :: forall target a aa o oo .
+hp'hjd :: forall target a aa o oo .
  Category target =>
  Limit T'I'II target target =>
  Covariant Endo Semi Functor target (P'I'II (a `P` aa)) =>
@@ -2615,68 +2615,68 @@ lo'hjd :: forall target a aa o oo .
  (forall e . Wrapper target (Both (P) e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target aa oo -> target (a `P` aa) (o `P` oo)
-lo'hjd l r = lo
+hp'hjd l r = hp
  (l `compose` (wrapped (left @T'I'II @target identity)))
  (r `compose` (wrapped (right @T'I'II @target identity)))
 
-lo'yp, lo_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
+hp'yp, hp_'yp, lo__'yp, lo___'yp, lo____'yp, lo_____'yp, lo______'yp, lo_______'yp
  :: forall t tt l a o oo .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` l) o oo) t =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) oo) -> Arrow a (t (Product o oo))
-lo'yp l r = yp `compose` lo @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
+hp'yp l r = yp `compose` hp @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
 
-lo_'yp = lo'yp
-lo__'yp = lo'yp
-lo___'yp = lo'yp
-lo____'yp = lo'yp
-lo_____'yp = lo'yp
-lo______'yp = lo'yp
-lo_______'yp = lo'yp
+hp_'yp = hp'yp
+lo__'yp = hp'yp
+lo___'yp = hp'yp
+lo____'yp = hp'yp
+lo_____'yp = hp'yp
+lo______'yp = hp'yp
+lo_______'yp = hp'yp
 
-lo'yp'yo'q, lo_'yp'yo'q, lo__'yp'yo'q, lo___'yp'yo'q, lo____'yp'yo'q, lo_____'yp'yo'q, lo______'yp'yo'q, lo_______'yp'yo'q
+hp'yp'yo'q, hp_'yp'yo'q, lo__'yp'yo'q, lo___'yp'yo'q, lo____'yp'yo'q, lo_____'yp'yo'q, lo______'yp'yo'q, lo_______'yp'yo'q
  :: forall a o t tt ll .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` ll) o o) t =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Setoid (AR) o =>
  Arrow a (t o) -> Arrow a (tt `L` tt `T` ll `T` o) -> Arrow a (t (o `P` o `S` o))
-lo'yp'yo'q x xx xxx = yp'yo (lo x xx xxx) q
+hp'yp'yo'q x xx xxx = yp'yo (hp x xx xxx) q
 
-lo_'yp'yo'q = lo'yp'yo'q
-lo__'yp'yo'q = lo'yp'yo'q
-lo___'yp'yo'q = lo'yp'yo'q
-lo____'yp'yo'q = lo'yp'yo'q
-lo_____'yp'yo'q = lo'yp'yo'q
-lo______'yp'yo'q = lo'yp'yo'q
-lo_______'yp'yo'q = lo'yp'yo'q
+hp_'yp'yo'q = hp'yp'yo'q
+lo__'yp'yo'q = hp'yp'yo'q
+lo___'yp'yo'q = hp'yp'yo'q
+lo____'yp'yo'q = hp'yp'yo'q
+lo_____'yp'yo'q = hp'yp'yo'q
+lo______'yp'yo'q = hp'yp'yo'q
+lo_______'yp'yo'q = hp'yp'yo'q
 
-lo'ys, lo_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
+hp'ys, hp_'ys, lo__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
  :: forall t tt l a o oo .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o oo) t =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) oo) -> Arrow a (t (Sum o oo))
-lo'ys l r = ys `compose` lo @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
+hp'ys l r = ys `compose` hp @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
 
-lo_'ys = lo'ys
-lo__'ys = lo'ys
-lo___'ys = lo'ys
-lo____'ys = lo'ys
-lo_____'ys = lo'ys
-lo______'ys = lo'ys
-lo_______'ys = lo'ys
+hp_'ys = hp'ys
+lo__'ys = hp'ys
+lo___'ys = hp'ys
+lo____'ys = hp'ys
+lo_____'ys = hp'ys
+lo______'ys = hp'ys
+lo_______'ys = hp'ys
 
-lo'ys'hs, lo_'ys'hs, lo__'ys'hs, lo___'ys'hs, lo____'ys'hs, lo_____'ys'hs, lo______'ys'hs, lo_______'ys'hs
+hp'ys'hs, hp_'ys'hs, lo__'ys'hs, lo___'ys'hs, lo____'ys'hs, lo_____'ys'hs, lo______'ys'hs, lo_______'ys'hs
  :: forall t tt l a o .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o o) t =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) o) -> Arrow a (t o)
-lo'ys'hs l r = (\x -> ys'yo x (identity @(AR) `hs` identity)) `compose` lo @(AR) @(_ `P` _) l r
+hp'ys'hs l r = (\x -> ys'yo x (identity @(AR) `hs` identity)) `compose` hp @(AR) @(_ `P` _) l r
 
-lo_'ys'hs = lo'ys'hs
-lo__'ys'hs = lo'ys'hs
-lo___'ys'hs = lo'ys'hs
-lo____'ys'hs = lo'ys'hs
-lo_____'ys'hs = lo'ys'hs
-lo______'ys'hs = lo'ys'hs
-lo_______'ys'hs = lo'ys'hs
+hp_'ys'hs = hp'ys'hs
+lo__'ys'hs = hp'ys'hs
+lo___'ys'hs = hp'ys'hs
+lo____'ys'hs = hp'ys'hs
+lo_____'ys'hs = hp'ys'hs
+lo______'ys'hs = hp'ys'hs
+lo_______'ys'hs = hp'ys'hs
 
 hjd'ys'hs, hjd_'ys'hs, hjd__'ys'hs, hjd___'ys'hs, hjd____'ys'hs, hjd_____'ys'hs, hjd______'ys'hs, hjd_______'ys'hs
  :: forall t tt l a o .
@@ -2766,7 +2766,7 @@ lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
 -- `hs`: source o i -> source oo i -> source (o `S` oo) i
--- `lo`: target a o -> target a oo -> target a (o `P` oo)
+-- `hp`: target a o -> target a oo -> target a (o `P` oo)
 --     : u (source o i) (source oo i) -> source (uu o oo) i
 
 -- TODO: to test

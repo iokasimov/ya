@@ -25,7 +25,7 @@ swap (These x y) = y `hjd` x
   -- (\new -> Build x (super @Arrow @(F'T'I'TT'I _ _ _) `fo` super new) `yo` source `ho` (\(These _ y) -> y))
 
 fetch :: e `AR__` e `P` e
-fetch = is `lo` is
+fetch = is `hp` is
 
 relay :: ee -> e `AR__` e `P` ee
 relay new old = old `hjd` new

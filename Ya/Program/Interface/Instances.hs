@@ -47,7 +47,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List
   sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `hc___` x `yi__` that `hjd__` xs `yi__` Merge `ho` to @List `yo__` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
- -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `lo` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
+ -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hp` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `T` Void) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
  mapping = rewrap `identity` \source x -> super x `yo` source `hjd` wrap `hv` empty @List
@@ -161,7 +161,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 --     `hv__` intro @Tree `hc` focused `hv__` sx `hjd` (forest `hjd` xs `yi` Merge @List @List `ho` to @List) `yi` to @List @(Twice `T'TT'I` List) @(Tree _)
 
    -- proceed forest nonempty_list =
-   --  let (These x xx) = this `ha` top @(Nonempty List) `lo` this `ha` sub @(Nonempty List) `hv_` nonempty_list in
+   --  let (These x xx) = this `ha` top @(Nonempty List) `hp` this `ha` sub @(Nonempty List) `hv_` nonempty_list in
    --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `hc___` starting x forest `yi__` that -- `ho` wrap @(
  
   -- super (super unfoldings)
@@ -281,7 +281,7 @@ pattern Alter :: forall t i .
 pattern Alter x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I'I (P)) where
- mapping = rewrap `identity` \source -> rewrap `identity` (source `ha` that `lo` source `ha` this `ha__` super @(AR))
+ mapping = rewrap `identity` \source -> rewrap `identity` (source `ha` that `hp` source `ha` this `ha__` super @(AR))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `hs` source `ho` This `ha__` super @(AR))
@@ -326,7 +326,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
   _spot_ = intro @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i) Unit
-   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hc` at @(Alone i) `lo` Scope `hc` it
+   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hc` at @(Alone i) `hp` Scope `hc` it
    `yok____` Check `ha` Stops `ha___` not `ha` found
    `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hc` way
    `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `hs` Again `hu` Reach Unit
@@ -396,7 +396,7 @@ instance Shiftable Alone (Construction List) where
     `hv____` Event `hc` fetch
      `ha___` Scope `hc` at @(Tree `T'I` i)
       `ho__` Scope `hc` top @Tree
-        `lo` Scope `hc` sub @Tree
+        `hp` Scope `hc` sub @Tree
    `yok____` Check `ha'yo` splash `ha` moves
    `yok____` Apply `ha` State `ha___` Event `ha` relay `ha` this
     `ho__'ha` Scope `hc` at @(Tree i)

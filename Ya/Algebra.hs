@@ -868,12 +868,12 @@ instance
   `ha____` (is `ho'he` this
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `lo` is `ho'he` that `ho'yo` source
+    `hp` is `ho'he` that `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap ((`hjd_` xx) `ho` T'TT'I'TTT'I)))
    `lo__` (is `ho'he` that
     `ho` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho` super @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `lo` is `ho'he` this `ho'yo` source
+    `hp` is `ho'he` this `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
