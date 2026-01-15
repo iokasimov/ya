@@ -104,4 +104,4 @@ by index origin =
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
-exact x xx = is `hu` False Unit `la` is `hu` True Unit `hv__` x `lu'q` xx
+exact x xx = is `hu` False Unit `la` is `hu` True Unit `hc__` x `hjd'q` xx

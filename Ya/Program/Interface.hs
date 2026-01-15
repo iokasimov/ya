@@ -30,8 +30,8 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (I `P'T'I'TT'I` Twice `T'TT'I` List) `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I (T'I'I (These rl fl))))) ->
   Identity `hv` Label x
-   `lu__` (positions (x `hjd` rl) `yi` that `ho` that)
-    `lu_` (positions (x `hjd` fl) `yi` that `ho` that)
+   `hjd__` (positions (x `hjd` rl) `yi` that `ho` that)
+    `hjd_` (positions (x `hjd` fl) `yi` that `ho` that)
     `yi_` T'TT'I `ha` T'I'I
    `yi__` T'TT'I'TTT'I `ho` T'TT'I
    `yo__` source where
@@ -82,10 +82,10 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` Void) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
             (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `lu'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
-   `lu'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
+   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
+   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd` (T'TT'I (T'I'I (
-      (sx `yo` source `lu_` xs `yo` source))))))
+      (sx `yo` source `hjd_` xs `yo` source))))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
@@ -97,10 +97,10 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` (Void `P` Void)) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
             (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `lu'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
-   `lu'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
+   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
+   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd` (T'TT'I (T'I'I (
-      (sx `yo` source) `lu_` (xs `yo` source))))))
+      (sx `yo` source) `hjd_` (xs `yo` source))))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
@@ -110,7 +110,7 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` Void) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `lu'yp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
+   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 instance {-# OVERLAPS #-}
@@ -121,7 +121,7 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` (Void `P` Void)) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `lu'yp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
+   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 -- instance
@@ -143,9 +143,9 @@ instance {-# OVERLAPS #-}
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (List `P'T'I'TT'I` Twice `T'TT'I` List) `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These _ (T'TT'I (T'I'I (These rl fl))))) ->
   List `ha` Exist `ha` Build `ha` Item (Label x) `hc` super Last
-    `lu__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha_` is `hu` x)
+    `hjd__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha_` is `hu` x)
       `he'he'hv` empty @List `yi` that
-     `lu_` (fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `hu` x)
+     `hjd_` (fl `yokl` Label @_ @_ @Void `ha` New `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `hu` x)
       `hc` empty @List `yi` that
      `yi_` T'TT'I `ha` T'I'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
@@ -248,13 +248,13 @@ type family Vector x xs where
 
 -- This transformation is not natural!
 instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
- mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `la` Same `hu` True Unit `li_` x `lu'q` source x'
+ mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `la` Same `hu` True Unit `li_` x `hjd'q` source x'
 
 instance Semigroup (AR) Boolean where
- s (These x y) = x `lu'ys'la` Try y
+ s (These x y) = x `hjd'ys'la` Try y
 
 instance Quasigroup (AR) Boolean where
- p (These x y) = x `lu'yp` Try `hv` y `yu` Unit
+ p (These x y) = x `hjd'yp` Try `hv` y `yu` Unit
 
 instance Semigroup (AR) (List item) where
  s (These x y) = x `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` y `yi__` that
@@ -271,14 +271,14 @@ instance Semigroup (AR) (Construction Maybe item) where
   -- F'T'I'TT'I (Recursive (T'TT'I (T'I'II (This x)))) ->
 
   -- (\case
-  --  T'TT'I (Break x) -> T'TT'I `ha` Value `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source `hv` x
+  --  T'TT'I (Break x) -> T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source `hv` x
   --  T'TT'I (Valid x) -> (x :: _)
     
-    -- T'TT'I `ha` Value `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` That `hv` (x `yo` source)
+    -- T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` That `hv` (x `yo` source)
   -- )
   -- x
-  -- ((T'TT'I `ha` Value `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source)
-  --  `la` (T'TT'I `ha` Value `ha` Label `ha` (T'TT'I'TTT'I @(S) @Alone @t `ha` That `ha` (fo @AR @AR @t source)))
+  -- ((T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source)
+  --  `la` (T'TT'I `ha` Vahjde `ha` Label `ha` (T'TT'I'TTT'I @(S) @Alone @t `ha` That `ha` (fo @AR @AR @t source)))
   -- :: Stops _ `T'TT'I` t `T'I_` _ `AR______` F'T'I'TT'I Stops t `T'TT'I_` Stops _ `T'TT'I` t `T'I__` _)
   
 

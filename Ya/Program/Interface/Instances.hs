@@ -44,7 +44,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
-  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `hc___` x `yi__` that `lu__` xs `yi__` Merge `ho` to @List `yo__` source
+  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `hc___` x `yi__` that `hjd__` xs `yi__` Merge `ho` to @List `yo__` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `lo` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
@@ -154,7 +154,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 --   `la______` proceed result
 --   `hv_______` unfoldings `yo_______` source where
 
---    topping unfolding forest = Unit `lu_____` forest
+--    topping unfolding forest = Unit `hjd_____` forest
    
 --    starting :: (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
 --    starting (T'TT'I'TTT'I (These (Identity focused) (T'TT'I (T'TT'I (T'I'I (These sx xs)))))) forest = that `ha` sub @Tree
@@ -249,7 +249,7 @@ instance
  mapping = rewrap `hc` \source x -> T'TT'I `hc___` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
    `ha` (is `hu` (source `ha` this `ha` top `hc` xx `hjd` That Unit) `la` is `hu` (source `ha` this `ha` top `hc` xx `hjd` This Unit))
-   `ha` (\xxx -> this `ha` sub `hc` xxx `lu'ys` Apply `hc` intro @t Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `la` Valid)
+   `ha` (\xxx -> this `ha` sub `hc` xxx `hjd'ys` Apply `hc` intro @t Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `la` Valid)
    `hc` xx)
 
 pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
