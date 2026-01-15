@@ -44,7 +44,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
-  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `hc___` x `yi__` that `hjd__` xs `yi__` Merge `ho` to @List `yo__` source
+  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `hc___` x `yv__` that `hjd__` xs `yv__` Merge `ho` to @List `yo__` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hp` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
@@ -54,13 +54,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction Li
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `L` Construction List `T` Void) (Construction List) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These tree unfoldings))) ->
-  super unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `hc___` tree `yi__` that `ho'yo` source where
+  super unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `hc___` tree `yv__` that `ho'yo` source where
 
    cover (T'TT'I'TTT'I (These parent siblings)) tree =
     Unit `hjd__` that `ha` sub @Tree
      `hc__` intro @Tree `hv'he` parent
      `hc__` Alone `hc` tree `hjd` super siblings
-       `yi` to @List `ha` Adapt @(Nonempty List)
+       `yv` to @List `ha` Adapt @(Nonempty List)
        `ha` to @(Nonempty List) `ha` Adapt @(Scrolling List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T` Void) (Construction Optional) where
@@ -120,7 +120,7 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` Void) tt where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
-    `hc___` xx `yi__` that `ho'yo` source
+    `hc___` xx `yv__` that `ho'yo` source
 
 pattern Aloft :: forall t i .
  Component (AR) ((t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree =>
@@ -131,8 +131,8 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` intro @Tree @(AR) `hc` x) scrolling_list
-    `yi` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List `ho'yo` super @(AR)
-    `yi` this @(Alone _) `ho'he` Root `hc` super scrolling_list
+    `yv` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List `ho'yo` super @(AR)
+    `yv` this @(Alone _) `ho'he` Root `hc` super scrolling_list
     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
@@ -140,7 +140,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
     `hv__` intro @Tree `hv'he` root
-    `hv__` Alone tree `hjd` super siblings `yi` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List
+    `hv__` Alone tree `hjd` super siblings `yv` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List
     `yo__` source
 
 -- TODO: We haven't finished yet!
@@ -150,7 +150,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 --  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These basement unfoldings)) ->
 --   let result = to @List `ha` to @(Nonempty List) `hv'he` basement in
 --   Empty `hu` wrap result
---   -- `la______` (\x -> x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker `hc___` result `yi__` that `ho` wrap @(AR))
+--   -- `la______` (\x -> x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker `hc___` result `yv__` that `ho` wrap @(AR))
 --   `la______` proceed result
 --   `hv_______` unfoldings `yo_______` source where
 
@@ -158,16 +158,16 @@ instance Mapping T'I'II T'I'II (AR) (AR)
    
 --    starting :: (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
 --    starting (T'TT'I'TTT'I (These (Identity focused) (T'TT'I (T'TT'I (T'I'I (These sx xs)))))) forest = that `ha` sub @Tree
---     `hv__` intro @Tree `hc` focused `hv__` sx `hjd` (forest `hjd` xs `yi` Merge @List @List `ho` to @List) `yi` to @List @(Twice `T'TT'I` List) @(Tree _)
+--     `hv__` intro @Tree `hc` focused `hv__` sx `hjd` (forest `hjd` xs `yv` Merge @List @List `ho` to @List) `yv` to @List @(Twice `T'TT'I` List) @(Tree _)
 
    -- proceed forest nonempty_list =
    --  let (These x xx) = this `ha` top @(Nonempty List) `hp` this `ha` sub @(Nonempty List) `hv_` nonempty_list in
-   --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `hc___` starting x forest `yi__` that -- `ho` wrap @(
+   --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `hc___` starting x forest `yv__` that -- `ho` wrap @(
  
   -- super (super unfoldings)
   --  `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker
   --  `hc___` wrap @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` to @List `ha` to @(Nonempty List) `hv'he` basement
-  --  `yi__` that `ho'yo` source where
+  --  `yv__` that `ho'yo` source where
 
   --  -- TODO: we haven't finished yet...
   --  worker unfolding forest =
@@ -223,7 +223,7 @@ instance
 --  mapping = rewrap `identity` \source -> rewrap `identity`
 --   \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
 --    xx `yo` wrapped @(AR) @(Tree _) (fo ((`hjd` That Unit) `ha` source))
---     `hjd_` x `yi` (`hjd` This Unit) `ha` source
+--     `hjd_` x `yv` (`hjd` This Unit) `ha` source
 --     `hjd_` xxx `yo'yo` (`hjd` That Unit) `ha` source
 --     `hjd_` xxxx `yo` (`hjd` That Unit) `ha` source
 
@@ -358,10 +358,10 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `hc___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit -- `yui` r
 
   window_extract_last passed w =
-   push @List passed w `yi` that
+   push @List passed w `yv` that
     `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
     `hc___` empty @List
-    `yi__` that `ho` pop @List
+    `yv__` that `ho` pop @List
 
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
@@ -384,7 +384,7 @@ instance Shiftable Alone (Construction List) where
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
   aloft unfolding tree = Alone `ha` this `ha` top `hc` tree
-   `hjd_` unfolding `hjd` tree `yi` to @Tree `ha` Aloft @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
+   `hjd_` unfolding `hjd` tree `yv` to @Tree `ha` Aloft @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
    -- List `T'TT'I` (T'TT'I List (P'T'I'TT'I Alone (T'TT'I (T'TT'I Twice List) Tree)))
 
@@ -437,5 +437,5 @@ instance Shiftable Alone (Construction List) where
   scroll way unfolding tree = 
    let siblings = this `ha` at @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'he` is `hc` unfolding in
    Alone `hc` tree `hjd` siblings
-   `yi` shift `hc` way `ha` is @(Scrolling List `T'I` Tree i)
-   `yi` (\x -> super @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hc` x `hjd_` this `ha` at @(Alone i) `hc` unfolding `hjd` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hc` x) `ha` that
+   `yv` shift `hc` way `ha` is @(Scrolling List `T'I` Tree i)
+   `yv` (\x -> super @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hc` x `hjd_` this `ha` at @(Alone i) `hc` unfolding `hjd` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hc` x) `ha` that

@@ -253,14 +253,14 @@ infixl 3 `li_____`, `li_____'yok`
 infixl 2 `li______`, `li______'yok`
 infixl 1 `li_______`, `li_______'yok`
 
-infixl 8 `yi`
-infixl 7 `yi_`
-infixl 6 `yi__`
-infixl 5 `yi___`
-infixl 4 `yi____`
-infixl 3 `yi_____`
-infixl 2 `yi______`
-infixl 1 `yi_______`
+infixl 8 `yv`
+infixl 7 `yv_`
+infixl 6 `yv__`
+infixl 5 `yv___`
+infixl 4 `yv____`
+infixl 3 `yv_____`
+infixl 2 `yv______`
+infixl 1 `yv_______`
 
 infixl 8 `yo`, `yo'yp`, `yo'yok`, `yo'yoo`, `yo'yuu`
 infixl 7 `yo_`, `yoo`
@@ -351,16 +351,6 @@ infixl 7 `ydi`, `yij`, `ydi'ydi`
 
 -- infixl 6 `yioi`
 
--- infixl 9 `v`
--- infixl 8 `vv`
--- infixl 7 `vvv`
--- infixl 6 `vvvv`
--- infixl 5 `vvvvv`
--- infixl 4 `vvvvvv`
--- infixl 3 `vvvvvvv`
--- infixl 2 `vvvvvvvv`
--- infixl 1 `vvvvvvvvv`
-
 infixl 9 `q`
 infixl 8 `q_`
 infixl 7 `q__`
@@ -389,22 +379,22 @@ infixl 7 `ryo`, `ryv`
 infixl 6 `yior`, `yoir`, `yoor`
 
 -- TODO: don't oversimplify - designate a functor
-yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
+yv, yv_, yv__, yv___, yv____, yv_____, yv______, yv_______
  :: forall source target a o .
  Precategory target =>
  Covariant Yoneda Functor source target I =>
  Elicitable T'II'I target (T'I'II source a o) =>
  Elicitable T'I'II target (I o) =>
  a -> target (source a o) o
-yi x = super `compose` yoneda @T'I'II @Functor (Identity x) `compose` wrap
+yv x = super `compose` yoneda @T'I'II @Functor (Identity x) `compose` wrap
 
-yi_ = yi
-yi__ = yi
-yi___ = yi
-yi____ = yi
-yi_____ = yi
-yi______ = yi
-yi_______ = yi
+yv_ = yv
+yv__ = yv
+yv___ = yv
+yv____ = yv
+yv_____ = yv
+yv______ = yv
+yv_______ = yv
 
 yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______, yi'yo
  :: forall source target t a o .
@@ -1091,8 +1081,6 @@ yio'yij'yij = fai (fij @source `compose` fij @source) `compose` yio @source @tar
 
 ho'hj'hj = yio'yij'yij
 
--- t i a -> target (source (a `P` iii `P` ii) o) (t i (iii `AR` (ii `AR` o)))
-
 yia :: forall source target t e a o .
  Precategory target =>
  Contravariant Yoneda Functor source target (T'I'II t e) =>
@@ -1536,12 +1524,6 @@ yokl'yokl x = fai
  )
  (yokl @source @target @t @ttt @l @lll @(tt a) @(tt o) x)
 
-
-
--- yokl x: target (source (tt a) (L l (ttt `L` ttt `T` lll) o)) (ttt (t (tt o)))
-
--- fokl: source a (L ll (ttt `L` ttt `T` lll) o) -> target (tt a) (ttt (tt o))
-
 -- yokl'yok :: forall source target t tt ttt l a o .
  -- Covariant Yoneda Functor source target t =>
  -- Covariant Endo Semi Functor source tt =>
@@ -1634,7 +1616,7 @@ ho'he'he'hv, ho_'he'he'hv, ho__'he'he'hv, ho___'he'he'hv, ho____'he'he'hv, ho___
  Wrapper (AR) (T'II'I (AR) o (Supertype (Supertype a))) =>
  (Supertype (Supertype a) ~ (AR) e o) =>
  u i a -> e -> (u i o)
-ho'he'he'hv = fai @(AR) (fai @(AR) (he `compose` he) `compose` yi) `compose` yio @(AR) @(AR) @u
+ho'he'he'hv = fai @(AR) (fai @(AR) (he `compose` he) `compose` yv) `compose` yio @(AR) @(AR) @u
 
 ho_'he'he'hv = ho'he'he'hv
 ho__'he'he'hv = ho'he'he'hv
@@ -3000,30 +2982,30 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
  -- target a o -> target (Supertype a) (Supertype o)
 -- rw'w target = _' @target `compose` target `compose` wrap @target
 
--- yi__, yi___, yi____, yi_____, yi______ :: forall target a .
+-- yv__, yv___, yv____, yv_____, yv______ :: forall target a .
  -- Precategory target =>
  -- Elicitable T'I'II target a =>
  -- Elicitable T'I'II target (Supertype a) =>
  -- target a (Supertype (Supertype a))
--- yi__ = _' @target `compose` _' @target
+-- yv__ = _' @target `compose` _' @target
 
--- yi___ = yi__
--- yi____ = yi__
--- yi_____ = yi__
--- yi______ = yi__
+-- yv___ = yv__
+-- yv____ = yv__
+-- yv_____ = yv__
+-- yv______ = yv__
 
--- yi___, yi____, yi_____, yi______, yi_______ :: forall target a .
+-- yv___, yv____, yv_____, yv______, yv_______ :: forall target a .
  -- Precategory target =>
  -- Elicitable T'I'II target a =>
  -- Elicitable T'I'II target (Supertype a) =>
  -- Elicitable T'I'II target (Supertype (Supertype a)) =>
  -- target a (Supertype (Supertype (Supertype a)))
--- yi___ = _' @target `compose` _' @target `compose` _' @target
+-- yv___ = _' @target `compose` _' @target `compose` _' @target
 
--- yi____ = yi___
--- yi_____ = yi___
--- yi______ = yi___
--- yi_______ = yi___
+-- yv____ = yv___
+-- yv_____ = yv___
+-- yv______ = yv___
+-- yv_______ = yv___
 
 -- TODO: it's wrong, we ne_d to rewrite it
 -- he'he'he'ho :: forall a e o oo .
