@@ -27,9 +27,9 @@ class Keyable k t where
 --   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
 --   case super adjusted of
 --    This Unit ->
---     Break k `lu` ((\_ -> x) `hs` (\i -> push (Along (i `lu` k)) `hv` super x `yi` that `ho` wrap @(AR)))
+--     Break k `lu` ((\_ -> x) `hs` (\i -> push (Along (i `lu` k)) `hc` super x `yi` that `ho` wrap @(AR)))
 --    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
---     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` xxx) `hs` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
+--     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` xxx) `hs` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
 -- instance
 --  ( Setoid (AR) k
@@ -46,9 +46,9 @@ class Keyable k t where
 --    let predicate = Match `hv_` _exact_key_ k `ha` super @AR in
 --    let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
 --    case super adjusted of
---     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` x `hs` (\i -> push (Along (i `lu` k)) `hv` x `yi` that `ho` Adapt `ho` to @List `ho` T'TT'I))
+--     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` x `hs` (\i -> push (Along (i `lu` k)) `hc` x `yi` that `ho` Adapt `ho` to @List `ho` T'TT'I))
 --     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
---      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hv` xxx `hs` (\i -> T'TT'I `ha` to @List `ha` Adapt `ha` to @(Nonempty List) `ha` Adapt `hv` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
+--      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` xxx `hs` (\i -> T'TT'I `ha` to @List `ha` Adapt `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
 -- _exact_key_ k (T'II'I (These _ kk)) =
 --  Wrong `hu` False Unit `hs` Valid `hu` True Unit `li_` (k `lu'q` kk)
@@ -61,8 +61,8 @@ class Keyable k t where
 
 --   go_horizontally k = intro @(State `T` Scrolling Tree) -- Stops `T`  `JNT` 
 --    `yuk_____` Apply `ha` State `ha` Event `ha` spot (That Unit `lu` predicate k)
---    `ha__'he'he` Scope `hv` it @(List (Along k (Construction (List `T'TT'I` Along k))))
---         -- `ho_` Scope `hv` as @()
+--    `ha__'he'he` Scope `hc` it @(List (Along k (Construction (List `T'TT'I` Along k))))
+--         -- `ho_` Scope `hc` as @()
 
 -- (`kyok`): Instruction t a `AR__` (t `T'TT'I` Instruction t a `AR___` t `T'TT'I` Instruction t a) `AR__` Instruction t o
 
@@ -72,7 +72,7 @@ class Keyable k t where
 
  -- key (Root k ks) = super @(AR)
  --  `hv__` super @(AT) @((List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k) `T'I_` _)
- --   `ho_` Scope `ha` key @k @(List `T'TT'I` Along k) `hv` k
+ --   `ho_` Scope `ha` key @k @(List `T'TT'I` Along k) `hc` k
 
   -- `ho_` super @(AT) @((List `T'TT'I` Along k) (Construction (List `T'TT'I` Along k) _))
   -- `ho_` super @(AT) @(List (Along k (Construction (List `T'TT'I` Along k) _)))
@@ -87,7 +87,7 @@ class Keyable k t where
 
 -- Scope (t (tt i)) (Stops (Construction Maybe k) i)
 
-  -- Scope `hv` as @(Shifting Alone List `T'TT'I` Tree) @(Scrolling Tree) `ho` 
+  -- Scope `hc` as @(Shifting Alone List `T'TT'I` Tree) @(Scrolling Tree) `ho` 
 
 -- source a (tt o) `AR___` target (t a) (tt ( t o))
 

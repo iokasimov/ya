@@ -847,10 +847,10 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `T'TT'I` (t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hv` \source -> T'TT'I'TTT'I `ho` T'TT'I
+ mapping = rewrap `hc` \source -> T'TT'I'TTT'I `ho` T'TT'I
   `ha____` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho__` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hv_` This `ho` T'TT'I'TTT'I
+    `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hc_` This `ho` T'TT'I'TTT'I
     `ho__` This
     `hs__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho__` super @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
@@ -864,7 +864,7 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` t `L` t `T` Void)
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `T'TT'I` (t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` Void) where
- mapping = rewrap `hv` \source -> T'TT'I'TTT'I `ho` T'TT'I
+ mapping = rewrap `hc` \source -> T'TT'I'TTT'I `ho` T'TT'I
   `ha____` (is `ho'he` this
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
@@ -877,7 +877,7 @@ instance
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
- mapping = rewrap `hv` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
+ mapping = rewrap `hc` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
 
 -- TODO: generalize over categories
 instance {-# OVERLAPPABLE #-}

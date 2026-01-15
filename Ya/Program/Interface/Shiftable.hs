@@ -50,11 +50,11 @@ type Sliding t = Shifting List t
 
  --  _spot_ = intro @(Stops `T` Scrolling Tree i `JNT` State `T` Scrolling Tree i) Unit
  --   `yuk____` Lease `ha` State `hv____` Event `hv___` fetch
- --     `ha___` Scope `hv` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
- --       `ho_` Scope `hv` at @(Alone `T'I_` Tree `T` i)
- --        `hp` Scope `hv` it @(Scrolling Tree i)
+ --     `ha___` Scope `hc` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
+ --       `ho_` Scope `hc` at @(Alone `T'I_` Tree `T` i)
+ --        `hp` Scope `hc` it @(Scrolling Tree i)
  --   `yok____` Check `ha` Stops `ha___` not `ha` found
- --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+ --   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hc` way
  --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `hs` Again `hu` Reach Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR)
@@ -85,9 +85,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  found (These w sl) = super (predicate `he'hv` w) `yui` sl `yiu` sl
 
 --  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
---   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hv` at @(t i) `hp` Scope `hv` it
+--   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hc` at @(t i) `hp` Scope `hc` it
 --   `yok____` Check `ha` Stops `ha___` not `ha` found
---   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hv` way
+--   `yuk____` Apply `ha` State `hv___` Event `hv__` shift `hc` way
 --   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `hs` Again `hu` Reach Unit
 
 rewind :: forall t tt i .
@@ -113,34 +113,34 @@ pattern Expand e = That e
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [2 1] (3 4 5 6) [7 8 9]
 --  expand_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+--   `yuk____` Apply `ha` State `hv___` Event `hc` pop @List `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` push `ho_'ha` Scope `hv` at @(List i)
+--   `yok____` Apply `ha` State `ha___` Event `ha` push `ho_'ha` Scope `hc` at @(List i)
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [4 3 2 1] (5 6) [7 8 9]
 --  shrink_passed = intro @(Halts `JNT` State `T` Sliding List i) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hv` pop @List `ha_` Scope `hv` at @(List i)
+--   `yuk____` Apply `ha` State `hv___` Event `hc` pop @List `ha_` Scope `hc` at @(List i)
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+--   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5 6 7) [8 9]
 --  expand_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hv` pop `ha__` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+--   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hv` at @(List i)
+--   `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hc` at @(List i)
 
---  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hv` Unit) `yui` r
+--  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit) `yui` r
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
 --  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hv` get_hsst_window_item `ha_` Scope `hv` at @(List i)
---   `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hv` at @(List i)
+--   `yuk____` Apply `ha` State `hv___` Event `hc` get_hsst_window_item `ha_` Scope `hc` at @(List i)
+--   `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hc` at @(List i)
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hv` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+--   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
 
 --  get_hsst_window_item window = window
 --   `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior
---   `yuk_` Apply `ha` State `ha` Event `hv` pop @List
+--   `yuk_` Apply `ha` State `ha` Event `hc` pop @List
 --   `he'he'hv_____` empty @List
 
 --  rearrange_window_back popped window =

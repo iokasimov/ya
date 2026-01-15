@@ -388,8 +388,6 @@ infixl 7 `ryo`, `ryv`
 
 infixl 6 `yior`, `yoir`, `yoor`
 
--- TODO: redefine `ho`/`ha`/`hu`/`hv` and compositions with those as aliases
-
 -- TODO: don't oversimplify - designate a functor
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target a o .

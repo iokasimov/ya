@@ -50,7 +50,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hp` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `T` Void) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
- mapping = rewrap `identity` \source x -> super x `yo` source `hjd` wrap `hv` empty @List
+ mapping = rewrap `identity` \source x -> super x `yo` source `hjd` wrap (empty @List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `L` Construction List `T` Void) (Construction List) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These tree unfoldings))) ->
@@ -346,7 +346,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hc` at @(List _)
 
-  slide_passed = intro @(Halts `JNT` State `T` Sliding List _) `hv` Unit
+  slide_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
    `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hc` at @(List _)

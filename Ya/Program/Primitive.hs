@@ -99,7 +99,7 @@ by index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `he'hv` index `hjd`
-  (\x -> tbt `ha` T'I'II `hv`
+  (\x -> tbt `ha` T'I'II `hc`
    (\index' -> is `hu_` idx origin `he'hv` index' `hs` is `hu` x `li` q (index' `hjd` index))
   )
 

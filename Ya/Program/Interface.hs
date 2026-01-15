@@ -29,7 +29,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (I `P'T'I'TT'I` Twice `T'TT'I` List) `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I (T'I'I (These rl fl))))) ->
-  Identity `hv` Label x
+  Identity `hc` Label x
    `hjd__` (positions (x `hjd` rl) `yi` that `ho` that)
     `hjd_` (positions (x `hjd` fl) `yi` that `ho` that)
     `yi_` T'TT'I `ha` T'I'I
@@ -40,14 +40,14 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice 
    Scrolling List item `P` List item `AR__`
    List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs `yukl__` Forth `ha` New
-   `hv____` State `hv__` Event `hv_` (shift `hv'he` Fore `ho` that `ho` fetch) `ha_` Scope `hv` at @(Scrolling List item)
-   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Label `ho_'ha` Scope `hv` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
+   `hv____` State `hv__` Event `hv_` (shift `hv'he` Fore `ho` that `ho` fetch) `ha_` Scope `hc` at @(Scrolling List item)
+   `yok_` New `ha` State `ha__` Event `ha` push @List `ha` Label `ho_'ha` Scope `hc` at @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `he'he'hv______` x `hjd` empty @List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Construction List))) where
   mapping = rewrap `identity` \source x -> T'TT'I'TTT'I
-   (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` T'TT'I (T'I'I (empty @List `hjd` empty @List)))) `hjd` T'TT'I (Label `hv` empty @List))
+   (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` T'TT'I (T'I'I (empty @List `hjd` empty @List)))) `hjd` T'TT'I (Label `hc` empty @List))
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
  -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
@@ -60,11 +60,11 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
      -- `hjd` super shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source x -> (empty @List `hjd` T'TT'I (T'I'I (empty @List `hjd` List `ha` Exist `ha` Build `hv` super x))) `yo` source
+ mapping = rewrap `identity` \source x -> (empty @List `hjd` T'TT'I (T'I'I (empty @List `hjd` List `ha` Exist `ha` Build `hc` super x))) `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> x
-  `yoi` is `he'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hv` Unit)
+  `yoi` is `he'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hc` Unit)
   `yio'yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
@@ -173,14 +173,14 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List)
 instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P List (List `L` List `T` (Void `P` Void)) e ee) List where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These e ee) (T'I'II f) ->
-   e `yokl` (\x -> Prior `ha` New `hv` (super ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (source (f (x `hjd` xx))))))
+   e `yokl` (\x -> Prior `ha` New `hc` (super ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hc` push @List (source (f (x `hjd` xx))))))
    `he'he'hv____` empty @List
    `yi______` that `ho` super @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These e (Label ee)) (T'I'II f) ->
-   (e `yokl` (\x -> Prior `ha` New `hv` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hv` push @List (source (f (x `hjd` xx)))))))
+   (e `yokl` (\x -> Prior `ha` New `hc` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hc` push @List (source (f (x `hjd` xx)))))))
    `he'he'hv____` empty @List
    `yi______` that `ho` (\r -> let (T'TT'I (T'I'II (That rr))) = r in rr) `ho` super @(AR)
 
@@ -207,13 +207,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source x -> let start = (super (super (super (super (super x))))) in
-  this `hv` start
+  this `hc` start
   `yokl` Apply `ha` New
   `ha__'yokl` Prior `ha` New
    `ha_'yokl` Prior `ha` New `ha` State `ha` Event `ha` push @(Nonempty List) `ha` source
    `ha_` super @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _)
   `ha__` wrap @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
-  `he'he'hv___` super @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `hv` start `yo` source
+  `he'he'hv___` super @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `hc` start `yo` source
   `yi__` that
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
@@ -254,7 +254,7 @@ instance Semigroup (AR) Boolean where
  s (These x y) = x `hjd'ys'hs` Try y
 
 instance Quasigroup (AR) Boolean where
- p (These x y) = x `hjd'yp` Try `hv` y `yu` Unit
+ p (These x y) = x `hjd'yp` Try `hc` y `yu` Unit
 
 instance Semigroup (AR) (List item) where
  s (These x y) = x `yokl` Prior `ha` New `ha` State `ha` Event `ha` push `he'he'hv___` y `yi__` that
@@ -271,10 +271,10 @@ instance Semigroup (AR) (Construction Maybe item) where
   -- F'T'I'TT'I (Recursive (T'TT'I (T'I'II (This x)))) ->
 
   -- (\case
-  --  T'TT'I (Break x) -> T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source `hv` x
+  --  T'TT'I (Break x) -> T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source `hc` x
   --  T'TT'I (Valid x) -> (x :: _)
     
-    -- T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` That `hv` (x `yo` source)
+    -- T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` That `hc` (x `yo` source)
   -- )
   -- x
   -- ((T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source)

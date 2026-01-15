@@ -28,5 +28,5 @@ instance Fieldable e (ee `P` e) where
 
 instance {-# OVERLAPS #-} Fieldable e ee => Fieldable e (ee `P` eee) where
  at (These x xs) = These
-  `li` this `ha` at @e @ee `hv` x
-  `li` that `ha` at @e @ee `hv` x `ho` (`hjd` xs)
+  `li` this `ha` at @e @ee `hc` x
+  `li` that `ha` at @e @ee `hc` x `ho` (`hjd` xs)
