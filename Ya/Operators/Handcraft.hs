@@ -235,15 +235,6 @@ infixl 6 `hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yw`, `hjd__'q`
 infixl 5 `hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yw`, `hjd___'q`, `hjd___'s`
 infixl 4 `hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yw`, `hjd____'q`, `hjd____'s`
 
-infixl 8 `lv`
-infixl 7 `lv_`
-infixl 6 `lv__`
-infixl 5 `lv___`
-infixl 4 `lv____`
-infixl 3 `lv_____`
-infixl 2 `lv______`
-infixl 1 `lv_______`
-
 infixl 8 `yv`
 infixl 7 `yv_`
 infixl 6 `yv__`
