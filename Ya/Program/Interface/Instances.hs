@@ -35,7 +35,7 @@ pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Void)) List where
- mapping = rewrap `hc` \source -> rewrap `li_` super `ho` wrap @AR `ho'yo` source `ho` Exist
+ mapping = rewrap `hc` \source -> rewrap `hc__` super `ho` wrap @AR `ho'yo` source `ho` Exist
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `hc` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
@@ -102,7 +102,7 @@ pattern Spare :: forall i ii .
 pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
- mapping = rewrap `hc` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `hs` Valid `ha` source `li` x
+ mapping = rewrap `hc` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `hs` Valid `ha` source `hc_` x
 
 pattern Merge :: forall t tt i .
  ( Stackable tt
@@ -298,7 +298,7 @@ pattern Front x = Label x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = is `li` Empty `hu` (Empty Unit `hjd` x) `hs` is `ho'he` foi @_ @(AR) Exist `li` _shift_ `hc` x where
+ shift way x = is `hc_` Empty `hu` (Empty Unit `hjd` x) `hs` is `ho'he` foi @_ @(AR) Exist `hc_` _shift_ `hc` x where
 
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
    `yuk___` Apply `ha` State
@@ -321,7 +321,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
     `ha___` Scope `hc` at @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `li` _spot_ `hc` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
 
   found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
@@ -334,9 +334,9 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
-  `li` is `hu` (Empty Unit `hjd` x)
+  `hc_` is `hu` (Empty Unit `hjd` x)
   `hs` is `ho'he` foi @_ @(AR) Exist
-  `li` (slide_passed `lv` slide_future `li` way) `hc` x where
+  `hc_` (slide_passed `lv` slide_future `hc_` way) `hc` x where
 
   slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
    `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha_` Scope `hc` at @(List _)
@@ -368,9 +368,9 @@ pattern Pitch e = That e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
  shift way x = is
-  `li` is `hu` (Empty Unit `hjd` x)
+  `hc_` is `hu` (Empty Unit `hjd` x)
   `hs` is `ho'he` foi @_ @(AR) Exist
-  `li` (horizontally `hs_` vertical_deep `hs` vertical_up `hv___` way) `hc` x where
+  `hc_` (horizontally `hs_` vertical_deep `hs` vertical_up `hv___` way) `hc` x where
 
   vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
@@ -415,7 +415,7 @@ instance Shiftable Alone (Construction List) where
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk____` Apply `ha` State
-   `hv_____` Event `hc` pop
+   `hc_____` Event `hc` pop
     `ha____` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
     `ho__'he` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Check

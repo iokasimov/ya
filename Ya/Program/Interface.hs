@@ -30,8 +30,8 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (I `P'T'I'TT'I` Twice `T'TT'I` List) `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I (T'I'I (These rl fl))))) ->
   Identity `hc` Label x
-   `hjd__` (positions (x `hjd` rl) `yv` that `ho` that)
-    `hjd_` (positions (x `hjd` fl) `yv` that `ho` that)
+   `hjd__` positions (x `hjd` rl) `yv` that `ho` that
+    `hjd_` positions (x `hjd` fl) `yv` that `ho` that
     `yv_` T'TT'I `ha` T'I'I
    `yv__` T'TT'I'TTT'I `ho` T'TT'I
    `yo__` source where
@@ -179,7 +179,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P List (List `L
 instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
  mapping = rewrap `hc` \source -> rewrap `hc` \case
   These (These e (Label ee)) (T'I'II f) ->
-   (e `yokl` (\x -> Prior `ha` New `hc` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hc` push @List (source (f (x `hjd` xx)))))))
+   (e `yokl` (\x -> Prior `ha` New `hc` (ee `yokl` (\xx -> Prior `ha` New `ha` State `ha` Event `hc` push @List (source `ha` f `hc____` x `hjd` xx)))))
    `he'he'hv____` empty @List
    `yv______` that `ho` (\r -> let (T'TT'I (T'I'II (That rr))) = r in rr) `ho` super @(AR)
 
@@ -246,8 +246,8 @@ type family Vector x xs where
  Vector x y = x ~ y
 
 -- This transformation is not natural!
-instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
- mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `hs` Same `hu` True Unit `li_` x `hjd'q` source x'
+-- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
+--  mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `hs` Same `hu` True Unit `hc__` x `hjd'q` source x'
 
 instance Semigroup (AR) Boolean where
  s (These x y) = x `hjd'ys'hs` Try y

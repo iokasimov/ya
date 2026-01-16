@@ -12,7 +12,7 @@ infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'y
  , `ho'he`
  , `ho'he'he`
  , `ho'he'he'he`
- , `ho'he'he'hv`
+ -- , `ho'he'he'hv`
  , `ho'he'he'he'he`
  , `ho'hd`
  , `ho'hd'hd`
@@ -21,34 +21,34 @@ infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl
  , `ho_'he`
  , `ho_'he'he`
  , `ho_'he'he'he`
- , `ho_'he'he'hv`
+ -- , `ho_'he'he'hv`
  , `ho_'he'he'he'he`
  , `ho_'hd`
 infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`, `ho__'yoikl`
  , `ho__'he`
  , `ho__'he'he`
  , `ho__'he'he'he`
- , `ho__'he'he'hv`
+ -- , `ho__'he'he'hv`
  , `ho__'he'he'he'he`
  , `ho__'hd`
 infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`, `ho___'yoikl`
  , `ho___'he`
  , `ho___'he'he`
  , `ho___'he'he'he`
- , `ho___'he'he'hv`
+ -- , `ho___'he'he'hv`
  , `ho___'he'he'he'he`
  , `ho___'hd`
 infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`, `ho____'yoikl`
  , `ho____'he`
  , `ho____'he'he`
  , `ho____'he'he'he`
- , `ho____'he'he'hv`
+ -- , `ho____'he'he'hv`
  , `ho____'he'he'he'he`
 infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl`, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`, `ho_____'yoikl`
  , `ho_____'he`
  , `ho_____'he'he`
  , `ho_____'he'he'he`
- , `ho_____'he'he'hv`
+ -- , `ho_____'he'he'hv`
  , `ho_____'he'he'he'he`
  , `ho____'hd`
 infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`, `ho______'yoikl`
@@ -56,14 +56,14 @@ infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho____
  , `ho_______'he`
  , `ho_______'he'he`
  , `ho_______'he'he'he`
- , `ho_______'he'he'hv`
+ -- , `ho_______'he'he'hv`
  , `ho_______'he'he'he'he`
  , `ho_____'hd`
 infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`, `ho________'yoikl`
  , `ho________'he`
  , `ho________'he'he`
  , `ho________'he'he'he`
- , `ho________'he'he'hv`
+ -- , `ho________'he'he'hv`
  , `ho________'he'he'he'he`
  , `ho______'hd`
  -- , `ho________'yo`
@@ -244,15 +244,6 @@ infixl 3 `lv_____`
 infixl 2 `lv______`
 infixl 1 `lv_______`
 
-infixl 8 `li`, `li'yu`, `li'yok` --, `li'yok'yokl`, `li'yokl`
-infixl 7 `li_`, `li_'yok`
-infixl 6 `li__`, `li__'yok`
-infixl 5 `li___`, `li___'yok`
-infixl 4 `li____`, `li____'yok`
-infixl 3 `li_____`, `li_____'yok`
-infixl 2 `li______`, `li______'yok`
-infixl 1 `li_______`, `li_______'yok`
-
 infixl 8 `yv`
 infixl 7 `yv_`
 infixl 6 `yv__`
@@ -361,18 +352,6 @@ infixl 3 `q______`
 infixl 2 `q_______`
 infixl 1 `q________`
 
-li, li_, li__, li___, li____, li_____, li______, li_______
- :: Category target => target e e
-li = identity
-
-li_ = li
-li__ = li
-li___ = li
-li____ = li
-li_____ = li
-li______ = li
-li_______ = li
-
 infixl 7 `yvr`, `yor`
 infixl 7 `ryo`, `ryv`
 
@@ -380,13 +359,17 @@ infixl 6 `yior`, `yoir`, `yoor`
 
 -- TODO: don't oversimplify - designate a functor
 yv, yv_, yv__, yv___, yv____, yv_____, yv______, yv_______
- :: forall source target a o .
+ :: forall source target t a o .
  Precategory target =>
  Covariant Yoneda Functor source target I =>
  Elicitable T'II'I target (T'I'II source a o) =>
  Elicitable T'I'II target (I o) =>
  a -> target (source a o) o
 yv x = super `compose` yoneda @T'I'II @Functor (Identity x) `compose` wrap
+
+-- yv, yv_, yv__, yv___, yv____, yv_____, yv______, yv_______ :: forall t a o .
+--  t a `AR______` t a `AR__` o `AR_____` o
+-- yv x f = f x
 
 yv_ = yv
 yv__ = yv
@@ -1601,31 +1584,31 @@ ho______'he'he = ho'he'he
 ho_______'he'he = ho'he'he
 ho________'he'he = ho'he'he
 
-ho'he'he'hv, ho_'he'he'hv, ho__'he'he'hv, ho___'he'he'hv, ho____'he'he'hv, ho_____'he'he'hv, ho______'he'he'hv, ho_______'he'he'hv, ho________'he'he'hv
- :: forall u e i a o .
- Covariant Yoneda Functor (AR) (AR) I =>
- Covariant Yoneda Functor (AR) (AR) (T'I'II u i) =>
- Contravariant Semi Functor (AR) (AR) (T'II'I (AR) o) =>
- Covariant Semi Functor (AR) (AR) (T'I'II (AR) o) =>
- Wrapper (AR) a =>
- Wrapper (AR) (Supertype a) =>
- Wrapper (AR) (T'I'II u i o) =>
- Wrapper (AR) (T'I'II (AR) a o) =>
- Wrapper (AR) (T'II'I (AR) o a) =>
- Wrapper (AR) (T'II'I (AR) o (Supertype a)) =>
- Wrapper (AR) (T'II'I (AR) o (Supertype (Supertype a))) =>
- (Supertype (Supertype a) ~ (AR) e o) =>
- u i a -> e -> (u i o)
-ho'he'he'hv = fai @(AR) (fai @(AR) (he `compose` he) `compose` yv) `compose` yio @(AR) @(AR) @u
+-- ho'he'he'hv, ho_'he'he'hv, ho__'he'he'hv, ho___'he'he'hv, ho____'he'he'hv, ho_____'he'he'hv, ho______'he'he'hv, ho_______'he'he'hv, ho________'he'he'hv
+--  :: forall u e i a o .
+--  Covariant Yoneda Functor (AR) (AR) I =>
+--  Covariant Yoneda Functor (AR) (AR) (T'I'II u i) =>
+--  Contravariant Semi Functor (AR) (AR) (T'II'I (AR) o) =>
+--  Covariant Semi Functor (AR) (AR) (T'I'II (AR) o) =>
+--  Wrapper (AR) a =>
+--  Wrapper (AR) (Supertype a) =>
+--  Wrapper (AR) (T'I'II u i o) =>
+--  Wrapper (AR) (T'I'II (AR) a o) =>
+--  Wrapper (AR) (T'II'I (AR) o a) =>
+--  Wrapper (AR) (T'II'I (AR) o (Supertype a)) =>
+--  Wrapper (AR) (T'II'I (AR) o (Supertype (Supertype a))) =>
+--  (Supertype (Supertype a) ~ (AR) e o) =>
+--  u i a -> e -> (u i o)
+-- ho'he'he'hv = fai @(AR) (fai @(AR) (he `compose` he) `compose` yv) `compose` yio @(AR) @(AR) @u
 
-ho_'he'he'hv = ho'he'he'hv
-ho__'he'he'hv = ho'he'he'hv
-ho___'he'he'hv = ho'he'he'hv
-ho____'he'he'hv = ho'he'he'hv
-ho_____'he'he'hv = ho'he'he'hv
-ho______'he'he'hv = ho'he'he'hv
-ho_______'he'he'hv = ho'he'he'hv
-ho________'he'he'hv = ho'he'he'hv
+-- ho_'he'he'hv = ho'he'he'hv
+-- ho__'he'he'hv = ho'he'he'hv
+-- ho___'he'he'hv = ho'he'he'hv
+-- ho____'he'he'hv = ho'he'he'hv
+-- ho_____'he'he'hv = ho'he'he'hv
+-- ho______'he'he'hv = ho'he'he'hv
+-- ho_______'he'he'hv = ho'he'he'hv
+-- ho________'he'he'hv = ho'he'he'hv
 
 ho'he'he'he, ho_'he'he'he, ho__'he'he'he, ho___'he'he'he, ho____'he'he'he, ho_____'he'he'he, ho______'he'he'he, ho_______'he'he'he, ho________'he'he'he
  :: forall source target u i a o .

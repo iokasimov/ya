@@ -25,7 +25,7 @@ instance Stackable List where
  pop = \case
   T'TT'I (T'I'II (This _)) -> Empty Unit `hjd` empty @List
   T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-   Exist x `hjd_` xs `yo` F'T'I'TT'I `yv` T'TT'I
+   Exist x `hjd__` T'TT'I `hc__` xs `yo` F'T'I'TT'I
  push item s = item `hjd` rewrap
   (Exist `ha` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` super @Arrow @(F'T'I'TT'I _ _ _))) s
 
@@ -33,7 +33,7 @@ instance Stackable List where
 instance Stackable (Construction Optional) where
  pop = \case
   F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Exist xs) x)))) -> Exist x `hjd` F'T'I'TT'I xs
-  F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Empty xs) x)))) -> Empty Unit `hjd` F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Empty xs) x))))
+  F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Empty xs) x)))) -> Empty Unit `hjd_` Empty xs `hjd` x
  push x = \old -> x `hjd` Item x `ha` T'I'II `ha` That `rewrap` old
 
 pattern Plane :: Stackable t => t i -> t `L` t `T` Void `T` i

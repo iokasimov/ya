@@ -33,7 +33,7 @@ relay new old = old `hjd` new
 leaf :: forall t e .
  Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
  e -> Recursive (T'I'II (P) e `T'TT'I` t)
-leaf x = Recursive `ha` T'TT'I `ha` T'I'II `ha` These x `li_` empty `yo` initial @(AR)
+leaf x = x `hjd_` empty `yo` initial @(AR)
 
 it :: forall e . Reference (P) e e e
 it x = x `hjd` identity
@@ -59,7 +59,7 @@ sub :: forall tt t e .
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
   (xs `yo` wrap @(AR) @(F'T'I'TT'I _ _ _))
-  (\new -> Root x `li_` new `yo` super @Arrow @(F'T'I'TT'I _ _ _))
+  (\new -> Root x `hc__` new `yo` super @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
@@ -98,9 +98,9 @@ by :: forall t r e .
 by index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
- idx origin `he'hv` index `hjd`
+ idx origin `hc` index `hjd`
   (\x -> tbt `ha` T'I'II `hc`
-   (\index' -> is `hu_` idx origin `he'hv` index' `hs` is `hu` x `li` q (index' `hjd` index))
+   (\index' -> is `hu_` idx origin `hc` index' `hs` is `hu` x `hc___` index' `hjd'q` index)
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean

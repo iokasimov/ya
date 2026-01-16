@@ -79,7 +79,7 @@ instance
   (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
      (day @T'I'II @(AR) @Void @(F'T'I'TT'I (T'II'I P) _) @(F'T'I'TT'I (T'II'I P) _) @(P) @(S) identity (source `compose` f)
   `compose` fio @(AR) wrap)
-     `li_` super i `hjd` wrap (super ii))
+     `hc__` super i `hjd` wrap (super ii))
 
 -- 1. t (F'T'I'TT'I (T'II'I P) t ((tt `L` tt `T` ll `L` (t `T'TT'I` F'T'I'TT'I (T'II'I P) t) `T` l `T` _)))
 -- 2. t (tt (F'T'I'TT'I (T'II'I P) t _))
@@ -105,7 +105,7 @@ instance
   `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) identity)
   `yo` wrap @(AR) @(t `T'TT'I` F'T'I'TT'I (T'II'I P) t `T'I_` _)
 
--- State (List item) `L` State (List item) `T` Void) `L` List `T` (Void `P` Void)
+-- State (hc_st item) `L` State (hc_st item) `T` Void) `L` hc_st `T` (Void `P` Void)
 
 -- TODO: reduce a number of transformations here
 -- 1. (F'T'I'TT'I (T'II'I P) t (L l tt _))
@@ -184,7 +184,7 @@ instance
      (super @(AR) @(F'T'I'TT'I _ _ _)))
    `yo` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` That
 
--- TODO: try to simplify
+-- TODO: try to simphc_fy
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (F'T'I'TT'I (T'II'I P) t)
@@ -222,7 +222,7 @@ instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (F'T'I'TT'I (T'II'I P) tt)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (t `T'TT'I` F'T'I'TT'I (T'II'I P) tt) where
- mapping = rewrap `identity` \source (T'I'II f) -> T'TT'I `li`
+ mapping = rewrap `identity` \source (T'I'II f) -> T'TT'I `hc_`
   intro @t @(AR) `compose` intro @(F'T'I'TT'I (T'II'I P) tt) @(AR) `compose` source `compose` f `identity`Unit
 
 -- TODO: try to avoid mapping a datastructure twice here
@@ -289,7 +289,7 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) e) I where
 
 -- TODO: I should alse test how attributes behave on sums
 
--- This instance for normal state propagation. How unnormal should look like?
+-- This instance for normal state propagation. How unnormal should look hc_ke?
 instance (e ~ ee) =>
  Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void)
@@ -326,7 +326,7 @@ instance {-# OVERLAPS #-}
  Covariant Endo Semi Functor (AR) t
  => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) e `T'TT'I` t `T'TT'I_` T'I'II (AR) e `L` T'I'II (AR) e `T` Void) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity`
-  \(T'I'II f) e -> f e `yo` super @(AR) `ho` super @(AR) `ho` (`li` e) `ho` source
+  \(T'I'II f) e -> f e `yo` super @(AR) `ho` super @(AR) `ho` (`hc_` e) `ho` source
 
 instance {-# OVERLAPPABLE #-}
  Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` Void) t
@@ -508,12 +508,12 @@ instance
   -- (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
  -- mapping = rewrap `identity` \source (T'TT'I (T'I'II (T'I'TT'II'I x))) ->
   -- T'TTT'TT'I `compose` T'I'II `identity` \old -> wrapped @(AR)
-   -- `li` map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) e `T'TT'I` L (S'I'II () ()) tt) @(T'II'I (P) e `TT'T'I` tt) source
-   -- `li` T'II'I (x old)
+   -- `hc_` map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) e `T'TT'I` L (S'I'II () ()) tt) @(T'II'I (P) e `TT'T'I` tt) source
+   -- `hc_` T'II'I (x old)
 
 instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'I'II (AR) e `T'TT'I` t) where
- mapping = rewrap `identity` \source -> rewrap `identity` \f -> T'I'II `identity` \_ -> intro `compose` source `li` f Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> T'I'II `identity` \_ -> intro `compose` source `hc_` f Unit
 
 instance
  ( Covariant Yoneda Functor target target I
@@ -529,7 +529,7 @@ instance
  , forall e . Wrapper target (I e)
  ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'I'II (T'I'TT'II'I tt t) i) where
  mapping = rewrap `identity` \source -> rewrap
-  `li` wrap @target @(T'I'TT'II'I _ _ _ _)
+  `hc_` wrap @target @(T'I'TT'II'I _ _ _ _)
    `compose` fij @target @target identity
    `compose` source
    `compose` yv Unit
@@ -547,7 +547,7 @@ instance
  , forall ee . Wrapper target (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t ee)
  ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t) where
  mapping = rewrap `identity` \source -> rewrap
-  `li` fj @target @target
+  `hc_` fj @target @target
    (component @target @(T'I'II target Unit) @t
     `compose` component @target @I @(T'I'II target Unit)
     `compose` wrap @target
@@ -651,25 +651,25 @@ instance
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok` Label @_ @_ @Void `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) source (T'TT'I x)) `ha` super @(AR) `ha` super @(AR)
 
--- TODO: generalize using adjunctions
+-- TODO: generahc_ze using adjunctions
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void) eee eeee)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `li` \old ->
+  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
    let These x new = ee `he'he'hv` old in
    let These y upd  = eee `he'he'he` new in
-   These (source `li` f (These x y)) upd
+   These (source `hc_` f (These x y)) upd
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `li` \old ->
+  These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
    let These x _ = ee `he'he'hv` old in
    let These y _  = eee `he'he'he` old in
-   These (source `li` f (These x y)) old
+   These (source `hc_` f (These x y)) old
 
 instance
  ( i ~ ii
@@ -744,7 +744,7 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 --  , forall e . Wrapper target ((tt `TT'T'I` t) `L` (tt `TT'T'I` t) `T` Void `T` e)
 --  ) => Mapping T'I'II T'I'II target target ((tt `TT'T'I` t) `T'TT'I` (tt `TT'T'I` t) `L` (tt `TT'T'I` t) `T` Void) (tt `TT'T'I` t) where
 --  mapping = rewrap `identity` \source -> rewrap
---   `li` component @target @(t `T'TT'I` t `L` t `T` Void) @t
+--   `hc_` component @target @(t `T'TT'I` t `L` t `T` Void) @t
 --   `compose` wrap @target
 --   `compose` map @T'I'II @T'I'II @target @target @t @t
 --   (wrap @_ @(t `L` t `T` Void `T` _)
@@ -756,13 +756,13 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 --    )
 --    `compose` super @target @(TT'T'I _ _ _)
 
--- TODO: generalize with limits
+-- TODO: generahc_ze with hc_mits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'I'II e `T` Void) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   T'I'II (These e x) -> super (super x) `yo` source `ho` These e `ho` T'I'II
 
--- TODO: generalize with limits
+-- TODO: generahc_ze with hc_mits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'II'I e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'II'I e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
@@ -771,9 +771,9 @@ instance Covariant Endo Semi Functor (AR) t =>
 -- instance Covariant Endo Semi Functor (AR) t =>
 --  Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` T'I'II (AR) e `L` T'I'II (AR) e `T` Void `L` t `T` Void) (t `TT'T'I` T'I'II (AR) e) where
 --  mapping = rewrap `identity` \source -> rewrap `identity` \x ->
---   T'I'II `identity` \e -> x `yo` source `compose` (`li` e) `compose` super
+--   T'I'II `identity` \e -> x `yo` source `compose` (`hc_` e) `compose` super
 
--- TODO: generalize
+-- TODO: generahc_ze
 -- We need this instance to make `yok'yoklKL` work
 -- instance {-# OVERLAPS #-} Component (AR) (T'TT'I t tt) t =>
  -- Mapping T'I'II T'I'II (AR) (AR) (T'TT'I t (Label l tt)) t where
@@ -799,7 +799,7 @@ instance
  , forall eee eeee . Wrapper target (T'II'I u eee eeee)
  , forall eee eeee . Wrapper target (T'II'I (P) eee eeee)
  ) => Mapping T'I'II T'I'II target target (Day T'I'II target u uu (t `L` t `T` l) (tt `L` tt `T` ll) e ee) (t `L` t `T` l) where
- mapping = rewrap `identity` \source -> rewrap `li`
+ mapping = rewrap `identity` \source -> rewrap `hc_`
    map @T'I'II @T'I'II @target @target @(Day T'I'II target u uu t (tt `L` tt `T` ll) _ _) @t source
    `compose` wrap `compose` foi (foi @target @target super)
 
@@ -840,7 +840,7 @@ instance Mapping T'II'I T'I'II (AT) (AT)
   -- map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) (this `ha` source) x
   -- `hjd` _
 
--- TODO: try to generalise
+-- TODO: try to generahc_se
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
@@ -857,7 +857,7 @@ instance
     `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `hc_` That `ho` T'TT'I'TTT'I
     `ho__` That
 
--- TODO: try to generalise
+-- TODO: try to generahc_se
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
@@ -879,7 +879,7 @@ instance
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> T'I'II `ha` wrap @AR `ha` source `hs` T'I'II `ha` wrap @AR `ha` source
 
--- TODO: generalize over categories
+-- TODO: generahc_ze over categories
 instance {-# OVERLAPPABLE #-}
  (Setoid (AR) (Supertype e), Wrapper (AR) e)
  => Setoid (AR) e where
