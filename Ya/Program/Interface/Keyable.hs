@@ -61,7 +61,7 @@ class Keyable k t where
 
 --   go_horizontally k = intro @(State `T` Scrolling Tree) -- Stops `T`  `JNT` 
 --    `yuk_____` Apply `ha` State `ha` Event `ha` spot (That Unit `lu` predicate k)
---    `ha__'he'he` Scope `hc` it @(List (Along k (Construction (List `T'TT'I` Along k))))
+--    `ha__'st'st` Scope `hc` it @(List (Along k (Construction (List `T'TT'I` Along k))))
 --         -- `ho_` Scope `hc` as @()
 
 -- (`kyok`): Instruction t a `AR__` (t `T'TT'I` Instruction t a `AR___` t `T'TT'I` Instruction t a) `AR__` Instruction t o

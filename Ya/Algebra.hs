@@ -658,8 +658,8 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
-   let These x new = ee `he'he'hv` old in
-   let These y upd  = eee `he'he'he` new in
+   let These x new = ee `st'st'hv` old in
+   let These y upd  = eee `st'st'st` new in
    These (source `hc_` f (These x y)) upd
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
@@ -667,8 +667,8 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
-   let These x _ = ee `he'he'hv` old in
-   let These y _  = eee `he'he'he` old in
+   let These x _ = ee `st'st'hv` old in
+   let These y _  = eee `st'st'st` old in
    These (source `hc_` f (These x y)) old
 
 instance
@@ -865,15 +865,15 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `T'TT'I` (t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` Void) where
  mapping = rewrap `identity` \source -> T'TT'I'TTT'I `ho` T'TT'I
-  `ha____` (is `ho'he` this
+  `ha____` (is `ho'st` this
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` super @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `hp` is `ho'he` that `ho'yo` source
+    `hp` is `ho'st` that `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap ((`hjd_` xx) `ho` T'TT'I'TTT'I)))
-   `lo__` (is `ho'he` that
+   `lo__` (is `ho'st` that
     `ho` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho` super @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `hp` is `ho'he` this `ho'yo` source
+    `hp` is `ho'st` this `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where

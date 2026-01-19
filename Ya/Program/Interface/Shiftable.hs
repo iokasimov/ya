@@ -80,9 +80,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
--- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'he` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `he'he'hv` x where
+-- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'st` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `st'st'hv` x where
 
---  found (These w sl) = super (predicate `he'hv` w) `yui` sl `yiu` sl
+--  found (These w sl) = super (predicate `st'hv` w) `yui` sl `yiu` sl
 
 --  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
 --   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hc` at @(t i) `hp` Scope `hc` it
@@ -103,7 +103,7 @@ pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 -- adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
--- adjust way x = is `hu` (Empty Unit `lu` x) `hs` is `ho'he` foi @_ @(AR) Exist `li` router way `he'he'hv` x where
+-- adjust way x = is `hu` (Empty Unit `lu` x) `hs` is `ho'st` foi @_ @(AR) Exist `li` router way `st'st'hv` x where
 
 --  -- TODO: there should be a way to shorten it
 --  router (These (This _) (This _)) = shrink_passed
@@ -113,7 +113,7 @@ pattern Expand e = That e
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [2 1] (3 4 5 6) [7 8 9]
 --  expand_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hc` pop @List `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+--   `yuk____` Apply `ha` State `hv___` Event `hc` pop @List `ha__` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` rep `hv'st` Aback
 --   `yok____` Check
 --   `yok____` Apply `ha` State `ha___` Event `ha` push `ho_'ha` Scope `hc` at @(List i)
 
@@ -121,28 +121,28 @@ pattern Expand e = That e
 --  shrink_passed = intro @(Halts `JNT` State `T` Sliding List i) Unit
 --   `yuk____` Apply `ha` State `hv___` Event `hc` pop @List `ha_` Scope `hc` at @(List i)
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Aback
+--   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` rep `hv'st` Aback
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5 6 7) [8 9]
 --  expand_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
---   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+--   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` rep `hv'st` Ahead
 --   `yok____` Check
 --   `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hc` at @(List i)
 
---  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `he'he'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit) `yui` r
+--  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `st'st'hv___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit) `yui` r
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
 --  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit
 --   `yuk____` Apply `ha` State `hv___` Event `hc` get_hsst_window_item `ha_` Scope `hc` at @(List i)
 --   `yok____` Apply `ha` State `ha___` Event `ha` rearrange_window_back `ho_'ha` Scope `hc` at @(List i)
 --   `yok____` Check
---   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` rep `hv'he` Ahead
+--   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` rep `hv'st` Ahead
 
 --  get_hsst_window_item window = window
 --   `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior
 --   `yuk_` Apply `ha` State `ha` Event `hc` pop @List
---   `he'he'hv_____` empty @List
+--   `st'st'hv_____` empty @List
 
 --  rearrange_window_back popped window =
 --   (window `yokl` Apply `ha` State `ha` Event `ha` push @List `ho` Prior
---   `he'he'hv_____` empty @List) `yui` popped
+--   `st'st'hv_____` empty @List) `yui` popped

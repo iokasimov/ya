@@ -8,16 +8,16 @@ import Ya.Algebra.Instances ()
 import Ya.Operators.Mappings
 import Ya.Operators.Handcraft
 
-infixl 2 `ha_______'yo'he'he`, `ha_______'ya'he'he`, `ha_______'yoi'he'he`, `ha_______'ha'he'he`, `ha_______'ho'he'he`, `ha_______'yia'he'he`, `ho_______'yo'he'he`, `ho_______'ya'he'he`, `ho_______'yoi'he'he`, `ho_______'ha'he'he`, `ho_______'ho'he'he`, `ho_______'yia'he'he`, `ha_______'yo'yo'he`, `ha_______'yo'ya'he`, `ha_______'yo'yoi'he`, `ha_______'yo'ha'he`, `ha_______'yo'ho'he`, `ha_______'yo'yia'he`, `ha_______'ya'yo'he`, `ha_______'ya'ya'he`, `ha_______'ya'yoi'he`, `ha_______'ya'ha'he`, `ha_______'ya'ho'he`, `ha_______'ya'yia'he`, `ha_______'yoi'yo'he`, `ha_______'yoi'ya'he`, `ha_______'yoi'yoi'he`, `ha_______'yoi'ha'he`, `ha_______'yoi'ho'he`, `ha_______'yoi'yia'he`, `ha_______'ha'yo'he`, `ha_______'ha'ya'he`, `ha_______'ha'yoi'he`, `ha_______'ha'ha'he`, `ha_______'ha'ho'he`, `ha_______'ha'yia'he`, `ha_______'ho'yo'he`, `ha_______'ho'ya'he`, `ha_______'ho'yoi'he`, `ha_______'ho'ha'he`, `ha_______'ho'ho'he`, `ha_______'ho'yia'he`, `ha_______'yia'yo'he`, `ha_______'yia'ya'he`, `ha_______'yia'yoi'he`, `ha_______'yia'ha'he`, `ha_______'yia'ho'he`, `ha_______'yia'yia'he`, `ho_______'yo'yo'he`, `ho_______'yo'ya'he`, `ho_______'yo'yoi'he`, `ho_______'yo'ha'he`, `ho_______'yo'ho'he`, `ho_______'yo'yia'he`, `ho_______'ya'yo'he`, `ho_______'ya'ya'he`, `ho_______'ya'yoi'he`, `ho_______'ya'ha'he`, `ho_______'ya'ho'he`, `ho_______'ya'yia'he`, `ho_______'yoi'yo'he`, `ho_______'yoi'ya'he`, `ho_______'yoi'yoi'he`, `ho_______'yoi'ha'he`, `ho_______'yoi'ho'he`, `ho_______'yoi'yia'he`, `ho_______'ha'yo'he`, `ho_______'ha'ya'he`, `ho_______'ha'yoi'he`, `ho_______'ha'ha'he`, `ho_______'ha'ho'he`, `ho_______'ha'yia'he`, `ho_______'ho'yo'he`, `ho_______'ho'ya'he`, `ho_______'ho'yoi'he`, `ho_______'ho'ha'he`, `ho_______'ho'ho'he`, `ho_______'ho'yia'he`, `ho_______'yia'yo'he`, `ho_______'yia'ya'he`, `ho_______'yia'yoi'he`, `ho_______'yia'ha'he`, `ho_______'yia'ho'he`, `ho_______'yia'yia'he`, `ha_______'yo'yo'yo`, `ha_______'yo'yo'ya`, `ha_______'yo'yo'yoi`, `ha_______'yo'yo'ha`, `ha_______'yo'yo'ho`, `ha_______'yo'yo'yia`, `ha_______'yo'ya'yo`, `ha_______'yo'ya'ya`, `ha_______'yo'ya'yoi`, `ha_______'yo'ya'ha`, `ha_______'yo'ya'ho`, `ha_______'yo'ya'yia`, `ha_______'yo'yoi'yo`, `ha_______'yo'yoi'ya`, `ha_______'yo'yoi'yoi`, `ha_______'yo'yoi'ha`, `ha_______'yo'yoi'ho`, `ha_______'yo'yoi'yia`, `ha_______'yo'ha'yo`, `ha_______'yo'ha'ya`, `ha_______'yo'ha'yoi`, `ha_______'yo'ha'ha`, `ha_______'yo'ha'ho`, `ha_______'yo'ha'yia`, `ha_______'yo'ho'yo`, `ha_______'yo'ho'ya`, `ha_______'yo'ho'yoi`, `ha_______'yo'ho'ha`, `ha_______'yo'ho'ho`, `ha_______'yo'ho'yia`, `ha_______'yo'yia'yo`, `ha_______'yo'yia'ya`, `ha_______'yo'yia'yoi`, `ha_______'yo'yia'ha`, `ha_______'yo'yia'ho`, `ha_______'yo'yia'yia`, `ha_______'ya'yo'yo`, `ha_______'ya'yo'ya`, `ha_______'ya'yo'yoi`, `ha_______'ya'yo'ha`, `ha_______'ya'yo'ho`, `ha_______'ya'yo'yia`, `ha_______'ya'ya'yo`, `ha_______'ya'ya'ya`, `ha_______'ya'ya'yoi`, `ha_______'ya'ya'ha`, `ha_______'ya'ya'ho`, `ha_______'ya'ya'yia`, `ha_______'ya'yoi'yo`, `ha_______'ya'yoi'ya`, `ha_______'ya'yoi'yoi`, `ha_______'ya'yoi'ha`, `ha_______'ya'yoi'ho`, `ha_______'ya'yoi'yia`, `ha_______'ya'ha'yo`, `ha_______'ya'ha'ya`, `ha_______'ya'ha'yoi`, `ha_______'ya'ha'ha`, `ha_______'ya'ha'ho`, `ha_______'ya'ha'yia`, `ha_______'ya'ho'yo`, `ha_______'ya'ho'ya`, `ha_______'ya'ho'yoi`, `ha_______'ya'ho'ha`, `ha_______'ya'ho'ho`, `ha_______'ya'ho'yia`, `ha_______'ya'yia'yo`, `ha_______'ya'yia'ya`, `ha_______'ya'yia'yoi`, `ha_______'ya'yia'ha`, `ha_______'ya'yia'ho`, `ha_______'ya'yia'yia`, `ha_______'yoi'yo'yo`, `ha_______'yoi'yo'ya`, `ha_______'yoi'yo'yoi`, `ha_______'yoi'yo'ha`, `ha_______'yoi'yo'ho`, `ha_______'yoi'yo'yia`, `ha_______'yoi'ya'yo`, `ha_______'yoi'ya'ya`, `ha_______'yoi'ya'yoi`, `ha_______'yoi'ya'ha`, `ha_______'yoi'ya'ho`, `ha_______'yoi'ya'yia`, `ha_______'yoi'yoi'yo`, `ha_______'yoi'yoi'ya`, `ha_______'yoi'yoi'yoi`, `ha_______'yoi'yoi'ha`, `ha_______'yoi'yoi'ho`, `ha_______'yoi'yoi'yia`, `ha_______'yoi'ha'yo`, `ha_______'yoi'ha'ya`, `ha_______'yoi'ha'yoi`, `ha_______'yoi'ha'ha`, `ha_______'yoi'ha'ho`, `ha_______'yoi'ha'yia`, `ha_______'yoi'ho'yo`, `ha_______'yoi'ho'ya`, `ha_______'yoi'ho'yoi`, `ha_______'yoi'ho'ha`, `ha_______'yoi'ho'ho`, `ha_______'yoi'ho'yia`, `ha_______'yoi'yia'yo`, `ha_______'yoi'yia'ya`, `ha_______'yoi'yia'yoi`, `ha_______'yoi'yia'ha`, `ha_______'yoi'yia'ho`, `ha_______'yoi'yia'yia`, `ha_______'ha'yo'yo`, `ha_______'ha'yo'ya`, `ha_______'ha'yo'yoi`, `ha_______'ha'yo'ha`, `ha_______'ha'yo'ho`, `ha_______'ha'yo'yia`, `ha_______'ha'ya'yo`, `ha_______'ha'ya'ya`, `ha_______'ha'ya'yoi`, `ha_______'ha'ya'ha`, `ha_______'ha'ya'ho`, `ha_______'ha'ya'yia`, `ha_______'ha'yoi'yo`, `ha_______'ha'yoi'ya`, `ha_______'ha'yoi'yoi`, `ha_______'ha'yoi'ha`, `ha_______'ha'yoi'ho`, `ha_______'ha'yoi'yia`, `ha_______'ha'ha'yo`, `ha_______'ha'ha'ya`, `ha_______'ha'ha'yoi`, `ha_______'ha'ha'ha`, `ha_______'ha'ha'ho`, `ha_______'ha'ha'yia`, `ha_______'ha'ho'yo`, `ha_______'ha'ho'ya`, `ha_______'ha'ho'yoi`, `ha_______'ha'ho'ha`, `ha_______'ha'ho'ho`, `ha_______'ha'ho'yia`, `ha_______'ha'yia'yo`, `ha_______'ha'yia'ya`, `ha_______'ha'yia'yoi`, `ha_______'ha'yia'ha`, `ha_______'ha'yia'ho`, `ha_______'ha'yia'yia`, `ha_______'ho'yo'yo`, `ha_______'ho'yo'ya`, `ha_______'ho'yo'yoi`, `ha_______'ho'yo'ha`, `ha_______'ho'yo'ho`, `ha_______'ho'yo'yia`, `ha_______'ho'ya'yo`, `ha_______'ho'ya'ya`, `ha_______'ho'ya'yoi`, `ha_______'ho'ya'ha`, `ha_______'ho'ya'ho`, `ha_______'ho'ya'yia`, `ha_______'ho'yoi'yo`, `ha_______'ho'yoi'ya`, `ha_______'ho'yoi'yoi`, `ha_______'ho'yoi'ha`, `ha_______'ho'yoi'ho`, `ha_______'ho'yoi'yia`, `ha_______'ho'ha'yo`, `ha_______'ho'ha'ya`, `ha_______'ho'ha'yoi`, `ha_______'ho'ha'ha`, `ha_______'ho'ha'ho`, `ha_______'ho'ha'yia`, `ha_______'ho'ho'yo`, `ha_______'ho'ho'ya`, `ha_______'ho'ho'yoi`, `ha_______'ho'ho'ha`, `ha_______'ho'ho'ho`, `ha_______'ho'ho'yia`, `ha_______'ho'yia'yo`, `ha_______'ho'yia'ya`, `ha_______'ho'yia'yoi`, `ha_______'ho'yia'ha`, `ha_______'ho'yia'ho`, `ha_______'ho'yia'yia`, `ha_______'yia'yo'yo`, `ha_______'yia'yo'ya`, `ha_______'yia'yo'yoi`, `ha_______'yia'yo'ha`, `ha_______'yia'yo'ho`, `ha_______'yia'yo'yia`, `ha_______'yia'ya'yo`, `ha_______'yia'ya'ya`, `ha_______'yia'ya'yoi`, `ha_______'yia'ya'ha`, `ha_______'yia'ya'ho`, `ha_______'yia'ya'yia`, `ha_______'yia'yoi'yo`, `ha_______'yia'yoi'ya`, `ha_______'yia'yoi'yoi`, `ha_______'yia'yoi'ha`, `ha_______'yia'yoi'ho`, `ha_______'yia'yoi'yia`, `ha_______'yia'ha'yo`, `ha_______'yia'ha'ya`, `ha_______'yia'ha'yoi`, `ha_______'yia'ha'ha`, `ha_______'yia'ha'ho`, `ha_______'yia'ha'yia`, `ha_______'yia'ho'yo`, `ha_______'yia'ho'ya`, `ha_______'yia'ho'yoi`, `ha_______'yia'ho'ha`, `ha_______'yia'ho'ho`, `ha_______'yia'ho'yia`, `ha_______'yia'yia'yo`, `ha_______'yia'yia'ya`, `ha_______'yia'yia'yoi`, `ha_______'yia'yia'ha`, `ha_______'yia'yia'ho`, `ha_______'yia'yia'yia`, `ho_______'yo'yo'yo`, `ho_______'yo'yo'ya`, `ho_______'yo'yo'yoi`, `ho_______'yo'yo'ha`, `ho_______'yo'yo'ho`, `ho_______'yo'yo'yia`, `ho_______'yo'ya'yo`, `ho_______'yo'ya'ya`, `ho_______'yo'ya'yoi`, `ho_______'yo'ya'ha`, `ho_______'yo'ya'ho`, `ho_______'yo'ya'yia`, `ho_______'yo'yoi'yo`, `ho_______'yo'yoi'ya`, `ho_______'yo'yoi'yoi`, `ho_______'yo'yoi'ha`, `ho_______'yo'yoi'ho`, `ho_______'yo'yoi'yia`, `ho_______'yo'ha'yo`, `ho_______'yo'ha'ya`, `ho_______'yo'ha'yoi`, `ho_______'yo'ha'ha`, `ho_______'yo'ha'ho`, `ho_______'yo'ha'yia`, `ho_______'yo'ho'yo`, `ho_______'yo'ho'ya`, `ho_______'yo'ho'yoi`, `ho_______'yo'ho'ha`, `ho_______'yo'ho'ho`, `ho_______'yo'ho'yia`, `ho_______'yo'yia'yo`, `ho_______'yo'yia'ya`, `ho_______'yo'yia'yoi`, `ho_______'yo'yia'ha`, `ho_______'yo'yia'ho`, `ho_______'yo'yia'yia`, `ho_______'ya'yo'yo`, `ho_______'ya'yo'ya`, `ho_______'ya'yo'yoi`, `ho_______'ya'yo'ha`, `ho_______'ya'yo'ho`, `ho_______'ya'yo'yia`, `ho_______'ya'ya'yo`, `ho_______'ya'ya'ya`, `ho_______'ya'ya'yoi`, `ho_______'ya'ya'ha`, `ho_______'ya'ya'ho`, `ho_______'ya'ya'yia`, `ho_______'ya'yoi'yo`, `ho_______'ya'yoi'ya`, `ho_______'ya'yoi'yoi`, `ho_______'ya'yoi'ha`, `ho_______'ya'yoi'ho`, `ho_______'ya'yoi'yia`, `ho_______'ya'ha'yo`, `ho_______'ya'ha'ya`, `ho_______'ya'ha'yoi`, `ho_______'ya'ha'ha`, `ho_______'ya'ha'ho`, `ho_______'ya'ha'yia`, `ho_______'ya'ho'yo`, `ho_______'ya'ho'ya`, `ho_______'ya'ho'yoi`, `ho_______'ya'ho'ha`, `ho_______'ya'ho'ho`, `ho_______'ya'ho'yia`, `ho_______'ya'yia'yo`, `ho_______'ya'yia'ya`, `ho_______'ya'yia'yoi`, `ho_______'ya'yia'ha`, `ho_______'ya'yia'ho`, `ho_______'ya'yia'yia`, `ho_______'yoi'yo'yo`, `ho_______'yoi'yo'ya`, `ho_______'yoi'yo'yoi`, `ho_______'yoi'yo'ha`, `ho_______'yoi'yo'ho`, `ho_______'yoi'yo'yia`, `ho_______'yoi'ya'yo`, `ho_______'yoi'ya'ya`, `ho_______'yoi'ya'yoi`, `ho_______'yoi'ya'ha`, `ho_______'yoi'ya'ho`, `ho_______'yoi'ya'yia`, `ho_______'yoi'yoi'yo`, `ho_______'yoi'yoi'ya`, `ho_______'yoi'yoi'yoi`, `ho_______'yoi'yoi'ha`, `ho_______'yoi'yoi'ho`, `ho_______'yoi'yoi'yia`, `ho_______'yoi'ha'yo`, `ho_______'yoi'ha'ya`, `ho_______'yoi'ha'yoi`, `ho_______'yoi'ha'ha`, `ho_______'yoi'ha'ho`, `ho_______'yoi'ha'yia`, `ho_______'yoi'ho'yo`, `ho_______'yoi'ho'ya`, `ho_______'yoi'ho'yoi`, `ho_______'yoi'ho'ha`, `ho_______'yoi'ho'ho`, `ho_______'yoi'ho'yia`, `ho_______'yoi'yia'yo`, `ho_______'yoi'yia'ya`, `ho_______'yoi'yia'yoi`, `ho_______'yoi'yia'ha`, `ho_______'yoi'yia'ho`, `ho_______'yoi'yia'yia`, `ho_______'ha'yo'yo`, `ho_______'ha'yo'ya`, `ho_______'ha'yo'yoi`, `ho_______'ha'yo'ha`, `ho_______'ha'yo'ho`, `ho_______'ha'yo'yia`, `ho_______'ha'ya'yo`, `ho_______'ha'ya'ya`, `ho_______'ha'ya'yoi`, `ho_______'ha'ya'ha`, `ho_______'ha'ya'ho`, `ho_______'ha'ya'yia`, `ho_______'ha'yoi'yo`, `ho_______'ha'yoi'ya`, `ho_______'ha'yoi'yoi`, `ho_______'ha'yoi'ha`, `ho_______'ha'yoi'ho`, `ho_______'ha'yoi'yia`, `ho_______'ha'ha'yo`, `ho_______'ha'ha'ya`, `ho_______'ha'ha'yoi`, `ho_______'ha'ha'ha`, `ho_______'ha'ha'ho`, `ho_______'ha'ha'yia`, `ho_______'ha'ho'yo`, `ho_______'ha'ho'ya`, `ho_______'ha'ho'yoi`, `ho_______'ha'ho'ha`, `ho_______'ha'ho'ho`, `ho_______'ha'ho'yia`, `ho_______'ha'yia'yo`, `ho_______'ha'yia'ya`, `ho_______'ha'yia'yoi`, `ho_______'ha'yia'ha`, `ho_______'ha'yia'ho`, `ho_______'ha'yia'yia`, `ho_______'ho'yo'yo`, `ho_______'ho'yo'ya`, `ho_______'ho'yo'yoi`, `ho_______'ho'yo'ha`, `ho_______'ho'yo'ho`, `ho_______'ho'yo'yia`, `ho_______'ho'ya'yo`, `ho_______'ho'ya'ya`, `ho_______'ho'ya'yoi`, `ho_______'ho'ya'ha`, `ho_______'ho'ya'ho`, `ho_______'ho'ya'yia`, `ho_______'ho'yoi'yo`, `ho_______'ho'yoi'ya`, `ho_______'ho'yoi'yoi`, `ho_______'ho'yoi'ha`, `ho_______'ho'yoi'ho`, `ho_______'ho'yoi'yia`, `ho_______'ho'ha'yo`, `ho_______'ho'ha'ya`, `ho_______'ho'ha'yoi`, `ho_______'ho'ha'ha`, `ho_______'ho'ha'ho`, `ho_______'ho'ha'yia`, `ho_______'ho'ho'yo`, `ho_______'ho'ho'ya`, `ho_______'ho'ho'yoi`, `ho_______'ho'ho'ha`, `ho_______'ho'ho'ho`, `ho_______'ho'ho'yia`, `ho_______'ho'yia'yo`, `ho_______'ho'yia'ya`, `ho_______'ho'yia'yoi`, `ho_______'ho'yia'ha`, `ho_______'ho'yia'ho`, `ho_______'ho'yia'yia`, `ho_______'yia'yo'yo`, `ho_______'yia'yo'ya`, `ho_______'yia'yo'yoi`, `ho_______'yia'yo'ha`, `ho_______'yia'yo'ho`, `ho_______'yia'yo'yia`, `ho_______'yia'ya'yo`, `ho_______'yia'ya'ya`, `ho_______'yia'ya'yoi`, `ho_______'yia'ya'ha`, `ho_______'yia'ya'ho`, `ho_______'yia'ya'yia`, `ho_______'yia'yoi'yo`, `ho_______'yia'yoi'ya`, `ho_______'yia'yoi'yoi`, `ho_______'yia'yoi'ha`, `ho_______'yia'yoi'ho`, `ho_______'yia'yoi'yia`, `ho_______'yia'ha'yo`, `ho_______'yia'ha'ya`, `ho_______'yia'ha'yoi`, `ho_______'yia'ha'ha`, `ho_______'yia'ha'ho`, `ho_______'yia'ha'yia`, `ho_______'yia'ho'yo`, `ho_______'yia'ho'ya`, `ho_______'yia'ho'yoi`, `ho_______'yia'ho'ha`, `ho_______'yia'ho'ho`, `ho_______'yia'ho'yia`, `ho_______'yia'yia'yo`, `ho_______'yia'yia'ya`, `ho_______'yia'yia'yoi`, `ho_______'yia'yia'ha`, `ho_______'yia'yia'ho`, `ho_______'yia'yia'yia`
-infixl 3 `ha______'yo'he'he`, `ha______'ya'he'he`, `ha______'yoi'he'he`, `ha______'ha'he'he`, `ha______'ho'he'he`, `ha______'yia'he'he`, `ho______'yo'he'he`, `ho______'ya'he'he`, `ho______'yoi'he'he`, `ho______'ha'he'he`, `ho______'ho'he'he`, `ho______'yia'he'he`, `ha______'yo'yo'he`, `ha______'yo'ya'he`, `ha______'yo'yoi'he`, `ha______'yo'ha'he`, `ha______'yo'ho'he`, `ha______'yo'yia'he`, `ha______'ya'yo'he`, `ha______'ya'ya'he`, `ha______'ya'yoi'he`, `ha______'ya'ha'he`, `ha______'ya'ho'he`, `ha______'ya'yia'he`, `ha______'yoi'yo'he`, `ha______'yoi'ya'he`, `ha______'yoi'yoi'he`, `ha______'yoi'ha'he`, `ha______'yoi'ho'he`, `ha______'yoi'yia'he`, `ha______'ha'yo'he`, `ha______'ha'ya'he`, `ha______'ha'yoi'he`, `ha______'ha'ha'he`, `ha______'ha'ho'he`, `ha______'ha'yia'he`, `ha______'ho'yo'he`, `ha______'ho'ya'he`, `ha______'ho'yoi'he`, `ha______'ho'ha'he`, `ha______'ho'ho'he`, `ha______'ho'yia'he`, `ha______'yia'yo'he`, `ha______'yia'ya'he`, `ha______'yia'yoi'he`, `ha______'yia'ha'he`, `ha______'yia'ho'he`, `ha______'yia'yia'he`, `ho______'yo'yo'he`, `ho______'yo'ya'he`, `ho______'yo'yoi'he`, `ho______'yo'ha'he`, `ho______'yo'ho'he`, `ho______'yo'yia'he`, `ho______'ya'yo'he`, `ho______'ya'ya'he`, `ho______'ya'yoi'he`, `ho______'ya'ha'he`, `ho______'ya'ho'he`, `ho______'ya'yia'he`, `ho______'yoi'yo'he`, `ho______'yoi'ya'he`, `ho______'yoi'yoi'he`, `ho______'yoi'ha'he`, `ho______'yoi'ho'he`, `ho______'yoi'yia'he`, `ho______'ha'yo'he`, `ho______'ha'ya'he`, `ho______'ha'yoi'he`, `ho______'ha'ha'he`, `ho______'ha'ho'he`, `ho______'ha'yia'he`, `ho______'ho'yo'he`, `ho______'ho'ya'he`, `ho______'ho'yoi'he`, `ho______'ho'ha'he`, `ho______'ho'ho'he`, `ho______'ho'yia'he`, `ho______'yia'yo'he`, `ho______'yia'ya'he`, `ho______'yia'yoi'he`, `ho______'yia'ha'he`, `ho______'yia'ho'he`, `ho______'yia'yia'he`, `ha______'yo'yo'yo`, `ha______'yo'yo'ya`, `ha______'yo'yo'yoi`, `ha______'yo'yo'ha`, `ha______'yo'yo'ho`, `ha______'yo'yo'yia`, `ha______'yo'ya'yo`, `ha______'yo'ya'ya`, `ha______'yo'ya'yoi`, `ha______'yo'ya'ha`, `ha______'yo'ya'ho`, `ha______'yo'ya'yia`, `ha______'yo'yoi'yo`, `ha______'yo'yoi'ya`, `ha______'yo'yoi'yoi`, `ha______'yo'yoi'ha`, `ha______'yo'yoi'ho`, `ha______'yo'yoi'yia`, `ha______'yo'ha'yo`, `ha______'yo'ha'ya`, `ha______'yo'ha'yoi`, `ha______'yo'ha'ha`, `ha______'yo'ha'ho`, `ha______'yo'ha'yia`, `ha______'yo'ho'yo`, `ha______'yo'ho'ya`, `ha______'yo'ho'yoi`, `ha______'yo'ho'ha`, `ha______'yo'ho'ho`, `ha______'yo'ho'yia`, `ha______'yo'yia'yo`, `ha______'yo'yia'ya`, `ha______'yo'yia'yoi`, `ha______'yo'yia'ha`, `ha______'yo'yia'ho`, `ha______'yo'yia'yia`, `ha______'ya'yo'yo`, `ha______'ya'yo'ya`, `ha______'ya'yo'yoi`, `ha______'ya'yo'ha`, `ha______'ya'yo'ho`, `ha______'ya'yo'yia`, `ha______'ya'ya'yo`, `ha______'ya'ya'ya`, `ha______'ya'ya'yoi`, `ha______'ya'ya'ha`, `ha______'ya'ya'ho`, `ha______'ya'ya'yia`, `ha______'ya'yoi'yo`, `ha______'ya'yoi'ya`, `ha______'ya'yoi'yoi`, `ha______'ya'yoi'ha`, `ha______'ya'yoi'ho`, `ha______'ya'yoi'yia`, `ha______'ya'ha'yo`, `ha______'ya'ha'ya`, `ha______'ya'ha'yoi`, `ha______'ya'ha'ha`, `ha______'ya'ha'ho`, `ha______'ya'ha'yia`, `ha______'ya'ho'yo`, `ha______'ya'ho'ya`, `ha______'ya'ho'yoi`, `ha______'ya'ho'ha`, `ha______'ya'ho'ho`, `ha______'ya'ho'yia`, `ha______'ya'yia'yo`, `ha______'ya'yia'ya`, `ha______'ya'yia'yoi`, `ha______'ya'yia'ha`, `ha______'ya'yia'ho`, `ha______'ya'yia'yia`, `ha______'yoi'yo'yo`, `ha______'yoi'yo'ya`, `ha______'yoi'yo'yoi`, `ha______'yoi'yo'ha`, `ha______'yoi'yo'ho`, `ha______'yoi'yo'yia`, `ha______'yoi'ya'yo`, `ha______'yoi'ya'ya`, `ha______'yoi'ya'yoi`, `ha______'yoi'ya'ha`, `ha______'yoi'ya'ho`, `ha______'yoi'ya'yia`, `ha______'yoi'yoi'yo`, `ha______'yoi'yoi'ya`, `ha______'yoi'yoi'yoi`, `ha______'yoi'yoi'ha`, `ha______'yoi'yoi'ho`, `ha______'yoi'yoi'yia`, `ha______'yoi'ha'yo`, `ha______'yoi'ha'ya`, `ha______'yoi'ha'yoi`, `ha______'yoi'ha'ha`, `ha______'yoi'ha'ho`, `ha______'yoi'ha'yia`, `ha______'yoi'ho'yo`, `ha______'yoi'ho'ya`, `ha______'yoi'ho'yoi`, `ha______'yoi'ho'ha`, `ha______'yoi'ho'ho`, `ha______'yoi'ho'yia`, `ha______'yoi'yia'yo`, `ha______'yoi'yia'ya`, `ha______'yoi'yia'yoi`, `ha______'yoi'yia'ha`, `ha______'yoi'yia'ho`, `ha______'yoi'yia'yia`, `ha______'ha'yo'yo`, `ha______'ha'yo'ya`, `ha______'ha'yo'yoi`, `ha______'ha'yo'ha`, `ha______'ha'yo'ho`, `ha______'ha'yo'yia`, `ha______'ha'ya'yo`, `ha______'ha'ya'ya`, `ha______'ha'ya'yoi`, `ha______'ha'ya'ha`, `ha______'ha'ya'ho`, `ha______'ha'ya'yia`, `ha______'ha'yoi'yo`, `ha______'ha'yoi'ya`, `ha______'ha'yoi'yoi`, `ha______'ha'yoi'ha`, `ha______'ha'yoi'ho`, `ha______'ha'yoi'yia`, `ha______'ha'ha'yo`, `ha______'ha'ha'ya`, `ha______'ha'ha'yoi`, `ha______'ha'ha'ha`, `ha______'ha'ha'ho`, `ha______'ha'ha'yia`, `ha______'ha'ho'yo`, `ha______'ha'ho'ya`, `ha______'ha'ho'yoi`, `ha______'ha'ho'ha`, `ha______'ha'ho'ho`, `ha______'ha'ho'yia`, `ha______'ha'yia'yo`, `ha______'ha'yia'ya`, `ha______'ha'yia'yoi`, `ha______'ha'yia'ha`, `ha______'ha'yia'ho`, `ha______'ha'yia'yia`, `ha______'ho'yo'yo`, `ha______'ho'yo'ya`, `ha______'ho'yo'yoi`, `ha______'ho'yo'ha`, `ha______'ho'yo'ho`, `ha______'ho'yo'yia`, `ha______'ho'ya'yo`, `ha______'ho'ya'ya`, `ha______'ho'ya'yoi`, `ha______'ho'ya'ha`, `ha______'ho'ya'ho`, `ha______'ho'ya'yia`, `ha______'ho'yoi'yo`, `ha______'ho'yoi'ya`, `ha______'ho'yoi'yoi`, `ha______'ho'yoi'ha`, `ha______'ho'yoi'ho`, `ha______'ho'yoi'yia`, `ha______'ho'ha'yo`, `ha______'ho'ha'ya`, `ha______'ho'ha'yoi`, `ha______'ho'ha'ha`, `ha______'ho'ha'ho`, `ha______'ho'ha'yia`, `ha______'ho'ho'yo`, `ha______'ho'ho'ya`, `ha______'ho'ho'yoi`, `ha______'ho'ho'ha`, `ha______'ho'ho'ho`, `ha______'ho'ho'yia`, `ha______'ho'yia'yo`, `ha______'ho'yia'ya`, `ha______'ho'yia'yoi`, `ha______'ho'yia'ha`, `ha______'ho'yia'ho`, `ha______'ho'yia'yia`, `ha______'yia'yo'yo`, `ha______'yia'yo'ya`, `ha______'yia'yo'yoi`, `ha______'yia'yo'ha`, `ha______'yia'yo'ho`, `ha______'yia'yo'yia`, `ha______'yia'ya'yo`, `ha______'yia'ya'ya`, `ha______'yia'ya'yoi`, `ha______'yia'ya'ha`, `ha______'yia'ya'ho`, `ha______'yia'ya'yia`, `ha______'yia'yoi'yo`, `ha______'yia'yoi'ya`, `ha______'yia'yoi'yoi`, `ha______'yia'yoi'ha`, `ha______'yia'yoi'ho`, `ha______'yia'yoi'yia`, `ha______'yia'ha'yo`, `ha______'yia'ha'ya`, `ha______'yia'ha'yoi`, `ha______'yia'ha'ha`, `ha______'yia'ha'ho`, `ha______'yia'ha'yia`, `ha______'yia'ho'yo`, `ha______'yia'ho'ya`, `ha______'yia'ho'yoi`, `ha______'yia'ho'ha`, `ha______'yia'ho'ho`, `ha______'yia'ho'yia`, `ha______'yia'yia'yo`, `ha______'yia'yia'ya`, `ha______'yia'yia'yoi`, `ha______'yia'yia'ha`, `ha______'yia'yia'ho`, `ha______'yia'yia'yia`, `ho______'yo'yo'yo`, `ho______'yo'yo'ya`, `ho______'yo'yo'yoi`, `ho______'yo'yo'ha`, `ho______'yo'yo'ho`, `ho______'yo'yo'yia`, `ho______'yo'ya'yo`, `ho______'yo'ya'ya`, `ho______'yo'ya'yoi`, `ho______'yo'ya'ha`, `ho______'yo'ya'ho`, `ho______'yo'ya'yia`, `ho______'yo'yoi'yo`, `ho______'yo'yoi'ya`, `ho______'yo'yoi'yoi`, `ho______'yo'yoi'ha`, `ho______'yo'yoi'ho`, `ho______'yo'yoi'yia`, `ho______'yo'ha'yo`, `ho______'yo'ha'ya`, `ho______'yo'ha'yoi`, `ho______'yo'ha'ha`, `ho______'yo'ha'ho`, `ho______'yo'ha'yia`, `ho______'yo'ho'yo`, `ho______'yo'ho'ya`, `ho______'yo'ho'yoi`, `ho______'yo'ho'ha`, `ho______'yo'ho'ho`, `ho______'yo'ho'yia`, `ho______'yo'yia'yo`, `ho______'yo'yia'ya`, `ho______'yo'yia'yoi`, `ho______'yo'yia'ha`, `ho______'yo'yia'ho`, `ho______'yo'yia'yia`, `ho______'ya'yo'yo`, `ho______'ya'yo'ya`, `ho______'ya'yo'yoi`, `ho______'ya'yo'ha`, `ho______'ya'yo'ho`, `ho______'ya'yo'yia`, `ho______'ya'ya'yo`, `ho______'ya'ya'ya`, `ho______'ya'ya'yoi`, `ho______'ya'ya'ha`, `ho______'ya'ya'ho`, `ho______'ya'ya'yia`, `ho______'ya'yoi'yo`, `ho______'ya'yoi'ya`, `ho______'ya'yoi'yoi`, `ho______'ya'yoi'ha`, `ho______'ya'yoi'ho`, `ho______'ya'yoi'yia`, `ho______'ya'ha'yo`, `ho______'ya'ha'ya`, `ho______'ya'ha'yoi`, `ho______'ya'ha'ha`, `ho______'ya'ha'ho`, `ho______'ya'ha'yia`, `ho______'ya'ho'yo`, `ho______'ya'ho'ya`, `ho______'ya'ho'yoi`, `ho______'ya'ho'ha`, `ho______'ya'ho'ho`, `ho______'ya'ho'yia`, `ho______'ya'yia'yo`, `ho______'ya'yia'ya`, `ho______'ya'yia'yoi`, `ho______'ya'yia'ha`, `ho______'ya'yia'ho`, `ho______'ya'yia'yia`, `ho______'yoi'yo'yo`, `ho______'yoi'yo'ya`, `ho______'yoi'yo'yoi`, `ho______'yoi'yo'ha`, `ho______'yoi'yo'ho`, `ho______'yoi'yo'yia`, `ho______'yoi'ya'yo`, `ho______'yoi'ya'ya`, `ho______'yoi'ya'yoi`, `ho______'yoi'ya'ha`, `ho______'yoi'ya'ho`, `ho______'yoi'ya'yia`, `ho______'yoi'yoi'yo`, `ho______'yoi'yoi'ya`, `ho______'yoi'yoi'yoi`, `ho______'yoi'yoi'ha`, `ho______'yoi'yoi'ho`, `ho______'yoi'yoi'yia`, `ho______'yoi'ha'yo`, `ho______'yoi'ha'ya`, `ho______'yoi'ha'yoi`, `ho______'yoi'ha'ha`, `ho______'yoi'ha'ho`, `ho______'yoi'ha'yia`, `ho______'yoi'ho'yo`, `ho______'yoi'ho'ya`, `ho______'yoi'ho'yoi`, `ho______'yoi'ho'ha`, `ho______'yoi'ho'ho`, `ho______'yoi'ho'yia`, `ho______'yoi'yia'yo`, `ho______'yoi'yia'ya`, `ho______'yoi'yia'yoi`, `ho______'yoi'yia'ha`, `ho______'yoi'yia'ho`, `ho______'yoi'yia'yia`, `ho______'ha'yo'yo`, `ho______'ha'yo'ya`, `ho______'ha'yo'yoi`, `ho______'ha'yo'ha`, `ho______'ha'yo'ho`, `ho______'ha'yo'yia`, `ho______'ha'ya'yo`, `ho______'ha'ya'ya`, `ho______'ha'ya'yoi`, `ho______'ha'ya'ha`, `ho______'ha'ya'ho`, `ho______'ha'ya'yia`, `ho______'ha'yoi'yo`, `ho______'ha'yoi'ya`, `ho______'ha'yoi'yoi`, `ho______'ha'yoi'ha`, `ho______'ha'yoi'ho`, `ho______'ha'yoi'yia`, `ho______'ha'ha'yo`, `ho______'ha'ha'ya`, `ho______'ha'ha'yoi`, `ho______'ha'ha'ha`, `ho______'ha'ha'ho`, `ho______'ha'ha'yia`, `ho______'ha'ho'yo`, `ho______'ha'ho'ya`, `ho______'ha'ho'yoi`, `ho______'ha'ho'ha`, `ho______'ha'ho'ho`, `ho______'ha'ho'yia`, `ho______'ha'yia'yo`, `ho______'ha'yia'ya`, `ho______'ha'yia'yoi`, `ho______'ha'yia'ha`, `ho______'ha'yia'ho`, `ho______'ha'yia'yia`, `ho______'ho'yo'yo`, `ho______'ho'yo'ya`, `ho______'ho'yo'yoi`, `ho______'ho'yo'ha`, `ho______'ho'yo'ho`, `ho______'ho'yo'yia`, `ho______'ho'ya'yo`, `ho______'ho'ya'ya`, `ho______'ho'ya'yoi`, `ho______'ho'ya'ha`, `ho______'ho'ya'ho`, `ho______'ho'ya'yia`, `ho______'ho'yoi'yo`, `ho______'ho'yoi'ya`, `ho______'ho'yoi'yoi`, `ho______'ho'yoi'ha`, `ho______'ho'yoi'ho`, `ho______'ho'yoi'yia`, `ho______'ho'ha'yo`, `ho______'ho'ha'ya`, `ho______'ho'ha'yoi`, `ho______'ho'ha'ha`, `ho______'ho'ha'ho`, `ho______'ho'ha'yia`, `ho______'ho'ho'yo`, `ho______'ho'ho'ya`, `ho______'ho'ho'yoi`, `ho______'ho'ho'ha`, `ho______'ho'ho'ho`, `ho______'ho'ho'yia`, `ho______'ho'yia'yo`, `ho______'ho'yia'ya`, `ho______'ho'yia'yoi`, `ho______'ho'yia'ha`, `ho______'ho'yia'ho`, `ho______'ho'yia'yia`, `ho______'yia'yo'yo`, `ho______'yia'yo'ya`, `ho______'yia'yo'yoi`, `ho______'yia'yo'ha`, `ho______'yia'yo'ho`, `ho______'yia'yo'yia`, `ho______'yia'ya'yo`, `ho______'yia'ya'ya`, `ho______'yia'ya'yoi`, `ho______'yia'ya'ha`, `ho______'yia'ya'ho`, `ho______'yia'ya'yia`, `ho______'yia'yoi'yo`, `ho______'yia'yoi'ya`, `ho______'yia'yoi'yoi`, `ho______'yia'yoi'ha`, `ho______'yia'yoi'ho`, `ho______'yia'yoi'yia`, `ho______'yia'ha'yo`, `ho______'yia'ha'ya`, `ho______'yia'ha'yoi`, `ho______'yia'ha'ha`, `ho______'yia'ha'ho`, `ho______'yia'ha'yia`, `ho______'yia'ho'yo`, `ho______'yia'ho'ya`, `ho______'yia'ho'yoi`, `ho______'yia'ho'ha`, `ho______'yia'ho'ho`, `ho______'yia'ho'yia`, `ho______'yia'yia'yo`, `ho______'yia'yia'ya`, `ho______'yia'yia'yoi`, `ho______'yia'yia'ha`, `ho______'yia'yia'ho`, `ho______'yia'yia'yia`
-infixl 4 `ha_____'yo'he'he`, `ha_____'ya'he'he`, `ha_____'yoi'he'he`, `ha_____'ha'he'he`, `ha_____'ho'he'he`, `ha_____'yia'he'he`, `ho_____'yo'he'he`, `ho_____'ya'he'he`, `ho_____'yoi'he'he`, `ho_____'ha'he'he`, `ho_____'ho'he'he`, `ho_____'yia'he'he`, `ha_____'yo'yo'he`, `ha_____'yo'ya'he`, `ha_____'yo'yoi'he`, `ha_____'yo'ha'he`, `ha_____'yo'ho'he`, `ha_____'yo'yia'he`, `ha_____'ya'yo'he`, `ha_____'ya'ya'he`, `ha_____'ya'yoi'he`, `ha_____'ya'ha'he`, `ha_____'ya'ho'he`, `ha_____'ya'yia'he`, `ha_____'yoi'yo'he`, `ha_____'yoi'ya'he`, `ha_____'yoi'yoi'he`, `ha_____'yoi'ha'he`, `ha_____'yoi'ho'he`, `ha_____'yoi'yia'he`, `ha_____'ha'yo'he`, `ha_____'ha'ya'he`, `ha_____'ha'yoi'he`, `ha_____'ha'ha'he`, `ha_____'ha'ho'he`, `ha_____'ha'yia'he`, `ha_____'ho'yo'he`, `ha_____'ho'ya'he`, `ha_____'ho'yoi'he`, `ha_____'ho'ha'he`, `ha_____'ho'ho'he`, `ha_____'ho'yia'he`, `ha_____'yia'yo'he`, `ha_____'yia'ya'he`, `ha_____'yia'yoi'he`, `ha_____'yia'ha'he`, `ha_____'yia'ho'he`, `ha_____'yia'yia'he`, `ho_____'yo'yo'he`, `ho_____'yo'ya'he`, `ho_____'yo'yoi'he`, `ho_____'yo'ha'he`, `ho_____'yo'ho'he`, `ho_____'yo'yia'he`, `ho_____'ya'yo'he`, `ho_____'ya'ya'he`, `ho_____'ya'yoi'he`, `ho_____'ya'ha'he`, `ho_____'ya'ho'he`, `ho_____'ya'yia'he`, `ho_____'yoi'yo'he`, `ho_____'yoi'ya'he`, `ho_____'yoi'yoi'he`, `ho_____'yoi'ha'he`, `ho_____'yoi'ho'he`, `ho_____'yoi'yia'he`, `ho_____'ha'yo'he`, `ho_____'ha'ya'he`, `ho_____'ha'yoi'he`, `ho_____'ha'ha'he`, `ho_____'ha'ho'he`, `ho_____'ha'yia'he`, `ho_____'ho'yo'he`, `ho_____'ho'ya'he`, `ho_____'ho'yoi'he`, `ho_____'ho'ha'he`, `ho_____'ho'ho'he`, `ho_____'ho'yia'he`, `ho_____'yia'yo'he`, `ho_____'yia'ya'he`, `ho_____'yia'yoi'he`, `ho_____'yia'ha'he`, `ho_____'yia'ho'he`, `ho_____'yia'yia'he`, `ha_____'yo'yo'yo`, `ha_____'yo'yo'ya`, `ha_____'yo'yo'yoi`, `ha_____'yo'yo'ha`, `ha_____'yo'yo'ho`, `ha_____'yo'yo'yia`, `ha_____'yo'ya'yo`, `ha_____'yo'ya'ya`, `ha_____'yo'ya'yoi`, `ha_____'yo'ya'ha`, `ha_____'yo'ya'ho`, `ha_____'yo'ya'yia`, `ha_____'yo'yoi'yo`, `ha_____'yo'yoi'ya`, `ha_____'yo'yoi'yoi`, `ha_____'yo'yoi'ha`, `ha_____'yo'yoi'ho`, `ha_____'yo'yoi'yia`, `ha_____'yo'ha'yo`, `ha_____'yo'ha'ya`, `ha_____'yo'ha'yoi`, `ha_____'yo'ha'ha`, `ha_____'yo'ha'ho`, `ha_____'yo'ha'yia`, `ha_____'yo'ho'yo`, `ha_____'yo'ho'ya`, `ha_____'yo'ho'yoi`, `ha_____'yo'ho'ha`, `ha_____'yo'ho'ho`, `ha_____'yo'ho'yia`, `ha_____'yo'yia'yo`, `ha_____'yo'yia'ya`, `ha_____'yo'yia'yoi`, `ha_____'yo'yia'ha`, `ha_____'yo'yia'ho`, `ha_____'yo'yia'yia`, `ha_____'ya'yo'yo`, `ha_____'ya'yo'ya`, `ha_____'ya'yo'yoi`, `ha_____'ya'yo'ha`, `ha_____'ya'yo'ho`, `ha_____'ya'yo'yia`, `ha_____'ya'ya'yo`, `ha_____'ya'ya'ya`, `ha_____'ya'ya'yoi`, `ha_____'ya'ya'ha`, `ha_____'ya'ya'ho`, `ha_____'ya'ya'yia`, `ha_____'ya'yoi'yo`, `ha_____'ya'yoi'ya`, `ha_____'ya'yoi'yoi`, `ha_____'ya'yoi'ha`, `ha_____'ya'yoi'ho`, `ha_____'ya'yoi'yia`, `ha_____'ya'ha'yo`, `ha_____'ya'ha'ya`, `ha_____'ya'ha'yoi`, `ha_____'ya'ha'ha`, `ha_____'ya'ha'ho`, `ha_____'ya'ha'yia`, `ha_____'ya'ho'yo`, `ha_____'ya'ho'ya`, `ha_____'ya'ho'yoi`, `ha_____'ya'ho'ha`, `ha_____'ya'ho'ho`, `ha_____'ya'ho'yia`, `ha_____'ya'yia'yo`, `ha_____'ya'yia'ya`, `ha_____'ya'yia'yoi`, `ha_____'ya'yia'ha`, `ha_____'ya'yia'ho`, `ha_____'ya'yia'yia`, `ha_____'yoi'yo'yo`, `ha_____'yoi'yo'ya`, `ha_____'yoi'yo'yoi`, `ha_____'yoi'yo'ha`, `ha_____'yoi'yo'ho`, `ha_____'yoi'yo'yia`, `ha_____'yoi'ya'yo`, `ha_____'yoi'ya'ya`, `ha_____'yoi'ya'yoi`, `ha_____'yoi'ya'ha`, `ha_____'yoi'ya'ho`, `ha_____'yoi'ya'yia`, `ha_____'yoi'yoi'yo`, `ha_____'yoi'yoi'ya`, `ha_____'yoi'yoi'yoi`, `ha_____'yoi'yoi'ha`, `ha_____'yoi'yoi'ho`, `ha_____'yoi'yoi'yia`, `ha_____'yoi'ha'yo`, `ha_____'yoi'ha'ya`, `ha_____'yoi'ha'yoi`, `ha_____'yoi'ha'ha`, `ha_____'yoi'ha'ho`, `ha_____'yoi'ha'yia`, `ha_____'yoi'ho'yo`, `ha_____'yoi'ho'ya`, `ha_____'yoi'ho'yoi`, `ha_____'yoi'ho'ha`, `ha_____'yoi'ho'ho`, `ha_____'yoi'ho'yia`, `ha_____'yoi'yia'yo`, `ha_____'yoi'yia'ya`, `ha_____'yoi'yia'yoi`, `ha_____'yoi'yia'ha`, `ha_____'yoi'yia'ho`, `ha_____'yoi'yia'yia`, `ha_____'ha'yo'yo`, `ha_____'ha'yo'ya`, `ha_____'ha'yo'yoi`, `ha_____'ha'yo'ha`, `ha_____'ha'yo'ho`, `ha_____'ha'yo'yia`, `ha_____'ha'ya'yo`, `ha_____'ha'ya'ya`, `ha_____'ha'ya'yoi`, `ha_____'ha'ya'ha`, `ha_____'ha'ya'ho`, `ha_____'ha'ya'yia`, `ha_____'ha'yoi'yo`, `ha_____'ha'yoi'ya`, `ha_____'ha'yoi'yoi`, `ha_____'ha'yoi'ha`, `ha_____'ha'yoi'ho`, `ha_____'ha'yoi'yia`, `ha_____'ha'ha'yo`, `ha_____'ha'ha'ya`, `ha_____'ha'ha'yoi`, `ha_____'ha'ha'ha`, `ha_____'ha'ha'ho`, `ha_____'ha'ha'yia`, `ha_____'ha'ho'yo`, `ha_____'ha'ho'ya`, `ha_____'ha'ho'yoi`, `ha_____'ha'ho'ha`, `ha_____'ha'ho'ho`, `ha_____'ha'ho'yia`, `ha_____'ha'yia'yo`, `ha_____'ha'yia'ya`, `ha_____'ha'yia'yoi`, `ha_____'ha'yia'ha`, `ha_____'ha'yia'ho`, `ha_____'ha'yia'yia`, `ha_____'ho'yo'yo`, `ha_____'ho'yo'ya`, `ha_____'ho'yo'yoi`, `ha_____'ho'yo'ha`, `ha_____'ho'yo'ho`, `ha_____'ho'yo'yia`, `ha_____'ho'ya'yo`, `ha_____'ho'ya'ya`, `ha_____'ho'ya'yoi`, `ha_____'ho'ya'ha`, `ha_____'ho'ya'ho`, `ha_____'ho'ya'yia`, `ha_____'ho'yoi'yo`, `ha_____'ho'yoi'ya`, `ha_____'ho'yoi'yoi`, `ha_____'ho'yoi'ha`, `ha_____'ho'yoi'ho`, `ha_____'ho'yoi'yia`, `ha_____'ho'ha'yo`, `ha_____'ho'ha'ya`, `ha_____'ho'ha'yoi`, `ha_____'ho'ha'ha`, `ha_____'ho'ha'ho`, `ha_____'ho'ha'yia`, `ha_____'ho'ho'yo`, `ha_____'ho'ho'ya`, `ha_____'ho'ho'yoi`, `ha_____'ho'ho'ha`, `ha_____'ho'ho'ho`, `ha_____'ho'ho'yia`, `ha_____'ho'yia'yo`, `ha_____'ho'yia'ya`, `ha_____'ho'yia'yoi`, `ha_____'ho'yia'ha`, `ha_____'ho'yia'ho`, `ha_____'ho'yia'yia`, `ha_____'yia'yo'yo`, `ha_____'yia'yo'ya`, `ha_____'yia'yo'yoi`, `ha_____'yia'yo'ha`, `ha_____'yia'yo'ho`, `ha_____'yia'yo'yia`, `ha_____'yia'ya'yo`, `ha_____'yia'ya'ya`, `ha_____'yia'ya'yoi`, `ha_____'yia'ya'ha`, `ha_____'yia'ya'ho`, `ha_____'yia'ya'yia`, `ha_____'yia'yoi'yo`, `ha_____'yia'yoi'ya`, `ha_____'yia'yoi'yoi`, `ha_____'yia'yoi'ha`, `ha_____'yia'yoi'ho`, `ha_____'yia'yoi'yia`, `ha_____'yia'ha'yo`, `ha_____'yia'ha'ya`, `ha_____'yia'ha'yoi`, `ha_____'yia'ha'ha`, `ha_____'yia'ha'ho`, `ha_____'yia'ha'yia`, `ha_____'yia'ho'yo`, `ha_____'yia'ho'ya`, `ha_____'yia'ho'yoi`, `ha_____'yia'ho'ha`, `ha_____'yia'ho'ho`, `ha_____'yia'ho'yia`, `ha_____'yia'yia'yo`, `ha_____'yia'yia'ya`, `ha_____'yia'yia'yoi`, `ha_____'yia'yia'ha`, `ha_____'yia'yia'ho`, `ha_____'yia'yia'yia`, `ho_____'yo'yo'yo`, `ho_____'yo'yo'ya`, `ho_____'yo'yo'yoi`, `ho_____'yo'yo'ha`, `ho_____'yo'yo'ho`, `ho_____'yo'yo'yia`, `ho_____'yo'ya'yo`, `ho_____'yo'ya'ya`, `ho_____'yo'ya'yoi`, `ho_____'yo'ya'ha`, `ho_____'yo'ya'ho`, `ho_____'yo'ya'yia`, `ho_____'yo'yoi'yo`, `ho_____'yo'yoi'ya`, `ho_____'yo'yoi'yoi`, `ho_____'yo'yoi'ha`, `ho_____'yo'yoi'ho`, `ho_____'yo'yoi'yia`, `ho_____'yo'ha'yo`, `ho_____'yo'ha'ya`, `ho_____'yo'ha'yoi`, `ho_____'yo'ha'ha`, `ho_____'yo'ha'ho`, `ho_____'yo'ha'yia`, `ho_____'yo'ho'yo`, `ho_____'yo'ho'ya`, `ho_____'yo'ho'yoi`, `ho_____'yo'ho'ha`, `ho_____'yo'ho'ho`, `ho_____'yo'ho'yia`, `ho_____'yo'yia'yo`, `ho_____'yo'yia'ya`, `ho_____'yo'yia'yoi`, `ho_____'yo'yia'ha`, `ho_____'yo'yia'ho`, `ho_____'yo'yia'yia`, `ho_____'ya'yo'yo`, `ho_____'ya'yo'ya`, `ho_____'ya'yo'yoi`, `ho_____'ya'yo'ha`, `ho_____'ya'yo'ho`, `ho_____'ya'yo'yia`, `ho_____'ya'ya'yo`, `ho_____'ya'ya'ya`, `ho_____'ya'ya'yoi`, `ho_____'ya'ya'ha`, `ho_____'ya'ya'ho`, `ho_____'ya'ya'yia`, `ho_____'ya'yoi'yo`, `ho_____'ya'yoi'ya`, `ho_____'ya'yoi'yoi`, `ho_____'ya'yoi'ha`, `ho_____'ya'yoi'ho`, `ho_____'ya'yoi'yia`, `ho_____'ya'ha'yo`, `ho_____'ya'ha'ya`, `ho_____'ya'ha'yoi`, `ho_____'ya'ha'ha`, `ho_____'ya'ha'ho`, `ho_____'ya'ha'yia`, `ho_____'ya'ho'yo`, `ho_____'ya'ho'ya`, `ho_____'ya'ho'yoi`, `ho_____'ya'ho'ha`, `ho_____'ya'ho'ho`, `ho_____'ya'ho'yia`, `ho_____'ya'yia'yo`, `ho_____'ya'yia'ya`, `ho_____'ya'yia'yoi`, `ho_____'ya'yia'ha`, `ho_____'ya'yia'ho`, `ho_____'ya'yia'yia`, `ho_____'yoi'yo'yo`, `ho_____'yoi'yo'ya`, `ho_____'yoi'yo'yoi`, `ho_____'yoi'yo'ha`, `ho_____'yoi'yo'ho`, `ho_____'yoi'yo'yia`, `ho_____'yoi'ya'yo`, `ho_____'yoi'ya'ya`, `ho_____'yoi'ya'yoi`, `ho_____'yoi'ya'ha`, `ho_____'yoi'ya'ho`, `ho_____'yoi'ya'yia`, `ho_____'yoi'yoi'yo`, `ho_____'yoi'yoi'ya`, `ho_____'yoi'yoi'yoi`, `ho_____'yoi'yoi'ha`, `ho_____'yoi'yoi'ho`, `ho_____'yoi'yoi'yia`, `ho_____'yoi'ha'yo`, `ho_____'yoi'ha'ya`, `ho_____'yoi'ha'yoi`, `ho_____'yoi'ha'ha`, `ho_____'yoi'ha'ho`, `ho_____'yoi'ha'yia`, `ho_____'yoi'ho'yo`, `ho_____'yoi'ho'ya`, `ho_____'yoi'ho'yoi`, `ho_____'yoi'ho'ha`, `ho_____'yoi'ho'ho`, `ho_____'yoi'ho'yia`, `ho_____'yoi'yia'yo`, `ho_____'yoi'yia'ya`, `ho_____'yoi'yia'yoi`, `ho_____'yoi'yia'ha`, `ho_____'yoi'yia'ho`, `ho_____'yoi'yia'yia`, `ho_____'ha'yo'yo`, `ho_____'ha'yo'ya`, `ho_____'ha'yo'yoi`, `ho_____'ha'yo'ha`, `ho_____'ha'yo'ho`, `ho_____'ha'yo'yia`, `ho_____'ha'ya'yo`, `ho_____'ha'ya'ya`, `ho_____'ha'ya'yoi`, `ho_____'ha'ya'ha`, `ho_____'ha'ya'ho`, `ho_____'ha'ya'yia`, `ho_____'ha'yoi'yo`, `ho_____'ha'yoi'ya`, `ho_____'ha'yoi'yoi`, `ho_____'ha'yoi'ha`, `ho_____'ha'yoi'ho`, `ho_____'ha'yoi'yia`, `ho_____'ha'ha'yo`, `ho_____'ha'ha'ya`, `ho_____'ha'ha'yoi`, `ho_____'ha'ha'ha`, `ho_____'ha'ha'ho`, `ho_____'ha'ha'yia`, `ho_____'ha'ho'yo`, `ho_____'ha'ho'ya`, `ho_____'ha'ho'yoi`, `ho_____'ha'ho'ha`, `ho_____'ha'ho'ho`, `ho_____'ha'ho'yia`, `ho_____'ha'yia'yo`, `ho_____'ha'yia'ya`, `ho_____'ha'yia'yoi`, `ho_____'ha'yia'ha`, `ho_____'ha'yia'ho`, `ho_____'ha'yia'yia`, `ho_____'ho'yo'yo`, `ho_____'ho'yo'ya`, `ho_____'ho'yo'yoi`, `ho_____'ho'yo'ha`, `ho_____'ho'yo'ho`, `ho_____'ho'yo'yia`, `ho_____'ho'ya'yo`, `ho_____'ho'ya'ya`, `ho_____'ho'ya'yoi`, `ho_____'ho'ya'ha`, `ho_____'ho'ya'ho`, `ho_____'ho'ya'yia`, `ho_____'ho'yoi'yo`, `ho_____'ho'yoi'ya`, `ho_____'ho'yoi'yoi`, `ho_____'ho'yoi'ha`, `ho_____'ho'yoi'ho`, `ho_____'ho'yoi'yia`, `ho_____'ho'ha'yo`, `ho_____'ho'ha'ya`, `ho_____'ho'ha'yoi`, `ho_____'ho'ha'ha`, `ho_____'ho'ha'ho`, `ho_____'ho'ha'yia`, `ho_____'ho'ho'yo`, `ho_____'ho'ho'ya`, `ho_____'ho'ho'yoi`, `ho_____'ho'ho'ha`, `ho_____'ho'ho'ho`, `ho_____'ho'ho'yia`, `ho_____'ho'yia'yo`, `ho_____'ho'yia'ya`, `ho_____'ho'yia'yoi`, `ho_____'ho'yia'ha`, `ho_____'ho'yia'ho`, `ho_____'ho'yia'yia`, `ho_____'yia'yo'yo`, `ho_____'yia'yo'ya`, `ho_____'yia'yo'yoi`, `ho_____'yia'yo'ha`, `ho_____'yia'yo'ho`, `ho_____'yia'yo'yia`, `ho_____'yia'ya'yo`, `ho_____'yia'ya'ya`, `ho_____'yia'ya'yoi`, `ho_____'yia'ya'ha`, `ho_____'yia'ya'ho`, `ho_____'yia'ya'yia`, `ho_____'yia'yoi'yo`, `ho_____'yia'yoi'ya`, `ho_____'yia'yoi'yoi`, `ho_____'yia'yoi'ha`, `ho_____'yia'yoi'ho`, `ho_____'yia'yoi'yia`, `ho_____'yia'ha'yo`, `ho_____'yia'ha'ya`, `ho_____'yia'ha'yoi`, `ho_____'yia'ha'ha`, `ho_____'yia'ha'ho`, `ho_____'yia'ha'yia`, `ho_____'yia'ho'yo`, `ho_____'yia'ho'ya`, `ho_____'yia'ho'yoi`, `ho_____'yia'ho'ha`, `ho_____'yia'ho'ho`, `ho_____'yia'ho'yia`, `ho_____'yia'yia'yo`, `ho_____'yia'yia'ya`, `ho_____'yia'yia'yoi`, `ho_____'yia'yia'ha`, `ho_____'yia'yia'ho`, `ho_____'yia'yia'yia`
-infixl 5 `ha____'yo'he'he`, `ha____'ya'he'he`, `ha____'yoi'he'he`, `ha____'ha'he'he`, `ha____'ho'he'he`, `ha____'yia'he'he`, `ho____'yo'he'he`, `ho____'ya'he'he`, `ho____'yoi'he'he`, `ho____'ha'he'he`, `ho____'ho'he'he`, `ho____'yia'he'he`, `ha____'yo'yo'he`, `ha____'yo'ya'he`, `ha____'yo'yoi'he`, `ha____'yo'ha'he`, `ha____'yo'ho'he`, `ha____'yo'yia'he`, `ha____'ya'yo'he`, `ha____'ya'ya'he`, `ha____'ya'yoi'he`, `ha____'ya'ha'he`, `ha____'ya'ho'he`, `ha____'ya'yia'he`, `ha____'yoi'yo'he`, `ha____'yoi'ya'he`, `ha____'yoi'yoi'he`, `ha____'yoi'ha'he`, `ha____'yoi'ho'he`, `ha____'yoi'yia'he`, `ha____'ha'yo'he`, `ha____'ha'ya'he`, `ha____'ha'yoi'he`, `ha____'ha'ha'he`, `ha____'ha'ho'he`, `ha____'ha'yia'he`, `ha____'ho'yo'he`, `ha____'ho'ya'he`, `ha____'ho'yoi'he`, `ha____'ho'ha'he`, `ha____'ho'ho'he`, `ha____'ho'yia'he`, `ha____'yia'yo'he`, `ha____'yia'ya'he`, `ha____'yia'yoi'he`, `ha____'yia'ha'he`, `ha____'yia'ho'he`, `ha____'yia'yia'he`, `ho____'yo'yo'he`, `ho____'yo'ya'he`, `ho____'yo'yoi'he`, `ho____'yo'ha'he`, `ho____'yo'ho'he`, `ho____'yo'yia'he`, `ho____'ya'yo'he`, `ho____'ya'ya'he`, `ho____'ya'yoi'he`, `ho____'ya'ha'he`, `ho____'ya'ho'he`, `ho____'ya'yia'he`, `ho____'yoi'yo'he`, `ho____'yoi'ya'he`, `ho____'yoi'yoi'he`, `ho____'yoi'ha'he`, `ho____'yoi'ho'he`, `ho____'yoi'yia'he`, `ho____'ha'yo'he`, `ho____'ha'ya'he`, `ho____'ha'yoi'he`, `ho____'ha'ha'he`, `ho____'ha'ho'he`, `ho____'ha'yia'he`, `ho____'ho'yo'he`, `ho____'ho'ya'he`, `ho____'ho'yoi'he`, `ho____'ho'ha'he`, `ho____'ho'ho'he`, `ho____'ho'yia'he`, `ho____'yia'yo'he`, `ho____'yia'ya'he`, `ho____'yia'yoi'he`, `ho____'yia'ha'he`, `ho____'yia'ho'he`, `ho____'yia'yia'he`, `ha____'yo'yo'yo`, `ha____'yo'yo'ya`, `ha____'yo'yo'yoi`, `ha____'yo'yo'ha`, `ha____'yo'yo'ho`, `ha____'yo'yo'yia`, `ha____'yo'ya'yo`, `ha____'yo'ya'ya`, `ha____'yo'ya'yoi`, `ha____'yo'ya'ha`, `ha____'yo'ya'ho`, `ha____'yo'ya'yia`, `ha____'yo'yoi'yo`, `ha____'yo'yoi'ya`, `ha____'yo'yoi'yoi`, `ha____'yo'yoi'ha`, `ha____'yo'yoi'ho`, `ha____'yo'yoi'yia`, `ha____'yo'ha'yo`, `ha____'yo'ha'ya`, `ha____'yo'ha'yoi`, `ha____'yo'ha'ha`, `ha____'yo'ha'ho`, `ha____'yo'ha'yia`, `ha____'yo'ho'yo`, `ha____'yo'ho'ya`, `ha____'yo'ho'yoi`, `ha____'yo'ho'ha`, `ha____'yo'ho'ho`, `ha____'yo'ho'yia`, `ha____'yo'yia'yo`, `ha____'yo'yia'ya`, `ha____'yo'yia'yoi`, `ha____'yo'yia'ha`, `ha____'yo'yia'ho`, `ha____'yo'yia'yia`, `ha____'ya'yo'yo`, `ha____'ya'yo'ya`, `ha____'ya'yo'yoi`, `ha____'ya'yo'ha`, `ha____'ya'yo'ho`, `ha____'ya'yo'yia`, `ha____'ya'ya'yo`, `ha____'ya'ya'ya`, `ha____'ya'ya'yoi`, `ha____'ya'ya'ha`, `ha____'ya'ya'ho`, `ha____'ya'ya'yia`, `ha____'ya'yoi'yo`, `ha____'ya'yoi'ya`, `ha____'ya'yoi'yoi`, `ha____'ya'yoi'ha`, `ha____'ya'yoi'ho`, `ha____'ya'yoi'yia`, `ha____'ya'ha'yo`, `ha____'ya'ha'ya`, `ha____'ya'ha'yoi`, `ha____'ya'ha'ha`, `ha____'ya'ha'ho`, `ha____'ya'ha'yia`, `ha____'ya'ho'yo`, `ha____'ya'ho'ya`, `ha____'ya'ho'yoi`, `ha____'ya'ho'ha`, `ha____'ya'ho'ho`, `ha____'ya'ho'yia`, `ha____'ya'yia'yo`, `ha____'ya'yia'ya`, `ha____'ya'yia'yoi`, `ha____'ya'yia'ha`, `ha____'ya'yia'ho`, `ha____'ya'yia'yia`, `ha____'yoi'yo'yo`, `ha____'yoi'yo'ya`, `ha____'yoi'yo'yoi`, `ha____'yoi'yo'ha`, `ha____'yoi'yo'ho`, `ha____'yoi'yo'yia`, `ha____'yoi'ya'yo`, `ha____'yoi'ya'ya`, `ha____'yoi'ya'yoi`, `ha____'yoi'ya'ha`, `ha____'yoi'ya'ho`, `ha____'yoi'ya'yia`, `ha____'yoi'yoi'yo`, `ha____'yoi'yoi'ya`, `ha____'yoi'yoi'yoi`, `ha____'yoi'yoi'ha`, `ha____'yoi'yoi'ho`, `ha____'yoi'yoi'yia`, `ha____'yoi'ha'yo`, `ha____'yoi'ha'ya`, `ha____'yoi'ha'yoi`, `ha____'yoi'ha'ha`, `ha____'yoi'ha'ho`, `ha____'yoi'ha'yia`, `ha____'yoi'ho'yo`, `ha____'yoi'ho'ya`, `ha____'yoi'ho'yoi`, `ha____'yoi'ho'ha`, `ha____'yoi'ho'ho`, `ha____'yoi'ho'yia`, `ha____'yoi'yia'yo`, `ha____'yoi'yia'ya`, `ha____'yoi'yia'yoi`, `ha____'yoi'yia'ha`, `ha____'yoi'yia'ho`, `ha____'yoi'yia'yia`, `ha____'ha'yo'yo`, `ha____'ha'yo'ya`, `ha____'ha'yo'yoi`, `ha____'ha'yo'ha`, `ha____'ha'yo'ho`, `ha____'ha'yo'yia`, `ha____'ha'ya'yo`, `ha____'ha'ya'ya`, `ha____'ha'ya'yoi`, `ha____'ha'ya'ha`, `ha____'ha'ya'ho`, `ha____'ha'ya'yia`, `ha____'ha'yoi'yo`, `ha____'ha'yoi'ya`, `ha____'ha'yoi'yoi`, `ha____'ha'yoi'ha`, `ha____'ha'yoi'ho`, `ha____'ha'yoi'yia`, `ha____'ha'ha'yo`, `ha____'ha'ha'ya`, `ha____'ha'ha'yoi`, `ha____'ha'ha'ha`, `ha____'ha'ha'ho`, `ha____'ha'ha'yia`, `ha____'ha'ho'yo`, `ha____'ha'ho'ya`, `ha____'ha'ho'yoi`, `ha____'ha'ho'ha`, `ha____'ha'ho'ho`, `ha____'ha'ho'yia`, `ha____'ha'yia'yo`, `ha____'ha'yia'ya`, `ha____'ha'yia'yoi`, `ha____'ha'yia'ha`, `ha____'ha'yia'ho`, `ha____'ha'yia'yia`, `ha____'ho'yo'yo`, `ha____'ho'yo'ya`, `ha____'ho'yo'yoi`, `ha____'ho'yo'ha`, `ha____'ho'yo'ho`, `ha____'ho'yo'yia`, `ha____'ho'ya'yo`, `ha____'ho'ya'ya`, `ha____'ho'ya'yoi`, `ha____'ho'ya'ha`, `ha____'ho'ya'ho`, `ha____'ho'ya'yia`, `ha____'ho'yoi'yo`, `ha____'ho'yoi'ya`, `ha____'ho'yoi'yoi`, `ha____'ho'yoi'ha`, `ha____'ho'yoi'ho`, `ha____'ho'yoi'yia`, `ha____'ho'ha'yo`, `ha____'ho'ha'ya`, `ha____'ho'ha'yoi`, `ha____'ho'ha'ha`, `ha____'ho'ha'ho`, `ha____'ho'ha'yia`, `ha____'ho'ho'yo`, `ha____'ho'ho'ya`, `ha____'ho'ho'yoi`, `ha____'ho'ho'ha`, `ha____'ho'ho'ho`, `ha____'ho'ho'yia`, `ha____'ho'yia'yo`, `ha____'ho'yia'ya`, `ha____'ho'yia'yoi`, `ha____'ho'yia'ha`, `ha____'ho'yia'ho`, `ha____'ho'yia'yia`, `ha____'yia'yo'yo`, `ha____'yia'yo'ya`, `ha____'yia'yo'yoi`, `ha____'yia'yo'ha`, `ha____'yia'yo'ho`, `ha____'yia'yo'yia`, `ha____'yia'ya'yo`, `ha____'yia'ya'ya`, `ha____'yia'ya'yoi`, `ha____'yia'ya'ha`, `ha____'yia'ya'ho`, `ha____'yia'ya'yia`, `ha____'yia'yoi'yo`, `ha____'yia'yoi'ya`, `ha____'yia'yoi'yoi`, `ha____'yia'yoi'ha`, `ha____'yia'yoi'ho`, `ha____'yia'yoi'yia`, `ha____'yia'ha'yo`, `ha____'yia'ha'ya`, `ha____'yia'ha'yoi`, `ha____'yia'ha'ha`, `ha____'yia'ha'ho`, `ha____'yia'ha'yia`, `ha____'yia'ho'yo`, `ha____'yia'ho'ya`, `ha____'yia'ho'yoi`, `ha____'yia'ho'ha`, `ha____'yia'ho'ho`, `ha____'yia'ho'yia`, `ha____'yia'yia'yo`, `ha____'yia'yia'ya`, `ha____'yia'yia'yoi`, `ha____'yia'yia'ha`, `ha____'yia'yia'ho`, `ha____'yia'yia'yia`, `ho____'yo'yo'yo`, `ho____'yo'yo'ya`, `ho____'yo'yo'yoi`, `ho____'yo'yo'ha`, `ho____'yo'yo'ho`, `ho____'yo'yo'yia`, `ho____'yo'ya'yo`, `ho____'yo'ya'ya`, `ho____'yo'ya'yoi`, `ho____'yo'ya'ha`, `ho____'yo'ya'ho`, `ho____'yo'ya'yia`, `ho____'yo'yoi'yo`, `ho____'yo'yoi'ya`, `ho____'yo'yoi'yoi`, `ho____'yo'yoi'ha`, `ho____'yo'yoi'ho`, `ho____'yo'yoi'yia`, `ho____'yo'ha'yo`, `ho____'yo'ha'ya`, `ho____'yo'ha'yoi`, `ho____'yo'ha'ha`, `ho____'yo'ha'ho`, `ho____'yo'ha'yia`, `ho____'yo'ho'yo`, `ho____'yo'ho'ya`, `ho____'yo'ho'yoi`, `ho____'yo'ho'ha`, `ho____'yo'ho'ho`, `ho____'yo'ho'yia`, `ho____'yo'yia'yo`, `ho____'yo'yia'ya`, `ho____'yo'yia'yoi`, `ho____'yo'yia'ha`, `ho____'yo'yia'ho`, `ho____'yo'yia'yia`, `ho____'ya'yo'yo`, `ho____'ya'yo'ya`, `ho____'ya'yo'yoi`, `ho____'ya'yo'ha`, `ho____'ya'yo'ho`, `ho____'ya'yo'yia`, `ho____'ya'ya'yo`, `ho____'ya'ya'ya`, `ho____'ya'ya'yoi`, `ho____'ya'ya'ha`, `ho____'ya'ya'ho`, `ho____'ya'ya'yia`, `ho____'ya'yoi'yo`, `ho____'ya'yoi'ya`, `ho____'ya'yoi'yoi`, `ho____'ya'yoi'ha`, `ho____'ya'yoi'ho`, `ho____'ya'yoi'yia`, `ho____'ya'ha'yo`, `ho____'ya'ha'ya`, `ho____'ya'ha'yoi`, `ho____'ya'ha'ha`, `ho____'ya'ha'ho`, `ho____'ya'ha'yia`, `ho____'ya'ho'yo`, `ho____'ya'ho'ya`, `ho____'ya'ho'yoi`, `ho____'ya'ho'ha`, `ho____'ya'ho'ho`, `ho____'ya'ho'yia`, `ho____'ya'yia'yo`, `ho____'ya'yia'ya`, `ho____'ya'yia'yoi`, `ho____'ya'yia'ha`, `ho____'ya'yia'ho`, `ho____'ya'yia'yia`, `ho____'yoi'yo'yo`, `ho____'yoi'yo'ya`, `ho____'yoi'yo'yoi`, `ho____'yoi'yo'ha`, `ho____'yoi'yo'ho`, `ho____'yoi'yo'yia`, `ho____'yoi'ya'yo`, `ho____'yoi'ya'ya`, `ho____'yoi'ya'yoi`, `ho____'yoi'ya'ha`, `ho____'yoi'ya'ho`, `ho____'yoi'ya'yia`, `ho____'yoi'yoi'yo`, `ho____'yoi'yoi'ya`, `ho____'yoi'yoi'yoi`, `ho____'yoi'yoi'ha`, `ho____'yoi'yoi'ho`, `ho____'yoi'yoi'yia`, `ho____'yoi'ha'yo`, `ho____'yoi'ha'ya`, `ho____'yoi'ha'yoi`, `ho____'yoi'ha'ha`, `ho____'yoi'ha'ho`, `ho____'yoi'ha'yia`, `ho____'yoi'ho'yo`, `ho____'yoi'ho'ya`, `ho____'yoi'ho'yoi`, `ho____'yoi'ho'ha`, `ho____'yoi'ho'ho`, `ho____'yoi'ho'yia`, `ho____'yoi'yia'yo`, `ho____'yoi'yia'ya`, `ho____'yoi'yia'yoi`, `ho____'yoi'yia'ha`, `ho____'yoi'yia'ho`, `ho____'yoi'yia'yia`, `ho____'ha'yo'yo`, `ho____'ha'yo'ya`, `ho____'ha'yo'yoi`, `ho____'ha'yo'ha`, `ho____'ha'yo'ho`, `ho____'ha'yo'yia`, `ho____'ha'ya'yo`, `ho____'ha'ya'ya`, `ho____'ha'ya'yoi`, `ho____'ha'ya'ha`, `ho____'ha'ya'ho`, `ho____'ha'ya'yia`, `ho____'ha'yoi'yo`, `ho____'ha'yoi'ya`, `ho____'ha'yoi'yoi`, `ho____'ha'yoi'ha`, `ho____'ha'yoi'ho`, `ho____'ha'yoi'yia`, `ho____'ha'ha'yo`, `ho____'ha'ha'ya`, `ho____'ha'ha'yoi`, `ho____'ha'ha'ha`, `ho____'ha'ha'ho`, `ho____'ha'ha'yia`, `ho____'ha'ho'yo`, `ho____'ha'ho'ya`, `ho____'ha'ho'yoi`, `ho____'ha'ho'ha`, `ho____'ha'ho'ho`, `ho____'ha'ho'yia`, `ho____'ha'yia'yo`, `ho____'ha'yia'ya`, `ho____'ha'yia'yoi`, `ho____'ha'yia'ha`, `ho____'ha'yia'ho`, `ho____'ha'yia'yia`, `ho____'ho'yo'yo`, `ho____'ho'yo'ya`, `ho____'ho'yo'yoi`, `ho____'ho'yo'ha`, `ho____'ho'yo'ho`, `ho____'ho'yo'yia`, `ho____'ho'ya'yo`, `ho____'ho'ya'ya`, `ho____'ho'ya'yoi`, `ho____'ho'ya'ha`, `ho____'ho'ya'ho`, `ho____'ho'ya'yia`, `ho____'ho'yoi'yo`, `ho____'ho'yoi'ya`, `ho____'ho'yoi'yoi`, `ho____'ho'yoi'ha`, `ho____'ho'yoi'ho`, `ho____'ho'yoi'yia`, `ho____'ho'ha'yo`, `ho____'ho'ha'ya`, `ho____'ho'ha'yoi`, `ho____'ho'ha'ha`, `ho____'ho'ha'ho`, `ho____'ho'ha'yia`, `ho____'ho'ho'yo`, `ho____'ho'ho'ya`, `ho____'ho'ho'yoi`, `ho____'ho'ho'ha`, `ho____'ho'ho'ho`, `ho____'ho'ho'yia`, `ho____'ho'yia'yo`, `ho____'ho'yia'ya`, `ho____'ho'yia'yoi`, `ho____'ho'yia'ha`, `ho____'ho'yia'ho`, `ho____'ho'yia'yia`, `ho____'yia'yo'yo`, `ho____'yia'yo'ya`, `ho____'yia'yo'yoi`, `ho____'yia'yo'ha`, `ho____'yia'yo'ho`, `ho____'yia'yo'yia`, `ho____'yia'ya'yo`, `ho____'yia'ya'ya`, `ho____'yia'ya'yoi`, `ho____'yia'ya'ha`, `ho____'yia'ya'ho`, `ho____'yia'ya'yia`, `ho____'yia'yoi'yo`, `ho____'yia'yoi'ya`, `ho____'yia'yoi'yoi`, `ho____'yia'yoi'ha`, `ho____'yia'yoi'ho`, `ho____'yia'yoi'yia`, `ho____'yia'ha'yo`, `ho____'yia'ha'ya`, `ho____'yia'ha'yoi`, `ho____'yia'ha'ha`, `ho____'yia'ha'ho`, `ho____'yia'ha'yia`, `ho____'yia'ho'yo`, `ho____'yia'ho'ya`, `ho____'yia'ho'yoi`, `ho____'yia'ho'ha`, `ho____'yia'ho'ho`, `ho____'yia'ho'yia`, `ho____'yia'yia'yo`, `ho____'yia'yia'ya`, `ho____'yia'yia'yoi`, `ho____'yia'yia'ha`, `ho____'yia'yia'ho`, `ho____'yia'yia'yia`
-infixl 6 `ha___'yo'he'he`, `ha___'ya'he'he`, `ha___'yoi'he'he`, `ha___'ha'he'he`, `ha___'ho'he'he`, `ha___'yia'he'he`, `ho___'yo'he'he`, `ho___'ya'he'he`, `ho___'yoi'he'he`, `ho___'ha'he'he`, `ho___'ho'he'he`, `ho___'yia'he'he`, `ha___'yo'yo'he`, `ha___'yo'ya'he`, `ha___'yo'yoi'he`, `ha___'yo'ha'he`, `ha___'yo'ho'he`, `ha___'yo'yia'he`, `ha___'ya'yo'he`, `ha___'ya'ya'he`, `ha___'ya'yoi'he`, `ha___'ya'ha'he`, `ha___'ya'ho'he`, `ha___'ya'yia'he`, `ha___'yoi'yo'he`, `ha___'yoi'ya'he`, `ha___'yoi'yoi'he`, `ha___'yoi'ha'he`, `ha___'yoi'ho'he`, `ha___'yoi'yia'he`, `ha___'ha'yo'he`, `ha___'ha'ya'he`, `ha___'ha'yoi'he`, `ha___'ha'ha'he`, `ha___'ha'ho'he`, `ha___'ha'yia'he`, `ha___'ho'yo'he`, `ha___'ho'ya'he`, `ha___'ho'yoi'he`, `ha___'ho'ha'he`, `ha___'ho'ho'he`, `ha___'ho'yia'he`, `ha___'yia'yo'he`, `ha___'yia'ya'he`, `ha___'yia'yoi'he`, `ha___'yia'ha'he`, `ha___'yia'ho'he`, `ha___'yia'yia'he`, `ho___'yo'yo'he`, `ho___'yo'ya'he`, `ho___'yo'yoi'he`, `ho___'yo'ha'he`, `ho___'yo'ho'he`, `ho___'yo'yia'he`, `ho___'ya'yo'he`, `ho___'ya'ya'he`, `ho___'ya'yoi'he`, `ho___'ya'ha'he`, `ho___'ya'ho'he`, `ho___'ya'yia'he`, `ho___'yoi'yo'he`, `ho___'yoi'ya'he`, `ho___'yoi'yoi'he`, `ho___'yoi'ha'he`, `ho___'yoi'ho'he`, `ho___'yoi'yia'he`, `ho___'ha'yo'he`, `ho___'ha'ya'he`, `ho___'ha'yoi'he`, `ho___'ha'ha'he`, `ho___'ha'ho'he`, `ho___'ha'yia'he`, `ho___'ho'yo'he`, `ho___'ho'ya'he`, `ho___'ho'yoi'he`, `ho___'ho'ha'he`, `ho___'ho'ho'he`, `ho___'ho'yia'he`, `ho___'yia'yo'he`, `ho___'yia'ya'he`, `ho___'yia'yoi'he`, `ho___'yia'ha'he`, `ho___'yia'ho'he`, `ho___'yia'yia'he`, `ha___'yo'yo'yo`, `ha___'yo'yo'ya`, `ha___'yo'yo'yoi`, `ha___'yo'yo'ha`, `ha___'yo'yo'ho`, `ha___'yo'yo'yia`, `ha___'yo'ya'yo`, `ha___'yo'ya'ya`, `ha___'yo'ya'yoi`, `ha___'yo'ya'ha`, `ha___'yo'ya'ho`, `ha___'yo'ya'yia`, `ha___'yo'yoi'yo`, `ha___'yo'yoi'ya`, `ha___'yo'yoi'yoi`, `ha___'yo'yoi'ha`, `ha___'yo'yoi'ho`, `ha___'yo'yoi'yia`, `ha___'yo'ha'yo`, `ha___'yo'ha'ya`, `ha___'yo'ha'yoi`, `ha___'yo'ha'ha`, `ha___'yo'ha'ho`, `ha___'yo'ha'yia`, `ha___'yo'ho'yo`, `ha___'yo'ho'ya`, `ha___'yo'ho'yoi`, `ha___'yo'ho'ha`, `ha___'yo'ho'ho`, `ha___'yo'ho'yia`, `ha___'yo'yia'yo`, `ha___'yo'yia'ya`, `ha___'yo'yia'yoi`, `ha___'yo'yia'ha`, `ha___'yo'yia'ho`, `ha___'yo'yia'yia`, `ha___'ya'yo'yo`, `ha___'ya'yo'ya`, `ha___'ya'yo'yoi`, `ha___'ya'yo'ha`, `ha___'ya'yo'ho`, `ha___'ya'yo'yia`, `ha___'ya'ya'yo`, `ha___'ya'ya'ya`, `ha___'ya'ya'yoi`, `ha___'ya'ya'ha`, `ha___'ya'ya'ho`, `ha___'ya'ya'yia`, `ha___'ya'yoi'yo`, `ha___'ya'yoi'ya`, `ha___'ya'yoi'yoi`, `ha___'ya'yoi'ha`, `ha___'ya'yoi'ho`, `ha___'ya'yoi'yia`, `ha___'ya'ha'yo`, `ha___'ya'ha'ya`, `ha___'ya'ha'yoi`, `ha___'ya'ha'ha`, `ha___'ya'ha'ho`, `ha___'ya'ha'yia`, `ha___'ya'ho'yo`, `ha___'ya'ho'ya`, `ha___'ya'ho'yoi`, `ha___'ya'ho'ha`, `ha___'ya'ho'ho`, `ha___'ya'ho'yia`, `ha___'ya'yia'yo`, `ha___'ya'yia'ya`, `ha___'ya'yia'yoi`, `ha___'ya'yia'ha`, `ha___'ya'yia'ho`, `ha___'ya'yia'yia`, `ha___'yoi'yo'yo`, `ha___'yoi'yo'ya`, `ha___'yoi'yo'yoi`, `ha___'yoi'yo'ha`, `ha___'yoi'yo'ho`, `ha___'yoi'yo'yia`, `ha___'yoi'ya'yo`, `ha___'yoi'ya'ya`, `ha___'yoi'ya'yoi`, `ha___'yoi'ya'ha`, `ha___'yoi'ya'ho`, `ha___'yoi'ya'yia`, `ha___'yoi'yoi'yo`, `ha___'yoi'yoi'ya`, `ha___'yoi'yoi'yoi`, `ha___'yoi'yoi'ha`, `ha___'yoi'yoi'ho`, `ha___'yoi'yoi'yia`, `ha___'yoi'ha'yo`, `ha___'yoi'ha'ya`, `ha___'yoi'ha'yoi`, `ha___'yoi'ha'ha`, `ha___'yoi'ha'ho`, `ha___'yoi'ha'yia`, `ha___'yoi'ho'yo`, `ha___'yoi'ho'ya`, `ha___'yoi'ho'yoi`, `ha___'yoi'ho'ha`, `ha___'yoi'ho'ho`, `ha___'yoi'ho'yia`, `ha___'yoi'yia'yo`, `ha___'yoi'yia'ya`, `ha___'yoi'yia'yoi`, `ha___'yoi'yia'ha`, `ha___'yoi'yia'ho`, `ha___'yoi'yia'yia`, `ha___'ha'yo'yo`, `ha___'ha'yo'ya`, `ha___'ha'yo'yoi`, `ha___'ha'yo'ha`, `ha___'ha'yo'ho`, `ha___'ha'yo'yia`, `ha___'ha'ya'yo`, `ha___'ha'ya'ya`, `ha___'ha'ya'yoi`, `ha___'ha'ya'ha`, `ha___'ha'ya'ho`, `ha___'ha'ya'yia`, `ha___'ha'yoi'yo`, `ha___'ha'yoi'ya`, `ha___'ha'yoi'yoi`, `ha___'ha'yoi'ha`, `ha___'ha'yoi'ho`, `ha___'ha'yoi'yia`, `ha___'ha'ha'yo`, `ha___'ha'ha'ya`, `ha___'ha'ha'yoi`, `ha___'ha'ha'ha`, `ha___'ha'ha'ho`, `ha___'ha'ha'yia`, `ha___'ha'ho'yo`, `ha___'ha'ho'ya`, `ha___'ha'ho'yoi`, `ha___'ha'ho'ha`, `ha___'ha'ho'ho`, `ha___'ha'ho'yia`, `ha___'ha'yia'yo`, `ha___'ha'yia'ya`, `ha___'ha'yia'yoi`, `ha___'ha'yia'ha`, `ha___'ha'yia'ho`, `ha___'ha'yia'yia`, `ha___'ho'yo'yo`, `ha___'ho'yo'ya`, `ha___'ho'yo'yoi`, `ha___'ho'yo'ha`, `ha___'ho'yo'ho`, `ha___'ho'yo'yia`, `ha___'ho'ya'yo`, `ha___'ho'ya'ya`, `ha___'ho'ya'yoi`, `ha___'ho'ya'ha`, `ha___'ho'ya'ho`, `ha___'ho'ya'yia`, `ha___'ho'yoi'yo`, `ha___'ho'yoi'ya`, `ha___'ho'yoi'yoi`, `ha___'ho'yoi'ha`, `ha___'ho'yoi'ho`, `ha___'ho'yoi'yia`, `ha___'ho'ha'yo`, `ha___'ho'ha'ya`, `ha___'ho'ha'yoi`, `ha___'ho'ha'ha`, `ha___'ho'ha'ho`, `ha___'ho'ha'yia`, `ha___'ho'ho'yo`, `ha___'ho'ho'ya`, `ha___'ho'ho'yoi`, `ha___'ho'ho'ha`, `ha___'ho'ho'ho`, `ha___'ho'ho'yia`, `ha___'ho'yia'yo`, `ha___'ho'yia'ya`, `ha___'ho'yia'yoi`, `ha___'ho'yia'ha`, `ha___'ho'yia'ho`, `ha___'ho'yia'yia`, `ha___'yia'yo'yo`, `ha___'yia'yo'ya`, `ha___'yia'yo'yoi`, `ha___'yia'yo'ha`, `ha___'yia'yo'ho`, `ha___'yia'yo'yia`, `ha___'yia'ya'yo`, `ha___'yia'ya'ya`, `ha___'yia'ya'yoi`, `ha___'yia'ya'ha`, `ha___'yia'ya'ho`, `ha___'yia'ya'yia`, `ha___'yia'yoi'yo`, `ha___'yia'yoi'ya`, `ha___'yia'yoi'yoi`, `ha___'yia'yoi'ha`, `ha___'yia'yoi'ho`, `ha___'yia'yoi'yia`, `ha___'yia'ha'yo`, `ha___'yia'ha'ya`, `ha___'yia'ha'yoi`, `ha___'yia'ha'ha`, `ha___'yia'ha'ho`, `ha___'yia'ha'yia`, `ha___'yia'ho'yo`, `ha___'yia'ho'ya`, `ha___'yia'ho'yoi`, `ha___'yia'ho'ha`, `ha___'yia'ho'ho`, `ha___'yia'ho'yia`, `ha___'yia'yia'yo`, `ha___'yia'yia'ya`, `ha___'yia'yia'yoi`, `ha___'yia'yia'ha`, `ha___'yia'yia'ho`, `ha___'yia'yia'yia`, `ho___'yo'yo'yo`, `ho___'yo'yo'ya`, `ho___'yo'yo'yoi`, `ho___'yo'yo'ha`, `ho___'yo'yo'ho`, `ho___'yo'yo'yia`, `ho___'yo'ya'yo`, `ho___'yo'ya'ya`, `ho___'yo'ya'yoi`, `ho___'yo'ya'ha`, `ho___'yo'ya'ho`, `ho___'yo'ya'yia`, `ho___'yo'yoi'yo`, `ho___'yo'yoi'ya`, `ho___'yo'yoi'yoi`, `ho___'yo'yoi'ha`, `ho___'yo'yoi'ho`, `ho___'yo'yoi'yia`, `ho___'yo'ha'yo`, `ho___'yo'ha'ya`, `ho___'yo'ha'yoi`, `ho___'yo'ha'ha`, `ho___'yo'ha'ho`, `ho___'yo'ha'yia`, `ho___'yo'ho'yo`, `ho___'yo'ho'ya`, `ho___'yo'ho'yoi`, `ho___'yo'ho'ha`, `ho___'yo'ho'ho`, `ho___'yo'ho'yia`, `ho___'yo'yia'yo`, `ho___'yo'yia'ya`, `ho___'yo'yia'yoi`, `ho___'yo'yia'ha`, `ho___'yo'yia'ho`, `ho___'yo'yia'yia`, `ho___'ya'yo'yo`, `ho___'ya'yo'ya`, `ho___'ya'yo'yoi`, `ho___'ya'yo'ha`, `ho___'ya'yo'ho`, `ho___'ya'yo'yia`, `ho___'ya'ya'yo`, `ho___'ya'ya'ya`, `ho___'ya'ya'yoi`, `ho___'ya'ya'ha`, `ho___'ya'ya'ho`, `ho___'ya'ya'yia`, `ho___'ya'yoi'yo`, `ho___'ya'yoi'ya`, `ho___'ya'yoi'yoi`, `ho___'ya'yoi'ha`, `ho___'ya'yoi'ho`, `ho___'ya'yoi'yia`, `ho___'ya'ha'yo`, `ho___'ya'ha'ya`, `ho___'ya'ha'yoi`, `ho___'ya'ha'ha`, `ho___'ya'ha'ho`, `ho___'ya'ha'yia`, `ho___'ya'ho'yo`, `ho___'ya'ho'ya`, `ho___'ya'ho'yoi`, `ho___'ya'ho'ha`, `ho___'ya'ho'ho`, `ho___'ya'ho'yia`, `ho___'ya'yia'yo`, `ho___'ya'yia'ya`, `ho___'ya'yia'yoi`, `ho___'ya'yia'ha`, `ho___'ya'yia'ho`, `ho___'ya'yia'yia`, `ho___'yoi'yo'yo`, `ho___'yoi'yo'ya`, `ho___'yoi'yo'yoi`, `ho___'yoi'yo'ha`, `ho___'yoi'yo'ho`, `ho___'yoi'yo'yia`, `ho___'yoi'ya'yo`, `ho___'yoi'ya'ya`, `ho___'yoi'ya'yoi`, `ho___'yoi'ya'ha`, `ho___'yoi'ya'ho`, `ho___'yoi'ya'yia`, `ho___'yoi'yoi'yo`, `ho___'yoi'yoi'ya`, `ho___'yoi'yoi'yoi`, `ho___'yoi'yoi'ha`, `ho___'yoi'yoi'ho`, `ho___'yoi'yoi'yia`, `ho___'yoi'ha'yo`, `ho___'yoi'ha'ya`, `ho___'yoi'ha'yoi`, `ho___'yoi'ha'ha`, `ho___'yoi'ha'ho`, `ho___'yoi'ha'yia`, `ho___'yoi'ho'yo`, `ho___'yoi'ho'ya`, `ho___'yoi'ho'yoi`, `ho___'yoi'ho'ha`, `ho___'yoi'ho'ho`, `ho___'yoi'ho'yia`, `ho___'yoi'yia'yo`, `ho___'yoi'yia'ya`, `ho___'yoi'yia'yoi`, `ho___'yoi'yia'ha`, `ho___'yoi'yia'ho`, `ho___'yoi'yia'yia`, `ho___'ha'yo'yo`, `ho___'ha'yo'ya`, `ho___'ha'yo'yoi`, `ho___'ha'yo'ha`, `ho___'ha'yo'ho`, `ho___'ha'yo'yia`, `ho___'ha'ya'yo`, `ho___'ha'ya'ya`, `ho___'ha'ya'yoi`, `ho___'ha'ya'ha`, `ho___'ha'ya'ho`, `ho___'ha'ya'yia`, `ho___'ha'yoi'yo`, `ho___'ha'yoi'ya`, `ho___'ha'yoi'yoi`, `ho___'ha'yoi'ha`, `ho___'ha'yoi'ho`, `ho___'ha'yoi'yia`, `ho___'ha'ha'yo`, `ho___'ha'ha'ya`, `ho___'ha'ha'yoi`, `ho___'ha'ha'ha`, `ho___'ha'ha'ho`, `ho___'ha'ha'yia`, `ho___'ha'ho'yo`, `ho___'ha'ho'ya`, `ho___'ha'ho'yoi`, `ho___'ha'ho'ha`, `ho___'ha'ho'ho`, `ho___'ha'ho'yia`, `ho___'ha'yia'yo`, `ho___'ha'yia'ya`, `ho___'ha'yia'yoi`, `ho___'ha'yia'ha`, `ho___'ha'yia'ho`, `ho___'ha'yia'yia`, `ho___'ho'yo'yo`, `ho___'ho'yo'ya`, `ho___'ho'yo'yoi`, `ho___'ho'yo'ha`, `ho___'ho'yo'ho`, `ho___'ho'yo'yia`, `ho___'ho'ya'yo`, `ho___'ho'ya'ya`, `ho___'ho'ya'yoi`, `ho___'ho'ya'ha`, `ho___'ho'ya'ho`, `ho___'ho'ya'yia`, `ho___'ho'yoi'yo`, `ho___'ho'yoi'ya`, `ho___'ho'yoi'yoi`, `ho___'ho'yoi'ha`, `ho___'ho'yoi'ho`, `ho___'ho'yoi'yia`, `ho___'ho'ha'yo`, `ho___'ho'ha'ya`, `ho___'ho'ha'yoi`, `ho___'ho'ha'ha`, `ho___'ho'ha'ho`, `ho___'ho'ha'yia`, `ho___'ho'ho'yo`, `ho___'ho'ho'ya`, `ho___'ho'ho'yoi`, `ho___'ho'ho'ha`, `ho___'ho'ho'ho`, `ho___'ho'ho'yia`, `ho___'ho'yia'yo`, `ho___'ho'yia'ya`, `ho___'ho'yia'yoi`, `ho___'ho'yia'ha`, `ho___'ho'yia'ho`, `ho___'ho'yia'yia`, `ho___'yia'yo'yo`, `ho___'yia'yo'ya`, `ho___'yia'yo'yoi`, `ho___'yia'yo'ha`, `ho___'yia'yo'ho`, `ho___'yia'yo'yia`, `ho___'yia'ya'yo`, `ho___'yia'ya'ya`, `ho___'yia'ya'yoi`, `ho___'yia'ya'ha`, `ho___'yia'ya'ho`, `ho___'yia'ya'yia`, `ho___'yia'yoi'yo`, `ho___'yia'yoi'ya`, `ho___'yia'yoi'yoi`, `ho___'yia'yoi'ha`, `ho___'yia'yoi'ho`, `ho___'yia'yoi'yia`, `ho___'yia'ha'yo`, `ho___'yia'ha'ya`, `ho___'yia'ha'yoi`, `ho___'yia'ha'ha`, `ho___'yia'ha'ho`, `ho___'yia'ha'yia`, `ho___'yia'ho'yo`, `ho___'yia'ho'ya`, `ho___'yia'ho'yoi`, `ho___'yia'ho'ha`, `ho___'yia'ho'ho`, `ho___'yia'ho'yia`, `ho___'yia'yia'yo`, `ho___'yia'yia'ya`, `ho___'yia'yia'yoi`, `ho___'yia'yia'ha`, `ho___'yia'yia'ho`, `ho___'yia'yia'yia`
-infixl 7 `yoi'yo'he'he`, `yoi'ya'he'he`, `yoi'yoi'he'he`, `yoi'yai'he'he`, `yoi'ha'he'he`, `yoi'yio'he'he`, `yoi'ho'he'he`, `yoi'yia'he'he`, `yai'yo'he'he`, `ha__'yo'he'he`, `yai'ya'he'he`, `ha__'ya'he'he`, `yai'yoi'he'he`, `ha__'yoi'he'he`, `yai'yai'he'he`, `ha__'ha'he'he`, `yai'yio'he'he`, `ha__'ho'he'he`, `yai'yia'he'he`, `ha__'yia'he'he`, `yio'yo'he'he`, `ho__'yo'he'he`, `yio'ya'he'he`, `ho__'ya'he'he`, `yio'yoi'he'he`, `ho__'yoi'he'he`, `yio'yai'he'he`, `ho__'ha'he'he`, `yio'yio'he'he`, `ho__'ho'he'he`, `yio'yia'he'he`, `ho__'yia'he'he`, `yia'yo'he'he`, `yia'ya'he'he`, `yia'yoi'he'he`, `yia'yai'he'he`, `yia'ha'he'he`, `yia'yio'he'he`, `yia'ho'he'he`, `yia'yia'he'he`, `yoi'yo'yo'he`, `yoi'yo'ya'he`, `yoi'yo'yoi'he`, `yoi'yo'yai'he`, `yoi'yo'ha'he`, `yoi'yo'yio'he`, `yoi'yo'ho'he`, `yoi'yo'yia'he`, `yoi'ya'yo'he`, `yoi'ya'ya'he`, `yoi'ya'yoi'he`, `yoi'ya'yai'he`, `yoi'ya'ha'he`, `yoi'ya'yio'he`, `yoi'ya'ho'he`, `yoi'ya'yia'he`, `yoi'yoi'yo'he`, `yoi'yoi'ya'he`, `yoi'yoi'yoi'he`, `yoi'yoi'yai'he`, `yoi'yoi'ha'he`, `yoi'yoi'yio'he`, `yoi'yoi'ho'he`, `yoi'yoi'yia'he`, `yoi'yai'yo'he`, `yoi'ha'yo'he`, `yoi'yai'ya'he`, `yoi'ha'ya'he`, `yoi'yai'yoi'he`, `yoi'ha'yoi'he`, `yoi'yai'yai'he`, `yoi'ha'ha'he`, `yoi'yai'yio'he`, `yoi'ha'ho'he`, `yoi'yai'yia'he`, `yoi'ha'yia'he`, `yoi'yio'yo'he`, `yoi'ho'yo'he`, `yoi'yio'ya'he`, `yoi'ho'ya'he`, `yoi'yio'yoi'he`, `yoi'ho'yoi'he`, `yoi'yio'yai'he`, `yoi'ho'ha'he`, `yoi'yio'yio'he`, `yoi'ho'ho'he`, `yoi'yio'yia'he`, `yoi'ho'yia'he`, `yoi'yia'yo'he`, `yoi'yia'ya'he`, `yoi'yia'yoi'he`, `yoi'yia'yai'he`, `yoi'yia'ha'he`, `yoi'yia'yio'he`, `yoi'yia'ho'he`, `yoi'yia'yia'he`, `yai'yo'yo'he`, `ha__'yo'yo'he`, `yai'yo'ya'he`, `ha__'yo'ya'he`, `yai'yo'yoi'he`, `ha__'yo'yoi'he`, `yai'yo'yai'he`, `ha__'yo'ha'he`, `yai'yo'yio'he`, `ha__'yo'ho'he`, `yai'yo'yia'he`, `ha__'yo'yia'he`, `yai'ya'yo'he`, `ha__'ya'yo'he`, `yai'ya'ya'he`, `ha__'ya'ya'he`, `yai'ya'yoi'he`, `ha__'ya'yoi'he`, `yai'ya'yai'he`, `ha__'ya'ha'he`, `yai'ya'yio'he`, `ha__'ya'ho'he`, `yai'ya'yia'he`, `ha__'ya'yia'he`, `yai'yoi'yo'he`, `ha__'yoi'yo'he`, `yai'yoi'ya'he`, `ha__'yoi'ya'he`, `yai'yoi'yoi'he`, `ha__'yoi'yoi'he`, `yai'yoi'yai'he`, `ha__'yoi'ha'he`, `yai'yoi'yio'he`, `ha__'yoi'ho'he`, `yai'yoi'yia'he`, `ha__'yoi'yia'he`, `yai'yai'yo'he`, `ha__'ha'yo'he`, `yai'yai'ya'he`, `ha__'ha'ya'he`, `yai'yai'yoi'he`, `ha__'ha'yoi'he`, `yai'yai'yai'he`, `ha__'ha'ha'he`, `yai'yai'yio'he`, `ha__'ha'ho'he`, `yai'yai'yia'he`, `ha__'ha'yia'he`, `yai'yio'yo'he`, `ha__'ho'yo'he`, `yai'yio'ya'he`, `ha__'ho'ya'he`, `yai'yio'yoi'he`, `ha__'ho'yoi'he`, `yai'yio'yai'he`, `ha__'ho'ha'he`, `yai'yio'yio'he`, `ha__'ho'ho'he`, `yai'yio'yia'he`, `ha__'ho'yia'he`, `yai'yia'yo'he`, `ha__'yia'yo'he`, `yai'yia'ya'he`, `ha__'yia'ya'he`, `yai'yia'yoi'he`, `ha__'yia'yoi'he`, `yai'yia'yai'he`, `ha__'yia'ha'he`, `yai'yia'yio'he`, `ha__'yia'ho'he`, `yai'yia'yia'he`, `ha__'yia'yia'he`, `yio'yo'yo'he`, `ho__'yo'yo'he`, `yio'yo'ya'he`, `ho__'yo'ya'he`, `yio'yo'yoi'he`, `ho__'yo'yoi'he`, `yio'yo'yai'he`, `ho__'yo'ha'he`, `yio'yo'yio'he`, `ho__'yo'ho'he`, `yio'yo'yia'he`, `ho__'yo'yia'he`, `yio'ya'yo'he`, `ho__'ya'yo'he`, `yio'ya'ya'he`, `ho__'ya'ya'he`, `yio'ya'yoi'he`, `ho__'ya'yoi'he`, `yio'ya'yai'he`, `ho__'ya'ha'he`, `yio'ya'yio'he`, `ho__'ya'ho'he`, `yio'ya'yia'he`, `ho__'ya'yia'he`, `yio'yoi'yo'he`, `ho__'yoi'yo'he`, `yio'yoi'ya'he`, `ho__'yoi'ya'he`, `yio'yoi'yoi'he`, `ho__'yoi'yoi'he`, `yio'yoi'yai'he`, `ho__'yoi'ha'he`, `yio'yoi'yio'he`, `ho__'yoi'ho'he`, `yio'yoi'yia'he`, `ho__'yoi'yia'he`, `yio'yai'yo'he`, `ho__'ha'yo'he`, `yio'yai'ya'he`, `ho__'ha'ya'he`, `yio'yai'yoi'he`, `ho__'ha'yoi'he`, `yio'yai'yai'he`, `ho__'ha'ha'he`, `yio'yai'yio'he`, `ho__'ha'ho'he`, `yio'yai'yia'he`, `ho__'ha'yia'he`, `yio'yio'yo'he`, `ho__'ho'yo'he`, `yio'yio'ya'he`, `ho__'ho'ya'he`, `yio'yio'yoi'he`, `ho__'ho'yoi'he`, `yio'yio'yai'he`, `ho__'ho'ha'he`, `yio'yio'yio'he`, `ho__'ho'ho'he`, `yio'yio'yia'he`, `ho__'ho'yia'he`, `yio'yia'yo'he`, `ho__'yia'yo'he`, `yio'yia'ya'he`, `ho__'yia'ya'he`, `yio'yia'yoi'he`, `ho__'yia'yoi'he`, `yio'yia'yai'he`, `ho__'yia'ha'he`, `yio'yia'yio'he`, `ho__'yia'ho'he`, `yio'yia'yia'he`, `ho__'yia'yia'he`, `yia'yo'yo'he`, `yia'yo'ya'he`, `yia'yo'yoi'he`, `yia'yo'yai'he`, `yia'yo'ha'he`, `yia'yo'yio'he`, `yia'yo'ho'he`, `yia'yo'yia'he`, `yia'ya'yo'he`, `yia'ya'ya'he`, `yia'ya'yoi'he`, `yia'ya'yai'he`, `yia'ya'ha'he`, `yia'ya'yio'he`, `yia'ya'ho'he`, `yia'ya'yia'he`, `yia'yoi'yo'he`, `yia'yoi'ya'he`, `yia'yoi'yoi'he`, `yia'yoi'yai'he`, `yia'yoi'ha'he`, `yia'yoi'yio'he`, `yia'yoi'ho'he`, `yia'yoi'yia'he`, `yia'yai'yo'he`, `yia'ha'yo'he`, `yia'yai'ya'he`, `yia'ha'ya'he`, `yia'yai'yoi'he`, `yia'ha'yoi'he`, `yia'yai'yai'he`, `yia'ha'ha'he`, `yia'yai'yio'he`, `yia'ha'ho'he`, `yia'yai'yia'he`, `yia'ha'yia'he`, `yia'yio'yo'he`, `yia'ho'yo'he`, `yia'yio'ya'he`, `yia'ho'ya'he`, `yia'yio'yoi'he`, `yia'ho'yoi'he`, `yia'yio'yai'he`, `yia'ho'ha'he`, `yia'yio'yio'he`, `yia'ho'ho'he`, `yia'yio'yia'he`, `yia'ho'yia'he`, `yia'yia'yo'he`, `yia'yia'ya'he`, `yia'yia'yoi'he`, `yia'yia'yai'he`, `yia'yia'ha'he`, `yia'yia'yio'he`, `yia'yia'ho'he`, `yia'yia'yia'he`, `yoi'yo'yo'yo`, `yoi'yo'yo'ya`, `yoi'yo'yo'yoi`, `yoi'yo'yo'yai`, `yoi'yo'yo'ha`, `yoi'yo'yo'yio`, `yoi'yo'yo'ho`, `yoi'yo'yo'yia`, `yoi'yo'ya'yo`, `yoi'yo'ya'ya`, `yoi'yo'ya'yoi`, `yoi'yo'ya'yai`, `yoi'yo'ya'ha`, `yoi'yo'ya'yio`, `yoi'yo'ya'ho`, `yoi'yo'ya'yia`, `yoi'yo'yoi'yo`, `yoi'yo'yoi'ya`, `yoi'yo'yoi'yoi`, `yoi'yo'yoi'yai`, `yoi'yo'yoi'ha`, `yoi'yo'yoi'yio`, `yoi'yo'yoi'ho`, `yoi'yo'yoi'yia`, `yoi'yo'yai'yo`, `yoi'yo'ha'yo`, `yoi'yo'yai'ya`, `yoi'yo'ha'ya`, `yoi'yo'yai'yoi`, `yoi'yo'ha'yoi`, `yoi'yo'yai'yai`, `yoi'yo'ha'ha`, `yoi'yo'yai'yio`, `yoi'yo'ha'ho`, `yoi'yo'yai'yia`, `yoi'yo'ha'yia`, `yoi'yo'yio'yo`, `yoi'yo'ho'yo`, `yoi'yo'yio'ya`, `yoi'yo'ho'ya`, `yoi'yo'yio'yoi`, `yoi'yo'ho'yoi`, `yoi'yo'yio'yai`, `yoi'yo'ho'ha`, `yoi'yo'yio'yio`, `yoi'yo'ho'ho`, `yoi'yo'yio'yia`, `yoi'yo'ho'yia`, `yoi'yo'yia'yo`, `yoi'yo'yia'ya`, `yoi'yo'yia'yoi`, `yoi'yo'yia'yai`, `yoi'yo'yia'ha`, `yoi'yo'yia'yio`, `yoi'yo'yia'ho`, `yoi'yo'yia'yia`, `yoi'ya'yo'yo`, `yoi'ya'yo'ya`, `yoi'ya'yo'yoi`, `yoi'ya'yo'yai`, `yoi'ya'yo'ha`, `yoi'ya'yo'yio`, `yoi'ya'yo'ho`, `yoi'ya'yo'yia`, `yoi'ya'ya'yo`, `yoi'ya'ya'ya`, `yoi'ya'ya'yoi`, `yoi'ya'ya'yai`, `yoi'ya'ya'ha`, `yoi'ya'ya'yio`, `yoi'ya'ya'ho`, `yoi'ya'ya'yia`, `yoi'ya'yoi'yo`, `yoi'ya'yoi'ya`, `yoi'ya'yoi'yoi`, `yoi'ya'yoi'yai`, `yoi'ya'yoi'ha`, `yoi'ya'yoi'yio`, `yoi'ya'yoi'ho`, `yoi'ya'yoi'yia`, `yoi'ya'yai'yo`, `yoi'ya'ha'yo`, `yoi'ya'yai'ya`, `yoi'ya'ha'ya`, `yoi'ya'yai'yoi`, `yoi'ya'ha'yoi`, `yoi'ya'yai'yai`, `yoi'ya'ha'ha`, `yoi'ya'yai'yio`, `yoi'ya'ha'ho`, `yoi'ya'yai'yia`, `yoi'ya'ha'yia`, `yoi'ya'yio'yo`, `yoi'ya'ho'yo`, `yoi'ya'yio'ya`, `yoi'ya'ho'ya`, `yoi'ya'yio'yoi`, `yoi'ya'ho'yoi`, `yoi'ya'yio'yai`, `yoi'ya'ho'ha`, `yoi'ya'yio'yio`, `yoi'ya'ho'ho`, `yoi'ya'yio'yia`, `yoi'ya'ho'yia`, `yoi'ya'yia'yo`, `yoi'ya'yia'ya`, `yoi'ya'yia'yoi`, `yoi'ya'yia'yai`, `yoi'ya'yia'ha`, `yoi'ya'yia'yio`, `yoi'ya'yia'ho`, `yoi'ya'yia'yia`, `yoi'yoi'yo'yo`, `yoi'yoi'yo'ya`, `yoi'yoi'yo'yoi`, `yoi'yoi'yo'yai`, `yoi'yoi'yo'ha`, `yoi'yoi'yo'yio`, `yoi'yoi'yo'ho`, `yoi'yoi'yo'yia`, `yoi'yoi'ya'yo`, `yoi'yoi'ya'ya`, `yoi'yoi'ya'yoi`, `yoi'yoi'ya'yai`, `yoi'yoi'ya'ha`, `yoi'yoi'ya'yio`, `yoi'yoi'ya'ho`, `yoi'yoi'ya'yia`, `yoi'yoi'yoi'yo`, `yoi'yoi'yoi'ya`, `yoi'yoi'yoi'yoi`, `yoi'yoi'yoi'yai`, `yoi'yoi'yoi'ha`, `yoi'yoi'yoi'yio`, `yoi'yoi'yoi'ho`, `yoi'yoi'yoi'yia`, `yoi'yoi'yai'yo`, `yoi'yoi'ha'yo`, `yoi'yoi'yai'ya`, `yoi'yoi'ha'ya`, `yoi'yoi'yai'yoi`, `yoi'yoi'ha'yoi`, `yoi'yoi'yai'yai`, `yoi'yoi'ha'ha`, `yoi'yoi'yai'yio`, `yoi'yoi'ha'ho`, `yoi'yoi'yai'yia`, `yoi'yoi'ha'yia`, `yoi'yoi'yio'yo`, `yoi'yoi'ho'yo`, `yoi'yoi'yio'ya`, `yoi'yoi'ho'ya`, `yoi'yoi'yio'yoi`, `yoi'yoi'ho'yoi`, `yoi'yoi'yio'yai`, `yoi'yoi'ho'ha`, `yoi'yoi'yio'yio`, `yoi'yoi'ho'ho`, `yoi'yoi'yio'yia`, `yoi'yoi'ho'yia`, `yoi'yoi'yia'yo`, `yoi'yoi'yia'ya`, `yoi'yoi'yia'yoi`, `yoi'yoi'yia'yai`, `yoi'yoi'yia'ha`, `yoi'yoi'yia'yio`, `yoi'yoi'yia'ho`, `yoi'yoi'yia'yia`, `yoi'yai'yo'yo`, `yoi'ha'yo'yo`, `yoi'yai'yo'ya`, `yoi'ha'yo'ya`, `yoi'yai'yo'yoi`, `yoi'ha'yo'yoi`, `yoi'yai'yo'yai`, `yoi'ha'yo'ha`, `yoi'yai'yo'yio`, `yoi'ha'yo'ho`, `yoi'yai'yo'yia`, `yoi'ha'yo'yia`, `yoi'yai'ya'yo`, `yoi'ha'ya'yo`, `yoi'yai'ya'ya`, `yoi'ha'ya'ya`, `yoi'yai'ya'yoi`, `yoi'ha'ya'yoi`, `yoi'yai'ya'yai`, `yoi'ha'ya'ha`, `yoi'yai'ya'yio`, `yoi'ha'ya'ho`, `yoi'yai'ya'yia`, `yoi'ha'ya'yia`, `yoi'yai'yoi'yo`, `yoi'ha'yoi'yo`, `yoi'yai'yoi'ya`, `yoi'ha'yoi'ya`, `yoi'yai'yoi'yoi`, `yoi'ha'yoi'yoi`, `yoi'yai'yoi'yai`, `yoi'ha'yoi'ha`, `yoi'yai'yoi'yio`, `yoi'ha'yoi'ho`, `yoi'yai'yoi'yia`, `yoi'ha'yoi'yia`, `yoi'yai'yai'yo`, `yoi'ha'ha'yo`, `yoi'yai'yai'ya`, `yoi'ha'ha'ya`, `yoi'yai'yai'yoi`, `yoi'ha'ha'yoi`, `yoi'yai'yai'yai`, `yoi'ha'ha'ha`, `yoi'yai'yai'yio`, `yoi'ha'ha'ho`, `yoi'yai'yai'yia`, `yoi'ha'ha'yia`, `yoi'yai'yio'yo`, `yoi'ha'ho'yo`, `yoi'yai'yio'ya`, `yoi'ha'ho'ya`, `yoi'yai'yio'yoi`, `yoi'ha'ho'yoi`, `yoi'yai'yio'yai`, `yoi'ha'ho'ha`, `yoi'yai'yio'yio`, `yoi'ha'ho'ho`, `yoi'yai'yio'yia`, `yoi'ha'ho'yia`, `yoi'yai'yia'yo`, `yoi'ha'yia'yo`, `yoi'yai'yia'ya`, `yoi'ha'yia'ya`, `yoi'yai'yia'yoi`, `yoi'ha'yia'yoi`, `yoi'yai'yia'yai`, `yoi'ha'yia'ha`, `yoi'yai'yia'yio`, `yoi'ha'yia'ho`, `yoi'yai'yia'yia`, `yoi'ha'yia'yia`, `yoi'yio'yo'yo`, `yoi'ho'yo'yo`, `yoi'yio'yo'ya`, `yoi'ho'yo'ya`, `yoi'yio'yo'yoi`, `yoi'ho'yo'yoi`, `yoi'yio'yo'yai`, `yoi'ho'yo'ha`, `yoi'yio'yo'yio`, `yoi'ho'yo'ho`, `yoi'yio'yo'yia`, `yoi'ho'yo'yia`, `yoi'yio'ya'yo`, `yoi'ho'ya'yo`, `yoi'yio'ya'ya`, `yoi'ho'ya'ya`, `yoi'yio'ya'yoi`, `yoi'ho'ya'yoi`, `yoi'yio'ya'yai`, `yoi'ho'ya'ha`, `yoi'yio'ya'yio`, `yoi'ho'ya'ho`, `yoi'yio'ya'yia`, `yoi'ho'ya'yia`, `yoi'yio'yoi'yo`, `yoi'ho'yoi'yo`, `yoi'yio'yoi'ya`, `yoi'ho'yoi'ya`, `yoi'yio'yoi'yoi`, `yoi'ho'yoi'yoi`, `yoi'yio'yoi'yai`, `yoi'ho'yoi'ha`, `yoi'yio'yoi'yio`, `yoi'ho'yoi'ho`, `yoi'yio'yoi'yia`, `yoi'ho'yoi'yia`, `yoi'yio'yai'yo`, `yoi'ho'ha'yo`, `yoi'yio'yai'ya`, `yoi'ho'ha'ya`, `yoi'yio'yai'yoi`, `yoi'ho'ha'yoi`, `yoi'yio'yai'yai`, `yoi'ho'ha'ha`, `yoi'yio'yai'yio`, `yoi'ho'ha'ho`, `yoi'yio'yai'yia`, `yoi'ho'ha'yia`, `yoi'yio'yio'yo`, `yoi'ho'ho'yo`, `yoi'yio'yio'ya`, `yoi'ho'ho'ya`, `yoi'yio'yio'yoi`, `yoi'ho'ho'yoi`, `yoi'yio'yio'yai`, `yoi'ho'ho'ha`, `yoi'yio'yio'yio`, `yoi'ho'ho'ho`, `yoi'yio'yio'yia`, `yoi'ho'ho'yia`, `yoi'yio'yia'yo`, `yoi'ho'yia'yo`, `yoi'yio'yia'ya`, `yoi'ho'yia'ya`, `yoi'yio'yia'yoi`, `yoi'ho'yia'yoi`, `yoi'yio'yia'yai`, `yoi'ho'yia'ha`, `yoi'yio'yia'yio`, `yoi'ho'yia'ho`, `yoi'yio'yia'yia`, `yoi'ho'yia'yia`, `yoi'yia'yo'yo`, `yoi'yia'yo'ya`, `yoi'yia'yo'yoi`, `yoi'yia'yo'yai`, `yoi'yia'yo'ha`, `yoi'yia'yo'yio`, `yoi'yia'yo'ho`, `yoi'yia'yo'yia`, `yoi'yia'ya'yo`, `yoi'yia'ya'ya`, `yoi'yia'ya'yoi`, `yoi'yia'ya'yai`, `yoi'yia'ya'ha`, `yoi'yia'ya'yio`, `yoi'yia'ya'ho`, `yoi'yia'ya'yia`, `yoi'yia'yoi'yo`, `yoi'yia'yoi'ya`, `yoi'yia'yoi'yoi`, `yoi'yia'yoi'yai`, `yoi'yia'yoi'ha`, `yoi'yia'yoi'yio`, `yoi'yia'yoi'ho`, `yoi'yia'yoi'yia`, `yoi'yia'yai'yo`, `yoi'yia'ha'yo`, `yoi'yia'yai'ya`, `yoi'yia'ha'ya`, `yoi'yia'yai'yoi`, `yoi'yia'ha'yoi`, `yoi'yia'yai'yai`, `yoi'yia'ha'ha`, `yoi'yia'yai'yio`, `yoi'yia'ha'ho`, `yoi'yia'yai'yia`, `yoi'yia'ha'yia`, `yoi'yia'yio'yo`, `yoi'yia'ho'yo`, `yoi'yia'yio'ya`, `yoi'yia'ho'ya`, `yoi'yia'yio'yoi`, `yoi'yia'ho'yoi`, `yoi'yia'yio'yai`, `yoi'yia'ho'ha`, `yoi'yia'yio'yio`, `yoi'yia'ho'ho`, `yoi'yia'yio'yia`, `yoi'yia'ho'yia`, `yoi'yia'yia'yo`, `yoi'yia'yia'ya`, `yoi'yia'yia'yoi`, `yoi'yia'yia'yai`, `yoi'yia'yia'ha`, `yoi'yia'yia'yio`, `yoi'yia'yia'ho`, `yoi'yia'yia'yia`, `yai'yo'yo'yo`, `ha__'yo'yo'yo`, `yai'yo'yo'ya`, `ha__'yo'yo'ya`, `yai'yo'yo'yoi`, `ha__'yo'yo'yoi`, `yai'yo'yo'yai`, `ha__'yo'yo'ha`, `yai'yo'yo'yio`, `ha__'yo'yo'ho`, `yai'yo'yo'yia`, `ha__'yo'yo'yia`, `yai'yo'ya'yo`, `ha__'yo'ya'yo`, `yai'yo'ya'ya`, `ha__'yo'ya'ya`, `yai'yo'ya'yoi`, `ha__'yo'ya'yoi`, `yai'yo'ya'yai`, `ha__'yo'ya'ha`, `yai'yo'ya'yio`, `ha__'yo'ya'ho`, `yai'yo'ya'yia`, `ha__'yo'ya'yia`, `yai'yo'yoi'yo`, `ha__'yo'yoi'yo`, `yai'yo'yoi'ya`, `ha__'yo'yoi'ya`, `yai'yo'yoi'yoi`, `ha__'yo'yoi'yoi`, `yai'yo'yoi'yai`, `ha__'yo'yoi'ha`, `yai'yo'yoi'yio`, `ha__'yo'yoi'ho`, `yai'yo'yoi'yia`, `ha__'yo'yoi'yia`, `yai'yo'yai'yo`, `ha__'yo'ha'yo`, `yai'yo'yai'ya`, `ha__'yo'ha'ya`, `yai'yo'yai'yoi`, `ha__'yo'ha'yoi`, `yai'yo'yai'yai`, `ha__'yo'ha'ha`, `yai'yo'yai'yio`, `ha__'yo'ha'ho`, `yai'yo'yai'yia`, `ha__'yo'ha'yia`, `yai'yo'yio'yo`, `ha__'yo'ho'yo`, `yai'yo'yio'ya`, `ha__'yo'ho'ya`, `yai'yo'yio'yoi`, `ha__'yo'ho'yoi`, `yai'yo'yio'yai`, `ha__'yo'ho'ha`, `yai'yo'yio'yio`, `ha__'yo'ho'ho`, `yai'yo'yio'yia`, `ha__'yo'ho'yia`, `yai'yo'yia'yo`, `ha__'yo'yia'yo`, `yai'yo'yia'ya`, `ha__'yo'yia'ya`, `yai'yo'yia'yoi`, `ha__'yo'yia'yoi`, `yai'yo'yia'yai`, `ha__'yo'yia'ha`, `yai'yo'yia'yio`, `ha__'yo'yia'ho`, `yai'yo'yia'yia`, `ha__'yo'yia'yia`, `yai'ya'yo'yo`, `ha__'ya'yo'yo`, `yai'ya'yo'ya`, `ha__'ya'yo'ya`, `yai'ya'yo'yoi`, `ha__'ya'yo'yoi`, `yai'ya'yo'yai`, `ha__'ya'yo'ha`, `yai'ya'yo'yio`, `ha__'ya'yo'ho`, `yai'ya'yo'yia`, `ha__'ya'yo'yia`, `yai'ya'ya'yo`, `ha__'ya'ya'yo`, `yai'ya'ya'ya`, `ha__'ya'ya'ya`, `yai'ya'ya'yoi`, `ha__'ya'ya'yoi`, `yai'ya'ya'yai`, `ha__'ya'ya'ha`, `yai'ya'ya'yio`, `ha__'ya'ya'ho`, `yai'ya'ya'yia`, `ha__'ya'ya'yia`, `yai'ya'yoi'yo`, `ha__'ya'yoi'yo`, `yai'ya'yoi'ya`, `ha__'ya'yoi'ya`, `yai'ya'yoi'yoi`, `ha__'ya'yoi'yoi`, `yai'ya'yoi'yai`, `ha__'ya'yoi'ha`, `yai'ya'yoi'yio`, `ha__'ya'yoi'ho`, `yai'ya'yoi'yia`, `ha__'ya'yoi'yia`, `yai'ya'yai'yo`, `ha__'ya'ha'yo`, `yai'ya'yai'ya`, `ha__'ya'ha'ya`, `yai'ya'yai'yoi`, `ha__'ya'ha'yoi`, `yai'ya'yai'yai`, `ha__'ya'ha'ha`, `yai'ya'yai'yio`, `ha__'ya'ha'ho`, `yai'ya'yai'yia`, `ha__'ya'ha'yia`, `yai'ya'yio'yo`, `ha__'ya'ho'yo`, `yai'ya'yio'ya`, `ha__'ya'ho'ya`, `yai'ya'yio'yoi`, `ha__'ya'ho'yoi`, `yai'ya'yio'yai`, `ha__'ya'ho'ha`, `yai'ya'yio'yio`, `ha__'ya'ho'ho`, `yai'ya'yio'yia`, `ha__'ya'ho'yia`, `yai'ya'yia'yo`, `ha__'ya'yia'yo`, `yai'ya'yia'ya`, `ha__'ya'yia'ya`, `yai'ya'yia'yoi`, `ha__'ya'yia'yoi`, `yai'ya'yia'yai`, `ha__'ya'yia'ha`, `yai'ya'yia'yio`, `ha__'ya'yia'ho`, `yai'ya'yia'yia`, `ha__'ya'yia'yia`, `yai'yoi'yo'yo`, `ha__'yoi'yo'yo`, `yai'yoi'yo'ya`, `ha__'yoi'yo'ya`, `yai'yoi'yo'yoi`, `ha__'yoi'yo'yoi`, `yai'yoi'yo'yai`, `ha__'yoi'yo'ha`, `yai'yoi'yo'yio`, `ha__'yoi'yo'ho`, `yai'yoi'yo'yia`, `ha__'yoi'yo'yia`, `yai'yoi'ya'yo`, `ha__'yoi'ya'yo`, `yai'yoi'ya'ya`, `ha__'yoi'ya'ya`, `yai'yoi'ya'yoi`, `ha__'yoi'ya'yoi`, `yai'yoi'ya'yai`, `ha__'yoi'ya'ha`, `yai'yoi'ya'yio`, `ha__'yoi'ya'ho`, `yai'yoi'ya'yia`, `ha__'yoi'ya'yia`, `yai'yoi'yoi'yo`, `ha__'yoi'yoi'yo`, `yai'yoi'yoi'ya`, `ha__'yoi'yoi'ya`, `yai'yoi'yoi'yoi`, `ha__'yoi'yoi'yoi`, `yai'yoi'yoi'yai`, `ha__'yoi'yoi'ha`, `yai'yoi'yoi'yio`, `ha__'yoi'yoi'ho`, `yai'yoi'yoi'yia`, `ha__'yoi'yoi'yia`, `yai'yoi'yai'yo`, `ha__'yoi'ha'yo`, `yai'yoi'yai'ya`, `ha__'yoi'ha'ya`, `yai'yoi'yai'yoi`, `ha__'yoi'ha'yoi`, `yai'yoi'yai'yai`, `ha__'yoi'ha'ha`, `yai'yoi'yai'yio`, `ha__'yoi'ha'ho`, `yai'yoi'yai'yia`, `ha__'yoi'ha'yia`, `yai'yoi'yio'yo`, `ha__'yoi'ho'yo`, `yai'yoi'yio'ya`, `ha__'yoi'ho'ya`, `yai'yoi'yio'yoi`, `ha__'yoi'ho'yoi`, `yai'yoi'yio'yai`, `ha__'yoi'ho'ha`, `yai'yoi'yio'yio`, `ha__'yoi'ho'ho`, `yai'yoi'yio'yia`, `ha__'yoi'ho'yia`, `yai'yoi'yia'yo`, `ha__'yoi'yia'yo`, `yai'yoi'yia'ya`, `ha__'yoi'yia'ya`, `yai'yoi'yia'yoi`, `ha__'yoi'yia'yoi`, `yai'yoi'yia'yai`, `ha__'yoi'yia'ha`, `yai'yoi'yia'yio`, `ha__'yoi'yia'ho`, `yai'yoi'yia'yia`, `ha__'yoi'yia'yia`, `yai'yai'yo'yo`, `ha__'ha'yo'yo`, `yai'yai'yo'ya`, `ha__'ha'yo'ya`, `yai'yai'yo'yoi`, `ha__'ha'yo'yoi`, `yai'yai'yo'yai`, `ha__'ha'yo'ha`, `yai'yai'yo'yio`, `ha__'ha'yo'ho`, `yai'yai'yo'yia`, `ha__'ha'yo'yia`, `yai'yai'ya'yo`, `ha__'ha'ya'yo`, `yai'yai'ya'ya`, `ha__'ha'ya'ya`, `yai'yai'ya'yoi`, `ha__'ha'ya'yoi`, `yai'yai'ya'yai`, `ha__'ha'ya'ha`, `yai'yai'ya'yio`, `ha__'ha'ya'ho`, `yai'yai'ya'yia`, `ha__'ha'ya'yia`, `yai'yai'yoi'yo`, `ha__'ha'yoi'yo`, `yai'yai'yoi'ya`, `ha__'ha'yoi'ya`, `yai'yai'yoi'yoi`, `ha__'ha'yoi'yoi`, `yai'yai'yoi'yai`, `ha__'ha'yoi'ha`, `yai'yai'yoi'yio`, `ha__'ha'yoi'ho`, `yai'yai'yoi'yia`, `ha__'ha'yoi'yia`, `yai'yai'yai'yo`, `ha__'ha'ha'yo`, `yai'yai'yai'ya`, `ha__'ha'ha'ya`, `yai'yai'yai'yoi`, `ha__'ha'ha'yoi`, `yai'yai'yai'yai`, `ha__'ha'ha'ha`, `yai'yai'yai'yio`, `ha__'ha'ha'ho`, `yai'yai'yai'yia`, `ha__'ha'ha'yia`, `yai'yai'yio'yo`, `ha__'ha'ho'yo`, `yai'yai'yio'ya`, `ha__'ha'ho'ya`, `yai'yai'yio'yoi`, `ha__'ha'ho'yoi`, `yai'yai'yio'yai`, `ha__'ha'ho'ha`, `yai'yai'yio'yio`, `ha__'ha'ho'ho`, `yai'yai'yio'yia`, `ha__'ha'ho'yia`, `yai'yai'yia'yo`, `ha__'ha'yia'yo`, `yai'yai'yia'ya`, `ha__'ha'yia'ya`, `yai'yai'yia'yoi`, `ha__'ha'yia'yoi`, `yai'yai'yia'yai`, `ha__'ha'yia'ha`, `yai'yai'yia'yio`, `ha__'ha'yia'ho`, `yai'yai'yia'yia`, `ha__'ha'yia'yia`, `yai'yio'yo'yo`, `ha__'ho'yo'yo`, `yai'yio'yo'ya`, `ha__'ho'yo'ya`, `yai'yio'yo'yoi`, `ha__'ho'yo'yoi`, `yai'yio'yo'yai`, `ha__'ho'yo'ha`, `yai'yio'yo'yio`, `ha__'ho'yo'ho`, `yai'yio'yo'yia`, `ha__'ho'yo'yia`, `yai'yio'ya'yo`, `ha__'ho'ya'yo`, `yai'yio'ya'ya`, `ha__'ho'ya'ya`, `yai'yio'ya'yoi`, `ha__'ho'ya'yoi`, `yai'yio'ya'yai`, `ha__'ho'ya'ha`, `yai'yio'ya'yio`, `ha__'ho'ya'ho`, `yai'yio'ya'yia`, `ha__'ho'ya'yia`, `yai'yio'yoi'yo`, `ha__'ho'yoi'yo`, `yai'yio'yoi'ya`, `ha__'ho'yoi'ya`, `yai'yio'yoi'yoi`, `ha__'ho'yoi'yoi`, `yai'yio'yoi'yai`, `ha__'ho'yoi'ha`, `yai'yio'yoi'yio`, `ha__'ho'yoi'ho`, `yai'yio'yoi'yia`, `ha__'ho'yoi'yia`, `yai'yio'yai'yo`, `ha__'ho'ha'yo`, `yai'yio'yai'ya`, `ha__'ho'ha'ya`, `yai'yio'yai'yoi`, `ha__'ho'ha'yoi`, `yai'yio'yai'yai`, `ha__'ho'ha'ha`, `yai'yio'yai'yio`, `ha__'ho'ha'ho`, `yai'yio'yai'yia`, `ha__'ho'ha'yia`, `yai'yio'yio'yo`, `ha__'ho'ho'yo`, `yai'yio'yio'ya`, `ha__'ho'ho'ya`, `yai'yio'yio'yoi`, `ha__'ho'ho'yoi`, `yai'yio'yio'yai`, `ha__'ho'ho'ha`, `yai'yio'yio'yio`, `ha__'ho'ho'ho`, `yai'yio'yio'yia`, `ha__'ho'ho'yia`, `yai'yio'yia'yo`, `ha__'ho'yia'yo`, `yai'yio'yia'ya`, `ha__'ho'yia'ya`, `yai'yio'yia'yoi`, `ha__'ho'yia'yoi`, `yai'yio'yia'yai`, `ha__'ho'yia'ha`, `yai'yio'yia'yio`, `ha__'ho'yia'ho`, `yai'yio'yia'yia`, `ha__'ho'yia'yia`, `yai'yia'yo'yo`, `ha__'yia'yo'yo`, `yai'yia'yo'ya`, `ha__'yia'yo'ya`, `yai'yia'yo'yoi`, `ha__'yia'yo'yoi`, `yai'yia'yo'yai`, `ha__'yia'yo'ha`, `yai'yia'yo'yio`, `ha__'yia'yo'ho`, `yai'yia'yo'yia`, `ha__'yia'yo'yia`, `yai'yia'ya'yo`, `ha__'yia'ya'yo`, `yai'yia'ya'ya`, `ha__'yia'ya'ya`, `yai'yia'ya'yoi`, `ha__'yia'ya'yoi`, `yai'yia'ya'yai`, `ha__'yia'ya'ha`, `yai'yia'ya'yio`, `ha__'yia'ya'ho`, `yai'yia'ya'yia`, `ha__'yia'ya'yia`, `yai'yia'yoi'yo`, `ha__'yia'yoi'yo`, `yai'yia'yoi'ya`, `ha__'yia'yoi'ya`, `yai'yia'yoi'yoi`, `ha__'yia'yoi'yoi`, `yai'yia'yoi'yai`, `ha__'yia'yoi'ha`, `yai'yia'yoi'yio`, `ha__'yia'yoi'ho`, `yai'yia'yoi'yia`, `ha__'yia'yoi'yia`, `yai'yia'yai'yo`, `ha__'yia'ha'yo`, `yai'yia'yai'ya`, `ha__'yia'ha'ya`, `yai'yia'yai'yoi`, `ha__'yia'ha'yoi`, `yai'yia'yai'yai`, `ha__'yia'ha'ha`, `yai'yia'yai'yio`, `ha__'yia'ha'ho`, `yai'yia'yai'yia`, `ha__'yia'ha'yia`, `yai'yia'yio'yo`, `ha__'yia'ho'yo`, `yai'yia'yio'ya`, `ha__'yia'ho'ya`, `yai'yia'yio'yoi`, `ha__'yia'ho'yoi`, `yai'yia'yio'yai`, `ha__'yia'ho'ha`, `yai'yia'yio'yio`, `ha__'yia'ho'ho`, `yai'yia'yio'yia`, `ha__'yia'ho'yia`, `yai'yia'yia'yo`, `ha__'yia'yia'yo`, `yai'yia'yia'ya`, `ha__'yia'yia'ya`, `yai'yia'yia'yoi`, `ha__'yia'yia'yoi`, `yai'yia'yia'yai`, `ha__'yia'yia'ha`, `yai'yia'yia'yio`, `ha__'yia'yia'ho`, `yai'yia'yia'yia`, `ha__'yia'yia'yia`, `yio'yo'yo'yo`, `ho__'yo'yo'yo`, `yio'yo'yo'ya`, `ho__'yo'yo'ya`, `yio'yo'yo'yoi`, `ho__'yo'yo'yoi`, `yio'yo'yo'yai`, `ho__'yo'yo'ha`, `yio'yo'yo'yio`, `ho__'yo'yo'ho`, `yio'yo'yo'yia`, `ho__'yo'yo'yia`, `yio'yo'ya'yo`, `ho__'yo'ya'yo`, `yio'yo'ya'ya`, `ho__'yo'ya'ya`, `yio'yo'ya'yoi`, `ho__'yo'ya'yoi`, `yio'yo'ya'yai`, `ho__'yo'ya'ha`, `yio'yo'ya'yio`, `ho__'yo'ya'ho`, `yio'yo'ya'yia`, `ho__'yo'ya'yia`, `yio'yo'yoi'yo`, `ho__'yo'yoi'yo`, `yio'yo'yoi'ya`, `ho__'yo'yoi'ya`, `yio'yo'yoi'yoi`, `ho__'yo'yoi'yoi`, `yio'yo'yoi'yai`, `ho__'yo'yoi'ha`, `yio'yo'yoi'yio`, `ho__'yo'yoi'ho`, `yio'yo'yoi'yia`, `ho__'yo'yoi'yia`, `yio'yo'yai'yo`, `ho__'yo'ha'yo`, `yio'yo'yai'ya`, `ho__'yo'ha'ya`, `yio'yo'yai'yoi`, `ho__'yo'ha'yoi`, `yio'yo'yai'yai`, `ho__'yo'ha'ha`, `yio'yo'yai'yio`, `ho__'yo'ha'ho`, `yio'yo'yai'yia`, `ho__'yo'ha'yia`, `yio'yo'yio'yo`, `ho__'yo'ho'yo`, `yio'yo'yio'ya`, `ho__'yo'ho'ya`, `yio'yo'yio'yoi`, `ho__'yo'ho'yoi`, `yio'yo'yio'yai`, `ho__'yo'ho'ha`, `yio'yo'yio'yio`, `ho__'yo'ho'ho`, `yio'yo'yio'yia`, `ho__'yo'ho'yia`, `yio'yo'yia'yo`, `ho__'yo'yia'yo`, `yio'yo'yia'ya`, `ho__'yo'yia'ya`, `yio'yo'yia'yoi`, `ho__'yo'yia'yoi`, `yio'yo'yia'yai`, `ho__'yo'yia'ha`, `yio'yo'yia'yio`, `ho__'yo'yia'ho`, `yio'yo'yia'yia`, `ho__'yo'yia'yia`, `yio'ya'yo'yo`, `ho__'ya'yo'yo`, `yio'ya'yo'ya`, `ho__'ya'yo'ya`, `yio'ya'yo'yoi`, `ho__'ya'yo'yoi`, `yio'ya'yo'yai`, `ho__'ya'yo'ha`, `yio'ya'yo'yio`, `ho__'ya'yo'ho`, `yio'ya'yo'yia`, `ho__'ya'yo'yia`, `yio'ya'ya'yo`, `ho__'ya'ya'yo`, `yio'ya'ya'ya`, `ho__'ya'ya'ya`, `yio'ya'ya'yoi`, `ho__'ya'ya'yoi`, `yio'ya'ya'yai`, `ho__'ya'ya'ha`, `yio'ya'ya'yio`, `ho__'ya'ya'ho`, `yio'ya'ya'yia`, `ho__'ya'ya'yia`, `yio'ya'yoi'yo`, `ho__'ya'yoi'yo`, `yio'ya'yoi'ya`, `ho__'ya'yoi'ya`, `yio'ya'yoi'yoi`, `ho__'ya'yoi'yoi`, `yio'ya'yoi'yai`, `ho__'ya'yoi'ha`, `yio'ya'yoi'yio`, `ho__'ya'yoi'ho`, `yio'ya'yoi'yia`, `ho__'ya'yoi'yia`, `yio'ya'yai'yo`, `ho__'ya'ha'yo`, `yio'ya'yai'ya`, `ho__'ya'ha'ya`, `yio'ya'yai'yoi`, `ho__'ya'ha'yoi`, `yio'ya'yai'yai`, `ho__'ya'ha'ha`, `yio'ya'yai'yio`, `ho__'ya'ha'ho`, `yio'ya'yai'yia`, `ho__'ya'ha'yia`, `yio'ya'yio'yo`, `ho__'ya'ho'yo`, `yio'ya'yio'ya`, `ho__'ya'ho'ya`, `yio'ya'yio'yoi`, `ho__'ya'ho'yoi`, `yio'ya'yio'yai`, `ho__'ya'ho'ha`, `yio'ya'yio'yio`, `ho__'ya'ho'ho`, `yio'ya'yio'yia`, `ho__'ya'ho'yia`, `yio'ya'yia'yo`, `ho__'ya'yia'yo`, `yio'ya'yia'ya`, `ho__'ya'yia'ya`, `yio'ya'yia'yoi`, `ho__'ya'yia'yoi`, `yio'ya'yia'yai`, `ho__'ya'yia'ha`, `yio'ya'yia'yio`, `ho__'ya'yia'ho`, `yio'ya'yia'yia`, `ho__'ya'yia'yia`, `yio'yoi'yo'yo`, `ho__'yoi'yo'yo`, `yio'yoi'yo'ya`, `ho__'yoi'yo'ya`, `yio'yoi'yo'yoi`, `ho__'yoi'yo'yoi`, `yio'yoi'yo'yai`, `ho__'yoi'yo'ha`, `yio'yoi'yo'yio`, `ho__'yoi'yo'ho`, `yio'yoi'yo'yia`, `ho__'yoi'yo'yia`, `yio'yoi'ya'yo`, `ho__'yoi'ya'yo`, `yio'yoi'ya'ya`, `ho__'yoi'ya'ya`, `yio'yoi'ya'yoi`, `ho__'yoi'ya'yoi`, `yio'yoi'ya'yai`, `ho__'yoi'ya'ha`, `yio'yoi'ya'yio`, `ho__'yoi'ya'ho`, `yio'yoi'ya'yia`, `ho__'yoi'ya'yia`, `yio'yoi'yoi'yo`, `ho__'yoi'yoi'yo`, `yio'yoi'yoi'ya`, `ho__'yoi'yoi'ya`, `yio'yoi'yoi'yoi`, `ho__'yoi'yoi'yoi`, `yio'yoi'yoi'yai`, `ho__'yoi'yoi'ha`, `yio'yoi'yoi'yio`, `ho__'yoi'yoi'ho`, `yio'yoi'yoi'yia`, `ho__'yoi'yoi'yia`, `yio'yoi'yai'yo`, `ho__'yoi'ha'yo`, `yio'yoi'yai'ya`, `ho__'yoi'ha'ya`, `yio'yoi'yai'yoi`, `ho__'yoi'ha'yoi`, `yio'yoi'yai'yai`, `ho__'yoi'ha'ha`, `yio'yoi'yai'yio`, `ho__'yoi'ha'ho`, `yio'yoi'yai'yia`, `ho__'yoi'ha'yia`, `yio'yoi'yio'yo`, `ho__'yoi'ho'yo`, `yio'yoi'yio'ya`, `ho__'yoi'ho'ya`, `yio'yoi'yio'yoi`, `ho__'yoi'ho'yoi`, `yio'yoi'yio'yai`, `ho__'yoi'ho'ha`, `yio'yoi'yio'yio`, `ho__'yoi'ho'ho`, `yio'yoi'yio'yia`, `ho__'yoi'ho'yia`, `yio'yoi'yia'yo`, `ho__'yoi'yia'yo`, `yio'yoi'yia'ya`, `ho__'yoi'yia'ya`, `yio'yoi'yia'yoi`, `ho__'yoi'yia'yoi`, `yio'yoi'yia'yai`, `ho__'yoi'yia'ha`, `yio'yoi'yia'yio`, `ho__'yoi'yia'ho`, `yio'yoi'yia'yia`, `ho__'yoi'yia'yia`, `yio'yai'yo'yo`, `ho__'ha'yo'yo`, `yio'yai'yo'ya`, `ho__'ha'yo'ya`, `yio'yai'yo'yoi`, `ho__'ha'yo'yoi`, `yio'yai'yo'yai`, `ho__'ha'yo'ha`, `yio'yai'yo'yio`, `ho__'ha'yo'ho`, `yio'yai'yo'yia`, `ho__'ha'yo'yia`, `yio'yai'ya'yo`, `ho__'ha'ya'yo`, `yio'yai'ya'ya`, `ho__'ha'ya'ya`, `yio'yai'ya'yoi`, `ho__'ha'ya'yoi`, `yio'yai'ya'yai`, `ho__'ha'ya'ha`, `yio'yai'ya'yio`, `ho__'ha'ya'ho`, `yio'yai'ya'yia`, `ho__'ha'ya'yia`, `yio'yai'yoi'yo`, `ho__'ha'yoi'yo`, `yio'yai'yoi'ya`, `ho__'ha'yoi'ya`, `yio'yai'yoi'yoi`, `ho__'ha'yoi'yoi`, `yio'yai'yoi'yai`, `ho__'ha'yoi'ha`, `yio'yai'yoi'yio`, `ho__'ha'yoi'ho`, `yio'yai'yoi'yia`, `ho__'ha'yoi'yia`, `yio'yai'yai'yo`, `ho__'ha'ha'yo`, `yio'yai'yai'ya`, `ho__'ha'ha'ya`, `yio'yai'yai'yoi`, `ho__'ha'ha'yoi`, `yio'yai'yai'yai`, `ho__'ha'ha'ha`, `yio'yai'yai'yio`, `ho__'ha'ha'ho`, `yio'yai'yai'yia`, `ho__'ha'ha'yia`, `yio'yai'yio'yo`, `ho__'ha'ho'yo`, `yio'yai'yio'ya`, `ho__'ha'ho'ya`, `yio'yai'yio'yoi`, `ho__'ha'ho'yoi`, `yio'yai'yio'yai`, `ho__'ha'ho'ha`, `yio'yai'yio'yio`, `ho__'ha'ho'ho`, `yio'yai'yio'yia`, `ho__'ha'ho'yia`, `yio'yai'yia'yo`, `ho__'ha'yia'yo`, `yio'yai'yia'ya`, `ho__'ha'yia'ya`, `yio'yai'yia'yoi`, `ho__'ha'yia'yoi`, `yio'yai'yia'yai`, `ho__'ha'yia'ha`, `yio'yai'yia'yio`, `ho__'ha'yia'ho`, `yio'yai'yia'yia`, `ho__'ha'yia'yia`, `yio'yio'yo'yo`, `ho__'ho'yo'yo`, `yio'yio'yo'ya`, `ho__'ho'yo'ya`, `yio'yio'yo'yoi`, `ho__'ho'yo'yoi`, `yio'yio'yo'yai`, `ho__'ho'yo'ha`, `yio'yio'yo'yio`, `ho__'ho'yo'ho`, `yio'yio'yo'yia`, `ho__'ho'yo'yia`, `yio'yio'ya'yo`, `ho__'ho'ya'yo`, `yio'yio'ya'ya`, `ho__'ho'ya'ya`, `yio'yio'ya'yoi`, `ho__'ho'ya'yoi`, `yio'yio'ya'yai`, `ho__'ho'ya'ha`, `yio'yio'ya'yio`, `ho__'ho'ya'ho`, `yio'yio'ya'yia`, `ho__'ho'ya'yia`, `yio'yio'yoi'yo`, `ho__'ho'yoi'yo`, `yio'yio'yoi'ya`, `ho__'ho'yoi'ya`, `yio'yio'yoi'yoi`, `ho__'ho'yoi'yoi`, `yio'yio'yoi'yai`, `ho__'ho'yoi'ha`, `yio'yio'yoi'yio`, `ho__'ho'yoi'ho`, `yio'yio'yoi'yia`, `ho__'ho'yoi'yia`, `yio'yio'yai'yo`, `ho__'ho'ha'yo`, `yio'yio'yai'ya`, `ho__'ho'ha'ya`, `yio'yio'yai'yoi`, `ho__'ho'ha'yoi`, `yio'yio'yai'yai`, `ho__'ho'ha'ha`, `yio'yio'yai'yio`, `ho__'ho'ha'ho`, `yio'yio'yai'yia`, `ho__'ho'ha'yia`, `yio'yio'yio'yo`, `ho__'ho'ho'yo`, `yio'yio'yio'ya`, `ho__'ho'ho'ya`, `yio'yio'yio'yoi`, `ho__'ho'ho'yoi`, `yio'yio'yio'yai`, `ho__'ho'ho'ha`, `yio'yio'yio'yio`, `ho__'ho'ho'ho`, `yio'yio'yio'yia`, `ho__'ho'ho'yia`, `yio'yio'yia'yo`, `ho__'ho'yia'yo`, `yio'yio'yia'ya`, `ho__'ho'yia'ya`, `yio'yio'yia'yoi`, `ho__'ho'yia'yoi`, `yio'yio'yia'yai`, `ho__'ho'yia'ha`, `yio'yio'yia'yio`, `ho__'ho'yia'ho`, `yio'yio'yia'yia`, `ho__'ho'yia'yia`, `yio'yia'yo'yo`, `ho__'yia'yo'yo`, `yio'yia'yo'ya`, `ho__'yia'yo'ya`, `yio'yia'yo'yoi`, `ho__'yia'yo'yoi`, `yio'yia'yo'yai`, `ho__'yia'yo'ha`, `yio'yia'yo'yio`, `ho__'yia'yo'ho`, `yio'yia'yo'yia`, `ho__'yia'yo'yia`, `yio'yia'ya'yo`, `ho__'yia'ya'yo`, `yio'yia'ya'ya`, `ho__'yia'ya'ya`, `yio'yia'ya'yoi`, `ho__'yia'ya'yoi`, `yio'yia'ya'yai`, `ho__'yia'ya'ha`, `yio'yia'ya'yio`, `ho__'yia'ya'ho`, `yio'yia'ya'yia`, `ho__'yia'ya'yia`, `yio'yia'yoi'yo`, `ho__'yia'yoi'yo`, `yio'yia'yoi'ya`, `ho__'yia'yoi'ya`, `yio'yia'yoi'yoi`, `ho__'yia'yoi'yoi`, `yio'yia'yoi'yai`, `ho__'yia'yoi'ha`, `yio'yia'yoi'yio`, `ho__'yia'yoi'ho`, `yio'yia'yoi'yia`, `ho__'yia'yoi'yia`, `yio'yia'yai'yo`, `ho__'yia'ha'yo`, `yio'yia'yai'ya`, `ho__'yia'ha'ya`, `yio'yia'yai'yoi`, `ho__'yia'ha'yoi`, `yio'yia'yai'yai`, `ho__'yia'ha'ha`, `yio'yia'yai'yio`, `ho__'yia'ha'ho`, `yio'yia'yai'yia`, `ho__'yia'ha'yia`, `yio'yia'yio'yo`, `ho__'yia'ho'yo`, `yio'yia'yio'ya`, `ho__'yia'ho'ya`, `yio'yia'yio'yoi`, `ho__'yia'ho'yoi`, `yio'yia'yio'yai`, `ho__'yia'ho'ha`, `yio'yia'yio'yio`, `ho__'yia'ho'ho`, `yio'yia'yio'yia`, `ho__'yia'ho'yia`, `yio'yia'yia'yo`, `ho__'yia'yia'yo`, `yio'yia'yia'ya`, `ho__'yia'yia'ya`, `yio'yia'yia'yoi`, `ho__'yia'yia'yoi`, `yio'yia'yia'yai`, `ho__'yia'yia'ha`, `yio'yia'yia'yio`, `ho__'yia'yia'ho`, `yio'yia'yia'yia`, `ho__'yia'yia'yia`, `yia'yo'yo'yo`, `yia'yo'yo'ya`, `yia'yo'yo'yoi`, `yia'yo'yo'yai`, `yia'yo'yo'ha`, `yia'yo'yo'yio`, `yia'yo'yo'ho`, `yia'yo'yo'yia`, `yia'yo'ya'yo`, `yia'yo'ya'ya`, `yia'yo'ya'yoi`, `yia'yo'ya'yai`, `yia'yo'ya'ha`, `yia'yo'ya'yio`, `yia'yo'ya'ho`, `yia'yo'ya'yia`, `yia'yo'yoi'yo`, `yia'yo'yoi'ya`, `yia'yo'yoi'yoi`, `yia'yo'yoi'yai`, `yia'yo'yoi'ha`, `yia'yo'yoi'yio`, `yia'yo'yoi'ho`, `yia'yo'yoi'yia`, `yia'yo'yai'yo`, `yia'yo'ha'yo`, `yia'yo'yai'ya`, `yia'yo'ha'ya`, `yia'yo'yai'yoi`, `yia'yo'ha'yoi`, `yia'yo'yai'yai`, `yia'yo'ha'ha`, `yia'yo'yai'yio`, `yia'yo'ha'ho`, `yia'yo'yai'yia`, `yia'yo'ha'yia`, `yia'yo'yio'yo`, `yia'yo'ho'yo`, `yia'yo'yio'ya`, `yia'yo'ho'ya`, `yia'yo'yio'yoi`, `yia'yo'ho'yoi`, `yia'yo'yio'yai`, `yia'yo'ho'ha`, `yia'yo'yio'yio`, `yia'yo'ho'ho`, `yia'yo'yio'yia`, `yia'yo'ho'yia`, `yia'yo'yia'yo`, `yia'yo'yia'ya`, `yia'yo'yia'yoi`, `yia'yo'yia'yai`, `yia'yo'yia'ha`, `yia'yo'yia'yio`, `yia'yo'yia'ho`, `yia'yo'yia'yia`, `yia'ya'yo'yo`, `yia'ya'yo'ya`, `yia'ya'yo'yoi`, `yia'ya'yo'yai`, `yia'ya'yo'ha`, `yia'ya'yo'yio`, `yia'ya'yo'ho`, `yia'ya'yo'yia`, `yia'ya'ya'yo`, `yia'ya'ya'ya`, `yia'ya'ya'yoi`, `yia'ya'ya'yai`, `yia'ya'ya'ha`, `yia'ya'ya'yio`, `yia'ya'ya'ho`, `yia'ya'ya'yia`, `yia'ya'yoi'yo`, `yia'ya'yoi'ya`, `yia'ya'yoi'yoi`, `yia'ya'yoi'yai`, `yia'ya'yoi'ha`, `yia'ya'yoi'yio`, `yia'ya'yoi'ho`, `yia'ya'yoi'yia`, `yia'ya'yai'yo`, `yia'ya'ha'yo`, `yia'ya'yai'ya`, `yia'ya'ha'ya`, `yia'ya'yai'yoi`, `yia'ya'ha'yoi`, `yia'ya'yai'yai`, `yia'ya'ha'ha`, `yia'ya'yai'yio`, `yia'ya'ha'ho`, `yia'ya'yai'yia`, `yia'ya'ha'yia`, `yia'ya'yio'yo`, `yia'ya'ho'yo`, `yia'ya'yio'ya`, `yia'ya'ho'ya`, `yia'ya'yio'yoi`, `yia'ya'ho'yoi`, `yia'ya'yio'yai`, `yia'ya'ho'ha`, `yia'ya'yio'yio`, `yia'ya'ho'ho`, `yia'ya'yio'yia`, `yia'ya'ho'yia`, `yia'ya'yia'yo`, `yia'ya'yia'ya`, `yia'ya'yia'yoi`, `yia'ya'yia'yai`, `yia'ya'yia'ha`, `yia'ya'yia'yio`, `yia'ya'yia'ho`, `yia'ya'yia'yia`, `yia'yoi'yo'yo`, `yia'yoi'yo'ya`, `yia'yoi'yo'yoi`, `yia'yoi'yo'yai`, `yia'yoi'yo'ha`, `yia'yoi'yo'yio`, `yia'yoi'yo'ho`, `yia'yoi'yo'yia`, `yia'yoi'ya'yo`, `yia'yoi'ya'ya`, `yia'yoi'ya'yoi`, `yia'yoi'ya'yai`, `yia'yoi'ya'ha`, `yia'yoi'ya'yio`, `yia'yoi'ya'ho`, `yia'yoi'ya'yia`, `yia'yoi'yoi'yo`, `yia'yoi'yoi'ya`, `yia'yoi'yoi'yoi`, `yia'yoi'yoi'yai`, `yia'yoi'yoi'ha`, `yia'yoi'yoi'yio`, `yia'yoi'yoi'ho`, `yia'yoi'yoi'yia`, `yia'yoi'yai'yo`, `yia'yoi'ha'yo`, `yia'yoi'yai'ya`, `yia'yoi'ha'ya`, `yia'yoi'yai'yoi`, `yia'yoi'ha'yoi`, `yia'yoi'yai'yai`, `yia'yoi'ha'ha`, `yia'yoi'yai'yio`, `yia'yoi'ha'ho`, `yia'yoi'yai'yia`, `yia'yoi'ha'yia`, `yia'yoi'yio'yo`, `yia'yoi'ho'yo`, `yia'yoi'yio'ya`, `yia'yoi'ho'ya`, `yia'yoi'yio'yoi`, `yia'yoi'ho'yoi`, `yia'yoi'yio'yai`, `yia'yoi'ho'ha`, `yia'yoi'yio'yio`, `yia'yoi'ho'ho`, `yia'yoi'yio'yia`, `yia'yoi'ho'yia`, `yia'yoi'yia'yo`, `yia'yoi'yia'ya`, `yia'yoi'yia'yoi`, `yia'yoi'yia'yai`, `yia'yoi'yia'ha`, `yia'yoi'yia'yio`, `yia'yoi'yia'ho`, `yia'yoi'yia'yia`, `yia'yai'yo'yo`, `yia'ha'yo'yo`, `yia'yai'yo'ya`, `yia'ha'yo'ya`, `yia'yai'yo'yoi`, `yia'ha'yo'yoi`, `yia'yai'yo'yai`, `yia'ha'yo'ha`, `yia'yai'yo'yio`, `yia'ha'yo'ho`, `yia'yai'yo'yia`, `yia'ha'yo'yia`, `yia'yai'ya'yo`, `yia'ha'ya'yo`, `yia'yai'ya'ya`, `yia'ha'ya'ya`, `yia'yai'ya'yoi`, `yia'ha'ya'yoi`, `yia'yai'ya'yai`, `yia'ha'ya'ha`, `yia'yai'ya'yio`, `yia'ha'ya'ho`, `yia'yai'ya'yia`, `yia'ha'ya'yia`, `yia'yai'yoi'yo`, `yia'ha'yoi'yo`, `yia'yai'yoi'ya`, `yia'ha'yoi'ya`, `yia'yai'yoi'yoi`, `yia'ha'yoi'yoi`, `yia'yai'yoi'yai`, `yia'ha'yoi'ha`, `yia'yai'yoi'yio`, `yia'ha'yoi'ho`, `yia'yai'yoi'yia`, `yia'ha'yoi'yia`, `yia'yai'yai'yo`, `yia'ha'ha'yo`, `yia'yai'yai'ya`, `yia'ha'ha'ya`, `yia'yai'yai'yoi`, `yia'ha'ha'yoi`, `yia'yai'yai'yai`, `yia'ha'ha'ha`, `yia'yai'yai'yio`, `yia'ha'ha'ho`, `yia'yai'yai'yia`, `yia'ha'ha'yia`, `yia'yai'yio'yo`, `yia'ha'ho'yo`, `yia'yai'yio'ya`, `yia'ha'ho'ya`, `yia'yai'yio'yoi`, `yia'ha'ho'yoi`, `yia'yai'yio'yai`, `yia'ha'ho'ha`, `yia'yai'yio'yio`, `yia'ha'ho'ho`, `yia'yai'yio'yia`, `yia'ha'ho'yia`, `yia'yai'yia'yo`, `yia'ha'yia'yo`, `yia'yai'yia'ya`, `yia'ha'yia'ya`, `yia'yai'yia'yoi`, `yia'ha'yia'yoi`, `yia'yai'yia'yai`, `yia'ha'yia'ha`, `yia'yai'yia'yio`, `yia'ha'yia'ho`, `yia'yai'yia'yia`, `yia'ha'yia'yia`, `yia'yio'yo'yo`, `yia'ho'yo'yo`, `yia'yio'yo'ya`, `yia'ho'yo'ya`, `yia'yio'yo'yoi`, `yia'ho'yo'yoi`, `yia'yio'yo'yai`, `yia'ho'yo'ha`, `yia'yio'yo'yio`, `yia'ho'yo'ho`, `yia'yio'yo'yia`, `yia'ho'yo'yia`, `yia'yio'ya'yo`, `yia'ho'ya'yo`, `yia'yio'ya'ya`, `yia'ho'ya'ya`, `yia'yio'ya'yoi`, `yia'ho'ya'yoi`, `yia'yio'ya'yai`, `yia'ho'ya'ha`, `yia'yio'ya'yio`, `yia'ho'ya'ho`, `yia'yio'ya'yia`, `yia'ho'ya'yia`, `yia'yio'yoi'yo`, `yia'ho'yoi'yo`, `yia'yio'yoi'ya`, `yia'ho'yoi'ya`, `yia'yio'yoi'yoi`, `yia'ho'yoi'yoi`, `yia'yio'yoi'yai`, `yia'ho'yoi'ha`, `yia'yio'yoi'yio`, `yia'ho'yoi'ho`, `yia'yio'yoi'yia`, `yia'ho'yoi'yia`, `yia'yio'yai'yo`, `yia'ho'ha'yo`, `yia'yio'yai'ya`, `yia'ho'ha'ya`, `yia'yio'yai'yoi`, `yia'ho'ha'yoi`, `yia'yio'yai'yai`, `yia'ho'ha'ha`, `yia'yio'yai'yio`, `yia'ho'ha'ho`, `yia'yio'yai'yia`, `yia'ho'ha'yia`, `yia'yio'yio'yo`, `yia'ho'ho'yo`, `yia'yio'yio'ya`, `yia'ho'ho'ya`, `yia'yio'yio'yoi`, `yia'ho'ho'yoi`, `yia'yio'yio'yai`, `yia'ho'ho'ha`, `yia'yio'yio'yio`, `yia'ho'ho'ho`, `yia'yio'yio'yia`, `yia'ho'ho'yia`, `yia'yio'yia'yo`, `yia'ho'yia'yo`, `yia'yio'yia'ya`, `yia'ho'yia'ya`, `yia'yio'yia'yoi`, `yia'ho'yia'yoi`, `yia'yio'yia'yai`, `yia'ho'yia'ha`, `yia'yio'yia'yio`, `yia'ho'yia'ho`, `yia'yio'yia'yia`, `yia'ho'yia'yia`, `yia'yia'yo'yo`, `yia'yia'yo'ya`, `yia'yia'yo'yoi`, `yia'yia'yo'yai`, `yia'yia'yo'ha`, `yia'yia'yo'yio`, `yia'yia'yo'ho`, `yia'yia'yo'yia`, `yia'yia'ya'yo`, `yia'yia'ya'ya`, `yia'yia'ya'yoi`, `yia'yia'ya'yai`, `yia'yia'ya'ha`, `yia'yia'ya'yio`, `yia'yia'ya'ho`, `yia'yia'ya'yia`, `yia'yia'yoi'yo`, `yia'yia'yoi'ya`, `yia'yia'yoi'yoi`, `yia'yia'yoi'yai`, `yia'yia'yoi'ha`, `yia'yia'yoi'yio`, `yia'yia'yoi'ho`, `yia'yia'yoi'yia`, `yia'yia'yai'yo`, `yia'yia'ha'yo`, `yia'yia'yai'ya`, `yia'yia'ha'ya`, `yia'yia'yai'yoi`, `yia'yia'ha'yoi`, `yia'yia'yai'yai`, `yia'yia'ha'ha`, `yia'yia'yai'yio`, `yia'yia'ha'ho`, `yia'yia'yai'yia`, `yia'yia'ha'yia`, `yia'yia'yio'yo`, `yia'yia'ho'yo`, `yia'yia'yio'ya`, `yia'yia'ho'ya`, `yia'yia'yio'yoi`, `yia'yia'ho'yoi`, `yia'yia'yio'yai`, `yia'yia'ho'ha`, `yia'yia'yio'yio`, `yia'yia'ho'ho`, `yia'yia'yio'yia`, `yia'yia'ho'yia`, `yia'yia'yia'yo`, `yia'yia'yia'ya`, `yia'yia'yia'yoi`, `yia'yia'yia'yai`, `yia'yia'yia'ha`, `yia'yia'yia'yio`, `yia'yia'yia'ho`, `yia'yia'yia'yia`
-infixl 8 `yo'yo'he'he`, `yo'ya'he'he`, `yo'yoi'he'he`, `yo'yai'he'he`, `yo'ha'he'he`, `yo'yio'he'he`, `yo'ho'he'he`, `yo'yia'he'he`, `ya'yo'he'he`, `ya'ya'he'he`, `ya'yoi'he'he`, `ya'yai'he'he`, `ya'ha'he'he`, `ya'yio'he'he`, `ya'ho'he'he`, `ya'yia'he'he`, `ha_'yo'he'he`, `ha_'ya'he'he`, `ha_'yoi'he'he`, `ha_'ha'he'he`, `ha_'ho'he'he`, `ha_'yia'he'he`, `ho_'yo'he'he`, `ho_'ya'he'he`, `ho_'yoi'he'he`, `ho_'ha'he'he`, `ho_'ho'he'he`, `ho_'yia'he'he`, `yo'yo'yo'he`, `yo'yo'ya'he`, `yo'yo'yoi'he`, `yo'yo'yai'he`, `yo'yo'ha'he`, `yo'yo'yio'he`, `yo'yo'ho'he`, `yo'yo'yia'he`, `yo'ya'yo'he`, `yo'ya'ya'he`, `yo'ya'yoi'he`, `yo'ya'yai'he`, `yo'ya'ha'he`, `yo'ya'yio'he`, `yo'ya'ho'he`, `yo'ya'yia'he`, `yo'yoi'yo'he`, `yo'yoi'ya'he`, `yo'yoi'yoi'he`, `yo'yoi'yai'he`, `yo'yoi'ha'he`, `yo'yoi'yio'he`, `yo'yoi'ho'he`, `yo'yoi'yia'he`, `yo'yai'yo'he`, `yo'ha'yo'he`, `yo'yai'ya'he`, `yo'ha'ya'he`, `yo'yai'yoi'he`, `yo'ha'yoi'he`, `yo'yai'yai'he`, `yo'ha'ha'he`, `yo'yai'yio'he`, `yo'ha'ho'he`, `yo'yai'yia'he`, `yo'ha'yia'he`, `yo'yio'yo'he`, `yo'ho'yo'he`, `yo'yio'ya'he`, `yo'ho'ya'he`, `yo'yio'yoi'he`, `yo'ho'yoi'he`, `yo'yio'yai'he`, `yo'ho'ha'he`, `yo'yio'yio'he`, `yo'ho'ho'he`, `yo'yio'yia'he`, `yo'ho'yia'he`, `yo'yia'yo'he`, `yo'yia'ya'he`, `yo'yia'yoi'he`, `yo'yia'yai'he`, `yo'yia'ha'he`, `yo'yia'yio'he`, `yo'yia'ho'he`, `yo'yia'yia'he`, `ya'yo'yo'he`, `ya'yo'ya'he`, `ya'yo'yoi'he`, `ya'yo'yai'he`, `ya'yo'ha'he`, `ya'yo'yio'he`, `ya'yo'ho'he`, `ya'yo'yia'he`, `ya'ya'yo'he`, `ya'ya'ya'he`, `ya'ya'yoi'he`, `ya'ya'yai'he`, `ya'ya'ha'he`, `ya'ya'yio'he`, `ya'ya'ho'he`, `ya'ya'yia'he`, `ya'yoi'yo'he`, `ya'yoi'ya'he`, `ya'yoi'yoi'he`, `ya'yoi'yai'he`, `ya'yoi'ha'he`, `ya'yoi'yio'he`, `ya'yoi'ho'he`, `ya'yoi'yia'he`, `ya'yai'yo'he`, `ya'ha'yo'he`, `ya'yai'ya'he`, `ya'ha'ya'he`, `ya'yai'yoi'he`, `ya'ha'yoi'he`, `ya'yai'yai'he`, `ya'ha'ha'he`, `ya'yai'yio'he`, `ya'ha'ho'he`, `ya'yai'yia'he`, `ya'ha'yia'he`, `ya'yio'yo'he`, `ya'ho'yo'he`, `ya'yio'ya'he`, `ya'ho'ya'he`, `ya'yio'yoi'he`, `ya'ho'yoi'he`, `ya'yio'yai'he`, `ya'ho'ha'he`, `ya'yio'yio'he`, `ya'ho'ho'he`, `ya'yio'yia'he`, `ya'ho'yia'he`, `ya'yia'yo'he`, `ya'yia'ya'he`, `ya'yia'yoi'he`, `ya'yia'yai'he`, `ya'yia'ha'he`, `ya'yia'yio'he`, `ya'yia'ho'he`, `ya'yia'yia'he`, `ha_'yo'yo'he`, `ha_'yo'ya'he`, `ha_'yo'yoi'he`, `ha_'yo'ha'he`, `ha_'yo'ho'he`, `ha_'yo'yia'he`, `ha_'ya'yo'he`, `ha_'ya'ya'he`, `ha_'ya'yoi'he`, `ha_'ya'ha'he`, `ha_'ya'ho'he`, `ha_'ya'yia'he`, `ha_'yoi'yo'he`, `ha_'yoi'ya'he`, `ha_'yoi'yoi'he`, `ha_'yoi'ha'he`, `ha_'yoi'ho'he`, `ha_'yoi'yia'he`, `ha_'ha'yo'he`, `ha_'ha'ya'he`, `ha_'ha'yoi'he`, `ha_'ha'ha'he`, `ha_'ha'ho'he`, `ha_'ha'yia'he`, `ha_'ho'yo'he`, `ha_'ho'ya'he`, `ha_'ho'yoi'he`, `ha_'ho'ha'he`, `ha_'ho'ho'he`, `ha_'ho'yia'he`, `ha_'yia'yo'he`, `ha_'yia'ya'he`, `ha_'yia'yoi'he`, `ha_'yia'ha'he`, `ha_'yia'ho'he`, `ha_'yia'yia'he`, `ho_'yo'yo'he`, `ho_'yo'ya'he`, `ho_'yo'yoi'he`, `ho_'yo'ha'he`, `ho_'yo'ho'he`, `ho_'yo'yia'he`, `ho_'ya'yo'he`, `ho_'ya'ya'he`, `ho_'ya'yoi'he`, `ho_'ya'ha'he`, `ho_'ya'ho'he`, `ho_'ya'yia'he`, `ho_'yoi'yo'he`, `ho_'yoi'ya'he`, `ho_'yoi'yoi'he`, `ho_'yoi'ha'he`, `ho_'yoi'ho'he`, `ho_'yoi'yia'he`, `ho_'ha'yo'he`, `ho_'ha'ya'he`, `ho_'ha'yoi'he`, `ho_'ha'ha'he`, `ho_'ha'ho'he`, `ho_'ha'yia'he`, `ho_'ho'yo'he`, `ho_'ho'ya'he`, `ho_'ho'yoi'he`, `ho_'ho'ha'he`, `ho_'ho'ho'he`, `ho_'ho'yia'he`, `ho_'yia'yo'he`, `ho_'yia'ya'he`, `ho_'yia'yoi'he`, `ho_'yia'ha'he`, `ho_'yia'ho'he`, `ho_'yia'yia'he`, `yo'yo'yo'yo`, `yo'yo'yo'ya`, `yo'yo'yo'yoi`, `yo'yo'yo'yai`, `yo'yo'yo'ha`, `yo'yo'yo'yio`, `yo'yo'yo'ho`, `yo'yo'yo'yia`, `yo'yo'ya'yo`, `yo'yo'ya'ya`, `yo'yo'ya'yoi`, `yo'yo'ya'yai`, `yo'yo'ya'ha`, `yo'yo'ya'yio`, `yo'yo'ya'ho`, `yo'yo'ya'yia`, `yo'yo'yoi'yo`, `yo'yo'yoi'ya`, `yo'yo'yoi'yoi`, `yo'yo'yoi'yai`, `yo'yo'yoi'ha`, `yo'yo'yoi'yio`, `yo'yo'yoi'ho`, `yo'yo'yoi'yia`, `yo'yo'yai'yo`, `yo'yo'ha'yo`, `yo'yo'yai'ya`, `yo'yo'ha'ya`, `yo'yo'yai'yoi`, `yo'yo'ha'yoi`, `yo'yo'yai'yai`, `yo'yo'ha'ha`, `yo'yo'yai'yio`, `yo'yo'ha'ho`, `yo'yo'yai'yia`, `yo'yo'ha'yia`, `yo'yo'yio'yo`, `yo'yo'ho'yo`, `yo'yo'yio'ya`, `yo'yo'ho'ya`, `yo'yo'yio'yoi`, `yo'yo'ho'yoi`, `yo'yo'yio'yai`, `yo'yo'ho'ha`, `yo'yo'yio'yio`, `yo'yo'ho'ho`, `yo'yo'yio'yia`, `yo'yo'ho'yia`, `yo'yo'yia'yo`, `yo'yo'yia'ya`, `yo'yo'yia'yoi`, `yo'yo'yia'yai`, `yo'yo'yia'ha`, `yo'yo'yia'yio`, `yo'yo'yia'ho`, `yo'yo'yia'yia`, `yo'ya'yo'yo`, `yo'ya'yo'ya`, `yo'ya'yo'yoi`, `yo'ya'yo'yai`, `yo'ya'yo'ha`, `yo'ya'yo'yio`, `yo'ya'yo'ho`, `yo'ya'yo'yia`, `yo'ya'ya'yo`, `yo'ya'ya'ya`, `yo'ya'ya'yoi`, `yo'ya'ya'yai`, `yo'ya'ya'ha`, `yo'ya'ya'yio`, `yo'ya'ya'ho`, `yo'ya'ya'yia`, `yo'ya'yoi'yo`, `yo'ya'yoi'ya`, `yo'ya'yoi'yoi`, `yo'ya'yoi'yai`, `yo'ya'yoi'ha`, `yo'ya'yoi'yio`, `yo'ya'yoi'ho`, `yo'ya'yoi'yia`, `yo'ya'yai'yo`, `yo'ya'ha'yo`, `yo'ya'yai'ya`, `yo'ya'ha'ya`, `yo'ya'yai'yoi`, `yo'ya'ha'yoi`, `yo'ya'yai'yai`, `yo'ya'ha'ha`, `yo'ya'yai'yio`, `yo'ya'ha'ho`, `yo'ya'yai'yia`, `yo'ya'ha'yia`, `yo'ya'yio'yo`, `yo'ya'ho'yo`, `yo'ya'yio'ya`, `yo'ya'ho'ya`, `yo'ya'yio'yoi`, `yo'ya'ho'yoi`, `yo'ya'yio'yai`, `yo'ya'ho'ha`, `yo'ya'yio'yio`, `yo'ya'ho'ho`, `yo'ya'yio'yia`, `yo'ya'ho'yia`, `yo'ya'yia'yo`, `yo'ya'yia'ya`, `yo'ya'yia'yoi`, `yo'ya'yia'yai`, `yo'ya'yia'ha`, `yo'ya'yia'yio`, `yo'ya'yia'ho`, `yo'ya'yia'yia`, `yo'yoi'yo'yo`, `yo'yoi'yo'ya`, `yo'yoi'yo'yoi`, `yo'yoi'yo'yai`, `yo'yoi'yo'ha`, `yo'yoi'yo'yio`, `yo'yoi'yo'ho`, `yo'yoi'yo'yia`, `yo'yoi'ya'yo`, `yo'yoi'ya'ya`, `yo'yoi'ya'yoi`, `yo'yoi'ya'yai`, `yo'yoi'ya'ha`, `yo'yoi'ya'yio`, `yo'yoi'ya'ho`, `yo'yoi'ya'yia`, `yo'yoi'yoi'yo`, `yo'yoi'yoi'ya`, `yo'yoi'yoi'yoi`, `yo'yoi'yoi'yai`, `yo'yoi'yoi'ha`, `yo'yoi'yoi'yio`, `yo'yoi'yoi'ho`, `yo'yoi'yoi'yia`, `yo'yoi'yai'yo`, `yo'yoi'ha'yo`, `yo'yoi'yai'ya`, `yo'yoi'ha'ya`, `yo'yoi'yai'yoi`, `yo'yoi'ha'yoi`, `yo'yoi'yai'yai`, `yo'yoi'ha'ha`, `yo'yoi'yai'yio`, `yo'yoi'ha'ho`, `yo'yoi'yai'yia`, `yo'yoi'ha'yia`, `yo'yoi'yio'yo`, `yo'yoi'ho'yo`, `yo'yoi'yio'ya`, `yo'yoi'ho'ya`, `yo'yoi'yio'yoi`, `yo'yoi'ho'yoi`, `yo'yoi'yio'yai`, `yo'yoi'ho'ha`, `yo'yoi'yio'yio`, `yo'yoi'ho'ho`, `yo'yoi'yio'yia`, `yo'yoi'ho'yia`, `yo'yoi'yia'yo`, `yo'yoi'yia'ya`, `yo'yoi'yia'yoi`, `yo'yoi'yia'yai`, `yo'yoi'yia'ha`, `yo'yoi'yia'yio`, `yo'yoi'yia'ho`, `yo'yoi'yia'yia`, `yo'yai'yo'yo`, `yo'ha'yo'yo`, `yo'yai'yo'ya`, `yo'ha'yo'ya`, `yo'yai'yo'yoi`, `yo'ha'yo'yoi`, `yo'yai'yo'yai`, `yo'ha'yo'ha`, `yo'yai'yo'yio`, `yo'ha'yo'ho`, `yo'yai'yo'yia`, `yo'ha'yo'yia`, `yo'yai'ya'yo`, `yo'ha'ya'yo`, `yo'yai'ya'ya`, `yo'ha'ya'ya`, `yo'yai'ya'yoi`, `yo'ha'ya'yoi`, `yo'yai'ya'yai`, `yo'ha'ya'ha`, `yo'yai'ya'yio`, `yo'ha'ya'ho`, `yo'yai'ya'yia`, `yo'ha'ya'yia`, `yo'yai'yoi'yo`, `yo'ha'yoi'yo`, `yo'yai'yoi'ya`, `yo'ha'yoi'ya`, `yo'yai'yoi'yoi`, `yo'ha'yoi'yoi`, `yo'yai'yoi'yai`, `yo'ha'yoi'ha`, `yo'yai'yoi'yio`, `yo'ha'yoi'ho`, `yo'yai'yoi'yia`, `yo'ha'yoi'yia`, `yo'yai'yai'yo`, `yo'ha'ha'yo`, `yo'yai'yai'ya`, `yo'ha'ha'ya`, `yo'yai'yai'yoi`, `yo'ha'ha'yoi`, `yo'yai'yai'yai`, `yo'ha'ha'ha`, `yo'yai'yai'yio`, `yo'ha'ha'ho`, `yo'yai'yai'yia`, `yo'ha'ha'yia`, `yo'yai'yio'yo`, `yo'ha'ho'yo`, `yo'yai'yio'ya`, `yo'ha'ho'ya`, `yo'yai'yio'yoi`, `yo'ha'ho'yoi`, `yo'yai'yio'yai`, `yo'ha'ho'ha`, `yo'yai'yio'yio`, `yo'ha'ho'ho`, `yo'yai'yio'yia`, `yo'ha'ho'yia`, `yo'yai'yia'yo`, `yo'ha'yia'yo`, `yo'yai'yia'ya`, `yo'ha'yia'ya`, `yo'yai'yia'yoi`, `yo'ha'yia'yoi`, `yo'yai'yia'yai`, `yo'ha'yia'ha`, `yo'yai'yia'yio`, `yo'ha'yia'ho`, `yo'yai'yia'yia`, `yo'ha'yia'yia`, `yo'yio'yo'yo`, `yo'ho'yo'yo`, `yo'yio'yo'ya`, `yo'ho'yo'ya`, `yo'yio'yo'yoi`, `yo'ho'yo'yoi`, `yo'yio'yo'yai`, `yo'ho'yo'ha`, `yo'yio'yo'yio`, `yo'ho'yo'ho`, `yo'yio'yo'yia`, `yo'ho'yo'yia`, `yo'yio'ya'yo`, `yo'ho'ya'yo`, `yo'yio'ya'ya`, `yo'ho'ya'ya`, `yo'yio'ya'yoi`, `yo'ho'ya'yoi`, `yo'yio'ya'yai`, `yo'ho'ya'ha`, `yo'yio'ya'yio`, `yo'ho'ya'ho`, `yo'yio'ya'yia`, `yo'ho'ya'yia`, `yo'yio'yoi'yo`, `yo'ho'yoi'yo`, `yo'yio'yoi'ya`, `yo'ho'yoi'ya`, `yo'yio'yoi'yoi`, `yo'ho'yoi'yoi`, `yo'yio'yoi'yai`, `yo'ho'yoi'ha`, `yo'yio'yoi'yio`, `yo'ho'yoi'ho`, `yo'yio'yoi'yia`, `yo'ho'yoi'yia`, `yo'yio'yai'yo`, `yo'ho'ha'yo`, `yo'yio'yai'ya`, `yo'ho'ha'ya`, `yo'yio'yai'yoi`, `yo'ho'ha'yoi`, `yo'yio'yai'yai`, `yo'ho'ha'ha`, `yo'yio'yai'yio`, `yo'ho'ha'ho`, `yo'yio'yai'yia`, `yo'ho'ha'yia`, `yo'yio'yio'yo`, `yo'ho'ho'yo`, `yo'yio'yio'ya`, `yo'ho'ho'ya`, `yo'yio'yio'yoi`, `yo'ho'ho'yoi`, `yo'yio'yio'yai`, `yo'ho'ho'ha`, `yo'yio'yio'yio`, `yo'ho'ho'ho`, `yo'yio'yio'yia`, `yo'ho'ho'yia`, `yo'yio'yia'yo`, `yo'ho'yia'yo`, `yo'yio'yia'ya`, `yo'ho'yia'ya`, `yo'yio'yia'yoi`, `yo'ho'yia'yoi`, `yo'yio'yia'yai`, `yo'ho'yia'ha`, `yo'yio'yia'yio`, `yo'ho'yia'ho`, `yo'yio'yia'yia`, `yo'ho'yia'yia`, `yo'yia'yo'yo`, `yo'yia'yo'ya`, `yo'yia'yo'yoi`, `yo'yia'yo'yai`, `yo'yia'yo'ha`, `yo'yia'yo'yio`, `yo'yia'yo'ho`, `yo'yia'yo'yia`, `yo'yia'ya'yo`, `yo'yia'ya'ya`, `yo'yia'ya'yoi`, `yo'yia'ya'yai`, `yo'yia'ya'ha`, `yo'yia'ya'yio`, `yo'yia'ya'ho`, `yo'yia'ya'yia`, `yo'yia'yoi'yo`, `yo'yia'yoi'ya`, `yo'yia'yoi'yoi`, `yo'yia'yoi'yai`, `yo'yia'yoi'ha`, `yo'yia'yoi'yio`, `yo'yia'yoi'ho`, `yo'yia'yoi'yia`, `yo'yia'yai'yo`, `yo'yia'ha'yo`, `yo'yia'yai'ya`, `yo'yia'ha'ya`, `yo'yia'yai'yoi`, `yo'yia'ha'yoi`, `yo'yia'yai'yai`, `yo'yia'ha'ha`, `yo'yia'yai'yio`, `yo'yia'ha'ho`, `yo'yia'yai'yia`, `yo'yia'ha'yia`, `yo'yia'yio'yo`, `yo'yia'ho'yo`, `yo'yia'yio'ya`, `yo'yia'ho'ya`, `yo'yia'yio'yoi`, `yo'yia'ho'yoi`, `yo'yia'yio'yai`, `yo'yia'ho'ha`, `yo'yia'yio'yio`, `yo'yia'ho'ho`, `yo'yia'yio'yia`, `yo'yia'ho'yia`, `yo'yia'yia'yo`, `yo'yia'yia'ya`, `yo'yia'yia'yoi`, `yo'yia'yia'yai`, `yo'yia'yia'ha`, `yo'yia'yia'yio`, `yo'yia'yia'ho`, `yo'yia'yia'yia`, `ya'yo'yo'yo`, `ya'yo'yo'ya`, `ya'yo'yo'yoi`, `ya'yo'yo'yai`, `ya'yo'yo'ha`, `ya'yo'yo'yio`, `ya'yo'yo'ho`, `ya'yo'yo'yia`, `ya'yo'ya'yo`, `ya'yo'ya'ya`, `ya'yo'ya'yoi`, `ya'yo'ya'yai`, `ya'yo'ya'ha`, `ya'yo'ya'yio`, `ya'yo'ya'ho`, `ya'yo'ya'yia`, `ya'yo'yoi'yo`, `ya'yo'yoi'ya`, `ya'yo'yoi'yoi`, `ya'yo'yoi'yai`, `ya'yo'yoi'ha`, `ya'yo'yoi'yio`, `ya'yo'yoi'ho`, `ya'yo'yoi'yia`, `ya'yo'yai'yo`, `ya'yo'ha'yo`, `ya'yo'yai'ya`, `ya'yo'ha'ya`, `ya'yo'yai'yoi`, `ya'yo'ha'yoi`, `ya'yo'yai'yai`, `ya'yo'ha'ha`, `ya'yo'yai'yio`, `ya'yo'ha'ho`, `ya'yo'yai'yia`, `ya'yo'ha'yia`, `ya'yo'yio'yo`, `ya'yo'ho'yo`, `ya'yo'yio'ya`, `ya'yo'ho'ya`, `ya'yo'yio'yoi`, `ya'yo'ho'yoi`, `ya'yo'yio'yai`, `ya'yo'ho'ha`, `ya'yo'yio'yio`, `ya'yo'ho'ho`, `ya'yo'yio'yia`, `ya'yo'ho'yia`, `ya'yo'yia'yo`, `ya'yo'yia'ya`, `ya'yo'yia'yoi`, `ya'yo'yia'yai`, `ya'yo'yia'ha`, `ya'yo'yia'yio`, `ya'yo'yia'ho`, `ya'yo'yia'yia`, `ya'ya'yo'yo`, `ya'ya'yo'ya`, `ya'ya'yo'yoi`, `ya'ya'yo'yai`, `ya'ya'yo'ha`, `ya'ya'yo'yio`, `ya'ya'yo'ho`, `ya'ya'yo'yia`, `ya'ya'ya'yo`, `ya'ya'ya'ya`, `ya'ya'ya'yoi`, `ya'ya'ya'yai`, `ya'ya'ya'ha`, `ya'ya'ya'yio`, `ya'ya'ya'ho`, `ya'ya'ya'yia`, `ya'ya'yoi'yo`, `ya'ya'yoi'ya`, `ya'ya'yoi'yoi`, `ya'ya'yoi'yai`, `ya'ya'yoi'ha`, `ya'ya'yoi'yio`, `ya'ya'yoi'ho`, `ya'ya'yoi'yia`, `ya'ya'yai'yo`, `ya'ya'ha'yo`, `ya'ya'yai'ya`, `ya'ya'ha'ya`, `ya'ya'yai'yoi`, `ya'ya'ha'yoi`, `ya'ya'yai'yai`, `ya'ya'ha'ha`, `ya'ya'yai'yio`, `ya'ya'ha'ho`, `ya'ya'yai'yia`, `ya'ya'ha'yia`, `ya'ya'yio'yo`, `ya'ya'ho'yo`, `ya'ya'yio'ya`, `ya'ya'ho'ya`, `ya'ya'yio'yoi`, `ya'ya'ho'yoi`, `ya'ya'yio'yai`, `ya'ya'ho'ha`, `ya'ya'yio'yio`, `ya'ya'ho'ho`, `ya'ya'yio'yia`, `ya'ya'ho'yia`, `ya'ya'yia'yo`, `ya'ya'yia'ya`, `ya'ya'yia'yoi`, `ya'ya'yia'yai`, `ya'ya'yia'ha`, `ya'ya'yia'yio`, `ya'ya'yia'ho`, `ya'ya'yia'yia`, `ya'yoi'yo'yo`, `ya'yoi'yo'ya`, `ya'yoi'yo'yoi`, `ya'yoi'yo'yai`, `ya'yoi'yo'ha`, `ya'yoi'yo'yio`, `ya'yoi'yo'ho`, `ya'yoi'yo'yia`, `ya'yoi'ya'yo`, `ya'yoi'ya'ya`, `ya'yoi'ya'yoi`, `ya'yoi'ya'yai`, `ya'yoi'ya'ha`, `ya'yoi'ya'yio`, `ya'yoi'ya'ho`, `ya'yoi'ya'yia`, `ya'yoi'yoi'yo`, `ya'yoi'yoi'ya`, `ya'yoi'yoi'yoi`, `ya'yoi'yoi'yai`, `ya'yoi'yoi'ha`, `ya'yoi'yoi'yio`, `ya'yoi'yoi'ho`, `ya'yoi'yoi'yia`, `ya'yoi'yai'yo`, `ya'yoi'ha'yo`, `ya'yoi'yai'ya`, `ya'yoi'ha'ya`, `ya'yoi'yai'yoi`, `ya'yoi'ha'yoi`, `ya'yoi'yai'yai`, `ya'yoi'ha'ha`, `ya'yoi'yai'yio`, `ya'yoi'ha'ho`, `ya'yoi'yai'yia`, `ya'yoi'ha'yia`, `ya'yoi'yio'yo`, `ya'yoi'ho'yo`, `ya'yoi'yio'ya`, `ya'yoi'ho'ya`, `ya'yoi'yio'yoi`, `ya'yoi'ho'yoi`, `ya'yoi'yio'yai`, `ya'yoi'ho'ha`, `ya'yoi'yio'yio`, `ya'yoi'ho'ho`, `ya'yoi'yio'yia`, `ya'yoi'ho'yia`, `ya'yoi'yia'yo`, `ya'yoi'yia'ya`, `ya'yoi'yia'yoi`, `ya'yoi'yia'yai`, `ya'yoi'yia'ha`, `ya'yoi'yia'yio`, `ya'yoi'yia'ho`, `ya'yoi'yia'yia`, `ya'yai'yo'yo`, `ya'ha'yo'yo`, `ya'yai'yo'ya`, `ya'ha'yo'ya`, `ya'yai'yo'yoi`, `ya'ha'yo'yoi`, `ya'yai'yo'yai`, `ya'ha'yo'ha`, `ya'yai'yo'yio`, `ya'ha'yo'ho`, `ya'yai'yo'yia`, `ya'ha'yo'yia`, `ya'yai'ya'yo`, `ya'ha'ya'yo`, `ya'yai'ya'ya`, `ya'ha'ya'ya`, `ya'yai'ya'yoi`, `ya'ha'ya'yoi`, `ya'yai'ya'yai`, `ya'ha'ya'ha`, `ya'yai'ya'yio`, `ya'ha'ya'ho`, `ya'yai'ya'yia`, `ya'ha'ya'yia`, `ya'yai'yoi'yo`, `ya'ha'yoi'yo`, `ya'yai'yoi'ya`, `ya'ha'yoi'ya`, `ya'yai'yoi'yoi`, `ya'ha'yoi'yoi`, `ya'yai'yoi'yai`, `ya'ha'yoi'ha`, `ya'yai'yoi'yio`, `ya'ha'yoi'ho`, `ya'yai'yoi'yia`, `ya'ha'yoi'yia`, `ya'yai'yai'yo`, `ya'ha'ha'yo`, `ya'yai'yai'ya`, `ya'ha'ha'ya`, `ya'yai'yai'yoi`, `ya'ha'ha'yoi`, `ya'yai'yai'yai`, `ya'ha'ha'ha`, `ya'yai'yai'yio`, `ya'ha'ha'ho`, `ya'yai'yai'yia`, `ya'ha'ha'yia`, `ya'yai'yio'yo`, `ya'ha'ho'yo`, `ya'yai'yio'ya`, `ya'ha'ho'ya`, `ya'yai'yio'yoi`, `ya'ha'ho'yoi`, `ya'yai'yio'yai`, `ya'ha'ho'ha`, `ya'yai'yio'yio`, `ya'ha'ho'ho`, `ya'yai'yio'yia`, `ya'ha'ho'yia`, `ya'yai'yia'yo`, `ya'ha'yia'yo`, `ya'yai'yia'ya`, `ya'ha'yia'ya`, `ya'yai'yia'yoi`, `ya'ha'yia'yoi`, `ya'yai'yia'yai`, `ya'ha'yia'ha`, `ya'yai'yia'yio`, `ya'ha'yia'ho`, `ya'yai'yia'yia`, `ya'ha'yia'yia`, `ya'yio'yo'yo`, `ya'ho'yo'yo`, `ya'yio'yo'ya`, `ya'ho'yo'ya`, `ya'yio'yo'yoi`, `ya'ho'yo'yoi`, `ya'yio'yo'yai`, `ya'ho'yo'ha`, `ya'yio'yo'yio`, `ya'ho'yo'ho`, `ya'yio'yo'yia`, `ya'ho'yo'yia`, `ya'yio'ya'yo`, `ya'ho'ya'yo`, `ya'yio'ya'ya`, `ya'ho'ya'ya`, `ya'yio'ya'yoi`, `ya'ho'ya'yoi`, `ya'yio'ya'yai`, `ya'ho'ya'ha`, `ya'yio'ya'yio`, `ya'ho'ya'ho`, `ya'yio'ya'yia`, `ya'ho'ya'yia`, `ya'yio'yoi'yo`, `ya'ho'yoi'yo`, `ya'yio'yoi'ya`, `ya'ho'yoi'ya`, `ya'yio'yoi'yoi`, `ya'ho'yoi'yoi`, `ya'yio'yoi'yai`, `ya'ho'yoi'ha`, `ya'yio'yoi'yio`, `ya'ho'yoi'ho`, `ya'yio'yoi'yia`, `ya'ho'yoi'yia`, `ya'yio'yai'yo`, `ya'ho'ha'yo`, `ya'yio'yai'ya`, `ya'ho'ha'ya`, `ya'yio'yai'yoi`, `ya'ho'ha'yoi`, `ya'yio'yai'yai`, `ya'ho'ha'ha`, `ya'yio'yai'yio`, `ya'ho'ha'ho`, `ya'yio'yai'yia`, `ya'ho'ha'yia`, `ya'yio'yio'yo`, `ya'ho'ho'yo`, `ya'yio'yio'ya`, `ya'ho'ho'ya`, `ya'yio'yio'yoi`, `ya'ho'ho'yoi`, `ya'yio'yio'yai`, `ya'ho'ho'ha`, `ya'yio'yio'yio`, `ya'ho'ho'ho`, `ya'yio'yio'yia`, `ya'ho'ho'yia`, `ya'yio'yia'yo`, `ya'ho'yia'yo`, `ya'yio'yia'ya`, `ya'ho'yia'ya`, `ya'yio'yia'yoi`, `ya'ho'yia'yoi`, `ya'yio'yia'yai`, `ya'ho'yia'ha`, `ya'yio'yia'yio`, `ya'ho'yia'ho`, `ya'yio'yia'yia`, `ya'ho'yia'yia`, `ya'yia'yo'yo`, `ya'yia'yo'ya`, `ya'yia'yo'yoi`, `ya'yia'yo'yai`, `ya'yia'yo'ha`, `ya'yia'yo'yio`, `ya'yia'yo'ho`, `ya'yia'yo'yia`, `ya'yia'ya'yo`, `ya'yia'ya'ya`, `ya'yia'ya'yoi`, `ya'yia'ya'yai`, `ya'yia'ya'ha`, `ya'yia'ya'yio`, `ya'yia'ya'ho`, `ya'yia'ya'yia`, `ya'yia'yoi'yo`, `ya'yia'yoi'ya`, `ya'yia'yoi'yoi`, `ya'yia'yoi'yai`, `ya'yia'yoi'ha`, `ya'yia'yoi'yio`, `ya'yia'yoi'ho`, `ya'yia'yoi'yia`, `ya'yia'yai'yo`, `ya'yia'ha'yo`, `ya'yia'yai'ya`, `ya'yia'ha'ya`, `ya'yia'yai'yoi`, `ya'yia'ha'yoi`, `ya'yia'yai'yai`, `ya'yia'ha'ha`, `ya'yia'yai'yio`, `ya'yia'ha'ho`, `ya'yia'yai'yia`, `ya'yia'ha'yia`, `ya'yia'yio'yo`, `ya'yia'ho'yo`, `ya'yia'yio'ya`, `ya'yia'ho'ya`, `ya'yia'yio'yoi`, `ya'yia'ho'yoi`, `ya'yia'yio'yai`, `ya'yia'ho'ha`, `ya'yia'yio'yio`, `ya'yia'ho'ho`, `ya'yia'yio'yia`, `ya'yia'ho'yia`, `ya'yia'yia'yo`, `ya'yia'yia'ya`, `ya'yia'yia'yoi`, `ya'yia'yia'yai`, `ya'yia'yia'ha`, `ya'yia'yia'yio`, `ya'yia'yia'ho`, `ya'yia'yia'yia`, `ha_'yo'yo'yo`, `ha_'yo'yo'ya`, `ha_'yo'yo'yoi`, `ha_'yo'yo'ha`, `ha_'yo'yo'ho`, `ha_'yo'yo'yia`, `ha_'yo'ya'yo`, `ha_'yo'ya'ya`, `ha_'yo'ya'yoi`, `ha_'yo'ya'ha`, `ha_'yo'ya'ho`, `ha_'yo'ya'yia`, `ha_'yo'yoi'yo`, `ha_'yo'yoi'ya`, `ha_'yo'yoi'yoi`, `ha_'yo'yoi'ha`, `ha_'yo'yoi'ho`, `ha_'yo'yoi'yia`, `ha_'yo'ha'yo`, `ha_'yo'ha'ya`, `ha_'yo'ha'yoi`, `ha_'yo'ha'ha`, `ha_'yo'ha'ho`, `ha_'yo'ha'yia`, `ha_'yo'ho'yo`, `ha_'yo'ho'ya`, `ha_'yo'ho'yoi`, `ha_'yo'ho'ha`, `ha_'yo'ho'ho`, `ha_'yo'ho'yia`, `ha_'yo'yia'yo`, `ha_'yo'yia'ya`, `ha_'yo'yia'yoi`, `ha_'yo'yia'ha`, `ha_'yo'yia'ho`, `ha_'yo'yia'yia`, `ha_'ya'yo'yo`, `ha_'ya'yo'ya`, `ha_'ya'yo'yoi`, `ha_'ya'yo'ha`, `ha_'ya'yo'ho`, `ha_'ya'yo'yia`, `ha_'ya'ya'yo`, `ha_'ya'ya'ya`, `ha_'ya'ya'yoi`, `ha_'ya'ya'ha`, `ha_'ya'ya'ho`, `ha_'ya'ya'yia`, `ha_'ya'yoi'yo`, `ha_'ya'yoi'ya`, `ha_'ya'yoi'yoi`, `ha_'ya'yoi'ha`, `ha_'ya'yoi'ho`, `ha_'ya'yoi'yia`, `ha_'ya'ha'yo`, `ha_'ya'ha'ya`, `ha_'ya'ha'yoi`, `ha_'ya'ha'ha`, `ha_'ya'ha'ho`, `ha_'ya'ha'yia`, `ha_'ya'ho'yo`, `ha_'ya'ho'ya`, `ha_'ya'ho'yoi`, `ha_'ya'ho'ha`, `ha_'ya'ho'ho`, `ha_'ya'ho'yia`, `ha_'ya'yia'yo`, `ha_'ya'yia'ya`, `ha_'ya'yia'yoi`, `ha_'ya'yia'ha`, `ha_'ya'yia'ho`, `ha_'ya'yia'yia`, `ha_'yoi'yo'yo`, `ha_'yoi'yo'ya`, `ha_'yoi'yo'yoi`, `ha_'yoi'yo'ha`, `ha_'yoi'yo'ho`, `ha_'yoi'yo'yia`, `ha_'yoi'ya'yo`, `ha_'yoi'ya'ya`, `ha_'yoi'ya'yoi`, `ha_'yoi'ya'ha`, `ha_'yoi'ya'ho`, `ha_'yoi'ya'yia`, `ha_'yoi'yoi'yo`, `ha_'yoi'yoi'ya`, `ha_'yoi'yoi'yoi`, `ha_'yoi'yoi'ha`, `ha_'yoi'yoi'ho`, `ha_'yoi'yoi'yia`, `ha_'yoi'ha'yo`, `ha_'yoi'ha'ya`, `ha_'yoi'ha'yoi`, `ha_'yoi'ha'ha`, `ha_'yoi'ha'ho`, `ha_'yoi'ha'yia`, `ha_'yoi'ho'yo`, `ha_'yoi'ho'ya`, `ha_'yoi'ho'yoi`, `ha_'yoi'ho'ha`, `ha_'yoi'ho'ho`, `ha_'yoi'ho'yia`, `ha_'yoi'yia'yo`, `ha_'yoi'yia'ya`, `ha_'yoi'yia'yoi`, `ha_'yoi'yia'ha`, `ha_'yoi'yia'ho`, `ha_'yoi'yia'yia`, `ha_'ha'yo'yo`, `ha_'ha'yo'ya`, `ha_'ha'yo'yoi`, `ha_'ha'yo'ha`, `ha_'ha'yo'ho`, `ha_'ha'yo'yia`, `ha_'ha'ya'yo`, `ha_'ha'ya'ya`, `ha_'ha'ya'yoi`, `ha_'ha'ya'ha`, `ha_'ha'ya'ho`, `ha_'ha'ya'yia`, `ha_'ha'yoi'yo`, `ha_'ha'yoi'ya`, `ha_'ha'yoi'yoi`, `ha_'ha'yoi'ha`, `ha_'ha'yoi'ho`, `ha_'ha'yoi'yia`, `ha_'ha'ha'yo`, `ha_'ha'ha'ya`, `ha_'ha'ha'yoi`, `ha_'ha'ha'ha`, `ha_'ha'ha'ho`, `ha_'ha'ha'yia`, `ha_'ha'ho'yo`, `ha_'ha'ho'ya`, `ha_'ha'ho'yoi`, `ha_'ha'ho'ha`, `ha_'ha'ho'ho`, `ha_'ha'ho'yia`, `ha_'ha'yia'yo`, `ha_'ha'yia'ya`, `ha_'ha'yia'yoi`, `ha_'ha'yia'ha`, `ha_'ha'yia'ho`, `ha_'ha'yia'yia`, `ha_'ho'yo'yo`, `ha_'ho'yo'ya`, `ha_'ho'yo'yoi`, `ha_'ho'yo'ha`, `ha_'ho'yo'ho`, `ha_'ho'yo'yia`, `ha_'ho'ya'yo`, `ha_'ho'ya'ya`, `ha_'ho'ya'yoi`, `ha_'ho'ya'ha`, `ha_'ho'ya'ho`, `ha_'ho'ya'yia`, `ha_'ho'yoi'yo`, `ha_'ho'yoi'ya`, `ha_'ho'yoi'yoi`, `ha_'ho'yoi'ha`, `ha_'ho'yoi'ho`, `ha_'ho'yoi'yia`, `ha_'ho'ha'yo`, `ha_'ho'ha'ya`, `ha_'ho'ha'yoi`, `ha_'ho'ha'ha`, `ha_'ho'ha'ho`, `ha_'ho'ha'yia`, `ha_'ho'ho'yo`, `ha_'ho'ho'ya`, `ha_'ho'ho'yoi`, `ha_'ho'ho'ha`, `ha_'ho'ho'ho`, `ha_'ho'ho'yia`, `ha_'ho'yia'yo`, `ha_'ho'yia'ya`, `ha_'ho'yia'yoi`, `ha_'ho'yia'ha`, `ha_'ho'yia'ho`, `ha_'ho'yia'yia`, `ha_'yia'yo'yo`, `ha_'yia'yo'ya`, `ha_'yia'yo'yoi`, `ha_'yia'yo'ha`, `ha_'yia'yo'ho`, `ha_'yia'yo'yia`, `ha_'yia'ya'yo`, `ha_'yia'ya'ya`, `ha_'yia'ya'yoi`, `ha_'yia'ya'ha`, `ha_'yia'ya'ho`, `ha_'yia'ya'yia`, `ha_'yia'yoi'yo`, `ha_'yia'yoi'ya`, `ha_'yia'yoi'yoi`, `ha_'yia'yoi'ha`, `ha_'yia'yoi'ho`, `ha_'yia'yoi'yia`, `ha_'yia'ha'yo`, `ha_'yia'ha'ya`, `ha_'yia'ha'yoi`, `ha_'yia'ha'ha`, `ha_'yia'ha'ho`, `ha_'yia'ha'yia`, `ha_'yia'ho'yo`, `ha_'yia'ho'ya`, `ha_'yia'ho'yoi`, `ha_'yia'ho'ha`, `ha_'yia'ho'ho`, `ha_'yia'ho'yia`, `ha_'yia'yia'yo`, `ha_'yia'yia'ya`, `ha_'yia'yia'yoi`, `ha_'yia'yia'ha`, `ha_'yia'yia'ho`, `ha_'yia'yia'yia`, `ho_'yo'yo'yo`, `ho_'yo'yo'ya`, `ho_'yo'yo'yoi`, `ho_'yo'yo'ha`, `ho_'yo'yo'ho`, `ho_'yo'yo'yia`, `ho_'yo'ya'yo`, `ho_'yo'ya'ya`, `ho_'yo'ya'yoi`, `ho_'yo'ya'ha`, `ho_'yo'ya'ho`, `ho_'yo'ya'yia`, `ho_'yo'yoi'yo`, `ho_'yo'yoi'ya`, `ho_'yo'yoi'yoi`, `ho_'yo'yoi'ha`, `ho_'yo'yoi'ho`, `ho_'yo'yoi'yia`, `ho_'yo'ha'yo`, `ho_'yo'ha'ya`, `ho_'yo'ha'yoi`, `ho_'yo'ha'ha`, `ho_'yo'ha'ho`, `ho_'yo'ha'yia`, `ho_'yo'ho'yo`, `ho_'yo'ho'ya`, `ho_'yo'ho'yoi`, `ho_'yo'ho'ha`, `ho_'yo'ho'ho`, `ho_'yo'ho'yia`, `ho_'yo'yia'yo`, `ho_'yo'yia'ya`, `ho_'yo'yia'yoi`, `ho_'yo'yia'ha`, `ho_'yo'yia'ho`, `ho_'yo'yia'yia`, `ho_'ya'yo'yo`, `ho_'ya'yo'ya`, `ho_'ya'yo'yoi`, `ho_'ya'yo'ha`, `ho_'ya'yo'ho`, `ho_'ya'yo'yia`, `ho_'ya'ya'yo`, `ho_'ya'ya'ya`, `ho_'ya'ya'yoi`, `ho_'ya'ya'ha`, `ho_'ya'ya'ho`, `ho_'ya'ya'yia`, `ho_'ya'yoi'yo`, `ho_'ya'yoi'ya`, `ho_'ya'yoi'yoi`, `ho_'ya'yoi'ha`, `ho_'ya'yoi'ho`, `ho_'ya'yoi'yia`, `ho_'ya'ha'yo`, `ho_'ya'ha'ya`, `ho_'ya'ha'yoi`, `ho_'ya'ha'ha`, `ho_'ya'ha'ho`, `ho_'ya'ha'yia`, `ho_'ya'ho'yo`, `ho_'ya'ho'ya`, `ho_'ya'ho'yoi`, `ho_'ya'ho'ha`, `ho_'ya'ho'ho`, `ho_'ya'ho'yia`, `ho_'ya'yia'yo`, `ho_'ya'yia'ya`, `ho_'ya'yia'yoi`, `ho_'ya'yia'ha`, `ho_'ya'yia'ho`, `ho_'ya'yia'yia`, `ho_'yoi'yo'yo`, `ho_'yoi'yo'ya`, `ho_'yoi'yo'yoi`, `ho_'yoi'yo'ha`, `ho_'yoi'yo'ho`, `ho_'yoi'yo'yia`, `ho_'yoi'ya'yo`, `ho_'yoi'ya'ya`, `ho_'yoi'ya'yoi`, `ho_'yoi'ya'ha`, `ho_'yoi'ya'ho`, `ho_'yoi'ya'yia`, `ho_'yoi'yoi'yo`, `ho_'yoi'yoi'ya`, `ho_'yoi'yoi'yoi`, `ho_'yoi'yoi'ha`, `ho_'yoi'yoi'ho`, `ho_'yoi'yoi'yia`, `ho_'yoi'ha'yo`, `ho_'yoi'ha'ya`, `ho_'yoi'ha'yoi`, `ho_'yoi'ha'ha`, `ho_'yoi'ha'ho`, `ho_'yoi'ha'yia`, `ho_'yoi'ho'yo`, `ho_'yoi'ho'ya`, `ho_'yoi'ho'yoi`, `ho_'yoi'ho'ha`, `ho_'yoi'ho'ho`, `ho_'yoi'ho'yia`, `ho_'yoi'yia'yo`, `ho_'yoi'yia'ya`, `ho_'yoi'yia'yoi`, `ho_'yoi'yia'ha`, `ho_'yoi'yia'ho`, `ho_'yoi'yia'yia`, `ho_'ha'yo'yo`, `ho_'ha'yo'ya`, `ho_'ha'yo'yoi`, `ho_'ha'yo'ha`, `ho_'ha'yo'ho`, `ho_'ha'yo'yia`, `ho_'ha'ya'yo`, `ho_'ha'ya'ya`, `ho_'ha'ya'yoi`, `ho_'ha'ya'ha`, `ho_'ha'ya'ho`, `ho_'ha'ya'yia`, `ho_'ha'yoi'yo`, `ho_'ha'yoi'ya`, `ho_'ha'yoi'yoi`, `ho_'ha'yoi'ha`, `ho_'ha'yoi'ho`, `ho_'ha'yoi'yia`, `ho_'ha'ha'yo`, `ho_'ha'ha'ya`, `ho_'ha'ha'yoi`, `ho_'ha'ha'ha`, `ho_'ha'ha'ho`, `ho_'ha'ha'yia`, `ho_'ha'ho'yo`, `ho_'ha'ho'ya`, `ho_'ha'ho'yoi`, `ho_'ha'ho'ha`, `ho_'ha'ho'ho`, `ho_'ha'ho'yia`, `ho_'ha'yia'yo`, `ho_'ha'yia'ya`, `ho_'ha'yia'yoi`, `ho_'ha'yia'ha`, `ho_'ha'yia'ho`, `ho_'ha'yia'yia`, `ho_'ho'yo'yo`, `ho_'ho'yo'ya`, `ho_'ho'yo'yoi`, `ho_'ho'yo'ha`, `ho_'ho'yo'ho`, `ho_'ho'yo'yia`, `ho_'ho'ya'yo`, `ho_'ho'ya'ya`, `ho_'ho'ya'yoi`, `ho_'ho'ya'ha`, `ho_'ho'ya'ho`, `ho_'ho'ya'yia`, `ho_'ho'yoi'yo`, `ho_'ho'yoi'ya`, `ho_'ho'yoi'yoi`, `ho_'ho'yoi'ha`, `ho_'ho'yoi'ho`, `ho_'ho'yoi'yia`, `ho_'ho'ha'yo`, `ho_'ho'ha'ya`, `ho_'ho'ha'yoi`, `ho_'ho'ha'ha`, `ho_'ho'ha'ho`, `ho_'ho'ha'yia`, `ho_'ho'ho'yo`, `ho_'ho'ho'ya`, `ho_'ho'ho'yoi`, `ho_'ho'ho'ha`, `ho_'ho'ho'ho`, `ho_'ho'ho'yia`, `ho_'ho'yia'yo`, `ho_'ho'yia'ya`, `ho_'ho'yia'yoi`, `ho_'ho'yia'ha`, `ho_'ho'yia'ho`, `ho_'ho'yia'yia`, `ho_'yia'yo'yo`, `ho_'yia'yo'ya`, `ho_'yia'yo'yoi`, `ho_'yia'yo'ha`, `ho_'yia'yo'ho`, `ho_'yia'yo'yia`, `ho_'yia'ya'yo`, `ho_'yia'ya'ya`, `ho_'yia'ya'yoi`, `ho_'yia'ya'ha`, `ho_'yia'ya'ho`, `ho_'yia'ya'yia`, `ho_'yia'yoi'yo`, `ho_'yia'yoi'ya`, `ho_'yia'yoi'yoi`, `ho_'yia'yoi'ha`, `ho_'yia'yoi'ho`, `ho_'yia'yoi'yia`, `ho_'yia'ha'yo`, `ho_'yia'ha'ya`, `ho_'yia'ha'yoi`, `ho_'yia'ha'ha`, `ho_'yia'ha'ho`, `ho_'yia'ha'yia`, `ho_'yia'ho'yo`, `ho_'yia'ho'ya`, `ho_'yia'ho'yoi`, `ho_'yia'ho'ha`, `ho_'yia'ho'ho`, `ho_'yia'ho'yia`, `ho_'yia'yia'yo`, `ho_'yia'yia'ya`, `ho_'yia'yia'yoi`, `ho_'yia'yia'ha`, `ho_'yia'yia'ho`, `ho_'yia'yia'yia`
-infixl 9 `ha'yo'he'he`, `ha'ya'he'he`, `ha'yoi'he'he`, `ha'ha'he'he`, `ha'ho'he'he`, `ha'yia'he'he`, `ho'yo'he'he`, `ho'ya'he'he`, `ho'yoi'he'he`, `ho'ha'he'he`, `ho'ho'he'he`, `ho'yia'he'he`, `ha'yo'yo'he`, `ha'yo'ya'he`, `ha'yo'yoi'he`, `ha'yo'ha'he`, `ha'yo'ho'he`, `ha'yo'yia'he`, `ha'ya'yo'he`, `ha'ya'ya'he`, `ha'ya'yoi'he`, `ha'ya'ha'he`, `ha'ya'ho'he`, `ha'ya'yia'he`, `ha'yoi'yo'he`, `ha'yoi'ya'he`, `ha'yoi'yoi'he`, `ha'yoi'ha'he`, `ha'yoi'ho'he`, `ha'yoi'yia'he`, `ha'ha'yo'he`, `ha'ha'ya'he`, `ha'ha'yoi'he`, `ha'ha'ha'he`, `ha'ha'ho'he`, `ha'ha'yia'he`, `ha'ho'yo'he`, `ha'ho'ya'he`, `ha'ho'yoi'he`, `ha'ho'ha'he`, `ha'ho'ho'he`, `ha'ho'yia'he`, `ha'yia'yo'he`, `ha'yia'ya'he`, `ha'yia'yoi'he`, `ha'yia'ha'he`, `ha'yia'ho'he`, `ha'yia'yia'he`, `ho'yo'yo'he`, `ho'yo'ya'he`, `ho'yo'yoi'he`, `ho'yo'ha'he`, `ho'yo'ho'he`, `ho'yo'yia'he`, `ho'ya'yo'he`, `ho'ya'ya'he`, `ho'ya'yoi'he`, `ho'ya'ha'he`, `ho'ya'ho'he`, `ho'ya'yia'he`, `ho'yoi'yo'he`, `ho'yoi'ya'he`, `ho'yoi'yoi'he`, `ho'yoi'ha'he`, `ho'yoi'ho'he`, `ho'yoi'yia'he`, `ho'ha'yo'he`, `ho'ha'ya'he`, `ho'ha'yoi'he`, `ho'ha'ha'he`, `ho'ha'ho'he`, `ho'ha'yia'he`, `ho'ho'yo'he`, `ho'ho'ya'he`, `ho'ho'yoi'he`, `ho'ho'ha'he`, `ho'ho'ho'he`, `ho'ho'yia'he`, `ho'yia'yo'he`, `ho'yia'ya'he`, `ho'yia'yoi'he`, `ho'yia'ha'he`, `ho'yia'ho'he`, `ho'yia'yia'he`, `ha'yo'yo'yo`, `ha'yo'yo'ya`, `ha'yo'yo'yoi`, `ha'yo'yo'ha`, `ha'yo'yo'ho`, `ha'yo'yo'yia`, `ha'yo'ya'yo`, `ha'yo'ya'ya`, `ha'yo'ya'yoi`, `ha'yo'ya'ha`, `ha'yo'ya'ho`, `ha'yo'ya'yia`, `ha'yo'yoi'yo`, `ha'yo'yoi'ya`, `ha'yo'yoi'yoi`, `ha'yo'yoi'ha`, `ha'yo'yoi'ho`, `ha'yo'yoi'yia`, `ha'yo'ha'yo`, `ha'yo'ha'ya`, `ha'yo'ha'yoi`, `ha'yo'ha'ha`, `ha'yo'ha'ho`, `ha'yo'ha'yia`, `ha'yo'ho'yo`, `ha'yo'ho'ya`, `ha'yo'ho'yoi`, `ha'yo'ho'ha`, `ha'yo'ho'ho`, `ha'yo'ho'yia`, `ha'yo'yia'yo`, `ha'yo'yia'ya`, `ha'yo'yia'yoi`, `ha'yo'yia'ha`, `ha'yo'yia'ho`, `ha'yo'yia'yia`, `ha'ya'yo'yo`, `ha'ya'yo'ya`, `ha'ya'yo'yoi`, `ha'ya'yo'ha`, `ha'ya'yo'ho`, `ha'ya'yo'yia`, `ha'ya'ya'yo`, `ha'ya'ya'ya`, `ha'ya'ya'yoi`, `ha'ya'ya'ha`, `ha'ya'ya'ho`, `ha'ya'ya'yia`, `ha'ya'yoi'yo`, `ha'ya'yoi'ya`, `ha'ya'yoi'yoi`, `ha'ya'yoi'ha`, `ha'ya'yoi'ho`, `ha'ya'yoi'yia`, `ha'ya'ha'yo`, `ha'ya'ha'ya`, `ha'ya'ha'yoi`, `ha'ya'ha'ha`, `ha'ya'ha'ho`, `ha'ya'ha'yia`, `ha'ya'ho'yo`, `ha'ya'ho'ya`, `ha'ya'ho'yoi`, `ha'ya'ho'ha`, `ha'ya'ho'ho`, `ha'ya'ho'yia`, `ha'ya'yia'yo`, `ha'ya'yia'ya`, `ha'ya'yia'yoi`, `ha'ya'yia'ha`, `ha'ya'yia'ho`, `ha'ya'yia'yia`, `ha'yoi'yo'yo`, `ha'yoi'yo'ya`, `ha'yoi'yo'yoi`, `ha'yoi'yo'ha`, `ha'yoi'yo'ho`, `ha'yoi'yo'yia`, `ha'yoi'ya'yo`, `ha'yoi'ya'ya`, `ha'yoi'ya'yoi`, `ha'yoi'ya'ha`, `ha'yoi'ya'ho`, `ha'yoi'ya'yia`, `ha'yoi'yoi'yo`, `ha'yoi'yoi'ya`, `ha'yoi'yoi'yoi`, `ha'yoi'yoi'ha`, `ha'yoi'yoi'ho`, `ha'yoi'yoi'yia`, `ha'yoi'ha'yo`, `ha'yoi'ha'ya`, `ha'yoi'ha'yoi`, `ha'yoi'ha'ha`, `ha'yoi'ha'ho`, `ha'yoi'ha'yia`, `ha'yoi'ho'yo`, `ha'yoi'ho'ya`, `ha'yoi'ho'yoi`, `ha'yoi'ho'ha`, `ha'yoi'ho'ho`, `ha'yoi'ho'yia`, `ha'yoi'yia'yo`, `ha'yoi'yia'ya`, `ha'yoi'yia'yoi`, `ha'yoi'yia'ha`, `ha'yoi'yia'ho`, `ha'yoi'yia'yia`, `ha'ha'yo'yo`, `ha'ha'yo'ya`, `ha'ha'yo'yoi`, `ha'ha'yo'ha`, `ha'ha'yo'ho`, `ha'ha'yo'yia`, `ha'ha'ya'yo`, `ha'ha'ya'ya`, `ha'ha'ya'yoi`, `ha'ha'ya'ha`, `ha'ha'ya'ho`, `ha'ha'ya'yia`, `ha'ha'yoi'yo`, `ha'ha'yoi'ya`, `ha'ha'yoi'yoi`, `ha'ha'yoi'ha`, `ha'ha'yoi'ho`, `ha'ha'yoi'yia`, `ha'ha'ha'yo`, `ha'ha'ha'ya`, `ha'ha'ha'yoi`, `ha'ha'ha'ha`, `ha'ha'ha'ho`, `ha'ha'ha'yia`, `ha'ha'ho'yo`, `ha'ha'ho'ya`, `ha'ha'ho'yoi`, `ha'ha'ho'ha`, `ha'ha'ho'ho`, `ha'ha'ho'yia`, `ha'ha'yia'yo`, `ha'ha'yia'ya`, `ha'ha'yia'yoi`, `ha'ha'yia'ha`, `ha'ha'yia'ho`, `ha'ha'yia'yia`, `ha'ho'yo'yo`, `ha'ho'yo'ya`, `ha'ho'yo'yoi`, `ha'ho'yo'ha`, `ha'ho'yo'ho`, `ha'ho'yo'yia`, `ha'ho'ya'yo`, `ha'ho'ya'ya`, `ha'ho'ya'yoi`, `ha'ho'ya'ha`, `ha'ho'ya'ho`, `ha'ho'ya'yia`, `ha'ho'yoi'yo`, `ha'ho'yoi'ya`, `ha'ho'yoi'yoi`, `ha'ho'yoi'ha`, `ha'ho'yoi'ho`, `ha'ho'yoi'yia`, `ha'ho'ha'yo`, `ha'ho'ha'ya`, `ha'ho'ha'yoi`, `ha'ho'ha'ha`, `ha'ho'ha'ho`, `ha'ho'ha'yia`, `ha'ho'ho'yo`, `ha'ho'ho'ya`, `ha'ho'ho'yoi`, `ha'ho'ho'ha`, `ha'ho'ho'ho`, `ha'ho'ho'yia`, `ha'ho'yia'yo`, `ha'ho'yia'ya`, `ha'ho'yia'yoi`, `ha'ho'yia'ha`, `ha'ho'yia'ho`, `ha'ho'yia'yia`, `ha'yia'yo'yo`, `ha'yia'yo'ya`, `ha'yia'yo'yoi`, `ha'yia'yo'ha`, `ha'yia'yo'ho`, `ha'yia'yo'yia`, `ha'yia'ya'yo`, `ha'yia'ya'ya`, `ha'yia'ya'yoi`, `ha'yia'ya'ha`, `ha'yia'ya'ho`, `ha'yia'ya'yia`, `ha'yia'yoi'yo`, `ha'yia'yoi'ya`, `ha'yia'yoi'yoi`, `ha'yia'yoi'ha`, `ha'yia'yoi'ho`, `ha'yia'yoi'yia`, `ha'yia'ha'yo`, `ha'yia'ha'ya`, `ha'yia'ha'yoi`, `ha'yia'ha'ha`, `ha'yia'ha'ho`, `ha'yia'ha'yia`, `ha'yia'ho'yo`, `ha'yia'ho'ya`, `ha'yia'ho'yoi`, `ha'yia'ho'ha`, `ha'yia'ho'ho`, `ha'yia'ho'yia`, `ha'yia'yia'yo`, `ha'yia'yia'ya`, `ha'yia'yia'yoi`, `ha'yia'yia'ha`, `ha'yia'yia'ho`, `ha'yia'yia'yia`, `ho'yo'yo'yo`, `ho'yo'yo'ya`, `ho'yo'yo'yoi`, `ho'yo'yo'ha`, `ho'yo'yo'ho`, `ho'yo'yo'yia`, `ho'yo'ya'yo`, `ho'yo'ya'ya`, `ho'yo'ya'yoi`, `ho'yo'ya'ha`, `ho'yo'ya'ho`, `ho'yo'ya'yia`, `ho'yo'yoi'yo`, `ho'yo'yoi'ya`, `ho'yo'yoi'yoi`, `ho'yo'yoi'ha`, `ho'yo'yoi'ho`, `ho'yo'yoi'yia`, `ho'yo'ha'yo`, `ho'yo'ha'ya`, `ho'yo'ha'yoi`, `ho'yo'ha'ha`, `ho'yo'ha'ho`, `ho'yo'ha'yia`, `ho'yo'ho'yo`, `ho'yo'ho'ya`, `ho'yo'ho'yoi`, `ho'yo'ho'ha`, `ho'yo'ho'ho`, `ho'yo'ho'yia`, `ho'yo'yia'yo`, `ho'yo'yia'ya`, `ho'yo'yia'yoi`, `ho'yo'yia'ha`, `ho'yo'yia'ho`, `ho'yo'yia'yia`, `ho'ya'yo'yo`, `ho'ya'yo'ya`, `ho'ya'yo'yoi`, `ho'ya'yo'ha`, `ho'ya'yo'ho`, `ho'ya'yo'yia`, `ho'ya'ya'yo`, `ho'ya'ya'ya`, `ho'ya'ya'yoi`, `ho'ya'ya'ha`, `ho'ya'ya'ho`, `ho'ya'ya'yia`, `ho'ya'yoi'yo`, `ho'ya'yoi'ya`, `ho'ya'yoi'yoi`, `ho'ya'yoi'ha`, `ho'ya'yoi'ho`, `ho'ya'yoi'yia`, `ho'ya'ha'yo`, `ho'ya'ha'ya`, `ho'ya'ha'yoi`, `ho'ya'ha'ha`, `ho'ya'ha'ho`, `ho'ya'ha'yia`, `ho'ya'ho'yo`, `ho'ya'ho'ya`, `ho'ya'ho'yoi`, `ho'ya'ho'ha`, `ho'ya'ho'ho`, `ho'ya'ho'yia`, `ho'ya'yia'yo`, `ho'ya'yia'ya`, `ho'ya'yia'yoi`, `ho'ya'yia'ha`, `ho'ya'yia'ho`, `ho'ya'yia'yia`, `ho'yoi'yo'yo`, `ho'yoi'yo'ya`, `ho'yoi'yo'yoi`, `ho'yoi'yo'ha`, `ho'yoi'yo'ho`, `ho'yoi'yo'yia`, `ho'yoi'ya'yo`, `ho'yoi'ya'ya`, `ho'yoi'ya'yoi`, `ho'yoi'ya'ha`, `ho'yoi'ya'ho`, `ho'yoi'ya'yia`, `ho'yoi'yoi'yo`, `ho'yoi'yoi'ya`, `ho'yoi'yoi'yoi`, `ho'yoi'yoi'ha`, `ho'yoi'yoi'ho`, `ho'yoi'yoi'yia`, `ho'yoi'ha'yo`, `ho'yoi'ha'ya`, `ho'yoi'ha'yoi`, `ho'yoi'ha'ha`, `ho'yoi'ha'ho`, `ho'yoi'ha'yia`, `ho'yoi'ho'yo`, `ho'yoi'ho'ya`, `ho'yoi'ho'yoi`, `ho'yoi'ho'ha`, `ho'yoi'ho'ho`, `ho'yoi'ho'yia`, `ho'yoi'yia'yo`, `ho'yoi'yia'ya`, `ho'yoi'yia'yoi`, `ho'yoi'yia'ha`, `ho'yoi'yia'ho`, `ho'yoi'yia'yia`, `ho'ha'yo'yo`, `ho'ha'yo'ya`, `ho'ha'yo'yoi`, `ho'ha'yo'ha`, `ho'ha'yo'ho`, `ho'ha'yo'yia`, `ho'ha'ya'yo`, `ho'ha'ya'ya`, `ho'ha'ya'yoi`, `ho'ha'ya'ha`, `ho'ha'ya'ho`, `ho'ha'ya'yia`, `ho'ha'yoi'yo`, `ho'ha'yoi'ya`, `ho'ha'yoi'yoi`, `ho'ha'yoi'ha`, `ho'ha'yoi'ho`, `ho'ha'yoi'yia`, `ho'ha'ha'yo`, `ho'ha'ha'ya`, `ho'ha'ha'yoi`, `ho'ha'ha'ha`, `ho'ha'ha'ho`, `ho'ha'ha'yia`, `ho'ha'ho'yo`, `ho'ha'ho'ya`, `ho'ha'ho'yoi`, `ho'ha'ho'ha`, `ho'ha'ho'ho`, `ho'ha'ho'yia`, `ho'ha'yia'yo`, `ho'ha'yia'ya`, `ho'ha'yia'yoi`, `ho'ha'yia'ha`, `ho'ha'yia'ho`, `ho'ha'yia'yia`, `ho'ho'yo'yo`, `ho'ho'yo'ya`, `ho'ho'yo'yoi`, `ho'ho'yo'ha`, `ho'ho'yo'ho`, `ho'ho'yo'yia`, `ho'ho'ya'yo`, `ho'ho'ya'ya`, `ho'ho'ya'yoi`, `ho'ho'ya'ha`, `ho'ho'ya'ho`, `ho'ho'ya'yia`, `ho'ho'yoi'yo`, `ho'ho'yoi'ya`, `ho'ho'yoi'yoi`, `ho'ho'yoi'ha`, `ho'ho'yoi'ho`, `ho'ho'yoi'yia`, `ho'ho'ha'yo`, `ho'ho'ha'ya`, `ho'ho'ha'yoi`, `ho'ho'ha'ha`, `ho'ho'ha'ho`, `ho'ho'ha'yia`, `ho'ho'ho'yo`, `ho'ho'ho'ya`, `ho'ho'ho'yoi`, `ho'ho'ho'ha`, `ho'ho'ho'ho`, `ho'ho'ho'yia`, `ho'ho'yia'yo`, `ho'ho'yia'ya`, `ho'ho'yia'yoi`, `ho'ho'yia'ha`, `ho'ho'yia'ho`, `ho'ho'yia'yia`, `ho'yia'yo'yo`, `ho'yia'yo'ya`, `ho'yia'yo'yoi`, `ho'yia'yo'ha`, `ho'yia'yo'ho`, `ho'yia'yo'yia`, `ho'yia'ya'yo`, `ho'yia'ya'ya`, `ho'yia'ya'yoi`, `ho'yia'ya'ha`, `ho'yia'ya'ho`, `ho'yia'ya'yia`, `ho'yia'yoi'yo`, `ho'yia'yoi'ya`, `ho'yia'yoi'yoi`, `ho'yia'yoi'ha`, `ho'yia'yoi'ho`, `ho'yia'yoi'yia`, `ho'yia'ha'yo`, `ho'yia'ha'ya`, `ho'yia'ha'yoi`, `ho'yia'ha'ha`, `ho'yia'ha'ho`, `ho'yia'ha'yia`, `ho'yia'ho'yo`, `ho'yia'ho'ya`, `ho'yia'ho'yoi`, `ho'yia'ho'ha`, `ho'yia'ho'ho`, `ho'yia'ho'yia`, `ho'yia'yia'yo`, `ho'yia'yia'ya`, `ho'yia'yia'yoi`, `ho'yia'yia'ha`, `ho'yia'yia'ho`, `ho'yia'yia'yia`
+infixl 2 `ha_______'yo'st'st`, `ha_______'ya'st'st`, `ha_______'yoi'st'st`, `ha_______'ha'st'st`, `ha_______'ho'st'st`, `ha_______'yia'st'st`, `ho_______'yo'st'st`, `ho_______'ya'st'st`, `ho_______'yoi'st'st`, `ho_______'ha'st'st`, `ho_______'ho'st'st`, `ho_______'yia'st'st`, `ha_______'yo'yo'st`, `ha_______'yo'ya'st`, `ha_______'yo'yoi'st`, `ha_______'yo'ha'st`, `ha_______'yo'ho'st`, `ha_______'yo'yia'st`, `ha_______'ya'yo'st`, `ha_______'ya'ya'st`, `ha_______'ya'yoi'st`, `ha_______'ya'ha'st`, `ha_______'ya'ho'st`, `ha_______'ya'yia'st`, `ha_______'yoi'yo'st`, `ha_______'yoi'ya'st`, `ha_______'yoi'yoi'st`, `ha_______'yoi'ha'st`, `ha_______'yoi'ho'st`, `ha_______'yoi'yia'st`, `ha_______'ha'yo'st`, `ha_______'ha'ya'st`, `ha_______'ha'yoi'st`, `ha_______'ha'ha'st`, `ha_______'ha'ho'st`, `ha_______'ha'yia'st`, `ha_______'ho'yo'st`, `ha_______'ho'ya'st`, `ha_______'ho'yoi'st`, `ha_______'ho'ha'st`, `ha_______'ho'ho'st`, `ha_______'ho'yia'st`, `ha_______'yia'yo'st`, `ha_______'yia'ya'st`, `ha_______'yia'yoi'st`, `ha_______'yia'ha'st`, `ha_______'yia'ho'st`, `ha_______'yia'yia'st`, `ho_______'yo'yo'st`, `ho_______'yo'ya'st`, `ho_______'yo'yoi'st`, `ho_______'yo'ha'st`, `ho_______'yo'ho'st`, `ho_______'yo'yia'st`, `ho_______'ya'yo'st`, `ho_______'ya'ya'st`, `ho_______'ya'yoi'st`, `ho_______'ya'ha'st`, `ho_______'ya'ho'st`, `ho_______'ya'yia'st`, `ho_______'yoi'yo'st`, `ho_______'yoi'ya'st`, `ho_______'yoi'yoi'st`, `ho_______'yoi'ha'st`, `ho_______'yoi'ho'st`, `ho_______'yoi'yia'st`, `ho_______'ha'yo'st`, `ho_______'ha'ya'st`, `ho_______'ha'yoi'st`, `ho_______'ha'ha'st`, `ho_______'ha'ho'st`, `ho_______'ha'yia'st`, `ho_______'ho'yo'st`, `ho_______'ho'ya'st`, `ho_______'ho'yoi'st`, `ho_______'ho'ha'st`, `ho_______'ho'ho'st`, `ho_______'ho'yia'st`, `ho_______'yia'yo'st`, `ho_______'yia'ya'st`, `ho_______'yia'yoi'st`, `ho_______'yia'ha'st`, `ho_______'yia'ho'st`, `ho_______'yia'yia'st`, `ha_______'yo'yo'yo`, `ha_______'yo'yo'ya`, `ha_______'yo'yo'yoi`, `ha_______'yo'yo'ha`, `ha_______'yo'yo'ho`, `ha_______'yo'yo'yia`, `ha_______'yo'ya'yo`, `ha_______'yo'ya'ya`, `ha_______'yo'ya'yoi`, `ha_______'yo'ya'ha`, `ha_______'yo'ya'ho`, `ha_______'yo'ya'yia`, `ha_______'yo'yoi'yo`, `ha_______'yo'yoi'ya`, `ha_______'yo'yoi'yoi`, `ha_______'yo'yoi'ha`, `ha_______'yo'yoi'ho`, `ha_______'yo'yoi'yia`, `ha_______'yo'ha'yo`, `ha_______'yo'ha'ya`, `ha_______'yo'ha'yoi`, `ha_______'yo'ha'ha`, `ha_______'yo'ha'ho`, `ha_______'yo'ha'yia`, `ha_______'yo'ho'yo`, `ha_______'yo'ho'ya`, `ha_______'yo'ho'yoi`, `ha_______'yo'ho'ha`, `ha_______'yo'ho'ho`, `ha_______'yo'ho'yia`, `ha_______'yo'yia'yo`, `ha_______'yo'yia'ya`, `ha_______'yo'yia'yoi`, `ha_______'yo'yia'ha`, `ha_______'yo'yia'ho`, `ha_______'yo'yia'yia`, `ha_______'ya'yo'yo`, `ha_______'ya'yo'ya`, `ha_______'ya'yo'yoi`, `ha_______'ya'yo'ha`, `ha_______'ya'yo'ho`, `ha_______'ya'yo'yia`, `ha_______'ya'ya'yo`, `ha_______'ya'ya'ya`, `ha_______'ya'ya'yoi`, `ha_______'ya'ya'ha`, `ha_______'ya'ya'ho`, `ha_______'ya'ya'yia`, `ha_______'ya'yoi'yo`, `ha_______'ya'yoi'ya`, `ha_______'ya'yoi'yoi`, `ha_______'ya'yoi'ha`, `ha_______'ya'yoi'ho`, `ha_______'ya'yoi'yia`, `ha_______'ya'ha'yo`, `ha_______'ya'ha'ya`, `ha_______'ya'ha'yoi`, `ha_______'ya'ha'ha`, `ha_______'ya'ha'ho`, `ha_______'ya'ha'yia`, `ha_______'ya'ho'yo`, `ha_______'ya'ho'ya`, `ha_______'ya'ho'yoi`, `ha_______'ya'ho'ha`, `ha_______'ya'ho'ho`, `ha_______'ya'ho'yia`, `ha_______'ya'yia'yo`, `ha_______'ya'yia'ya`, `ha_______'ya'yia'yoi`, `ha_______'ya'yia'ha`, `ha_______'ya'yia'ho`, `ha_______'ya'yia'yia`, `ha_______'yoi'yo'yo`, `ha_______'yoi'yo'ya`, `ha_______'yoi'yo'yoi`, `ha_______'yoi'yo'ha`, `ha_______'yoi'yo'ho`, `ha_______'yoi'yo'yia`, `ha_______'yoi'ya'yo`, `ha_______'yoi'ya'ya`, `ha_______'yoi'ya'yoi`, `ha_______'yoi'ya'ha`, `ha_______'yoi'ya'ho`, `ha_______'yoi'ya'yia`, `ha_______'yoi'yoi'yo`, `ha_______'yoi'yoi'ya`, `ha_______'yoi'yoi'yoi`, `ha_______'yoi'yoi'ha`, `ha_______'yoi'yoi'ho`, `ha_______'yoi'yoi'yia`, `ha_______'yoi'ha'yo`, `ha_______'yoi'ha'ya`, `ha_______'yoi'ha'yoi`, `ha_______'yoi'ha'ha`, `ha_______'yoi'ha'ho`, `ha_______'yoi'ha'yia`, `ha_______'yoi'ho'yo`, `ha_______'yoi'ho'ya`, `ha_______'yoi'ho'yoi`, `ha_______'yoi'ho'ha`, `ha_______'yoi'ho'ho`, `ha_______'yoi'ho'yia`, `ha_______'yoi'yia'yo`, `ha_______'yoi'yia'ya`, `ha_______'yoi'yia'yoi`, `ha_______'yoi'yia'ha`, `ha_______'yoi'yia'ho`, `ha_______'yoi'yia'yia`, `ha_______'ha'yo'yo`, `ha_______'ha'yo'ya`, `ha_______'ha'yo'yoi`, `ha_______'ha'yo'ha`, `ha_______'ha'yo'ho`, `ha_______'ha'yo'yia`, `ha_______'ha'ya'yo`, `ha_______'ha'ya'ya`, `ha_______'ha'ya'yoi`, `ha_______'ha'ya'ha`, `ha_______'ha'ya'ho`, `ha_______'ha'ya'yia`, `ha_______'ha'yoi'yo`, `ha_______'ha'yoi'ya`, `ha_______'ha'yoi'yoi`, `ha_______'ha'yoi'ha`, `ha_______'ha'yoi'ho`, `ha_______'ha'yoi'yia`, `ha_______'ha'ha'yo`, `ha_______'ha'ha'ya`, `ha_______'ha'ha'yoi`, `ha_______'ha'ha'ha`, `ha_______'ha'ha'ho`, `ha_______'ha'ha'yia`, `ha_______'ha'ho'yo`, `ha_______'ha'ho'ya`, `ha_______'ha'ho'yoi`, `ha_______'ha'ho'ha`, `ha_______'ha'ho'ho`, `ha_______'ha'ho'yia`, `ha_______'ha'yia'yo`, `ha_______'ha'yia'ya`, `ha_______'ha'yia'yoi`, `ha_______'ha'yia'ha`, `ha_______'ha'yia'ho`, `ha_______'ha'yia'yia`, `ha_______'ho'yo'yo`, `ha_______'ho'yo'ya`, `ha_______'ho'yo'yoi`, `ha_______'ho'yo'ha`, `ha_______'ho'yo'ho`, `ha_______'ho'yo'yia`, `ha_______'ho'ya'yo`, `ha_______'ho'ya'ya`, `ha_______'ho'ya'yoi`, `ha_______'ho'ya'ha`, `ha_______'ho'ya'ho`, `ha_______'ho'ya'yia`, `ha_______'ho'yoi'yo`, `ha_______'ho'yoi'ya`, `ha_______'ho'yoi'yoi`, `ha_______'ho'yoi'ha`, `ha_______'ho'yoi'ho`, `ha_______'ho'yoi'yia`, `ha_______'ho'ha'yo`, `ha_______'ho'ha'ya`, `ha_______'ho'ha'yoi`, `ha_______'ho'ha'ha`, `ha_______'ho'ha'ho`, `ha_______'ho'ha'yia`, `ha_______'ho'ho'yo`, `ha_______'ho'ho'ya`, `ha_______'ho'ho'yoi`, `ha_______'ho'ho'ha`, `ha_______'ho'ho'ho`, `ha_______'ho'ho'yia`, `ha_______'ho'yia'yo`, `ha_______'ho'yia'ya`, `ha_______'ho'yia'yoi`, `ha_______'ho'yia'ha`, `ha_______'ho'yia'ho`, `ha_______'ho'yia'yia`, `ha_______'yia'yo'yo`, `ha_______'yia'yo'ya`, `ha_______'yia'yo'yoi`, `ha_______'yia'yo'ha`, `ha_______'yia'yo'ho`, `ha_______'yia'yo'yia`, `ha_______'yia'ya'yo`, `ha_______'yia'ya'ya`, `ha_______'yia'ya'yoi`, `ha_______'yia'ya'ha`, `ha_______'yia'ya'ho`, `ha_______'yia'ya'yia`, `ha_______'yia'yoi'yo`, `ha_______'yia'yoi'ya`, `ha_______'yia'yoi'yoi`, `ha_______'yia'yoi'ha`, `ha_______'yia'yoi'ho`, `ha_______'yia'yoi'yia`, `ha_______'yia'ha'yo`, `ha_______'yia'ha'ya`, `ha_______'yia'ha'yoi`, `ha_______'yia'ha'ha`, `ha_______'yia'ha'ho`, `ha_______'yia'ha'yia`, `ha_______'yia'ho'yo`, `ha_______'yia'ho'ya`, `ha_______'yia'ho'yoi`, `ha_______'yia'ho'ha`, `ha_______'yia'ho'ho`, `ha_______'yia'ho'yia`, `ha_______'yia'yia'yo`, `ha_______'yia'yia'ya`, `ha_______'yia'yia'yoi`, `ha_______'yia'yia'ha`, `ha_______'yia'yia'ho`, `ha_______'yia'yia'yia`, `ho_______'yo'yo'yo`, `ho_______'yo'yo'ya`, `ho_______'yo'yo'yoi`, `ho_______'yo'yo'ha`, `ho_______'yo'yo'ho`, `ho_______'yo'yo'yia`, `ho_______'yo'ya'yo`, `ho_______'yo'ya'ya`, `ho_______'yo'ya'yoi`, `ho_______'yo'ya'ha`, `ho_______'yo'ya'ho`, `ho_______'yo'ya'yia`, `ho_______'yo'yoi'yo`, `ho_______'yo'yoi'ya`, `ho_______'yo'yoi'yoi`, `ho_______'yo'yoi'ha`, `ho_______'yo'yoi'ho`, `ho_______'yo'yoi'yia`, `ho_______'yo'ha'yo`, `ho_______'yo'ha'ya`, `ho_______'yo'ha'yoi`, `ho_______'yo'ha'ha`, `ho_______'yo'ha'ho`, `ho_______'yo'ha'yia`, `ho_______'yo'ho'yo`, `ho_______'yo'ho'ya`, `ho_______'yo'ho'yoi`, `ho_______'yo'ho'ha`, `ho_______'yo'ho'ho`, `ho_______'yo'ho'yia`, `ho_______'yo'yia'yo`, `ho_______'yo'yia'ya`, `ho_______'yo'yia'yoi`, `ho_______'yo'yia'ha`, `ho_______'yo'yia'ho`, `ho_______'yo'yia'yia`, `ho_______'ya'yo'yo`, `ho_______'ya'yo'ya`, `ho_______'ya'yo'yoi`, `ho_______'ya'yo'ha`, `ho_______'ya'yo'ho`, `ho_______'ya'yo'yia`, `ho_______'ya'ya'yo`, `ho_______'ya'ya'ya`, `ho_______'ya'ya'yoi`, `ho_______'ya'ya'ha`, `ho_______'ya'ya'ho`, `ho_______'ya'ya'yia`, `ho_______'ya'yoi'yo`, `ho_______'ya'yoi'ya`, `ho_______'ya'yoi'yoi`, `ho_______'ya'yoi'ha`, `ho_______'ya'yoi'ho`, `ho_______'ya'yoi'yia`, `ho_______'ya'ha'yo`, `ho_______'ya'ha'ya`, `ho_______'ya'ha'yoi`, `ho_______'ya'ha'ha`, `ho_______'ya'ha'ho`, `ho_______'ya'ha'yia`, `ho_______'ya'ho'yo`, `ho_______'ya'ho'ya`, `ho_______'ya'ho'yoi`, `ho_______'ya'ho'ha`, `ho_______'ya'ho'ho`, `ho_______'ya'ho'yia`, `ho_______'ya'yia'yo`, `ho_______'ya'yia'ya`, `ho_______'ya'yia'yoi`, `ho_______'ya'yia'ha`, `ho_______'ya'yia'ho`, `ho_______'ya'yia'yia`, `ho_______'yoi'yo'yo`, `ho_______'yoi'yo'ya`, `ho_______'yoi'yo'yoi`, `ho_______'yoi'yo'ha`, `ho_______'yoi'yo'ho`, `ho_______'yoi'yo'yia`, `ho_______'yoi'ya'yo`, `ho_______'yoi'ya'ya`, `ho_______'yoi'ya'yoi`, `ho_______'yoi'ya'ha`, `ho_______'yoi'ya'ho`, `ho_______'yoi'ya'yia`, `ho_______'yoi'yoi'yo`, `ho_______'yoi'yoi'ya`, `ho_______'yoi'yoi'yoi`, `ho_______'yoi'yoi'ha`, `ho_______'yoi'yoi'ho`, `ho_______'yoi'yoi'yia`, `ho_______'yoi'ha'yo`, `ho_______'yoi'ha'ya`, `ho_______'yoi'ha'yoi`, `ho_______'yoi'ha'ha`, `ho_______'yoi'ha'ho`, `ho_______'yoi'ha'yia`, `ho_______'yoi'ho'yo`, `ho_______'yoi'ho'ya`, `ho_______'yoi'ho'yoi`, `ho_______'yoi'ho'ha`, `ho_______'yoi'ho'ho`, `ho_______'yoi'ho'yia`, `ho_______'yoi'yia'yo`, `ho_______'yoi'yia'ya`, `ho_______'yoi'yia'yoi`, `ho_______'yoi'yia'ha`, `ho_______'yoi'yia'ho`, `ho_______'yoi'yia'yia`, `ho_______'ha'yo'yo`, `ho_______'ha'yo'ya`, `ho_______'ha'yo'yoi`, `ho_______'ha'yo'ha`, `ho_______'ha'yo'ho`, `ho_______'ha'yo'yia`, `ho_______'ha'ya'yo`, `ho_______'ha'ya'ya`, `ho_______'ha'ya'yoi`, `ho_______'ha'ya'ha`, `ho_______'ha'ya'ho`, `ho_______'ha'ya'yia`, `ho_______'ha'yoi'yo`, `ho_______'ha'yoi'ya`, `ho_______'ha'yoi'yoi`, `ho_______'ha'yoi'ha`, `ho_______'ha'yoi'ho`, `ho_______'ha'yoi'yia`, `ho_______'ha'ha'yo`, `ho_______'ha'ha'ya`, `ho_______'ha'ha'yoi`, `ho_______'ha'ha'ha`, `ho_______'ha'ha'ho`, `ho_______'ha'ha'yia`, `ho_______'ha'ho'yo`, `ho_______'ha'ho'ya`, `ho_______'ha'ho'yoi`, `ho_______'ha'ho'ha`, `ho_______'ha'ho'ho`, `ho_______'ha'ho'yia`, `ho_______'ha'yia'yo`, `ho_______'ha'yia'ya`, `ho_______'ha'yia'yoi`, `ho_______'ha'yia'ha`, `ho_______'ha'yia'ho`, `ho_______'ha'yia'yia`, `ho_______'ho'yo'yo`, `ho_______'ho'yo'ya`, `ho_______'ho'yo'yoi`, `ho_______'ho'yo'ha`, `ho_______'ho'yo'ho`, `ho_______'ho'yo'yia`, `ho_______'ho'ya'yo`, `ho_______'ho'ya'ya`, `ho_______'ho'ya'yoi`, `ho_______'ho'ya'ha`, `ho_______'ho'ya'ho`, `ho_______'ho'ya'yia`, `ho_______'ho'yoi'yo`, `ho_______'ho'yoi'ya`, `ho_______'ho'yoi'yoi`, `ho_______'ho'yoi'ha`, `ho_______'ho'yoi'ho`, `ho_______'ho'yoi'yia`, `ho_______'ho'ha'yo`, `ho_______'ho'ha'ya`, `ho_______'ho'ha'yoi`, `ho_______'ho'ha'ha`, `ho_______'ho'ha'ho`, `ho_______'ho'ha'yia`, `ho_______'ho'ho'yo`, `ho_______'ho'ho'ya`, `ho_______'ho'ho'yoi`, `ho_______'ho'ho'ha`, `ho_______'ho'ho'ho`, `ho_______'ho'ho'yia`, `ho_______'ho'yia'yo`, `ho_______'ho'yia'ya`, `ho_______'ho'yia'yoi`, `ho_______'ho'yia'ha`, `ho_______'ho'yia'ho`, `ho_______'ho'yia'yia`, `ho_______'yia'yo'yo`, `ho_______'yia'yo'ya`, `ho_______'yia'yo'yoi`, `ho_______'yia'yo'ha`, `ho_______'yia'yo'ho`, `ho_______'yia'yo'yia`, `ho_______'yia'ya'yo`, `ho_______'yia'ya'ya`, `ho_______'yia'ya'yoi`, `ho_______'yia'ya'ha`, `ho_______'yia'ya'ho`, `ho_______'yia'ya'yia`, `ho_______'yia'yoi'yo`, `ho_______'yia'yoi'ya`, `ho_______'yia'yoi'yoi`, `ho_______'yia'yoi'ha`, `ho_______'yia'yoi'ho`, `ho_______'yia'yoi'yia`, `ho_______'yia'ha'yo`, `ho_______'yia'ha'ya`, `ho_______'yia'ha'yoi`, `ho_______'yia'ha'ha`, `ho_______'yia'ha'ho`, `ho_______'yia'ha'yia`, `ho_______'yia'ho'yo`, `ho_______'yia'ho'ya`, `ho_______'yia'ho'yoi`, `ho_______'yia'ho'ha`, `ho_______'yia'ho'ho`, `ho_______'yia'ho'yia`, `ho_______'yia'yia'yo`, `ho_______'yia'yia'ya`, `ho_______'yia'yia'yoi`, `ho_______'yia'yia'ha`, `ho_______'yia'yia'ho`, `ho_______'yia'yia'yia`
+infixl 3 `ha______'yo'st'st`, `ha______'ya'st'st`, `ha______'yoi'st'st`, `ha______'ha'st'st`, `ha______'ho'st'st`, `ha______'yia'st'st`, `ho______'yo'st'st`, `ho______'ya'st'st`, `ho______'yoi'st'st`, `ho______'ha'st'st`, `ho______'ho'st'st`, `ho______'yia'st'st`, `ha______'yo'yo'st`, `ha______'yo'ya'st`, `ha______'yo'yoi'st`, `ha______'yo'ha'st`, `ha______'yo'ho'st`, `ha______'yo'yia'st`, `ha______'ya'yo'st`, `ha______'ya'ya'st`, `ha______'ya'yoi'st`, `ha______'ya'ha'st`, `ha______'ya'ho'st`, `ha______'ya'yia'st`, `ha______'yoi'yo'st`, `ha______'yoi'ya'st`, `ha______'yoi'yoi'st`, `ha______'yoi'ha'st`, `ha______'yoi'ho'st`, `ha______'yoi'yia'st`, `ha______'ha'yo'st`, `ha______'ha'ya'st`, `ha______'ha'yoi'st`, `ha______'ha'ha'st`, `ha______'ha'ho'st`, `ha______'ha'yia'st`, `ha______'ho'yo'st`, `ha______'ho'ya'st`, `ha______'ho'yoi'st`, `ha______'ho'ha'st`, `ha______'ho'ho'st`, `ha______'ho'yia'st`, `ha______'yia'yo'st`, `ha______'yia'ya'st`, `ha______'yia'yoi'st`, `ha______'yia'ha'st`, `ha______'yia'ho'st`, `ha______'yia'yia'st`, `ho______'yo'yo'st`, `ho______'yo'ya'st`, `ho______'yo'yoi'st`, `ho______'yo'ha'st`, `ho______'yo'ho'st`, `ho______'yo'yia'st`, `ho______'ya'yo'st`, `ho______'ya'ya'st`, `ho______'ya'yoi'st`, `ho______'ya'ha'st`, `ho______'ya'ho'st`, `ho______'ya'yia'st`, `ho______'yoi'yo'st`, `ho______'yoi'ya'st`, `ho______'yoi'yoi'st`, `ho______'yoi'ha'st`, `ho______'yoi'ho'st`, `ho______'yoi'yia'st`, `ho______'ha'yo'st`, `ho______'ha'ya'st`, `ho______'ha'yoi'st`, `ho______'ha'ha'st`, `ho______'ha'ho'st`, `ho______'ha'yia'st`, `ho______'ho'yo'st`, `ho______'ho'ya'st`, `ho______'ho'yoi'st`, `ho______'ho'ha'st`, `ho______'ho'ho'st`, `ho______'ho'yia'st`, `ho______'yia'yo'st`, `ho______'yia'ya'st`, `ho______'yia'yoi'st`, `ho______'yia'ha'st`, `ho______'yia'ho'st`, `ho______'yia'yia'st`, `ha______'yo'yo'yo`, `ha______'yo'yo'ya`, `ha______'yo'yo'yoi`, `ha______'yo'yo'ha`, `ha______'yo'yo'ho`, `ha______'yo'yo'yia`, `ha______'yo'ya'yo`, `ha______'yo'ya'ya`, `ha______'yo'ya'yoi`, `ha______'yo'ya'ha`, `ha______'yo'ya'ho`, `ha______'yo'ya'yia`, `ha______'yo'yoi'yo`, `ha______'yo'yoi'ya`, `ha______'yo'yoi'yoi`, `ha______'yo'yoi'ha`, `ha______'yo'yoi'ho`, `ha______'yo'yoi'yia`, `ha______'yo'ha'yo`, `ha______'yo'ha'ya`, `ha______'yo'ha'yoi`, `ha______'yo'ha'ha`, `ha______'yo'ha'ho`, `ha______'yo'ha'yia`, `ha______'yo'ho'yo`, `ha______'yo'ho'ya`, `ha______'yo'ho'yoi`, `ha______'yo'ho'ha`, `ha______'yo'ho'ho`, `ha______'yo'ho'yia`, `ha______'yo'yia'yo`, `ha______'yo'yia'ya`, `ha______'yo'yia'yoi`, `ha______'yo'yia'ha`, `ha______'yo'yia'ho`, `ha______'yo'yia'yia`, `ha______'ya'yo'yo`, `ha______'ya'yo'ya`, `ha______'ya'yo'yoi`, `ha______'ya'yo'ha`, `ha______'ya'yo'ho`, `ha______'ya'yo'yia`, `ha______'ya'ya'yo`, `ha______'ya'ya'ya`, `ha______'ya'ya'yoi`, `ha______'ya'ya'ha`, `ha______'ya'ya'ho`, `ha______'ya'ya'yia`, `ha______'ya'yoi'yo`, `ha______'ya'yoi'ya`, `ha______'ya'yoi'yoi`, `ha______'ya'yoi'ha`, `ha______'ya'yoi'ho`, `ha______'ya'yoi'yia`, `ha______'ya'ha'yo`, `ha______'ya'ha'ya`, `ha______'ya'ha'yoi`, `ha______'ya'ha'ha`, `ha______'ya'ha'ho`, `ha______'ya'ha'yia`, `ha______'ya'ho'yo`, `ha______'ya'ho'ya`, `ha______'ya'ho'yoi`, `ha______'ya'ho'ha`, `ha______'ya'ho'ho`, `ha______'ya'ho'yia`, `ha______'ya'yia'yo`, `ha______'ya'yia'ya`, `ha______'ya'yia'yoi`, `ha______'ya'yia'ha`, `ha______'ya'yia'ho`, `ha______'ya'yia'yia`, `ha______'yoi'yo'yo`, `ha______'yoi'yo'ya`, `ha______'yoi'yo'yoi`, `ha______'yoi'yo'ha`, `ha______'yoi'yo'ho`, `ha______'yoi'yo'yia`, `ha______'yoi'ya'yo`, `ha______'yoi'ya'ya`, `ha______'yoi'ya'yoi`, `ha______'yoi'ya'ha`, `ha______'yoi'ya'ho`, `ha______'yoi'ya'yia`, `ha______'yoi'yoi'yo`, `ha______'yoi'yoi'ya`, `ha______'yoi'yoi'yoi`, `ha______'yoi'yoi'ha`, `ha______'yoi'yoi'ho`, `ha______'yoi'yoi'yia`, `ha______'yoi'ha'yo`, `ha______'yoi'ha'ya`, `ha______'yoi'ha'yoi`, `ha______'yoi'ha'ha`, `ha______'yoi'ha'ho`, `ha______'yoi'ha'yia`, `ha______'yoi'ho'yo`, `ha______'yoi'ho'ya`, `ha______'yoi'ho'yoi`, `ha______'yoi'ho'ha`, `ha______'yoi'ho'ho`, `ha______'yoi'ho'yia`, `ha______'yoi'yia'yo`, `ha______'yoi'yia'ya`, `ha______'yoi'yia'yoi`, `ha______'yoi'yia'ha`, `ha______'yoi'yia'ho`, `ha______'yoi'yia'yia`, `ha______'ha'yo'yo`, `ha______'ha'yo'ya`, `ha______'ha'yo'yoi`, `ha______'ha'yo'ha`, `ha______'ha'yo'ho`, `ha______'ha'yo'yia`, `ha______'ha'ya'yo`, `ha______'ha'ya'ya`, `ha______'ha'ya'yoi`, `ha______'ha'ya'ha`, `ha______'ha'ya'ho`, `ha______'ha'ya'yia`, `ha______'ha'yoi'yo`, `ha______'ha'yoi'ya`, `ha______'ha'yoi'yoi`, `ha______'ha'yoi'ha`, `ha______'ha'yoi'ho`, `ha______'ha'yoi'yia`, `ha______'ha'ha'yo`, `ha______'ha'ha'ya`, `ha______'ha'ha'yoi`, `ha______'ha'ha'ha`, `ha______'ha'ha'ho`, `ha______'ha'ha'yia`, `ha______'ha'ho'yo`, `ha______'ha'ho'ya`, `ha______'ha'ho'yoi`, `ha______'ha'ho'ha`, `ha______'ha'ho'ho`, `ha______'ha'ho'yia`, `ha______'ha'yia'yo`, `ha______'ha'yia'ya`, `ha______'ha'yia'yoi`, `ha______'ha'yia'ha`, `ha______'ha'yia'ho`, `ha______'ha'yia'yia`, `ha______'ho'yo'yo`, `ha______'ho'yo'ya`, `ha______'ho'yo'yoi`, `ha______'ho'yo'ha`, `ha______'ho'yo'ho`, `ha______'ho'yo'yia`, `ha______'ho'ya'yo`, `ha______'ho'ya'ya`, `ha______'ho'ya'yoi`, `ha______'ho'ya'ha`, `ha______'ho'ya'ho`, `ha______'ho'ya'yia`, `ha______'ho'yoi'yo`, `ha______'ho'yoi'ya`, `ha______'ho'yoi'yoi`, `ha______'ho'yoi'ha`, `ha______'ho'yoi'ho`, `ha______'ho'yoi'yia`, `ha______'ho'ha'yo`, `ha______'ho'ha'ya`, `ha______'ho'ha'yoi`, `ha______'ho'ha'ha`, `ha______'ho'ha'ho`, `ha______'ho'ha'yia`, `ha______'ho'ho'yo`, `ha______'ho'ho'ya`, `ha______'ho'ho'yoi`, `ha______'ho'ho'ha`, `ha______'ho'ho'ho`, `ha______'ho'ho'yia`, `ha______'ho'yia'yo`, `ha______'ho'yia'ya`, `ha______'ho'yia'yoi`, `ha______'ho'yia'ha`, `ha______'ho'yia'ho`, `ha______'ho'yia'yia`, `ha______'yia'yo'yo`, `ha______'yia'yo'ya`, `ha______'yia'yo'yoi`, `ha______'yia'yo'ha`, `ha______'yia'yo'ho`, `ha______'yia'yo'yia`, `ha______'yia'ya'yo`, `ha______'yia'ya'ya`, `ha______'yia'ya'yoi`, `ha______'yia'ya'ha`, `ha______'yia'ya'ho`, `ha______'yia'ya'yia`, `ha______'yia'yoi'yo`, `ha______'yia'yoi'ya`, `ha______'yia'yoi'yoi`, `ha______'yia'yoi'ha`, `ha______'yia'yoi'ho`, `ha______'yia'yoi'yia`, `ha______'yia'ha'yo`, `ha______'yia'ha'ya`, `ha______'yia'ha'yoi`, `ha______'yia'ha'ha`, `ha______'yia'ha'ho`, `ha______'yia'ha'yia`, `ha______'yia'ho'yo`, `ha______'yia'ho'ya`, `ha______'yia'ho'yoi`, `ha______'yia'ho'ha`, `ha______'yia'ho'ho`, `ha______'yia'ho'yia`, `ha______'yia'yia'yo`, `ha______'yia'yia'ya`, `ha______'yia'yia'yoi`, `ha______'yia'yia'ha`, `ha______'yia'yia'ho`, `ha______'yia'yia'yia`, `ho______'yo'yo'yo`, `ho______'yo'yo'ya`, `ho______'yo'yo'yoi`, `ho______'yo'yo'ha`, `ho______'yo'yo'ho`, `ho______'yo'yo'yia`, `ho______'yo'ya'yo`, `ho______'yo'ya'ya`, `ho______'yo'ya'yoi`, `ho______'yo'ya'ha`, `ho______'yo'ya'ho`, `ho______'yo'ya'yia`, `ho______'yo'yoi'yo`, `ho______'yo'yoi'ya`, `ho______'yo'yoi'yoi`, `ho______'yo'yoi'ha`, `ho______'yo'yoi'ho`, `ho______'yo'yoi'yia`, `ho______'yo'ha'yo`, `ho______'yo'ha'ya`, `ho______'yo'ha'yoi`, `ho______'yo'ha'ha`, `ho______'yo'ha'ho`, `ho______'yo'ha'yia`, `ho______'yo'ho'yo`, `ho______'yo'ho'ya`, `ho______'yo'ho'yoi`, `ho______'yo'ho'ha`, `ho______'yo'ho'ho`, `ho______'yo'ho'yia`, `ho______'yo'yia'yo`, `ho______'yo'yia'ya`, `ho______'yo'yia'yoi`, `ho______'yo'yia'ha`, `ho______'yo'yia'ho`, `ho______'yo'yia'yia`, `ho______'ya'yo'yo`, `ho______'ya'yo'ya`, `ho______'ya'yo'yoi`, `ho______'ya'yo'ha`, `ho______'ya'yo'ho`, `ho______'ya'yo'yia`, `ho______'ya'ya'yo`, `ho______'ya'ya'ya`, `ho______'ya'ya'yoi`, `ho______'ya'ya'ha`, `ho______'ya'ya'ho`, `ho______'ya'ya'yia`, `ho______'ya'yoi'yo`, `ho______'ya'yoi'ya`, `ho______'ya'yoi'yoi`, `ho______'ya'yoi'ha`, `ho______'ya'yoi'ho`, `ho______'ya'yoi'yia`, `ho______'ya'ha'yo`, `ho______'ya'ha'ya`, `ho______'ya'ha'yoi`, `ho______'ya'ha'ha`, `ho______'ya'ha'ho`, `ho______'ya'ha'yia`, `ho______'ya'ho'yo`, `ho______'ya'ho'ya`, `ho______'ya'ho'yoi`, `ho______'ya'ho'ha`, `ho______'ya'ho'ho`, `ho______'ya'ho'yia`, `ho______'ya'yia'yo`, `ho______'ya'yia'ya`, `ho______'ya'yia'yoi`, `ho______'ya'yia'ha`, `ho______'ya'yia'ho`, `ho______'ya'yia'yia`, `ho______'yoi'yo'yo`, `ho______'yoi'yo'ya`, `ho______'yoi'yo'yoi`, `ho______'yoi'yo'ha`, `ho______'yoi'yo'ho`, `ho______'yoi'yo'yia`, `ho______'yoi'ya'yo`, `ho______'yoi'ya'ya`, `ho______'yoi'ya'yoi`, `ho______'yoi'ya'ha`, `ho______'yoi'ya'ho`, `ho______'yoi'ya'yia`, `ho______'yoi'yoi'yo`, `ho______'yoi'yoi'ya`, `ho______'yoi'yoi'yoi`, `ho______'yoi'yoi'ha`, `ho______'yoi'yoi'ho`, `ho______'yoi'yoi'yia`, `ho______'yoi'ha'yo`, `ho______'yoi'ha'ya`, `ho______'yoi'ha'yoi`, `ho______'yoi'ha'ha`, `ho______'yoi'ha'ho`, `ho______'yoi'ha'yia`, `ho______'yoi'ho'yo`, `ho______'yoi'ho'ya`, `ho______'yoi'ho'yoi`, `ho______'yoi'ho'ha`, `ho______'yoi'ho'ho`, `ho______'yoi'ho'yia`, `ho______'yoi'yia'yo`, `ho______'yoi'yia'ya`, `ho______'yoi'yia'yoi`, `ho______'yoi'yia'ha`, `ho______'yoi'yia'ho`, `ho______'yoi'yia'yia`, `ho______'ha'yo'yo`, `ho______'ha'yo'ya`, `ho______'ha'yo'yoi`, `ho______'ha'yo'ha`, `ho______'ha'yo'ho`, `ho______'ha'yo'yia`, `ho______'ha'ya'yo`, `ho______'ha'ya'ya`, `ho______'ha'ya'yoi`, `ho______'ha'ya'ha`, `ho______'ha'ya'ho`, `ho______'ha'ya'yia`, `ho______'ha'yoi'yo`, `ho______'ha'yoi'ya`, `ho______'ha'yoi'yoi`, `ho______'ha'yoi'ha`, `ho______'ha'yoi'ho`, `ho______'ha'yoi'yia`, `ho______'ha'ha'yo`, `ho______'ha'ha'ya`, `ho______'ha'ha'yoi`, `ho______'ha'ha'ha`, `ho______'ha'ha'ho`, `ho______'ha'ha'yia`, `ho______'ha'ho'yo`, `ho______'ha'ho'ya`, `ho______'ha'ho'yoi`, `ho______'ha'ho'ha`, `ho______'ha'ho'ho`, `ho______'ha'ho'yia`, `ho______'ha'yia'yo`, `ho______'ha'yia'ya`, `ho______'ha'yia'yoi`, `ho______'ha'yia'ha`, `ho______'ha'yia'ho`, `ho______'ha'yia'yia`, `ho______'ho'yo'yo`, `ho______'ho'yo'ya`, `ho______'ho'yo'yoi`, `ho______'ho'yo'ha`, `ho______'ho'yo'ho`, `ho______'ho'yo'yia`, `ho______'ho'ya'yo`, `ho______'ho'ya'ya`, `ho______'ho'ya'yoi`, `ho______'ho'ya'ha`, `ho______'ho'ya'ho`, `ho______'ho'ya'yia`, `ho______'ho'yoi'yo`, `ho______'ho'yoi'ya`, `ho______'ho'yoi'yoi`, `ho______'ho'yoi'ha`, `ho______'ho'yoi'ho`, `ho______'ho'yoi'yia`, `ho______'ho'ha'yo`, `ho______'ho'ha'ya`, `ho______'ho'ha'yoi`, `ho______'ho'ha'ha`, `ho______'ho'ha'ho`, `ho______'ho'ha'yia`, `ho______'ho'ho'yo`, `ho______'ho'ho'ya`, `ho______'ho'ho'yoi`, `ho______'ho'ho'ha`, `ho______'ho'ho'ho`, `ho______'ho'ho'yia`, `ho______'ho'yia'yo`, `ho______'ho'yia'ya`, `ho______'ho'yia'yoi`, `ho______'ho'yia'ha`, `ho______'ho'yia'ho`, `ho______'ho'yia'yia`, `ho______'yia'yo'yo`, `ho______'yia'yo'ya`, `ho______'yia'yo'yoi`, `ho______'yia'yo'ha`, `ho______'yia'yo'ho`, `ho______'yia'yo'yia`, `ho______'yia'ya'yo`, `ho______'yia'ya'ya`, `ho______'yia'ya'yoi`, `ho______'yia'ya'ha`, `ho______'yia'ya'ho`, `ho______'yia'ya'yia`, `ho______'yia'yoi'yo`, `ho______'yia'yoi'ya`, `ho______'yia'yoi'yoi`, `ho______'yia'yoi'ha`, `ho______'yia'yoi'ho`, `ho______'yia'yoi'yia`, `ho______'yia'ha'yo`, `ho______'yia'ha'ya`, `ho______'yia'ha'yoi`, `ho______'yia'ha'ha`, `ho______'yia'ha'ho`, `ho______'yia'ha'yia`, `ho______'yia'ho'yo`, `ho______'yia'ho'ya`, `ho______'yia'ho'yoi`, `ho______'yia'ho'ha`, `ho______'yia'ho'ho`, `ho______'yia'ho'yia`, `ho______'yia'yia'yo`, `ho______'yia'yia'ya`, `ho______'yia'yia'yoi`, `ho______'yia'yia'ha`, `ho______'yia'yia'ho`, `ho______'yia'yia'yia`
+infixl 4 `ha_____'yo'st'st`, `ha_____'ya'st'st`, `ha_____'yoi'st'st`, `ha_____'ha'st'st`, `ha_____'ho'st'st`, `ha_____'yia'st'st`, `ho_____'yo'st'st`, `ho_____'ya'st'st`, `ho_____'yoi'st'st`, `ho_____'ha'st'st`, `ho_____'ho'st'st`, `ho_____'yia'st'st`, `ha_____'yo'yo'st`, `ha_____'yo'ya'st`, `ha_____'yo'yoi'st`, `ha_____'yo'ha'st`, `ha_____'yo'ho'st`, `ha_____'yo'yia'st`, `ha_____'ya'yo'st`, `ha_____'ya'ya'st`, `ha_____'ya'yoi'st`, `ha_____'ya'ha'st`, `ha_____'ya'ho'st`, `ha_____'ya'yia'st`, `ha_____'yoi'yo'st`, `ha_____'yoi'ya'st`, `ha_____'yoi'yoi'st`, `ha_____'yoi'ha'st`, `ha_____'yoi'ho'st`, `ha_____'yoi'yia'st`, `ha_____'ha'yo'st`, `ha_____'ha'ya'st`, `ha_____'ha'yoi'st`, `ha_____'ha'ha'st`, `ha_____'ha'ho'st`, `ha_____'ha'yia'st`, `ha_____'ho'yo'st`, `ha_____'ho'ya'st`, `ha_____'ho'yoi'st`, `ha_____'ho'ha'st`, `ha_____'ho'ho'st`, `ha_____'ho'yia'st`, `ha_____'yia'yo'st`, `ha_____'yia'ya'st`, `ha_____'yia'yoi'st`, `ha_____'yia'ha'st`, `ha_____'yia'ho'st`, `ha_____'yia'yia'st`, `ho_____'yo'yo'st`, `ho_____'yo'ya'st`, `ho_____'yo'yoi'st`, `ho_____'yo'ha'st`, `ho_____'yo'ho'st`, `ho_____'yo'yia'st`, `ho_____'ya'yo'st`, `ho_____'ya'ya'st`, `ho_____'ya'yoi'st`, `ho_____'ya'ha'st`, `ho_____'ya'ho'st`, `ho_____'ya'yia'st`, `ho_____'yoi'yo'st`, `ho_____'yoi'ya'st`, `ho_____'yoi'yoi'st`, `ho_____'yoi'ha'st`, `ho_____'yoi'ho'st`, `ho_____'yoi'yia'st`, `ho_____'ha'yo'st`, `ho_____'ha'ya'st`, `ho_____'ha'yoi'st`, `ho_____'ha'ha'st`, `ho_____'ha'ho'st`, `ho_____'ha'yia'st`, `ho_____'ho'yo'st`, `ho_____'ho'ya'st`, `ho_____'ho'yoi'st`, `ho_____'ho'ha'st`, `ho_____'ho'ho'st`, `ho_____'ho'yia'st`, `ho_____'yia'yo'st`, `ho_____'yia'ya'st`, `ho_____'yia'yoi'st`, `ho_____'yia'ha'st`, `ho_____'yia'ho'st`, `ho_____'yia'yia'st`, `ha_____'yo'yo'yo`, `ha_____'yo'yo'ya`, `ha_____'yo'yo'yoi`, `ha_____'yo'yo'ha`, `ha_____'yo'yo'ho`, `ha_____'yo'yo'yia`, `ha_____'yo'ya'yo`, `ha_____'yo'ya'ya`, `ha_____'yo'ya'yoi`, `ha_____'yo'ya'ha`, `ha_____'yo'ya'ho`, `ha_____'yo'ya'yia`, `ha_____'yo'yoi'yo`, `ha_____'yo'yoi'ya`, `ha_____'yo'yoi'yoi`, `ha_____'yo'yoi'ha`, `ha_____'yo'yoi'ho`, `ha_____'yo'yoi'yia`, `ha_____'yo'ha'yo`, `ha_____'yo'ha'ya`, `ha_____'yo'ha'yoi`, `ha_____'yo'ha'ha`, `ha_____'yo'ha'ho`, `ha_____'yo'ha'yia`, `ha_____'yo'ho'yo`, `ha_____'yo'ho'ya`, `ha_____'yo'ho'yoi`, `ha_____'yo'ho'ha`, `ha_____'yo'ho'ho`, `ha_____'yo'ho'yia`, `ha_____'yo'yia'yo`, `ha_____'yo'yia'ya`, `ha_____'yo'yia'yoi`, `ha_____'yo'yia'ha`, `ha_____'yo'yia'ho`, `ha_____'yo'yia'yia`, `ha_____'ya'yo'yo`, `ha_____'ya'yo'ya`, `ha_____'ya'yo'yoi`, `ha_____'ya'yo'ha`, `ha_____'ya'yo'ho`, `ha_____'ya'yo'yia`, `ha_____'ya'ya'yo`, `ha_____'ya'ya'ya`, `ha_____'ya'ya'yoi`, `ha_____'ya'ya'ha`, `ha_____'ya'ya'ho`, `ha_____'ya'ya'yia`, `ha_____'ya'yoi'yo`, `ha_____'ya'yoi'ya`, `ha_____'ya'yoi'yoi`, `ha_____'ya'yoi'ha`, `ha_____'ya'yoi'ho`, `ha_____'ya'yoi'yia`, `ha_____'ya'ha'yo`, `ha_____'ya'ha'ya`, `ha_____'ya'ha'yoi`, `ha_____'ya'ha'ha`, `ha_____'ya'ha'ho`, `ha_____'ya'ha'yia`, `ha_____'ya'ho'yo`, `ha_____'ya'ho'ya`, `ha_____'ya'ho'yoi`, `ha_____'ya'ho'ha`, `ha_____'ya'ho'ho`, `ha_____'ya'ho'yia`, `ha_____'ya'yia'yo`, `ha_____'ya'yia'ya`, `ha_____'ya'yia'yoi`, `ha_____'ya'yia'ha`, `ha_____'ya'yia'ho`, `ha_____'ya'yia'yia`, `ha_____'yoi'yo'yo`, `ha_____'yoi'yo'ya`, `ha_____'yoi'yo'yoi`, `ha_____'yoi'yo'ha`, `ha_____'yoi'yo'ho`, `ha_____'yoi'yo'yia`, `ha_____'yoi'ya'yo`, `ha_____'yoi'ya'ya`, `ha_____'yoi'ya'yoi`, `ha_____'yoi'ya'ha`, `ha_____'yoi'ya'ho`, `ha_____'yoi'ya'yia`, `ha_____'yoi'yoi'yo`, `ha_____'yoi'yoi'ya`, `ha_____'yoi'yoi'yoi`, `ha_____'yoi'yoi'ha`, `ha_____'yoi'yoi'ho`, `ha_____'yoi'yoi'yia`, `ha_____'yoi'ha'yo`, `ha_____'yoi'ha'ya`, `ha_____'yoi'ha'yoi`, `ha_____'yoi'ha'ha`, `ha_____'yoi'ha'ho`, `ha_____'yoi'ha'yia`, `ha_____'yoi'ho'yo`, `ha_____'yoi'ho'ya`, `ha_____'yoi'ho'yoi`, `ha_____'yoi'ho'ha`, `ha_____'yoi'ho'ho`, `ha_____'yoi'ho'yia`, `ha_____'yoi'yia'yo`, `ha_____'yoi'yia'ya`, `ha_____'yoi'yia'yoi`, `ha_____'yoi'yia'ha`, `ha_____'yoi'yia'ho`, `ha_____'yoi'yia'yia`, `ha_____'ha'yo'yo`, `ha_____'ha'yo'ya`, `ha_____'ha'yo'yoi`, `ha_____'ha'yo'ha`, `ha_____'ha'yo'ho`, `ha_____'ha'yo'yia`, `ha_____'ha'ya'yo`, `ha_____'ha'ya'ya`, `ha_____'ha'ya'yoi`, `ha_____'ha'ya'ha`, `ha_____'ha'ya'ho`, `ha_____'ha'ya'yia`, `ha_____'ha'yoi'yo`, `ha_____'ha'yoi'ya`, `ha_____'ha'yoi'yoi`, `ha_____'ha'yoi'ha`, `ha_____'ha'yoi'ho`, `ha_____'ha'yoi'yia`, `ha_____'ha'ha'yo`, `ha_____'ha'ha'ya`, `ha_____'ha'ha'yoi`, `ha_____'ha'ha'ha`, `ha_____'ha'ha'ho`, `ha_____'ha'ha'yia`, `ha_____'ha'ho'yo`, `ha_____'ha'ho'ya`, `ha_____'ha'ho'yoi`, `ha_____'ha'ho'ha`, `ha_____'ha'ho'ho`, `ha_____'ha'ho'yia`, `ha_____'ha'yia'yo`, `ha_____'ha'yia'ya`, `ha_____'ha'yia'yoi`, `ha_____'ha'yia'ha`, `ha_____'ha'yia'ho`, `ha_____'ha'yia'yia`, `ha_____'ho'yo'yo`, `ha_____'ho'yo'ya`, `ha_____'ho'yo'yoi`, `ha_____'ho'yo'ha`, `ha_____'ho'yo'ho`, `ha_____'ho'yo'yia`, `ha_____'ho'ya'yo`, `ha_____'ho'ya'ya`, `ha_____'ho'ya'yoi`, `ha_____'ho'ya'ha`, `ha_____'ho'ya'ho`, `ha_____'ho'ya'yia`, `ha_____'ho'yoi'yo`, `ha_____'ho'yoi'ya`, `ha_____'ho'yoi'yoi`, `ha_____'ho'yoi'ha`, `ha_____'ho'yoi'ho`, `ha_____'ho'yoi'yia`, `ha_____'ho'ha'yo`, `ha_____'ho'ha'ya`, `ha_____'ho'ha'yoi`, `ha_____'ho'ha'ha`, `ha_____'ho'ha'ho`, `ha_____'ho'ha'yia`, `ha_____'ho'ho'yo`, `ha_____'ho'ho'ya`, `ha_____'ho'ho'yoi`, `ha_____'ho'ho'ha`, `ha_____'ho'ho'ho`, `ha_____'ho'ho'yia`, `ha_____'ho'yia'yo`, `ha_____'ho'yia'ya`, `ha_____'ho'yia'yoi`, `ha_____'ho'yia'ha`, `ha_____'ho'yia'ho`, `ha_____'ho'yia'yia`, `ha_____'yia'yo'yo`, `ha_____'yia'yo'ya`, `ha_____'yia'yo'yoi`, `ha_____'yia'yo'ha`, `ha_____'yia'yo'ho`, `ha_____'yia'yo'yia`, `ha_____'yia'ya'yo`, `ha_____'yia'ya'ya`, `ha_____'yia'ya'yoi`, `ha_____'yia'ya'ha`, `ha_____'yia'ya'ho`, `ha_____'yia'ya'yia`, `ha_____'yia'yoi'yo`, `ha_____'yia'yoi'ya`, `ha_____'yia'yoi'yoi`, `ha_____'yia'yoi'ha`, `ha_____'yia'yoi'ho`, `ha_____'yia'yoi'yia`, `ha_____'yia'ha'yo`, `ha_____'yia'ha'ya`, `ha_____'yia'ha'yoi`, `ha_____'yia'ha'ha`, `ha_____'yia'ha'ho`, `ha_____'yia'ha'yia`, `ha_____'yia'ho'yo`, `ha_____'yia'ho'ya`, `ha_____'yia'ho'yoi`, `ha_____'yia'ho'ha`, `ha_____'yia'ho'ho`, `ha_____'yia'ho'yia`, `ha_____'yia'yia'yo`, `ha_____'yia'yia'ya`, `ha_____'yia'yia'yoi`, `ha_____'yia'yia'ha`, `ha_____'yia'yia'ho`, `ha_____'yia'yia'yia`, `ho_____'yo'yo'yo`, `ho_____'yo'yo'ya`, `ho_____'yo'yo'yoi`, `ho_____'yo'yo'ha`, `ho_____'yo'yo'ho`, `ho_____'yo'yo'yia`, `ho_____'yo'ya'yo`, `ho_____'yo'ya'ya`, `ho_____'yo'ya'yoi`, `ho_____'yo'ya'ha`, `ho_____'yo'ya'ho`, `ho_____'yo'ya'yia`, `ho_____'yo'yoi'yo`, `ho_____'yo'yoi'ya`, `ho_____'yo'yoi'yoi`, `ho_____'yo'yoi'ha`, `ho_____'yo'yoi'ho`, `ho_____'yo'yoi'yia`, `ho_____'yo'ha'yo`, `ho_____'yo'ha'ya`, `ho_____'yo'ha'yoi`, `ho_____'yo'ha'ha`, `ho_____'yo'ha'ho`, `ho_____'yo'ha'yia`, `ho_____'yo'ho'yo`, `ho_____'yo'ho'ya`, `ho_____'yo'ho'yoi`, `ho_____'yo'ho'ha`, `ho_____'yo'ho'ho`, `ho_____'yo'ho'yia`, `ho_____'yo'yia'yo`, `ho_____'yo'yia'ya`, `ho_____'yo'yia'yoi`, `ho_____'yo'yia'ha`, `ho_____'yo'yia'ho`, `ho_____'yo'yia'yia`, `ho_____'ya'yo'yo`, `ho_____'ya'yo'ya`, `ho_____'ya'yo'yoi`, `ho_____'ya'yo'ha`, `ho_____'ya'yo'ho`, `ho_____'ya'yo'yia`, `ho_____'ya'ya'yo`, `ho_____'ya'ya'ya`, `ho_____'ya'ya'yoi`, `ho_____'ya'ya'ha`, `ho_____'ya'ya'ho`, `ho_____'ya'ya'yia`, `ho_____'ya'yoi'yo`, `ho_____'ya'yoi'ya`, `ho_____'ya'yoi'yoi`, `ho_____'ya'yoi'ha`, `ho_____'ya'yoi'ho`, `ho_____'ya'yoi'yia`, `ho_____'ya'ha'yo`, `ho_____'ya'ha'ya`, `ho_____'ya'ha'yoi`, `ho_____'ya'ha'ha`, `ho_____'ya'ha'ho`, `ho_____'ya'ha'yia`, `ho_____'ya'ho'yo`, `ho_____'ya'ho'ya`, `ho_____'ya'ho'yoi`, `ho_____'ya'ho'ha`, `ho_____'ya'ho'ho`, `ho_____'ya'ho'yia`, `ho_____'ya'yia'yo`, `ho_____'ya'yia'ya`, `ho_____'ya'yia'yoi`, `ho_____'ya'yia'ha`, `ho_____'ya'yia'ho`, `ho_____'ya'yia'yia`, `ho_____'yoi'yo'yo`, `ho_____'yoi'yo'ya`, `ho_____'yoi'yo'yoi`, `ho_____'yoi'yo'ha`, `ho_____'yoi'yo'ho`, `ho_____'yoi'yo'yia`, `ho_____'yoi'ya'yo`, `ho_____'yoi'ya'ya`, `ho_____'yoi'ya'yoi`, `ho_____'yoi'ya'ha`, `ho_____'yoi'ya'ho`, `ho_____'yoi'ya'yia`, `ho_____'yoi'yoi'yo`, `ho_____'yoi'yoi'ya`, `ho_____'yoi'yoi'yoi`, `ho_____'yoi'yoi'ha`, `ho_____'yoi'yoi'ho`, `ho_____'yoi'yoi'yia`, `ho_____'yoi'ha'yo`, `ho_____'yoi'ha'ya`, `ho_____'yoi'ha'yoi`, `ho_____'yoi'ha'ha`, `ho_____'yoi'ha'ho`, `ho_____'yoi'ha'yia`, `ho_____'yoi'ho'yo`, `ho_____'yoi'ho'ya`, `ho_____'yoi'ho'yoi`, `ho_____'yoi'ho'ha`, `ho_____'yoi'ho'ho`, `ho_____'yoi'ho'yia`, `ho_____'yoi'yia'yo`, `ho_____'yoi'yia'ya`, `ho_____'yoi'yia'yoi`, `ho_____'yoi'yia'ha`, `ho_____'yoi'yia'ho`, `ho_____'yoi'yia'yia`, `ho_____'ha'yo'yo`, `ho_____'ha'yo'ya`, `ho_____'ha'yo'yoi`, `ho_____'ha'yo'ha`, `ho_____'ha'yo'ho`, `ho_____'ha'yo'yia`, `ho_____'ha'ya'yo`, `ho_____'ha'ya'ya`, `ho_____'ha'ya'yoi`, `ho_____'ha'ya'ha`, `ho_____'ha'ya'ho`, `ho_____'ha'ya'yia`, `ho_____'ha'yoi'yo`, `ho_____'ha'yoi'ya`, `ho_____'ha'yoi'yoi`, `ho_____'ha'yoi'ha`, `ho_____'ha'yoi'ho`, `ho_____'ha'yoi'yia`, `ho_____'ha'ha'yo`, `ho_____'ha'ha'ya`, `ho_____'ha'ha'yoi`, `ho_____'ha'ha'ha`, `ho_____'ha'ha'ho`, `ho_____'ha'ha'yia`, `ho_____'ha'ho'yo`, `ho_____'ha'ho'ya`, `ho_____'ha'ho'yoi`, `ho_____'ha'ho'ha`, `ho_____'ha'ho'ho`, `ho_____'ha'ho'yia`, `ho_____'ha'yia'yo`, `ho_____'ha'yia'ya`, `ho_____'ha'yia'yoi`, `ho_____'ha'yia'ha`, `ho_____'ha'yia'ho`, `ho_____'ha'yia'yia`, `ho_____'ho'yo'yo`, `ho_____'ho'yo'ya`, `ho_____'ho'yo'yoi`, `ho_____'ho'yo'ha`, `ho_____'ho'yo'ho`, `ho_____'ho'yo'yia`, `ho_____'ho'ya'yo`, `ho_____'ho'ya'ya`, `ho_____'ho'ya'yoi`, `ho_____'ho'ya'ha`, `ho_____'ho'ya'ho`, `ho_____'ho'ya'yia`, `ho_____'ho'yoi'yo`, `ho_____'ho'yoi'ya`, `ho_____'ho'yoi'yoi`, `ho_____'ho'yoi'ha`, `ho_____'ho'yoi'ho`, `ho_____'ho'yoi'yia`, `ho_____'ho'ha'yo`, `ho_____'ho'ha'ya`, `ho_____'ho'ha'yoi`, `ho_____'ho'ha'ha`, `ho_____'ho'ha'ho`, `ho_____'ho'ha'yia`, `ho_____'ho'ho'yo`, `ho_____'ho'ho'ya`, `ho_____'ho'ho'yoi`, `ho_____'ho'ho'ha`, `ho_____'ho'ho'ho`, `ho_____'ho'ho'yia`, `ho_____'ho'yia'yo`, `ho_____'ho'yia'ya`, `ho_____'ho'yia'yoi`, `ho_____'ho'yia'ha`, `ho_____'ho'yia'ho`, `ho_____'ho'yia'yia`, `ho_____'yia'yo'yo`, `ho_____'yia'yo'ya`, `ho_____'yia'yo'yoi`, `ho_____'yia'yo'ha`, `ho_____'yia'yo'ho`, `ho_____'yia'yo'yia`, `ho_____'yia'ya'yo`, `ho_____'yia'ya'ya`, `ho_____'yia'ya'yoi`, `ho_____'yia'ya'ha`, `ho_____'yia'ya'ho`, `ho_____'yia'ya'yia`, `ho_____'yia'yoi'yo`, `ho_____'yia'yoi'ya`, `ho_____'yia'yoi'yoi`, `ho_____'yia'yoi'ha`, `ho_____'yia'yoi'ho`, `ho_____'yia'yoi'yia`, `ho_____'yia'ha'yo`, `ho_____'yia'ha'ya`, `ho_____'yia'ha'yoi`, `ho_____'yia'ha'ha`, `ho_____'yia'ha'ho`, `ho_____'yia'ha'yia`, `ho_____'yia'ho'yo`, `ho_____'yia'ho'ya`, `ho_____'yia'ho'yoi`, `ho_____'yia'ho'ha`, `ho_____'yia'ho'ho`, `ho_____'yia'ho'yia`, `ho_____'yia'yia'yo`, `ho_____'yia'yia'ya`, `ho_____'yia'yia'yoi`, `ho_____'yia'yia'ha`, `ho_____'yia'yia'ho`, `ho_____'yia'yia'yia`
+infixl 5 `ha____'yo'st'st`, `ha____'ya'st'st`, `ha____'yoi'st'st`, `ha____'ha'st'st`, `ha____'ho'st'st`, `ha____'yia'st'st`, `ho____'yo'st'st`, `ho____'ya'st'st`, `ho____'yoi'st'st`, `ho____'ha'st'st`, `ho____'ho'st'st`, `ho____'yia'st'st`, `ha____'yo'yo'st`, `ha____'yo'ya'st`, `ha____'yo'yoi'st`, `ha____'yo'ha'st`, `ha____'yo'ho'st`, `ha____'yo'yia'st`, `ha____'ya'yo'st`, `ha____'ya'ya'st`, `ha____'ya'yoi'st`, `ha____'ya'ha'st`, `ha____'ya'ho'st`, `ha____'ya'yia'st`, `ha____'yoi'yo'st`, `ha____'yoi'ya'st`, `ha____'yoi'yoi'st`, `ha____'yoi'ha'st`, `ha____'yoi'ho'st`, `ha____'yoi'yia'st`, `ha____'ha'yo'st`, `ha____'ha'ya'st`, `ha____'ha'yoi'st`, `ha____'ha'ha'st`, `ha____'ha'ho'st`, `ha____'ha'yia'st`, `ha____'ho'yo'st`, `ha____'ho'ya'st`, `ha____'ho'yoi'st`, `ha____'ho'ha'st`, `ha____'ho'ho'st`, `ha____'ho'yia'st`, `ha____'yia'yo'st`, `ha____'yia'ya'st`, `ha____'yia'yoi'st`, `ha____'yia'ha'st`, `ha____'yia'ho'st`, `ha____'yia'yia'st`, `ho____'yo'yo'st`, `ho____'yo'ya'st`, `ho____'yo'yoi'st`, `ho____'yo'ha'st`, `ho____'yo'ho'st`, `ho____'yo'yia'st`, `ho____'ya'yo'st`, `ho____'ya'ya'st`, `ho____'ya'yoi'st`, `ho____'ya'ha'st`, `ho____'ya'ho'st`, `ho____'ya'yia'st`, `ho____'yoi'yo'st`, `ho____'yoi'ya'st`, `ho____'yoi'yoi'st`, `ho____'yoi'ha'st`, `ho____'yoi'ho'st`, `ho____'yoi'yia'st`, `ho____'ha'yo'st`, `ho____'ha'ya'st`, `ho____'ha'yoi'st`, `ho____'ha'ha'st`, `ho____'ha'ho'st`, `ho____'ha'yia'st`, `ho____'ho'yo'st`, `ho____'ho'ya'st`, `ho____'ho'yoi'st`, `ho____'ho'ha'st`, `ho____'ho'ho'st`, `ho____'ho'yia'st`, `ho____'yia'yo'st`, `ho____'yia'ya'st`, `ho____'yia'yoi'st`, `ho____'yia'ha'st`, `ho____'yia'ho'st`, `ho____'yia'yia'st`, `ha____'yo'yo'yo`, `ha____'yo'yo'ya`, `ha____'yo'yo'yoi`, `ha____'yo'yo'ha`, `ha____'yo'yo'ho`, `ha____'yo'yo'yia`, `ha____'yo'ya'yo`, `ha____'yo'ya'ya`, `ha____'yo'ya'yoi`, `ha____'yo'ya'ha`, `ha____'yo'ya'ho`, `ha____'yo'ya'yia`, `ha____'yo'yoi'yo`, `ha____'yo'yoi'ya`, `ha____'yo'yoi'yoi`, `ha____'yo'yoi'ha`, `ha____'yo'yoi'ho`, `ha____'yo'yoi'yia`, `ha____'yo'ha'yo`, `ha____'yo'ha'ya`, `ha____'yo'ha'yoi`, `ha____'yo'ha'ha`, `ha____'yo'ha'ho`, `ha____'yo'ha'yia`, `ha____'yo'ho'yo`, `ha____'yo'ho'ya`, `ha____'yo'ho'yoi`, `ha____'yo'ho'ha`, `ha____'yo'ho'ho`, `ha____'yo'ho'yia`, `ha____'yo'yia'yo`, `ha____'yo'yia'ya`, `ha____'yo'yia'yoi`, `ha____'yo'yia'ha`, `ha____'yo'yia'ho`, `ha____'yo'yia'yia`, `ha____'ya'yo'yo`, `ha____'ya'yo'ya`, `ha____'ya'yo'yoi`, `ha____'ya'yo'ha`, `ha____'ya'yo'ho`, `ha____'ya'yo'yia`, `ha____'ya'ya'yo`, `ha____'ya'ya'ya`, `ha____'ya'ya'yoi`, `ha____'ya'ya'ha`, `ha____'ya'ya'ho`, `ha____'ya'ya'yia`, `ha____'ya'yoi'yo`, `ha____'ya'yoi'ya`, `ha____'ya'yoi'yoi`, `ha____'ya'yoi'ha`, `ha____'ya'yoi'ho`, `ha____'ya'yoi'yia`, `ha____'ya'ha'yo`, `ha____'ya'ha'ya`, `ha____'ya'ha'yoi`, `ha____'ya'ha'ha`, `ha____'ya'ha'ho`, `ha____'ya'ha'yia`, `ha____'ya'ho'yo`, `ha____'ya'ho'ya`, `ha____'ya'ho'yoi`, `ha____'ya'ho'ha`, `ha____'ya'ho'ho`, `ha____'ya'ho'yia`, `ha____'ya'yia'yo`, `ha____'ya'yia'ya`, `ha____'ya'yia'yoi`, `ha____'ya'yia'ha`, `ha____'ya'yia'ho`, `ha____'ya'yia'yia`, `ha____'yoi'yo'yo`, `ha____'yoi'yo'ya`, `ha____'yoi'yo'yoi`, `ha____'yoi'yo'ha`, `ha____'yoi'yo'ho`, `ha____'yoi'yo'yia`, `ha____'yoi'ya'yo`, `ha____'yoi'ya'ya`, `ha____'yoi'ya'yoi`, `ha____'yoi'ya'ha`, `ha____'yoi'ya'ho`, `ha____'yoi'ya'yia`, `ha____'yoi'yoi'yo`, `ha____'yoi'yoi'ya`, `ha____'yoi'yoi'yoi`, `ha____'yoi'yoi'ha`, `ha____'yoi'yoi'ho`, `ha____'yoi'yoi'yia`, `ha____'yoi'ha'yo`, `ha____'yoi'ha'ya`, `ha____'yoi'ha'yoi`, `ha____'yoi'ha'ha`, `ha____'yoi'ha'ho`, `ha____'yoi'ha'yia`, `ha____'yoi'ho'yo`, `ha____'yoi'ho'ya`, `ha____'yoi'ho'yoi`, `ha____'yoi'ho'ha`, `ha____'yoi'ho'ho`, `ha____'yoi'ho'yia`, `ha____'yoi'yia'yo`, `ha____'yoi'yia'ya`, `ha____'yoi'yia'yoi`, `ha____'yoi'yia'ha`, `ha____'yoi'yia'ho`, `ha____'yoi'yia'yia`, `ha____'ha'yo'yo`, `ha____'ha'yo'ya`, `ha____'ha'yo'yoi`, `ha____'ha'yo'ha`, `ha____'ha'yo'ho`, `ha____'ha'yo'yia`, `ha____'ha'ya'yo`, `ha____'ha'ya'ya`, `ha____'ha'ya'yoi`, `ha____'ha'ya'ha`, `ha____'ha'ya'ho`, `ha____'ha'ya'yia`, `ha____'ha'yoi'yo`, `ha____'ha'yoi'ya`, `ha____'ha'yoi'yoi`, `ha____'ha'yoi'ha`, `ha____'ha'yoi'ho`, `ha____'ha'yoi'yia`, `ha____'ha'ha'yo`, `ha____'ha'ha'ya`, `ha____'ha'ha'yoi`, `ha____'ha'ha'ha`, `ha____'ha'ha'ho`, `ha____'ha'ha'yia`, `ha____'ha'ho'yo`, `ha____'ha'ho'ya`, `ha____'ha'ho'yoi`, `ha____'ha'ho'ha`, `ha____'ha'ho'ho`, `ha____'ha'ho'yia`, `ha____'ha'yia'yo`, `ha____'ha'yia'ya`, `ha____'ha'yia'yoi`, `ha____'ha'yia'ha`, `ha____'ha'yia'ho`, `ha____'ha'yia'yia`, `ha____'ho'yo'yo`, `ha____'ho'yo'ya`, `ha____'ho'yo'yoi`, `ha____'ho'yo'ha`, `ha____'ho'yo'ho`, `ha____'ho'yo'yia`, `ha____'ho'ya'yo`, `ha____'ho'ya'ya`, `ha____'ho'ya'yoi`, `ha____'ho'ya'ha`, `ha____'ho'ya'ho`, `ha____'ho'ya'yia`, `ha____'ho'yoi'yo`, `ha____'ho'yoi'ya`, `ha____'ho'yoi'yoi`, `ha____'ho'yoi'ha`, `ha____'ho'yoi'ho`, `ha____'ho'yoi'yia`, `ha____'ho'ha'yo`, `ha____'ho'ha'ya`, `ha____'ho'ha'yoi`, `ha____'ho'ha'ha`, `ha____'ho'ha'ho`, `ha____'ho'ha'yia`, `ha____'ho'ho'yo`, `ha____'ho'ho'ya`, `ha____'ho'ho'yoi`, `ha____'ho'ho'ha`, `ha____'ho'ho'ho`, `ha____'ho'ho'yia`, `ha____'ho'yia'yo`, `ha____'ho'yia'ya`, `ha____'ho'yia'yoi`, `ha____'ho'yia'ha`, `ha____'ho'yia'ho`, `ha____'ho'yia'yia`, `ha____'yia'yo'yo`, `ha____'yia'yo'ya`, `ha____'yia'yo'yoi`, `ha____'yia'yo'ha`, `ha____'yia'yo'ho`, `ha____'yia'yo'yia`, `ha____'yia'ya'yo`, `ha____'yia'ya'ya`, `ha____'yia'ya'yoi`, `ha____'yia'ya'ha`, `ha____'yia'ya'ho`, `ha____'yia'ya'yia`, `ha____'yia'yoi'yo`, `ha____'yia'yoi'ya`, `ha____'yia'yoi'yoi`, `ha____'yia'yoi'ha`, `ha____'yia'yoi'ho`, `ha____'yia'yoi'yia`, `ha____'yia'ha'yo`, `ha____'yia'ha'ya`, `ha____'yia'ha'yoi`, `ha____'yia'ha'ha`, `ha____'yia'ha'ho`, `ha____'yia'ha'yia`, `ha____'yia'ho'yo`, `ha____'yia'ho'ya`, `ha____'yia'ho'yoi`, `ha____'yia'ho'ha`, `ha____'yia'ho'ho`, `ha____'yia'ho'yia`, `ha____'yia'yia'yo`, `ha____'yia'yia'ya`, `ha____'yia'yia'yoi`, `ha____'yia'yia'ha`, `ha____'yia'yia'ho`, `ha____'yia'yia'yia`, `ho____'yo'yo'yo`, `ho____'yo'yo'ya`, `ho____'yo'yo'yoi`, `ho____'yo'yo'ha`, `ho____'yo'yo'ho`, `ho____'yo'yo'yia`, `ho____'yo'ya'yo`, `ho____'yo'ya'ya`, `ho____'yo'ya'yoi`, `ho____'yo'ya'ha`, `ho____'yo'ya'ho`, `ho____'yo'ya'yia`, `ho____'yo'yoi'yo`, `ho____'yo'yoi'ya`, `ho____'yo'yoi'yoi`, `ho____'yo'yoi'ha`, `ho____'yo'yoi'ho`, `ho____'yo'yoi'yia`, `ho____'yo'ha'yo`, `ho____'yo'ha'ya`, `ho____'yo'ha'yoi`, `ho____'yo'ha'ha`, `ho____'yo'ha'ho`, `ho____'yo'ha'yia`, `ho____'yo'ho'yo`, `ho____'yo'ho'ya`, `ho____'yo'ho'yoi`, `ho____'yo'ho'ha`, `ho____'yo'ho'ho`, `ho____'yo'ho'yia`, `ho____'yo'yia'yo`, `ho____'yo'yia'ya`, `ho____'yo'yia'yoi`, `ho____'yo'yia'ha`, `ho____'yo'yia'ho`, `ho____'yo'yia'yia`, `ho____'ya'yo'yo`, `ho____'ya'yo'ya`, `ho____'ya'yo'yoi`, `ho____'ya'yo'ha`, `ho____'ya'yo'ho`, `ho____'ya'yo'yia`, `ho____'ya'ya'yo`, `ho____'ya'ya'ya`, `ho____'ya'ya'yoi`, `ho____'ya'ya'ha`, `ho____'ya'ya'ho`, `ho____'ya'ya'yia`, `ho____'ya'yoi'yo`, `ho____'ya'yoi'ya`, `ho____'ya'yoi'yoi`, `ho____'ya'yoi'ha`, `ho____'ya'yoi'ho`, `ho____'ya'yoi'yia`, `ho____'ya'ha'yo`, `ho____'ya'ha'ya`, `ho____'ya'ha'yoi`, `ho____'ya'ha'ha`, `ho____'ya'ha'ho`, `ho____'ya'ha'yia`, `ho____'ya'ho'yo`, `ho____'ya'ho'ya`, `ho____'ya'ho'yoi`, `ho____'ya'ho'ha`, `ho____'ya'ho'ho`, `ho____'ya'ho'yia`, `ho____'ya'yia'yo`, `ho____'ya'yia'ya`, `ho____'ya'yia'yoi`, `ho____'ya'yia'ha`, `ho____'ya'yia'ho`, `ho____'ya'yia'yia`, `ho____'yoi'yo'yo`, `ho____'yoi'yo'ya`, `ho____'yoi'yo'yoi`, `ho____'yoi'yo'ha`, `ho____'yoi'yo'ho`, `ho____'yoi'yo'yia`, `ho____'yoi'ya'yo`, `ho____'yoi'ya'ya`, `ho____'yoi'ya'yoi`, `ho____'yoi'ya'ha`, `ho____'yoi'ya'ho`, `ho____'yoi'ya'yia`, `ho____'yoi'yoi'yo`, `ho____'yoi'yoi'ya`, `ho____'yoi'yoi'yoi`, `ho____'yoi'yoi'ha`, `ho____'yoi'yoi'ho`, `ho____'yoi'yoi'yia`, `ho____'yoi'ha'yo`, `ho____'yoi'ha'ya`, `ho____'yoi'ha'yoi`, `ho____'yoi'ha'ha`, `ho____'yoi'ha'ho`, `ho____'yoi'ha'yia`, `ho____'yoi'ho'yo`, `ho____'yoi'ho'ya`, `ho____'yoi'ho'yoi`, `ho____'yoi'ho'ha`, `ho____'yoi'ho'ho`, `ho____'yoi'ho'yia`, `ho____'yoi'yia'yo`, `ho____'yoi'yia'ya`, `ho____'yoi'yia'yoi`, `ho____'yoi'yia'ha`, `ho____'yoi'yia'ho`, `ho____'yoi'yia'yia`, `ho____'ha'yo'yo`, `ho____'ha'yo'ya`, `ho____'ha'yo'yoi`, `ho____'ha'yo'ha`, `ho____'ha'yo'ho`, `ho____'ha'yo'yia`, `ho____'ha'ya'yo`, `ho____'ha'ya'ya`, `ho____'ha'ya'yoi`, `ho____'ha'ya'ha`, `ho____'ha'ya'ho`, `ho____'ha'ya'yia`, `ho____'ha'yoi'yo`, `ho____'ha'yoi'ya`, `ho____'ha'yoi'yoi`, `ho____'ha'yoi'ha`, `ho____'ha'yoi'ho`, `ho____'ha'yoi'yia`, `ho____'ha'ha'yo`, `ho____'ha'ha'ya`, `ho____'ha'ha'yoi`, `ho____'ha'ha'ha`, `ho____'ha'ha'ho`, `ho____'ha'ha'yia`, `ho____'ha'ho'yo`, `ho____'ha'ho'ya`, `ho____'ha'ho'yoi`, `ho____'ha'ho'ha`, `ho____'ha'ho'ho`, `ho____'ha'ho'yia`, `ho____'ha'yia'yo`, `ho____'ha'yia'ya`, `ho____'ha'yia'yoi`, `ho____'ha'yia'ha`, `ho____'ha'yia'ho`, `ho____'ha'yia'yia`, `ho____'ho'yo'yo`, `ho____'ho'yo'ya`, `ho____'ho'yo'yoi`, `ho____'ho'yo'ha`, `ho____'ho'yo'ho`, `ho____'ho'yo'yia`, `ho____'ho'ya'yo`, `ho____'ho'ya'ya`, `ho____'ho'ya'yoi`, `ho____'ho'ya'ha`, `ho____'ho'ya'ho`, `ho____'ho'ya'yia`, `ho____'ho'yoi'yo`, `ho____'ho'yoi'ya`, `ho____'ho'yoi'yoi`, `ho____'ho'yoi'ha`, `ho____'ho'yoi'ho`, `ho____'ho'yoi'yia`, `ho____'ho'ha'yo`, `ho____'ho'ha'ya`, `ho____'ho'ha'yoi`, `ho____'ho'ha'ha`, `ho____'ho'ha'ho`, `ho____'ho'ha'yia`, `ho____'ho'ho'yo`, `ho____'ho'ho'ya`, `ho____'ho'ho'yoi`, `ho____'ho'ho'ha`, `ho____'ho'ho'ho`, `ho____'ho'ho'yia`, `ho____'ho'yia'yo`, `ho____'ho'yia'ya`, `ho____'ho'yia'yoi`, `ho____'ho'yia'ha`, `ho____'ho'yia'ho`, `ho____'ho'yia'yia`, `ho____'yia'yo'yo`, `ho____'yia'yo'ya`, `ho____'yia'yo'yoi`, `ho____'yia'yo'ha`, `ho____'yia'yo'ho`, `ho____'yia'yo'yia`, `ho____'yia'ya'yo`, `ho____'yia'ya'ya`, `ho____'yia'ya'yoi`, `ho____'yia'ya'ha`, `ho____'yia'ya'ho`, `ho____'yia'ya'yia`, `ho____'yia'yoi'yo`, `ho____'yia'yoi'ya`, `ho____'yia'yoi'yoi`, `ho____'yia'yoi'ha`, `ho____'yia'yoi'ho`, `ho____'yia'yoi'yia`, `ho____'yia'ha'yo`, `ho____'yia'ha'ya`, `ho____'yia'ha'yoi`, `ho____'yia'ha'ha`, `ho____'yia'ha'ho`, `ho____'yia'ha'yia`, `ho____'yia'ho'yo`, `ho____'yia'ho'ya`, `ho____'yia'ho'yoi`, `ho____'yia'ho'ha`, `ho____'yia'ho'ho`, `ho____'yia'ho'yia`, `ho____'yia'yia'yo`, `ho____'yia'yia'ya`, `ho____'yia'yia'yoi`, `ho____'yia'yia'ha`, `ho____'yia'yia'ho`, `ho____'yia'yia'yia`
+infixl 6 `ha___'yo'st'st`, `ha___'ya'st'st`, `ha___'yoi'st'st`, `ha___'ha'st'st`, `ha___'ho'st'st`, `ha___'yia'st'st`, `ho___'yo'st'st`, `ho___'ya'st'st`, `ho___'yoi'st'st`, `ho___'ha'st'st`, `ho___'ho'st'st`, `ho___'yia'st'st`, `ha___'yo'yo'st`, `ha___'yo'ya'st`, `ha___'yo'yoi'st`, `ha___'yo'ha'st`, `ha___'yo'ho'st`, `ha___'yo'yia'st`, `ha___'ya'yo'st`, `ha___'ya'ya'st`, `ha___'ya'yoi'st`, `ha___'ya'ha'st`, `ha___'ya'ho'st`, `ha___'ya'yia'st`, `ha___'yoi'yo'st`, `ha___'yoi'ya'st`, `ha___'yoi'yoi'st`, `ha___'yoi'ha'st`, `ha___'yoi'ho'st`, `ha___'yoi'yia'st`, `ha___'ha'yo'st`, `ha___'ha'ya'st`, `ha___'ha'yoi'st`, `ha___'ha'ha'st`, `ha___'ha'ho'st`, `ha___'ha'yia'st`, `ha___'ho'yo'st`, `ha___'ho'ya'st`, `ha___'ho'yoi'st`, `ha___'ho'ha'st`, `ha___'ho'ho'st`, `ha___'ho'yia'st`, `ha___'yia'yo'st`, `ha___'yia'ya'st`, `ha___'yia'yoi'st`, `ha___'yia'ha'st`, `ha___'yia'ho'st`, `ha___'yia'yia'st`, `ho___'yo'yo'st`, `ho___'yo'ya'st`, `ho___'yo'yoi'st`, `ho___'yo'ha'st`, `ho___'yo'ho'st`, `ho___'yo'yia'st`, `ho___'ya'yo'st`, `ho___'ya'ya'st`, `ho___'ya'yoi'st`, `ho___'ya'ha'st`, `ho___'ya'ho'st`, `ho___'ya'yia'st`, `ho___'yoi'yo'st`, `ho___'yoi'ya'st`, `ho___'yoi'yoi'st`, `ho___'yoi'ha'st`, `ho___'yoi'ho'st`, `ho___'yoi'yia'st`, `ho___'ha'yo'st`, `ho___'ha'ya'st`, `ho___'ha'yoi'st`, `ho___'ha'ha'st`, `ho___'ha'ho'st`, `ho___'ha'yia'st`, `ho___'ho'yo'st`, `ho___'ho'ya'st`, `ho___'ho'yoi'st`, `ho___'ho'ha'st`, `ho___'ho'ho'st`, `ho___'ho'yia'st`, `ho___'yia'yo'st`, `ho___'yia'ya'st`, `ho___'yia'yoi'st`, `ho___'yia'ha'st`, `ho___'yia'ho'st`, `ho___'yia'yia'st`, `ha___'yo'yo'yo`, `ha___'yo'yo'ya`, `ha___'yo'yo'yoi`, `ha___'yo'yo'ha`, `ha___'yo'yo'ho`, `ha___'yo'yo'yia`, `ha___'yo'ya'yo`, `ha___'yo'ya'ya`, `ha___'yo'ya'yoi`, `ha___'yo'ya'ha`, `ha___'yo'ya'ho`, `ha___'yo'ya'yia`, `ha___'yo'yoi'yo`, `ha___'yo'yoi'ya`, `ha___'yo'yoi'yoi`, `ha___'yo'yoi'ha`, `ha___'yo'yoi'ho`, `ha___'yo'yoi'yia`, `ha___'yo'ha'yo`, `ha___'yo'ha'ya`, `ha___'yo'ha'yoi`, `ha___'yo'ha'ha`, `ha___'yo'ha'ho`, `ha___'yo'ha'yia`, `ha___'yo'ho'yo`, `ha___'yo'ho'ya`, `ha___'yo'ho'yoi`, `ha___'yo'ho'ha`, `ha___'yo'ho'ho`, `ha___'yo'ho'yia`, `ha___'yo'yia'yo`, `ha___'yo'yia'ya`, `ha___'yo'yia'yoi`, `ha___'yo'yia'ha`, `ha___'yo'yia'ho`, `ha___'yo'yia'yia`, `ha___'ya'yo'yo`, `ha___'ya'yo'ya`, `ha___'ya'yo'yoi`, `ha___'ya'yo'ha`, `ha___'ya'yo'ho`, `ha___'ya'yo'yia`, `ha___'ya'ya'yo`, `ha___'ya'ya'ya`, `ha___'ya'ya'yoi`, `ha___'ya'ya'ha`, `ha___'ya'ya'ho`, `ha___'ya'ya'yia`, `ha___'ya'yoi'yo`, `ha___'ya'yoi'ya`, `ha___'ya'yoi'yoi`, `ha___'ya'yoi'ha`, `ha___'ya'yoi'ho`, `ha___'ya'yoi'yia`, `ha___'ya'ha'yo`, `ha___'ya'ha'ya`, `ha___'ya'ha'yoi`, `ha___'ya'ha'ha`, `ha___'ya'ha'ho`, `ha___'ya'ha'yia`, `ha___'ya'ho'yo`, `ha___'ya'ho'ya`, `ha___'ya'ho'yoi`, `ha___'ya'ho'ha`, `ha___'ya'ho'ho`, `ha___'ya'ho'yia`, `ha___'ya'yia'yo`, `ha___'ya'yia'ya`, `ha___'ya'yia'yoi`, `ha___'ya'yia'ha`, `ha___'ya'yia'ho`, `ha___'ya'yia'yia`, `ha___'yoi'yo'yo`, `ha___'yoi'yo'ya`, `ha___'yoi'yo'yoi`, `ha___'yoi'yo'ha`, `ha___'yoi'yo'ho`, `ha___'yoi'yo'yia`, `ha___'yoi'ya'yo`, `ha___'yoi'ya'ya`, `ha___'yoi'ya'yoi`, `ha___'yoi'ya'ha`, `ha___'yoi'ya'ho`, `ha___'yoi'ya'yia`, `ha___'yoi'yoi'yo`, `ha___'yoi'yoi'ya`, `ha___'yoi'yoi'yoi`, `ha___'yoi'yoi'ha`, `ha___'yoi'yoi'ho`, `ha___'yoi'yoi'yia`, `ha___'yoi'ha'yo`, `ha___'yoi'ha'ya`, `ha___'yoi'ha'yoi`, `ha___'yoi'ha'ha`, `ha___'yoi'ha'ho`, `ha___'yoi'ha'yia`, `ha___'yoi'ho'yo`, `ha___'yoi'ho'ya`, `ha___'yoi'ho'yoi`, `ha___'yoi'ho'ha`, `ha___'yoi'ho'ho`, `ha___'yoi'ho'yia`, `ha___'yoi'yia'yo`, `ha___'yoi'yia'ya`, `ha___'yoi'yia'yoi`, `ha___'yoi'yia'ha`, `ha___'yoi'yia'ho`, `ha___'yoi'yia'yia`, `ha___'ha'yo'yo`, `ha___'ha'yo'ya`, `ha___'ha'yo'yoi`, `ha___'ha'yo'ha`, `ha___'ha'yo'ho`, `ha___'ha'yo'yia`, `ha___'ha'ya'yo`, `ha___'ha'ya'ya`, `ha___'ha'ya'yoi`, `ha___'ha'ya'ha`, `ha___'ha'ya'ho`, `ha___'ha'ya'yia`, `ha___'ha'yoi'yo`, `ha___'ha'yoi'ya`, `ha___'ha'yoi'yoi`, `ha___'ha'yoi'ha`, `ha___'ha'yoi'ho`, `ha___'ha'yoi'yia`, `ha___'ha'ha'yo`, `ha___'ha'ha'ya`, `ha___'ha'ha'yoi`, `ha___'ha'ha'ha`, `ha___'ha'ha'ho`, `ha___'ha'ha'yia`, `ha___'ha'ho'yo`, `ha___'ha'ho'ya`, `ha___'ha'ho'yoi`, `ha___'ha'ho'ha`, `ha___'ha'ho'ho`, `ha___'ha'ho'yia`, `ha___'ha'yia'yo`, `ha___'ha'yia'ya`, `ha___'ha'yia'yoi`, `ha___'ha'yia'ha`, `ha___'ha'yia'ho`, `ha___'ha'yia'yia`, `ha___'ho'yo'yo`, `ha___'ho'yo'ya`, `ha___'ho'yo'yoi`, `ha___'ho'yo'ha`, `ha___'ho'yo'ho`, `ha___'ho'yo'yia`, `ha___'ho'ya'yo`, `ha___'ho'ya'ya`, `ha___'ho'ya'yoi`, `ha___'ho'ya'ha`, `ha___'ho'ya'ho`, `ha___'ho'ya'yia`, `ha___'ho'yoi'yo`, `ha___'ho'yoi'ya`, `ha___'ho'yoi'yoi`, `ha___'ho'yoi'ha`, `ha___'ho'yoi'ho`, `ha___'ho'yoi'yia`, `ha___'ho'ha'yo`, `ha___'ho'ha'ya`, `ha___'ho'ha'yoi`, `ha___'ho'ha'ha`, `ha___'ho'ha'ho`, `ha___'ho'ha'yia`, `ha___'ho'ho'yo`, `ha___'ho'ho'ya`, `ha___'ho'ho'yoi`, `ha___'ho'ho'ha`, `ha___'ho'ho'ho`, `ha___'ho'ho'yia`, `ha___'ho'yia'yo`, `ha___'ho'yia'ya`, `ha___'ho'yia'yoi`, `ha___'ho'yia'ha`, `ha___'ho'yia'ho`, `ha___'ho'yia'yia`, `ha___'yia'yo'yo`, `ha___'yia'yo'ya`, `ha___'yia'yo'yoi`, `ha___'yia'yo'ha`, `ha___'yia'yo'ho`, `ha___'yia'yo'yia`, `ha___'yia'ya'yo`, `ha___'yia'ya'ya`, `ha___'yia'ya'yoi`, `ha___'yia'ya'ha`, `ha___'yia'ya'ho`, `ha___'yia'ya'yia`, `ha___'yia'yoi'yo`, `ha___'yia'yoi'ya`, `ha___'yia'yoi'yoi`, `ha___'yia'yoi'ha`, `ha___'yia'yoi'ho`, `ha___'yia'yoi'yia`, `ha___'yia'ha'yo`, `ha___'yia'ha'ya`, `ha___'yia'ha'yoi`, `ha___'yia'ha'ha`, `ha___'yia'ha'ho`, `ha___'yia'ha'yia`, `ha___'yia'ho'yo`, `ha___'yia'ho'ya`, `ha___'yia'ho'yoi`, `ha___'yia'ho'ha`, `ha___'yia'ho'ho`, `ha___'yia'ho'yia`, `ha___'yia'yia'yo`, `ha___'yia'yia'ya`, `ha___'yia'yia'yoi`, `ha___'yia'yia'ha`, `ha___'yia'yia'ho`, `ha___'yia'yia'yia`, `ho___'yo'yo'yo`, `ho___'yo'yo'ya`, `ho___'yo'yo'yoi`, `ho___'yo'yo'ha`, `ho___'yo'yo'ho`, `ho___'yo'yo'yia`, `ho___'yo'ya'yo`, `ho___'yo'ya'ya`, `ho___'yo'ya'yoi`, `ho___'yo'ya'ha`, `ho___'yo'ya'ho`, `ho___'yo'ya'yia`, `ho___'yo'yoi'yo`, `ho___'yo'yoi'ya`, `ho___'yo'yoi'yoi`, `ho___'yo'yoi'ha`, `ho___'yo'yoi'ho`, `ho___'yo'yoi'yia`, `ho___'yo'ha'yo`, `ho___'yo'ha'ya`, `ho___'yo'ha'yoi`, `ho___'yo'ha'ha`, `ho___'yo'ha'ho`, `ho___'yo'ha'yia`, `ho___'yo'ho'yo`, `ho___'yo'ho'ya`, `ho___'yo'ho'yoi`, `ho___'yo'ho'ha`, `ho___'yo'ho'ho`, `ho___'yo'ho'yia`, `ho___'yo'yia'yo`, `ho___'yo'yia'ya`, `ho___'yo'yia'yoi`, `ho___'yo'yia'ha`, `ho___'yo'yia'ho`, `ho___'yo'yia'yia`, `ho___'ya'yo'yo`, `ho___'ya'yo'ya`, `ho___'ya'yo'yoi`, `ho___'ya'yo'ha`, `ho___'ya'yo'ho`, `ho___'ya'yo'yia`, `ho___'ya'ya'yo`, `ho___'ya'ya'ya`, `ho___'ya'ya'yoi`, `ho___'ya'ya'ha`, `ho___'ya'ya'ho`, `ho___'ya'ya'yia`, `ho___'ya'yoi'yo`, `ho___'ya'yoi'ya`, `ho___'ya'yoi'yoi`, `ho___'ya'yoi'ha`, `ho___'ya'yoi'ho`, `ho___'ya'yoi'yia`, `ho___'ya'ha'yo`, `ho___'ya'ha'ya`, `ho___'ya'ha'yoi`, `ho___'ya'ha'ha`, `ho___'ya'ha'ho`, `ho___'ya'ha'yia`, `ho___'ya'ho'yo`, `ho___'ya'ho'ya`, `ho___'ya'ho'yoi`, `ho___'ya'ho'ha`, `ho___'ya'ho'ho`, `ho___'ya'ho'yia`, `ho___'ya'yia'yo`, `ho___'ya'yia'ya`, `ho___'ya'yia'yoi`, `ho___'ya'yia'ha`, `ho___'ya'yia'ho`, `ho___'ya'yia'yia`, `ho___'yoi'yo'yo`, `ho___'yoi'yo'ya`, `ho___'yoi'yo'yoi`, `ho___'yoi'yo'ha`, `ho___'yoi'yo'ho`, `ho___'yoi'yo'yia`, `ho___'yoi'ya'yo`, `ho___'yoi'ya'ya`, `ho___'yoi'ya'yoi`, `ho___'yoi'ya'ha`, `ho___'yoi'ya'ho`, `ho___'yoi'ya'yia`, `ho___'yoi'yoi'yo`, `ho___'yoi'yoi'ya`, `ho___'yoi'yoi'yoi`, `ho___'yoi'yoi'ha`, `ho___'yoi'yoi'ho`, `ho___'yoi'yoi'yia`, `ho___'yoi'ha'yo`, `ho___'yoi'ha'ya`, `ho___'yoi'ha'yoi`, `ho___'yoi'ha'ha`, `ho___'yoi'ha'ho`, `ho___'yoi'ha'yia`, `ho___'yoi'ho'yo`, `ho___'yoi'ho'ya`, `ho___'yoi'ho'yoi`, `ho___'yoi'ho'ha`, `ho___'yoi'ho'ho`, `ho___'yoi'ho'yia`, `ho___'yoi'yia'yo`, `ho___'yoi'yia'ya`, `ho___'yoi'yia'yoi`, `ho___'yoi'yia'ha`, `ho___'yoi'yia'ho`, `ho___'yoi'yia'yia`, `ho___'ha'yo'yo`, `ho___'ha'yo'ya`, `ho___'ha'yo'yoi`, `ho___'ha'yo'ha`, `ho___'ha'yo'ho`, `ho___'ha'yo'yia`, `ho___'ha'ya'yo`, `ho___'ha'ya'ya`, `ho___'ha'ya'yoi`, `ho___'ha'ya'ha`, `ho___'ha'ya'ho`, `ho___'ha'ya'yia`, `ho___'ha'yoi'yo`, `ho___'ha'yoi'ya`, `ho___'ha'yoi'yoi`, `ho___'ha'yoi'ha`, `ho___'ha'yoi'ho`, `ho___'ha'yoi'yia`, `ho___'ha'ha'yo`, `ho___'ha'ha'ya`, `ho___'ha'ha'yoi`, `ho___'ha'ha'ha`, `ho___'ha'ha'ho`, `ho___'ha'ha'yia`, `ho___'ha'ho'yo`, `ho___'ha'ho'ya`, `ho___'ha'ho'yoi`, `ho___'ha'ho'ha`, `ho___'ha'ho'ho`, `ho___'ha'ho'yia`, `ho___'ha'yia'yo`, `ho___'ha'yia'ya`, `ho___'ha'yia'yoi`, `ho___'ha'yia'ha`, `ho___'ha'yia'ho`, `ho___'ha'yia'yia`, `ho___'ho'yo'yo`, `ho___'ho'yo'ya`, `ho___'ho'yo'yoi`, `ho___'ho'yo'ha`, `ho___'ho'yo'ho`, `ho___'ho'yo'yia`, `ho___'ho'ya'yo`, `ho___'ho'ya'ya`, `ho___'ho'ya'yoi`, `ho___'ho'ya'ha`, `ho___'ho'ya'ho`, `ho___'ho'ya'yia`, `ho___'ho'yoi'yo`, `ho___'ho'yoi'ya`, `ho___'ho'yoi'yoi`, `ho___'ho'yoi'ha`, `ho___'ho'yoi'ho`, `ho___'ho'yoi'yia`, `ho___'ho'ha'yo`, `ho___'ho'ha'ya`, `ho___'ho'ha'yoi`, `ho___'ho'ha'ha`, `ho___'ho'ha'ho`, `ho___'ho'ha'yia`, `ho___'ho'ho'yo`, `ho___'ho'ho'ya`, `ho___'ho'ho'yoi`, `ho___'ho'ho'ha`, `ho___'ho'ho'ho`, `ho___'ho'ho'yia`, `ho___'ho'yia'yo`, `ho___'ho'yia'ya`, `ho___'ho'yia'yoi`, `ho___'ho'yia'ha`, `ho___'ho'yia'ho`, `ho___'ho'yia'yia`, `ho___'yia'yo'yo`, `ho___'yia'yo'ya`, `ho___'yia'yo'yoi`, `ho___'yia'yo'ha`, `ho___'yia'yo'ho`, `ho___'yia'yo'yia`, `ho___'yia'ya'yo`, `ho___'yia'ya'ya`, `ho___'yia'ya'yoi`, `ho___'yia'ya'ha`, `ho___'yia'ya'ho`, `ho___'yia'ya'yia`, `ho___'yia'yoi'yo`, `ho___'yia'yoi'ya`, `ho___'yia'yoi'yoi`, `ho___'yia'yoi'ha`, `ho___'yia'yoi'ho`, `ho___'yia'yoi'yia`, `ho___'yia'ha'yo`, `ho___'yia'ha'ya`, `ho___'yia'ha'yoi`, `ho___'yia'ha'ha`, `ho___'yia'ha'ho`, `ho___'yia'ha'yia`, `ho___'yia'ho'yo`, `ho___'yia'ho'ya`, `ho___'yia'ho'yoi`, `ho___'yia'ho'ha`, `ho___'yia'ho'ho`, `ho___'yia'ho'yia`, `ho___'yia'yia'yo`, `ho___'yia'yia'ya`, `ho___'yia'yia'yoi`, `ho___'yia'yia'ha`, `ho___'yia'yia'ho`, `ho___'yia'yia'yia`
+infixl 7 `yoi'yo'st'st`, `yoi'ya'st'st`, `yoi'yoi'st'st`, `yoi'yai'st'st`, `yoi'ha'st'st`, `yoi'yio'st'st`, `yoi'ho'st'st`, `yoi'yia'st'st`, `yai'yo'st'st`, `ha__'yo'st'st`, `yai'ya'st'st`, `ha__'ya'st'st`, `yai'yoi'st'st`, `ha__'yoi'st'st`, `yai'yai'st'st`, `ha__'ha'st'st`, `yai'yio'st'st`, `ha__'ho'st'st`, `yai'yia'st'st`, `ha__'yia'st'st`, `yio'yo'st'st`, `ho__'yo'st'st`, `yio'ya'st'st`, `ho__'ya'st'st`, `yio'yoi'st'st`, `ho__'yoi'st'st`, `yio'yai'st'st`, `ho__'ha'st'st`, `yio'yio'st'st`, `ho__'ho'st'st`, `yio'yia'st'st`, `ho__'yia'st'st`, `yia'yo'st'st`, `yia'ya'st'st`, `yia'yoi'st'st`, `yia'yai'st'st`, `yia'ha'st'st`, `yia'yio'st'st`, `yia'ho'st'st`, `yia'yia'st'st`, `yoi'yo'yo'st`, `yoi'yo'ya'st`, `yoi'yo'yoi'st`, `yoi'yo'yai'st`, `yoi'yo'ha'st`, `yoi'yo'yio'st`, `yoi'yo'ho'st`, `yoi'yo'yia'st`, `yoi'ya'yo'st`, `yoi'ya'ya'st`, `yoi'ya'yoi'st`, `yoi'ya'yai'st`, `yoi'ya'ha'st`, `yoi'ya'yio'st`, `yoi'ya'ho'st`, `yoi'ya'yia'st`, `yoi'yoi'yo'st`, `yoi'yoi'ya'st`, `yoi'yoi'yoi'st`, `yoi'yoi'yai'st`, `yoi'yoi'ha'st`, `yoi'yoi'yio'st`, `yoi'yoi'ho'st`, `yoi'yoi'yia'st`, `yoi'yai'yo'st`, `yoi'ha'yo'st`, `yoi'yai'ya'st`, `yoi'ha'ya'st`, `yoi'yai'yoi'st`, `yoi'ha'yoi'st`, `yoi'yai'yai'st`, `yoi'ha'ha'st`, `yoi'yai'yio'st`, `yoi'ha'ho'st`, `yoi'yai'yia'st`, `yoi'ha'yia'st`, `yoi'yio'yo'st`, `yoi'ho'yo'st`, `yoi'yio'ya'st`, `yoi'ho'ya'st`, `yoi'yio'yoi'st`, `yoi'ho'yoi'st`, `yoi'yio'yai'st`, `yoi'ho'ha'st`, `yoi'yio'yio'st`, `yoi'ho'ho'st`, `yoi'yio'yia'st`, `yoi'ho'yia'st`, `yoi'yia'yo'st`, `yoi'yia'ya'st`, `yoi'yia'yoi'st`, `yoi'yia'yai'st`, `yoi'yia'ha'st`, `yoi'yia'yio'st`, `yoi'yia'ho'st`, `yoi'yia'yia'st`, `yai'yo'yo'st`, `ha__'yo'yo'st`, `yai'yo'ya'st`, `ha__'yo'ya'st`, `yai'yo'yoi'st`, `ha__'yo'yoi'st`, `yai'yo'yai'st`, `ha__'yo'ha'st`, `yai'yo'yio'st`, `ha__'yo'ho'st`, `yai'yo'yia'st`, `ha__'yo'yia'st`, `yai'ya'yo'st`, `ha__'ya'yo'st`, `yai'ya'ya'st`, `ha__'ya'ya'st`, `yai'ya'yoi'st`, `ha__'ya'yoi'st`, `yai'ya'yai'st`, `ha__'ya'ha'st`, `yai'ya'yio'st`, `ha__'ya'ho'st`, `yai'ya'yia'st`, `ha__'ya'yia'st`, `yai'yoi'yo'st`, `ha__'yoi'yo'st`, `yai'yoi'ya'st`, `ha__'yoi'ya'st`, `yai'yoi'yoi'st`, `ha__'yoi'yoi'st`, `yai'yoi'yai'st`, `ha__'yoi'ha'st`, `yai'yoi'yio'st`, `ha__'yoi'ho'st`, `yai'yoi'yia'st`, `ha__'yoi'yia'st`, `yai'yai'yo'st`, `ha__'ha'yo'st`, `yai'yai'ya'st`, `ha__'ha'ya'st`, `yai'yai'yoi'st`, `ha__'ha'yoi'st`, `yai'yai'yai'st`, `ha__'ha'ha'st`, `yai'yai'yio'st`, `ha__'ha'ho'st`, `yai'yai'yia'st`, `ha__'ha'yia'st`, `yai'yio'yo'st`, `ha__'ho'yo'st`, `yai'yio'ya'st`, `ha__'ho'ya'st`, `yai'yio'yoi'st`, `ha__'ho'yoi'st`, `yai'yio'yai'st`, `ha__'ho'ha'st`, `yai'yio'yio'st`, `ha__'ho'ho'st`, `yai'yio'yia'st`, `ha__'ho'yia'st`, `yai'yia'yo'st`, `ha__'yia'yo'st`, `yai'yia'ya'st`, `ha__'yia'ya'st`, `yai'yia'yoi'st`, `ha__'yia'yoi'st`, `yai'yia'yai'st`, `ha__'yia'ha'st`, `yai'yia'yio'st`, `ha__'yia'ho'st`, `yai'yia'yia'st`, `ha__'yia'yia'st`, `yio'yo'yo'st`, `ho__'yo'yo'st`, `yio'yo'ya'st`, `ho__'yo'ya'st`, `yio'yo'yoi'st`, `ho__'yo'yoi'st`, `yio'yo'yai'st`, `ho__'yo'ha'st`, `yio'yo'yio'st`, `ho__'yo'ho'st`, `yio'yo'yia'st`, `ho__'yo'yia'st`, `yio'ya'yo'st`, `ho__'ya'yo'st`, `yio'ya'ya'st`, `ho__'ya'ya'st`, `yio'ya'yoi'st`, `ho__'ya'yoi'st`, `yio'ya'yai'st`, `ho__'ya'ha'st`, `yio'ya'yio'st`, `ho__'ya'ho'st`, `yio'ya'yia'st`, `ho__'ya'yia'st`, `yio'yoi'yo'st`, `ho__'yoi'yo'st`, `yio'yoi'ya'st`, `ho__'yoi'ya'st`, `yio'yoi'yoi'st`, `ho__'yoi'yoi'st`, `yio'yoi'yai'st`, `ho__'yoi'ha'st`, `yio'yoi'yio'st`, `ho__'yoi'ho'st`, `yio'yoi'yia'st`, `ho__'yoi'yia'st`, `yio'yai'yo'st`, `ho__'ha'yo'st`, `yio'yai'ya'st`, `ho__'ha'ya'st`, `yio'yai'yoi'st`, `ho__'ha'yoi'st`, `yio'yai'yai'st`, `ho__'ha'ha'st`, `yio'yai'yio'st`, `ho__'ha'ho'st`, `yio'yai'yia'st`, `ho__'ha'yia'st`, `yio'yio'yo'st`, `ho__'ho'yo'st`, `yio'yio'ya'st`, `ho__'ho'ya'st`, `yio'yio'yoi'st`, `ho__'ho'yoi'st`, `yio'yio'yai'st`, `ho__'ho'ha'st`, `yio'yio'yio'st`, `ho__'ho'ho'st`, `yio'yio'yia'st`, `ho__'ho'yia'st`, `yio'yia'yo'st`, `ho__'yia'yo'st`, `yio'yia'ya'st`, `ho__'yia'ya'st`, `yio'yia'yoi'st`, `ho__'yia'yoi'st`, `yio'yia'yai'st`, `ho__'yia'ha'st`, `yio'yia'yio'st`, `ho__'yia'ho'st`, `yio'yia'yia'st`, `ho__'yia'yia'st`, `yia'yo'yo'st`, `yia'yo'ya'st`, `yia'yo'yoi'st`, `yia'yo'yai'st`, `yia'yo'ha'st`, `yia'yo'yio'st`, `yia'yo'ho'st`, `yia'yo'yia'st`, `yia'ya'yo'st`, `yia'ya'ya'st`, `yia'ya'yoi'st`, `yia'ya'yai'st`, `yia'ya'ha'st`, `yia'ya'yio'st`, `yia'ya'ho'st`, `yia'ya'yia'st`, `yia'yoi'yo'st`, `yia'yoi'ya'st`, `yia'yoi'yoi'st`, `yia'yoi'yai'st`, `yia'yoi'ha'st`, `yia'yoi'yio'st`, `yia'yoi'ho'st`, `yia'yoi'yia'st`, `yia'yai'yo'st`, `yia'ha'yo'st`, `yia'yai'ya'st`, `yia'ha'ya'st`, `yia'yai'yoi'st`, `yia'ha'yoi'st`, `yia'yai'yai'st`, `yia'ha'ha'st`, `yia'yai'yio'st`, `yia'ha'ho'st`, `yia'yai'yia'st`, `yia'ha'yia'st`, `yia'yio'yo'st`, `yia'ho'yo'st`, `yia'yio'ya'st`, `yia'ho'ya'st`, `yia'yio'yoi'st`, `yia'ho'yoi'st`, `yia'yio'yai'st`, `yia'ho'ha'st`, `yia'yio'yio'st`, `yia'ho'ho'st`, `yia'yio'yia'st`, `yia'ho'yia'st`, `yia'yia'yo'st`, `yia'yia'ya'st`, `yia'yia'yoi'st`, `yia'yia'yai'st`, `yia'yia'ha'st`, `yia'yia'yio'st`, `yia'yia'ho'st`, `yia'yia'yia'st`, `yoi'yo'yo'yo`, `yoi'yo'yo'ya`, `yoi'yo'yo'yoi`, `yoi'yo'yo'yai`, `yoi'yo'yo'ha`, `yoi'yo'yo'yio`, `yoi'yo'yo'ho`, `yoi'yo'yo'yia`, `yoi'yo'ya'yo`, `yoi'yo'ya'ya`, `yoi'yo'ya'yoi`, `yoi'yo'ya'yai`, `yoi'yo'ya'ha`, `yoi'yo'ya'yio`, `yoi'yo'ya'ho`, `yoi'yo'ya'yia`, `yoi'yo'yoi'yo`, `yoi'yo'yoi'ya`, `yoi'yo'yoi'yoi`, `yoi'yo'yoi'yai`, `yoi'yo'yoi'ha`, `yoi'yo'yoi'yio`, `yoi'yo'yoi'ho`, `yoi'yo'yoi'yia`, `yoi'yo'yai'yo`, `yoi'yo'ha'yo`, `yoi'yo'yai'ya`, `yoi'yo'ha'ya`, `yoi'yo'yai'yoi`, `yoi'yo'ha'yoi`, `yoi'yo'yai'yai`, `yoi'yo'ha'ha`, `yoi'yo'yai'yio`, `yoi'yo'ha'ho`, `yoi'yo'yai'yia`, `yoi'yo'ha'yia`, `yoi'yo'yio'yo`, `yoi'yo'ho'yo`, `yoi'yo'yio'ya`, `yoi'yo'ho'ya`, `yoi'yo'yio'yoi`, `yoi'yo'ho'yoi`, `yoi'yo'yio'yai`, `yoi'yo'ho'ha`, `yoi'yo'yio'yio`, `yoi'yo'ho'ho`, `yoi'yo'yio'yia`, `yoi'yo'ho'yia`, `yoi'yo'yia'yo`, `yoi'yo'yia'ya`, `yoi'yo'yia'yoi`, `yoi'yo'yia'yai`, `yoi'yo'yia'ha`, `yoi'yo'yia'yio`, `yoi'yo'yia'ho`, `yoi'yo'yia'yia`, `yoi'ya'yo'yo`, `yoi'ya'yo'ya`, `yoi'ya'yo'yoi`, `yoi'ya'yo'yai`, `yoi'ya'yo'ha`, `yoi'ya'yo'yio`, `yoi'ya'yo'ho`, `yoi'ya'yo'yia`, `yoi'ya'ya'yo`, `yoi'ya'ya'ya`, `yoi'ya'ya'yoi`, `yoi'ya'ya'yai`, `yoi'ya'ya'ha`, `yoi'ya'ya'yio`, `yoi'ya'ya'ho`, `yoi'ya'ya'yia`, `yoi'ya'yoi'yo`, `yoi'ya'yoi'ya`, `yoi'ya'yoi'yoi`, `yoi'ya'yoi'yai`, `yoi'ya'yoi'ha`, `yoi'ya'yoi'yio`, `yoi'ya'yoi'ho`, `yoi'ya'yoi'yia`, `yoi'ya'yai'yo`, `yoi'ya'ha'yo`, `yoi'ya'yai'ya`, `yoi'ya'ha'ya`, `yoi'ya'yai'yoi`, `yoi'ya'ha'yoi`, `yoi'ya'yai'yai`, `yoi'ya'ha'ha`, `yoi'ya'yai'yio`, `yoi'ya'ha'ho`, `yoi'ya'yai'yia`, `yoi'ya'ha'yia`, `yoi'ya'yio'yo`, `yoi'ya'ho'yo`, `yoi'ya'yio'ya`, `yoi'ya'ho'ya`, `yoi'ya'yio'yoi`, `yoi'ya'ho'yoi`, `yoi'ya'yio'yai`, `yoi'ya'ho'ha`, `yoi'ya'yio'yio`, `yoi'ya'ho'ho`, `yoi'ya'yio'yia`, `yoi'ya'ho'yia`, `yoi'ya'yia'yo`, `yoi'ya'yia'ya`, `yoi'ya'yia'yoi`, `yoi'ya'yia'yai`, `yoi'ya'yia'ha`, `yoi'ya'yia'yio`, `yoi'ya'yia'ho`, `yoi'ya'yia'yia`, `yoi'yoi'yo'yo`, `yoi'yoi'yo'ya`, `yoi'yoi'yo'yoi`, `yoi'yoi'yo'yai`, `yoi'yoi'yo'ha`, `yoi'yoi'yo'yio`, `yoi'yoi'yo'ho`, `yoi'yoi'yo'yia`, `yoi'yoi'ya'yo`, `yoi'yoi'ya'ya`, `yoi'yoi'ya'yoi`, `yoi'yoi'ya'yai`, `yoi'yoi'ya'ha`, `yoi'yoi'ya'yio`, `yoi'yoi'ya'ho`, `yoi'yoi'ya'yia`, `yoi'yoi'yoi'yo`, `yoi'yoi'yoi'ya`, `yoi'yoi'yoi'yoi`, `yoi'yoi'yoi'yai`, `yoi'yoi'yoi'ha`, `yoi'yoi'yoi'yio`, `yoi'yoi'yoi'ho`, `yoi'yoi'yoi'yia`, `yoi'yoi'yai'yo`, `yoi'yoi'ha'yo`, `yoi'yoi'yai'ya`, `yoi'yoi'ha'ya`, `yoi'yoi'yai'yoi`, `yoi'yoi'ha'yoi`, `yoi'yoi'yai'yai`, `yoi'yoi'ha'ha`, `yoi'yoi'yai'yio`, `yoi'yoi'ha'ho`, `yoi'yoi'yai'yia`, `yoi'yoi'ha'yia`, `yoi'yoi'yio'yo`, `yoi'yoi'ho'yo`, `yoi'yoi'yio'ya`, `yoi'yoi'ho'ya`, `yoi'yoi'yio'yoi`, `yoi'yoi'ho'yoi`, `yoi'yoi'yio'yai`, `yoi'yoi'ho'ha`, `yoi'yoi'yio'yio`, `yoi'yoi'ho'ho`, `yoi'yoi'yio'yia`, `yoi'yoi'ho'yia`, `yoi'yoi'yia'yo`, `yoi'yoi'yia'ya`, `yoi'yoi'yia'yoi`, `yoi'yoi'yia'yai`, `yoi'yoi'yia'ha`, `yoi'yoi'yia'yio`, `yoi'yoi'yia'ho`, `yoi'yoi'yia'yia`, `yoi'yai'yo'yo`, `yoi'ha'yo'yo`, `yoi'yai'yo'ya`, `yoi'ha'yo'ya`, `yoi'yai'yo'yoi`, `yoi'ha'yo'yoi`, `yoi'yai'yo'yai`, `yoi'ha'yo'ha`, `yoi'yai'yo'yio`, `yoi'ha'yo'ho`, `yoi'yai'yo'yia`, `yoi'ha'yo'yia`, `yoi'yai'ya'yo`, `yoi'ha'ya'yo`, `yoi'yai'ya'ya`, `yoi'ha'ya'ya`, `yoi'yai'ya'yoi`, `yoi'ha'ya'yoi`, `yoi'yai'ya'yai`, `yoi'ha'ya'ha`, `yoi'yai'ya'yio`, `yoi'ha'ya'ho`, `yoi'yai'ya'yia`, `yoi'ha'ya'yia`, `yoi'yai'yoi'yo`, `yoi'ha'yoi'yo`, `yoi'yai'yoi'ya`, `yoi'ha'yoi'ya`, `yoi'yai'yoi'yoi`, `yoi'ha'yoi'yoi`, `yoi'yai'yoi'yai`, `yoi'ha'yoi'ha`, `yoi'yai'yoi'yio`, `yoi'ha'yoi'ho`, `yoi'yai'yoi'yia`, `yoi'ha'yoi'yia`, `yoi'yai'yai'yo`, `yoi'ha'ha'yo`, `yoi'yai'yai'ya`, `yoi'ha'ha'ya`, `yoi'yai'yai'yoi`, `yoi'ha'ha'yoi`, `yoi'yai'yai'yai`, `yoi'ha'ha'ha`, `yoi'yai'yai'yio`, `yoi'ha'ha'ho`, `yoi'yai'yai'yia`, `yoi'ha'ha'yia`, `yoi'yai'yio'yo`, `yoi'ha'ho'yo`, `yoi'yai'yio'ya`, `yoi'ha'ho'ya`, `yoi'yai'yio'yoi`, `yoi'ha'ho'yoi`, `yoi'yai'yio'yai`, `yoi'ha'ho'ha`, `yoi'yai'yio'yio`, `yoi'ha'ho'ho`, `yoi'yai'yio'yia`, `yoi'ha'ho'yia`, `yoi'yai'yia'yo`, `yoi'ha'yia'yo`, `yoi'yai'yia'ya`, `yoi'ha'yia'ya`, `yoi'yai'yia'yoi`, `yoi'ha'yia'yoi`, `yoi'yai'yia'yai`, `yoi'ha'yia'ha`, `yoi'yai'yia'yio`, `yoi'ha'yia'ho`, `yoi'yai'yia'yia`, `yoi'ha'yia'yia`, `yoi'yio'yo'yo`, `yoi'ho'yo'yo`, `yoi'yio'yo'ya`, `yoi'ho'yo'ya`, `yoi'yio'yo'yoi`, `yoi'ho'yo'yoi`, `yoi'yio'yo'yai`, `yoi'ho'yo'ha`, `yoi'yio'yo'yio`, `yoi'ho'yo'ho`, `yoi'yio'yo'yia`, `yoi'ho'yo'yia`, `yoi'yio'ya'yo`, `yoi'ho'ya'yo`, `yoi'yio'ya'ya`, `yoi'ho'ya'ya`, `yoi'yio'ya'yoi`, `yoi'ho'ya'yoi`, `yoi'yio'ya'yai`, `yoi'ho'ya'ha`, `yoi'yio'ya'yio`, `yoi'ho'ya'ho`, `yoi'yio'ya'yia`, `yoi'ho'ya'yia`, `yoi'yio'yoi'yo`, `yoi'ho'yoi'yo`, `yoi'yio'yoi'ya`, `yoi'ho'yoi'ya`, `yoi'yio'yoi'yoi`, `yoi'ho'yoi'yoi`, `yoi'yio'yoi'yai`, `yoi'ho'yoi'ha`, `yoi'yio'yoi'yio`, `yoi'ho'yoi'ho`, `yoi'yio'yoi'yia`, `yoi'ho'yoi'yia`, `yoi'yio'yai'yo`, `yoi'ho'ha'yo`, `yoi'yio'yai'ya`, `yoi'ho'ha'ya`, `yoi'yio'yai'yoi`, `yoi'ho'ha'yoi`, `yoi'yio'yai'yai`, `yoi'ho'ha'ha`, `yoi'yio'yai'yio`, `yoi'ho'ha'ho`, `yoi'yio'yai'yia`, `yoi'ho'ha'yia`, `yoi'yio'yio'yo`, `yoi'ho'ho'yo`, `yoi'yio'yio'ya`, `yoi'ho'ho'ya`, `yoi'yio'yio'yoi`, `yoi'ho'ho'yoi`, `yoi'yio'yio'yai`, `yoi'ho'ho'ha`, `yoi'yio'yio'yio`, `yoi'ho'ho'ho`, `yoi'yio'yio'yia`, `yoi'ho'ho'yia`, `yoi'yio'yia'yo`, `yoi'ho'yia'yo`, `yoi'yio'yia'ya`, `yoi'ho'yia'ya`, `yoi'yio'yia'yoi`, `yoi'ho'yia'yoi`, `yoi'yio'yia'yai`, `yoi'ho'yia'ha`, `yoi'yio'yia'yio`, `yoi'ho'yia'ho`, `yoi'yio'yia'yia`, `yoi'ho'yia'yia`, `yoi'yia'yo'yo`, `yoi'yia'yo'ya`, `yoi'yia'yo'yoi`, `yoi'yia'yo'yai`, `yoi'yia'yo'ha`, `yoi'yia'yo'yio`, `yoi'yia'yo'ho`, `yoi'yia'yo'yia`, `yoi'yia'ya'yo`, `yoi'yia'ya'ya`, `yoi'yia'ya'yoi`, `yoi'yia'ya'yai`, `yoi'yia'ya'ha`, `yoi'yia'ya'yio`, `yoi'yia'ya'ho`, `yoi'yia'ya'yia`, `yoi'yia'yoi'yo`, `yoi'yia'yoi'ya`, `yoi'yia'yoi'yoi`, `yoi'yia'yoi'yai`, `yoi'yia'yoi'ha`, `yoi'yia'yoi'yio`, `yoi'yia'yoi'ho`, `yoi'yia'yoi'yia`, `yoi'yia'yai'yo`, `yoi'yia'ha'yo`, `yoi'yia'yai'ya`, `yoi'yia'ha'ya`, `yoi'yia'yai'yoi`, `yoi'yia'ha'yoi`, `yoi'yia'yai'yai`, `yoi'yia'ha'ha`, `yoi'yia'yai'yio`, `yoi'yia'ha'ho`, `yoi'yia'yai'yia`, `yoi'yia'ha'yia`, `yoi'yia'yio'yo`, `yoi'yia'ho'yo`, `yoi'yia'yio'ya`, `yoi'yia'ho'ya`, `yoi'yia'yio'yoi`, `yoi'yia'ho'yoi`, `yoi'yia'yio'yai`, `yoi'yia'ho'ha`, `yoi'yia'yio'yio`, `yoi'yia'ho'ho`, `yoi'yia'yio'yia`, `yoi'yia'ho'yia`, `yoi'yia'yia'yo`, `yoi'yia'yia'ya`, `yoi'yia'yia'yoi`, `yoi'yia'yia'yai`, `yoi'yia'yia'ha`, `yoi'yia'yia'yio`, `yoi'yia'yia'ho`, `yoi'yia'yia'yia`, `yai'yo'yo'yo`, `ha__'yo'yo'yo`, `yai'yo'yo'ya`, `ha__'yo'yo'ya`, `yai'yo'yo'yoi`, `ha__'yo'yo'yoi`, `yai'yo'yo'yai`, `ha__'yo'yo'ha`, `yai'yo'yo'yio`, `ha__'yo'yo'ho`, `yai'yo'yo'yia`, `ha__'yo'yo'yia`, `yai'yo'ya'yo`, `ha__'yo'ya'yo`, `yai'yo'ya'ya`, `ha__'yo'ya'ya`, `yai'yo'ya'yoi`, `ha__'yo'ya'yoi`, `yai'yo'ya'yai`, `ha__'yo'ya'ha`, `yai'yo'ya'yio`, `ha__'yo'ya'ho`, `yai'yo'ya'yia`, `ha__'yo'ya'yia`, `yai'yo'yoi'yo`, `ha__'yo'yoi'yo`, `yai'yo'yoi'ya`, `ha__'yo'yoi'ya`, `yai'yo'yoi'yoi`, `ha__'yo'yoi'yoi`, `yai'yo'yoi'yai`, `ha__'yo'yoi'ha`, `yai'yo'yoi'yio`, `ha__'yo'yoi'ho`, `yai'yo'yoi'yia`, `ha__'yo'yoi'yia`, `yai'yo'yai'yo`, `ha__'yo'ha'yo`, `yai'yo'yai'ya`, `ha__'yo'ha'ya`, `yai'yo'yai'yoi`, `ha__'yo'ha'yoi`, `yai'yo'yai'yai`, `ha__'yo'ha'ha`, `yai'yo'yai'yio`, `ha__'yo'ha'ho`, `yai'yo'yai'yia`, `ha__'yo'ha'yia`, `yai'yo'yio'yo`, `ha__'yo'ho'yo`, `yai'yo'yio'ya`, `ha__'yo'ho'ya`, `yai'yo'yio'yoi`, `ha__'yo'ho'yoi`, `yai'yo'yio'yai`, `ha__'yo'ho'ha`, `yai'yo'yio'yio`, `ha__'yo'ho'ho`, `yai'yo'yio'yia`, `ha__'yo'ho'yia`, `yai'yo'yia'yo`, `ha__'yo'yia'yo`, `yai'yo'yia'ya`, `ha__'yo'yia'ya`, `yai'yo'yia'yoi`, `ha__'yo'yia'yoi`, `yai'yo'yia'yai`, `ha__'yo'yia'ha`, `yai'yo'yia'yio`, `ha__'yo'yia'ho`, `yai'yo'yia'yia`, `ha__'yo'yia'yia`, `yai'ya'yo'yo`, `ha__'ya'yo'yo`, `yai'ya'yo'ya`, `ha__'ya'yo'ya`, `yai'ya'yo'yoi`, `ha__'ya'yo'yoi`, `yai'ya'yo'yai`, `ha__'ya'yo'ha`, `yai'ya'yo'yio`, `ha__'ya'yo'ho`, `yai'ya'yo'yia`, `ha__'ya'yo'yia`, `yai'ya'ya'yo`, `ha__'ya'ya'yo`, `yai'ya'ya'ya`, `ha__'ya'ya'ya`, `yai'ya'ya'yoi`, `ha__'ya'ya'yoi`, `yai'ya'ya'yai`, `ha__'ya'ya'ha`, `yai'ya'ya'yio`, `ha__'ya'ya'ho`, `yai'ya'ya'yia`, `ha__'ya'ya'yia`, `yai'ya'yoi'yo`, `ha__'ya'yoi'yo`, `yai'ya'yoi'ya`, `ha__'ya'yoi'ya`, `yai'ya'yoi'yoi`, `ha__'ya'yoi'yoi`, `yai'ya'yoi'yai`, `ha__'ya'yoi'ha`, `yai'ya'yoi'yio`, `ha__'ya'yoi'ho`, `yai'ya'yoi'yia`, `ha__'ya'yoi'yia`, `yai'ya'yai'yo`, `ha__'ya'ha'yo`, `yai'ya'yai'ya`, `ha__'ya'ha'ya`, `yai'ya'yai'yoi`, `ha__'ya'ha'yoi`, `yai'ya'yai'yai`, `ha__'ya'ha'ha`, `yai'ya'yai'yio`, `ha__'ya'ha'ho`, `yai'ya'yai'yia`, `ha__'ya'ha'yia`, `yai'ya'yio'yo`, `ha__'ya'ho'yo`, `yai'ya'yio'ya`, `ha__'ya'ho'ya`, `yai'ya'yio'yoi`, `ha__'ya'ho'yoi`, `yai'ya'yio'yai`, `ha__'ya'ho'ha`, `yai'ya'yio'yio`, `ha__'ya'ho'ho`, `yai'ya'yio'yia`, `ha__'ya'ho'yia`, `yai'ya'yia'yo`, `ha__'ya'yia'yo`, `yai'ya'yia'ya`, `ha__'ya'yia'ya`, `yai'ya'yia'yoi`, `ha__'ya'yia'yoi`, `yai'ya'yia'yai`, `ha__'ya'yia'ha`, `yai'ya'yia'yio`, `ha__'ya'yia'ho`, `yai'ya'yia'yia`, `ha__'ya'yia'yia`, `yai'yoi'yo'yo`, `ha__'yoi'yo'yo`, `yai'yoi'yo'ya`, `ha__'yoi'yo'ya`, `yai'yoi'yo'yoi`, `ha__'yoi'yo'yoi`, `yai'yoi'yo'yai`, `ha__'yoi'yo'ha`, `yai'yoi'yo'yio`, `ha__'yoi'yo'ho`, `yai'yoi'yo'yia`, `ha__'yoi'yo'yia`, `yai'yoi'ya'yo`, `ha__'yoi'ya'yo`, `yai'yoi'ya'ya`, `ha__'yoi'ya'ya`, `yai'yoi'ya'yoi`, `ha__'yoi'ya'yoi`, `yai'yoi'ya'yai`, `ha__'yoi'ya'ha`, `yai'yoi'ya'yio`, `ha__'yoi'ya'ho`, `yai'yoi'ya'yia`, `ha__'yoi'ya'yia`, `yai'yoi'yoi'yo`, `ha__'yoi'yoi'yo`, `yai'yoi'yoi'ya`, `ha__'yoi'yoi'ya`, `yai'yoi'yoi'yoi`, `ha__'yoi'yoi'yoi`, `yai'yoi'yoi'yai`, `ha__'yoi'yoi'ha`, `yai'yoi'yoi'yio`, `ha__'yoi'yoi'ho`, `yai'yoi'yoi'yia`, `ha__'yoi'yoi'yia`, `yai'yoi'yai'yo`, `ha__'yoi'ha'yo`, `yai'yoi'yai'ya`, `ha__'yoi'ha'ya`, `yai'yoi'yai'yoi`, `ha__'yoi'ha'yoi`, `yai'yoi'yai'yai`, `ha__'yoi'ha'ha`, `yai'yoi'yai'yio`, `ha__'yoi'ha'ho`, `yai'yoi'yai'yia`, `ha__'yoi'ha'yia`, `yai'yoi'yio'yo`, `ha__'yoi'ho'yo`, `yai'yoi'yio'ya`, `ha__'yoi'ho'ya`, `yai'yoi'yio'yoi`, `ha__'yoi'ho'yoi`, `yai'yoi'yio'yai`, `ha__'yoi'ho'ha`, `yai'yoi'yio'yio`, `ha__'yoi'ho'ho`, `yai'yoi'yio'yia`, `ha__'yoi'ho'yia`, `yai'yoi'yia'yo`, `ha__'yoi'yia'yo`, `yai'yoi'yia'ya`, `ha__'yoi'yia'ya`, `yai'yoi'yia'yoi`, `ha__'yoi'yia'yoi`, `yai'yoi'yia'yai`, `ha__'yoi'yia'ha`, `yai'yoi'yia'yio`, `ha__'yoi'yia'ho`, `yai'yoi'yia'yia`, `ha__'yoi'yia'yia`, `yai'yai'yo'yo`, `ha__'ha'yo'yo`, `yai'yai'yo'ya`, `ha__'ha'yo'ya`, `yai'yai'yo'yoi`, `ha__'ha'yo'yoi`, `yai'yai'yo'yai`, `ha__'ha'yo'ha`, `yai'yai'yo'yio`, `ha__'ha'yo'ho`, `yai'yai'yo'yia`, `ha__'ha'yo'yia`, `yai'yai'ya'yo`, `ha__'ha'ya'yo`, `yai'yai'ya'ya`, `ha__'ha'ya'ya`, `yai'yai'ya'yoi`, `ha__'ha'ya'yoi`, `yai'yai'ya'yai`, `ha__'ha'ya'ha`, `yai'yai'ya'yio`, `ha__'ha'ya'ho`, `yai'yai'ya'yia`, `ha__'ha'ya'yia`, `yai'yai'yoi'yo`, `ha__'ha'yoi'yo`, `yai'yai'yoi'ya`, `ha__'ha'yoi'ya`, `yai'yai'yoi'yoi`, `ha__'ha'yoi'yoi`, `yai'yai'yoi'yai`, `ha__'ha'yoi'ha`, `yai'yai'yoi'yio`, `ha__'ha'yoi'ho`, `yai'yai'yoi'yia`, `ha__'ha'yoi'yia`, `yai'yai'yai'yo`, `ha__'ha'ha'yo`, `yai'yai'yai'ya`, `ha__'ha'ha'ya`, `yai'yai'yai'yoi`, `ha__'ha'ha'yoi`, `yai'yai'yai'yai`, `ha__'ha'ha'ha`, `yai'yai'yai'yio`, `ha__'ha'ha'ho`, `yai'yai'yai'yia`, `ha__'ha'ha'yia`, `yai'yai'yio'yo`, `ha__'ha'ho'yo`, `yai'yai'yio'ya`, `ha__'ha'ho'ya`, `yai'yai'yio'yoi`, `ha__'ha'ho'yoi`, `yai'yai'yio'yai`, `ha__'ha'ho'ha`, `yai'yai'yio'yio`, `ha__'ha'ho'ho`, `yai'yai'yio'yia`, `ha__'ha'ho'yia`, `yai'yai'yia'yo`, `ha__'ha'yia'yo`, `yai'yai'yia'ya`, `ha__'ha'yia'ya`, `yai'yai'yia'yoi`, `ha__'ha'yia'yoi`, `yai'yai'yia'yai`, `ha__'ha'yia'ha`, `yai'yai'yia'yio`, `ha__'ha'yia'ho`, `yai'yai'yia'yia`, `ha__'ha'yia'yia`, `yai'yio'yo'yo`, `ha__'ho'yo'yo`, `yai'yio'yo'ya`, `ha__'ho'yo'ya`, `yai'yio'yo'yoi`, `ha__'ho'yo'yoi`, `yai'yio'yo'yai`, `ha__'ho'yo'ha`, `yai'yio'yo'yio`, `ha__'ho'yo'ho`, `yai'yio'yo'yia`, `ha__'ho'yo'yia`, `yai'yio'ya'yo`, `ha__'ho'ya'yo`, `yai'yio'ya'ya`, `ha__'ho'ya'ya`, `yai'yio'ya'yoi`, `ha__'ho'ya'yoi`, `yai'yio'ya'yai`, `ha__'ho'ya'ha`, `yai'yio'ya'yio`, `ha__'ho'ya'ho`, `yai'yio'ya'yia`, `ha__'ho'ya'yia`, `yai'yio'yoi'yo`, `ha__'ho'yoi'yo`, `yai'yio'yoi'ya`, `ha__'ho'yoi'ya`, `yai'yio'yoi'yoi`, `ha__'ho'yoi'yoi`, `yai'yio'yoi'yai`, `ha__'ho'yoi'ha`, `yai'yio'yoi'yio`, `ha__'ho'yoi'ho`, `yai'yio'yoi'yia`, `ha__'ho'yoi'yia`, `yai'yio'yai'yo`, `ha__'ho'ha'yo`, `yai'yio'yai'ya`, `ha__'ho'ha'ya`, `yai'yio'yai'yoi`, `ha__'ho'ha'yoi`, `yai'yio'yai'yai`, `ha__'ho'ha'ha`, `yai'yio'yai'yio`, `ha__'ho'ha'ho`, `yai'yio'yai'yia`, `ha__'ho'ha'yia`, `yai'yio'yio'yo`, `ha__'ho'ho'yo`, `yai'yio'yio'ya`, `ha__'ho'ho'ya`, `yai'yio'yio'yoi`, `ha__'ho'ho'yoi`, `yai'yio'yio'yai`, `ha__'ho'ho'ha`, `yai'yio'yio'yio`, `ha__'ho'ho'ho`, `yai'yio'yio'yia`, `ha__'ho'ho'yia`, `yai'yio'yia'yo`, `ha__'ho'yia'yo`, `yai'yio'yia'ya`, `ha__'ho'yia'ya`, `yai'yio'yia'yoi`, `ha__'ho'yia'yoi`, `yai'yio'yia'yai`, `ha__'ho'yia'ha`, `yai'yio'yia'yio`, `ha__'ho'yia'ho`, `yai'yio'yia'yia`, `ha__'ho'yia'yia`, `yai'yia'yo'yo`, `ha__'yia'yo'yo`, `yai'yia'yo'ya`, `ha__'yia'yo'ya`, `yai'yia'yo'yoi`, `ha__'yia'yo'yoi`, `yai'yia'yo'yai`, `ha__'yia'yo'ha`, `yai'yia'yo'yio`, `ha__'yia'yo'ho`, `yai'yia'yo'yia`, `ha__'yia'yo'yia`, `yai'yia'ya'yo`, `ha__'yia'ya'yo`, `yai'yia'ya'ya`, `ha__'yia'ya'ya`, `yai'yia'ya'yoi`, `ha__'yia'ya'yoi`, `yai'yia'ya'yai`, `ha__'yia'ya'ha`, `yai'yia'ya'yio`, `ha__'yia'ya'ho`, `yai'yia'ya'yia`, `ha__'yia'ya'yia`, `yai'yia'yoi'yo`, `ha__'yia'yoi'yo`, `yai'yia'yoi'ya`, `ha__'yia'yoi'ya`, `yai'yia'yoi'yoi`, `ha__'yia'yoi'yoi`, `yai'yia'yoi'yai`, `ha__'yia'yoi'ha`, `yai'yia'yoi'yio`, `ha__'yia'yoi'ho`, `yai'yia'yoi'yia`, `ha__'yia'yoi'yia`, `yai'yia'yai'yo`, `ha__'yia'ha'yo`, `yai'yia'yai'ya`, `ha__'yia'ha'ya`, `yai'yia'yai'yoi`, `ha__'yia'ha'yoi`, `yai'yia'yai'yai`, `ha__'yia'ha'ha`, `yai'yia'yai'yio`, `ha__'yia'ha'ho`, `yai'yia'yai'yia`, `ha__'yia'ha'yia`, `yai'yia'yio'yo`, `ha__'yia'ho'yo`, `yai'yia'yio'ya`, `ha__'yia'ho'ya`, `yai'yia'yio'yoi`, `ha__'yia'ho'yoi`, `yai'yia'yio'yai`, `ha__'yia'ho'ha`, `yai'yia'yio'yio`, `ha__'yia'ho'ho`, `yai'yia'yio'yia`, `ha__'yia'ho'yia`, `yai'yia'yia'yo`, `ha__'yia'yia'yo`, `yai'yia'yia'ya`, `ha__'yia'yia'ya`, `yai'yia'yia'yoi`, `ha__'yia'yia'yoi`, `yai'yia'yia'yai`, `ha__'yia'yia'ha`, `yai'yia'yia'yio`, `ha__'yia'yia'ho`, `yai'yia'yia'yia`, `ha__'yia'yia'yia`, `yio'yo'yo'yo`, `ho__'yo'yo'yo`, `yio'yo'yo'ya`, `ho__'yo'yo'ya`, `yio'yo'yo'yoi`, `ho__'yo'yo'yoi`, `yio'yo'yo'yai`, `ho__'yo'yo'ha`, `yio'yo'yo'yio`, `ho__'yo'yo'ho`, `yio'yo'yo'yia`, `ho__'yo'yo'yia`, `yio'yo'ya'yo`, `ho__'yo'ya'yo`, `yio'yo'ya'ya`, `ho__'yo'ya'ya`, `yio'yo'ya'yoi`, `ho__'yo'ya'yoi`, `yio'yo'ya'yai`, `ho__'yo'ya'ha`, `yio'yo'ya'yio`, `ho__'yo'ya'ho`, `yio'yo'ya'yia`, `ho__'yo'ya'yia`, `yio'yo'yoi'yo`, `ho__'yo'yoi'yo`, `yio'yo'yoi'ya`, `ho__'yo'yoi'ya`, `yio'yo'yoi'yoi`, `ho__'yo'yoi'yoi`, `yio'yo'yoi'yai`, `ho__'yo'yoi'ha`, `yio'yo'yoi'yio`, `ho__'yo'yoi'ho`, `yio'yo'yoi'yia`, `ho__'yo'yoi'yia`, `yio'yo'yai'yo`, `ho__'yo'ha'yo`, `yio'yo'yai'ya`, `ho__'yo'ha'ya`, `yio'yo'yai'yoi`, `ho__'yo'ha'yoi`, `yio'yo'yai'yai`, `ho__'yo'ha'ha`, `yio'yo'yai'yio`, `ho__'yo'ha'ho`, `yio'yo'yai'yia`, `ho__'yo'ha'yia`, `yio'yo'yio'yo`, `ho__'yo'ho'yo`, `yio'yo'yio'ya`, `ho__'yo'ho'ya`, `yio'yo'yio'yoi`, `ho__'yo'ho'yoi`, `yio'yo'yio'yai`, `ho__'yo'ho'ha`, `yio'yo'yio'yio`, `ho__'yo'ho'ho`, `yio'yo'yio'yia`, `ho__'yo'ho'yia`, `yio'yo'yia'yo`, `ho__'yo'yia'yo`, `yio'yo'yia'ya`, `ho__'yo'yia'ya`, `yio'yo'yia'yoi`, `ho__'yo'yia'yoi`, `yio'yo'yia'yai`, `ho__'yo'yia'ha`, `yio'yo'yia'yio`, `ho__'yo'yia'ho`, `yio'yo'yia'yia`, `ho__'yo'yia'yia`, `yio'ya'yo'yo`, `ho__'ya'yo'yo`, `yio'ya'yo'ya`, `ho__'ya'yo'ya`, `yio'ya'yo'yoi`, `ho__'ya'yo'yoi`, `yio'ya'yo'yai`, `ho__'ya'yo'ha`, `yio'ya'yo'yio`, `ho__'ya'yo'ho`, `yio'ya'yo'yia`, `ho__'ya'yo'yia`, `yio'ya'ya'yo`, `ho__'ya'ya'yo`, `yio'ya'ya'ya`, `ho__'ya'ya'ya`, `yio'ya'ya'yoi`, `ho__'ya'ya'yoi`, `yio'ya'ya'yai`, `ho__'ya'ya'ha`, `yio'ya'ya'yio`, `ho__'ya'ya'ho`, `yio'ya'ya'yia`, `ho__'ya'ya'yia`, `yio'ya'yoi'yo`, `ho__'ya'yoi'yo`, `yio'ya'yoi'ya`, `ho__'ya'yoi'ya`, `yio'ya'yoi'yoi`, `ho__'ya'yoi'yoi`, `yio'ya'yoi'yai`, `ho__'ya'yoi'ha`, `yio'ya'yoi'yio`, `ho__'ya'yoi'ho`, `yio'ya'yoi'yia`, `ho__'ya'yoi'yia`, `yio'ya'yai'yo`, `ho__'ya'ha'yo`, `yio'ya'yai'ya`, `ho__'ya'ha'ya`, `yio'ya'yai'yoi`, `ho__'ya'ha'yoi`, `yio'ya'yai'yai`, `ho__'ya'ha'ha`, `yio'ya'yai'yio`, `ho__'ya'ha'ho`, `yio'ya'yai'yia`, `ho__'ya'ha'yia`, `yio'ya'yio'yo`, `ho__'ya'ho'yo`, `yio'ya'yio'ya`, `ho__'ya'ho'ya`, `yio'ya'yio'yoi`, `ho__'ya'ho'yoi`, `yio'ya'yio'yai`, `ho__'ya'ho'ha`, `yio'ya'yio'yio`, `ho__'ya'ho'ho`, `yio'ya'yio'yia`, `ho__'ya'ho'yia`, `yio'ya'yia'yo`, `ho__'ya'yia'yo`, `yio'ya'yia'ya`, `ho__'ya'yia'ya`, `yio'ya'yia'yoi`, `ho__'ya'yia'yoi`, `yio'ya'yia'yai`, `ho__'ya'yia'ha`, `yio'ya'yia'yio`, `ho__'ya'yia'ho`, `yio'ya'yia'yia`, `ho__'ya'yia'yia`, `yio'yoi'yo'yo`, `ho__'yoi'yo'yo`, `yio'yoi'yo'ya`, `ho__'yoi'yo'ya`, `yio'yoi'yo'yoi`, `ho__'yoi'yo'yoi`, `yio'yoi'yo'yai`, `ho__'yoi'yo'ha`, `yio'yoi'yo'yio`, `ho__'yoi'yo'ho`, `yio'yoi'yo'yia`, `ho__'yoi'yo'yia`, `yio'yoi'ya'yo`, `ho__'yoi'ya'yo`, `yio'yoi'ya'ya`, `ho__'yoi'ya'ya`, `yio'yoi'ya'yoi`, `ho__'yoi'ya'yoi`, `yio'yoi'ya'yai`, `ho__'yoi'ya'ha`, `yio'yoi'ya'yio`, `ho__'yoi'ya'ho`, `yio'yoi'ya'yia`, `ho__'yoi'ya'yia`, `yio'yoi'yoi'yo`, `ho__'yoi'yoi'yo`, `yio'yoi'yoi'ya`, `ho__'yoi'yoi'ya`, `yio'yoi'yoi'yoi`, `ho__'yoi'yoi'yoi`, `yio'yoi'yoi'yai`, `ho__'yoi'yoi'ha`, `yio'yoi'yoi'yio`, `ho__'yoi'yoi'ho`, `yio'yoi'yoi'yia`, `ho__'yoi'yoi'yia`, `yio'yoi'yai'yo`, `ho__'yoi'ha'yo`, `yio'yoi'yai'ya`, `ho__'yoi'ha'ya`, `yio'yoi'yai'yoi`, `ho__'yoi'ha'yoi`, `yio'yoi'yai'yai`, `ho__'yoi'ha'ha`, `yio'yoi'yai'yio`, `ho__'yoi'ha'ho`, `yio'yoi'yai'yia`, `ho__'yoi'ha'yia`, `yio'yoi'yio'yo`, `ho__'yoi'ho'yo`, `yio'yoi'yio'ya`, `ho__'yoi'ho'ya`, `yio'yoi'yio'yoi`, `ho__'yoi'ho'yoi`, `yio'yoi'yio'yai`, `ho__'yoi'ho'ha`, `yio'yoi'yio'yio`, `ho__'yoi'ho'ho`, `yio'yoi'yio'yia`, `ho__'yoi'ho'yia`, `yio'yoi'yia'yo`, `ho__'yoi'yia'yo`, `yio'yoi'yia'ya`, `ho__'yoi'yia'ya`, `yio'yoi'yia'yoi`, `ho__'yoi'yia'yoi`, `yio'yoi'yia'yai`, `ho__'yoi'yia'ha`, `yio'yoi'yia'yio`, `ho__'yoi'yia'ho`, `yio'yoi'yia'yia`, `ho__'yoi'yia'yia`, `yio'yai'yo'yo`, `ho__'ha'yo'yo`, `yio'yai'yo'ya`, `ho__'ha'yo'ya`, `yio'yai'yo'yoi`, `ho__'ha'yo'yoi`, `yio'yai'yo'yai`, `ho__'ha'yo'ha`, `yio'yai'yo'yio`, `ho__'ha'yo'ho`, `yio'yai'yo'yia`, `ho__'ha'yo'yia`, `yio'yai'ya'yo`, `ho__'ha'ya'yo`, `yio'yai'ya'ya`, `ho__'ha'ya'ya`, `yio'yai'ya'yoi`, `ho__'ha'ya'yoi`, `yio'yai'ya'yai`, `ho__'ha'ya'ha`, `yio'yai'ya'yio`, `ho__'ha'ya'ho`, `yio'yai'ya'yia`, `ho__'ha'ya'yia`, `yio'yai'yoi'yo`, `ho__'ha'yoi'yo`, `yio'yai'yoi'ya`, `ho__'ha'yoi'ya`, `yio'yai'yoi'yoi`, `ho__'ha'yoi'yoi`, `yio'yai'yoi'yai`, `ho__'ha'yoi'ha`, `yio'yai'yoi'yio`, `ho__'ha'yoi'ho`, `yio'yai'yoi'yia`, `ho__'ha'yoi'yia`, `yio'yai'yai'yo`, `ho__'ha'ha'yo`, `yio'yai'yai'ya`, `ho__'ha'ha'ya`, `yio'yai'yai'yoi`, `ho__'ha'ha'yoi`, `yio'yai'yai'yai`, `ho__'ha'ha'ha`, `yio'yai'yai'yio`, `ho__'ha'ha'ho`, `yio'yai'yai'yia`, `ho__'ha'ha'yia`, `yio'yai'yio'yo`, `ho__'ha'ho'yo`, `yio'yai'yio'ya`, `ho__'ha'ho'ya`, `yio'yai'yio'yoi`, `ho__'ha'ho'yoi`, `yio'yai'yio'yai`, `ho__'ha'ho'ha`, `yio'yai'yio'yio`, `ho__'ha'ho'ho`, `yio'yai'yio'yia`, `ho__'ha'ho'yia`, `yio'yai'yia'yo`, `ho__'ha'yia'yo`, `yio'yai'yia'ya`, `ho__'ha'yia'ya`, `yio'yai'yia'yoi`, `ho__'ha'yia'yoi`, `yio'yai'yia'yai`, `ho__'ha'yia'ha`, `yio'yai'yia'yio`, `ho__'ha'yia'ho`, `yio'yai'yia'yia`, `ho__'ha'yia'yia`, `yio'yio'yo'yo`, `ho__'ho'yo'yo`, `yio'yio'yo'ya`, `ho__'ho'yo'ya`, `yio'yio'yo'yoi`, `ho__'ho'yo'yoi`, `yio'yio'yo'yai`, `ho__'ho'yo'ha`, `yio'yio'yo'yio`, `ho__'ho'yo'ho`, `yio'yio'yo'yia`, `ho__'ho'yo'yia`, `yio'yio'ya'yo`, `ho__'ho'ya'yo`, `yio'yio'ya'ya`, `ho__'ho'ya'ya`, `yio'yio'ya'yoi`, `ho__'ho'ya'yoi`, `yio'yio'ya'yai`, `ho__'ho'ya'ha`, `yio'yio'ya'yio`, `ho__'ho'ya'ho`, `yio'yio'ya'yia`, `ho__'ho'ya'yia`, `yio'yio'yoi'yo`, `ho__'ho'yoi'yo`, `yio'yio'yoi'ya`, `ho__'ho'yoi'ya`, `yio'yio'yoi'yoi`, `ho__'ho'yoi'yoi`, `yio'yio'yoi'yai`, `ho__'ho'yoi'ha`, `yio'yio'yoi'yio`, `ho__'ho'yoi'ho`, `yio'yio'yoi'yia`, `ho__'ho'yoi'yia`, `yio'yio'yai'yo`, `ho__'ho'ha'yo`, `yio'yio'yai'ya`, `ho__'ho'ha'ya`, `yio'yio'yai'yoi`, `ho__'ho'ha'yoi`, `yio'yio'yai'yai`, `ho__'ho'ha'ha`, `yio'yio'yai'yio`, `ho__'ho'ha'ho`, `yio'yio'yai'yia`, `ho__'ho'ha'yia`, `yio'yio'yio'yo`, `ho__'ho'ho'yo`, `yio'yio'yio'ya`, `ho__'ho'ho'ya`, `yio'yio'yio'yoi`, `ho__'ho'ho'yoi`, `yio'yio'yio'yai`, `ho__'ho'ho'ha`, `yio'yio'yio'yio`, `ho__'ho'ho'ho`, `yio'yio'yio'yia`, `ho__'ho'ho'yia`, `yio'yio'yia'yo`, `ho__'ho'yia'yo`, `yio'yio'yia'ya`, `ho__'ho'yia'ya`, `yio'yio'yia'yoi`, `ho__'ho'yia'yoi`, `yio'yio'yia'yai`, `ho__'ho'yia'ha`, `yio'yio'yia'yio`, `ho__'ho'yia'ho`, `yio'yio'yia'yia`, `ho__'ho'yia'yia`, `yio'yia'yo'yo`, `ho__'yia'yo'yo`, `yio'yia'yo'ya`, `ho__'yia'yo'ya`, `yio'yia'yo'yoi`, `ho__'yia'yo'yoi`, `yio'yia'yo'yai`, `ho__'yia'yo'ha`, `yio'yia'yo'yio`, `ho__'yia'yo'ho`, `yio'yia'yo'yia`, `ho__'yia'yo'yia`, `yio'yia'ya'yo`, `ho__'yia'ya'yo`, `yio'yia'ya'ya`, `ho__'yia'ya'ya`, `yio'yia'ya'yoi`, `ho__'yia'ya'yoi`, `yio'yia'ya'yai`, `ho__'yia'ya'ha`, `yio'yia'ya'yio`, `ho__'yia'ya'ho`, `yio'yia'ya'yia`, `ho__'yia'ya'yia`, `yio'yia'yoi'yo`, `ho__'yia'yoi'yo`, `yio'yia'yoi'ya`, `ho__'yia'yoi'ya`, `yio'yia'yoi'yoi`, `ho__'yia'yoi'yoi`, `yio'yia'yoi'yai`, `ho__'yia'yoi'ha`, `yio'yia'yoi'yio`, `ho__'yia'yoi'ho`, `yio'yia'yoi'yia`, `ho__'yia'yoi'yia`, `yio'yia'yai'yo`, `ho__'yia'ha'yo`, `yio'yia'yai'ya`, `ho__'yia'ha'ya`, `yio'yia'yai'yoi`, `ho__'yia'ha'yoi`, `yio'yia'yai'yai`, `ho__'yia'ha'ha`, `yio'yia'yai'yio`, `ho__'yia'ha'ho`, `yio'yia'yai'yia`, `ho__'yia'ha'yia`, `yio'yia'yio'yo`, `ho__'yia'ho'yo`, `yio'yia'yio'ya`, `ho__'yia'ho'ya`, `yio'yia'yio'yoi`, `ho__'yia'ho'yoi`, `yio'yia'yio'yai`, `ho__'yia'ho'ha`, `yio'yia'yio'yio`, `ho__'yia'ho'ho`, `yio'yia'yio'yia`, `ho__'yia'ho'yia`, `yio'yia'yia'yo`, `ho__'yia'yia'yo`, `yio'yia'yia'ya`, `ho__'yia'yia'ya`, `yio'yia'yia'yoi`, `ho__'yia'yia'yoi`, `yio'yia'yia'yai`, `ho__'yia'yia'ha`, `yio'yia'yia'yio`, `ho__'yia'yia'ho`, `yio'yia'yia'yia`, `ho__'yia'yia'yia`, `yia'yo'yo'yo`, `yia'yo'yo'ya`, `yia'yo'yo'yoi`, `yia'yo'yo'yai`, `yia'yo'yo'ha`, `yia'yo'yo'yio`, `yia'yo'yo'ho`, `yia'yo'yo'yia`, `yia'yo'ya'yo`, `yia'yo'ya'ya`, `yia'yo'ya'yoi`, `yia'yo'ya'yai`, `yia'yo'ya'ha`, `yia'yo'ya'yio`, `yia'yo'ya'ho`, `yia'yo'ya'yia`, `yia'yo'yoi'yo`, `yia'yo'yoi'ya`, `yia'yo'yoi'yoi`, `yia'yo'yoi'yai`, `yia'yo'yoi'ha`, `yia'yo'yoi'yio`, `yia'yo'yoi'ho`, `yia'yo'yoi'yia`, `yia'yo'yai'yo`, `yia'yo'ha'yo`, `yia'yo'yai'ya`, `yia'yo'ha'ya`, `yia'yo'yai'yoi`, `yia'yo'ha'yoi`, `yia'yo'yai'yai`, `yia'yo'ha'ha`, `yia'yo'yai'yio`, `yia'yo'ha'ho`, `yia'yo'yai'yia`, `yia'yo'ha'yia`, `yia'yo'yio'yo`, `yia'yo'ho'yo`, `yia'yo'yio'ya`, `yia'yo'ho'ya`, `yia'yo'yio'yoi`, `yia'yo'ho'yoi`, `yia'yo'yio'yai`, `yia'yo'ho'ha`, `yia'yo'yio'yio`, `yia'yo'ho'ho`, `yia'yo'yio'yia`, `yia'yo'ho'yia`, `yia'yo'yia'yo`, `yia'yo'yia'ya`, `yia'yo'yia'yoi`, `yia'yo'yia'yai`, `yia'yo'yia'ha`, `yia'yo'yia'yio`, `yia'yo'yia'ho`, `yia'yo'yia'yia`, `yia'ya'yo'yo`, `yia'ya'yo'ya`, `yia'ya'yo'yoi`, `yia'ya'yo'yai`, `yia'ya'yo'ha`, `yia'ya'yo'yio`, `yia'ya'yo'ho`, `yia'ya'yo'yia`, `yia'ya'ya'yo`, `yia'ya'ya'ya`, `yia'ya'ya'yoi`, `yia'ya'ya'yai`, `yia'ya'ya'ha`, `yia'ya'ya'yio`, `yia'ya'ya'ho`, `yia'ya'ya'yia`, `yia'ya'yoi'yo`, `yia'ya'yoi'ya`, `yia'ya'yoi'yoi`, `yia'ya'yoi'yai`, `yia'ya'yoi'ha`, `yia'ya'yoi'yio`, `yia'ya'yoi'ho`, `yia'ya'yoi'yia`, `yia'ya'yai'yo`, `yia'ya'ha'yo`, `yia'ya'yai'ya`, `yia'ya'ha'ya`, `yia'ya'yai'yoi`, `yia'ya'ha'yoi`, `yia'ya'yai'yai`, `yia'ya'ha'ha`, `yia'ya'yai'yio`, `yia'ya'ha'ho`, `yia'ya'yai'yia`, `yia'ya'ha'yia`, `yia'ya'yio'yo`, `yia'ya'ho'yo`, `yia'ya'yio'ya`, `yia'ya'ho'ya`, `yia'ya'yio'yoi`, `yia'ya'ho'yoi`, `yia'ya'yio'yai`, `yia'ya'ho'ha`, `yia'ya'yio'yio`, `yia'ya'ho'ho`, `yia'ya'yio'yia`, `yia'ya'ho'yia`, `yia'ya'yia'yo`, `yia'ya'yia'ya`, `yia'ya'yia'yoi`, `yia'ya'yia'yai`, `yia'ya'yia'ha`, `yia'ya'yia'yio`, `yia'ya'yia'ho`, `yia'ya'yia'yia`, `yia'yoi'yo'yo`, `yia'yoi'yo'ya`, `yia'yoi'yo'yoi`, `yia'yoi'yo'yai`, `yia'yoi'yo'ha`, `yia'yoi'yo'yio`, `yia'yoi'yo'ho`, `yia'yoi'yo'yia`, `yia'yoi'ya'yo`, `yia'yoi'ya'ya`, `yia'yoi'ya'yoi`, `yia'yoi'ya'yai`, `yia'yoi'ya'ha`, `yia'yoi'ya'yio`, `yia'yoi'ya'ho`, `yia'yoi'ya'yia`, `yia'yoi'yoi'yo`, `yia'yoi'yoi'ya`, `yia'yoi'yoi'yoi`, `yia'yoi'yoi'yai`, `yia'yoi'yoi'ha`, `yia'yoi'yoi'yio`, `yia'yoi'yoi'ho`, `yia'yoi'yoi'yia`, `yia'yoi'yai'yo`, `yia'yoi'ha'yo`, `yia'yoi'yai'ya`, `yia'yoi'ha'ya`, `yia'yoi'yai'yoi`, `yia'yoi'ha'yoi`, `yia'yoi'yai'yai`, `yia'yoi'ha'ha`, `yia'yoi'yai'yio`, `yia'yoi'ha'ho`, `yia'yoi'yai'yia`, `yia'yoi'ha'yia`, `yia'yoi'yio'yo`, `yia'yoi'ho'yo`, `yia'yoi'yio'ya`, `yia'yoi'ho'ya`, `yia'yoi'yio'yoi`, `yia'yoi'ho'yoi`, `yia'yoi'yio'yai`, `yia'yoi'ho'ha`, `yia'yoi'yio'yio`, `yia'yoi'ho'ho`, `yia'yoi'yio'yia`, `yia'yoi'ho'yia`, `yia'yoi'yia'yo`, `yia'yoi'yia'ya`, `yia'yoi'yia'yoi`, `yia'yoi'yia'yai`, `yia'yoi'yia'ha`, `yia'yoi'yia'yio`, `yia'yoi'yia'ho`, `yia'yoi'yia'yia`, `yia'yai'yo'yo`, `yia'ha'yo'yo`, `yia'yai'yo'ya`, `yia'ha'yo'ya`, `yia'yai'yo'yoi`, `yia'ha'yo'yoi`, `yia'yai'yo'yai`, `yia'ha'yo'ha`, `yia'yai'yo'yio`, `yia'ha'yo'ho`, `yia'yai'yo'yia`, `yia'ha'yo'yia`, `yia'yai'ya'yo`, `yia'ha'ya'yo`, `yia'yai'ya'ya`, `yia'ha'ya'ya`, `yia'yai'ya'yoi`, `yia'ha'ya'yoi`, `yia'yai'ya'yai`, `yia'ha'ya'ha`, `yia'yai'ya'yio`, `yia'ha'ya'ho`, `yia'yai'ya'yia`, `yia'ha'ya'yia`, `yia'yai'yoi'yo`, `yia'ha'yoi'yo`, `yia'yai'yoi'ya`, `yia'ha'yoi'ya`, `yia'yai'yoi'yoi`, `yia'ha'yoi'yoi`, `yia'yai'yoi'yai`, `yia'ha'yoi'ha`, `yia'yai'yoi'yio`, `yia'ha'yoi'ho`, `yia'yai'yoi'yia`, `yia'ha'yoi'yia`, `yia'yai'yai'yo`, `yia'ha'ha'yo`, `yia'yai'yai'ya`, `yia'ha'ha'ya`, `yia'yai'yai'yoi`, `yia'ha'ha'yoi`, `yia'yai'yai'yai`, `yia'ha'ha'ha`, `yia'yai'yai'yio`, `yia'ha'ha'ho`, `yia'yai'yai'yia`, `yia'ha'ha'yia`, `yia'yai'yio'yo`, `yia'ha'ho'yo`, `yia'yai'yio'ya`, `yia'ha'ho'ya`, `yia'yai'yio'yoi`, `yia'ha'ho'yoi`, `yia'yai'yio'yai`, `yia'ha'ho'ha`, `yia'yai'yio'yio`, `yia'ha'ho'ho`, `yia'yai'yio'yia`, `yia'ha'ho'yia`, `yia'yai'yia'yo`, `yia'ha'yia'yo`, `yia'yai'yia'ya`, `yia'ha'yia'ya`, `yia'yai'yia'yoi`, `yia'ha'yia'yoi`, `yia'yai'yia'yai`, `yia'ha'yia'ha`, `yia'yai'yia'yio`, `yia'ha'yia'ho`, `yia'yai'yia'yia`, `yia'ha'yia'yia`, `yia'yio'yo'yo`, `yia'ho'yo'yo`, `yia'yio'yo'ya`, `yia'ho'yo'ya`, `yia'yio'yo'yoi`, `yia'ho'yo'yoi`, `yia'yio'yo'yai`, `yia'ho'yo'ha`, `yia'yio'yo'yio`, `yia'ho'yo'ho`, `yia'yio'yo'yia`, `yia'ho'yo'yia`, `yia'yio'ya'yo`, `yia'ho'ya'yo`, `yia'yio'ya'ya`, `yia'ho'ya'ya`, `yia'yio'ya'yoi`, `yia'ho'ya'yoi`, `yia'yio'ya'yai`, `yia'ho'ya'ha`, `yia'yio'ya'yio`, `yia'ho'ya'ho`, `yia'yio'ya'yia`, `yia'ho'ya'yia`, `yia'yio'yoi'yo`, `yia'ho'yoi'yo`, `yia'yio'yoi'ya`, `yia'ho'yoi'ya`, `yia'yio'yoi'yoi`, `yia'ho'yoi'yoi`, `yia'yio'yoi'yai`, `yia'ho'yoi'ha`, `yia'yio'yoi'yio`, `yia'ho'yoi'ho`, `yia'yio'yoi'yia`, `yia'ho'yoi'yia`, `yia'yio'yai'yo`, `yia'ho'ha'yo`, `yia'yio'yai'ya`, `yia'ho'ha'ya`, `yia'yio'yai'yoi`, `yia'ho'ha'yoi`, `yia'yio'yai'yai`, `yia'ho'ha'ha`, `yia'yio'yai'yio`, `yia'ho'ha'ho`, `yia'yio'yai'yia`, `yia'ho'ha'yia`, `yia'yio'yio'yo`, `yia'ho'ho'yo`, `yia'yio'yio'ya`, `yia'ho'ho'ya`, `yia'yio'yio'yoi`, `yia'ho'ho'yoi`, `yia'yio'yio'yai`, `yia'ho'ho'ha`, `yia'yio'yio'yio`, `yia'ho'ho'ho`, `yia'yio'yio'yia`, `yia'ho'ho'yia`, `yia'yio'yia'yo`, `yia'ho'yia'yo`, `yia'yio'yia'ya`, `yia'ho'yia'ya`, `yia'yio'yia'yoi`, `yia'ho'yia'yoi`, `yia'yio'yia'yai`, `yia'ho'yia'ha`, `yia'yio'yia'yio`, `yia'ho'yia'ho`, `yia'yio'yia'yia`, `yia'ho'yia'yia`, `yia'yia'yo'yo`, `yia'yia'yo'ya`, `yia'yia'yo'yoi`, `yia'yia'yo'yai`, `yia'yia'yo'ha`, `yia'yia'yo'yio`, `yia'yia'yo'ho`, `yia'yia'yo'yia`, `yia'yia'ya'yo`, `yia'yia'ya'ya`, `yia'yia'ya'yoi`, `yia'yia'ya'yai`, `yia'yia'ya'ha`, `yia'yia'ya'yio`, `yia'yia'ya'ho`, `yia'yia'ya'yia`, `yia'yia'yoi'yo`, `yia'yia'yoi'ya`, `yia'yia'yoi'yoi`, `yia'yia'yoi'yai`, `yia'yia'yoi'ha`, `yia'yia'yoi'yio`, `yia'yia'yoi'ho`, `yia'yia'yoi'yia`, `yia'yia'yai'yo`, `yia'yia'ha'yo`, `yia'yia'yai'ya`, `yia'yia'ha'ya`, `yia'yia'yai'yoi`, `yia'yia'ha'yoi`, `yia'yia'yai'yai`, `yia'yia'ha'ha`, `yia'yia'yai'yio`, `yia'yia'ha'ho`, `yia'yia'yai'yia`, `yia'yia'ha'yia`, `yia'yia'yio'yo`, `yia'yia'ho'yo`, `yia'yia'yio'ya`, `yia'yia'ho'ya`, `yia'yia'yio'yoi`, `yia'yia'ho'yoi`, `yia'yia'yio'yai`, `yia'yia'ho'ha`, `yia'yia'yio'yio`, `yia'yia'ho'ho`, `yia'yia'yio'yia`, `yia'yia'ho'yia`, `yia'yia'yia'yo`, `yia'yia'yia'ya`, `yia'yia'yia'yoi`, `yia'yia'yia'yai`, `yia'yia'yia'ha`, `yia'yia'yia'yio`, `yia'yia'yia'ho`, `yia'yia'yia'yia`
+infixl 8 `yo'yo'st'st`, `yo'ya'st'st`, `yo'yoi'st'st`, `yo'yai'st'st`, `yo'ha'st'st`, `yo'yio'st'st`, `yo'ho'st'st`, `yo'yia'st'st`, `ya'yo'st'st`, `ya'ya'st'st`, `ya'yoi'st'st`, `ya'yai'st'st`, `ya'ha'st'st`, `ya'yio'st'st`, `ya'ho'st'st`, `ya'yia'st'st`, `ha_'yo'st'st`, `ha_'ya'st'st`, `ha_'yoi'st'st`, `ha_'ha'st'st`, `ha_'ho'st'st`, `ha_'yia'st'st`, `ho_'yo'st'st`, `ho_'ya'st'st`, `ho_'yoi'st'st`, `ho_'ha'st'st`, `ho_'ho'st'st`, `ho_'yia'st'st`, `yo'yo'yo'st`, `yo'yo'ya'st`, `yo'yo'yoi'st`, `yo'yo'yai'st`, `yo'yo'ha'st`, `yo'yo'yio'st`, `yo'yo'ho'st`, `yo'yo'yia'st`, `yo'ya'yo'st`, `yo'ya'ya'st`, `yo'ya'yoi'st`, `yo'ya'yai'st`, `yo'ya'ha'st`, `yo'ya'yio'st`, `yo'ya'ho'st`, `yo'ya'yia'st`, `yo'yoi'yo'st`, `yo'yoi'ya'st`, `yo'yoi'yoi'st`, `yo'yoi'yai'st`, `yo'yoi'ha'st`, `yo'yoi'yio'st`, `yo'yoi'ho'st`, `yo'yoi'yia'st`, `yo'yai'yo'st`, `yo'ha'yo'st`, `yo'yai'ya'st`, `yo'ha'ya'st`, `yo'yai'yoi'st`, `yo'ha'yoi'st`, `yo'yai'yai'st`, `yo'ha'ha'st`, `yo'yai'yio'st`, `yo'ha'ho'st`, `yo'yai'yia'st`, `yo'ha'yia'st`, `yo'yio'yo'st`, `yo'ho'yo'st`, `yo'yio'ya'st`, `yo'ho'ya'st`, `yo'yio'yoi'st`, `yo'ho'yoi'st`, `yo'yio'yai'st`, `yo'ho'ha'st`, `yo'yio'yio'st`, `yo'ho'ho'st`, `yo'yio'yia'st`, `yo'ho'yia'st`, `yo'yia'yo'st`, `yo'yia'ya'st`, `yo'yia'yoi'st`, `yo'yia'yai'st`, `yo'yia'ha'st`, `yo'yia'yio'st`, `yo'yia'ho'st`, `yo'yia'yia'st`, `ya'yo'yo'st`, `ya'yo'ya'st`, `ya'yo'yoi'st`, `ya'yo'yai'st`, `ya'yo'ha'st`, `ya'yo'yio'st`, `ya'yo'ho'st`, `ya'yo'yia'st`, `ya'ya'yo'st`, `ya'ya'ya'st`, `ya'ya'yoi'st`, `ya'ya'yai'st`, `ya'ya'ha'st`, `ya'ya'yio'st`, `ya'ya'ho'st`, `ya'ya'yia'st`, `ya'yoi'yo'st`, `ya'yoi'ya'st`, `ya'yoi'yoi'st`, `ya'yoi'yai'st`, `ya'yoi'ha'st`, `ya'yoi'yio'st`, `ya'yoi'ho'st`, `ya'yoi'yia'st`, `ya'yai'yo'st`, `ya'ha'yo'st`, `ya'yai'ya'st`, `ya'ha'ya'st`, `ya'yai'yoi'st`, `ya'ha'yoi'st`, `ya'yai'yai'st`, `ya'ha'ha'st`, `ya'yai'yio'st`, `ya'ha'ho'st`, `ya'yai'yia'st`, `ya'ha'yia'st`, `ya'yio'yo'st`, `ya'ho'yo'st`, `ya'yio'ya'st`, `ya'ho'ya'st`, `ya'yio'yoi'st`, `ya'ho'yoi'st`, `ya'yio'yai'st`, `ya'ho'ha'st`, `ya'yio'yio'st`, `ya'ho'ho'st`, `ya'yio'yia'st`, `ya'ho'yia'st`, `ya'yia'yo'st`, `ya'yia'ya'st`, `ya'yia'yoi'st`, `ya'yia'yai'st`, `ya'yia'ha'st`, `ya'yia'yio'st`, `ya'yia'ho'st`, `ya'yia'yia'st`, `ha_'yo'yo'st`, `ha_'yo'ya'st`, `ha_'yo'yoi'st`, `ha_'yo'ha'st`, `ha_'yo'ho'st`, `ha_'yo'yia'st`, `ha_'ya'yo'st`, `ha_'ya'ya'st`, `ha_'ya'yoi'st`, `ha_'ya'ha'st`, `ha_'ya'ho'st`, `ha_'ya'yia'st`, `ha_'yoi'yo'st`, `ha_'yoi'ya'st`, `ha_'yoi'yoi'st`, `ha_'yoi'ha'st`, `ha_'yoi'ho'st`, `ha_'yoi'yia'st`, `ha_'ha'yo'st`, `ha_'ha'ya'st`, `ha_'ha'yoi'st`, `ha_'ha'ha'st`, `ha_'ha'ho'st`, `ha_'ha'yia'st`, `ha_'ho'yo'st`, `ha_'ho'ya'st`, `ha_'ho'yoi'st`, `ha_'ho'ha'st`, `ha_'ho'ho'st`, `ha_'ho'yia'st`, `ha_'yia'yo'st`, `ha_'yia'ya'st`, `ha_'yia'yoi'st`, `ha_'yia'ha'st`, `ha_'yia'ho'st`, `ha_'yia'yia'st`, `ho_'yo'yo'st`, `ho_'yo'ya'st`, `ho_'yo'yoi'st`, `ho_'yo'ha'st`, `ho_'yo'ho'st`, `ho_'yo'yia'st`, `ho_'ya'yo'st`, `ho_'ya'ya'st`, `ho_'ya'yoi'st`, `ho_'ya'ha'st`, `ho_'ya'ho'st`, `ho_'ya'yia'st`, `ho_'yoi'yo'st`, `ho_'yoi'ya'st`, `ho_'yoi'yoi'st`, `ho_'yoi'ha'st`, `ho_'yoi'ho'st`, `ho_'yoi'yia'st`, `ho_'ha'yo'st`, `ho_'ha'ya'st`, `ho_'ha'yoi'st`, `ho_'ha'ha'st`, `ho_'ha'ho'st`, `ho_'ha'yia'st`, `ho_'ho'yo'st`, `ho_'ho'ya'st`, `ho_'ho'yoi'st`, `ho_'ho'ha'st`, `ho_'ho'ho'st`, `ho_'ho'yia'st`, `ho_'yia'yo'st`, `ho_'yia'ya'st`, `ho_'yia'yoi'st`, `ho_'yia'ha'st`, `ho_'yia'ho'st`, `ho_'yia'yia'st`, `yo'yo'yo'yo`, `yo'yo'yo'ya`, `yo'yo'yo'yoi`, `yo'yo'yo'yai`, `yo'yo'yo'ha`, `yo'yo'yo'yio`, `yo'yo'yo'ho`, `yo'yo'yo'yia`, `yo'yo'ya'yo`, `yo'yo'ya'ya`, `yo'yo'ya'yoi`, `yo'yo'ya'yai`, `yo'yo'ya'ha`, `yo'yo'ya'yio`, `yo'yo'ya'ho`, `yo'yo'ya'yia`, `yo'yo'yoi'yo`, `yo'yo'yoi'ya`, `yo'yo'yoi'yoi`, `yo'yo'yoi'yai`, `yo'yo'yoi'ha`, `yo'yo'yoi'yio`, `yo'yo'yoi'ho`, `yo'yo'yoi'yia`, `yo'yo'yai'yo`, `yo'yo'ha'yo`, `yo'yo'yai'ya`, `yo'yo'ha'ya`, `yo'yo'yai'yoi`, `yo'yo'ha'yoi`, `yo'yo'yai'yai`, `yo'yo'ha'ha`, `yo'yo'yai'yio`, `yo'yo'ha'ho`, `yo'yo'yai'yia`, `yo'yo'ha'yia`, `yo'yo'yio'yo`, `yo'yo'ho'yo`, `yo'yo'yio'ya`, `yo'yo'ho'ya`, `yo'yo'yio'yoi`, `yo'yo'ho'yoi`, `yo'yo'yio'yai`, `yo'yo'ho'ha`, `yo'yo'yio'yio`, `yo'yo'ho'ho`, `yo'yo'yio'yia`, `yo'yo'ho'yia`, `yo'yo'yia'yo`, `yo'yo'yia'ya`, `yo'yo'yia'yoi`, `yo'yo'yia'yai`, `yo'yo'yia'ha`, `yo'yo'yia'yio`, `yo'yo'yia'ho`, `yo'yo'yia'yia`, `yo'ya'yo'yo`, `yo'ya'yo'ya`, `yo'ya'yo'yoi`, `yo'ya'yo'yai`, `yo'ya'yo'ha`, `yo'ya'yo'yio`, `yo'ya'yo'ho`, `yo'ya'yo'yia`, `yo'ya'ya'yo`, `yo'ya'ya'ya`, `yo'ya'ya'yoi`, `yo'ya'ya'yai`, `yo'ya'ya'ha`, `yo'ya'ya'yio`, `yo'ya'ya'ho`, `yo'ya'ya'yia`, `yo'ya'yoi'yo`, `yo'ya'yoi'ya`, `yo'ya'yoi'yoi`, `yo'ya'yoi'yai`, `yo'ya'yoi'ha`, `yo'ya'yoi'yio`, `yo'ya'yoi'ho`, `yo'ya'yoi'yia`, `yo'ya'yai'yo`, `yo'ya'ha'yo`, `yo'ya'yai'ya`, `yo'ya'ha'ya`, `yo'ya'yai'yoi`, `yo'ya'ha'yoi`, `yo'ya'yai'yai`, `yo'ya'ha'ha`, `yo'ya'yai'yio`, `yo'ya'ha'ho`, `yo'ya'yai'yia`, `yo'ya'ha'yia`, `yo'ya'yio'yo`, `yo'ya'ho'yo`, `yo'ya'yio'ya`, `yo'ya'ho'ya`, `yo'ya'yio'yoi`, `yo'ya'ho'yoi`, `yo'ya'yio'yai`, `yo'ya'ho'ha`, `yo'ya'yio'yio`, `yo'ya'ho'ho`, `yo'ya'yio'yia`, `yo'ya'ho'yia`, `yo'ya'yia'yo`, `yo'ya'yia'ya`, `yo'ya'yia'yoi`, `yo'ya'yia'yai`, `yo'ya'yia'ha`, `yo'ya'yia'yio`, `yo'ya'yia'ho`, `yo'ya'yia'yia`, `yo'yoi'yo'yo`, `yo'yoi'yo'ya`, `yo'yoi'yo'yoi`, `yo'yoi'yo'yai`, `yo'yoi'yo'ha`, `yo'yoi'yo'yio`, `yo'yoi'yo'ho`, `yo'yoi'yo'yia`, `yo'yoi'ya'yo`, `yo'yoi'ya'ya`, `yo'yoi'ya'yoi`, `yo'yoi'ya'yai`, `yo'yoi'ya'ha`, `yo'yoi'ya'yio`, `yo'yoi'ya'ho`, `yo'yoi'ya'yia`, `yo'yoi'yoi'yo`, `yo'yoi'yoi'ya`, `yo'yoi'yoi'yoi`, `yo'yoi'yoi'yai`, `yo'yoi'yoi'ha`, `yo'yoi'yoi'yio`, `yo'yoi'yoi'ho`, `yo'yoi'yoi'yia`, `yo'yoi'yai'yo`, `yo'yoi'ha'yo`, `yo'yoi'yai'ya`, `yo'yoi'ha'ya`, `yo'yoi'yai'yoi`, `yo'yoi'ha'yoi`, `yo'yoi'yai'yai`, `yo'yoi'ha'ha`, `yo'yoi'yai'yio`, `yo'yoi'ha'ho`, `yo'yoi'yai'yia`, `yo'yoi'ha'yia`, `yo'yoi'yio'yo`, `yo'yoi'ho'yo`, `yo'yoi'yio'ya`, `yo'yoi'ho'ya`, `yo'yoi'yio'yoi`, `yo'yoi'ho'yoi`, `yo'yoi'yio'yai`, `yo'yoi'ho'ha`, `yo'yoi'yio'yio`, `yo'yoi'ho'ho`, `yo'yoi'yio'yia`, `yo'yoi'ho'yia`, `yo'yoi'yia'yo`, `yo'yoi'yia'ya`, `yo'yoi'yia'yoi`, `yo'yoi'yia'yai`, `yo'yoi'yia'ha`, `yo'yoi'yia'yio`, `yo'yoi'yia'ho`, `yo'yoi'yia'yia`, `yo'yai'yo'yo`, `yo'ha'yo'yo`, `yo'yai'yo'ya`, `yo'ha'yo'ya`, `yo'yai'yo'yoi`, `yo'ha'yo'yoi`, `yo'yai'yo'yai`, `yo'ha'yo'ha`, `yo'yai'yo'yio`, `yo'ha'yo'ho`, `yo'yai'yo'yia`, `yo'ha'yo'yia`, `yo'yai'ya'yo`, `yo'ha'ya'yo`, `yo'yai'ya'ya`, `yo'ha'ya'ya`, `yo'yai'ya'yoi`, `yo'ha'ya'yoi`, `yo'yai'ya'yai`, `yo'ha'ya'ha`, `yo'yai'ya'yio`, `yo'ha'ya'ho`, `yo'yai'ya'yia`, `yo'ha'ya'yia`, `yo'yai'yoi'yo`, `yo'ha'yoi'yo`, `yo'yai'yoi'ya`, `yo'ha'yoi'ya`, `yo'yai'yoi'yoi`, `yo'ha'yoi'yoi`, `yo'yai'yoi'yai`, `yo'ha'yoi'ha`, `yo'yai'yoi'yio`, `yo'ha'yoi'ho`, `yo'yai'yoi'yia`, `yo'ha'yoi'yia`, `yo'yai'yai'yo`, `yo'ha'ha'yo`, `yo'yai'yai'ya`, `yo'ha'ha'ya`, `yo'yai'yai'yoi`, `yo'ha'ha'yoi`, `yo'yai'yai'yai`, `yo'ha'ha'ha`, `yo'yai'yai'yio`, `yo'ha'ha'ho`, `yo'yai'yai'yia`, `yo'ha'ha'yia`, `yo'yai'yio'yo`, `yo'ha'ho'yo`, `yo'yai'yio'ya`, `yo'ha'ho'ya`, `yo'yai'yio'yoi`, `yo'ha'ho'yoi`, `yo'yai'yio'yai`, `yo'ha'ho'ha`, `yo'yai'yio'yio`, `yo'ha'ho'ho`, `yo'yai'yio'yia`, `yo'ha'ho'yia`, `yo'yai'yia'yo`, `yo'ha'yia'yo`, `yo'yai'yia'ya`, `yo'ha'yia'ya`, `yo'yai'yia'yoi`, `yo'ha'yia'yoi`, `yo'yai'yia'yai`, `yo'ha'yia'ha`, `yo'yai'yia'yio`, `yo'ha'yia'ho`, `yo'yai'yia'yia`, `yo'ha'yia'yia`, `yo'yio'yo'yo`, `yo'ho'yo'yo`, `yo'yio'yo'ya`, `yo'ho'yo'ya`, `yo'yio'yo'yoi`, `yo'ho'yo'yoi`, `yo'yio'yo'yai`, `yo'ho'yo'ha`, `yo'yio'yo'yio`, `yo'ho'yo'ho`, `yo'yio'yo'yia`, `yo'ho'yo'yia`, `yo'yio'ya'yo`, `yo'ho'ya'yo`, `yo'yio'ya'ya`, `yo'ho'ya'ya`, `yo'yio'ya'yoi`, `yo'ho'ya'yoi`, `yo'yio'ya'yai`, `yo'ho'ya'ha`, `yo'yio'ya'yio`, `yo'ho'ya'ho`, `yo'yio'ya'yia`, `yo'ho'ya'yia`, `yo'yio'yoi'yo`, `yo'ho'yoi'yo`, `yo'yio'yoi'ya`, `yo'ho'yoi'ya`, `yo'yio'yoi'yoi`, `yo'ho'yoi'yoi`, `yo'yio'yoi'yai`, `yo'ho'yoi'ha`, `yo'yio'yoi'yio`, `yo'ho'yoi'ho`, `yo'yio'yoi'yia`, `yo'ho'yoi'yia`, `yo'yio'yai'yo`, `yo'ho'ha'yo`, `yo'yio'yai'ya`, `yo'ho'ha'ya`, `yo'yio'yai'yoi`, `yo'ho'ha'yoi`, `yo'yio'yai'yai`, `yo'ho'ha'ha`, `yo'yio'yai'yio`, `yo'ho'ha'ho`, `yo'yio'yai'yia`, `yo'ho'ha'yia`, `yo'yio'yio'yo`, `yo'ho'ho'yo`, `yo'yio'yio'ya`, `yo'ho'ho'ya`, `yo'yio'yio'yoi`, `yo'ho'ho'yoi`, `yo'yio'yio'yai`, `yo'ho'ho'ha`, `yo'yio'yio'yio`, `yo'ho'ho'ho`, `yo'yio'yio'yia`, `yo'ho'ho'yia`, `yo'yio'yia'yo`, `yo'ho'yia'yo`, `yo'yio'yia'ya`, `yo'ho'yia'ya`, `yo'yio'yia'yoi`, `yo'ho'yia'yoi`, `yo'yio'yia'yai`, `yo'ho'yia'ha`, `yo'yio'yia'yio`, `yo'ho'yia'ho`, `yo'yio'yia'yia`, `yo'ho'yia'yia`, `yo'yia'yo'yo`, `yo'yia'yo'ya`, `yo'yia'yo'yoi`, `yo'yia'yo'yai`, `yo'yia'yo'ha`, `yo'yia'yo'yio`, `yo'yia'yo'ho`, `yo'yia'yo'yia`, `yo'yia'ya'yo`, `yo'yia'ya'ya`, `yo'yia'ya'yoi`, `yo'yia'ya'yai`, `yo'yia'ya'ha`, `yo'yia'ya'yio`, `yo'yia'ya'ho`, `yo'yia'ya'yia`, `yo'yia'yoi'yo`, `yo'yia'yoi'ya`, `yo'yia'yoi'yoi`, `yo'yia'yoi'yai`, `yo'yia'yoi'ha`, `yo'yia'yoi'yio`, `yo'yia'yoi'ho`, `yo'yia'yoi'yia`, `yo'yia'yai'yo`, `yo'yia'ha'yo`, `yo'yia'yai'ya`, `yo'yia'ha'ya`, `yo'yia'yai'yoi`, `yo'yia'ha'yoi`, `yo'yia'yai'yai`, `yo'yia'ha'ha`, `yo'yia'yai'yio`, `yo'yia'ha'ho`, `yo'yia'yai'yia`, `yo'yia'ha'yia`, `yo'yia'yio'yo`, `yo'yia'ho'yo`, `yo'yia'yio'ya`, `yo'yia'ho'ya`, `yo'yia'yio'yoi`, `yo'yia'ho'yoi`, `yo'yia'yio'yai`, `yo'yia'ho'ha`, `yo'yia'yio'yio`, `yo'yia'ho'ho`, `yo'yia'yio'yia`, `yo'yia'ho'yia`, `yo'yia'yia'yo`, `yo'yia'yia'ya`, `yo'yia'yia'yoi`, `yo'yia'yia'yai`, `yo'yia'yia'ha`, `yo'yia'yia'yio`, `yo'yia'yia'ho`, `yo'yia'yia'yia`, `ya'yo'yo'yo`, `ya'yo'yo'ya`, `ya'yo'yo'yoi`, `ya'yo'yo'yai`, `ya'yo'yo'ha`, `ya'yo'yo'yio`, `ya'yo'yo'ho`, `ya'yo'yo'yia`, `ya'yo'ya'yo`, `ya'yo'ya'ya`, `ya'yo'ya'yoi`, `ya'yo'ya'yai`, `ya'yo'ya'ha`, `ya'yo'ya'yio`, `ya'yo'ya'ho`, `ya'yo'ya'yia`, `ya'yo'yoi'yo`, `ya'yo'yoi'ya`, `ya'yo'yoi'yoi`, `ya'yo'yoi'yai`, `ya'yo'yoi'ha`, `ya'yo'yoi'yio`, `ya'yo'yoi'ho`, `ya'yo'yoi'yia`, `ya'yo'yai'yo`, `ya'yo'ha'yo`, `ya'yo'yai'ya`, `ya'yo'ha'ya`, `ya'yo'yai'yoi`, `ya'yo'ha'yoi`, `ya'yo'yai'yai`, `ya'yo'ha'ha`, `ya'yo'yai'yio`, `ya'yo'ha'ho`, `ya'yo'yai'yia`, `ya'yo'ha'yia`, `ya'yo'yio'yo`, `ya'yo'ho'yo`, `ya'yo'yio'ya`, `ya'yo'ho'ya`, `ya'yo'yio'yoi`, `ya'yo'ho'yoi`, `ya'yo'yio'yai`, `ya'yo'ho'ha`, `ya'yo'yio'yio`, `ya'yo'ho'ho`, `ya'yo'yio'yia`, `ya'yo'ho'yia`, `ya'yo'yia'yo`, `ya'yo'yia'ya`, `ya'yo'yia'yoi`, `ya'yo'yia'yai`, `ya'yo'yia'ha`, `ya'yo'yia'yio`, `ya'yo'yia'ho`, `ya'yo'yia'yia`, `ya'ya'yo'yo`, `ya'ya'yo'ya`, `ya'ya'yo'yoi`, `ya'ya'yo'yai`, `ya'ya'yo'ha`, `ya'ya'yo'yio`, `ya'ya'yo'ho`, `ya'ya'yo'yia`, `ya'ya'ya'yo`, `ya'ya'ya'ya`, `ya'ya'ya'yoi`, `ya'ya'ya'yai`, `ya'ya'ya'ha`, `ya'ya'ya'yio`, `ya'ya'ya'ho`, `ya'ya'ya'yia`, `ya'ya'yoi'yo`, `ya'ya'yoi'ya`, `ya'ya'yoi'yoi`, `ya'ya'yoi'yai`, `ya'ya'yoi'ha`, `ya'ya'yoi'yio`, `ya'ya'yoi'ho`, `ya'ya'yoi'yia`, `ya'ya'yai'yo`, `ya'ya'ha'yo`, `ya'ya'yai'ya`, `ya'ya'ha'ya`, `ya'ya'yai'yoi`, `ya'ya'ha'yoi`, `ya'ya'yai'yai`, `ya'ya'ha'ha`, `ya'ya'yai'yio`, `ya'ya'ha'ho`, `ya'ya'yai'yia`, `ya'ya'ha'yia`, `ya'ya'yio'yo`, `ya'ya'ho'yo`, `ya'ya'yio'ya`, `ya'ya'ho'ya`, `ya'ya'yio'yoi`, `ya'ya'ho'yoi`, `ya'ya'yio'yai`, `ya'ya'ho'ha`, `ya'ya'yio'yio`, `ya'ya'ho'ho`, `ya'ya'yio'yia`, `ya'ya'ho'yia`, `ya'ya'yia'yo`, `ya'ya'yia'ya`, `ya'ya'yia'yoi`, `ya'ya'yia'yai`, `ya'ya'yia'ha`, `ya'ya'yia'yio`, `ya'ya'yia'ho`, `ya'ya'yia'yia`, `ya'yoi'yo'yo`, `ya'yoi'yo'ya`, `ya'yoi'yo'yoi`, `ya'yoi'yo'yai`, `ya'yoi'yo'ha`, `ya'yoi'yo'yio`, `ya'yoi'yo'ho`, `ya'yoi'yo'yia`, `ya'yoi'ya'yo`, `ya'yoi'ya'ya`, `ya'yoi'ya'yoi`, `ya'yoi'ya'yai`, `ya'yoi'ya'ha`, `ya'yoi'ya'yio`, `ya'yoi'ya'ho`, `ya'yoi'ya'yia`, `ya'yoi'yoi'yo`, `ya'yoi'yoi'ya`, `ya'yoi'yoi'yoi`, `ya'yoi'yoi'yai`, `ya'yoi'yoi'ha`, `ya'yoi'yoi'yio`, `ya'yoi'yoi'ho`, `ya'yoi'yoi'yia`, `ya'yoi'yai'yo`, `ya'yoi'ha'yo`, `ya'yoi'yai'ya`, `ya'yoi'ha'ya`, `ya'yoi'yai'yoi`, `ya'yoi'ha'yoi`, `ya'yoi'yai'yai`, `ya'yoi'ha'ha`, `ya'yoi'yai'yio`, `ya'yoi'ha'ho`, `ya'yoi'yai'yia`, `ya'yoi'ha'yia`, `ya'yoi'yio'yo`, `ya'yoi'ho'yo`, `ya'yoi'yio'ya`, `ya'yoi'ho'ya`, `ya'yoi'yio'yoi`, `ya'yoi'ho'yoi`, `ya'yoi'yio'yai`, `ya'yoi'ho'ha`, `ya'yoi'yio'yio`, `ya'yoi'ho'ho`, `ya'yoi'yio'yia`, `ya'yoi'ho'yia`, `ya'yoi'yia'yo`, `ya'yoi'yia'ya`, `ya'yoi'yia'yoi`, `ya'yoi'yia'yai`, `ya'yoi'yia'ha`, `ya'yoi'yia'yio`, `ya'yoi'yia'ho`, `ya'yoi'yia'yia`, `ya'yai'yo'yo`, `ya'ha'yo'yo`, `ya'yai'yo'ya`, `ya'ha'yo'ya`, `ya'yai'yo'yoi`, `ya'ha'yo'yoi`, `ya'yai'yo'yai`, `ya'ha'yo'ha`, `ya'yai'yo'yio`, `ya'ha'yo'ho`, `ya'yai'yo'yia`, `ya'ha'yo'yia`, `ya'yai'ya'yo`, `ya'ha'ya'yo`, `ya'yai'ya'ya`, `ya'ha'ya'ya`, `ya'yai'ya'yoi`, `ya'ha'ya'yoi`, `ya'yai'ya'yai`, `ya'ha'ya'ha`, `ya'yai'ya'yio`, `ya'ha'ya'ho`, `ya'yai'ya'yia`, `ya'ha'ya'yia`, `ya'yai'yoi'yo`, `ya'ha'yoi'yo`, `ya'yai'yoi'ya`, `ya'ha'yoi'ya`, `ya'yai'yoi'yoi`, `ya'ha'yoi'yoi`, `ya'yai'yoi'yai`, `ya'ha'yoi'ha`, `ya'yai'yoi'yio`, `ya'ha'yoi'ho`, `ya'yai'yoi'yia`, `ya'ha'yoi'yia`, `ya'yai'yai'yo`, `ya'ha'ha'yo`, `ya'yai'yai'ya`, `ya'ha'ha'ya`, `ya'yai'yai'yoi`, `ya'ha'ha'yoi`, `ya'yai'yai'yai`, `ya'ha'ha'ha`, `ya'yai'yai'yio`, `ya'ha'ha'ho`, `ya'yai'yai'yia`, `ya'ha'ha'yia`, `ya'yai'yio'yo`, `ya'ha'ho'yo`, `ya'yai'yio'ya`, `ya'ha'ho'ya`, `ya'yai'yio'yoi`, `ya'ha'ho'yoi`, `ya'yai'yio'yai`, `ya'ha'ho'ha`, `ya'yai'yio'yio`, `ya'ha'ho'ho`, `ya'yai'yio'yia`, `ya'ha'ho'yia`, `ya'yai'yia'yo`, `ya'ha'yia'yo`, `ya'yai'yia'ya`, `ya'ha'yia'ya`, `ya'yai'yia'yoi`, `ya'ha'yia'yoi`, `ya'yai'yia'yai`, `ya'ha'yia'ha`, `ya'yai'yia'yio`, `ya'ha'yia'ho`, `ya'yai'yia'yia`, `ya'ha'yia'yia`, `ya'yio'yo'yo`, `ya'ho'yo'yo`, `ya'yio'yo'ya`, `ya'ho'yo'ya`, `ya'yio'yo'yoi`, `ya'ho'yo'yoi`, `ya'yio'yo'yai`, `ya'ho'yo'ha`, `ya'yio'yo'yio`, `ya'ho'yo'ho`, `ya'yio'yo'yia`, `ya'ho'yo'yia`, `ya'yio'ya'yo`, `ya'ho'ya'yo`, `ya'yio'ya'ya`, `ya'ho'ya'ya`, `ya'yio'ya'yoi`, `ya'ho'ya'yoi`, `ya'yio'ya'yai`, `ya'ho'ya'ha`, `ya'yio'ya'yio`, `ya'ho'ya'ho`, `ya'yio'ya'yia`, `ya'ho'ya'yia`, `ya'yio'yoi'yo`, `ya'ho'yoi'yo`, `ya'yio'yoi'ya`, `ya'ho'yoi'ya`, `ya'yio'yoi'yoi`, `ya'ho'yoi'yoi`, `ya'yio'yoi'yai`, `ya'ho'yoi'ha`, `ya'yio'yoi'yio`, `ya'ho'yoi'ho`, `ya'yio'yoi'yia`, `ya'ho'yoi'yia`, `ya'yio'yai'yo`, `ya'ho'ha'yo`, `ya'yio'yai'ya`, `ya'ho'ha'ya`, `ya'yio'yai'yoi`, `ya'ho'ha'yoi`, `ya'yio'yai'yai`, `ya'ho'ha'ha`, `ya'yio'yai'yio`, `ya'ho'ha'ho`, `ya'yio'yai'yia`, `ya'ho'ha'yia`, `ya'yio'yio'yo`, `ya'ho'ho'yo`, `ya'yio'yio'ya`, `ya'ho'ho'ya`, `ya'yio'yio'yoi`, `ya'ho'ho'yoi`, `ya'yio'yio'yai`, `ya'ho'ho'ha`, `ya'yio'yio'yio`, `ya'ho'ho'ho`, `ya'yio'yio'yia`, `ya'ho'ho'yia`, `ya'yio'yia'yo`, `ya'ho'yia'yo`, `ya'yio'yia'ya`, `ya'ho'yia'ya`, `ya'yio'yia'yoi`, `ya'ho'yia'yoi`, `ya'yio'yia'yai`, `ya'ho'yia'ha`, `ya'yio'yia'yio`, `ya'ho'yia'ho`, `ya'yio'yia'yia`, `ya'ho'yia'yia`, `ya'yia'yo'yo`, `ya'yia'yo'ya`, `ya'yia'yo'yoi`, `ya'yia'yo'yai`, `ya'yia'yo'ha`, `ya'yia'yo'yio`, `ya'yia'yo'ho`, `ya'yia'yo'yia`, `ya'yia'ya'yo`, `ya'yia'ya'ya`, `ya'yia'ya'yoi`, `ya'yia'ya'yai`, `ya'yia'ya'ha`, `ya'yia'ya'yio`, `ya'yia'ya'ho`, `ya'yia'ya'yia`, `ya'yia'yoi'yo`, `ya'yia'yoi'ya`, `ya'yia'yoi'yoi`, `ya'yia'yoi'yai`, `ya'yia'yoi'ha`, `ya'yia'yoi'yio`, `ya'yia'yoi'ho`, `ya'yia'yoi'yia`, `ya'yia'yai'yo`, `ya'yia'ha'yo`, `ya'yia'yai'ya`, `ya'yia'ha'ya`, `ya'yia'yai'yoi`, `ya'yia'ha'yoi`, `ya'yia'yai'yai`, `ya'yia'ha'ha`, `ya'yia'yai'yio`, `ya'yia'ha'ho`, `ya'yia'yai'yia`, `ya'yia'ha'yia`, `ya'yia'yio'yo`, `ya'yia'ho'yo`, `ya'yia'yio'ya`, `ya'yia'ho'ya`, `ya'yia'yio'yoi`, `ya'yia'ho'yoi`, `ya'yia'yio'yai`, `ya'yia'ho'ha`, `ya'yia'yio'yio`, `ya'yia'ho'ho`, `ya'yia'yio'yia`, `ya'yia'ho'yia`, `ya'yia'yia'yo`, `ya'yia'yia'ya`, `ya'yia'yia'yoi`, `ya'yia'yia'yai`, `ya'yia'yia'ha`, `ya'yia'yia'yio`, `ya'yia'yia'ho`, `ya'yia'yia'yia`, `ha_'yo'yo'yo`, `ha_'yo'yo'ya`, `ha_'yo'yo'yoi`, `ha_'yo'yo'ha`, `ha_'yo'yo'ho`, `ha_'yo'yo'yia`, `ha_'yo'ya'yo`, `ha_'yo'ya'ya`, `ha_'yo'ya'yoi`, `ha_'yo'ya'ha`, `ha_'yo'ya'ho`, `ha_'yo'ya'yia`, `ha_'yo'yoi'yo`, `ha_'yo'yoi'ya`, `ha_'yo'yoi'yoi`, `ha_'yo'yoi'ha`, `ha_'yo'yoi'ho`, `ha_'yo'yoi'yia`, `ha_'yo'ha'yo`, `ha_'yo'ha'ya`, `ha_'yo'ha'yoi`, `ha_'yo'ha'ha`, `ha_'yo'ha'ho`, `ha_'yo'ha'yia`, `ha_'yo'ho'yo`, `ha_'yo'ho'ya`, `ha_'yo'ho'yoi`, `ha_'yo'ho'ha`, `ha_'yo'ho'ho`, `ha_'yo'ho'yia`, `ha_'yo'yia'yo`, `ha_'yo'yia'ya`, `ha_'yo'yia'yoi`, `ha_'yo'yia'ha`, `ha_'yo'yia'ho`, `ha_'yo'yia'yia`, `ha_'ya'yo'yo`, `ha_'ya'yo'ya`, `ha_'ya'yo'yoi`, `ha_'ya'yo'ha`, `ha_'ya'yo'ho`, `ha_'ya'yo'yia`, `ha_'ya'ya'yo`, `ha_'ya'ya'ya`, `ha_'ya'ya'yoi`, `ha_'ya'ya'ha`, `ha_'ya'ya'ho`, `ha_'ya'ya'yia`, `ha_'ya'yoi'yo`, `ha_'ya'yoi'ya`, `ha_'ya'yoi'yoi`, `ha_'ya'yoi'ha`, `ha_'ya'yoi'ho`, `ha_'ya'yoi'yia`, `ha_'ya'ha'yo`, `ha_'ya'ha'ya`, `ha_'ya'ha'yoi`, `ha_'ya'ha'ha`, `ha_'ya'ha'ho`, `ha_'ya'ha'yia`, `ha_'ya'ho'yo`, `ha_'ya'ho'ya`, `ha_'ya'ho'yoi`, `ha_'ya'ho'ha`, `ha_'ya'ho'ho`, `ha_'ya'ho'yia`, `ha_'ya'yia'yo`, `ha_'ya'yia'ya`, `ha_'ya'yia'yoi`, `ha_'ya'yia'ha`, `ha_'ya'yia'ho`, `ha_'ya'yia'yia`, `ha_'yoi'yo'yo`, `ha_'yoi'yo'ya`, `ha_'yoi'yo'yoi`, `ha_'yoi'yo'ha`, `ha_'yoi'yo'ho`, `ha_'yoi'yo'yia`, `ha_'yoi'ya'yo`, `ha_'yoi'ya'ya`, `ha_'yoi'ya'yoi`, `ha_'yoi'ya'ha`, `ha_'yoi'ya'ho`, `ha_'yoi'ya'yia`, `ha_'yoi'yoi'yo`, `ha_'yoi'yoi'ya`, `ha_'yoi'yoi'yoi`, `ha_'yoi'yoi'ha`, `ha_'yoi'yoi'ho`, `ha_'yoi'yoi'yia`, `ha_'yoi'ha'yo`, `ha_'yoi'ha'ya`, `ha_'yoi'ha'yoi`, `ha_'yoi'ha'ha`, `ha_'yoi'ha'ho`, `ha_'yoi'ha'yia`, `ha_'yoi'ho'yo`, `ha_'yoi'ho'ya`, `ha_'yoi'ho'yoi`, `ha_'yoi'ho'ha`, `ha_'yoi'ho'ho`, `ha_'yoi'ho'yia`, `ha_'yoi'yia'yo`, `ha_'yoi'yia'ya`, `ha_'yoi'yia'yoi`, `ha_'yoi'yia'ha`, `ha_'yoi'yia'ho`, `ha_'yoi'yia'yia`, `ha_'ha'yo'yo`, `ha_'ha'yo'ya`, `ha_'ha'yo'yoi`, `ha_'ha'yo'ha`, `ha_'ha'yo'ho`, `ha_'ha'yo'yia`, `ha_'ha'ya'yo`, `ha_'ha'ya'ya`, `ha_'ha'ya'yoi`, `ha_'ha'ya'ha`, `ha_'ha'ya'ho`, `ha_'ha'ya'yia`, `ha_'ha'yoi'yo`, `ha_'ha'yoi'ya`, `ha_'ha'yoi'yoi`, `ha_'ha'yoi'ha`, `ha_'ha'yoi'ho`, `ha_'ha'yoi'yia`, `ha_'ha'ha'yo`, `ha_'ha'ha'ya`, `ha_'ha'ha'yoi`, `ha_'ha'ha'ha`, `ha_'ha'ha'ho`, `ha_'ha'ha'yia`, `ha_'ha'ho'yo`, `ha_'ha'ho'ya`, `ha_'ha'ho'yoi`, `ha_'ha'ho'ha`, `ha_'ha'ho'ho`, `ha_'ha'ho'yia`, `ha_'ha'yia'yo`, `ha_'ha'yia'ya`, `ha_'ha'yia'yoi`, `ha_'ha'yia'ha`, `ha_'ha'yia'ho`, `ha_'ha'yia'yia`, `ha_'ho'yo'yo`, `ha_'ho'yo'ya`, `ha_'ho'yo'yoi`, `ha_'ho'yo'ha`, `ha_'ho'yo'ho`, `ha_'ho'yo'yia`, `ha_'ho'ya'yo`, `ha_'ho'ya'ya`, `ha_'ho'ya'yoi`, `ha_'ho'ya'ha`, `ha_'ho'ya'ho`, `ha_'ho'ya'yia`, `ha_'ho'yoi'yo`, `ha_'ho'yoi'ya`, `ha_'ho'yoi'yoi`, `ha_'ho'yoi'ha`, `ha_'ho'yoi'ho`, `ha_'ho'yoi'yia`, `ha_'ho'ha'yo`, `ha_'ho'ha'ya`, `ha_'ho'ha'yoi`, `ha_'ho'ha'ha`, `ha_'ho'ha'ho`, `ha_'ho'ha'yia`, `ha_'ho'ho'yo`, `ha_'ho'ho'ya`, `ha_'ho'ho'yoi`, `ha_'ho'ho'ha`, `ha_'ho'ho'ho`, `ha_'ho'ho'yia`, `ha_'ho'yia'yo`, `ha_'ho'yia'ya`, `ha_'ho'yia'yoi`, `ha_'ho'yia'ha`, `ha_'ho'yia'ho`, `ha_'ho'yia'yia`, `ha_'yia'yo'yo`, `ha_'yia'yo'ya`, `ha_'yia'yo'yoi`, `ha_'yia'yo'ha`, `ha_'yia'yo'ho`, `ha_'yia'yo'yia`, `ha_'yia'ya'yo`, `ha_'yia'ya'ya`, `ha_'yia'ya'yoi`, `ha_'yia'ya'ha`, `ha_'yia'ya'ho`, `ha_'yia'ya'yia`, `ha_'yia'yoi'yo`, `ha_'yia'yoi'ya`, `ha_'yia'yoi'yoi`, `ha_'yia'yoi'ha`, `ha_'yia'yoi'ho`, `ha_'yia'yoi'yia`, `ha_'yia'ha'yo`, `ha_'yia'ha'ya`, `ha_'yia'ha'yoi`, `ha_'yia'ha'ha`, `ha_'yia'ha'ho`, `ha_'yia'ha'yia`, `ha_'yia'ho'yo`, `ha_'yia'ho'ya`, `ha_'yia'ho'yoi`, `ha_'yia'ho'ha`, `ha_'yia'ho'ho`, `ha_'yia'ho'yia`, `ha_'yia'yia'yo`, `ha_'yia'yia'ya`, `ha_'yia'yia'yoi`, `ha_'yia'yia'ha`, `ha_'yia'yia'ho`, `ha_'yia'yia'yia`, `ho_'yo'yo'yo`, `ho_'yo'yo'ya`, `ho_'yo'yo'yoi`, `ho_'yo'yo'ha`, `ho_'yo'yo'ho`, `ho_'yo'yo'yia`, `ho_'yo'ya'yo`, `ho_'yo'ya'ya`, `ho_'yo'ya'yoi`, `ho_'yo'ya'ha`, `ho_'yo'ya'ho`, `ho_'yo'ya'yia`, `ho_'yo'yoi'yo`, `ho_'yo'yoi'ya`, `ho_'yo'yoi'yoi`, `ho_'yo'yoi'ha`, `ho_'yo'yoi'ho`, `ho_'yo'yoi'yia`, `ho_'yo'ha'yo`, `ho_'yo'ha'ya`, `ho_'yo'ha'yoi`, `ho_'yo'ha'ha`, `ho_'yo'ha'ho`, `ho_'yo'ha'yia`, `ho_'yo'ho'yo`, `ho_'yo'ho'ya`, `ho_'yo'ho'yoi`, `ho_'yo'ho'ha`, `ho_'yo'ho'ho`, `ho_'yo'ho'yia`, `ho_'yo'yia'yo`, `ho_'yo'yia'ya`, `ho_'yo'yia'yoi`, `ho_'yo'yia'ha`, `ho_'yo'yia'ho`, `ho_'yo'yia'yia`, `ho_'ya'yo'yo`, `ho_'ya'yo'ya`, `ho_'ya'yo'yoi`, `ho_'ya'yo'ha`, `ho_'ya'yo'ho`, `ho_'ya'yo'yia`, `ho_'ya'ya'yo`, `ho_'ya'ya'ya`, `ho_'ya'ya'yoi`, `ho_'ya'ya'ha`, `ho_'ya'ya'ho`, `ho_'ya'ya'yia`, `ho_'ya'yoi'yo`, `ho_'ya'yoi'ya`, `ho_'ya'yoi'yoi`, `ho_'ya'yoi'ha`, `ho_'ya'yoi'ho`, `ho_'ya'yoi'yia`, `ho_'ya'ha'yo`, `ho_'ya'ha'ya`, `ho_'ya'ha'yoi`, `ho_'ya'ha'ha`, `ho_'ya'ha'ho`, `ho_'ya'ha'yia`, `ho_'ya'ho'yo`, `ho_'ya'ho'ya`, `ho_'ya'ho'yoi`, `ho_'ya'ho'ha`, `ho_'ya'ho'ho`, `ho_'ya'ho'yia`, `ho_'ya'yia'yo`, `ho_'ya'yia'ya`, `ho_'ya'yia'yoi`, `ho_'ya'yia'ha`, `ho_'ya'yia'ho`, `ho_'ya'yia'yia`, `ho_'yoi'yo'yo`, `ho_'yoi'yo'ya`, `ho_'yoi'yo'yoi`, `ho_'yoi'yo'ha`, `ho_'yoi'yo'ho`, `ho_'yoi'yo'yia`, `ho_'yoi'ya'yo`, `ho_'yoi'ya'ya`, `ho_'yoi'ya'yoi`, `ho_'yoi'ya'ha`, `ho_'yoi'ya'ho`, `ho_'yoi'ya'yia`, `ho_'yoi'yoi'yo`, `ho_'yoi'yoi'ya`, `ho_'yoi'yoi'yoi`, `ho_'yoi'yoi'ha`, `ho_'yoi'yoi'ho`, `ho_'yoi'yoi'yia`, `ho_'yoi'ha'yo`, `ho_'yoi'ha'ya`, `ho_'yoi'ha'yoi`, `ho_'yoi'ha'ha`, `ho_'yoi'ha'ho`, `ho_'yoi'ha'yia`, `ho_'yoi'ho'yo`, `ho_'yoi'ho'ya`, `ho_'yoi'ho'yoi`, `ho_'yoi'ho'ha`, `ho_'yoi'ho'ho`, `ho_'yoi'ho'yia`, `ho_'yoi'yia'yo`, `ho_'yoi'yia'ya`, `ho_'yoi'yia'yoi`, `ho_'yoi'yia'ha`, `ho_'yoi'yia'ho`, `ho_'yoi'yia'yia`, `ho_'ha'yo'yo`, `ho_'ha'yo'ya`, `ho_'ha'yo'yoi`, `ho_'ha'yo'ha`, `ho_'ha'yo'ho`, `ho_'ha'yo'yia`, `ho_'ha'ya'yo`, `ho_'ha'ya'ya`, `ho_'ha'ya'yoi`, `ho_'ha'ya'ha`, `ho_'ha'ya'ho`, `ho_'ha'ya'yia`, `ho_'ha'yoi'yo`, `ho_'ha'yoi'ya`, `ho_'ha'yoi'yoi`, `ho_'ha'yoi'ha`, `ho_'ha'yoi'ho`, `ho_'ha'yoi'yia`, `ho_'ha'ha'yo`, `ho_'ha'ha'ya`, `ho_'ha'ha'yoi`, `ho_'ha'ha'ha`, `ho_'ha'ha'ho`, `ho_'ha'ha'yia`, `ho_'ha'ho'yo`, `ho_'ha'ho'ya`, `ho_'ha'ho'yoi`, `ho_'ha'ho'ha`, `ho_'ha'ho'ho`, `ho_'ha'ho'yia`, `ho_'ha'yia'yo`, `ho_'ha'yia'ya`, `ho_'ha'yia'yoi`, `ho_'ha'yia'ha`, `ho_'ha'yia'ho`, `ho_'ha'yia'yia`, `ho_'ho'yo'yo`, `ho_'ho'yo'ya`, `ho_'ho'yo'yoi`, `ho_'ho'yo'ha`, `ho_'ho'yo'ho`, `ho_'ho'yo'yia`, `ho_'ho'ya'yo`, `ho_'ho'ya'ya`, `ho_'ho'ya'yoi`, `ho_'ho'ya'ha`, `ho_'ho'ya'ho`, `ho_'ho'ya'yia`, `ho_'ho'yoi'yo`, `ho_'ho'yoi'ya`, `ho_'ho'yoi'yoi`, `ho_'ho'yoi'ha`, `ho_'ho'yoi'ho`, `ho_'ho'yoi'yia`, `ho_'ho'ha'yo`, `ho_'ho'ha'ya`, `ho_'ho'ha'yoi`, `ho_'ho'ha'ha`, `ho_'ho'ha'ho`, `ho_'ho'ha'yia`, `ho_'ho'ho'yo`, `ho_'ho'ho'ya`, `ho_'ho'ho'yoi`, `ho_'ho'ho'ha`, `ho_'ho'ho'ho`, `ho_'ho'ho'yia`, `ho_'ho'yia'yo`, `ho_'ho'yia'ya`, `ho_'ho'yia'yoi`, `ho_'ho'yia'ha`, `ho_'ho'yia'ho`, `ho_'ho'yia'yia`, `ho_'yia'yo'yo`, `ho_'yia'yo'ya`, `ho_'yia'yo'yoi`, `ho_'yia'yo'ha`, `ho_'yia'yo'ho`, `ho_'yia'yo'yia`, `ho_'yia'ya'yo`, `ho_'yia'ya'ya`, `ho_'yia'ya'yoi`, `ho_'yia'ya'ha`, `ho_'yia'ya'ho`, `ho_'yia'ya'yia`, `ho_'yia'yoi'yo`, `ho_'yia'yoi'ya`, `ho_'yia'yoi'yoi`, `ho_'yia'yoi'ha`, `ho_'yia'yoi'ho`, `ho_'yia'yoi'yia`, `ho_'yia'ha'yo`, `ho_'yia'ha'ya`, `ho_'yia'ha'yoi`, `ho_'yia'ha'ha`, `ho_'yia'ha'ho`, `ho_'yia'ha'yia`, `ho_'yia'ho'yo`, `ho_'yia'ho'ya`, `ho_'yia'ho'yoi`, `ho_'yia'ho'ha`, `ho_'yia'ho'ho`, `ho_'yia'ho'yia`, `ho_'yia'yia'yo`, `ho_'yia'yia'ya`, `ho_'yia'yia'yoi`, `ho_'yia'yia'ha`, `ho_'yia'yia'ho`, `ho_'yia'yia'yia`
+infixl 9 `ha'yo'st'st`, `ha'ya'st'st`, `ha'yoi'st'st`, `ha'ha'st'st`, `ha'ho'st'st`, `ha'yia'st'st`, `ho'yo'st'st`, `ho'ya'st'st`, `ho'yoi'st'st`, `ho'ha'st'st`, `ho'ho'st'st`, `ho'yia'st'st`, `ha'yo'yo'st`, `ha'yo'ya'st`, `ha'yo'yoi'st`, `ha'yo'ha'st`, `ha'yo'ho'st`, `ha'yo'yia'st`, `ha'ya'yo'st`, `ha'ya'ya'st`, `ha'ya'yoi'st`, `ha'ya'ha'st`, `ha'ya'ho'st`, `ha'ya'yia'st`, `ha'yoi'yo'st`, `ha'yoi'ya'st`, `ha'yoi'yoi'st`, `ha'yoi'ha'st`, `ha'yoi'ho'st`, `ha'yoi'yia'st`, `ha'ha'yo'st`, `ha'ha'ya'st`, `ha'ha'yoi'st`, `ha'ha'ha'st`, `ha'ha'ho'st`, `ha'ha'yia'st`, `ha'ho'yo'st`, `ha'ho'ya'st`, `ha'ho'yoi'st`, `ha'ho'ha'st`, `ha'ho'ho'st`, `ha'ho'yia'st`, `ha'yia'yo'st`, `ha'yia'ya'st`, `ha'yia'yoi'st`, `ha'yia'ha'st`, `ha'yia'ho'st`, `ha'yia'yia'st`, `ho'yo'yo'st`, `ho'yo'ya'st`, `ho'yo'yoi'st`, `ho'yo'ha'st`, `ho'yo'ho'st`, `ho'yo'yia'st`, `ho'ya'yo'st`, `ho'ya'ya'st`, `ho'ya'yoi'st`, `ho'ya'ha'st`, `ho'ya'ho'st`, `ho'ya'yia'st`, `ho'yoi'yo'st`, `ho'yoi'ya'st`, `ho'yoi'yoi'st`, `ho'yoi'ha'st`, `ho'yoi'ho'st`, `ho'yoi'yia'st`, `ho'ha'yo'st`, `ho'ha'ya'st`, `ho'ha'yoi'st`, `ho'ha'ha'st`, `ho'ha'ho'st`, `ho'ha'yia'st`, `ho'ho'yo'st`, `ho'ho'ya'st`, `ho'ho'yoi'st`, `ho'ho'ha'st`, `ho'ho'ho'st`, `ho'ho'yia'st`, `ho'yia'yo'st`, `ho'yia'ya'st`, `ho'yia'yoi'st`, `ho'yia'ha'st`, `ho'yia'ho'st`, `ho'yia'yia'st`, `ha'yo'yo'yo`, `ha'yo'yo'ya`, `ha'yo'yo'yoi`, `ha'yo'yo'ha`, `ha'yo'yo'ho`, `ha'yo'yo'yia`, `ha'yo'ya'yo`, `ha'yo'ya'ya`, `ha'yo'ya'yoi`, `ha'yo'ya'ha`, `ha'yo'ya'ho`, `ha'yo'ya'yia`, `ha'yo'yoi'yo`, `ha'yo'yoi'ya`, `ha'yo'yoi'yoi`, `ha'yo'yoi'ha`, `ha'yo'yoi'ho`, `ha'yo'yoi'yia`, `ha'yo'ha'yo`, `ha'yo'ha'ya`, `ha'yo'ha'yoi`, `ha'yo'ha'ha`, `ha'yo'ha'ho`, `ha'yo'ha'yia`, `ha'yo'ho'yo`, `ha'yo'ho'ya`, `ha'yo'ho'yoi`, `ha'yo'ho'ha`, `ha'yo'ho'ho`, `ha'yo'ho'yia`, `ha'yo'yia'yo`, `ha'yo'yia'ya`, `ha'yo'yia'yoi`, `ha'yo'yia'ha`, `ha'yo'yia'ho`, `ha'yo'yia'yia`, `ha'ya'yo'yo`, `ha'ya'yo'ya`, `ha'ya'yo'yoi`, `ha'ya'yo'ha`, `ha'ya'yo'ho`, `ha'ya'yo'yia`, `ha'ya'ya'yo`, `ha'ya'ya'ya`, `ha'ya'ya'yoi`, `ha'ya'ya'ha`, `ha'ya'ya'ho`, `ha'ya'ya'yia`, `ha'ya'yoi'yo`, `ha'ya'yoi'ya`, `ha'ya'yoi'yoi`, `ha'ya'yoi'ha`, `ha'ya'yoi'ho`, `ha'ya'yoi'yia`, `ha'ya'ha'yo`, `ha'ya'ha'ya`, `ha'ya'ha'yoi`, `ha'ya'ha'ha`, `ha'ya'ha'ho`, `ha'ya'ha'yia`, `ha'ya'ho'yo`, `ha'ya'ho'ya`, `ha'ya'ho'yoi`, `ha'ya'ho'ha`, `ha'ya'ho'ho`, `ha'ya'ho'yia`, `ha'ya'yia'yo`, `ha'ya'yia'ya`, `ha'ya'yia'yoi`, `ha'ya'yia'ha`, `ha'ya'yia'ho`, `ha'ya'yia'yia`, `ha'yoi'yo'yo`, `ha'yoi'yo'ya`, `ha'yoi'yo'yoi`, `ha'yoi'yo'ha`, `ha'yoi'yo'ho`, `ha'yoi'yo'yia`, `ha'yoi'ya'yo`, `ha'yoi'ya'ya`, `ha'yoi'ya'yoi`, `ha'yoi'ya'ha`, `ha'yoi'ya'ho`, `ha'yoi'ya'yia`, `ha'yoi'yoi'yo`, `ha'yoi'yoi'ya`, `ha'yoi'yoi'yoi`, `ha'yoi'yoi'ha`, `ha'yoi'yoi'ho`, `ha'yoi'yoi'yia`, `ha'yoi'ha'yo`, `ha'yoi'ha'ya`, `ha'yoi'ha'yoi`, `ha'yoi'ha'ha`, `ha'yoi'ha'ho`, `ha'yoi'ha'yia`, `ha'yoi'ho'yo`, `ha'yoi'ho'ya`, `ha'yoi'ho'yoi`, `ha'yoi'ho'ha`, `ha'yoi'ho'ho`, `ha'yoi'ho'yia`, `ha'yoi'yia'yo`, `ha'yoi'yia'ya`, `ha'yoi'yia'yoi`, `ha'yoi'yia'ha`, `ha'yoi'yia'ho`, `ha'yoi'yia'yia`, `ha'ha'yo'yo`, `ha'ha'yo'ya`, `ha'ha'yo'yoi`, `ha'ha'yo'ha`, `ha'ha'yo'ho`, `ha'ha'yo'yia`, `ha'ha'ya'yo`, `ha'ha'ya'ya`, `ha'ha'ya'yoi`, `ha'ha'ya'ha`, `ha'ha'ya'ho`, `ha'ha'ya'yia`, `ha'ha'yoi'yo`, `ha'ha'yoi'ya`, `ha'ha'yoi'yoi`, `ha'ha'yoi'ha`, `ha'ha'yoi'ho`, `ha'ha'yoi'yia`, `ha'ha'ha'yo`, `ha'ha'ha'ya`, `ha'ha'ha'yoi`, `ha'ha'ha'ha`, `ha'ha'ha'ho`, `ha'ha'ha'yia`, `ha'ha'ho'yo`, `ha'ha'ho'ya`, `ha'ha'ho'yoi`, `ha'ha'ho'ha`, `ha'ha'ho'ho`, `ha'ha'ho'yia`, `ha'ha'yia'yo`, `ha'ha'yia'ya`, `ha'ha'yia'yoi`, `ha'ha'yia'ha`, `ha'ha'yia'ho`, `ha'ha'yia'yia`, `ha'ho'yo'yo`, `ha'ho'yo'ya`, `ha'ho'yo'yoi`, `ha'ho'yo'ha`, `ha'ho'yo'ho`, `ha'ho'yo'yia`, `ha'ho'ya'yo`, `ha'ho'ya'ya`, `ha'ho'ya'yoi`, `ha'ho'ya'ha`, `ha'ho'ya'ho`, `ha'ho'ya'yia`, `ha'ho'yoi'yo`, `ha'ho'yoi'ya`, `ha'ho'yoi'yoi`, `ha'ho'yoi'ha`, `ha'ho'yoi'ho`, `ha'ho'yoi'yia`, `ha'ho'ha'yo`, `ha'ho'ha'ya`, `ha'ho'ha'yoi`, `ha'ho'ha'ha`, `ha'ho'ha'ho`, `ha'ho'ha'yia`, `ha'ho'ho'yo`, `ha'ho'ho'ya`, `ha'ho'ho'yoi`, `ha'ho'ho'ha`, `ha'ho'ho'ho`, `ha'ho'ho'yia`, `ha'ho'yia'yo`, `ha'ho'yia'ya`, `ha'ho'yia'yoi`, `ha'ho'yia'ha`, `ha'ho'yia'ho`, `ha'ho'yia'yia`, `ha'yia'yo'yo`, `ha'yia'yo'ya`, `ha'yia'yo'yoi`, `ha'yia'yo'ha`, `ha'yia'yo'ho`, `ha'yia'yo'yia`, `ha'yia'ya'yo`, `ha'yia'ya'ya`, `ha'yia'ya'yoi`, `ha'yia'ya'ha`, `ha'yia'ya'ho`, `ha'yia'ya'yia`, `ha'yia'yoi'yo`, `ha'yia'yoi'ya`, `ha'yia'yoi'yoi`, `ha'yia'yoi'ha`, `ha'yia'yoi'ho`, `ha'yia'yoi'yia`, `ha'yia'ha'yo`, `ha'yia'ha'ya`, `ha'yia'ha'yoi`, `ha'yia'ha'ha`, `ha'yia'ha'ho`, `ha'yia'ha'yia`, `ha'yia'ho'yo`, `ha'yia'ho'ya`, `ha'yia'ho'yoi`, `ha'yia'ho'ha`, `ha'yia'ho'ho`, `ha'yia'ho'yia`, `ha'yia'yia'yo`, `ha'yia'yia'ya`, `ha'yia'yia'yoi`, `ha'yia'yia'ha`, `ha'yia'yia'ho`, `ha'yia'yia'yia`, `ho'yo'yo'yo`, `ho'yo'yo'ya`, `ho'yo'yo'yoi`, `ho'yo'yo'ha`, `ho'yo'yo'ho`, `ho'yo'yo'yia`, `ho'yo'ya'yo`, `ho'yo'ya'ya`, `ho'yo'ya'yoi`, `ho'yo'ya'ha`, `ho'yo'ya'ho`, `ho'yo'ya'yia`, `ho'yo'yoi'yo`, `ho'yo'yoi'ya`, `ho'yo'yoi'yoi`, `ho'yo'yoi'ha`, `ho'yo'yoi'ho`, `ho'yo'yoi'yia`, `ho'yo'ha'yo`, `ho'yo'ha'ya`, `ho'yo'ha'yoi`, `ho'yo'ha'ha`, `ho'yo'ha'ho`, `ho'yo'ha'yia`, `ho'yo'ho'yo`, `ho'yo'ho'ya`, `ho'yo'ho'yoi`, `ho'yo'ho'ha`, `ho'yo'ho'ho`, `ho'yo'ho'yia`, `ho'yo'yia'yo`, `ho'yo'yia'ya`, `ho'yo'yia'yoi`, `ho'yo'yia'ha`, `ho'yo'yia'ho`, `ho'yo'yia'yia`, `ho'ya'yo'yo`, `ho'ya'yo'ya`, `ho'ya'yo'yoi`, `ho'ya'yo'ha`, `ho'ya'yo'ho`, `ho'ya'yo'yia`, `ho'ya'ya'yo`, `ho'ya'ya'ya`, `ho'ya'ya'yoi`, `ho'ya'ya'ha`, `ho'ya'ya'ho`, `ho'ya'ya'yia`, `ho'ya'yoi'yo`, `ho'ya'yoi'ya`, `ho'ya'yoi'yoi`, `ho'ya'yoi'ha`, `ho'ya'yoi'ho`, `ho'ya'yoi'yia`, `ho'ya'ha'yo`, `ho'ya'ha'ya`, `ho'ya'ha'yoi`, `ho'ya'ha'ha`, `ho'ya'ha'ho`, `ho'ya'ha'yia`, `ho'ya'ho'yo`, `ho'ya'ho'ya`, `ho'ya'ho'yoi`, `ho'ya'ho'ha`, `ho'ya'ho'ho`, `ho'ya'ho'yia`, `ho'ya'yia'yo`, `ho'ya'yia'ya`, `ho'ya'yia'yoi`, `ho'ya'yia'ha`, `ho'ya'yia'ho`, `ho'ya'yia'yia`, `ho'yoi'yo'yo`, `ho'yoi'yo'ya`, `ho'yoi'yo'yoi`, `ho'yoi'yo'ha`, `ho'yoi'yo'ho`, `ho'yoi'yo'yia`, `ho'yoi'ya'yo`, `ho'yoi'ya'ya`, `ho'yoi'ya'yoi`, `ho'yoi'ya'ha`, `ho'yoi'ya'ho`, `ho'yoi'ya'yia`, `ho'yoi'yoi'yo`, `ho'yoi'yoi'ya`, `ho'yoi'yoi'yoi`, `ho'yoi'yoi'ha`, `ho'yoi'yoi'ho`, `ho'yoi'yoi'yia`, `ho'yoi'ha'yo`, `ho'yoi'ha'ya`, `ho'yoi'ha'yoi`, `ho'yoi'ha'ha`, `ho'yoi'ha'ho`, `ho'yoi'ha'yia`, `ho'yoi'ho'yo`, `ho'yoi'ho'ya`, `ho'yoi'ho'yoi`, `ho'yoi'ho'ha`, `ho'yoi'ho'ho`, `ho'yoi'ho'yia`, `ho'yoi'yia'yo`, `ho'yoi'yia'ya`, `ho'yoi'yia'yoi`, `ho'yoi'yia'ha`, `ho'yoi'yia'ho`, `ho'yoi'yia'yia`, `ho'ha'yo'yo`, `ho'ha'yo'ya`, `ho'ha'yo'yoi`, `ho'ha'yo'ha`, `ho'ha'yo'ho`, `ho'ha'yo'yia`, `ho'ha'ya'yo`, `ho'ha'ya'ya`, `ho'ha'ya'yoi`, `ho'ha'ya'ha`, `ho'ha'ya'ho`, `ho'ha'ya'yia`, `ho'ha'yoi'yo`, `ho'ha'yoi'ya`, `ho'ha'yoi'yoi`, `ho'ha'yoi'ha`, `ho'ha'yoi'ho`, `ho'ha'yoi'yia`, `ho'ha'ha'yo`, `ho'ha'ha'ya`, `ho'ha'ha'yoi`, `ho'ha'ha'ha`, `ho'ha'ha'ho`, `ho'ha'ha'yia`, `ho'ha'ho'yo`, `ho'ha'ho'ya`, `ho'ha'ho'yoi`, `ho'ha'ho'ha`, `ho'ha'ho'ho`, `ho'ha'ho'yia`, `ho'ha'yia'yo`, `ho'ha'yia'ya`, `ho'ha'yia'yoi`, `ho'ha'yia'ha`, `ho'ha'yia'ho`, `ho'ha'yia'yia`, `ho'ho'yo'yo`, `ho'ho'yo'ya`, `ho'ho'yo'yoi`, `ho'ho'yo'ha`, `ho'ho'yo'ho`, `ho'ho'yo'yia`, `ho'ho'ya'yo`, `ho'ho'ya'ya`, `ho'ho'ya'yoi`, `ho'ho'ya'ha`, `ho'ho'ya'ho`, `ho'ho'ya'yia`, `ho'ho'yoi'yo`, `ho'ho'yoi'ya`, `ho'ho'yoi'yoi`, `ho'ho'yoi'ha`, `ho'ho'yoi'ho`, `ho'ho'yoi'yia`, `ho'ho'ha'yo`, `ho'ho'ha'ya`, `ho'ho'ha'yoi`, `ho'ho'ha'ha`, `ho'ho'ha'ho`, `ho'ho'ha'yia`, `ho'ho'ho'yo`, `ho'ho'ho'ya`, `ho'ho'ho'yoi`, `ho'ho'ho'ha`, `ho'ho'ho'ho`, `ho'ho'ho'yia`, `ho'ho'yia'yo`, `ho'ho'yia'ya`, `ho'ho'yia'yoi`, `ho'ho'yia'ha`, `ho'ho'yia'ho`, `ho'ho'yia'yia`, `ho'yia'yo'yo`, `ho'yia'yo'ya`, `ho'yia'yo'yoi`, `ho'yia'yo'ha`, `ho'yia'yo'ho`, `ho'yia'yo'yia`, `ho'yia'ya'yo`, `ho'yia'ya'ya`, `ho'yia'ya'yoi`, `ho'yia'ya'ha`, `ho'yia'ya'ho`, `ho'yia'ya'yia`, `ho'yia'yoi'yo`, `ho'yia'yoi'ya`, `ho'yia'yoi'yoi`, `ho'yia'yoi'ha`, `ho'yia'yoi'ho`, `ho'yia'yoi'yia`, `ho'yia'ha'yo`, `ho'yia'ha'ya`, `ho'yia'ha'yoi`, `ho'yia'ha'ha`, `ho'yia'ha'ho`, `ho'yia'ha'yia`, `ho'yia'ho'yo`, `ho'yia'ho'ya`, `ho'yia'ho'yoi`, `ho'yia'ho'ha`, `ho'yia'ho'ho`, `ho'yia'ho'yia`, `ho'yia'yia'yo`, `ho'yia'yia'ya`, `ho'yia'yia'yoi`, `ho'yia'yia'ha`, `ho'yia'yia'ho`, `ho'yia'yia'yia`
 
-yo'yo'he'he
+yo'yo'st'st
  :: forall source target t tt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target t =>
@@ -26,9 +26,9 @@ yo'yo'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a)) -> target (source (Supertype (Supertype (a))) o) (t (tt o))
-yo'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
 
-yo'ya'he'he
+yo'ya'st'st
  :: forall source target t tt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target t =>
@@ -37,9 +37,9 @@ yo'ya'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o)) -> target (source (Supertype (Supertype (a))) o) (t (tt a))
-yo'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
 
-yo'yoi'he'he
+yo'yoi'st'st
  :: forall source target t tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -49,9 +49,9 @@ yo'yoi'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a ii)) -> target (source (Supertype (Supertype (a))) o) (t (tt o ii))
-yo'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
 
-yo'yai'he'he, yo'ha'he'he
+yo'yai'st'st, yo'ha'st'st
  :: forall source target t tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -61,10 +61,10 @@ yo'yai'he'he, yo'ha'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o ii)) -> target (source (Supertype (Supertype (a))) o) (t (tt a ii))
-yo'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
-yo'ha'he'he = yo'yai'he'he
+yo'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'ha'st'st = yo'yai'st'st
 
-yo'yio'he'he, yo'ho'he'he
+yo'yio'st'st, yo'ho'st'st
  :: forall source target t tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -74,10 +74,10 @@ yo'yio'he'he, yo'ho'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (a))) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (o)))
-yo'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
-yo'ho'he'he = yo'yio'he'he
+yo'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'ho'st'st = yo'yio'st'st
 
-yo'yia'he'he
+yo'yia'st'st
  :: forall source target t tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -87,9 +87,9 @@ yo'yia'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (o))) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (a)))
-yo'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
+yo'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yo @source @target x)
 
-ya'yo'he'he
+ya'yo'st'st
  :: forall source target t tt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target t =>
@@ -98,9 +98,9 @@ ya'yo'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o)) -> target (source (Supertype (Supertype (a))) o) (t (tt a))
-ya'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
 
-ya'ya'he'he
+ya'ya'st'st
  :: forall source target t tt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target t =>
@@ -109,9 +109,9 @@ ya'ya'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a)) -> target (source (Supertype (Supertype (a))) o) (t (tt o))
-ya'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
 
-ya'yoi'he'he
+ya'yoi'st'st
  :: forall source target t tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -121,9 +121,9 @@ ya'yoi'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o ii)) -> target (source (Supertype (Supertype (a))) o) (t (tt a ii))
-ya'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
 
-ya'yai'he'he, ya'ha'he'he
+ya'yai'st'st, ya'ha'st'st
  :: forall source target t tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -133,10 +133,10 @@ ya'yai'he'he, ya'ha'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a ii)) -> target (source (Supertype (Supertype (a))) o) (t (tt o ii))
-ya'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
-ya'ha'he'he = ya'yai'he'he
+ya'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'ha'st'st = ya'yai'st'st
 
-ya'yio'he'he, ya'ho'he'he
+ya'yio'st'st, ya'ho'st'st
  :: forall source target t tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -146,10 +146,10 @@ ya'yio'he'he, ya'ho'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (o))) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (a)))
-ya'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
-ya'ho'he'he = ya'yio'he'he
+ya'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'ho'st'st = ya'yio'st'st
 
-ya'yia'he'he
+ya'yia'st'st
  :: forall source target t tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -159,9 +159,9 @@ ya'yia'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (a))) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (o)))
-ya'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
+ya'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (ya @source @target x)
 
-yoi'yo'he'he
+yoi'yo'st'st
  :: forall source target t i tt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
@@ -171,9 +171,9 @@ yoi'yo'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a) i) -> target (source (Supertype (Supertype (a))) o) (t (tt o) i)
-yoi'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
 
-yoi'ya'he'he
+yoi'ya'st'st
  :: forall source target t i tt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
@@ -183,9 +183,9 @@ yoi'ya'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o) i) -> target (source (Supertype (Supertype (a))) o) (t (tt a) i)
-yoi'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
 
-yoi'yoi'he'he
+yoi'yoi'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -196,9 +196,9 @@ yoi'yoi'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a ii) i) -> target (source (Supertype (Supertype (a))) o) (t (tt o ii) i)
-yoi'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
 
-yoi'yai'he'he, yoi'ha'he'he
+yoi'yai'st'st, yoi'ha'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -209,10 +209,10 @@ yoi'yai'he'he, yoi'ha'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o ii) i) -> target (source (Supertype (Supertype (a))) o) (t (tt a ii) i)
-yoi'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
-yoi'ha'he'he = yoi'yai'he'he
+yoi'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'ha'st'st = yoi'yai'st'st
 
-yoi'yio'he'he, yoi'ho'he'he
+yoi'yio'st'st, yoi'ho'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -223,10 +223,10 @@ yoi'yio'he'he, yoi'ho'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (a)) i) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (o)) i)
-yoi'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
-yoi'ho'he'he = yoi'yio'he'he
+yoi'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'ho'st'st = yoi'yio'st'st
 
-yoi'yia'he'he
+yoi'yia'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -237,9 +237,9 @@ yoi'yia'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (o)) i) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (a)) i)
-yoi'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
+yoi'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yoi @source @target x)
 
-yai'yo'he'he, ha'yo'he'he, ha_'yo'he'he, ha__'yo'he'he, ha___'yo'he'he, ha____'yo'he'he, ha_____'yo'he'he, ha______'yo'he'he, ha_______'yo'he'he
+yai'yo'st'st, ha'yo'st'st, ha_'yo'st'st, ha__'yo'st'st, ha___'yo'st'st, ha____'yo'st'st, ha_____'yo'st'st, ha______'yo'st'st, ha_______'yo'st'st
  :: forall source target t i tt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -249,17 +249,17 @@ yai'yo'he'he, ha'yo'he'he, ha_'yo'he'he, ha__'yo'he'he, ha___'yo'he'he, ha____'y
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o) i) -> target (source (Supertype (Supertype (a))) o) (t (tt a) i)
-yai'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'yo'he'he = yai'yo'he'he
-ha_'yo'he'he = yai'yo'he'he
-ha__'yo'he'he = yai'yo'he'he
-ha___'yo'he'he = yai'yo'he'he
-ha____'yo'he'he = yai'yo'he'he
-ha_____'yo'he'he = yai'yo'he'he
-ha______'yo'he'he = yai'yo'he'he
-ha_______'yo'he'he = yai'yo'he'he
+yai'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'yo'st'st = yai'yo'st'st
+ha_'yo'st'st = yai'yo'st'st
+ha__'yo'st'st = yai'yo'st'st
+ha___'yo'st'st = yai'yo'st'st
+ha____'yo'st'st = yai'yo'st'st
+ha_____'yo'st'st = yai'yo'st'st
+ha______'yo'st'st = yai'yo'st'st
+ha_______'yo'st'st = yai'yo'st'st
 
-yai'ya'he'he, ha'ya'he'he, ha_'ya'he'he, ha__'ya'he'he, ha___'ya'he'he, ha____'ya'he'he, ha_____'ya'he'he, ha______'ya'he'he, ha_______'ya'he'he
+yai'ya'st'st, ha'ya'st'st, ha_'ya'st'st, ha__'ya'st'st, ha___'ya'st'st, ha____'ya'st'st, ha_____'ya'st'st, ha______'ya'st'st, ha_______'ya'st'st
  :: forall source target t i tt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -269,17 +269,17 @@ yai'ya'he'he, ha'ya'he'he, ha_'ya'he'he, ha__'ya'he'he, ha___'ya'he'he, ha____'y
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a) i) -> target (source (Supertype (Supertype (a))) o) (t (tt o) i)
-yai'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'ya'he'he = yai'ya'he'he
-ha_'ya'he'he = yai'ya'he'he
-ha__'ya'he'he = yai'ya'he'he
-ha___'ya'he'he = yai'ya'he'he
-ha____'ya'he'he = yai'ya'he'he
-ha_____'ya'he'he = yai'ya'he'he
-ha______'ya'he'he = yai'ya'he'he
-ha_______'ya'he'he = yai'ya'he'he
+yai'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'ya'st'st = yai'ya'st'st
+ha_'ya'st'st = yai'ya'st'st
+ha__'ya'st'st = yai'ya'st'st
+ha___'ya'st'st = yai'ya'st'st
+ha____'ya'st'st = yai'ya'st'st
+ha_____'ya'st'st = yai'ya'st'st
+ha______'ya'st'st = yai'ya'st'st
+ha_______'ya'st'st = yai'ya'st'st
 
-yai'yoi'he'he, ha'yoi'he'he, ha_'yoi'he'he, ha__'yoi'he'he, ha___'yoi'he'he, ha____'yoi'he'he, ha_____'yoi'he'he, ha______'yoi'he'he, ha_______'yoi'he'he
+yai'yoi'st'st, ha'yoi'st'st, ha_'yoi'st'st, ha__'yoi'st'st, ha___'yoi'st'st, ha____'yoi'st'st, ha_____'yoi'st'st, ha______'yoi'st'st, ha_______'yoi'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -290,17 +290,17 @@ yai'yoi'he'he, ha'yoi'he'he, ha_'yoi'he'he, ha__'yoi'he'he, ha___'yoi'he'he, ha_
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt o ii) i) -> target (source (Supertype (Supertype (a))) o) (t (tt a ii) i)
-yai'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'yoi'he'he = yai'yoi'he'he
-ha_'yoi'he'he = yai'yoi'he'he
-ha__'yoi'he'he = yai'yoi'he'he
-ha___'yoi'he'he = yai'yoi'he'he
-ha____'yoi'he'he = yai'yoi'he'he
-ha_____'yoi'he'he = yai'yoi'he'he
-ha______'yoi'he'he = yai'yoi'he'he
-ha_______'yoi'he'he = yai'yoi'he'he
+yai'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'yoi'st'st = yai'yoi'st'st
+ha_'yoi'st'st = yai'yoi'st'st
+ha__'yoi'st'st = yai'yoi'st'st
+ha___'yoi'st'st = yai'yoi'st'st
+ha____'yoi'st'st = yai'yoi'st'st
+ha_____'yoi'st'st = yai'yoi'st'st
+ha______'yoi'st'st = yai'yoi'st'st
+ha_______'yoi'st'st = yai'yoi'st'st
 
-yai'yai'he'he, ha'ha'he'he, ha_'ha'he'he, ha__'ha'he'he, ha___'ha'he'he, ha____'ha'he'he, ha_____'ha'he'he, ha______'ha'he'he, ha_______'ha'he'he
+yai'yai'st'st, ha'ha'st'st, ha_'ha'st'st, ha__'ha'st'st, ha___'ha'st'st, ha____'ha'st'st, ha_____'ha'st'st, ha______'ha'st'st, ha_______'ha'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -311,17 +311,17 @@ yai'yai'he'he, ha'ha'he'he, ha_'ha'he'he, ha__'ha'he'he, ha___'ha'he'he, ha____'
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt a ii) i) -> target (source (Supertype (Supertype (a))) o) (t (tt o ii) i)
-yai'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'ha'he'he = yai'yai'he'he
-ha_'ha'he'he = yai'yai'he'he
-ha__'ha'he'he = yai'yai'he'he
-ha___'ha'he'he = yai'yai'he'he
-ha____'ha'he'he = yai'yai'he'he
-ha_____'ha'he'he = yai'yai'he'he
-ha______'ha'he'he = yai'yai'he'he
-ha_______'ha'he'he = yai'yai'he'he
+yai'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'ha'st'st = yai'yai'st'st
+ha_'ha'st'st = yai'yai'st'st
+ha__'ha'st'st = yai'yai'st'st
+ha___'ha'st'st = yai'yai'st'st
+ha____'ha'st'st = yai'yai'st'st
+ha_____'ha'st'st = yai'yai'st'st
+ha______'ha'st'st = yai'yai'st'st
+ha_______'ha'st'st = yai'yai'st'st
 
-yai'yio'he'he, ha'ho'he'he, ha_'ho'he'he, ha__'ho'he'he, ha___'ho'he'he, ha____'ho'he'he, ha_____'ho'he'he, ha______'ho'he'he, ha_______'ho'he'he
+yai'yio'st'st, ha'ho'st'st, ha_'ho'st'st, ha__'ho'st'st, ha___'ho'st'st, ha____'ho'st'st, ha_____'ho'st'st, ha______'ho'st'st, ha_______'ho'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -332,17 +332,17 @@ yai'yio'he'he, ha'ho'he'he, ha_'ho'he'he, ha__'ho'he'he, ha___'ho'he'he, ha____'
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (o)) i) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (a)) i)
-yai'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'ho'he'he = yai'yio'he'he
-ha_'ho'he'he = yai'yio'he'he
-ha__'ho'he'he = yai'yio'he'he
-ha___'ho'he'he = yai'yio'he'he
-ha____'ho'he'he = yai'yio'he'he
-ha_____'ho'he'he = yai'yio'he'he
-ha______'ho'he'he = yai'yio'he'he
-ha_______'ho'he'he = yai'yio'he'he
+yai'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'ho'st'st = yai'yio'st'st
+ha_'ho'st'st = yai'yio'st'st
+ha__'ho'st'st = yai'yio'st'st
+ha___'ho'st'st = yai'yio'st'st
+ha____'ho'st'st = yai'yio'st'st
+ha_____'ho'st'st = yai'yio'st'st
+ha______'ho'st'st = yai'yio'st'st
+ha_______'ho'st'st = yai'yio'st'st
 
-yai'yia'he'he, ha'yia'he'he, ha_'yia'he'he, ha__'yia'he'he, ha___'yia'he'he, ha____'yia'he'he, ha_____'yia'he'he, ha______'yia'he'he, ha_______'yia'he'he
+yai'yia'st'st, ha'yia'st'st, ha_'yia'st'st, ha__'yia'st'st, ha___'yia'st'st, ha____'yia'st'st, ha_____'yia'st'st, ha______'yia'st'st, ha_______'yia'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -353,17 +353,17 @@ yai'yia'he'he, ha'yia'he'he, ha_'yia'he'he, ha__'yia'he'he, ha___'yia'he'he, ha_
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t (tt ii (a)) i) -> target (source (Supertype (Supertype (a))) o) (t (tt ii (o)) i)
-yai'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
-ha'yia'he'he = yai'yia'he'he
-ha_'yia'he'he = yai'yia'he'he
-ha__'yia'he'he = yai'yia'he'he
-ha___'yia'he'he = yai'yia'he'he
-ha____'yia'he'he = yai'yia'he'he
-ha_____'yia'he'he = yai'yia'he'he
-ha______'yia'he'he = yai'yia'he'he
-ha_______'yia'he'he = yai'yia'he'he
+yai'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yai @source @target x)
+ha'yia'st'st = yai'yia'st'st
+ha_'yia'st'st = yai'yia'st'st
+ha__'yia'st'st = yai'yia'st'st
+ha___'yia'st'st = yai'yia'st'st
+ha____'yia'st'st = yai'yia'st'st
+ha_____'yia'st'st = yai'yia'st'st
+ha______'yia'st'st = yai'yia'st'st
+ha_______'yia'st'st = yai'yia'st'st
 
-yio'yo'he'he, ho'yo'he'he, ho_'yo'he'he, ho__'yo'he'he, ho___'yo'he'he, ho____'yo'he'he, ho_____'yo'he'he, ho______'yo'he'he, ho_______'yo'he'he
+yio'yo'st'st, ho'yo'st'st, ho_'yo'st'st, ho__'yo'st'st, ho___'yo'st'st, ho____'yo'st'st, ho_____'yo'st'st, ho______'yo'st'st, ho_______'yo'st'st
  :: forall source target t i tt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
@@ -373,17 +373,17 @@ yio'yo'he'he, ho'yo'he'he, ho_'yo'he'he, ho__'yo'he'he, ho___'yo'he'he, ho____'y
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt a))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt o)))
-yio'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'yo'he'he = yio'yo'he'he
-ho_'yo'he'he = yio'yo'he'he
-ho__'yo'he'he = yio'yo'he'he
-ho___'yo'he'he = yio'yo'he'he
-ho____'yo'he'he = yio'yo'he'he
-ho_____'yo'he'he = yio'yo'he'he
-ho______'yo'he'he = yio'yo'he'he
-ho_______'yo'he'he = yio'yo'he'he
+yio'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'yo'st'st = yio'yo'st'st
+ho_'yo'st'st = yio'yo'st'st
+ho__'yo'st'st = yio'yo'st'st
+ho___'yo'st'st = yio'yo'st'st
+ho____'yo'st'st = yio'yo'st'st
+ho_____'yo'st'st = yio'yo'st'st
+ho______'yo'st'st = yio'yo'st'st
+ho_______'yo'st'st = yio'yo'st'st
 
-yio'ya'he'he, ho'ya'he'he, ho_'ya'he'he, ho__'ya'he'he, ho___'ya'he'he, ho____'ya'he'he, ho_____'ya'he'he, ho______'ya'he'he, ho_______'ya'he'he
+yio'ya'st'st, ho'ya'st'st, ho_'ya'st'st, ho__'ya'st'st, ho___'ya'st'st, ho____'ya'st'st, ho_____'ya'st'st, ho______'ya'st'st, ho_______'ya'st'st
  :: forall source target t i tt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
@@ -393,17 +393,17 @@ yio'ya'he'he, ho'ya'he'he, ho_'ya'he'he, ho__'ya'he'he, ho___'ya'he'he, ho____'y
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt o))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt a)))
-yio'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'ya'he'he = yio'ya'he'he
-ho_'ya'he'he = yio'ya'he'he
-ho__'ya'he'he = yio'ya'he'he
-ho___'ya'he'he = yio'ya'he'he
-ho____'ya'he'he = yio'ya'he'he
-ho_____'ya'he'he = yio'ya'he'he
-ho______'ya'he'he = yio'ya'he'he
-ho_______'ya'he'he = yio'ya'he'he
+yio'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'ya'st'st = yio'ya'st'st
+ho_'ya'st'st = yio'ya'st'st
+ho__'ya'st'st = yio'ya'st'st
+ho___'ya'st'st = yio'ya'st'st
+ho____'ya'st'st = yio'ya'st'st
+ho_____'ya'st'st = yio'ya'st'st
+ho______'ya'st'st = yio'ya'st'st
+ho_______'ya'st'st = yio'ya'st'st
 
-yio'yoi'he'he, ho'yoi'he'he, ho_'yoi'he'he, ho__'yoi'he'he, ho___'yoi'he'he, ho____'yoi'he'he, ho_____'yoi'he'he, ho______'yoi'he'he, ho_______'yoi'he'he
+yio'yoi'st'st, ho'yoi'st'st, ho_'yoi'st'st, ho__'yoi'st'st, ho___'yoi'st'st, ho____'yoi'st'st, ho_____'yoi'st'st, ho______'yoi'st'st, ho_______'yoi'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -414,17 +414,17 @@ yio'yoi'he'he, ho'yoi'he'he, ho_'yoi'he'he, ho__'yoi'he'he, ho___'yoi'he'he, ho_
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt a ii))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt o ii)))
-yio'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'yoi'he'he = yio'yoi'he'he
-ho_'yoi'he'he = yio'yoi'he'he
-ho__'yoi'he'he = yio'yoi'he'he
-ho___'yoi'he'he = yio'yoi'he'he
-ho____'yoi'he'he = yio'yoi'he'he
-ho_____'yoi'he'he = yio'yoi'he'he
-ho______'yoi'he'he = yio'yoi'he'he
-ho_______'yoi'he'he = yio'yoi'he'he
+yio'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'yoi'st'st = yio'yoi'st'st
+ho_'yoi'st'st = yio'yoi'st'st
+ho__'yoi'st'st = yio'yoi'st'st
+ho___'yoi'st'st = yio'yoi'st'st
+ho____'yoi'st'st = yio'yoi'st'st
+ho_____'yoi'st'st = yio'yoi'st'st
+ho______'yoi'st'st = yio'yoi'st'st
+ho_______'yoi'st'st = yio'yoi'st'st
 
-yio'yai'he'he, ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'ha'he'he, ho_____'ha'he'he, ho______'ha'he'he, ho_______'ha'he'he
+yio'yai'st'st, ho'ha'st'st, ho_'ha'st'st, ho__'ha'st'st, ho___'ha'st'st, ho____'ha'st'st, ho_____'ha'st'st, ho______'ha'st'st, ho_______'ha'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -435,17 +435,17 @@ yio'yai'he'he, ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt o ii))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt a ii)))
-yio'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'ha'he'he = yio'yai'he'he
-ho_'ha'he'he = yio'yai'he'he
-ho__'ha'he'he = yio'yai'he'he
-ho___'ha'he'he = yio'yai'he'he
-ho____'ha'he'he = yio'yai'he'he
-ho_____'ha'he'he = yio'yai'he'he
-ho______'ha'he'he = yio'yai'he'he
-ho_______'ha'he'he = yio'yai'he'he
+yio'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'ha'st'st = yio'yai'st'st
+ho_'ha'st'st = yio'yai'st'st
+ho__'ha'st'st = yio'yai'st'st
+ho___'ha'st'st = yio'yai'st'st
+ho____'ha'st'st = yio'yai'st'st
+ho_____'ha'st'st = yio'yai'st'st
+ho______'ha'st'st = yio'yai'st'st
+ho_______'ha'st'st = yio'yai'st'st
 
-yio'yio'he'he, ho'ho'he'he, ho_'ho'he'he, ho__'ho'he'he, ho___'ho'he'he, ho____'ho'he'he, ho_____'ho'he'he, ho______'ho'he'he, ho_______'ho'he'he
+yio'yio'st'st, ho'ho'st'st, ho_'ho'st'st, ho__'ho'st'st, ho___'ho'st'st, ho____'ho'st'st, ho_____'ho'st'st, ho______'ho'st'st, ho_______'ho'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -456,17 +456,17 @@ yio'yio'he'he, ho'ho'he'he, ho_'ho'he'he, ho__'ho'he'he, ho___'ho'he'he, ho____'
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt ii (a)))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt ii (o))))
-yio'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'ho'he'he = yio'yio'he'he
-ho_'ho'he'he = yio'yio'he'he
-ho__'ho'he'he = yio'yio'he'he
-ho___'ho'he'he = yio'yio'he'he
-ho____'ho'he'he = yio'yio'he'he
-ho_____'ho'he'he = yio'yio'he'he
-ho______'ho'he'he = yio'yio'he'he
-ho_______'ho'he'he = yio'yio'he'he
+yio'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'ho'st'st = yio'yio'st'st
+ho_'ho'st'st = yio'yio'st'st
+ho__'ho'st'st = yio'yio'st'st
+ho___'ho'st'st = yio'yio'st'st
+ho____'ho'st'st = yio'yio'st'st
+ho_____'ho'st'st = yio'yio'st'st
+ho______'ho'st'st = yio'yio'st'st
+ho_______'ho'st'st = yio'yio'st'st
 
-yio'yia'he'he, ho'yia'he'he, ho_'yia'he'he, ho__'yia'he'he, ho___'yia'he'he, ho____'yia'he'he, ho_____'yia'he'he, ho______'yia'he'he, ho_______'yia'he'he
+yio'yia'st'st, ho'yia'st'st, ho_'yia'st'st, ho__'yia'st'st, ho___'yia'st'st, ho____'yia'st'st, ho_____'yia'st'st, ho______'yia'st'st, ho_______'yia'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -477,17 +477,17 @@ yio'yia'he'he, ho'yia'he'he, ho_'yia'he'he, ho__'yia'he'he, ho___'yia'he'he, ho_
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt ii (o)))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt ii (a))))
-yio'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
-ho'yia'he'he = yio'yia'he'he
-ho_'yia'he'he = yio'yia'he'he
-ho__'yia'he'he = yio'yia'he'he
-ho___'yia'he'he = yio'yia'he'he
-ho____'yia'he'he = yio'yia'he'he
-ho_____'yia'he'he = yio'yia'he'he
-ho______'yia'he'he = yio'yia'he'he
-ho_______'yia'he'he = yio'yia'he'he
+yio'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yio @source @target x)
+ho'yia'st'st = yio'yia'st'st
+ho_'yia'st'st = yio'yia'st'st
+ho__'yia'st'st = yio'yia'st'st
+ho___'yia'st'st = yio'yia'st'st
+ho____'yia'st'st = yio'yia'st'st
+ho_____'yia'st'st = yio'yia'st'st
+ho______'yia'st'st = yio'yia'st'st
+ho_______'yia'st'st = yio'yia'st'st
 
-yia'yo'he'he
+yia'yo'st'st
  :: forall source target t i tt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
@@ -497,9 +497,9 @@ yia'yo'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt o))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt a)))
-yia'yo'he'he x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'yo'st'st x = fai (fo @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
 
-yia'ya'he'he
+yia'ya'st'st
  :: forall source target t i tt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
@@ -509,9 +509,9 @@ yia'ya'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt a))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt o)))
-yia'ya'he'he x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'ya'st'st x = fai (fa @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
 
-yia'yoi'he'he
+yia'yoi'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -522,9 +522,9 @@ yia'yoi'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt o ii))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt a ii)))
-yia'yoi'he'he x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'yoi'st'st x = fai (foi @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
 
-yia'yai'he'he, yia'ha'he'he
+yia'yai'st'st, yia'ha'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -535,10 +535,10 @@ yia'yai'he'he, yia'ha'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt a ii))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt o ii)))
-yia'yai'he'he x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
-yia'ha'he'he = yia'yai'he'he
+yia'yai'st'st x = fai (fai @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'ha'st'st = yia'yai'st'st
 
-yia'yio'he'he, yia'ho'he'he
+yia'yio'st'st, yia'ho'st'st
  :: forall source target t i tt ii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -549,10 +549,10 @@ yia'yio'he'he, yia'ho'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt ii (o)))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt ii (a))))
-yia'yio'he'he x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
-yia'ho'he'he = yia'yio'he'he
+yia'yio'st'st x = fai (fio @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'ho'st'st = yia'yio'st'st
 
-yia'yia'he'he
+yia'yia'st'st
  :: forall source target t i tt ii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -563,9 +563,9 @@ yia'yia'he'he
  Wrapper source (a) =>
  Wrapper source (Supertype (a)) =>
  (t i ((tt ii (a)))) -> target (source (Supertype (Supertype (a))) o) (t i ((tt ii (o))))
-yia'yia'he'he x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
+yia'yia'st'st x = fai (fia @source @source @tt `compose` fai @source super `compose` fai @source super) (yia @source @target x)
 
-yo'yo'yo'he
+yo'yo'yo'st
  :: forall source target t tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -574,9 +574,9 @@ yo'yo'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a))) -> target (source (Supertype (a)) o) (t (tt (ttt o)))
-yo'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yo'ya'he
+yo'yo'ya'st
  :: forall source target t tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -585,9 +585,9 @@ yo'yo'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o))) -> target (source (Supertype (a)) o) (t (tt (ttt a)))
-yo'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yo'yoi'he
+yo'yo'yoi'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -597,9 +597,9 @@ yo'yo'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii))) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)))
-yo'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yo'yai'he, yo'yo'ha'he
+yo'yo'yai'st, yo'yo'ha'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -609,10 +609,10 @@ yo'yo'yai'he, yo'yo'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii))) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)))
-yo'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yo'ha'he = yo'yo'yai'he
+yo'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'ha'st = yo'yo'yai'st
 
-yo'yo'yio'he, yo'yo'ho'he
+yo'yo'yio'st, yo'yo'ho'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -622,10 +622,10 @@ yo'yo'yio'he, yo'yo'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))))
-yo'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yo'ho'he = yo'yo'yio'he
+yo'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'ho'st = yo'yo'yio'st
 
-yo'yo'yia'he
+yo'yo'yia'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -635,9 +635,9 @@ yo'yo'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))))
-yo'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'ya'yo'he
+yo'ya'yo'st
  :: forall source target t tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -646,9 +646,9 @@ yo'ya'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o))) -> target (source (Supertype (a)) o) (t (tt (ttt a)))
-yo'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'ya'ya'he
+yo'ya'ya'st
  :: forall source target t tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -657,9 +657,9 @@ yo'ya'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a))) -> target (source (Supertype (a)) o) (t (tt (ttt o)))
-yo'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'ya'yoi'he
+yo'ya'yoi'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -669,9 +669,9 @@ yo'ya'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii))) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)))
-yo'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'ya'yai'he, yo'ya'ha'he
+yo'ya'yai'st, yo'ya'ha'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -681,10 +681,10 @@ yo'ya'yai'he, yo'ya'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii))) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)))
-yo'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ya'ha'he = yo'ya'yai'he
+yo'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'ha'st = yo'ya'yai'st
 
-yo'ya'yio'he, yo'ya'ho'he
+yo'ya'yio'st, yo'ya'ho'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -694,10 +694,10 @@ yo'ya'yio'he, yo'ya'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))))
-yo'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ya'ho'he = yo'ya'yio'he
+yo'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'ho'st = yo'ya'yio'st
 
-yo'ya'yia'he
+yo'ya'yia'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -707,9 +707,9 @@ yo'ya'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))))
-yo'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yoi'yo'he
+yo'yoi'yo'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -719,9 +719,9 @@ yo'yoi'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii))
-yo'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yoi'ya'he
+yo'yoi'ya'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -731,9 +731,9 @@ yo'yoi'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii))
-yo'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yoi'yoi'he
+yo'yoi'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -744,9 +744,9 @@ yo'yoi'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii))
-yo'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yoi'yai'he, yo'yoi'ha'he
+yo'yoi'yai'st, yo'yoi'ha'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -757,10 +757,10 @@ yo'yoi'yai'he, yo'yoi'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii))
-yo'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yoi'ha'he = yo'yoi'yai'he
+yo'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'ha'st = yo'yoi'yai'st
 
-yo'yoi'yio'he, yo'yoi'ho'he
+yo'yoi'yio'st, yo'yoi'ho'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -771,10 +771,10 @@ yo'yoi'yio'he, yo'yoi'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii))
-yo'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yoi'ho'he = yo'yoi'yio'he
+yo'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'ho'st = yo'yoi'yio'st
 
-yo'yoi'yia'he
+yo'yoi'yia'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -785,9 +785,9 @@ yo'yoi'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii))
-yo'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yai'yo'he, yo'ha'yo'he
+yo'yai'yo'st, yo'ha'yo'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -797,10 +797,10 @@ yo'yai'yo'he, yo'ha'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii))
-yo'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'yo'he = yo'yai'yo'he
+yo'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'yo'st = yo'yai'yo'st
 
-yo'yai'ya'he, yo'ha'ya'he
+yo'yai'ya'st, yo'ha'ya'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -810,10 +810,10 @@ yo'yai'ya'he, yo'ha'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii))
-yo'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'ya'he = yo'yai'ya'he
+yo'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'ya'st = yo'yai'ya'st
 
-yo'yai'yoi'he, yo'ha'yoi'he
+yo'yai'yoi'st, yo'ha'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -824,10 +824,10 @@ yo'yai'yoi'he, yo'ha'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii))
-yo'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'yoi'he = yo'yai'yoi'he
+yo'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'yoi'st = yo'yai'yoi'st
 
-yo'yai'yai'he, yo'ha'ha'he
+yo'yai'yai'st, yo'ha'ha'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -838,10 +838,10 @@ yo'yai'yai'he, yo'ha'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii))
-yo'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'ha'he = yo'yai'yai'he
+yo'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'ha'st = yo'yai'yai'st
 
-yo'yai'yio'he, yo'ha'ho'he
+yo'yai'yio'st, yo'ha'ho'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -852,10 +852,10 @@ yo'yai'yio'he, yo'ha'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii))
-yo'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'ho'he = yo'yai'yio'he
+yo'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'ho'st = yo'yai'yio'st
 
-yo'yai'yia'he, yo'ha'yia'he
+yo'yai'yia'st, yo'ha'yia'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -866,10 +866,10 @@ yo'yai'yia'he, yo'ha'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii))
-yo'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ha'yia'he = yo'yai'yia'he
+yo'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ha'yia'st = yo'yai'yia'st
 
-yo'yio'yo'he, yo'ho'yo'he
+yo'yio'yo'st, yo'ho'yo'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -879,10 +879,10 @@ yo'yio'yo'he, yo'ho'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))))
-yo'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'yo'he = yo'yio'yo'he
+yo'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'yo'st = yo'yio'yo'st
 
-yo'yio'ya'he, yo'ho'ya'he
+yo'yio'ya'st, yo'ho'ya'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -892,10 +892,10 @@ yo'yio'ya'he, yo'ho'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))))
-yo'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'ya'he = yo'yio'ya'he
+yo'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'ya'st = yo'yio'ya'st
 
-yo'yio'yoi'he, yo'ho'yoi'he
+yo'yio'yoi'st, yo'ho'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -906,10 +906,10 @@ yo'yio'yoi'he, yo'ho'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))))
-yo'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'yoi'he = yo'yio'yoi'he
+yo'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'yoi'st = yo'yio'yoi'st
 
-yo'yio'yai'he, yo'ho'ha'he
+yo'yio'yai'st, yo'ho'ha'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -920,10 +920,10 @@ yo'yio'yai'he, yo'ho'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))))
-yo'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'ha'he = yo'yio'yai'he
+yo'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'ha'st = yo'yio'yai'st
 
-yo'yio'yio'he, yo'ho'ho'he
+yo'yio'yio'st, yo'ho'ho'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -934,10 +934,10 @@ yo'yio'yio'he, yo'ho'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))))
-yo'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'ho'he = yo'yio'yio'he
+yo'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'ho'st = yo'yio'yio'st
 
-yo'yio'yia'he, yo'ho'yia'he
+yo'yio'yia'st, yo'ho'yia'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -948,10 +948,10 @@ yo'yio'yia'he, yo'ho'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))))
-yo'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'ho'yia'he = yo'yio'yia'he
+yo'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'ho'yia'st = yo'yio'yia'st
 
-yo'yia'yo'he
+yo'yia'yo'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -961,9 +961,9 @@ yo'yia'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))))
-yo'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yia'ya'he
+yo'yia'ya'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -973,9 +973,9 @@ yo'yia'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))))
-yo'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yia'yoi'he
+yo'yia'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -986,9 +986,9 @@ yo'yia'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))))
-yo'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-yo'yia'yai'he, yo'yia'ha'he
+yo'yia'yai'st, yo'yia'ha'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -999,10 +999,10 @@ yo'yia'yai'he, yo'yia'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))))
-yo'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yia'ha'he = yo'yia'yai'he
+yo'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'ha'st = yo'yia'yai'st
 
-yo'yia'yio'he, yo'yia'ho'he
+yo'yia'yio'st, yo'yia'ho'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1013,10 +1013,10 @@ yo'yia'yio'he, yo'yia'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))))
-yo'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
-yo'yia'ho'he = yo'yia'yio'he
+yo'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'ho'st = yo'yia'yio'st
 
-yo'yia'yia'he
+yo'yia'yia'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1027,9 +1027,9 @@ yo'yia'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))))
-yo'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
+yo'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yo @source @target x)
 
-ya'yo'yo'he
+ya'yo'yo'st
  :: forall source target t tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -1038,9 +1038,9 @@ ya'yo'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o))) -> target (source (Supertype (a)) o) (t (tt (ttt a)))
-ya'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yo'ya'he
+ya'yo'ya'st
  :: forall source target t tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -1049,9 +1049,9 @@ ya'yo'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a))) -> target (source (Supertype (a)) o) (t (tt (ttt o)))
-ya'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yo'yoi'he
+ya'yo'yoi'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1061,9 +1061,9 @@ ya'yo'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii))) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)))
-ya'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yo'yai'he, ya'yo'ha'he
+ya'yo'yai'st, ya'yo'ha'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1073,10 +1073,10 @@ ya'yo'yai'he, ya'yo'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii))) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)))
-ya'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yo'ha'he = ya'yo'yai'he
+ya'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'ha'st = ya'yo'yai'st
 
-ya'yo'yio'he, ya'yo'ho'he
+ya'yo'yio'st, ya'yo'ho'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1086,10 +1086,10 @@ ya'yo'yio'he, ya'yo'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))))
-ya'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yo'ho'he = ya'yo'yio'he
+ya'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'ho'st = ya'yo'yio'st
 
-ya'yo'yia'he
+ya'yo'yia'st
  :: forall source target t tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1099,9 +1099,9 @@ ya'yo'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))))
-ya'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'ya'yo'he
+ya'ya'yo'st
  :: forall source target t tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -1110,9 +1110,9 @@ ya'ya'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a))) -> target (source (Supertype (a)) o) (t (tt (ttt o)))
-ya'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'ya'ya'he
+ya'ya'ya'st
  :: forall source target t tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -1121,9 +1121,9 @@ ya'ya'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o))) -> target (source (Supertype (a)) o) (t (tt (ttt a)))
-ya'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'ya'yoi'he
+ya'ya'yoi'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1133,9 +1133,9 @@ ya'ya'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii))) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)))
-ya'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'ya'yai'he, ya'ya'ha'he
+ya'ya'yai'st, ya'ya'ha'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1145,10 +1145,10 @@ ya'ya'yai'he, ya'ya'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii))) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)))
-ya'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ya'ha'he = ya'ya'yai'he
+ya'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'ha'st = ya'ya'yai'st
 
-ya'ya'yio'he, ya'ya'ho'he
+ya'ya'yio'st, ya'ya'ho'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1158,10 +1158,10 @@ ya'ya'yio'he, ya'ya'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))))
-ya'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ya'ho'he = ya'ya'yio'he
+ya'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'ho'st = ya'ya'yio'st
 
-ya'ya'yia'he
+ya'ya'yia'st
  :: forall source target t tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1171,9 +1171,9 @@ ya'ya'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)))) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))))
-ya'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yoi'yo'he
+ya'yoi'yo'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1183,9 +1183,9 @@ ya'yoi'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii))
-ya'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yoi'ya'he
+ya'yoi'ya'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1195,9 +1195,9 @@ ya'yoi'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii))
-ya'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yoi'yoi'he
+ya'yoi'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1208,9 +1208,9 @@ ya'yoi'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii))
-ya'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yoi'yai'he, ya'yoi'ha'he
+ya'yoi'yai'st, ya'yoi'ha'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1221,10 +1221,10 @@ ya'yoi'yai'he, ya'yoi'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii))
-ya'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yoi'ha'he = ya'yoi'yai'he
+ya'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'ha'st = ya'yoi'yai'st
 
-ya'yoi'yio'he, ya'yoi'ho'he
+ya'yoi'yio'st, ya'yoi'ho'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1235,10 +1235,10 @@ ya'yoi'yio'he, ya'yoi'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii))
-ya'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yoi'ho'he = ya'yoi'yio'he
+ya'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'ho'st = ya'yoi'yio'st
 
-ya'yoi'yia'he
+ya'yoi'yia'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1249,9 +1249,9 @@ ya'yoi'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii))
-ya'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yai'yo'he, ya'ha'yo'he
+ya'yai'yo'st, ya'ha'yo'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1261,10 +1261,10 @@ ya'yai'yo'he, ya'ha'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii))
-ya'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'yo'he = ya'yai'yo'he
+ya'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'yo'st = ya'yai'yo'st
 
-ya'yai'ya'he, ya'ha'ya'he
+ya'yai'ya'st, ya'ha'ya'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1274,10 +1274,10 @@ ya'yai'ya'he, ya'ha'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii))
-ya'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'ya'he = ya'yai'ya'he
+ya'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'ya'st = ya'yai'ya'st
 
-ya'yai'yoi'he, ya'ha'yoi'he
+ya'yai'yoi'st, ya'ha'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1288,10 +1288,10 @@ ya'yai'yoi'he, ya'ha'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii))
-ya'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'yoi'he = ya'yai'yoi'he
+ya'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'yoi'st = ya'yai'yoi'st
 
-ya'yai'yai'he, ya'ha'ha'he
+ya'yai'yai'st, ya'ha'ha'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1302,10 +1302,10 @@ ya'yai'yai'he, ya'ha'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii))
-ya'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'ha'he = ya'yai'yai'he
+ya'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'ha'st = ya'yai'yai'st
 
-ya'yai'yio'he, ya'ha'ho'he
+ya'yai'yio'st, ya'ha'ho'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1316,10 +1316,10 @@ ya'yai'yio'he, ya'ha'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii))
-ya'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'ho'he = ya'yai'yio'he
+ya'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'ho'st = ya'yai'yio'st
 
-ya'yai'yia'he, ya'ha'yia'he
+ya'yai'yia'st, ya'ha'yia'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1330,10 +1330,10 @@ ya'yai'yia'he, ya'ha'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii)) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii))
-ya'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ha'yia'he = ya'yai'yia'he
+ya'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ha'yia'st = ya'yai'yia'st
 
-ya'yio'yo'he, ya'ho'yo'he
+ya'yio'yo'st, ya'ho'yo'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1343,10 +1343,10 @@ ya'yio'yo'he, ya'ho'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))))
-ya'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'yo'he = ya'yio'yo'he
+ya'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'yo'st = ya'yio'yo'st
 
-ya'yio'ya'he, ya'ho'ya'he
+ya'yio'ya'st, ya'ho'ya'st
  :: forall source target t tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1356,10 +1356,10 @@ ya'yio'ya'he, ya'ho'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))))
-ya'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'ya'he = ya'yio'ya'he
+ya'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'ya'st = ya'yio'ya'st
 
-ya'yio'yoi'he, ya'ho'yoi'he
+ya'yio'yoi'st, ya'ho'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1370,10 +1370,10 @@ ya'yio'yoi'he, ya'ho'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))))
-ya'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'yoi'he = ya'yio'yoi'he
+ya'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'yoi'st = ya'yio'yoi'st
 
-ya'yio'yai'he, ya'ho'ha'he
+ya'yio'yai'st, ya'ho'ha'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1384,10 +1384,10 @@ ya'yio'yai'he, ya'ho'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))))
-ya'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'ha'he = ya'yio'yai'he
+ya'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'ha'st = ya'yio'yai'st
 
-ya'yio'yio'he, ya'ho'ho'he
+ya'yio'yio'st, ya'ho'ho'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1398,10 +1398,10 @@ ya'yio'yio'he, ya'ho'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))))
-ya'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'ho'he = ya'yio'yio'he
+ya'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'ho'st = ya'yio'yio'st
 
-ya'yio'yia'he, ya'ho'yia'he
+ya'yio'yia'st, ya'ho'yia'st
  :: forall source target t tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1412,10 +1412,10 @@ ya'yio'yia'he, ya'ho'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))))
-ya'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'ho'yia'he = ya'yio'yia'he
+ya'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'ho'yia'st = ya'yio'yia'st
 
-ya'yia'yo'he
+ya'yia'yo'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1425,9 +1425,9 @@ ya'yia'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))))
-ya'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yia'ya'he
+ya'yia'ya'st
  :: forall source target t tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1437,9 +1437,9 @@ ya'yia'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))))
-ya'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yia'yoi'he
+ya'yia'yoi'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1450,9 +1450,9 @@ ya'yia'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))))
-ya'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-ya'yia'yai'he, ya'yia'ha'he
+ya'yia'yai'st, ya'yia'ha'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1463,10 +1463,10 @@ ya'yia'yai'he, ya'yia'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii)))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))))
-ya'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yia'ha'he = ya'yia'yai'he
+ya'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'ha'st = ya'yia'yai'st
 
-ya'yia'yio'he, ya'yia'ho'he
+ya'yia'yio'st, ya'yia'ho'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1477,10 +1477,10 @@ ya'yia'yio'he, ya'yia'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))))
-ya'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
-ya'yia'ho'he = ya'yia'yio'he
+ya'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'ho'st = ya'yia'yio'st
 
-ya'yia'yia'he
+ya'yia'yia'st
  :: forall source target t tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1491,9 +1491,9 @@ ya'yia'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o))))) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))))
-ya'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
+ya'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (ya @source @target x)
 
-yoi'yo'yo'he
+yoi'yo'yo'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -1503,9 +1503,9 @@ yoi'yo'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o)) i)
-yoi'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yo'ya'he
+yoi'yo'ya'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -1515,9 +1515,9 @@ yoi'yo'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a)) i)
-yoi'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yo'yoi'he
+yoi'yo'yoi'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1528,9 +1528,9 @@ yoi'yo'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)) i)
-yoi'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yo'yai'he, yoi'yo'ha'he
+yoi'yo'yai'st, yoi'yo'ha'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1541,10 +1541,10 @@ yoi'yo'yai'he, yoi'yo'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)) i)
-yoi'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yo'ha'he = yoi'yo'yai'he
+yoi'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'ha'st = yoi'yo'yai'st
 
-yoi'yo'yio'he, yoi'yo'ho'he
+yoi'yo'yio'st, yoi'yo'ho'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1555,10 +1555,10 @@ yoi'yo'yio'he, yoi'yo'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))) i)
-yoi'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yo'ho'he = yoi'yo'yio'he
+yoi'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'ho'st = yoi'yo'yio'st
 
-yoi'yo'yia'he
+yoi'yo'yia'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1569,9 +1569,9 @@ yoi'yo'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))) i)
-yoi'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'ya'yo'he
+yoi'ya'yo'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -1581,9 +1581,9 @@ yoi'ya'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a)) i)
-yoi'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'ya'ya'he
+yoi'ya'ya'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -1593,9 +1593,9 @@ yoi'ya'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o)) i)
-yoi'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'ya'yoi'he
+yoi'ya'yoi'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1606,9 +1606,9 @@ yoi'ya'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)) i)
-yoi'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'ya'yai'he, yoi'ya'ha'he
+yoi'ya'yai'st, yoi'ya'ha'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -1619,10 +1619,10 @@ yoi'ya'yai'he, yoi'ya'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)) i)
-yoi'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ya'ha'he = yoi'ya'yai'he
+yoi'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'ha'st = yoi'ya'yai'st
 
-yoi'ya'yio'he, yoi'ya'ho'he
+yoi'ya'yio'st, yoi'ya'ho'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1633,10 +1633,10 @@ yoi'ya'yio'he, yoi'ya'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))) i)
-yoi'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ya'ho'he = yoi'ya'yio'he
+yoi'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'ho'st = yoi'ya'yio'st
 
-yoi'ya'yia'he
+yoi'ya'yia'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -1647,9 +1647,9 @@ yoi'ya'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))) i)
-yoi'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yoi'yo'he
+yoi'yoi'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1660,9 +1660,9 @@ yoi'yoi'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii) i)
-yoi'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yoi'ya'he
+yoi'yoi'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1673,9 +1673,9 @@ yoi'yoi'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii) i)
-yoi'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yoi'yoi'he
+yoi'yoi'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1687,9 +1687,9 @@ yoi'yoi'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii) i)
-yoi'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yoi'yai'he, yoi'yoi'ha'he
+yoi'yoi'yai'st, yoi'yoi'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1701,10 +1701,10 @@ yoi'yoi'yai'he, yoi'yoi'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii) i)
-yoi'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yoi'ha'he = yoi'yoi'yai'he
+yoi'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'ha'st = yoi'yoi'yai'st
 
-yoi'yoi'yio'he, yoi'yoi'ho'he
+yoi'yoi'yio'st, yoi'yoi'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1716,10 +1716,10 @@ yoi'yoi'yio'he, yoi'yoi'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii) i)
-yoi'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yoi'ho'he = yoi'yoi'yio'he
+yoi'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'ho'st = yoi'yoi'yio'st
 
-yoi'yoi'yia'he
+yoi'yoi'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1731,9 +1731,9 @@ yoi'yoi'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii) i)
-yoi'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yai'yo'he, yoi'ha'yo'he
+yoi'yai'yo'st, yoi'ha'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1744,10 +1744,10 @@ yoi'yai'yo'he, yoi'ha'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii) i)
-yoi'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'yo'he = yoi'yai'yo'he
+yoi'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'yo'st = yoi'yai'yo'st
 
-yoi'yai'ya'he, yoi'ha'ya'he
+yoi'yai'ya'st, yoi'ha'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1758,10 +1758,10 @@ yoi'yai'ya'he, yoi'ha'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii) i)
-yoi'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'ya'he = yoi'yai'ya'he
+yoi'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'ya'st = yoi'yai'ya'st
 
-yoi'yai'yoi'he, yoi'ha'yoi'he
+yoi'yai'yoi'st, yoi'ha'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1773,10 +1773,10 @@ yoi'yai'yoi'he, yoi'ha'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii) i)
-yoi'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'yoi'he = yoi'yai'yoi'he
+yoi'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'yoi'st = yoi'yai'yoi'st
 
-yoi'yai'yai'he, yoi'ha'ha'he
+yoi'yai'yai'st, yoi'ha'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1788,10 +1788,10 @@ yoi'yai'yai'he, yoi'ha'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii) i)
-yoi'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'ha'he = yoi'yai'yai'he
+yoi'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'ha'st = yoi'yai'yai'st
 
-yoi'yai'yio'he, yoi'ha'ho'he
+yoi'yai'yio'st, yoi'ha'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1803,10 +1803,10 @@ yoi'yai'yio'he, yoi'ha'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii) i)
-yoi'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'ho'he = yoi'yai'yio'he
+yoi'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'ho'st = yoi'yai'yio'st
 
-yoi'yai'yia'he, yoi'ha'yia'he
+yoi'yai'yia'st, yoi'ha'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -1818,10 +1818,10 @@ yoi'yai'yia'he, yoi'ha'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii) i)
-yoi'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ha'yia'he = yoi'yai'yia'he
+yoi'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ha'yia'st = yoi'yai'yia'st
 
-yoi'yio'yo'he, yoi'ho'yo'he
+yoi'yio'yo'st, yoi'ho'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1832,10 +1832,10 @@ yoi'yio'yo'he, yoi'ho'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))) i)
-yoi'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'yo'he = yoi'yio'yo'he
+yoi'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'yo'st = yoi'yio'yo'st
 
-yoi'yio'ya'he, yoi'ho'ya'he
+yoi'yio'ya'st, yoi'ho'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1846,10 +1846,10 @@ yoi'yio'ya'he, yoi'ho'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))) i)
-yoi'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'ya'he = yoi'yio'ya'he
+yoi'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'ya'st = yoi'yio'ya'st
 
-yoi'yio'yoi'he, yoi'ho'yoi'he
+yoi'yio'yoi'st, yoi'ho'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1861,10 +1861,10 @@ yoi'yio'yoi'he, yoi'ho'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))) i)
-yoi'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'yoi'he = yoi'yio'yoi'he
+yoi'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'yoi'st = yoi'yio'yoi'st
 
-yoi'yio'yai'he, yoi'ho'ha'he
+yoi'yio'yai'st, yoi'ho'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1876,10 +1876,10 @@ yoi'yio'yai'he, yoi'ho'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))) i)
-yoi'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'ha'he = yoi'yio'yai'he
+yoi'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'ha'st = yoi'yio'yai'st
 
-yoi'yio'yio'he, yoi'ho'ho'he
+yoi'yio'yio'st, yoi'ho'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1891,10 +1891,10 @@ yoi'yio'yio'he, yoi'ho'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))) i)
-yoi'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'ho'he = yoi'yio'yio'he
+yoi'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'ho'st = yoi'yio'yio'st
 
-yoi'yio'yia'he, yoi'ho'yia'he
+yoi'yio'yia'st, yoi'ho'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1906,10 +1906,10 @@ yoi'yio'yia'he, yoi'ho'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))) i)
-yoi'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'ho'yia'he = yoi'yio'yia'he
+yoi'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'ho'yia'st = yoi'yio'yia'st
 
-yoi'yia'yo'he
+yoi'yia'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1920,9 +1920,9 @@ yoi'yia'yo'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))) i)
-yoi'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yia'ya'he
+yoi'yia'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1933,9 +1933,9 @@ yoi'yia'ya'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))) i)
-yoi'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yia'yoi'he
+yoi'yia'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1947,9 +1947,9 @@ yoi'yia'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))) i)
-yoi'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yoi'yia'yai'he, yoi'yia'ha'he
+yoi'yia'yai'st, yoi'yia'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1961,10 +1961,10 @@ yoi'yia'yai'he, yoi'yia'ha'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))) i)
-yoi'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yia'ha'he = yoi'yia'yai'he
+yoi'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'ha'st = yoi'yia'yai'st
 
-yoi'yia'yio'he, yoi'yia'ho'he
+yoi'yia'yio'st, yoi'yia'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1976,10 +1976,10 @@ yoi'yia'yio'he, yoi'yia'ho'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))) i)
-yoi'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
-yoi'yia'ho'he = yoi'yia'yio'he
+yoi'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'ho'st = yoi'yia'yio'st
 
-yoi'yia'yia'he
+yoi'yia'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -1991,9 +1991,9 @@ yoi'yia'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))) i)
-yoi'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
+yoi'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yoi @source @target x)
 
-yai'yo'yo'he, ha'yo'yo'he, ha_'yo'yo'he, ha__'yo'yo'he, ha___'yo'yo'he, ha____'yo'yo'he, ha_____'yo'yo'he, ha______'yo'yo'he, ha_______'yo'yo'he
+yai'yo'yo'st, ha'yo'yo'st, ha_'yo'yo'st, ha__'yo'yo'st, ha___'yo'yo'st, ha____'yo'yo'st, ha_____'yo'yo'st, ha______'yo'yo'st, ha_______'yo'yo'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -2003,17 +2003,17 @@ yai'yo'yo'he, ha'yo'yo'he, ha_'yo'yo'he, ha__'yo'yo'he, ha___'yo'yo'he, ha____'y
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a)) i)
-yai'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'yo'he = yai'yo'yo'he
-ha_'yo'yo'he = yai'yo'yo'he
-ha__'yo'yo'he = yai'yo'yo'he
-ha___'yo'yo'he = yai'yo'yo'he
-ha____'yo'yo'he = yai'yo'yo'he
-ha_____'yo'yo'he = yai'yo'yo'he
-ha______'yo'yo'he = yai'yo'yo'he
-ha_______'yo'yo'he = yai'yo'yo'he
+yai'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'yo'st = yai'yo'yo'st
+ha_'yo'yo'st = yai'yo'yo'st
+ha__'yo'yo'st = yai'yo'yo'st
+ha___'yo'yo'st = yai'yo'yo'st
+ha____'yo'yo'st = yai'yo'yo'st
+ha_____'yo'yo'st = yai'yo'yo'st
+ha______'yo'yo'st = yai'yo'yo'st
+ha_______'yo'yo'st = yai'yo'yo'st
 
-yai'yo'ya'he, ha'yo'ya'he, ha_'yo'ya'he, ha__'yo'ya'he, ha___'yo'ya'he, ha____'yo'ya'he, ha_____'yo'ya'he, ha______'yo'ya'he, ha_______'yo'ya'he
+yai'yo'ya'st, ha'yo'ya'st, ha_'yo'ya'st, ha__'yo'ya'st, ha___'yo'ya'st, ha____'yo'ya'st, ha_____'yo'ya'st, ha______'yo'ya'st, ha_______'yo'ya'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -2023,17 +2023,17 @@ yai'yo'ya'he, ha'yo'ya'he, ha_'yo'ya'he, ha__'yo'ya'he, ha___'yo'ya'he, ha____'y
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o)) i)
-yai'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'ya'he = yai'yo'ya'he
-ha_'yo'ya'he = yai'yo'ya'he
-ha__'yo'ya'he = yai'yo'ya'he
-ha___'yo'ya'he = yai'yo'ya'he
-ha____'yo'ya'he = yai'yo'ya'he
-ha_____'yo'ya'he = yai'yo'ya'he
-ha______'yo'ya'he = yai'yo'ya'he
-ha_______'yo'ya'he = yai'yo'ya'he
+yai'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'ya'st = yai'yo'ya'st
+ha_'yo'ya'st = yai'yo'ya'st
+ha__'yo'ya'st = yai'yo'ya'st
+ha___'yo'ya'st = yai'yo'ya'st
+ha____'yo'ya'st = yai'yo'ya'st
+ha_____'yo'ya'st = yai'yo'ya'st
+ha______'yo'ya'st = yai'yo'ya'st
+ha_______'yo'ya'st = yai'yo'ya'st
 
-yai'yo'yoi'he, ha'yo'yoi'he, ha_'yo'yoi'he, ha__'yo'yoi'he, ha___'yo'yoi'he, ha____'yo'yoi'he, ha_____'yo'yoi'he, ha______'yo'yoi'he, ha_______'yo'yoi'he
+yai'yo'yoi'st, ha'yo'yoi'st, ha_'yo'yoi'st, ha__'yo'yoi'st, ha___'yo'yoi'st, ha____'yo'yoi'st, ha_____'yo'yoi'st, ha______'yo'yoi'st, ha_______'yo'yoi'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2044,17 +2044,17 @@ yai'yo'yoi'he, ha'yo'yoi'he, ha_'yo'yoi'he, ha__'yo'yoi'he, ha___'yo'yoi'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)) i)
-yai'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'yoi'he = yai'yo'yoi'he
-ha_'yo'yoi'he = yai'yo'yoi'he
-ha__'yo'yoi'he = yai'yo'yoi'he
-ha___'yo'yoi'he = yai'yo'yoi'he
-ha____'yo'yoi'he = yai'yo'yoi'he
-ha_____'yo'yoi'he = yai'yo'yoi'he
-ha______'yo'yoi'he = yai'yo'yoi'he
-ha_______'yo'yoi'he = yai'yo'yoi'he
+yai'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'yoi'st = yai'yo'yoi'st
+ha_'yo'yoi'st = yai'yo'yoi'st
+ha__'yo'yoi'st = yai'yo'yoi'st
+ha___'yo'yoi'st = yai'yo'yoi'st
+ha____'yo'yoi'st = yai'yo'yoi'st
+ha_____'yo'yoi'st = yai'yo'yoi'st
+ha______'yo'yoi'st = yai'yo'yoi'st
+ha_______'yo'yoi'st = yai'yo'yoi'st
 
-yai'yo'yai'he, ha'yo'ha'he, ha_'yo'ha'he, ha__'yo'ha'he, ha___'yo'ha'he, ha____'yo'ha'he, ha_____'yo'ha'he, ha______'yo'ha'he, ha_______'yo'ha'he
+yai'yo'yai'st, ha'yo'ha'st, ha_'yo'ha'st, ha__'yo'ha'st, ha___'yo'ha'st, ha____'yo'ha'st, ha_____'yo'ha'st, ha______'yo'ha'st, ha_______'yo'ha'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2065,17 +2065,17 @@ yai'yo'yai'he, ha'yo'ha'he, ha_'yo'ha'he, ha__'yo'ha'he, ha___'yo'ha'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)) i)
-yai'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'ha'he = yai'yo'yai'he
-ha_'yo'ha'he = yai'yo'yai'he
-ha__'yo'ha'he = yai'yo'yai'he
-ha___'yo'ha'he = yai'yo'yai'he
-ha____'yo'ha'he = yai'yo'yai'he
-ha_____'yo'ha'he = yai'yo'yai'he
-ha______'yo'ha'he = yai'yo'yai'he
-ha_______'yo'ha'he = yai'yo'yai'he
+yai'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'ha'st = yai'yo'yai'st
+ha_'yo'ha'st = yai'yo'yai'st
+ha__'yo'ha'st = yai'yo'yai'st
+ha___'yo'ha'st = yai'yo'yai'st
+ha____'yo'ha'st = yai'yo'yai'st
+ha_____'yo'ha'st = yai'yo'yai'st
+ha______'yo'ha'st = yai'yo'yai'st
+ha_______'yo'ha'st = yai'yo'yai'st
 
-yai'yo'yio'he, ha'yo'ho'he, ha_'yo'ho'he, ha__'yo'ho'he, ha___'yo'ho'he, ha____'yo'ho'he, ha_____'yo'ho'he, ha______'yo'ho'he, ha_______'yo'ho'he
+yai'yo'yio'st, ha'yo'ho'st, ha_'yo'ho'st, ha__'yo'ho'st, ha___'yo'ho'st, ha____'yo'ho'st, ha_____'yo'ho'st, ha______'yo'ho'st, ha_______'yo'ho'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2086,17 +2086,17 @@ yai'yo'yio'he, ha'yo'ho'he, ha_'yo'ho'he, ha__'yo'ho'he, ha___'yo'ho'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))) i)
-yai'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'ho'he = yai'yo'yio'he
-ha_'yo'ho'he = yai'yo'yio'he
-ha__'yo'ho'he = yai'yo'yio'he
-ha___'yo'ho'he = yai'yo'yio'he
-ha____'yo'ho'he = yai'yo'yio'he
-ha_____'yo'ho'he = yai'yo'yio'he
-ha______'yo'ho'he = yai'yo'yio'he
-ha_______'yo'ho'he = yai'yo'yio'he
+yai'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'ho'st = yai'yo'yio'st
+ha_'yo'ho'st = yai'yo'yio'st
+ha__'yo'ho'st = yai'yo'yio'st
+ha___'yo'ho'st = yai'yo'yio'st
+ha____'yo'ho'st = yai'yo'yio'st
+ha_____'yo'ho'st = yai'yo'yio'st
+ha______'yo'ho'st = yai'yo'yio'st
+ha_______'yo'ho'st = yai'yo'yio'st
 
-yai'yo'yia'he, ha'yo'yia'he, ha_'yo'yia'he, ha__'yo'yia'he, ha___'yo'yia'he, ha____'yo'yia'he, ha_____'yo'yia'he, ha______'yo'yia'he, ha_______'yo'yia'he
+yai'yo'yia'st, ha'yo'yia'st, ha_'yo'yia'st, ha__'yo'yia'st, ha___'yo'yia'st, ha____'yo'yia'st, ha_____'yo'yia'st, ha______'yo'yia'st, ha_______'yo'yia'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2107,17 +2107,17 @@ yai'yo'yia'he, ha'yo'yia'he, ha_'yo'yia'he, ha__'yo'yia'he, ha___'yo'yia'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))) i)
-yai'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yo'yia'he = yai'yo'yia'he
-ha_'yo'yia'he = yai'yo'yia'he
-ha__'yo'yia'he = yai'yo'yia'he
-ha___'yo'yia'he = yai'yo'yia'he
-ha____'yo'yia'he = yai'yo'yia'he
-ha_____'yo'yia'he = yai'yo'yia'he
-ha______'yo'yia'he = yai'yo'yia'he
-ha_______'yo'yia'he = yai'yo'yia'he
+yai'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yo'yia'st = yai'yo'yia'st
+ha_'yo'yia'st = yai'yo'yia'st
+ha__'yo'yia'st = yai'yo'yia'st
+ha___'yo'yia'st = yai'yo'yia'st
+ha____'yo'yia'st = yai'yo'yia'st
+ha_____'yo'yia'st = yai'yo'yia'st
+ha______'yo'yia'st = yai'yo'yia'st
+ha_______'yo'yia'st = yai'yo'yia'st
 
-yai'ya'yo'he, ha'ya'yo'he, ha_'ya'yo'he, ha__'ya'yo'he, ha___'ya'yo'he, ha____'ya'yo'he, ha_____'ya'yo'he, ha______'ya'yo'he, ha_______'ya'yo'he
+yai'ya'yo'st, ha'ya'yo'st, ha_'ya'yo'st, ha__'ya'yo'st, ha___'ya'yo'st, ha____'ya'yo'st, ha_____'ya'yo'st, ha______'ya'yo'st, ha_______'ya'yo'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -2127,17 +2127,17 @@ yai'ya'yo'he, ha'ya'yo'he, ha_'ya'yo'he, ha__'ya'yo'he, ha___'ya'yo'he, ha____'y
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o)) i)
-yai'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'yo'he = yai'ya'yo'he
-ha_'ya'yo'he = yai'ya'yo'he
-ha__'ya'yo'he = yai'ya'yo'he
-ha___'ya'yo'he = yai'ya'yo'he
-ha____'ya'yo'he = yai'ya'yo'he
-ha_____'ya'yo'he = yai'ya'yo'he
-ha______'ya'yo'he = yai'ya'yo'he
-ha_______'ya'yo'he = yai'ya'yo'he
+yai'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'yo'st = yai'ya'yo'st
+ha_'ya'yo'st = yai'ya'yo'st
+ha__'ya'yo'st = yai'ya'yo'st
+ha___'ya'yo'st = yai'ya'yo'st
+ha____'ya'yo'st = yai'ya'yo'st
+ha_____'ya'yo'st = yai'ya'yo'st
+ha______'ya'yo'st = yai'ya'yo'st
+ha_______'ya'yo'st = yai'ya'yo'st
 
-yai'ya'ya'he, ha'ya'ya'he, ha_'ya'ya'he, ha__'ya'ya'he, ha___'ya'ya'he, ha____'ya'ya'he, ha_____'ya'ya'he, ha______'ya'ya'he, ha_______'ya'ya'he
+yai'ya'ya'st, ha'ya'ya'st, ha_'ya'ya'st, ha__'ya'ya'st, ha___'ya'ya'st, ha____'ya'ya'st, ha_____'ya'ya'st, ha______'ya'ya'st, ha_______'ya'ya'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -2147,17 +2147,17 @@ yai'ya'ya'he, ha'ya'ya'he, ha_'ya'ya'he, ha__'ya'ya'he, ha___'ya'ya'he, ha____'y
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a)) i)
-yai'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'ya'he = yai'ya'ya'he
-ha_'ya'ya'he = yai'ya'ya'he
-ha__'ya'ya'he = yai'ya'ya'he
-ha___'ya'ya'he = yai'ya'ya'he
-ha____'ya'ya'he = yai'ya'ya'he
-ha_____'ya'ya'he = yai'ya'ya'he
-ha______'ya'ya'he = yai'ya'ya'he
-ha_______'ya'ya'he = yai'ya'ya'he
+yai'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'ya'st = yai'ya'ya'st
+ha_'ya'ya'st = yai'ya'ya'st
+ha__'ya'ya'st = yai'ya'ya'st
+ha___'ya'ya'st = yai'ya'ya'st
+ha____'ya'ya'st = yai'ya'ya'st
+ha_____'ya'ya'st = yai'ya'ya'st
+ha______'ya'ya'st = yai'ya'ya'st
+ha_______'ya'ya'st = yai'ya'ya'st
 
-yai'ya'yoi'he, ha'ya'yoi'he, ha_'ya'yoi'he, ha__'ya'yoi'he, ha___'ya'yoi'he, ha____'ya'yoi'he, ha_____'ya'yoi'he, ha______'ya'yoi'he, ha_______'ya'yoi'he
+yai'ya'yoi'st, ha'ya'yoi'st, ha_'ya'yoi'st, ha__'ya'yoi'st, ha___'ya'yoi'st, ha____'ya'yoi'st, ha_____'ya'yoi'st, ha______'ya'yoi'st, ha_______'ya'yoi'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2168,17 +2168,17 @@ yai'ya'yoi'he, ha'ya'yoi'he, ha_'ya'yoi'he, ha__'ya'yoi'he, ha___'ya'yoi'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii)) i)
-yai'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'yoi'he = yai'ya'yoi'he
-ha_'ya'yoi'he = yai'ya'yoi'he
-ha__'ya'yoi'he = yai'ya'yoi'he
-ha___'ya'yoi'he = yai'ya'yoi'he
-ha____'ya'yoi'he = yai'ya'yoi'he
-ha_____'ya'yoi'he = yai'ya'yoi'he
-ha______'ya'yoi'he = yai'ya'yoi'he
-ha_______'ya'yoi'he = yai'ya'yoi'he
+yai'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'yoi'st = yai'ya'yoi'st
+ha_'ya'yoi'st = yai'ya'yoi'st
+ha__'ya'yoi'st = yai'ya'yoi'st
+ha___'ya'yoi'st = yai'ya'yoi'st
+ha____'ya'yoi'st = yai'ya'yoi'st
+ha_____'ya'yoi'st = yai'ya'yoi'st
+ha______'ya'yoi'st = yai'ya'yoi'st
+ha_______'ya'yoi'st = yai'ya'yoi'st
 
-yai'ya'yai'he, ha'ya'ha'he, ha_'ya'ha'he, ha__'ya'ha'he, ha___'ya'ha'he, ha____'ya'ha'he, ha_____'ya'ha'he, ha______'ya'ha'he, ha_______'ya'ha'he
+yai'ya'yai'st, ha'ya'ha'st, ha_'ya'ha'st, ha__'ya'ha'st, ha___'ya'ha'st, ha____'ya'ha'st, ha_____'ya'ha'st, ha______'ya'ha'st, ha_______'ya'ha'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2189,17 +2189,17 @@ yai'ya'yai'he, ha'ya'ha'he, ha_'ya'ha'he, ha__'ya'ha'he, ha___'ya'ha'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii)) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii)) i)
-yai'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'ha'he = yai'ya'yai'he
-ha_'ya'ha'he = yai'ya'yai'he
-ha__'ya'ha'he = yai'ya'yai'he
-ha___'ya'ha'he = yai'ya'yai'he
-ha____'ya'ha'he = yai'ya'yai'he
-ha_____'ya'ha'he = yai'ya'yai'he
-ha______'ya'ha'he = yai'ya'yai'he
-ha_______'ya'ha'he = yai'ya'yai'he
+yai'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'ha'st = yai'ya'yai'st
+ha_'ya'ha'st = yai'ya'yai'st
+ha__'ya'ha'st = yai'ya'yai'st
+ha___'ya'ha'st = yai'ya'yai'st
+ha____'ya'ha'st = yai'ya'yai'st
+ha_____'ya'ha'st = yai'ya'yai'st
+ha______'ya'ha'st = yai'ya'yai'st
+ha_______'ya'ha'st = yai'ya'yai'st
 
-yai'ya'yio'he, ha'ya'ho'he, ha_'ya'ho'he, ha__'ya'ho'he, ha___'ya'ho'he, ha____'ya'ho'he, ha_____'ya'ho'he, ha______'ya'ho'he, ha_______'ya'ho'he
+yai'ya'yio'st, ha'ya'ho'st, ha_'ya'ho'st, ha__'ya'ho'st, ha___'ya'ho'st, ha____'ya'ho'st, ha_____'ya'ho'st, ha______'ya'ho'st, ha_______'ya'ho'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2210,17 +2210,17 @@ yai'ya'yio'he, ha'ya'ho'he, ha_'ya'ho'he, ha__'ya'ho'he, ha___'ya'ho'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o))) i)
-yai'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'ho'he = yai'ya'yio'he
-ha_'ya'ho'he = yai'ya'yio'he
-ha__'ya'ho'he = yai'ya'yio'he
-ha___'ya'ho'he = yai'ya'yio'he
-ha____'ya'ho'he = yai'ya'yio'he
-ha_____'ya'ho'he = yai'ya'yio'he
-ha______'ya'ho'he = yai'ya'yio'he
-ha_______'ya'ho'he = yai'ya'yio'he
+yai'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'ho'st = yai'ya'yio'st
+ha_'ya'ho'st = yai'ya'yio'st
+ha__'ya'ho'st = yai'ya'yio'st
+ha___'ya'ho'st = yai'ya'yio'st
+ha____'ya'ho'st = yai'ya'yio'st
+ha_____'ya'ho'st = yai'ya'yio'st
+ha______'ya'ho'st = yai'ya'yio'st
+ha_______'ya'ho'st = yai'ya'yio'st
 
-yai'ya'yia'he, ha'ya'yia'he, ha_'ya'yia'he, ha__'ya'yia'he, ha___'ya'yia'he, ha____'ya'yia'he, ha_____'ya'yia'he, ha______'ya'yia'he, ha_______'ya'yia'he
+yai'ya'yia'st, ha'ya'yia'st, ha_'ya'yia'st, ha__'ya'yia'st, ha___'ya'yia'st, ha____'ya'yia'st, ha_____'ya'yia'st, ha______'ya'yia'st, ha_______'ya'yia'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2231,17 +2231,17 @@ yai'ya'yia'he, ha'ya'yia'he, ha_'ya'yia'he, ha__'ya'yia'he, ha___'ya'yia'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o))) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a))) i)
-yai'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ya'yia'he = yai'ya'yia'he
-ha_'ya'yia'he = yai'ya'yia'he
-ha__'ya'yia'he = yai'ya'yia'he
-ha___'ya'yia'he = yai'ya'yia'he
-ha____'ya'yia'he = yai'ya'yia'he
-ha_____'ya'yia'he = yai'ya'yia'he
-ha______'ya'yia'he = yai'ya'yia'he
-ha_______'ya'yia'he = yai'ya'yia'he
+yai'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ya'yia'st = yai'ya'yia'st
+ha_'ya'yia'st = yai'ya'yia'st
+ha__'ya'yia'st = yai'ya'yia'st
+ha___'ya'yia'st = yai'ya'yia'st
+ha____'ya'yia'st = yai'ya'yia'st
+ha_____'ya'yia'st = yai'ya'yia'st
+ha______'ya'yia'st = yai'ya'yia'st
+ha_______'ya'yia'st = yai'ya'yia'st
 
-yai'yoi'yo'he, ha'yoi'yo'he, ha_'yoi'yo'he, ha__'yoi'yo'he, ha___'yoi'yo'he, ha____'yoi'yo'he, ha_____'yoi'yo'he, ha______'yoi'yo'he, ha_______'yoi'yo'he
+yai'yoi'yo'st, ha'yoi'yo'st, ha_'yoi'yo'st, ha__'yoi'yo'st, ha___'yoi'yo'st, ha____'yoi'yo'st, ha_____'yoi'yo'st, ha______'yoi'yo'st, ha_______'yoi'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2252,17 +2252,17 @@ yai'yoi'yo'he, ha'yoi'yo'he, ha_'yoi'yo'he, ha__'yoi'yo'he, ha___'yoi'yo'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii) i)
-yai'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'yo'he = yai'yoi'yo'he
-ha_'yoi'yo'he = yai'yoi'yo'he
-ha__'yoi'yo'he = yai'yoi'yo'he
-ha___'yoi'yo'he = yai'yoi'yo'he
-ha____'yoi'yo'he = yai'yoi'yo'he
-ha_____'yoi'yo'he = yai'yoi'yo'he
-ha______'yoi'yo'he = yai'yoi'yo'he
-ha_______'yoi'yo'he = yai'yoi'yo'he
+yai'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'yo'st = yai'yoi'yo'st
+ha_'yoi'yo'st = yai'yoi'yo'st
+ha__'yoi'yo'st = yai'yoi'yo'st
+ha___'yoi'yo'st = yai'yoi'yo'st
+ha____'yoi'yo'st = yai'yoi'yo'st
+ha_____'yoi'yo'st = yai'yoi'yo'st
+ha______'yoi'yo'st = yai'yoi'yo'st
+ha_______'yoi'yo'st = yai'yoi'yo'st
 
-yai'yoi'ya'he, ha'yoi'ya'he, ha_'yoi'ya'he, ha__'yoi'ya'he, ha___'yoi'ya'he, ha____'yoi'ya'he, ha_____'yoi'ya'he, ha______'yoi'ya'he, ha_______'yoi'ya'he
+yai'yoi'ya'st, ha'yoi'ya'st, ha_'yoi'ya'st, ha__'yoi'ya'st, ha___'yoi'ya'st, ha____'yoi'ya'st, ha_____'yoi'ya'st, ha______'yoi'ya'st, ha_______'yoi'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2273,17 +2273,17 @@ yai'yoi'ya'he, ha'yoi'ya'he, ha_'yoi'ya'he, ha__'yoi'ya'he, ha___'yoi'ya'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii) i)
-yai'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'ya'he = yai'yoi'ya'he
-ha_'yoi'ya'he = yai'yoi'ya'he
-ha__'yoi'ya'he = yai'yoi'ya'he
-ha___'yoi'ya'he = yai'yoi'ya'he
-ha____'yoi'ya'he = yai'yoi'ya'he
-ha_____'yoi'ya'he = yai'yoi'ya'he
-ha______'yoi'ya'he = yai'yoi'ya'he
-ha_______'yoi'ya'he = yai'yoi'ya'he
+yai'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'ya'st = yai'yoi'ya'st
+ha_'yoi'ya'st = yai'yoi'ya'st
+ha__'yoi'ya'st = yai'yoi'ya'st
+ha___'yoi'ya'st = yai'yoi'ya'st
+ha____'yoi'ya'st = yai'yoi'ya'st
+ha_____'yoi'ya'st = yai'yoi'ya'st
+ha______'yoi'ya'st = yai'yoi'ya'st
+ha_______'yoi'ya'st = yai'yoi'ya'st
 
-yai'yoi'yoi'he, ha'yoi'yoi'he, ha_'yoi'yoi'he, ha__'yoi'yoi'he, ha___'yoi'yoi'he, ha____'yoi'yoi'he, ha_____'yoi'yoi'he, ha______'yoi'yoi'he, ha_______'yoi'yoi'he
+yai'yoi'yoi'st, ha'yoi'yoi'st, ha_'yoi'yoi'st, ha__'yoi'yoi'st, ha___'yoi'yoi'st, ha____'yoi'yoi'st, ha_____'yoi'yoi'st, ha______'yoi'yoi'st, ha_______'yoi'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2295,17 +2295,17 @@ yai'yoi'yoi'he, ha'yoi'yoi'he, ha_'yoi'yoi'he, ha__'yoi'yoi'he, ha___'yoi'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii) i)
-yai'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'yoi'he = yai'yoi'yoi'he
-ha_'yoi'yoi'he = yai'yoi'yoi'he
-ha__'yoi'yoi'he = yai'yoi'yoi'he
-ha___'yoi'yoi'he = yai'yoi'yoi'he
-ha____'yoi'yoi'he = yai'yoi'yoi'he
-ha_____'yoi'yoi'he = yai'yoi'yoi'he
-ha______'yoi'yoi'he = yai'yoi'yoi'he
-ha_______'yoi'yoi'he = yai'yoi'yoi'he
+yai'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'yoi'st = yai'yoi'yoi'st
+ha_'yoi'yoi'st = yai'yoi'yoi'st
+ha__'yoi'yoi'st = yai'yoi'yoi'st
+ha___'yoi'yoi'st = yai'yoi'yoi'st
+ha____'yoi'yoi'st = yai'yoi'yoi'st
+ha_____'yoi'yoi'st = yai'yoi'yoi'st
+ha______'yoi'yoi'st = yai'yoi'yoi'st
+ha_______'yoi'yoi'st = yai'yoi'yoi'st
 
-yai'yoi'yai'he, ha'yoi'ha'he, ha_'yoi'ha'he, ha__'yoi'ha'he, ha___'yoi'ha'he, ha____'yoi'ha'he, ha_____'yoi'ha'he, ha______'yoi'ha'he, ha_______'yoi'ha'he
+yai'yoi'yai'st, ha'yoi'ha'st, ha_'yoi'ha'st, ha__'yoi'ha'st, ha___'yoi'ha'st, ha____'yoi'ha'st, ha_____'yoi'ha'st, ha______'yoi'ha'st, ha_______'yoi'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2317,17 +2317,17 @@ yai'yoi'yai'he, ha'yoi'ha'he, ha_'yoi'ha'he, ha__'yoi'ha'he, ha___'yoi'ha'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii) i)
-yai'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'ha'he = yai'yoi'yai'he
-ha_'yoi'ha'he = yai'yoi'yai'he
-ha__'yoi'ha'he = yai'yoi'yai'he
-ha___'yoi'ha'he = yai'yoi'yai'he
-ha____'yoi'ha'he = yai'yoi'yai'he
-ha_____'yoi'ha'he = yai'yoi'yai'he
-ha______'yoi'ha'he = yai'yoi'yai'he
-ha_______'yoi'ha'he = yai'yoi'yai'he
+yai'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'ha'st = yai'yoi'yai'st
+ha_'yoi'ha'st = yai'yoi'yai'st
+ha__'yoi'ha'st = yai'yoi'yai'st
+ha___'yoi'ha'st = yai'yoi'yai'st
+ha____'yoi'ha'st = yai'yoi'yai'st
+ha_____'yoi'ha'st = yai'yoi'yai'st
+ha______'yoi'ha'st = yai'yoi'yai'st
+ha_______'yoi'ha'st = yai'yoi'yai'st
 
-yai'yoi'yio'he, ha'yoi'ho'he, ha_'yoi'ho'he, ha__'yoi'ho'he, ha___'yoi'ho'he, ha____'yoi'ho'he, ha_____'yoi'ho'he, ha______'yoi'ho'he, ha_______'yoi'ho'he
+yai'yoi'yio'st, ha'yoi'ho'st, ha_'yoi'ho'st, ha__'yoi'ho'st, ha___'yoi'ho'st, ha____'yoi'ho'st, ha_____'yoi'ho'st, ha______'yoi'ho'st, ha_______'yoi'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2339,17 +2339,17 @@ yai'yoi'yio'he, ha'yoi'ho'he, ha_'yoi'ho'he, ha__'yoi'ho'he, ha___'yoi'ho'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii) i)
-yai'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'ho'he = yai'yoi'yio'he
-ha_'yoi'ho'he = yai'yoi'yio'he
-ha__'yoi'ho'he = yai'yoi'yio'he
-ha___'yoi'ho'he = yai'yoi'yio'he
-ha____'yoi'ho'he = yai'yoi'yio'he
-ha_____'yoi'ho'he = yai'yoi'yio'he
-ha______'yoi'ho'he = yai'yoi'yio'he
-ha_______'yoi'ho'he = yai'yoi'yio'he
+yai'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'ho'st = yai'yoi'yio'st
+ha_'yoi'ho'st = yai'yoi'yio'st
+ha__'yoi'ho'st = yai'yoi'yio'st
+ha___'yoi'ho'st = yai'yoi'yio'st
+ha____'yoi'ho'st = yai'yoi'yio'st
+ha_____'yoi'ho'st = yai'yoi'yio'st
+ha______'yoi'ho'st = yai'yoi'yio'st
+ha_______'yoi'ho'st = yai'yoi'yio'st
 
-yai'yoi'yia'he, ha'yoi'yia'he, ha_'yoi'yia'he, ha__'yoi'yia'he, ha___'yoi'yia'he, ha____'yoi'yia'he, ha_____'yoi'yia'he, ha______'yoi'yia'he, ha_______'yoi'yia'he
+yai'yoi'yia'st, ha'yoi'yia'st, ha_'yoi'yia'st, ha__'yoi'yia'st, ha___'yoi'yia'st, ha____'yoi'yia'st, ha_____'yoi'yia'st, ha______'yoi'yia'st, ha_______'yoi'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2361,17 +2361,17 @@ yai'yoi'yia'he, ha'yoi'yia'he, ha_'yoi'yia'he, ha__'yoi'yia'he, ha___'yoi'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii) i)
-yai'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yoi'yia'he = yai'yoi'yia'he
-ha_'yoi'yia'he = yai'yoi'yia'he
-ha__'yoi'yia'he = yai'yoi'yia'he
-ha___'yoi'yia'he = yai'yoi'yia'he
-ha____'yoi'yia'he = yai'yoi'yia'he
-ha_____'yoi'yia'he = yai'yoi'yia'he
-ha______'yoi'yia'he = yai'yoi'yia'he
-ha_______'yoi'yia'he = yai'yoi'yia'he
+yai'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yoi'yia'st = yai'yoi'yia'st
+ha_'yoi'yia'st = yai'yoi'yia'st
+ha__'yoi'yia'st = yai'yoi'yia'st
+ha___'yoi'yia'st = yai'yoi'yia'st
+ha____'yoi'yia'st = yai'yoi'yia'st
+ha_____'yoi'yia'st = yai'yoi'yia'st
+ha______'yoi'yia'st = yai'yoi'yia'st
+ha_______'yoi'yia'st = yai'yoi'yia'st
 
-yai'yai'yo'he, ha'ha'yo'he, ha_'ha'yo'he, ha__'ha'yo'he, ha___'ha'yo'he, ha____'ha'yo'he, ha_____'ha'yo'he, ha______'ha'yo'he, ha_______'ha'yo'he
+yai'yai'yo'st, ha'ha'yo'st, ha_'ha'yo'st, ha__'ha'yo'st, ha___'ha'yo'st, ha____'ha'yo'st, ha_____'ha'yo'st, ha______'ha'yo'st, ha_______'ha'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2382,17 +2382,17 @@ yai'yai'yo'he, ha'ha'yo'he, ha_'ha'yo'he, ha__'ha'yo'he, ha___'ha'yo'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o) ii) i)
-yai'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'yo'he = yai'yai'yo'he
-ha_'ha'yo'he = yai'yai'yo'he
-ha__'ha'yo'he = yai'yai'yo'he
-ha___'ha'yo'he = yai'yai'yo'he
-ha____'ha'yo'he = yai'yai'yo'he
-ha_____'ha'yo'he = yai'yai'yo'he
-ha______'ha'yo'he = yai'yai'yo'he
-ha_______'ha'yo'he = yai'yai'yo'he
+yai'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'yo'st = yai'yai'yo'st
+ha_'ha'yo'st = yai'yai'yo'st
+ha__'ha'yo'st = yai'yai'yo'st
+ha___'ha'yo'st = yai'yai'yo'st
+ha____'ha'yo'st = yai'yai'yo'st
+ha_____'ha'yo'st = yai'yai'yo'st
+ha______'ha'yo'st = yai'yai'yo'st
+ha_______'ha'yo'st = yai'yai'yo'st
 
-yai'yai'ya'he, ha'ha'ya'he, ha_'ha'ya'he, ha__'ha'ya'he, ha___'ha'ya'he, ha____'ha'ya'he, ha_____'ha'ya'he, ha______'ha'ya'he, ha_______'ha'ya'he
+yai'yai'ya'st, ha'ha'ya'st, ha_'ha'ya'st, ha__'ha'ya'st, ha___'ha'ya'st, ha____'ha'ya'st, ha_____'ha'ya'st, ha______'ha'ya'st, ha_______'ha'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2403,17 +2403,17 @@ yai'yai'ya'he, ha'ha'ya'he, ha_'ha'ya'he, ha__'ha'ya'he, ha___'ha'ya'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a) ii) i)
-yai'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'ya'he = yai'yai'ya'he
-ha_'ha'ya'he = yai'yai'ya'he
-ha__'ha'ya'he = yai'yai'ya'he
-ha___'ha'ya'he = yai'yai'ya'he
-ha____'ha'ya'he = yai'yai'ya'he
-ha_____'ha'ya'he = yai'yai'ya'he
-ha______'ha'ya'he = yai'yai'ya'he
-ha_______'ha'ya'he = yai'yai'ya'he
+yai'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'ya'st = yai'yai'ya'st
+ha_'ha'ya'st = yai'yai'ya'st
+ha__'ha'ya'st = yai'yai'ya'st
+ha___'ha'ya'st = yai'yai'ya'st
+ha____'ha'ya'st = yai'yai'ya'st
+ha_____'ha'ya'st = yai'yai'ya'st
+ha______'ha'ya'st = yai'yai'ya'st
+ha_______'ha'ya'st = yai'yai'ya'st
 
-yai'yai'yoi'he, ha'ha'yoi'he, ha_'ha'yoi'he, ha__'ha'yoi'he, ha___'ha'yoi'he, ha____'ha'yoi'he, ha_____'ha'yoi'he, ha______'ha'yoi'he, ha_______'ha'yoi'he
+yai'yai'yoi'st, ha'ha'yoi'st, ha_'ha'yoi'st, ha__'ha'yoi'st, ha___'ha'yoi'st, ha____'ha'yoi'st, ha_____'ha'yoi'st, ha______'ha'yoi'st, ha_______'ha'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2425,17 +2425,17 @@ yai'yai'yoi'he, ha'ha'yoi'he, ha_'ha'yoi'he, ha__'ha'yoi'he, ha___'ha'yoi'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt a iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt o iii) ii) i)
-yai'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'yoi'he = yai'yai'yoi'he
-ha_'ha'yoi'he = yai'yai'yoi'he
-ha__'ha'yoi'he = yai'yai'yoi'he
-ha___'ha'yoi'he = yai'yai'yoi'he
-ha____'ha'yoi'he = yai'yai'yoi'he
-ha_____'ha'yoi'he = yai'yai'yoi'he
-ha______'ha'yoi'he = yai'yai'yoi'he
-ha_______'ha'yoi'he = yai'yai'yoi'he
+yai'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'yoi'st = yai'yai'yoi'st
+ha_'ha'yoi'st = yai'yai'yoi'st
+ha__'ha'yoi'st = yai'yai'yoi'st
+ha___'ha'yoi'st = yai'yai'yoi'st
+ha____'ha'yoi'st = yai'yai'yoi'st
+ha_____'ha'yoi'st = yai'yai'yoi'st
+ha______'ha'yoi'st = yai'yai'yoi'st
+ha_______'ha'yoi'st = yai'yai'yoi'st
 
-yai'yai'yai'he, ha'ha'ha'he, ha_'ha'ha'he, ha__'ha'ha'he, ha___'ha'ha'he, ha____'ha'ha'he, ha_____'ha'ha'he, ha______'ha'ha'he, ha_______'ha'ha'he
+yai'yai'yai'st, ha'ha'ha'st, ha_'ha'ha'st, ha__'ha'ha'st, ha___'ha'ha'st, ha____'ha'ha'st, ha_____'ha'ha'st, ha______'ha'ha'st, ha_______'ha'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2447,17 +2447,17 @@ yai'yai'yai'he, ha'ha'ha'he, ha_'ha'ha'he, ha__'ha'ha'he, ha___'ha'ha'he, ha____
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt o iii) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt a iii) ii) i)
-yai'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'ha'he = yai'yai'yai'he
-ha_'ha'ha'he = yai'yai'yai'he
-ha__'ha'ha'he = yai'yai'yai'he
-ha___'ha'ha'he = yai'yai'yai'he
-ha____'ha'ha'he = yai'yai'yai'he
-ha_____'ha'ha'he = yai'yai'yai'he
-ha______'ha'ha'he = yai'yai'yai'he
-ha_______'ha'ha'he = yai'yai'yai'he
+yai'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'ha'st = yai'yai'yai'st
+ha_'ha'ha'st = yai'yai'yai'st
+ha__'ha'ha'st = yai'yai'yai'st
+ha___'ha'ha'st = yai'yai'yai'st
+ha____'ha'ha'st = yai'yai'yai'st
+ha_____'ha'ha'st = yai'yai'yai'st
+ha______'ha'ha'st = yai'yai'yai'st
+ha_______'ha'ha'st = yai'yai'yai'st
 
-yai'yai'yio'he, ha'ha'ho'he, ha_'ha'ho'he, ha__'ha'ho'he, ha___'ha'ho'he, ha____'ha'ho'he, ha_____'ha'ho'he, ha______'ha'ho'he, ha_______'ha'ho'he
+yai'yai'yio'st, ha'ha'ho'st, ha_'ha'ho'st, ha__'ha'ho'st, ha___'ha'ho'st, ha____'ha'ho'st, ha_____'ha'ho'st, ha______'ha'ho'st, ha_______'ha'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2469,17 +2469,17 @@ yai'yai'yio'he, ha'ha'ho'he, ha_'ha'ho'he, ha__'ha'ho'he, ha___'ha'ho'he, ha____
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (a)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (o)) ii) i)
-yai'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'ho'he = yai'yai'yio'he
-ha_'ha'ho'he = yai'yai'yio'he
-ha__'ha'ho'he = yai'yai'yio'he
-ha___'ha'ho'he = yai'yai'yio'he
-ha____'ha'ho'he = yai'yai'yio'he
-ha_____'ha'ho'he = yai'yai'yio'he
-ha______'ha'ho'he = yai'yai'yio'he
-ha_______'ha'ho'he = yai'yai'yio'he
+yai'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'ho'st = yai'yai'yio'st
+ha_'ha'ho'st = yai'yai'yio'st
+ha__'ha'ho'st = yai'yai'yio'st
+ha___'ha'ho'st = yai'yai'yio'st
+ha____'ha'ho'st = yai'yai'yio'st
+ha_____'ha'ho'st = yai'yai'yio'st
+ha______'ha'ho'st = yai'yai'yio'st
+ha_______'ha'ho'st = yai'yai'yio'st
 
-yai'yai'yia'he, ha'ha'yia'he, ha_'ha'yia'he, ha__'ha'yia'he, ha___'ha'yia'he, ha____'ha'yia'he, ha_____'ha'yia'he, ha______'ha'yia'he, ha_______'ha'yia'he
+yai'yai'yia'st, ha'ha'yia'st, ha_'ha'yia'st, ha__'ha'yia'st, ha___'ha'yia'st, ha____'ha'yia'st, ha_____'ha'yia'st, ha______'ha'yia'st, ha_______'ha'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -2491,17 +2491,17 @@ yai'yai'yia'he, ha'ha'yia'he, ha_'ha'yia'he, ha__'ha'yia'he, ha___'ha'yia'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt (ttt iii (o)) ii) i) -> target (source (Supertype (a)) o) (t (tt (ttt iii (a)) ii) i)
-yai'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ha'yia'he = yai'yai'yia'he
-ha_'ha'yia'he = yai'yai'yia'he
-ha__'ha'yia'he = yai'yai'yia'he
-ha___'ha'yia'he = yai'yai'yia'he
-ha____'ha'yia'he = yai'yai'yia'he
-ha_____'ha'yia'he = yai'yai'yia'he
-ha______'ha'yia'he = yai'yai'yia'he
-ha_______'ha'yia'he = yai'yai'yia'he
+yai'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ha'yia'st = yai'yai'yia'st
+ha_'ha'yia'st = yai'yai'yia'st
+ha__'ha'yia'st = yai'yai'yia'st
+ha___'ha'yia'st = yai'yai'yia'st
+ha____'ha'yia'st = yai'yai'yia'st
+ha_____'ha'yia'st = yai'yai'yia'st
+ha______'ha'yia'st = yai'yai'yia'st
+ha_______'ha'yia'st = yai'yai'yia'st
 
-yai'yio'yo'he, ha'ho'yo'he, ha_'ho'yo'he, ha__'ho'yo'he, ha___'ho'yo'he, ha____'ho'yo'he, ha_____'ho'yo'he, ha______'ho'yo'he, ha_______'ho'yo'he
+yai'yio'yo'st, ha'ho'yo'st, ha_'ho'yo'st, ha__'ho'yo'st, ha___'ho'yo'st, ha____'ho'yo'st, ha_____'ho'yo'st, ha______'ho'yo'st, ha_______'ho'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2512,17 +2512,17 @@ yai'yio'yo'he, ha'ho'yo'he, ha_'ho'yo'he, ha__'ho'yo'he, ha___'ho'yo'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))) i)
-yai'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'yo'he = yai'yio'yo'he
-ha_'ho'yo'he = yai'yio'yo'he
-ha__'ho'yo'he = yai'yio'yo'he
-ha___'ho'yo'he = yai'yio'yo'he
-ha____'ho'yo'he = yai'yio'yo'he
-ha_____'ho'yo'he = yai'yio'yo'he
-ha______'ho'yo'he = yai'yio'yo'he
-ha_______'ho'yo'he = yai'yio'yo'he
+yai'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'yo'st = yai'yio'yo'st
+ha_'ho'yo'st = yai'yio'yo'st
+ha__'ho'yo'st = yai'yio'yo'st
+ha___'ho'yo'st = yai'yio'yo'st
+ha____'ho'yo'st = yai'yio'yo'st
+ha_____'ho'yo'st = yai'yio'yo'st
+ha______'ho'yo'st = yai'yio'yo'st
+ha_______'ho'yo'st = yai'yio'yo'st
 
-yai'yio'ya'he, ha'ho'ya'he, ha_'ho'ya'he, ha__'ho'ya'he, ha___'ho'ya'he, ha____'ho'ya'he, ha_____'ho'ya'he, ha______'ho'ya'he, ha_______'ho'ya'he
+yai'yio'ya'st, ha'ho'ya'st, ha_'ho'ya'st, ha__'ho'ya'st, ha___'ho'ya'st, ha____'ho'ya'st, ha_____'ho'ya'st, ha______'ho'ya'st, ha_______'ho'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2533,17 +2533,17 @@ yai'yio'ya'he, ha'ho'ya'he, ha_'ho'ya'he, ha__'ho'ya'he, ha___'ho'ya'he, ha____'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))) i)
-yai'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'ya'he = yai'yio'ya'he
-ha_'ho'ya'he = yai'yio'ya'he
-ha__'ho'ya'he = yai'yio'ya'he
-ha___'ho'ya'he = yai'yio'ya'he
-ha____'ho'ya'he = yai'yio'ya'he
-ha_____'ho'ya'he = yai'yio'ya'he
-ha______'ho'ya'he = yai'yio'ya'he
-ha_______'ho'ya'he = yai'yio'ya'he
+yai'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'ya'st = yai'yio'ya'st
+ha_'ho'ya'st = yai'yio'ya'st
+ha__'ho'ya'st = yai'yio'ya'st
+ha___'ho'ya'st = yai'yio'ya'st
+ha____'ho'ya'st = yai'yio'ya'st
+ha_____'ho'ya'st = yai'yio'ya'st
+ha______'ho'ya'st = yai'yio'ya'st
+ha_______'ho'ya'st = yai'yio'ya'st
 
-yai'yio'yoi'he, ha'ho'yoi'he, ha_'ho'yoi'he, ha__'ho'yoi'he, ha___'ho'yoi'he, ha____'ho'yoi'he, ha_____'ho'yoi'he, ha______'ho'yoi'he, ha_______'ho'yoi'he
+yai'yio'yoi'st, ha'ho'yoi'st, ha_'ho'yoi'st, ha__'ho'yoi'st, ha___'ho'yoi'st, ha____'ho'yoi'st, ha_____'ho'yoi'st, ha______'ho'yoi'st, ha_______'ho'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2555,17 +2555,17 @@ yai'yio'yoi'he, ha'ho'yoi'he, ha_'ho'yoi'he, ha__'ho'yoi'he, ha___'ho'yoi'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))) i)
-yai'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'yoi'he = yai'yio'yoi'he
-ha_'ho'yoi'he = yai'yio'yoi'he
-ha__'ho'yoi'he = yai'yio'yoi'he
-ha___'ho'yoi'he = yai'yio'yoi'he
-ha____'ho'yoi'he = yai'yio'yoi'he
-ha_____'ho'yoi'he = yai'yio'yoi'he
-ha______'ho'yoi'he = yai'yio'yoi'he
-ha_______'ho'yoi'he = yai'yio'yoi'he
+yai'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'yoi'st = yai'yio'yoi'st
+ha_'ho'yoi'st = yai'yio'yoi'st
+ha__'ho'yoi'st = yai'yio'yoi'st
+ha___'ho'yoi'st = yai'yio'yoi'st
+ha____'ho'yoi'st = yai'yio'yoi'st
+ha_____'ho'yoi'st = yai'yio'yoi'st
+ha______'ho'yoi'st = yai'yio'yoi'st
+ha_______'ho'yoi'st = yai'yio'yoi'st
 
-yai'yio'yai'he, ha'ho'ha'he, ha_'ho'ha'he, ha__'ho'ha'he, ha___'ho'ha'he, ha____'ho'ha'he, ha_____'ho'ha'he, ha______'ho'ha'he, ha_______'ho'ha'he
+yai'yio'yai'st, ha'ho'ha'st, ha_'ho'ha'st, ha__'ho'ha'st, ha___'ho'ha'st, ha____'ho'ha'st, ha_____'ho'ha'st, ha______'ho'ha'st, ha_______'ho'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2577,17 +2577,17 @@ yai'yio'yai'he, ha'ho'ha'he, ha_'ho'ha'he, ha__'ho'ha'he, ha___'ho'ha'he, ha____
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))) i)
-yai'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'ha'he = yai'yio'yai'he
-ha_'ho'ha'he = yai'yio'yai'he
-ha__'ho'ha'he = yai'yio'yai'he
-ha___'ho'ha'he = yai'yio'yai'he
-ha____'ho'ha'he = yai'yio'yai'he
-ha_____'ho'ha'he = yai'yio'yai'he
-ha______'ho'ha'he = yai'yio'yai'he
-ha_______'ho'ha'he = yai'yio'yai'he
+yai'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'ha'st = yai'yio'yai'st
+ha_'ho'ha'st = yai'yio'yai'st
+ha__'ho'ha'st = yai'yio'yai'st
+ha___'ho'ha'st = yai'yio'yai'st
+ha____'ho'ha'st = yai'yio'yai'st
+ha_____'ho'ha'st = yai'yio'yai'st
+ha______'ho'ha'st = yai'yio'yai'st
+ha_______'ho'ha'st = yai'yio'yai'st
 
-yai'yio'yio'he, ha'ho'ho'he, ha_'ho'ho'he, ha__'ho'ho'he, ha___'ho'ho'he, ha____'ho'ho'he, ha_____'ho'ho'he, ha______'ho'ho'he, ha_______'ho'ho'he
+yai'yio'yio'st, ha'ho'ho'st, ha_'ho'ho'st, ha__'ho'ho'st, ha___'ho'ho'st, ha____'ho'ho'st, ha_____'ho'ho'st, ha______'ho'ho'st, ha_______'ho'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2599,17 +2599,17 @@ yai'yio'yio'he, ha'ho'ho'he, ha_'ho'ho'he, ha__'ho'ho'he, ha___'ho'ho'he, ha____
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))) i)
-yai'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'ho'he = yai'yio'yio'he
-ha_'ho'ho'he = yai'yio'yio'he
-ha__'ho'ho'he = yai'yio'yio'he
-ha___'ho'ho'he = yai'yio'yio'he
-ha____'ho'ho'he = yai'yio'yio'he
-ha_____'ho'ho'he = yai'yio'yio'he
-ha______'ho'ho'he = yai'yio'yio'he
-ha_______'ho'ho'he = yai'yio'yio'he
+yai'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'ho'st = yai'yio'yio'st
+ha_'ho'ho'st = yai'yio'yio'st
+ha__'ho'ho'st = yai'yio'yio'st
+ha___'ho'ho'st = yai'yio'yio'st
+ha____'ho'ho'st = yai'yio'yio'st
+ha_____'ho'ho'st = yai'yio'yio'st
+ha______'ho'ho'st = yai'yio'yio'st
+ha_______'ho'ho'st = yai'yio'yio'st
 
-yai'yio'yia'he, ha'ho'yia'he, ha_'ho'yia'he, ha__'ho'yia'he, ha___'ho'yia'he, ha____'ho'yia'he, ha_____'ho'yia'he, ha______'ho'yia'he, ha_______'ho'yia'he
+yai'yio'yia'st, ha'ho'yia'st, ha_'ho'yia'st, ha__'ho'yia'st, ha___'ho'yia'st, ha____'ho'yia'st, ha_____'ho'yia'st, ha______'ho'yia'st, ha_______'ho'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2621,17 +2621,17 @@ yai'yio'yia'he, ha'ho'yia'he, ha_'ho'yia'he, ha__'ho'yia'he, ha___'ho'yia'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))) i)
-yai'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'ho'yia'he = yai'yio'yia'he
-ha_'ho'yia'he = yai'yio'yia'he
-ha__'ho'yia'he = yai'yio'yia'he
-ha___'ho'yia'he = yai'yio'yia'he
-ha____'ho'yia'he = yai'yio'yia'he
-ha_____'ho'yia'he = yai'yio'yia'he
-ha______'ho'yia'he = yai'yio'yia'he
-ha_______'ho'yia'he = yai'yio'yia'he
+yai'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'ho'yia'st = yai'yio'yia'st
+ha_'ho'yia'st = yai'yio'yia'st
+ha__'ho'yia'st = yai'yio'yia'st
+ha___'ho'yia'st = yai'yio'yia'st
+ha____'ho'yia'st = yai'yio'yia'st
+ha_____'ho'yia'st = yai'yio'yia'st
+ha______'ho'yia'st = yai'yio'yia'st
+ha_______'ho'yia'st = yai'yio'yia'st
 
-yai'yia'yo'he, ha'yia'yo'he, ha_'yia'yo'he, ha__'yia'yo'he, ha___'yia'yo'he, ha____'yia'yo'he, ha_____'yia'yo'he, ha______'yia'yo'he, ha_______'yia'yo'he
+yai'yia'yo'st, ha'yia'yo'st, ha_'yia'yo'st, ha__'yia'yo'st, ha___'yia'yo'st, ha____'yia'yo'st, ha_____'yia'yo'st, ha______'yia'yo'st, ha_______'yia'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2642,17 +2642,17 @@ yai'yia'yo'he, ha'yia'yo'he, ha_'yia'yo'he, ha__'yia'yo'he, ha___'yia'yo'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o))) i)
-yai'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'yo'he = yai'yia'yo'he
-ha_'yia'yo'he = yai'yia'yo'he
-ha__'yia'yo'he = yai'yia'yo'he
-ha___'yia'yo'he = yai'yia'yo'he
-ha____'yia'yo'he = yai'yia'yo'he
-ha_____'yia'yo'he = yai'yia'yo'he
-ha______'yia'yo'he = yai'yia'yo'he
-ha_______'yia'yo'he = yai'yia'yo'he
+yai'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'yo'st = yai'yia'yo'st
+ha_'yia'yo'st = yai'yia'yo'st
+ha__'yia'yo'st = yai'yia'yo'st
+ha___'yia'yo'st = yai'yia'yo'st
+ha____'yia'yo'st = yai'yia'yo'st
+ha_____'yia'yo'st = yai'yia'yo'st
+ha______'yia'yo'st = yai'yia'yo'st
+ha_______'yia'yo'st = yai'yia'yo'st
 
-yai'yia'ya'he, ha'yia'ya'he, ha_'yia'ya'he, ha__'yia'ya'he, ha___'yia'ya'he, ha____'yia'ya'he, ha_____'yia'ya'he, ha______'yia'ya'he, ha_______'yia'ya'he
+yai'yia'ya'st, ha'yia'ya'st, ha_'yia'ya'st, ha__'yia'ya'st, ha___'yia'ya'st, ha____'yia'ya'st, ha_____'yia'ya'st, ha______'yia'ya'st, ha_______'yia'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2663,17 +2663,17 @@ yai'yia'ya'he, ha'yia'ya'he, ha_'yia'ya'he, ha__'yia'ya'he, ha___'yia'ya'he, ha_
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a))) i)
-yai'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'ya'he = yai'yia'ya'he
-ha_'yia'ya'he = yai'yia'ya'he
-ha__'yia'ya'he = yai'yia'ya'he
-ha___'yia'ya'he = yai'yia'ya'he
-ha____'yia'ya'he = yai'yia'ya'he
-ha_____'yia'ya'he = yai'yia'ya'he
-ha______'yia'ya'he = yai'yia'ya'he
-ha_______'yia'ya'he = yai'yia'ya'he
+yai'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'ya'st = yai'yia'ya'st
+ha_'yia'ya'st = yai'yia'ya'st
+ha__'yia'ya'st = yai'yia'ya'st
+ha___'yia'ya'st = yai'yia'ya'st
+ha____'yia'ya'st = yai'yia'ya'st
+ha_____'yia'ya'st = yai'yia'ya'st
+ha______'yia'ya'st = yai'yia'ya'st
+ha_______'yia'ya'st = yai'yia'ya'st
 
-yai'yia'yoi'he, ha'yia'yoi'he, ha_'yia'yoi'he, ha__'yia'yoi'he, ha___'yia'yoi'he, ha____'yia'yoi'he, ha_____'yia'yoi'he, ha______'yia'yoi'he, ha_______'yia'yoi'he
+yai'yia'yoi'st, ha'yia'yoi'st, ha_'yia'yoi'st, ha__'yia'yoi'st, ha___'yia'yoi'st, ha____'yia'yoi'st, ha_____'yia'yoi'st, ha______'yia'yoi'st, ha_______'yia'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2685,17 +2685,17 @@ yai'yia'yoi'he, ha'yia'yoi'he, ha_'yia'yoi'he, ha__'yia'yoi'he, ha___'yia'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt a iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt o iii))) i)
-yai'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'yoi'he = yai'yia'yoi'he
-ha_'yia'yoi'he = yai'yia'yoi'he
-ha__'yia'yoi'he = yai'yia'yoi'he
-ha___'yia'yoi'he = yai'yia'yoi'he
-ha____'yia'yoi'he = yai'yia'yoi'he
-ha_____'yia'yoi'he = yai'yia'yoi'he
-ha______'yia'yoi'he = yai'yia'yoi'he
-ha_______'yia'yoi'he = yai'yia'yoi'he
+yai'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'yoi'st = yai'yia'yoi'st
+ha_'yia'yoi'st = yai'yia'yoi'st
+ha__'yia'yoi'st = yai'yia'yoi'st
+ha___'yia'yoi'st = yai'yia'yoi'st
+ha____'yia'yoi'st = yai'yia'yoi'st
+ha_____'yia'yoi'st = yai'yia'yoi'st
+ha______'yia'yoi'st = yai'yia'yoi'st
+ha_______'yia'yoi'st = yai'yia'yoi'st
 
-yai'yia'yai'he, ha'yia'ha'he, ha_'yia'ha'he, ha__'yia'ha'he, ha___'yia'ha'he, ha____'yia'ha'he, ha_____'yia'ha'he, ha______'yia'ha'he, ha_______'yia'ha'he
+yai'yia'yai'st, ha'yia'ha'st, ha_'yia'ha'st, ha__'yia'ha'st, ha___'yia'ha'st, ha____'yia'ha'st, ha_____'yia'ha'st, ha______'yia'ha'st, ha_______'yia'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2707,17 +2707,17 @@ yai'yia'yai'he, ha'yia'ha'he, ha_'yia'ha'he, ha__'yia'ha'he, ha___'yia'ha'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt o iii))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt a iii))) i)
-yai'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'ha'he = yai'yia'yai'he
-ha_'yia'ha'he = yai'yia'yai'he
-ha__'yia'ha'he = yai'yia'yai'he
-ha___'yia'ha'he = yai'yia'yai'he
-ha____'yia'ha'he = yai'yia'yai'he
-ha_____'yia'ha'he = yai'yia'yai'he
-ha______'yia'ha'he = yai'yia'yai'he
-ha_______'yia'ha'he = yai'yia'yai'he
+yai'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'ha'st = yai'yia'yai'st
+ha_'yia'ha'st = yai'yia'yai'st
+ha__'yia'ha'st = yai'yia'yai'st
+ha___'yia'ha'st = yai'yia'yai'st
+ha____'yia'ha'st = yai'yia'yai'st
+ha_____'yia'ha'st = yai'yia'yai'st
+ha______'yia'ha'st = yai'yia'yai'st
+ha_______'yia'ha'st = yai'yia'yai'st
 
-yai'yia'yio'he, ha'yia'ho'he, ha_'yia'ho'he, ha__'yia'ho'he, ha___'yia'ho'he, ha____'yia'ho'he, ha_____'yia'ho'he, ha______'yia'ho'he, ha_______'yia'ho'he
+yai'yia'yio'st, ha'yia'ho'st, ha_'yia'ho'st, ha__'yia'ho'st, ha___'yia'ho'st, ha____'yia'ho'st, ha_____'yia'ho'st, ha______'yia'ho'st, ha_______'yia'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2729,17 +2729,17 @@ yai'yia'yio'he, ha'yia'ho'he, ha_'yia'ho'he, ha__'yia'ho'he, ha___'yia'ho'he, ha
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (a)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (o)))) i)
-yai'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'ho'he = yai'yia'yio'he
-ha_'yia'ho'he = yai'yia'yio'he
-ha__'yia'ho'he = yai'yia'yio'he
-ha___'yia'ho'he = yai'yia'yio'he
-ha____'yia'ho'he = yai'yia'yio'he
-ha_____'yia'ho'he = yai'yia'yio'he
-ha______'yia'ho'he = yai'yia'yio'he
-ha_______'yia'ho'he = yai'yia'yio'he
+yai'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'ho'st = yai'yia'yio'st
+ha_'yia'ho'st = yai'yia'yio'st
+ha__'yia'ho'st = yai'yia'yio'st
+ha___'yia'ho'st = yai'yia'yio'st
+ha____'yia'ho'st = yai'yia'yio'st
+ha_____'yia'ho'st = yai'yia'yio'st
+ha______'yia'ho'st = yai'yia'yio'st
+ha_______'yia'ho'st = yai'yia'yio'st
 
-yai'yia'yia'he, ha'yia'yia'he, ha_'yia'yia'he, ha__'yia'yia'he, ha___'yia'yia'he, ha____'yia'yia'he, ha_____'yia'yia'he, ha______'yia'yia'he, ha_______'yia'yia'he
+yai'yia'yia'st, ha'yia'yia'st, ha_'yia'yia'st, ha__'yia'yia'st, ha___'yia'yia'st, ha____'yia'yia'st, ha_____'yia'yia'st, ha______'yia'yia'st, ha_______'yia'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -2751,17 +2751,17 @@ yai'yia'yia'he, ha'yia'yia'he, ha_'yia'yia'he, ha__'yia'yia'he, ha___'yia'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t (tt ii ((ttt iii (o)))) i) -> target (source (Supertype (a)) o) (t (tt ii ((ttt iii (a)))) i)
-yai'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
-ha'yia'yia'he = yai'yia'yia'he
-ha_'yia'yia'he = yai'yia'yia'he
-ha__'yia'yia'he = yai'yia'yia'he
-ha___'yia'yia'he = yai'yia'yia'he
-ha____'yia'yia'he = yai'yia'yia'he
-ha_____'yia'yia'he = yai'yia'yia'he
-ha______'yia'yia'he = yai'yia'yia'he
-ha_______'yia'yia'he = yai'yia'yia'he
+yai'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yai @source @target x)
+ha'yia'yia'st = yai'yia'yia'st
+ha_'yia'yia'st = yai'yia'yia'st
+ha__'yia'yia'st = yai'yia'yia'st
+ha___'yia'yia'st = yai'yia'yia'st
+ha____'yia'yia'st = yai'yia'yia'st
+ha_____'yia'yia'st = yai'yia'yia'st
+ha______'yia'yia'st = yai'yia'yia'st
+ha_______'yia'yia'st = yai'yia'yia'st
 
-yio'yo'yo'he, ho'yo'yo'he, ho_'yo'yo'he, ho__'yo'yo'he, ho___'yo'yo'he, ho____'yo'yo'he, ho_____'yo'yo'he, ho______'yo'yo'he, ho_______'yo'yo'he
+yio'yo'yo'st, ho'yo'yo'st, ho_'yo'yo'st, ho__'yo'yo'st, ho___'yo'yo'st, ho____'yo'yo'st, ho_____'yo'yo'st, ho______'yo'yo'st, ho_______'yo'yo'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -2771,17 +2771,17 @@ yio'yo'yo'he, ho'yo'yo'he, ho_'yo'yo'he, ho__'yo'yo'he, ho___'yo'yo'he, ho____'y
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o))))
-yio'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'yo'he = yio'yo'yo'he
-ho_'yo'yo'he = yio'yo'yo'he
-ho__'yo'yo'he = yio'yo'yo'he
-ho___'yo'yo'he = yio'yo'yo'he
-ho____'yo'yo'he = yio'yo'yo'he
-ho_____'yo'yo'he = yio'yo'yo'he
-ho______'yo'yo'he = yio'yo'yo'he
-ho_______'yo'yo'he = yio'yo'yo'he
+yio'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'yo'st = yio'yo'yo'st
+ho_'yo'yo'st = yio'yo'yo'st
+ho__'yo'yo'st = yio'yo'yo'st
+ho___'yo'yo'st = yio'yo'yo'st
+ho____'yo'yo'st = yio'yo'yo'st
+ho_____'yo'yo'st = yio'yo'yo'st
+ho______'yo'yo'st = yio'yo'yo'st
+ho_______'yo'yo'st = yio'yo'yo'st
 
-yio'yo'ya'he, ho'yo'ya'he, ho_'yo'ya'he, ho__'yo'ya'he, ho___'yo'ya'he, ho____'yo'ya'he, ho_____'yo'ya'he, ho______'yo'ya'he, ho_______'yo'ya'he
+yio'yo'ya'st, ho'yo'ya'st, ho_'yo'ya'st, ho__'yo'ya'st, ho___'yo'ya'st, ho____'yo'ya'st, ho_____'yo'ya'st, ho______'yo'ya'st, ho_______'yo'ya'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -2791,17 +2791,17 @@ yio'yo'ya'he, ho'yo'ya'he, ho_'yo'ya'he, ho__'yo'ya'he, ho___'yo'ya'he, ho____'y
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a))))
-yio'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'ya'he = yio'yo'ya'he
-ho_'yo'ya'he = yio'yo'ya'he
-ho__'yo'ya'he = yio'yo'ya'he
-ho___'yo'ya'he = yio'yo'ya'he
-ho____'yo'ya'he = yio'yo'ya'he
-ho_____'yo'ya'he = yio'yo'ya'he
-ho______'yo'ya'he = yio'yo'ya'he
-ho_______'yo'ya'he = yio'yo'ya'he
+yio'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'ya'st = yio'yo'ya'st
+ho_'yo'ya'st = yio'yo'ya'st
+ho__'yo'ya'st = yio'yo'ya'st
+ho___'yo'ya'st = yio'yo'ya'st
+ho____'yo'ya'st = yio'yo'ya'st
+ho_____'yo'ya'st = yio'yo'ya'st
+ho______'yo'ya'st = yio'yo'ya'st
+ho_______'yo'ya'st = yio'yo'ya'st
 
-yio'yo'yoi'he, ho'yo'yoi'he, ho_'yo'yoi'he, ho__'yo'yoi'he, ho___'yo'yoi'he, ho____'yo'yoi'he, ho_____'yo'yoi'he, ho______'yo'yoi'he, ho_______'yo'yoi'he
+yio'yo'yoi'st, ho'yo'yoi'st, ho_'yo'yoi'st, ho__'yo'yoi'st, ho___'yo'yoi'st, ho____'yo'yoi'st, ho_____'yo'yoi'st, ho______'yo'yoi'st, ho_______'yo'yoi'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2812,17 +2812,17 @@ yio'yo'yoi'he, ho'yo'yoi'he, ho_'yo'yoi'he, ho__'yo'yoi'he, ho___'yo'yoi'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii))))
-yio'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'yoi'he = yio'yo'yoi'he
-ho_'yo'yoi'he = yio'yo'yoi'he
-ho__'yo'yoi'he = yio'yo'yoi'he
-ho___'yo'yoi'he = yio'yo'yoi'he
-ho____'yo'yoi'he = yio'yo'yoi'he
-ho_____'yo'yoi'he = yio'yo'yoi'he
-ho______'yo'yoi'he = yio'yo'yoi'he
-ho_______'yo'yoi'he = yio'yo'yoi'he
+yio'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'yoi'st = yio'yo'yoi'st
+ho_'yo'yoi'st = yio'yo'yoi'st
+ho__'yo'yoi'st = yio'yo'yoi'st
+ho___'yo'yoi'st = yio'yo'yoi'st
+ho____'yo'yoi'st = yio'yo'yoi'st
+ho_____'yo'yoi'st = yio'yo'yoi'st
+ho______'yo'yoi'st = yio'yo'yoi'st
+ho_______'yo'yoi'st = yio'yo'yoi'st
 
-yio'yo'yai'he, ho'yo'ha'he, ho_'yo'ha'he, ho__'yo'ha'he, ho___'yo'ha'he, ho____'yo'ha'he, ho_____'yo'ha'he, ho______'yo'ha'he, ho_______'yo'ha'he
+yio'yo'yai'st, ho'yo'ha'st, ho_'yo'ha'st, ho__'yo'ha'st, ho___'yo'ha'st, ho____'yo'ha'st, ho_____'yo'ha'st, ho______'yo'ha'st, ho_______'yo'ha'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2833,17 +2833,17 @@ yio'yo'yai'he, ho'yo'ha'he, ho_'yo'ha'he, ho__'yo'ha'he, ho___'yo'ha'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii))))
-yio'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'ha'he = yio'yo'yai'he
-ho_'yo'ha'he = yio'yo'yai'he
-ho__'yo'ha'he = yio'yo'yai'he
-ho___'yo'ha'he = yio'yo'yai'he
-ho____'yo'ha'he = yio'yo'yai'he
-ho_____'yo'ha'he = yio'yo'yai'he
-ho______'yo'ha'he = yio'yo'yai'he
-ho_______'yo'ha'he = yio'yo'yai'he
+yio'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'ha'st = yio'yo'yai'st
+ho_'yo'ha'st = yio'yo'yai'st
+ho__'yo'ha'st = yio'yo'yai'st
+ho___'yo'ha'st = yio'yo'yai'st
+ho____'yo'ha'st = yio'yo'yai'st
+ho_____'yo'ha'st = yio'yo'yai'st
+ho______'yo'ha'st = yio'yo'yai'st
+ho_______'yo'ha'st = yio'yo'yai'st
 
-yio'yo'yio'he, ho'yo'ho'he, ho_'yo'ho'he, ho__'yo'ho'he, ho___'yo'ho'he, ho____'yo'ho'he, ho_____'yo'ho'he, ho______'yo'ho'he, ho_______'yo'ho'he
+yio'yo'yio'st, ho'yo'ho'st, ho_'yo'ho'st, ho__'yo'ho'st, ho___'yo'ho'st, ho____'yo'ho'st, ho_____'yo'ho'st, ho______'yo'ho'st, ho_______'yo'ho'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2854,17 +2854,17 @@ yio'yo'yio'he, ho'yo'ho'he, ho_'yo'ho'he, ho__'yo'ho'he, ho___'yo'ho'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)))))
-yio'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'ho'he = yio'yo'yio'he
-ho_'yo'ho'he = yio'yo'yio'he
-ho__'yo'ho'he = yio'yo'yio'he
-ho___'yo'ho'he = yio'yo'yio'he
-ho____'yo'ho'he = yio'yo'yio'he
-ho_____'yo'ho'he = yio'yo'yio'he
-ho______'yo'ho'he = yio'yo'yio'he
-ho_______'yo'ho'he = yio'yo'yio'he
+yio'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'ho'st = yio'yo'yio'st
+ho_'yo'ho'st = yio'yo'yio'st
+ho__'yo'ho'st = yio'yo'yio'st
+ho___'yo'ho'st = yio'yo'yio'st
+ho____'yo'ho'st = yio'yo'yio'st
+ho_____'yo'ho'st = yio'yo'yio'st
+ho______'yo'ho'st = yio'yo'yio'st
+ho_______'yo'ho'st = yio'yo'yio'st
 
-yio'yo'yia'he, ho'yo'yia'he, ho_'yo'yia'he, ho__'yo'yia'he, ho___'yo'yia'he, ho____'yo'yia'he, ho_____'yo'yia'he, ho______'yo'yia'he, ho_______'yo'yia'he
+yio'yo'yia'st, ho'yo'yia'st, ho_'yo'yia'st, ho__'yo'yia'st, ho___'yo'yia'st, ho____'yo'yia'st, ho_____'yo'yia'st, ho______'yo'yia'st, ho_______'yo'yia'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2875,17 +2875,17 @@ yio'yo'yia'he, ho'yo'yia'he, ho_'yo'yia'he, ho__'yo'yia'he, ho___'yo'yia'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)))))
-yio'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yo'yia'he = yio'yo'yia'he
-ho_'yo'yia'he = yio'yo'yia'he
-ho__'yo'yia'he = yio'yo'yia'he
-ho___'yo'yia'he = yio'yo'yia'he
-ho____'yo'yia'he = yio'yo'yia'he
-ho_____'yo'yia'he = yio'yo'yia'he
-ho______'yo'yia'he = yio'yo'yia'he
-ho_______'yo'yia'he = yio'yo'yia'he
+yio'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yo'yia'st = yio'yo'yia'st
+ho_'yo'yia'st = yio'yo'yia'st
+ho__'yo'yia'st = yio'yo'yia'st
+ho___'yo'yia'st = yio'yo'yia'st
+ho____'yo'yia'st = yio'yo'yia'st
+ho_____'yo'yia'st = yio'yo'yia'st
+ho______'yo'yia'st = yio'yo'yia'st
+ho_______'yo'yia'st = yio'yo'yia'st
 
-yio'ya'yo'he, ho'ya'yo'he, ho_'ya'yo'he, ho__'ya'yo'he, ho___'ya'yo'he, ho____'ya'yo'he, ho_____'ya'yo'he, ho______'ya'yo'he, ho_______'ya'yo'he
+yio'ya'yo'st, ho'ya'yo'st, ho_'ya'yo'st, ho__'ya'yo'st, ho___'ya'yo'st, ho____'ya'yo'st, ho_____'ya'yo'st, ho______'ya'yo'st, ho_______'ya'yo'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -2895,17 +2895,17 @@ yio'ya'yo'he, ho'ya'yo'he, ho_'ya'yo'he, ho__'ya'yo'he, ho___'ya'yo'he, ho____'y
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a))))
-yio'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'yo'he = yio'ya'yo'he
-ho_'ya'yo'he = yio'ya'yo'he
-ho__'ya'yo'he = yio'ya'yo'he
-ho___'ya'yo'he = yio'ya'yo'he
-ho____'ya'yo'he = yio'ya'yo'he
-ho_____'ya'yo'he = yio'ya'yo'he
-ho______'ya'yo'he = yio'ya'yo'he
-ho_______'ya'yo'he = yio'ya'yo'he
+yio'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'yo'st = yio'ya'yo'st
+ho_'ya'yo'st = yio'ya'yo'st
+ho__'ya'yo'st = yio'ya'yo'st
+ho___'ya'yo'st = yio'ya'yo'st
+ho____'ya'yo'st = yio'ya'yo'st
+ho_____'ya'yo'st = yio'ya'yo'st
+ho______'ya'yo'st = yio'ya'yo'st
+ho_______'ya'yo'st = yio'ya'yo'st
 
-yio'ya'ya'he, ho'ya'ya'he, ho_'ya'ya'he, ho__'ya'ya'he, ho___'ya'ya'he, ho____'ya'ya'he, ho_____'ya'ya'he, ho______'ya'ya'he, ho_______'ya'ya'he
+yio'ya'ya'st, ho'ya'ya'st, ho_'ya'ya'st, ho__'ya'ya'st, ho___'ya'ya'st, ho____'ya'ya'st, ho_____'ya'ya'st, ho______'ya'ya'st, ho_______'ya'ya'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -2915,17 +2915,17 @@ yio'ya'ya'he, ho'ya'ya'he, ho_'ya'ya'he, ho__'ya'ya'he, ho___'ya'ya'he, ho____'y
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o))))
-yio'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'ya'he = yio'ya'ya'he
-ho_'ya'ya'he = yio'ya'ya'he
-ho__'ya'ya'he = yio'ya'ya'he
-ho___'ya'ya'he = yio'ya'ya'he
-ho____'ya'ya'he = yio'ya'ya'he
-ho_____'ya'ya'he = yio'ya'ya'he
-ho______'ya'ya'he = yio'ya'ya'he
-ho_______'ya'ya'he = yio'ya'ya'he
+yio'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'ya'st = yio'ya'ya'st
+ho_'ya'ya'st = yio'ya'ya'st
+ho__'ya'ya'st = yio'ya'ya'st
+ho___'ya'ya'st = yio'ya'ya'st
+ho____'ya'ya'st = yio'ya'ya'st
+ho_____'ya'ya'st = yio'ya'ya'st
+ho______'ya'ya'st = yio'ya'ya'st
+ho_______'ya'ya'st = yio'ya'ya'st
 
-yio'ya'yoi'he, ho'ya'yoi'he, ho_'ya'yoi'he, ho__'ya'yoi'he, ho___'ya'yoi'he, ho____'ya'yoi'he, ho_____'ya'yoi'he, ho______'ya'yoi'he, ho_______'ya'yoi'he
+yio'ya'yoi'st, ho'ya'yoi'st, ho_'ya'yoi'st, ho__'ya'yoi'st, ho___'ya'yoi'st, ho____'ya'yoi'st, ho_____'ya'yoi'st, ho______'ya'yoi'st, ho_______'ya'yoi'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2936,17 +2936,17 @@ yio'ya'yoi'he, ho'ya'yoi'he, ho_'ya'yoi'he, ho__'ya'yoi'he, ho___'ya'yoi'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii))))
-yio'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'yoi'he = yio'ya'yoi'he
-ho_'ya'yoi'he = yio'ya'yoi'he
-ho__'ya'yoi'he = yio'ya'yoi'he
-ho___'ya'yoi'he = yio'ya'yoi'he
-ho____'ya'yoi'he = yio'ya'yoi'he
-ho_____'ya'yoi'he = yio'ya'yoi'he
-ho______'ya'yoi'he = yio'ya'yoi'he
-ho_______'ya'yoi'he = yio'ya'yoi'he
+yio'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'yoi'st = yio'ya'yoi'st
+ho_'ya'yoi'st = yio'ya'yoi'st
+ho__'ya'yoi'st = yio'ya'yoi'st
+ho___'ya'yoi'st = yio'ya'yoi'st
+ho____'ya'yoi'st = yio'ya'yoi'st
+ho_____'ya'yoi'st = yio'ya'yoi'st
+ho______'ya'yoi'st = yio'ya'yoi'st
+ho_______'ya'yoi'st = yio'ya'yoi'st
 
-yio'ya'yai'he, ho'ya'ha'he, ho_'ya'ha'he, ho__'ya'ha'he, ho___'ya'ha'he, ho____'ya'ha'he, ho_____'ya'ha'he, ho______'ya'ha'he, ho_______'ya'ha'he
+yio'ya'yai'st, ho'ya'ha'st, ho_'ya'ha'st, ho__'ya'ha'st, ho___'ya'ha'st, ho____'ya'ha'st, ho_____'ya'ha'st, ho______'ya'ha'st, ho_______'ya'ha'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -2957,17 +2957,17 @@ yio'ya'yai'he, ho'ya'ha'he, ho_'ya'ha'he, ho__'ya'ha'he, ho___'ya'ha'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii))))
-yio'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'ha'he = yio'ya'yai'he
-ho_'ya'ha'he = yio'ya'yai'he
-ho__'ya'ha'he = yio'ya'yai'he
-ho___'ya'ha'he = yio'ya'yai'he
-ho____'ya'ha'he = yio'ya'yai'he
-ho_____'ya'ha'he = yio'ya'yai'he
-ho______'ya'ha'he = yio'ya'yai'he
-ho_______'ya'ha'he = yio'ya'yai'he
+yio'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'ha'st = yio'ya'yai'st
+ho_'ya'ha'st = yio'ya'yai'st
+ho__'ya'ha'st = yio'ya'yai'st
+ho___'ya'ha'st = yio'ya'yai'st
+ho____'ya'ha'st = yio'ya'yai'st
+ho_____'ya'ha'st = yio'ya'yai'st
+ho______'ya'ha'st = yio'ya'yai'st
+ho_______'ya'ha'st = yio'ya'yai'st
 
-yio'ya'yio'he, ho'ya'ho'he, ho_'ya'ho'he, ho__'ya'ho'he, ho___'ya'ho'he, ho____'ya'ho'he, ho_____'ya'ho'he, ho______'ya'ho'he, ho_______'ya'ho'he
+yio'ya'yio'st, ho'ya'ho'st, ho_'ya'ho'st, ho__'ya'ho'st, ho___'ya'ho'st, ho____'ya'ho'st, ho_____'ya'ho'st, ho______'ya'ho'st, ho_______'ya'ho'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2978,17 +2978,17 @@ yio'ya'yio'he, ho'ya'ho'he, ho_'ya'ho'he, ho__'ya'ho'he, ho___'ya'ho'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)))))
-yio'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'ho'he = yio'ya'yio'he
-ho_'ya'ho'he = yio'ya'yio'he
-ho__'ya'ho'he = yio'ya'yio'he
-ho___'ya'ho'he = yio'ya'yio'he
-ho____'ya'ho'he = yio'ya'yio'he
-ho_____'ya'ho'he = yio'ya'yio'he
-ho______'ya'ho'he = yio'ya'yio'he
-ho_______'ya'ho'he = yio'ya'yio'he
+yio'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'ho'st = yio'ya'yio'st
+ho_'ya'ho'st = yio'ya'yio'st
+ho__'ya'ho'st = yio'ya'yio'st
+ho___'ya'ho'st = yio'ya'yio'st
+ho____'ya'ho'st = yio'ya'yio'st
+ho_____'ya'ho'st = yio'ya'yio'st
+ho______'ya'ho'st = yio'ya'yio'st
+ho_______'ya'ho'st = yio'ya'yio'st
 
-yio'ya'yia'he, ho'ya'yia'he, ho_'ya'yia'he, ho__'ya'yia'he, ho___'ya'yia'he, ho____'ya'yia'he, ho_____'ya'yia'he, ho______'ya'yia'he, ho_______'ya'yia'he
+yio'ya'yia'st, ho'ya'yia'st, ho_'ya'yia'st, ho__'ya'yia'st, ho___'ya'yia'st, ho____'ya'yia'st, ho_____'ya'yia'st, ho______'ya'yia'st, ho_______'ya'yia'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -2999,17 +2999,17 @@ yio'ya'yia'he, ho'ya'yia'he, ho_'ya'yia'he, ho__'ya'yia'he, ho___'ya'yia'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)))))
-yio'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ya'yia'he = yio'ya'yia'he
-ho_'ya'yia'he = yio'ya'yia'he
-ho__'ya'yia'he = yio'ya'yia'he
-ho___'ya'yia'he = yio'ya'yia'he
-ho____'ya'yia'he = yio'ya'yia'he
-ho_____'ya'yia'he = yio'ya'yia'he
-ho______'ya'yia'he = yio'ya'yia'he
-ho_______'ya'yia'he = yio'ya'yia'he
+yio'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ya'yia'st = yio'ya'yia'st
+ho_'ya'yia'st = yio'ya'yia'st
+ho__'ya'yia'st = yio'ya'yia'st
+ho___'ya'yia'st = yio'ya'yia'st
+ho____'ya'yia'st = yio'ya'yia'st
+ho_____'ya'yia'st = yio'ya'yia'st
+ho______'ya'yia'st = yio'ya'yia'st
+ho_______'ya'yia'st = yio'ya'yia'st
 
-yio'yoi'yo'he, ho'yoi'yo'he, ho_'yoi'yo'he, ho__'yoi'yo'he, ho___'yoi'yo'he, ho____'yoi'yo'he, ho_____'yoi'yo'he, ho______'yoi'yo'he, ho_______'yoi'yo'he
+yio'yoi'yo'st, ho'yoi'yo'st, ho_'yoi'yo'st, ho__'yoi'yo'st, ho___'yoi'yo'st, ho____'yoi'yo'st, ho_____'yoi'yo'st, ho______'yoi'yo'st, ho_______'yoi'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3020,17 +3020,17 @@ yio'yoi'yo'he, ho'yoi'yo'he, ho_'yoi'yo'he, ho__'yoi'yo'he, ho___'yoi'yo'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o) ii)))
-yio'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'yo'he = yio'yoi'yo'he
-ho_'yoi'yo'he = yio'yoi'yo'he
-ho__'yoi'yo'he = yio'yoi'yo'he
-ho___'yoi'yo'he = yio'yoi'yo'he
-ho____'yoi'yo'he = yio'yoi'yo'he
-ho_____'yoi'yo'he = yio'yoi'yo'he
-ho______'yoi'yo'he = yio'yoi'yo'he
-ho_______'yoi'yo'he = yio'yoi'yo'he
+yio'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'yo'st = yio'yoi'yo'st
+ho_'yoi'yo'st = yio'yoi'yo'st
+ho__'yoi'yo'st = yio'yoi'yo'st
+ho___'yoi'yo'st = yio'yoi'yo'st
+ho____'yoi'yo'st = yio'yoi'yo'st
+ho_____'yoi'yo'st = yio'yoi'yo'st
+ho______'yoi'yo'st = yio'yoi'yo'st
+ho_______'yoi'yo'st = yio'yoi'yo'st
 
-yio'yoi'ya'he, ho'yoi'ya'he, ho_'yoi'ya'he, ho__'yoi'ya'he, ho___'yoi'ya'he, ho____'yoi'ya'he, ho_____'yoi'ya'he, ho______'yoi'ya'he, ho_______'yoi'ya'he
+yio'yoi'ya'st, ho'yoi'ya'st, ho_'yoi'ya'st, ho__'yoi'ya'st, ho___'yoi'ya'st, ho____'yoi'ya'st, ho_____'yoi'ya'st, ho______'yoi'ya'st, ho_______'yoi'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3041,17 +3041,17 @@ yio'yoi'ya'he, ho'yoi'ya'he, ho_'yoi'ya'he, ho__'yoi'ya'he, ho___'yoi'ya'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a) ii)))
-yio'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'ya'he = yio'yoi'ya'he
-ho_'yoi'ya'he = yio'yoi'ya'he
-ho__'yoi'ya'he = yio'yoi'ya'he
-ho___'yoi'ya'he = yio'yoi'ya'he
-ho____'yoi'ya'he = yio'yoi'ya'he
-ho_____'yoi'ya'he = yio'yoi'ya'he
-ho______'yoi'ya'he = yio'yoi'ya'he
-ho_______'yoi'ya'he = yio'yoi'ya'he
+yio'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'ya'st = yio'yoi'ya'st
+ho_'yoi'ya'st = yio'yoi'ya'st
+ho__'yoi'ya'st = yio'yoi'ya'st
+ho___'yoi'ya'st = yio'yoi'ya'st
+ho____'yoi'ya'st = yio'yoi'ya'st
+ho_____'yoi'ya'st = yio'yoi'ya'st
+ho______'yoi'ya'st = yio'yoi'ya'st
+ho_______'yoi'ya'st = yio'yoi'ya'st
 
-yio'yoi'yoi'he, ho'yoi'yoi'he, ho_'yoi'yoi'he, ho__'yoi'yoi'he, ho___'yoi'yoi'he, ho____'yoi'yoi'he, ho_____'yoi'yoi'he, ho______'yoi'yoi'he, ho_______'yoi'yoi'he
+yio'yoi'yoi'st, ho'yoi'yoi'st, ho_'yoi'yoi'st, ho__'yoi'yoi'st, ho___'yoi'yoi'st, ho____'yoi'yoi'st, ho_____'yoi'yoi'st, ho______'yoi'yoi'st, ho_______'yoi'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3063,17 +3063,17 @@ yio'yoi'yoi'he, ho'yoi'yoi'he, ho_'yoi'yoi'he, ho__'yoi'yoi'he, ho___'yoi'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii) ii)))
-yio'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'yoi'he = yio'yoi'yoi'he
-ho_'yoi'yoi'he = yio'yoi'yoi'he
-ho__'yoi'yoi'he = yio'yoi'yoi'he
-ho___'yoi'yoi'he = yio'yoi'yoi'he
-ho____'yoi'yoi'he = yio'yoi'yoi'he
-ho_____'yoi'yoi'he = yio'yoi'yoi'he
-ho______'yoi'yoi'he = yio'yoi'yoi'he
-ho_______'yoi'yoi'he = yio'yoi'yoi'he
+yio'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'yoi'st = yio'yoi'yoi'st
+ho_'yoi'yoi'st = yio'yoi'yoi'st
+ho__'yoi'yoi'st = yio'yoi'yoi'st
+ho___'yoi'yoi'st = yio'yoi'yoi'st
+ho____'yoi'yoi'st = yio'yoi'yoi'st
+ho_____'yoi'yoi'st = yio'yoi'yoi'st
+ho______'yoi'yoi'st = yio'yoi'yoi'st
+ho_______'yoi'yoi'st = yio'yoi'yoi'st
 
-yio'yoi'yai'he, ho'yoi'ha'he, ho_'yoi'ha'he, ho__'yoi'ha'he, ho___'yoi'ha'he, ho____'yoi'ha'he, ho_____'yoi'ha'he, ho______'yoi'ha'he, ho_______'yoi'ha'he
+yio'yoi'yai'st, ho'yoi'ha'st, ho_'yoi'ha'st, ho__'yoi'ha'st, ho___'yoi'ha'st, ho____'yoi'ha'st, ho_____'yoi'ha'st, ho______'yoi'ha'st, ho_______'yoi'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3085,17 +3085,17 @@ yio'yoi'yai'he, ho'yoi'ha'he, ho_'yoi'ha'he, ho__'yoi'ha'he, ho___'yoi'ha'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii) ii)))
-yio'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'ha'he = yio'yoi'yai'he
-ho_'yoi'ha'he = yio'yoi'yai'he
-ho__'yoi'ha'he = yio'yoi'yai'he
-ho___'yoi'ha'he = yio'yoi'yai'he
-ho____'yoi'ha'he = yio'yoi'yai'he
-ho_____'yoi'ha'he = yio'yoi'yai'he
-ho______'yoi'ha'he = yio'yoi'yai'he
-ho_______'yoi'ha'he = yio'yoi'yai'he
+yio'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'ha'st = yio'yoi'yai'st
+ho_'yoi'ha'st = yio'yoi'yai'st
+ho__'yoi'ha'st = yio'yoi'yai'st
+ho___'yoi'ha'st = yio'yoi'yai'st
+ho____'yoi'ha'st = yio'yoi'yai'st
+ho_____'yoi'ha'st = yio'yoi'yai'st
+ho______'yoi'ha'st = yio'yoi'yai'st
+ho_______'yoi'ha'st = yio'yoi'yai'st
 
-yio'yoi'yio'he, ho'yoi'ho'he, ho_'yoi'ho'he, ho__'yoi'ho'he, ho___'yoi'ho'he, ho____'yoi'ho'he, ho_____'yoi'ho'he, ho______'yoi'ho'he, ho_______'yoi'ho'he
+yio'yoi'yio'st, ho'yoi'ho'st, ho_'yoi'ho'st, ho__'yoi'ho'st, ho___'yoi'ho'st, ho____'yoi'ho'st, ho_____'yoi'ho'st, ho______'yoi'ho'st, ho_______'yoi'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3107,17 +3107,17 @@ yio'yoi'yio'he, ho'yoi'ho'he, ho_'yoi'ho'he, ho__'yoi'ho'he, ho___'yoi'ho'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)) ii)))
-yio'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'ho'he = yio'yoi'yio'he
-ho_'yoi'ho'he = yio'yoi'yio'he
-ho__'yoi'ho'he = yio'yoi'yio'he
-ho___'yoi'ho'he = yio'yoi'yio'he
-ho____'yoi'ho'he = yio'yoi'yio'he
-ho_____'yoi'ho'he = yio'yoi'yio'he
-ho______'yoi'ho'he = yio'yoi'yio'he
-ho_______'yoi'ho'he = yio'yoi'yio'he
+yio'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'ho'st = yio'yoi'yio'st
+ho_'yoi'ho'st = yio'yoi'yio'st
+ho__'yoi'ho'st = yio'yoi'yio'st
+ho___'yoi'ho'st = yio'yoi'yio'st
+ho____'yoi'ho'st = yio'yoi'yio'st
+ho_____'yoi'ho'st = yio'yoi'yio'st
+ho______'yoi'ho'st = yio'yoi'yio'st
+ho_______'yoi'ho'st = yio'yoi'yio'st
 
-yio'yoi'yia'he, ho'yoi'yia'he, ho_'yoi'yia'he, ho__'yoi'yia'he, ho___'yoi'yia'he, ho____'yoi'yia'he, ho_____'yoi'yia'he, ho______'yoi'yia'he, ho_______'yoi'yia'he
+yio'yoi'yia'st, ho'yoi'yia'st, ho_'yoi'yia'st, ho__'yoi'yia'st, ho___'yoi'yia'st, ho____'yoi'yia'st, ho_____'yoi'yia'st, ho______'yoi'yia'st, ho_______'yoi'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3129,17 +3129,17 @@ yio'yoi'yia'he, ho'yoi'yia'he, ho_'yoi'yia'he, ho__'yoi'yia'he, ho___'yoi'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)) ii)))
-yio'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yoi'yia'he = yio'yoi'yia'he
-ho_'yoi'yia'he = yio'yoi'yia'he
-ho__'yoi'yia'he = yio'yoi'yia'he
-ho___'yoi'yia'he = yio'yoi'yia'he
-ho____'yoi'yia'he = yio'yoi'yia'he
-ho_____'yoi'yia'he = yio'yoi'yia'he
-ho______'yoi'yia'he = yio'yoi'yia'he
-ho_______'yoi'yia'he = yio'yoi'yia'he
+yio'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yoi'yia'st = yio'yoi'yia'st
+ho_'yoi'yia'st = yio'yoi'yia'st
+ho__'yoi'yia'st = yio'yoi'yia'st
+ho___'yoi'yia'st = yio'yoi'yia'st
+ho____'yoi'yia'st = yio'yoi'yia'st
+ho_____'yoi'yia'st = yio'yoi'yia'st
+ho______'yoi'yia'st = yio'yoi'yia'st
+ho_______'yoi'yia'st = yio'yoi'yia'st
 
-yio'yai'yo'he, ho'ha'yo'he, ho_'ha'yo'he, ho__'ha'yo'he, ho___'ha'yo'he, ho____'ha'yo'he, ho_____'ha'yo'he, ho______'ha'yo'he, ho_______'ha'yo'he
+yio'yai'yo'st, ho'ha'yo'st, ho_'ha'yo'st, ho__'ha'yo'st, ho___'ha'yo'st, ho____'ha'yo'st, ho_____'ha'yo'st, ho______'ha'yo'st, ho_______'ha'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3150,17 +3150,17 @@ yio'yai'yo'he, ho'ha'yo'he, ho_'ha'yo'he, ho__'ha'yo'he, ho___'ha'yo'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a) ii)))
-yio'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'yo'he = yio'yai'yo'he
-ho_'ha'yo'he = yio'yai'yo'he
-ho__'ha'yo'he = yio'yai'yo'he
-ho___'ha'yo'he = yio'yai'yo'he
-ho____'ha'yo'he = yio'yai'yo'he
-ho_____'ha'yo'he = yio'yai'yo'he
-ho______'ha'yo'he = yio'yai'yo'he
-ho_______'ha'yo'he = yio'yai'yo'he
+yio'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'yo'st = yio'yai'yo'st
+ho_'ha'yo'st = yio'yai'yo'st
+ho__'ha'yo'st = yio'yai'yo'st
+ho___'ha'yo'st = yio'yai'yo'st
+ho____'ha'yo'st = yio'yai'yo'st
+ho_____'ha'yo'st = yio'yai'yo'st
+ho______'ha'yo'st = yio'yai'yo'st
+ho_______'ha'yo'st = yio'yai'yo'st
 
-yio'yai'ya'he, ho'ha'ya'he, ho_'ha'ya'he, ho__'ha'ya'he, ho___'ha'ya'he, ho____'ha'ya'he, ho_____'ha'ya'he, ho______'ha'ya'he, ho_______'ha'ya'he
+yio'yai'ya'st, ho'ha'ya'st, ho_'ha'ya'st, ho__'ha'ya'st, ho___'ha'ya'st, ho____'ha'ya'st, ho_____'ha'ya'st, ho______'ha'ya'st, ho_______'ha'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3171,17 +3171,17 @@ yio'yai'ya'he, ho'ha'ya'he, ho_'ha'ya'he, ho__'ha'ya'he, ho___'ha'ya'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o) ii)))
-yio'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'ya'he = yio'yai'ya'he
-ho_'ha'ya'he = yio'yai'ya'he
-ho__'ha'ya'he = yio'yai'ya'he
-ho___'ha'ya'he = yio'yai'ya'he
-ho____'ha'ya'he = yio'yai'ya'he
-ho_____'ha'ya'he = yio'yai'ya'he
-ho______'ha'ya'he = yio'yai'ya'he
-ho_______'ha'ya'he = yio'yai'ya'he
+yio'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'ya'st = yio'yai'ya'st
+ho_'ha'ya'st = yio'yai'ya'st
+ho__'ha'ya'st = yio'yai'ya'st
+ho___'ha'ya'st = yio'yai'ya'st
+ho____'ha'ya'st = yio'yai'ya'st
+ho_____'ha'ya'st = yio'yai'ya'st
+ho______'ha'ya'st = yio'yai'ya'st
+ho_______'ha'ya'st = yio'yai'ya'st
 
-yio'yai'yoi'he, ho'ha'yoi'he, ho_'ha'yoi'he, ho__'ha'yoi'he, ho___'ha'yoi'he, ho____'ha'yoi'he, ho_____'ha'yoi'he, ho______'ha'yoi'he, ho_______'ha'yoi'he
+yio'yai'yoi'st, ho'ha'yoi'st, ho_'ha'yoi'st, ho__'ha'yoi'st, ho___'ha'yoi'st, ho____'ha'yoi'st, ho_____'ha'yoi'st, ho______'ha'yoi'st, ho_______'ha'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3193,17 +3193,17 @@ yio'yai'yoi'he, ho'ha'yoi'he, ho_'ha'yoi'he, ho__'ha'yoi'he, ho___'ha'yoi'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii) ii)))
-yio'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'yoi'he = yio'yai'yoi'he
-ho_'ha'yoi'he = yio'yai'yoi'he
-ho__'ha'yoi'he = yio'yai'yoi'he
-ho___'ha'yoi'he = yio'yai'yoi'he
-ho____'ha'yoi'he = yio'yai'yoi'he
-ho_____'ha'yoi'he = yio'yai'yoi'he
-ho______'ha'yoi'he = yio'yai'yoi'he
-ho_______'ha'yoi'he = yio'yai'yoi'he
+yio'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'yoi'st = yio'yai'yoi'st
+ho_'ha'yoi'st = yio'yai'yoi'st
+ho__'ha'yoi'st = yio'yai'yoi'st
+ho___'ha'yoi'st = yio'yai'yoi'st
+ho____'ha'yoi'st = yio'yai'yoi'st
+ho_____'ha'yoi'st = yio'yai'yoi'st
+ho______'ha'yoi'st = yio'yai'yoi'st
+ho_______'ha'yoi'st = yio'yai'yoi'st
 
-yio'yai'yai'he, ho'ha'ha'he, ho_'ha'ha'he, ho__'ha'ha'he, ho___'ha'ha'he, ho____'ha'ha'he, ho_____'ha'ha'he, ho______'ha'ha'he, ho_______'ha'ha'he
+yio'yai'yai'st, ho'ha'ha'st, ho_'ha'ha'st, ho__'ha'ha'st, ho___'ha'ha'st, ho____'ha'ha'st, ho_____'ha'ha'st, ho______'ha'ha'st, ho_______'ha'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3215,17 +3215,17 @@ yio'yai'yai'he, ho'ha'ha'he, ho_'ha'ha'he, ho__'ha'ha'he, ho___'ha'ha'he, ho____
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii) ii)))
-yio'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'ha'he = yio'yai'yai'he
-ho_'ha'ha'he = yio'yai'yai'he
-ho__'ha'ha'he = yio'yai'yai'he
-ho___'ha'ha'he = yio'yai'yai'he
-ho____'ha'ha'he = yio'yai'yai'he
-ho_____'ha'ha'he = yio'yai'yai'he
-ho______'ha'ha'he = yio'yai'yai'he
-ho_______'ha'ha'he = yio'yai'yai'he
+yio'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'ha'st = yio'yai'yai'st
+ho_'ha'ha'st = yio'yai'yai'st
+ho__'ha'ha'st = yio'yai'yai'st
+ho___'ha'ha'st = yio'yai'yai'st
+ho____'ha'ha'st = yio'yai'yai'st
+ho_____'ha'ha'st = yio'yai'yai'st
+ho______'ha'ha'st = yio'yai'yai'st
+ho_______'ha'ha'st = yio'yai'yai'st
 
-yio'yai'yio'he, ho'ha'ho'he, ho_'ha'ho'he, ho__'ha'ho'he, ho___'ha'ho'he, ho____'ha'ho'he, ho_____'ha'ho'he, ho______'ha'ho'he, ho_______'ha'ho'he
+yio'yai'yio'st, ho'ha'ho'st, ho_'ha'ho'st, ho__'ha'ho'st, ho___'ha'ho'st, ho____'ha'ho'st, ho_____'ha'ho'st, ho______'ha'ho'st, ho_______'ha'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3237,17 +3237,17 @@ yio'yai'yio'he, ho'ha'ho'he, ho_'ha'ho'he, ho__'ha'ho'he, ho___'ha'ho'he, ho____
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)) ii)))
-yio'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'ho'he = yio'yai'yio'he
-ho_'ha'ho'he = yio'yai'yio'he
-ho__'ha'ho'he = yio'yai'yio'he
-ho___'ha'ho'he = yio'yai'yio'he
-ho____'ha'ho'he = yio'yai'yio'he
-ho_____'ha'ho'he = yio'yai'yio'he
-ho______'ha'ho'he = yio'yai'yio'he
-ho_______'ha'ho'he = yio'yai'yio'he
+yio'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'ho'st = yio'yai'yio'st
+ho_'ha'ho'st = yio'yai'yio'st
+ho__'ha'ho'st = yio'yai'yio'st
+ho___'ha'ho'st = yio'yai'yio'st
+ho____'ha'ho'st = yio'yai'yio'st
+ho_____'ha'ho'st = yio'yai'yio'st
+ho______'ha'ho'st = yio'yai'yio'st
+ho_______'ha'ho'st = yio'yai'yio'st
 
-yio'yai'yia'he, ho'ha'yia'he, ho_'ha'yia'he, ho__'ha'yia'he, ho___'ha'yia'he, ho____'ha'yia'he, ho_____'ha'yia'he, ho______'ha'yia'he, ho_______'ha'yia'he
+yio'yai'yia'st, ho'ha'yia'st, ho_'ha'yia'st, ho__'ha'yia'st, ho___'ha'yia'st, ho____'ha'yia'st, ho_____'ha'yia'st, ho______'ha'yia'st, ho_______'ha'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3259,17 +3259,17 @@ yio'yai'yia'he, ho'ha'yia'he, ho_'ha'yia'he, ho__'ha'yia'he, ho___'ha'yia'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)) ii)))
-yio'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ha'yia'he = yio'yai'yia'he
-ho_'ha'yia'he = yio'yai'yia'he
-ho__'ha'yia'he = yio'yai'yia'he
-ho___'ha'yia'he = yio'yai'yia'he
-ho____'ha'yia'he = yio'yai'yia'he
-ho_____'ha'yia'he = yio'yai'yia'he
-ho______'ha'yia'he = yio'yai'yia'he
-ho_______'ha'yia'he = yio'yai'yia'he
+yio'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ha'yia'st = yio'yai'yia'st
+ho_'ha'yia'st = yio'yai'yia'st
+ho__'ha'yia'st = yio'yai'yia'st
+ho___'ha'yia'st = yio'yai'yia'st
+ho____'ha'yia'st = yio'yai'yia'st
+ho_____'ha'yia'st = yio'yai'yia'st
+ho______'ha'yia'st = yio'yai'yia'st
+ho_______'ha'yia'st = yio'yai'yia'st
 
-yio'yio'yo'he, ho'ho'yo'he, ho_'ho'yo'he, ho__'ho'yo'he, ho___'ho'yo'he, ho____'ho'yo'he, ho_____'ho'yo'he, ho______'ho'yo'he, ho_______'ho'yo'he
+yio'yio'yo'st, ho'ho'yo'st, ho_'ho'yo'st, ho__'ho'yo'st, ho___'ho'yo'st, ho____'ho'yo'st, ho_____'ho'yo'st, ho______'ho'yo'st, ho_______'ho'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3280,17 +3280,17 @@ yio'yio'yo'he, ho'ho'yo'he, ho_'ho'yo'he, ho__'ho'yo'he, ho___'ho'yo'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o)))))
-yio'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'yo'he = yio'yio'yo'he
-ho_'ho'yo'he = yio'yio'yo'he
-ho__'ho'yo'he = yio'yio'yo'he
-ho___'ho'yo'he = yio'yio'yo'he
-ho____'ho'yo'he = yio'yio'yo'he
-ho_____'ho'yo'he = yio'yio'yo'he
-ho______'ho'yo'he = yio'yio'yo'he
-ho_______'ho'yo'he = yio'yio'yo'he
+yio'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'yo'st = yio'yio'yo'st
+ho_'ho'yo'st = yio'yio'yo'st
+ho__'ho'yo'st = yio'yio'yo'st
+ho___'ho'yo'st = yio'yio'yo'st
+ho____'ho'yo'st = yio'yio'yo'st
+ho_____'ho'yo'st = yio'yio'yo'st
+ho______'ho'yo'st = yio'yio'yo'st
+ho_______'ho'yo'st = yio'yio'yo'st
 
-yio'yio'ya'he, ho'ho'ya'he, ho_'ho'ya'he, ho__'ho'ya'he, ho___'ho'ya'he, ho____'ho'ya'he, ho_____'ho'ya'he, ho______'ho'ya'he, ho_______'ho'ya'he
+yio'yio'ya'st, ho'ho'ya'st, ho_'ho'ya'st, ho__'ho'ya'st, ho___'ho'ya'st, ho____'ho'ya'st, ho_____'ho'ya'st, ho______'ho'ya'st, ho_______'ho'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3301,17 +3301,17 @@ yio'yio'ya'he, ho'ho'ya'he, ho_'ho'ya'he, ho__'ho'ya'he, ho___'ho'ya'he, ho____'
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a)))))
-yio'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'ya'he = yio'yio'ya'he
-ho_'ho'ya'he = yio'yio'ya'he
-ho__'ho'ya'he = yio'yio'ya'he
-ho___'ho'ya'he = yio'yio'ya'he
-ho____'ho'ya'he = yio'yio'ya'he
-ho_____'ho'ya'he = yio'yio'ya'he
-ho______'ho'ya'he = yio'yio'ya'he
-ho_______'ho'ya'he = yio'yio'ya'he
+yio'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'ya'st = yio'yio'ya'st
+ho_'ho'ya'st = yio'yio'ya'st
+ho__'ho'ya'st = yio'yio'ya'st
+ho___'ho'ya'st = yio'yio'ya'st
+ho____'ho'ya'st = yio'yio'ya'st
+ho_____'ho'ya'st = yio'yio'ya'st
+ho______'ho'ya'st = yio'yio'ya'st
+ho_______'ho'ya'st = yio'yio'ya'st
 
-yio'yio'yoi'he, ho'ho'yoi'he, ho_'ho'yoi'he, ho__'ho'yoi'he, ho___'ho'yoi'he, ho____'ho'yoi'he, ho_____'ho'yoi'he, ho______'ho'yoi'he, ho_______'ho'yoi'he
+yio'yio'yoi'st, ho'ho'yoi'st, ho_'ho'yoi'st, ho__'ho'yoi'st, ho___'ho'yoi'st, ho____'ho'yoi'st, ho_____'ho'yoi'st, ho______'ho'yoi'st, ho_______'ho'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3323,17 +3323,17 @@ yio'yio'yoi'he, ho'ho'yoi'he, ho_'ho'yoi'he, ho__'ho'yoi'he, ho___'ho'yoi'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o iii)))))
-yio'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'yoi'he = yio'yio'yoi'he
-ho_'ho'yoi'he = yio'yio'yoi'he
-ho__'ho'yoi'he = yio'yio'yoi'he
-ho___'ho'yoi'he = yio'yio'yoi'he
-ho____'ho'yoi'he = yio'yio'yoi'he
-ho_____'ho'yoi'he = yio'yio'yoi'he
-ho______'ho'yoi'he = yio'yio'yoi'he
-ho_______'ho'yoi'he = yio'yio'yoi'he
+yio'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'yoi'st = yio'yio'yoi'st
+ho_'ho'yoi'st = yio'yio'yoi'st
+ho__'ho'yoi'st = yio'yio'yoi'st
+ho___'ho'yoi'st = yio'yio'yoi'st
+ho____'ho'yoi'st = yio'yio'yoi'st
+ho_____'ho'yoi'st = yio'yio'yoi'st
+ho______'ho'yoi'st = yio'yio'yoi'st
+ho_______'ho'yoi'st = yio'yio'yoi'st
 
-yio'yio'yai'he, ho'ho'ha'he, ho_'ho'ha'he, ho__'ho'ha'he, ho___'ho'ha'he, ho____'ho'ha'he, ho_____'ho'ha'he, ho______'ho'ha'he, ho_______'ho'ha'he
+yio'yio'yai'st, ho'ho'ha'st, ho_'ho'ha'st, ho__'ho'ha'st, ho___'ho'ha'st, ho____'ho'ha'st, ho_____'ho'ha'st, ho______'ho'ha'st, ho_______'ho'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3345,17 +3345,17 @@ yio'yio'yai'he, ho'ho'ha'he, ho_'ho'ha'he, ho__'ho'ha'he, ho___'ho'ha'he, ho____
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a iii)))))
-yio'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'ha'he = yio'yio'yai'he
-ho_'ho'ha'he = yio'yio'yai'he
-ho__'ho'ha'he = yio'yio'yai'he
-ho___'ho'ha'he = yio'yio'yai'he
-ho____'ho'ha'he = yio'yio'yai'he
-ho_____'ho'ha'he = yio'yio'yai'he
-ho______'ho'ha'he = yio'yio'yai'he
-ho_______'ho'ha'he = yio'yio'yai'he
+yio'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'ha'st = yio'yio'yai'st
+ho_'ho'ha'st = yio'yio'yai'st
+ho__'ho'ha'st = yio'yio'yai'st
+ho___'ho'ha'st = yio'yio'yai'st
+ho____'ho'ha'st = yio'yio'yai'st
+ho_____'ho'ha'st = yio'yio'yai'st
+ho______'ho'ha'st = yio'yio'yai'st
+ho_______'ho'ha'st = yio'yio'yai'st
 
-yio'yio'yio'he, ho'ho'ho'he, ho_'ho'ho'he, ho__'ho'ho'he, ho___'ho'ho'he, ho____'ho'ho'he, ho_____'ho'ho'he, ho______'ho'ho'he, ho_______'ho'ho'he
+yio'yio'yio'st, ho'ho'ho'st, ho_'ho'ho'st, ho__'ho'ho'st, ho___'ho'ho'st, ho____'ho'ho'st, ho_____'ho'ho'st, ho______'ho'ho'st, ho_______'ho'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3367,17 +3367,17 @@ yio'yio'yio'he, ho'ho'ho'he, ho_'ho'ho'he, ho__'ho'ho'he, ho___'ho'ho'he, ho____
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (a)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (o))))))
-yio'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'ho'he = yio'yio'yio'he
-ho_'ho'ho'he = yio'yio'yio'he
-ho__'ho'ho'he = yio'yio'yio'he
-ho___'ho'ho'he = yio'yio'yio'he
-ho____'ho'ho'he = yio'yio'yio'he
-ho_____'ho'ho'he = yio'yio'yio'he
-ho______'ho'ho'he = yio'yio'yio'he
-ho_______'ho'ho'he = yio'yio'yio'he
+yio'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'ho'st = yio'yio'yio'st
+ho_'ho'ho'st = yio'yio'yio'st
+ho__'ho'ho'st = yio'yio'yio'st
+ho___'ho'ho'st = yio'yio'yio'st
+ho____'ho'ho'st = yio'yio'yio'st
+ho_____'ho'ho'st = yio'yio'yio'st
+ho______'ho'ho'st = yio'yio'yio'st
+ho_______'ho'ho'st = yio'yio'yio'st
 
-yio'yio'yia'he, ho'ho'yia'he, ho_'ho'yia'he, ho__'ho'yia'he, ho___'ho'yia'he, ho____'ho'yia'he, ho_____'ho'yia'he, ho______'ho'yia'he, ho_______'ho'yia'he
+yio'yio'yia'st, ho'ho'yia'st, ho_'ho'yia'st, ho__'ho'yia'st, ho___'ho'yia'st, ho____'ho'yia'st, ho_____'ho'yia'st, ho______'ho'yia'st, ho_______'ho'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3389,17 +3389,17 @@ yio'yio'yia'he, ho'ho'yia'he, ho_'ho'yia'he, ho__'ho'yia'he, ho___'ho'yia'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (o)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (a))))))
-yio'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'ho'yia'he = yio'yio'yia'he
-ho_'ho'yia'he = yio'yio'yia'he
-ho__'ho'yia'he = yio'yio'yia'he
-ho___'ho'yia'he = yio'yio'yia'he
-ho____'ho'yia'he = yio'yio'yia'he
-ho_____'ho'yia'he = yio'yio'yia'he
-ho______'ho'yia'he = yio'yio'yia'he
-ho_______'ho'yia'he = yio'yio'yia'he
+yio'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'ho'yia'st = yio'yio'yia'st
+ho_'ho'yia'st = yio'yio'yia'st
+ho__'ho'yia'st = yio'yio'yia'st
+ho___'ho'yia'st = yio'yio'yia'st
+ho____'ho'yia'st = yio'yio'yia'st
+ho_____'ho'yia'st = yio'yio'yia'st
+ho______'ho'yia'st = yio'yio'yia'st
+ho_______'ho'yia'st = yio'yio'yia'st
 
-yio'yia'yo'he, ho'yia'yo'he, ho_'yia'yo'he, ho__'yia'yo'he, ho___'yia'yo'he, ho____'yia'yo'he, ho_____'yia'yo'he, ho______'yia'yo'he, ho_______'yia'yo'he
+yio'yia'yo'st, ho'yia'yo'st, ho_'yia'yo'st, ho__'yia'yo'st, ho___'yia'yo'st, ho____'yia'yo'st, ho_____'yia'yo'st, ho______'yia'yo'st, ho_______'yia'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3410,17 +3410,17 @@ yio'yia'yo'he, ho'yia'yo'he, ho_'yia'yo'he, ho__'yia'yo'he, ho___'yia'yo'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a)))))
-yio'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'yo'he = yio'yia'yo'he
-ho_'yia'yo'he = yio'yia'yo'he
-ho__'yia'yo'he = yio'yia'yo'he
-ho___'yia'yo'he = yio'yia'yo'he
-ho____'yia'yo'he = yio'yia'yo'he
-ho_____'yia'yo'he = yio'yia'yo'he
-ho______'yia'yo'he = yio'yia'yo'he
-ho_______'yia'yo'he = yio'yia'yo'he
+yio'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'yo'st = yio'yia'yo'st
+ho_'yia'yo'st = yio'yia'yo'st
+ho__'yia'yo'st = yio'yia'yo'st
+ho___'yia'yo'st = yio'yia'yo'st
+ho____'yia'yo'st = yio'yia'yo'st
+ho_____'yia'yo'st = yio'yia'yo'st
+ho______'yia'yo'st = yio'yia'yo'st
+ho_______'yia'yo'st = yio'yia'yo'st
 
-yio'yia'ya'he, ho'yia'ya'he, ho_'yia'ya'he, ho__'yia'ya'he, ho___'yia'ya'he, ho____'yia'ya'he, ho_____'yia'ya'he, ho______'yia'ya'he, ho_______'yia'ya'he
+yio'yia'ya'st, ho'yia'ya'st, ho_'yia'ya'st, ho__'yia'ya'st, ho___'yia'ya'st, ho____'yia'ya'st, ho_____'yia'ya'st, ho______'yia'ya'st, ho_______'yia'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3431,17 +3431,17 @@ yio'yia'ya'he, ho'yia'ya'he, ho_'yia'ya'he, ho__'yia'ya'he, ho___'yia'ya'he, ho_
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o)))))
-yio'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'ya'he = yio'yia'ya'he
-ho_'yia'ya'he = yio'yia'ya'he
-ho__'yia'ya'he = yio'yia'ya'he
-ho___'yia'ya'he = yio'yia'ya'he
-ho____'yia'ya'he = yio'yia'ya'he
-ho_____'yia'ya'he = yio'yia'ya'he
-ho______'yia'ya'he = yio'yia'ya'he
-ho_______'yia'ya'he = yio'yia'ya'he
+yio'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'ya'st = yio'yia'ya'st
+ho_'yia'ya'st = yio'yia'ya'st
+ho__'yia'ya'st = yio'yia'ya'st
+ho___'yia'ya'st = yio'yia'ya'st
+ho____'yia'ya'st = yio'yia'ya'st
+ho_____'yia'ya'st = yio'yia'ya'st
+ho______'yia'ya'st = yio'yia'ya'st
+ho_______'yia'ya'st = yio'yia'ya'st
 
-yio'yia'yoi'he, ho'yia'yoi'he, ho_'yia'yoi'he, ho__'yia'yoi'he, ho___'yia'yoi'he, ho____'yia'yoi'he, ho_____'yia'yoi'he, ho______'yia'yoi'he, ho_______'yia'yoi'he
+yio'yia'yoi'st, ho'yia'yoi'st, ho_'yia'yoi'st, ho__'yia'yoi'st, ho___'yia'yoi'st, ho____'yia'yoi'st, ho_____'yia'yoi'st, ho______'yia'yoi'st, ho_______'yia'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3453,17 +3453,17 @@ yio'yia'yoi'he, ho'yia'yoi'he, ho_'yia'yoi'he, ho__'yia'yoi'he, ho___'yia'yoi'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a iii)))))
-yio'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'yoi'he = yio'yia'yoi'he
-ho_'yia'yoi'he = yio'yia'yoi'he
-ho__'yia'yoi'he = yio'yia'yoi'he
-ho___'yia'yoi'he = yio'yia'yoi'he
-ho____'yia'yoi'he = yio'yia'yoi'he
-ho_____'yia'yoi'he = yio'yia'yoi'he
-ho______'yia'yoi'he = yio'yia'yoi'he
-ho_______'yia'yoi'he = yio'yia'yoi'he
+yio'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'yoi'st = yio'yia'yoi'st
+ho_'yia'yoi'st = yio'yia'yoi'st
+ho__'yia'yoi'st = yio'yia'yoi'st
+ho___'yia'yoi'st = yio'yia'yoi'st
+ho____'yia'yoi'st = yio'yia'yoi'st
+ho_____'yia'yoi'st = yio'yia'yoi'st
+ho______'yia'yoi'st = yio'yia'yoi'st
+ho_______'yia'yoi'st = yio'yia'yoi'st
 
-yio'yia'yai'he, ho'yia'ha'he, ho_'yia'ha'he, ho__'yia'ha'he, ho___'yia'ha'he, ho____'yia'ha'he, ho_____'yia'ha'he, ho______'yia'ha'he, ho_______'yia'ha'he
+yio'yia'yai'st, ho'yia'ha'st, ho_'yia'ha'st, ho__'yia'ha'st, ho___'yia'ha'st, ho____'yia'ha'st, ho_____'yia'ha'st, ho______'yia'ha'st, ho_______'yia'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3475,17 +3475,17 @@ yio'yia'yai'he, ho'yia'ha'he, ho_'yia'ha'he, ho__'yia'ha'he, ho___'yia'ha'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o iii)))))
-yio'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'ha'he = yio'yia'yai'he
-ho_'yia'ha'he = yio'yia'yai'he
-ho__'yia'ha'he = yio'yia'yai'he
-ho___'yia'ha'he = yio'yia'yai'he
-ho____'yia'ha'he = yio'yia'yai'he
-ho_____'yia'ha'he = yio'yia'yai'he
-ho______'yia'ha'he = yio'yia'yai'he
-ho_______'yia'ha'he = yio'yia'yai'he
+yio'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'ha'st = yio'yia'yai'st
+ho_'yia'ha'st = yio'yia'yai'st
+ho__'yia'ha'st = yio'yia'yai'st
+ho___'yia'ha'st = yio'yia'yai'st
+ho____'yia'ha'st = yio'yia'yai'st
+ho_____'yia'ha'st = yio'yia'yai'st
+ho______'yia'ha'st = yio'yia'yai'st
+ho_______'yia'ha'st = yio'yia'yai'st
 
-yio'yia'yio'he, ho'yia'ho'he, ho_'yia'ho'he, ho__'yia'ho'he, ho___'yia'ho'he, ho____'yia'ho'he, ho_____'yia'ho'he, ho______'yia'ho'he, ho_______'yia'ho'he
+yio'yia'yio'st, ho'yia'ho'st, ho_'yia'ho'st, ho__'yia'ho'st, ho___'yia'ho'st, ho____'yia'ho'st, ho_____'yia'ho'st, ho______'yia'ho'st, ho_______'yia'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3497,17 +3497,17 @@ yio'yia'yio'he, ho'yia'ho'he, ho_'yia'ho'he, ho__'yia'ho'he, ho___'yia'ho'he, ho
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (o)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (a))))))
-yio'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'ho'he = yio'yia'yio'he
-ho_'yia'ho'he = yio'yia'yio'he
-ho__'yia'ho'he = yio'yia'yio'he
-ho___'yia'ho'he = yio'yia'yio'he
-ho____'yia'ho'he = yio'yia'yio'he
-ho_____'yia'ho'he = yio'yia'yio'he
-ho______'yia'ho'he = yio'yia'yio'he
-ho_______'yia'ho'he = yio'yia'yio'he
+yio'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'ho'st = yio'yia'yio'st
+ho_'yia'ho'st = yio'yia'yio'st
+ho__'yia'ho'st = yio'yia'yio'st
+ho___'yia'ho'st = yio'yia'yio'st
+ho____'yia'ho'st = yio'yia'yio'st
+ho_____'yia'ho'st = yio'yia'yio'st
+ho______'yia'ho'st = yio'yia'yio'st
+ho_______'yia'ho'st = yio'yia'yio'st
 
-yio'yia'yia'he, ho'yia'yia'he, ho_'yia'yia'he, ho__'yia'yia'he, ho___'yia'yia'he, ho____'yia'yia'he, ho_____'yia'yia'he, ho______'yia'yia'he, ho_______'yia'yia'he
+yio'yia'yia'st, ho'yia'yia'st, ho_'yia'yia'st, ho__'yia'yia'st, ho___'yia'yia'st, ho____'yia'yia'st, ho_____'yia'yia'st, ho______'yia'yia'st, ho_______'yia'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3519,17 +3519,17 @@ yio'yia'yia'he, ho'yia'yia'he, ho_'yia'yia'he, ho__'yia'yia'he, ho___'yia'yia'he
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (a)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (o))))))
-yio'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
-ho'yia'yia'he = yio'yia'yia'he
-ho_'yia'yia'he = yio'yia'yia'he
-ho__'yia'yia'he = yio'yia'yia'he
-ho___'yia'yia'he = yio'yia'yia'he
-ho____'yia'yia'he = yio'yia'yia'he
-ho_____'yia'yia'he = yio'yia'yia'he
-ho______'yia'yia'he = yio'yia'yia'he
-ho_______'yia'yia'he = yio'yia'yia'he
+yio'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yio @source @target x)
+ho'yia'yia'st = yio'yia'yia'st
+ho_'yia'yia'st = yio'yia'yia'st
+ho__'yia'yia'st = yio'yia'yia'st
+ho___'yia'yia'st = yio'yia'yia'st
+ho____'yia'yia'st = yio'yia'yia'st
+ho_____'yia'yia'st = yio'yia'yia'st
+ho______'yia'yia'st = yio'yia'yia'st
+ho_______'yia'yia'st = yio'yia'yia'st
 
-yia'yo'yo'he
+yia'yo'yo'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -3539,9 +3539,9 @@ yia'yo'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a))))
-yia'yo'yo'he x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'yo'st x = fai (fo @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yo'ya'he
+yia'yo'ya'st
  :: forall source target t i tt ttt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -3551,9 +3551,9 @@ yia'yo'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o))))
-yia'yo'ya'he x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'ya'st x = fai (fo @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yo'yoi'he
+yia'yo'yoi'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -3564,9 +3564,9 @@ yia'yo'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii))))
-yia'yo'yoi'he x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'yoi'st x = fai (fo @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yo'yai'he, yia'yo'ha'he
+yia'yo'yai'st, yia'yo'ha'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -3577,10 +3577,10 @@ yia'yo'yai'he, yia'yo'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii))))
-yia'yo'yai'he x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yo'ha'he = yia'yo'yai'he
+yia'yo'yai'st x = fai (fo @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'ha'st = yia'yo'yai'st
 
-yia'yo'yio'he, yia'yo'ho'he
+yia'yo'yio'st, yia'yo'ho'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -3591,10 +3591,10 @@ yia'yo'yio'he, yia'yo'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)))))
-yia'yo'yio'he x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yo'ho'he = yia'yo'yio'he
+yia'yo'yio'st x = fai (fo @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'ho'st = yia'yo'yio'st
 
-yia'yo'yia'he
+yia'yo'yia'st
  :: forall source target t i tt ttt iii a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -3605,9 +3605,9 @@ yia'yo'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)))))
-yia'yo'yia'he x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yo'yia'st x = fai (fo @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'ya'yo'he
+yia'ya'yo'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
@@ -3617,9 +3617,9 @@ yia'ya'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o))))
-yia'ya'yo'he x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'yo'st x = fai (fa @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'ya'ya'he
+yia'ya'ya'st
  :: forall source target t i tt ttt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source ttt =>
@@ -3629,9 +3629,9 @@ yia'ya'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a))))
-yia'ya'ya'he x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'ya'st x = fai (fa @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'ya'yoi'he
+yia'ya'yoi'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -3642,9 +3642,9 @@ yia'ya'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii))))
-yia'ya'yoi'he x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'yoi'st x = fai (fa @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'ya'yai'he, yia'ya'ha'he
+yia'ya'yai'st, yia'ya'ha'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'II'I ttt iii) =>
@@ -3655,10 +3655,10 @@ yia'ya'yai'he, yia'ya'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii)))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii))))
-yia'ya'yai'he x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ya'ha'he = yia'ya'yai'he
+yia'ya'yai'st x = fai (fa @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'ha'st = yia'ya'yai'st
 
-yia'ya'yio'he, yia'ya'ho'he
+yia'ya'yio'st, yia'ya'ho'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -3669,10 +3669,10 @@ yia'ya'yio'he, yia'ya'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)))))
-yia'ya'yio'he x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ya'ho'he = yia'ya'yio'he
+yia'ya'yio'st x = fai (fa @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'ho'st = yia'ya'yio'st
 
-yia'ya'yia'he
+yia'ya'yia'st
  :: forall source target t i tt ttt iii a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Endo Semi Functor source (T'I'II ttt iii) =>
@@ -3683,9 +3683,9 @@ yia'ya'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o))))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)))))
-yia'ya'yia'he x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ya'yia'st x = fai (fa @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yoi'yo'he
+yia'yoi'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3696,9 +3696,9 @@ yia'yoi'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a) ii)))
-yia'yoi'yo'he x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'yo'st x = fai (foi @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yoi'ya'he
+yia'yoi'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3709,9 +3709,9 @@ yia'yoi'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o) ii)))
-yia'yoi'ya'he x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'ya'st x = fai (foi @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yoi'yoi'he
+yia'yoi'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3723,9 +3723,9 @@ yia'yoi'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii) ii)))
-yia'yoi'yoi'he x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'yoi'st x = fai (foi @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yoi'yai'he, yia'yoi'ha'he
+yia'yoi'yai'st, yia'yoi'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3737,10 +3737,10 @@ yia'yoi'yai'he, yia'yoi'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii) ii)))
-yia'yoi'yai'he x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yoi'ha'he = yia'yoi'yai'he
+yia'yoi'yai'st x = fai (foi @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'ha'st = yia'yoi'yai'st
 
-yia'yoi'yio'he, yia'yoi'ho'he
+yia'yoi'yio'st, yia'yoi'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3752,10 +3752,10 @@ yia'yoi'yio'he, yia'yoi'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)) ii)))
-yia'yoi'yio'he x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yoi'ho'he = yia'yoi'yio'he
+yia'yoi'yio'st x = fai (foi @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'ho'st = yia'yoi'yio'st
 
-yia'yoi'yia'he
+yia'yoi'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3767,9 +3767,9 @@ yia'yoi'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)) ii)))
-yia'yoi'yia'he x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yoi'yia'st x = fai (foi @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yai'yo'he, yia'ha'yo'he
+yia'yai'yo'st, yia'ha'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3780,10 +3780,10 @@ yia'yai'yo'he, yia'ha'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o) ii)))
-yia'yai'yo'he x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'yo'he = yia'yai'yo'he
+yia'yai'yo'st x = fai (fai @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'yo'st = yia'yai'yo'st
 
-yia'yai'ya'he, yia'ha'ya'he
+yia'yai'ya'st, yia'ha'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3794,10 +3794,10 @@ yia'yai'ya'he, yia'ha'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a) ii)))
-yia'yai'ya'he x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'ya'he = yia'yai'ya'he
+yia'yai'ya'st x = fai (fai @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'ya'st = yia'yai'ya'st
 
-yia'yai'yoi'he, yia'ha'yoi'he
+yia'yai'yoi'st, yia'ha'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3809,10 +3809,10 @@ yia'yai'yoi'he, yia'ha'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt a iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt o iii) ii)))
-yia'yai'yoi'he x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'yoi'he = yia'yai'yoi'he
+yia'yai'yoi'st x = fai (fai @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'yoi'st = yia'yai'yoi'st
 
-yia'yai'yai'he, yia'ha'ha'he
+yia'yai'yai'st, yia'ha'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3824,10 +3824,10 @@ yia'yai'yai'he, yia'ha'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt o iii) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt a iii) ii)))
-yia'yai'yai'he x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'ha'he = yia'yai'yai'he
+yia'yai'yai'st x = fai (fai @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'ha'st = yia'yai'yai'st
 
-yia'yai'yio'he, yia'ha'ho'he
+yia'yai'yio'st, yia'ha'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3839,10 +3839,10 @@ yia'yai'yio'he, yia'ha'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (a)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (o)) ii)))
-yia'yai'yio'he x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'ho'he = yia'yai'yio'he
+yia'yai'yio'st x = fai (fai @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'ho'st = yia'yai'yio'st
 
-yia'yai'yia'he, yia'ha'yia'he
+yia'yai'yia'st, yia'ha'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
@@ -3854,10 +3854,10 @@ yia'yai'yia'he, yia'ha'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt (ttt iii (o)) ii))) -> target (source (Supertype (a)) o) (t i ((tt (ttt iii (a)) ii)))
-yia'yai'yia'he x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ha'yia'he = yia'yai'yia'he
+yia'yai'yia'st x = fai (fai @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ha'yia'st = yia'yai'yia'st
 
-yia'yio'yo'he, yia'ho'yo'he
+yia'yio'yo'st, yia'ho'yo'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3868,10 +3868,10 @@ yia'yio'yo'he, yia'ho'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a)))))
-yia'yio'yo'he x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'yo'he = yia'yio'yo'he
+yia'yio'yo'st x = fai (fio @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'yo'st = yia'yio'yo'st
 
-yia'yio'ya'he, yia'ho'ya'he
+yia'yio'ya'st, yia'ho'ya'st
  :: forall source target t i tt ii ttt a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3882,10 +3882,10 @@ yia'yio'ya'he, yia'ho'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o)))))
-yia'yio'ya'he x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'ya'he = yia'yio'ya'he
+yia'yio'ya'st x = fai (fio @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'ya'st = yia'yio'ya'st
 
-yia'yio'yoi'he, yia'ho'yoi'he
+yia'yio'yoi'st, yia'ho'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3897,10 +3897,10 @@ yia'yio'yoi'he, yia'ho'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a iii)))))
-yia'yio'yoi'he x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'yoi'he = yia'yio'yoi'he
+yia'yio'yoi'st x = fai (fio @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'yoi'st = yia'yio'yoi'st
 
-yia'yio'yai'he, yia'ho'ha'he
+yia'yio'yai'st, yia'ho'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3912,10 +3912,10 @@ yia'yio'yai'he, yia'ho'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o iii)))))
-yia'yio'yai'he x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'ha'he = yia'yio'yai'he
+yia'yio'yai'st x = fai (fio @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'ha'st = yia'yio'yai'st
 
-yia'yio'yio'he, yia'ho'ho'he
+yia'yio'yio'st, yia'ho'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3927,10 +3927,10 @@ yia'yio'yio'he, yia'ho'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (o)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (a))))))
-yia'yio'yio'he x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'ho'he = yia'yio'yio'he
+yia'yio'yio'st x = fai (fio @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'ho'st = yia'yio'yio'st
 
-yia'yio'yia'he, yia'ho'yia'he
+yia'yio'yia'st, yia'ho'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3942,10 +3942,10 @@ yia'yio'yia'he, yia'ho'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (a)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (o))))))
-yia'yio'yia'he x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'ho'yia'he = yia'yio'yia'he
+yia'yio'yia'st x = fai (fio @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'ho'yia'st = yia'yio'yia'st
 
-yia'yia'yo'he
+yia'yia'yo'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3956,9 +3956,9 @@ yia'yia'yo'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o)))))
-yia'yia'yo'he x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'yo'st x = fai (fia @source @source @tt `compose` fo @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yia'ya'he
+yia'yia'ya'st
  :: forall source target t i tt ii ttt a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3969,9 +3969,9 @@ yia'yia'ya'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a)))))
-yia'yia'ya'he x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'ya'st x = fai (fia @source @source @tt `compose` fa @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yia'yoi'he
+yia'yia'yoi'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3983,9 +3983,9 @@ yia'yia'yoi'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt a iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt o iii)))))
-yia'yia'yoi'he x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'yoi'st x = fai (fia @source @source @tt `compose` foi @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
-yia'yia'yai'he, yia'yia'ha'he
+yia'yia'yai'st, yia'yia'ha'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -3997,10 +3997,10 @@ yia'yia'yai'he, yia'yia'ha'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt o iii))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt a iii)))))
-yia'yia'yai'he x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yia'ha'he = yia'yia'yai'he
+yia'yia'yai'st x = fai (fia @source @source @tt `compose` fai @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'ha'st = yia'yia'yai'st
 
-yia'yia'yio'he, yia'yia'ho'he
+yia'yia'yio'st, yia'yia'ho'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -4012,10 +4012,10 @@ yia'yia'yio'he, yia'yia'ho'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (a)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (o))))))
-yia'yia'yio'he x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
-yia'yia'ho'he = yia'yia'yio'he
+yia'yia'yio'st x = fai (fia @source @source @tt `compose` fio @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'ho'st = yia'yia'yio'st
 
-yia'yia'yia'he
+yia'yia'yia'st
  :: forall source target t i tt ii ttt iii a o .
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
@@ -4027,7 +4027,7 @@ yia'yia'yia'he
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source (a) =>
  (t i ((tt ii ((ttt iii (o)))))) -> target (source (Supertype (a)) o) (t i ((tt ii ((ttt iii (a))))))
-yia'yia'yia'he x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
+yia'yia'yia'st x = fai (fia @source @source @tt `compose` fia @source @source @ttt `compose` fai @source super) (yia @source @target x)
 
 yo'yo'yo'yo
  :: forall source target t tt ttt tttt a o .

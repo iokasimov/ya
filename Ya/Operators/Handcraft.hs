@@ -9,62 +9,62 @@ import Ya.Algebra.Instances ()
 import Ya.Operators.Mappings
 
 infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yukl`, `ho'yokl'yokl`, `ho'yokl'yukl`, `ho'yoikl`
- , `ho'he`
- , `ho'he'he`
- , `ho'he'he'he`
- -- , `ho'he'he'hv`
- , `ho'he'he'he'he`
+ , `ho'st`
+ , `ho'st'st`
+ , `ho'st'st'st`
+ -- , `ho'st'st'hv`
+ , `ho'st'st'st'st`
  , `ho'hd`
  , `ho'hd'hd`
  , `ho'hu`
 infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`, `ho_'yoikl`
- , `ho_'he`
- , `ho_'he'he`
- , `ho_'he'he'he`
- -- , `ho_'he'he'hv`
- , `ho_'he'he'he'he`
+ , `ho_'st`
+ , `ho_'st'st`
+ , `ho_'st'st'st`
+ -- , `ho_'st'st'hv`
+ , `ho_'st'st'st'st`
  , `ho_'hd`
 infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`, `ho__'yoikl`
- , `ho__'he`
- , `ho__'he'he`
- , `ho__'he'he'he`
- -- , `ho__'he'he'hv`
- , `ho__'he'he'he'he`
+ , `ho__'st`
+ , `ho__'st'st`
+ , `ho__'st'st'st`
+ -- , `ho__'st'st'hv`
+ , `ho__'st'st'st'st`
  , `ho__'hd`
 infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`, `ho___'yoikl`
- , `ho___'he`
- , `ho___'he'he`
- , `ho___'he'he'he`
- -- , `ho___'he'he'hv`
- , `ho___'he'he'he'he`
+ , `ho___'st`
+ , `ho___'st'st`
+ , `ho___'st'st'st`
+ -- , `ho___'st'st'hv`
+ , `ho___'st'st'st'st`
  , `ho___'hd`
 infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`, `ho____'yoikl`
- , `ho____'he`
- , `ho____'he'he`
- , `ho____'he'he'he`
- -- , `ho____'he'he'hv`
- , `ho____'he'he'he'he`
+ , `ho____'st`
+ , `ho____'st'st`
+ , `ho____'st'st'st`
+ -- , `ho____'st'st'hv`
+ , `ho____'st'st'st'st`
 infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl`, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`, `ho_____'yoikl`
- , `ho_____'he`
- , `ho_____'he'he`
- , `ho_____'he'he'he`
- -- , `ho_____'he'he'hv`
- , `ho_____'he'he'he'he`
+ , `ho_____'st`
+ , `ho_____'st'st`
+ , `ho_____'st'st'st`
+ -- , `ho_____'st'st'hv`
+ , `ho_____'st'st'st'st`
  , `ho____'hd`
-infixl 3 `ho______`, `ho______'yoo`, `ho______'he`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`, `ho______'yoikl`
+infixl 3 `ho______`, `ho______'yoo`, `ho______'st`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`, `ho______'yoikl`
 infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`, `ho_______'yoikl`
- , `ho_______'he`
- , `ho_______'he'he`
- , `ho_______'he'he'he`
- -- , `ho_______'he'he'hv`
- , `ho_______'he'he'he'he`
+ , `ho_______'st`
+ , `ho_______'st'st`
+ , `ho_______'st'st'st`
+ -- , `ho_______'st'st'hv`
+ , `ho_______'st'st'st'st`
  , `ho_____'hd`
 infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`, `ho________'yoikl`
- , `ho________'he`
- , `ho________'he'he`
- , `ho________'he'he'he`
- -- , `ho________'he'he'hv`
- , `ho________'he'he'he'he`
+ , `ho________'st`
+ , `ho________'st'st`
+ , `ho________'st'st'st`
+ -- , `ho________'st'st'hv`
+ , `ho________'st'st'st'st`
  , `ho______'hd`
  -- , `ho________'yo`
  -- , `ho________'yoi`
@@ -75,12 +75,12 @@ infixl 9 `ha`, `ha'hu`
  , `ha'kyo`
  , `ha'kyok`
  , `ha'yokl`, `ha'yukl`
- , `ha'he`
- , `he'ha`
+ , `ha'st`
+ , `st'ha`
  , `ha'hd`
  , `ha'hd'hd`
 infixl 8 `ha_`
- , `ha_'he`
+ , `ha_'st`
  , `ha_'hu`
  , `ha_'yok`
  , `ha_'yuk`
@@ -89,7 +89,7 @@ infixl 8 `ha_`
  , `ha_'yokl`
  , `ha_'yukl`
 infixl 7 `ha__`
- , `ha__'he`
+ , `ha__'st`
  , `ha__'hu`
  , `ha__'yok`
  , `ha__'yuk`
@@ -98,7 +98,7 @@ infixl 7 `ha__`
  , `ha__'yokl`
  , `ha__'yukl`
 infixl 6 `ha___`
- , `ha___'he`
+ , `ha___'st`
  , `ha___'hu`
  , `ha___'yok`
  , `ha___'yuk`
@@ -107,7 +107,7 @@ infixl 6 `ha___`
  , `ha___'yokl`
  , `ha___'yukl`
 infixl 5 `ha____`
- , `ha____'he`
+ , `ha____'st`
  , `ha____'hu`
  , `ha____'yok`
  , `ha____'yuk`
@@ -116,7 +116,7 @@ infixl 5 `ha____`
  , `ha____'yokl`
  , `ha____'yukl`
 infixl 4 `ha_____`
- , `ha_____'he`
+ , `ha_____'st`
  , `ha_____'hu`
  , `ha_____'yok`
  , `ha_____'yuk`
@@ -125,7 +125,7 @@ infixl 4 `ha_____`
  , `ha_____'yokl`
  , `ha_____'yukl`
 infixl 3 `ha______`
- , `ha______'he`
+ , `ha______'st`
  , `ha______'hu`
  , `ha______'yok`
  , `ha______'yuk`
@@ -134,7 +134,7 @@ infixl 3 `ha______`
  , `ha______'yokl`
  , `ha______'yukl`
 infixl 2 `ha_______`
- , `ha_______'he`
+ , `ha_______'st`
  , `ha_______'hu`
  , `ha_______'yok`
  , `ha_______'yuk`
@@ -143,22 +143,22 @@ infixl 2 `ha_______`
  , `ha_______'yokl`
  , `ha_______'yukl`
 infixl 1 `ha________`
- , `ha________'he`
+ , `ha________'st`
  , `ha________'hu`
  , `ha________'yok`
  , `ha________'yuk`
  , `ha________'yokl`
  , `ha________'yukl`
 
-infixl 9 `hu`, `hu'he`, `he'hu`
-infixl 8 `hu_`, `hu_'he`, `he'hu_`
-infixl 7 `hu__`, `hu__'he`, `he'hu__`
-infixl 6 `hu___`, `hu___'he`, `he'hu___`
-infixl 5 `hu____`, `hu____'he`, `he'hu____`
-infixl 4 `hu_____`, `hu_____'he`, `he'hu_____`
-infixl 3 `hu______`, `hu______'he`, `he'hu______`
-infixl 2 `hu_______`, `hu_______'he`, `he'hu_______`
-infixl 1 `hu________`, `hu________'he`, `he'hu________`
+infixl 9 `hu`, `hu'st`, `st'hu`
+infixl 8 `hu_`, `hu_'st`, `st'hu_`
+infixl 7 `hu__`, `hu__'st`, `st'hu__`
+infixl 6 `hu___`, `hu___'st`, `st'hu___`
+infixl 5 `hu____`, `hu____'st`, `st'hu____`
+infixl 4 `hu_____`, `hu_____'st`, `st'hu_____`
+infixl 3 `hu______`, `hu______'st`, `st'hu______`
+infixl 2 `hu_______`, `hu_______'st`, `st'hu_______`
+infixl 1 `hu________`, `hu________'st`, `st'hu________`
 
 infixl 9 `hd`
 infixl 8 `hd_`
@@ -180,36 +180,36 @@ infixl 3 `hj______`
 infixl 2 `hj_______`
 infixl 1 `hj________`
 
---, `he'he'ho`, `he'he'he'ho`
+--, `st'st'ho`, `st'st'st'ho`
 
-infixl 9 `he`, `he'he`, `he'he'he`, `he'he'he'he`, `he'ho`, `he'ho'he`
-infixl 8 `he_`, `he_'he`, `he_'he'he`, `he_'he'he'he`, `he_'ho`, `he_'ho'he`
-infixl 7 `he__`, `he__'he`, `he__'he'he`, `he__'he'he'he`, `he__'ho`, `he__'ho'he`
-infixl 6 `he___`, `he___'he`, `he___'he'he`, `he___'he'he'he`, `he___'ho`, `he___'ho'he`
-infixl 5 `he____`, `he____'he`, `he____'he'he`, `he____'he'he'he`, `he____'ho`, `he____'ho'he`
-infixl 4 `he_____`, `he_____'he`, `he_____'he'he`, `he_____'he'he'he`, `he_____'ho`, `he_____'ho'he`
-infixl 3 `he______`, `he______'he`, `he______'he'he`, `he______'he'he'he`, `he______'ho`, `he______'ho'he`
-infixl 2 `he_______`, `he_______'he`, `he_______'he'he`, `he_______'he'he'he`, `he_______'ho`, `he_______'ho'he`
-infixl 1 `he________`, `he________'he`, `he________'he'he`, `he________'he'he'he`, `he________'ho`, `he________'ho'he`
+infixl 9 `st`, `st'st`, `st'st'st`, `st'st'st'st`, `st'ho`, `st'ho'st`
+infixl 8 `he_`, `he_'st`, `he_'st'st`, `he_'st'st'st`, `he_'ho`, `he_'ho'st`
+infixl 7 `he__`, `he__'st`, `he__'st'st`, `he__'st'st'st`, `he__'ho`, `he__'ho'st`
+infixl 6 `he___`, `he___'st`, `he___'st'st`, `he___'st'st'st`, `he___'ho`, `he___'ho'st`
+infixl 5 `he____`, `he____'st`, `he____'st'st`, `he____'st'st'st`, `he____'ho`, `he____'ho'st`
+infixl 4 `he_____`, `he_____'st`, `he_____'st'st`, `he_____'st'st'st`, `he_____'ho`, `he_____'ho'st`
+infixl 3 `he______`, `he______'st`, `he______'st'st`, `he______'st'st'st`, `he______'ho`, `he______'ho'st`
+infixl 2 `he_______`, `he_______'st`, `he_______'st'st`, `he_______'st'st'st`, `he_______'ho`, `he_______'ho'st`
+infixl 1 `he________`, `he________'st`, `he________'st'st`, `he________'st'st'st`, `he________'ho`, `he________'ho'st`
 
-infixl 9 `hv`, `hv'he`,`hv'he'he`, `he'hv`, `he'he'hv`
-infixl 8 `hv_`, `hv_'he`,`hv_'he'he`, `he'hv_`, `he'he'hv_`
-infixl 7 `hv__`, `hv__'he`,`hv__'he'he`, `he'hv__`, `he'he'hv__`
-infixl 6 `hv___`, `hv___'he`,`hv___'he'he`, `he'hv___`, `he'he'hv___`
-infixl 5 `hv____`, `hv____'he`,`hv____'he'he`, `he'hv____`, `he'he'hv____`
-infixl 4 `hv_____`, `hv_____'he`,`hv_____'he'he`, `he'hv_____`, `he'he'hv_____`
-infixl 3 `hv______`, `hv______'he`,`hv______'he'he`, `he'hv______`, `he'he'hv______`
-infixl 2 `hv_______`, `hv_______'he`,`hv_______'he'he`, `he'hv_______`, `he'he'hv_______`
-infixl 1 `hv________`, `hv________'he`,`hv________'he'he`, `he'hv________`, `he'he'hv________`
+infixl 9 `hv`, `hv'st`,`hv'st'st`, `st'hv`, `st'st'hv`
+infixl 8 `hv_`, `hv_'st`,`hv_'st'st`, `st'hv_`, `st'st'hv_`
+infixl 7 `hv__`, `hv__'st`,`hv__'st'st`, `st'hv__`, `st'st'hv__`
+infixl 6 `hv___`, `hv___'st`,`hv___'st'st`, `st'hv___`, `st'st'hv___`
+infixl 5 `hv____`, `hv____'st`,`hv____'st'st`, `st'hv____`, `st'st'hv____`
+infixl 4 `hv_____`, `hv_____'st`,`hv_____'st'st`, `st'hv_____`, `st'st'hv_____`
+infixl 3 `hv______`, `hv______'st`,`hv______'st'st`, `st'hv______`, `st'st'hv______`
+infixl 2 `hv_______`, `hv_______'st`,`hv_______'st'st`, `st'hv_______`, `st'st'hv_______`
+infixl 1 `hv________`, `hv________'st`,`hv________'st'st`, `st'hv________`, `st'st'hv________`
 
 infixl 8 `khv`
 
-infixl 9 `hc`, `hc'he`
-infixl 8 `hc_`, `hc_'he`, `hdj`
-infixl 7 `hc__`, `hc__'he`, `hdj_`
-infixl 6 `hc___`, `hc___'he`, `hdj__`
-infixl 5 `hc____`, `hc____'he`, `hdj___`
-infixl 4 `hc_____`, `hc_____'he`, `hdj____`
+infixl 9 `hc`, `hc'st`
+infixl 8 `hc_`, `hc_'st`, `hdj`
+infixl 7 `hc__`, `hc__'st`, `hdj_`
+infixl 6 `hc___`, `hc___'st`, `hdj__`
+infixl 5 `hc____`, `hc____'st`, `hdj___`
+infixl 4 `hc_____`, `hc_____'st`, `hdj____`
 
 infixl 8 `hp`, `hp'hjd`, `hp'yp`, `hp'yp'yo'q`, `hp'ys`, `hp'ys'hs`, `hp'q`, `hjd'ys'hs`
 infixl 7 `hp_`, `hp_'yp`, `hp_'yp'yo'q`, `hp_'ys`, `hp_'ys'hs`, `hp_'q`, `hjd_'ys'hs`
@@ -318,14 +318,14 @@ infixl 7 `yoi`
 infixl 7 `yai` --, `yai'yukl`
  , `yai'ydi`, `yai'ydi'ydi`, `yai'yij`
 
-infixl 7 `yui` --, `yui'he`
+infixl 7 `yui` --, `yui'st`
 
 infixl 7 `yio`, `yio'yokl`, `yio'yukl`, `yio'yokl'yokl`, `yio'yokl'yukl`, `yio'yoikl`
  , `yio'yp`, `yio'yij`, `yio'ydi`, `yio'ydi'ydi`, `yio'yij'yij`
 
-infixl 7 `yiu`, `yiu'he`, `he'yiu`
+infixl 7 `yiu`, `yiu'st`, `st'yiu`
 
-infixl 7 `yvi`, `yvi'he`, `he'yvi`, `he'he'yvi`
+infixl 7 `yvi`, `yvi'st`, `st'yvi`, `st'st'yvi`
 
 infixl 8 `yd`, `yj`
 
@@ -498,7 +498,7 @@ hu______ = yiu
 hu_______ = yiu
 hu________ = yiu
 
-yiu'he --, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he, hu_______'he, hu________'he
+yiu'st --, hu'st, hu_'st, hu__'st, hu___'st, hu____'st, hu_____'st, hu______'st, hu_______'st, hu________'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -514,9 +514,9 @@ yiu'he --, hu'he, hu_'he, hu__'he, hu___'he, hu____'he, hu_____'he, hu______'he,
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-yiu'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+yiu'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu'he
+hu'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -532,9 +532,9 @@ hu'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu_'he
+hu_'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -550,9 +550,9 @@ hu_'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu_'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu_'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu__'he
+hu__'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -568,9 +568,9 @@ hu__'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu__'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu__'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu___'he
+hu___'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -586,9 +586,9 @@ hu___'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu___'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu___'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu____'he
+hu____'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -604,9 +604,9 @@ hu____'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu____'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu____'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu_____'he
+hu_____'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -622,9 +622,9 @@ hu_____'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu_____'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu_____'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu______'he
+hu______'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -640,9 +640,9 @@ hu______'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu______'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu______'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu_______'he
+hu_______'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -658,9 +658,9 @@ hu_______'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu_______'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu_______'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-hu________'he
+hu________'st
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -676,9 +676,9 @@ hu________'he
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  t i a -> target (Supertype (target Unit o)) (t i (Supertype o))
-hu________'he = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu________'st = fai @target (fio (super @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
 
-he'yiu, he'hu, he'hu_, he'hu__, he'hu___, he'hu____, he'hu_____, he'hu______, he'hu_______, he'hu________
+st'yiu, st'hu, st'hu_, st'hu__, st'hu___, st'hu____, st'hu_____, st'hu______, st'hu_______, st'hu________
  :: forall target t i a o .
  Terminal target =>
  Category target =>
@@ -694,17 +694,17 @@ he'yiu, he'hu, he'hu_, he'hu__, he'hu___, he'hu____, he'hu_____, he'hu______, he
  (forall e . Wrapper target (T'I'II t i e)) =>
  Wrapper target i =>
  t (Supertype i) a -> target (Supertype (target Unit o)) (t i o)
-he'yiu x = yio @target (fai @target super x) `compose` fai @target terminal `compose` wrap
+st'yiu x = yio @target (fai @target super x) `compose` fai @target terminal `compose` wrap
 
-he'hu = he'yiu
-he'hu_ = he'yiu
-he'hu__ = he'yiu
-he'hu___ = he'yiu
-he'hu____ = he'yiu
-he'hu_____ = he'yiu
-he'hu______ = he'yiu
-he'hu_______ = he'yiu
-he'hu________ = he'yiu
+st'hu = st'yiu
+st'hu_ = st'yiu
+st'hu__ = st'yiu
+st'hu___ = st'yiu
+st'hu____ = st'yiu
+st'hu_____ = st'yiu
+st'hu______ = st'yiu
+st'hu_______ = st'yiu
+st'hu________ = st'yiu
 
 yd :: forall source target t tt a o .
  Adjoint Functor target target t tt =>
@@ -1090,7 +1090,7 @@ li_____'yok = yok
 li______'yok = yok
 li_______'yok = yok
 
--- yok'he, yok_'he, yok__'he, yok___'he, yok____'he, yok_____'he, yok______'he
+-- yok'st, yok_'st, yok__'st, yok___'st, yok____'st, yok_____'st, yok______'st
 --  :: forall source target tt t l a o .
 --  Covariant Endo Transformation Functor target (T'TT'I t (tt `L` tt `T` l)) t =>
 --  Covariant Semi Functor target target tt =>
@@ -1102,16 +1102,16 @@ li_______'yok = yok
 --  Wrapper target (T'TT'I t (tt `L` tt `T` l) o) =>
 --  Elicitable T'I'II source a =>
 --  t a -> target (source (Supertype a) (tt `L` tt `T` l `T` o)) (t o)
--- yok'he x = yok @source @target x `compose` fai @source he
+-- yok'st x = yok @source @target x `compose` fai @source st
 
--- yok_'he = yok'he
--- yok__'he = yok'he
--- yok___'he = yok'he
--- yok____'he = yok'he
--- yok_____'he = yok'he
--- yok______'he = yok'he
+-- yok_'st = yok'st
+-- yok__'st = yok'st
+-- yok___'st = yok'st
+-- yok____'st = yok'st
+-- yok_____'st = yok'st
+-- yok______'st = yok'st
 
--- yok'he'he, yok_'he'he, yok__'he'he, yok___'he'he, yok____'he'he, yok_____'he'he, yok______'he'he
+-- yok'st'st, yok_'st'st, yok__'st'st, yok___'st'st, yok____'st'st, yok_____'st'st, yok______'st'st
 --  :: forall source target tt t l a o .
 --  Covariant Endo Transformation Functor target (T'TT'I t (tt `L` tt `T` l)) t =>
 --  Covariant Semi Functor target target tt =>
@@ -1124,14 +1124,14 @@ li_______'yok = yok
 --  Elicitable T'I'II source a =>
 --  Elicitable T'I'II source (Supertype a) =>
 --  t a -> target (source (Supertype (Supertype a)) (tt `L` tt `T` l `T` o)) (t o)
--- yok'he'he x = yok @source @target x `compose` fai @source he'he
+-- yok'st'st x = yok @source @target x `compose` fai @source st'st
 
--- yok_'he'he = yok'he'he
--- yok__'he'he = yok'he'he
--- yok___'he'he = yok'he'he
--- yok____'he'he = yok'he'he
--- yok_____'he'he = yok'he'he
--- yok______'he'he = yok'he'he
+-- yok_'st'st = yok'st'st
+-- yok__'st'st = yok'st'st
+-- yok___'st'st = yok'st'st
+-- yok____'st'st = yok'st'st
+-- yok_____'st'st = yok'st'st
+-- yok______'st'st = yok'st'st
 
 yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
  :: forall target tt t l a o .
@@ -1387,7 +1387,7 @@ yiok x = super @target @(T'I'II t i o)
  `compose` yo (T'I'II x)
 
 -- TODO: yok'yo
--- TODO: yok'he'yo
+-- TODO: yok'st'yo
 
 -- yok'yokl--, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok______'yokl
 --  :: forall source target t tt ttt l ll lll a o .
@@ -1530,7 +1530,7 @@ ho_______ = ho
 ho________ = ho
 yi'ho = ho
 
-ho'he, ho_'he, ho__'he, ho___'he, ho____'he, ho_____'he, ho______'he, ho_______'he, ho________'he
+ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho_______'st, ho________'st
  :: forall source target u i a o .
  Covariant Yoneda Functor source target (T'I'II u i) =>
  Contravariant Semi Functor source target (T'II'I source o) =>
@@ -1540,18 +1540,18 @@ ho'he, ho_'he, ho__'he, ho___'he, ho____'he, ho_____'he, ho______'he, ho_______'
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'I'II u e ee)) =>
  u i a -> target (source (Supertype a) o) (u i o)
-ho'he = fai @target (fai @source he) `compose` yio @source @target @u
+ho'st = fai @target (fai @source st) `compose` yio @source @target @u
 
-ho_'he = ho'he
-ho__'he = ho'he
-ho___'he = ho'he
-ho____'he = ho'he
-ho_____'he = ho'he
-ho______'he = ho'he
-ho_______'he = ho'he
-ho________'he = ho'he
+ho_'st = ho'st
+ho__'st = ho'st
+ho___'st = ho'st
+ho____'st = ho'st
+ho_____'st = ho'st
+ho______'st = ho'st
+ho_______'st = ho'st
+ho________'st = ho'st
 
-ho'he'he, ho_'he'he, ho__'he'he, ho___'he'he, ho____'he'he, ho_____'he'he, ho______'he'he, ho_______'he'he, ho________'he'he
+ho'st'st, ho_'st'st, ho__'st'st, ho___'st'st, ho____'st'st, ho_____'st'st, ho______'st'st, ho_______'st'st, ho________'st'st
  :: forall source target u i a o .
  Covariant Yoneda Functor source target (T'I'II u i) =>
  Contravariant Semi Functor source target (T'II'I source o) =>
@@ -1564,18 +1564,18 @@ ho'he'he, ho_'he'he, ho__'he'he, ho___'he'he, ho____'he'he, ho_____'he'he, ho___
  Wrapper target (T'II'I source o (Supertype a)) =>
  Wrapper target (T'II'I source o (Supertype (Supertype a))) =>
  u i a -> target (source (Supertype (Supertype a)) o) (u i o)
-ho'he'he = fai @target (fai @source (he `compose` he)) `compose` yio @source @target @u
+ho'st'st = fai @target (fai @source (st `compose` st)) `compose` yio @source @target @u
 
-ho_'he'he = ho'he'he
-ho__'he'he = ho'he'he
-ho___'he'he = ho'he'he
-ho____'he'he = ho'he'he
-ho_____'he'he = ho'he'he
-ho______'he'he = ho'he'he
-ho_______'he'he = ho'he'he
-ho________'he'he = ho'he'he
+ho_'st'st = ho'st'st
+ho__'st'st = ho'st'st
+ho___'st'st = ho'st'st
+ho____'st'st = ho'st'st
+ho_____'st'st = ho'st'st
+ho______'st'st = ho'st'st
+ho_______'st'st = ho'st'st
+ho________'st'st = ho'st'st
 
--- ho'he'he'hv, ho_'he'he'hv, ho__'he'he'hv, ho___'he'he'hv, ho____'he'he'hv, ho_____'he'he'hv, ho______'he'he'hv, ho_______'he'he'hv, ho________'he'he'hv
+-- ho'st'st'hv, ho_'st'st'hv, ho__'st'st'hv, ho___'st'st'hv, ho____'st'st'hv, ho_____'st'st'hv, ho______'st'st'hv, ho_______'st'st'hv, ho________'st'st'hv
 --  :: forall u e i a o .
 --  Covariant Yoneda Functor (AR) (AR) I =>
 --  Covariant Yoneda Functor (AR) (AR) (T'I'II u i) =>
@@ -1590,18 +1590,18 @@ ho________'he'he = ho'he'he
 --  Wrapper (AR) (T'II'I (AR) o (Supertype (Supertype a))) =>
 --  (Supertype (Supertype a) ~ (AR) e o) =>
 --  u i a -> e -> (u i o)
--- ho'he'he'hv = fai @(AR) (fai @(AR) (he `compose` he) `compose` yv) `compose` yio @(AR) @(AR) @u
+-- ho'st'st'hv = fai @(AR) (fai @(AR) (st `compose` st) `compose` yv) `compose` yio @(AR) @(AR) @u
 
--- ho_'he'he'hv = ho'he'he'hv
--- ho__'he'he'hv = ho'he'he'hv
--- ho___'he'he'hv = ho'he'he'hv
--- ho____'he'he'hv = ho'he'he'hv
--- ho_____'he'he'hv = ho'he'he'hv
--- ho______'he'he'hv = ho'he'he'hv
--- ho_______'he'he'hv = ho'he'he'hv
--- ho________'he'he'hv = ho'he'he'hv
+-- ho_'st'st'hv = ho'st'st'hv
+-- ho__'st'st'hv = ho'st'st'hv
+-- ho___'st'st'hv = ho'st'st'hv
+-- ho____'st'st'hv = ho'st'st'hv
+-- ho_____'st'st'hv = ho'st'st'hv
+-- ho______'st'st'hv = ho'st'st'hv
+-- ho_______'st'st'hv = ho'st'st'hv
+-- ho________'st'st'hv = ho'st'st'hv
 
-ho'he'he'he, ho_'he'he'he, ho__'he'he'he, ho___'he'he'he, ho____'he'he'he, ho_____'he'he'he, ho______'he'he'he, ho_______'he'he'he, ho________'he'he'he
+ho'st'st'st, ho_'st'st'st, ho__'st'st'st, ho___'st'st'st, ho____'st'st'st, ho_____'st'st'st, ho______'st'st'st, ho_______'st'st'st, ho________'st'st'st
  :: forall source target u i a o .
  Precategory source =>
  Precategory target =>
@@ -1618,18 +1618,18 @@ ho'he'he'he, ho_'he'he'he, ho__'he'he'he, ho___'he'he'he, ho____'he'he'he, ho___
  Wrapper target (T'II'I source o (Supertype (Supertype a))) =>
  Wrapper target (T'II'I source o (Supertype (Supertype (Supertype a)))) =>
  u i a -> target (source (Supertype (Supertype (Supertype a))) o) (u i o)
-ho'he'he'he x = yio @source @target @u x `compose` fai @source he `compose` fai @source he `compose` fai @source he
+ho'st'st'st x = yio @source @target @u x `compose` fai @source st `compose` fai @source st `compose` fai @source st
 
-ho_'he'he'he = ho'he'he'he
-ho__'he'he'he = ho'he'he'he
-ho___'he'he'he = ho'he'he'he
-ho____'he'he'he = ho'he'he'he
-ho_____'he'he'he = ho'he'he'he
-ho______'he'he'he = ho'he'he'he
-ho_______'he'he'he = ho'he'he'he
-ho________'he'he'he = ho'he'he'he
+ho_'st'st'st = ho'st'st'st
+ho__'st'st'st = ho'st'st'st
+ho___'st'st'st = ho'st'st'st
+ho____'st'st'st = ho'st'st'st
+ho_____'st'st'st = ho'st'st'st
+ho______'st'st'st = ho'st'st'st
+ho_______'st'st'st = ho'st'st'st
+ho________'st'st'st = ho'st'st'st
 
-ho'he'he'he'he, ho_'he'he'he'he, ho__'he'he'he'he, ho___'he'he'he'he, ho____'he'he'he'he, ho_____'he'he'he'he, ho______'he'he'he'he, ho_______'he'he'he'he, ho________'he'he'he'he
+ho'st'st'st'st, ho_'st'st'st'st, ho__'st'st'st'st, ho___'st'st'st'st, ho____'st'st'st'st, ho_____'st'st'st'st, ho______'st'st'st'st, ho_______'st'st'st'st, ho________'st'st'st'st
  :: forall source target u i a o .
  Precategory source =>
  Precategory target =>
@@ -1648,16 +1648,16 @@ ho'he'he'he'he, ho_'he'he'he'he, ho__'he'he'he'he, ho___'he'he'he'he, ho____'he'
  Wrapper target (T'II'I source o (Supertype (Supertype (Supertype a)))) =>
  Wrapper target (T'II'I source o (Supertype (Supertype (Supertype (Supertype a))))) =>
  u i a -> target (source (Supertype (Supertype (Supertype (Supertype a)))) o) (u i o)
-ho'he'he'he'he x = yio @source @target @u x `compose` fai @source he `compose` fai @source he `compose` fai @source he `compose` fai @source he
+ho'st'st'st'st x = yio @source @target @u x `compose` fai @source st `compose` fai @source st `compose` fai @source st `compose` fai @source st
 
-ho_'he'he'he'he = ho'he'he'he'he
-ho__'he'he'he'he = ho'he'he'he'he
-ho___'he'he'he'he = ho'he'he'he'he
-ho____'he'he'he'he = ho'he'he'he'he
-ho_____'he'he'he'he = ho'he'he'he'he
-ho______'he'he'he'he = ho'he'he'he'he
-ho_______'he'he'he'he = ho'he'he'he'he
-ho________'he'he'he'he = ho'he'he'he'he
+ho_'st'st'st'st = ho'st'st'st'st
+ho__'st'st'st'st = ho'st'st'st'st
+ho___'st'st'st'st = ho'st'st'st'st
+ho____'st'st'st'st = ho'st'st'st'st
+ho_____'st'st'st'st = ho'st'st'st'st
+ho______'st'st'st'st = ho'st'st'st'st
+ho_______'st'st'st'st = ho'st'st'st'st
+ho________'st'st'st'st = ho'st'st'st'st
 
 yio'yio'yui, yio'ho'yui, ho'yio'yui, ho'ho'yui
  :: forall source u uu uuu o i ii iii a .
@@ -1729,7 +1729,7 @@ ho'hu = fai (fiu @source) `compose` ho @t
 -- ho_______'ha = ho'ha
 -- ho________'ha = ho'ha
 
--- ho'ha'he'he, ho_'ha'he'he, ho__'ha'he'he, ho___'ha'he'he, ho____'ha'he'he, ho_____'ha'he'he, ho______'ha'he'he, ho_______'ha'he'he, ho________'ha'he'he
+-- ho'ha'st'st, ho_'ha'st'st, ho__'ha'st'st, ho___'ha'st'st, ho____'ha'st'st, ho_____'ha'st'st, ho______'ha'st'st, ho_______'ha'st'st, ho________'ha'st'st
 --  :: forall source u uu o i ii a .
 --  Covariant Yoneda Functor u (AR) (T'I'II u i) =>
 --  Contravariant Semi Functor source u (T'II'I uu ii) =>
@@ -1737,16 +1737,16 @@ ho'hu = fai (fiu @source) `compose` ho @t
 --  Wrapper source a =>
 --  Wrapper source (Supertype a) =>
 --  u i (uu o ii) -> source (Supertype (Supertype a)) o -> u i (uu a ii)
--- ho'ha'he'he x = fai (fai `compose` fai @source he'he) (ho @u x)
+-- ho'ha'st'st x = fai (fai `compose` fai @source st'st) (ho @u x)
 
--- ho_'ha'he'he = ho'ha'he'he
--- ho__'ha'he'he = ho'ha'he'he
--- ho___'ha'he'he = ho'ha'he'he
--- ho____'ha'he'he = ho'ha'he'he
--- ho_____'ha'he'he = ho'ha'he'he
--- ho______'ha'he'he = ho'ha'he'he
--- ho_______'ha'he'he = ho'ha'he'he
--- ho________'ha'he'he = ho'ha'he'he
+-- ho_'ha'st'st = ho'ha'st'st
+-- ho__'ha'st'st = ho'ha'st'st
+-- ho___'ha'st'st = ho'ha'st'st
+-- ho____'ha'st'st = ho'ha'st'st
+-- ho_____'ha'st'st = ho'ha'st'st
+-- ho______'ha'st'st = ho'ha'st'st
+-- ho_______'ha'st'st = ho'ha'st'st
+-- ho________'ha'st'st = ho'ha'st'st
 
 -- ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo, ho______'yo, ho_______'yo, ho________'yo
 --  :: forall source u t o e a .
@@ -1850,7 +1850,7 @@ ho'yioi :: forall source u t o i ii iii a .
  u i (t ii a iii) -> source a o -> u i (t ii o iii)
 ho'yioi x = fai (fioi @source) (ho @source x)
 
-he'ho, he_'ho, he__'ho, he___'ho, he____'ho, he_____'ho, he______'ho, he_______'ho, he________'ho
+st'ho, he_'ho, he__'ho, he___'ho, he____'ho, he_____'ho, he______'ho, he_______'ho, he________'ho
  :: forall source target u i a o .
  Covariant Yoneda Functor source target (T'I'II u (Supertype i)) =>
  Contravariant Semi Functor target target (T'II'I u o) =>
@@ -1859,19 +1859,19 @@ he'ho, he_'ho, he__'ho, he___'ho, he____'ho, he_____'ho, he______'ho, he_______'
  (forall e ee . Wrapper target (T'I'II u e ee)) =>
  (forall e ee . Wrapper target (T'II'I u e ee)) =>
  u (Supertype i) a -> target (source a o) (u i o)
-he'ho x = fai @target he
+st'ho x = fai @target st
  `compose` yio @source @target @u x
 
-he_'ho= he'ho
-he__'ho= he'ho
-he___'ho= he'ho
-he____'ho= he'ho
-he_____'ho= he'ho
-he______'ho= he'ho
-he_______'ho= he'ho
-he________'ho= he'ho
+he_'ho= st'ho
+he__'ho= st'ho
+he___'ho= st'ho
+he____'ho= st'ho
+he_____'ho= st'ho
+he______'ho= st'ho
+he_______'ho= st'ho
+he________'ho= st'ho
 
-he'ho'he, he_'ho'he, he__'ho'he, he___'ho'he, he____'ho'he, he_____'ho'he, he______'ho'he, he_______'ho'he, he________'ho'he
+st'ho'st, he_'ho'st, he__'ho'st, he___'ho'st, he____'ho'st, he_____'ho'st, he______'ho'st, he_______'ho'st, he________'ho'st
  :: forall source target u i a o .
  Covariant Yoneda Functor source target (T'I'II u (Supertype i)) =>
  Contravariant Semi Functor source target (T'II'I u o) =>
@@ -1885,20 +1885,20 @@ he'ho'he, he_'ho'he, he__'ho'he, he___'ho'he, he____'ho'he, he_____'ho'he, he___
  Wrapper target (T'II'I u o (Supertype i)) =>
  Wrapper target (T'II'I source o (Supertype a)) =>
  u (Supertype i) a -> target (source (Supertype a) o) (u i o)
-he'ho'he x = fai @source @target he
+st'ho'st x = fai @source @target st
  `compose` yio @source @target @u x
- `compose` fai @source @target he
+ `compose` fai @source @target st
 
-he_'ho'he = he'ho'he
-he__'ho'he = he'ho'he
-he___'ho'he = he'ho'he
-he____'ho'he = he'ho'he
-he_____'ho'he = he'ho'he
-he______'ho'he = he'ho'he
-he_______'ho'he = he'ho'he
-he________'ho'he = he'ho'he
+he_'ho'st = st'ho'st
+he__'ho'st = st'ho'st
+he___'ho'st = st'ho'st
+he____'ho'st = st'ho'st
+he_____'ho'st = st'ho'st
+he______'ho'st = st'ho'st
+he_______'ho'st = st'ho'st
+he________'ho'st = st'ho'st
 
--- he'hu
+-- st'hu
  -- :: forall source target u i a o .
  -- Precategory source =>
  -- Category target =>
@@ -1913,9 +1913,9 @@ he________'ho'he = he'ho'he
  -- Wrapper target (T'I'II u i o) =>
  -- Wrapper target (T'I'II source a o) =>
  -- u (Supertype i) a -> target (Supertype (target () o)) (u i o)
--- he'hu = yiu @target @u `compose` he @source
+-- st'hu = yiu @target @u `compose` st @source
 
--- he'he'ho
+-- st'st'ho
  -- :: forall source target u i a o .
  -- Precategory source =>
  -- Precategory target =>
@@ -1929,9 +1929,9 @@ he________'ho'he = he'ho'he
  -- Wrapper target (T'II'I source o a) =>
  -- Wrapper target (T'II'I source o (Supertype a)) =>
  -- u (Supertype (Supertype i)) a -> target (source a o) (u i o)
--- -- he'he'ho = yio @source @target @u `compose` fai @source he'he
+-- -- st'st'ho = yio @source @target @u `compose` fai @source st'st
 
--- he'he'he'ho
+-- st'st'st'ho
  -- :: forall source target u i a o .
  -- Precategory source =>
  -- Precategory target =>
@@ -1946,7 +1946,7 @@ he________'ho'he = he'ho'he
  -- Wrapper target (T'II'I source o a) =>
  -- -- Wrapper target (T'II'I source o (Supertype a)) =>
  -- u (Supertype (Supertype (Supertype i))) a -> target (source a o) (u i o)
--- he'he'he'ho = yio @source @target @u `compose` fai @source he'he'he
+-- st'st'st'ho = yio @source @target @u `compose` fai @source st'st'st
 
 -- ha, ha_, ha__, ha___, ha____, ha_____, ha______, ha_______, ha________ :: forall source target t i a o .
  -- Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -1962,25 +1962,25 @@ he________'ho'he = he'ho'he
 -- ha_______ = ha
 -- ha________ = ha
 
-ha'he, ha_'he, ha__'he, ha___'he, ha____'he, ha_____'he, ha______'he, ha_______'he, ha________'he
+ha'st, ha_'st, ha__'st, ha___'st, ha____'st, ha_____'st, ha______'st, ha_______'st, ha________'st
  :: forall source target t i a o .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e . Wrapper target (T'II'I t i e)) =>
  (forall e . Wrapper target (T'II'I source a e)) =>
  Wrapper source o =>
  t a i -> target (source (Supertype o) a) (t o i)
-ha'he x = fai @source @target super `compose` yai @source @target @t x
+ha'st x = fai @source @target super `compose` yai @source @target @t x
 
-ha_'he = ha'he
-ha__'he = ha'he
-ha___'he = ha'he
-ha____'he = ha'he
-ha_____'he = ha'he
-ha______'he = ha'he
-ha_______'he = ha'he
-ha________'he = ha'he
+ha_'st = ha'st
+ha__'st = ha'st
+ha___'st = ha'st
+ha____'st = ha'st
+ha_____'st = ha'st
+ha______'st = ha'st
+ha_______'st = ha'st
+ha________'st = ha'st
 
-ha'he'he, ha_'he'he, ha__'he'he, ha___'he'he, ha____'he'he, ha_____'he'he, ha______'he'he, ha_______'he'he, ha________'he'he
+ha'st'st, ha_'st'st, ha__'st'st, ha___'st'st, ha____'st'st, ha_____'st'st, ha______'st'st, ha_______'st'st, ha________'st'st
  :: forall source target u e a o .
  Contravariant Yoneda Functor source target (T'II'I u e) =>
  Contravariant Semi Functor source target (T'II'I source a) =>
@@ -1991,18 +1991,18 @@ ha'he'he, ha_'he'he, ha__'he'he, ha___'he'he, ha____'he'he, ha_____'he'he, ha___
  -- Wrapper target (T'II'I source a (Supertype (Supertype o))) =>
  Wrapper source (Supertype o) =>
  u a e -> target (source (Supertype (Supertype o)) a) (u o e)
-ha'he'he = fai @target (fai @source (he `compose` he)) `compose` yai @source @target @u
+ha'st'st = fai @target (fai @source (st `compose` st)) `compose` yai @source @target @u
 
-ha_'he'he = ha'he'he
-ha__'he'he = ha'he'he
-ha___'he'he = ha'he'he
-ha____'he'he = ha'he'he
-ha_____'he'he = ha'he'he
-ha______'he'he = ha'he'he
-ha_______'he'he = ha'he'he
-ha________'he'he = ha'he'he
+ha_'st'st = ha'st'st
+ha__'st'st = ha'st'st
+ha___'st'st = ha'st'st
+ha____'st'st = ha'st'st
+ha_____'st'st = ha'st'st
+ha______'st'st = ha'st'st
+ha_______'st'st = ha'st'st
+ha________'st'st = ha'st'st
 
-he'ha :: forall source target t i a o .
+st'ha :: forall source target t i a o .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  Contravariant Semi Functor target (AR) (T'II'I t i) =>
  Wrapper target a =>
@@ -2010,7 +2010,7 @@ he'ha :: forall source target t i a o .
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  t (Supertype a) i -> target (source o a) (t o i)
-he'ha = yai @source @target @t `compose` fai @target super
+st'ha = yai @source @target @t `compose` fai @target super
 
 yvi, hv, hv_, hv__, hv___, hv____, hv_____, hv______, hv_______, hv________
  :: forall target a o .
@@ -2029,63 +2029,63 @@ hv______ = yvi
 hv_______ = yvi
 hv________ = yvi
 
-yvi'he, hv'he, hv_'he, hv__'he, hv___'he, hv____'he, hv_____'he, hv______'he, hv_______'he, hv________'he
+yvi'st, hv'st, hv_'st, hv__'st, hv___'st, hv____'st, hv_____'st, hv______'st, hv_______'st, hv________'st
  :: forall target a o .
  Category target =>
  Terminal target =>
  Wrapper target a =>
  target (Supertype a) o -> target a o
-yvi'he = fai @target super
+yvi'st = fai @target super
 
-hv'he = yvi'he
-hv_'he = yvi'he
-hv__'he = yvi'he
-hv___'he = yvi'he
-hv____'he = yvi'he
-hv_____'he = yvi'he
-hv______'he = yvi'he
-hv_______'he = yvi'he
-hv________'he = yvi'he
+hv'st = yvi'st
+hv_'st = yvi'st
+hv__'st = yvi'st
+hv___'st = yvi'st
+hv____'st = yvi'st
+hv_____'st = yvi'st
+hv______'st = yvi'st
+hv_______'st = yvi'st
+hv________'st = yvi'st
 
-yvi'he'he, hv'he'he, hv_'he'he, hv__'he'he, hv___'he'he, hv____'he'he, hv_____'he'he, hv______'he'he, hv_______'he'he, hv________'he'he
+yvi'st'st, hv'st'st, hv_'st'st, hv__'st'st, hv___'st'st, hv____'st'st, hv_____'st'st, hv______'st'st, hv_______'st'st, hv________'st'st
  :: forall target a o .
  Category target =>
  Terminal target =>
  Wrapper target a =>
  Wrapper target (Supertype a) =>
  target (Supertype (Supertype a)) o -> target a o
-yvi'he'he = fai @target (super `compose` super)
+yvi'st'st = fai @target (super `compose` super)
 
-hv'he'he = yvi'he'he
-hv_'he'he = yvi'he'he
-hv__'he'he = yvi'he'he
-hv___'he'he = yvi'he'he
-hv____'he'he = yvi'he'he
-hv_____'he'he = yvi'he'he
-hv______'he'he = yvi'he'he
-hv_______'he'he = yvi'he'he
-hv________'he'he = yvi'he'he
+hv'st'st = yvi'st'st
+hv_'st'st = yvi'st'st
+hv__'st'st = yvi'st'st
+hv___'st'st = yvi'st'st
+hv____'st'st = yvi'st'st
+hv_____'st'st = yvi'st'st
+hv______'st'st = yvi'st'st
+hv_______'st'st = yvi'st'st
+hv________'st'st = yvi'st'st
 
-he'yvi, he'hv, he'hv_, he'hv__, he'hv___, he'hv____, he'hv_____, he'hv______, he'hv_______, he'hv________
+st'yvi, st'hv, st'hv_, st'hv__, st'hv___, st'hv____, st'hv_____, st'hv______, st'hv_______, st'hv________
  :: forall target a o e .
  Category target =>
  Terminal target =>
  Wrapper (AR) e =>
  (Supertype e ~ target a o) =>
  e -> Supertype e
-he'yvi = hv `compose` super
+st'yvi = hv `compose` super
 
-he'hv = hv `compose` super
-he'hv_ = hv `compose` super
-he'hv__ = hv `compose` super
-he'hv___ = hv `compose` super
-he'hv____ = hv `compose` super
-he'hv_____ = hv `compose` super
-he'hv______ = hv `compose` super
-he'hv_______ = hv `compose` super
-he'hv________ = hv `compose` super
+st'hv = hv `compose` super
+st'hv_ = hv `compose` super
+st'hv__ = hv `compose` super
+st'hv___ = hv `compose` super
+st'hv____ = hv `compose` super
+st'hv_____ = hv `compose` super
+st'hv______ = hv `compose` super
+st'hv_______ = hv `compose` super
+st'hv________ = hv `compose` super
 
-he'he'yvi, he'he'hv, he'he'hv_, he'he'hv__, he'he'hv___, he'he'hv____, he'he'hv_____, he'he'hv______, he'he'hv_______, he'he'hv________
+st'st'yvi, st'st'hv, st'st'hv_, st'st'hv__, st'st'hv___, st'st'hv____, st'st'hv_____, st'st'hv______, st'st'hv_______, st'st'hv________
  :: forall target a o e .
  Category target =>
  Terminal target =>
@@ -2093,17 +2093,17 @@ he'he'yvi, he'he'hv, he'he'hv_, he'he'hv__, he'he'hv___, he'he'hv____, he'he'hv_
  Wrapper (AR) (Supertype e) =>
  (Supertype (Supertype e) ~ target a o) =>
  e -> target a o
-he'he'yvi = hv `compose` super `compose` super
+st'st'yvi = hv `compose` super `compose` super
 
-he'he'hv = hv `compose` super `compose` super
-he'he'hv_ = hv `compose` super `compose` super
-he'he'hv__ = hv `compose` super `compose` super
-he'he'hv___ = hv `compose` super `compose` super
-he'he'hv____ = hv `compose` super `compose` super
-he'he'hv_____ = hv `compose` super `compose` super
-he'he'hv______ = hv `compose` super `compose` super
-he'he'hv_______ = hv `compose` super `compose` super
-he'he'hv________ = hv `compose` super `compose` super
+st'st'hv = hv `compose` super `compose` super
+st'st'hv_ = hv `compose` super `compose` super
+st'st'hv__ = hv `compose` super `compose` super
+st'st'hv___ = hv `compose` super `compose` super
+st'st'hv____ = hv `compose` super `compose` super
+st'st'hv_____ = hv `compose` super `compose` super
+st'st'hv______ = hv `compose` super `compose` super
+st'st'hv_______ = hv `compose` super `compose` super
+st'st'hv________ = hv `compose` super `compose` super
 
 kyvi, khv :: forall target t a o .
  Category target =>
@@ -2115,12 +2115,12 @@ kyvi f = f `compose` super `compose` super `compose` component @target @t @(T'I'
 
 khv = kyvi
 
--- he'ho: u (Supertype i) a -> target (source a o) (u i o)
--- ho'he: u i a -> target (source (Supertype a) o) (u i o)
+-- st'ho: u (Supertype i) a -> target (source a o) (u i o)
+-- ho'st: u i a -> target (source (Supertype a) o) (u i o)
 
--- he'ho: u (Supertype i) a -> target (source a o) (u i o)
--- ho'he: u i a -> target (source (Supertype a) o) (u i o)
--- ha'he: u a i -> target (source (Supertype o) a) (u o i)
+-- st'ho: u (Supertype i) a -> target (source a o) (u i o)
+-- ho'st: u i a -> target (source (Supertype a) o) (u i o)
+-- ha'st: u a i -> target (source (Supertype o) a) (u o i)
 
 -- ha_ha :: forall source u uu a o e ee .
 --  Contravariant Yoneda Functor u (AR) (T'II'I u e) =>
@@ -2168,7 +2168,7 @@ khv = kyvi
  -- u (uu ee o) e -> u Unit o -> u (uu ee a) e
 -- ha'hu x = fai @(AR) @(AR) fiu (ha @u x)
 
--- ha'he'hu :: forall source u uu o e ee a .
+-- ha'st'hu :: forall source u uu o e ee a .
  -- Covariant Semi Functor u u (T'I'II uu ee) =>
  -- Constant Semi Functor u u (T'I'II uu ee) (T'I'II uu ee) =>
  -- Contravariant Yoneda Functor u (AR) (T'II'I u e) =>
@@ -2176,7 +2176,7 @@ khv = kyvi
  -- Wrapper u (T'I'II uu ee o) =>
  -- Elicitable T'II'I (AR) (u () o) =>
  -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
--- ha'he'hu x = fai @(AR) @(AR) fiu (ha'he @u x)
+-- ha'st'hu x = fai @(AR) @(AR) fiu (ha'st @u x)
 
 ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'hu, ha________'hu
  :: forall u uu o i ii a .
@@ -2225,14 +2225,14 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  Wrapper source (T'I'II source a o) =>
 --  Wrapper source (T'I'II source a (Supertype o)) =>
 --  u e a -> source a o -> u e (Supertype o)
--- ho_yi x = fai @source (fio @source he) (ho x)
+-- ho_yi x = fai @source (fio @source st) (ho x)
 
 -- -- TODO: rephsce with `ho_ho`
 -- ho_yi'ho :: forall source u e a o .
 --  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
 --  Elicitable T'I'II source a =>
 --  u e a -> source (Supertype a) o -> u e o
--- ho_yi'ho x xx = x `ho` he @source `ho` xx
+-- ho_yi'ho x xx = x `ho` st @source `ho` xx
 
 -- hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
  -- forall target t i a o .
@@ -2404,92 +2404,92 @@ hjd________'s = hjd's
 -- hj'hj = hj @source @source `compose` hj @source @target
 
 -- TODO: it shouldn't exist by itself
-he, he_, he__, he___, he____, he_____, he______, he_______, he________ :: forall target e .
+st, he_, he__, he___, he____, he_____, he______, he_______, he________ :: forall target e .
  Elicitable T'I'II target e =>
  target e (Supertype e)
-he = super
+st = super
 
-he_ = he
-he__ = he
-he___ = he
-he____ = he
-he_____ = he
-he______ = he
-he_______ = he
-he________ = he
+he_ = st
+he__ = st
+he___ = st
+he____ = st
+he_____ = st
+he______ = st
+he_______ = st
+he________ = st
 
-he'he, he_'he, he__'he, he___'he, he____'he, he_____'he, he______'he, he_______'he, he________'he
+st'st, he_'st, he__'st, he___'st, he____'st, he_____'st, he______'st, he_______'st, he________'st
  :: forall target e .
  Precategory target =>
  Elicitable T'I'II target e =>
  Elicitable T'I'II target (Supertype e) =>
  target e (Supertype (Supertype e))
-he'he = super `compose` super
+st'st = super `compose` super
 
-he_'he = he'he
-he__'he = he'he
-he___'he = he'he
-he____'he = he'he
-he_____'he = he'he
-he______'he = he'he
-he_______'he = he'he
-he________'he = he'he
+he_'st = st'st
+he__'st = st'st
+he___'st = st'st
+he____'st = st'st
+he_____'st = st'st
+he______'st = st'st
+he_______'st = st'st
+he________'st = st'st
 
 -- TODO: remove
-he'he'he, he_'he'he, he__'he'he, he___'he'he, he____'he'he, he_____'he'he, he______'he'he, he_______'he'he, he________'he'he :: forall target e .
+st'st'st, he_'st'st, he__'st'st, he___'st'st, he____'st'st, he_____'st'st, he______'st'st, he_______'st'st, he________'st'st :: forall target e .
  Precategory target =>
  Elicitable T'I'II target e =>
  Elicitable T'I'II target (Supertype e) =>
  Elicitable T'I'II target (Supertype (Supertype e)) =>
  target e (Supertype (Supertype (Supertype e)))
-he'he'he = super `compose` super `compose` super
+st'st'st = super `compose` super `compose` super
 
-he_'he'he = he'he'he
-he__'he'he = he'he'he
-he___'he'he = he'he'he
-he____'he'he = he'he'he
-he_____'he'he = he'he'he
-he______'he'he = he'he'he
-he_______'he'he = he'he'he
-he________'he'he = he'he'he
+he_'st'st = st'st'st
+he__'st'st = st'st'st
+he___'st'st = st'st'st
+he____'st'st = st'st'st
+he_____'st'st = st'st'st
+he______'st'st = st'st'st
+he_______'st'st = st'st'st
+he________'st'st = st'st'st
 
-he'he'he'he, he_'he'he'he, he__'he'he'he, he___'he'he'he, he____'he'he'he, he_____'he'he'he, he______'he'he'he, he_______'he'he'he, he________'he'he'he :: forall target e .
+st'st'st'st, he_'st'st'st, he__'st'st'st, he___'st'st'st, he____'st'st'st, he_____'st'st'st, he______'st'st'st, he_______'st'st'st, he________'st'st'st :: forall target e .
  Precategory target =>
  Elicitable T'I'II target e =>
  Elicitable T'I'II target (Supertype e) =>
  Elicitable T'I'II target (Supertype (Supertype e)) =>
  Elicitable T'I'II target (Supertype (Supertype (Supertype e))) =>
  target e (Supertype (Supertype (Supertype (Supertype e))))
-he'he'he'he = super `compose` super `compose` super `compose` super
+st'st'st'st = super `compose` super `compose` super `compose` super
 
-he_'he'he'he = he'he'he'he
-he__'he'he'he = he'he'he'he
-he___'he'he'he = he'he'he'he
-he____'he'he'he = he'he'he'he
-he_____'he'he'he = he'he'he'he
-he______'he'he'he = he'he'he'he
-he_______'he'he'he = he'he'he'he
-he________'he'he'he = he'he'he'he
+he_'st'st'st = st'st'st'st
+he__'st'st'st = st'st'st'st
+he___'st'st'st = st'st'st'st
+he____'st'st'st = st'st'st'st
+he_____'st'st'st = st'st'st'st
+he______'st'st'st = st'st'st'st
+he_______'st'st'st = st'st'st'st
+he________'st'st'st = st'st'st'st
 
-he'ya :: forall source target t a o e .
+st'ya :: forall source target t a o e .
  Precategory target =>
  (Supertype e ~ t a) =>
  Contravariant Yoneda Functor source target t =>
  Wrapper target (T'II'I source a o) =>
  Wrapper (AR) e =>
  e -> target (source o a) (t o)
-he'ya = ya @source @target `compose` super
+st'ya = ya @source @target `compose` super
 
-he'yo :: forall source target t a o e .
+st'yo :: forall source target t a o e .
  Precategory target =>
  (Supertype e ~ t a) =>
  Covariant Yoneda Functor source target t =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  Wrapper (AR) e =>
  e -> target (source a o) (t o)
-he'yo = yo @source @target `compose` super
+st'yo = yo @source @target `compose` super
 
-he'yu :: forall target t a o e .
+st'yu :: forall target t a o e .
  Precategory target =>
  Covariant Yoneda Functor target target t =>
  Mapping T'I'II T'I'II (AR) (AR) t t =>
@@ -2501,7 +2501,7 @@ he'yu :: forall target t a o e .
  Wrapper target (I o) =>
  Wrapper (AR) e =>
  t a -> target o (t o)
-he'yu = yu @target
+st'yu = yu @target
 
 hp, hp_, lo__, lo___, lo____, lo_____, lo______, lo_______
  :: forall target r a o oo .
@@ -2916,7 +2916,7 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
  -- Elicitable T'II'I target o =>
  -- Elicitable T'I'II target a =>
  -- target (Supertype a) (Supertype o) -> target a o
--- w'rw target = wrap @target `compose` target `compose` he @target
+-- w'rw target = wrap @target `compose` target `compose` st @target
 
 -- rw'w :: forall target a o .
  -- Precategory target =>
@@ -2951,13 +2951,13 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
 -- yv_______ = yv___
 
 -- TODO: it's wrong, we ne_d to rewrite it
--- he'he'he'ho :: forall a e o oo .
+-- st'st'st'ho :: forall a e o oo .
 --  Elicitable T'I'II (AR) a =>
 --  Elicitable T'I'II (AR) (Supertype a) =>
 --  Elicitable T'I'II (AR) (Supertype (Supertype a)) =>
 --  ((e `ARR` o) ~ Supertype (Supertype (Supertype a))) =>
 --  a `ARR` e `ARR` (o `ARR` oo) `ARR` oo
--- he'he'he'ho x e f = f (_' (_' (_' x)) e)
+-- st'st'st'ho x e f = f (_' (_' (_' x)) e)
 
 -- TODO: define `rw'o`
 -- TODO: define `rw'rw'o`
@@ -3698,7 +3698,7 @@ hc___ = hc
 hc____ = hc
 hc_____ = hc
 
-hc'he, hc_'he, hc__'he, hc___'he, hc____'he, hc_____'he :: forall target i tt o a .
+hc'st, hc_'st, hc__'st, hc___'st, hc____'st, hc_____'st :: forall target i tt o a .
  Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I tt e)) =>
  (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
@@ -3710,13 +3710,13 @@ hc'he, hc_'he, hc__'he, hc___'he, hc____'he, hc_____'he :: forall target i tt o 
  Covariant Elicitable target a =>
  (forall e . Wrapper target (T'II'I tt o e)) =>
  target i (tt a o)
-hc'he = fai @target super `compose` objective @T'I'II @target @i @(tt (Supertype a) o)
+hc'st = fai @target super `compose` objective @T'I'II @target @i @(tt (Supertype a) o)
 
-hc_'he = hc'he
-hc__'he = hc'he
-hc___'he = hc'he
-hc____'he = hc'he
-hc_____'he = hc'he
+hc_'st = hc'st
+hc__'st = hc'st
+hc___'st = hc'st
+hc____'st = hc'st
+hc_____'st = hc'st
 
 q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
  forall target e .

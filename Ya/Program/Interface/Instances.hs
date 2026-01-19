@@ -58,7 +58,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `
 
    cover (T'TT'I'TTT'I (These parent siblings)) tree =
     Unit `hjd__` that `ha` sub @Tree
-     `hc__` intro @Tree `hv'he` parent
+     `hc__` intro @Tree `hv'st` parent
      `hc__` Alone `hc` tree `hjd` super siblings
        `yv` to @List `ha` Adapt @(Nonempty List)
        `ha` to @(Nonempty List) `ha` Adapt @(Scrolling List)
@@ -132,14 +132,14 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` intro @Tree @(AR) `hc` x) scrolling_list
     `yv` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List `ho'yo` super @(AR)
-    `yv` this @(Alone _) `ho'he` Root `hc` super scrolling_list
+    `yv` this @(Alone _) `ho'st` Root `hc` super scrolling_list
     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
-    `hv__` intro @Tree `hv'he` root
+    `hv__` intro @Tree `hv'st` root
     `hv__` Alone tree `hjd` super siblings `yv` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List
     `yo__` source
 
@@ -148,7 +148,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) (List `T'TT'I` Tree) where
 --  mapping = rewrap `hc` \source (T'TT'I'TTT'I (These basement unfoldings)) ->
---   let result = to @List `ha` to @(Nonempty List) `hv'he` basement in
+--   let result = to @List `ha` to @(Nonempty List) `hv'st` basement in
 --   Empty `hu` wrap result
 --   -- `la______` (\x -> x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker `hc___` result `yv__` that `ho` wrap @(AR))
 --   `la______` proceed result
@@ -166,7 +166,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  
   -- super (super unfoldings)
   --  `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker
-  --  `hc___` wrap @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` to @List `ha` to @(Nonempty List) `hv'he` basement
+  --  `hc___` wrap @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` to @List `ha` to @(Nonempty List) `hv'st` basement
   --  `yv__` that `ho'yo` source where
 
   --  -- TODO: we haven't finished yet...
@@ -298,22 +298,22 @@ pattern Front x = Label x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = is `hc_` Empty `hu` (Empty Unit `hjd` x) `hs` is `ho'he` foi @_ @(AR) Exist `hc_` _shift_ `hc` x where
+ shift way x = is `hc_` Empty `hu` (Empty Unit `hjd` x) `hs` is `ho'st` foi @_ @(AR) Exist `hc_` _shift_ `hc` x where
 
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
    `yuk___` Apply `ha` State
-   `hv____` Event `ha` relay `hv'he` Empty
+   `hv____` Event `ha` relay `hv'st` Empty
     `ha___` Scope `hc` at @(Shafted List i)
-   `ho__'he` Scope `ha` by @Twice `ha` (Back `hs` Fore) `hc` way
+   `ho__'st` Scope `ha` by @Twice `ha` (Back `hs` Fore) `hc` way
      `ho__` Scope `hc` (as `ha` Front `ha` Stock @Alone)
    `yok___` Check
    `yok___` Apply `ha` State
    `ha____` Event `ha` relay `ha` Alone
    `ho__'ha` Scope `hc` at @(Alone i)
    `yok___` Apply `ha` State
-   `ha____` Event `ha` relay `ha'he` Exist
+   `ha____` Event `ha` relay `ha'st` Exist
    `ho__'ha` Scope `hc` at @(Shafted List i)
-    `ho_'he` Scope `ha` by `ha` (Fore `hs` Back) `hc` way
+    `ho_'st` Scope `ha` by `ha` (Fore `hs` Back) `hc` way
       `ho_` Scope `hc` (as `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha` State
@@ -321,7 +321,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
     `ha___` Scope `hc` at @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'he` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'st` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
 
   found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
@@ -335,23 +335,23 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
   `hc_` is `hu` (Empty Unit `hjd` x)
-  `hs` is `ho'he` foi @_ @(AR) Exist
+  `hs` is `ho'st` foi @_ @(AR) Exist
   `hc_` (slide_passed `lv` slide_future `hc_` way) `hc` x where
 
   slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
    `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha_` Scope `hc` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Aback
-   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` by `hv'st` Aback
+   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` by `hv'st` Ahead
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hc` at @(List _)
 
   slide_passed = intro @(Halts `JNT` State `T` Sliding List _) Unit
-   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Aback
+   `yuk____` Apply `ha` State `hv___` Event `hc` pop `ha__` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` by `hv'st` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hc` at @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'he` Scope `ha` by `hv'he` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` at @(Shafted List i) `ho_'st` Scope `ha` by `hv'st` Ahead
    `yuk____` Apply `ha` State `hv___` Event `hc` fetch `ha__` Scope `hc` at @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
@@ -369,14 +369,14 @@ pattern Pitch e = That e :: Shifter Tree
 instance Shiftable Alone (Construction List) where
  shift way x = is
   `hc_` is `hu` (Empty Unit `hjd` x)
-  `hs` is `ho'he` foi @_ @(AR) Exist
+  `hs` is `ho'st` foi @_ @(AR) Exist
   `hc_` (horizontally `hs_` vertical_deep `hs` vertical_up `hv___` way) `hc` x where
 
   vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit
    `yuk___` Apply `ha` State
    `hv____` Event `hc` pop
-    `ha___` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho_'he` Scope `hc` it
+    `ha___` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho_'st` Scope `hc` it
    `yok___` Check `ha` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok___` Apply `ha` State
    `ha____` Event `ha` aloft
@@ -402,7 +402,7 @@ instance Shiftable Alone (Construction List) where
     `ho__'ha` Scope `hc` at @(Tree i)
    `lo___'yp` Apply `ha` State `ha___` Event `ha` push `ha` that
     `ho__'ha` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho_'he` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+     `ho_'st` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `ho_____'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   moves :: forall i . i `P` List (Tree i) `AR___` Maybe (i `P` Nonempty List (Tree i))
@@ -417,7 +417,7 @@ instance Shiftable Alone (Construction List) where
    `yuk____` Apply `ha` State
    `hc_____` Event `hc` pop
     `ha____` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-    `ho__'he` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+    `ho__'st` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Check
    `yok____` Apply `ha` State
      `ha___` Event `ha` (\unfolding tree -> scroll `hc` way `hc` unfolding `hc` tree `hjd` tree)
@@ -426,7 +426,7 @@ instance Shiftable Alone (Construction List) where
     `ho__'ha` Scope `hc` at @(Tree i)
    `lo___'yp` Apply `ha` State `ha___` Event `ha` push `ha` that
     `ho__'ha` Scope `hc` at @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho_'he` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+     `ho_'st` Scope `hc` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `ho_____'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   -- TODO: the problem here is that we ignore information about successfulness of horizontal shifting!
@@ -435,7 +435,7 @@ instance Shiftable Alone (Construction List) where
    `AR____` Tree i
    `AR___` (Tree i) `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `T'I___` i)
   scroll way unfolding tree = 
-   let siblings = this `ha` at @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'he` is `hc` unfolding in
+   let siblings = this `ha` at @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` is `hc` unfolding in
    Alone `hc` tree `hjd` siblings
    `yv` shift `hc` way `ha` is @(Scrolling List `T'I` Tree i)
    `yv` (\x -> super @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hc` x `hjd_` this `ha` at @(Alone i) `hc` unfolding `hjd` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hc` x) `ha` that
