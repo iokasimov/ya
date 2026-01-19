@@ -80,9 +80,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
--- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'st` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `st'st'hv` x where
+-- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'st` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `hc` x where
 
---  found (These w sl) = super (predicate `st'hv` w) `yui` sl `yiu` sl
+--  found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
 --  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
 --   `yuk____` Lease `ha` State `hv___` Event `hv__` fetch `ha__` Scope `hc` at @(t i) `hp` Scope `hc` it
@@ -103,7 +103,7 @@ pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 -- adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
--- adjust way x = is `hu` (Empty Unit `lu` x) `hs` is `ho'st` foi @_ @(AR) Exist `li` router way `st'st'hv` x where
+-- adjust way x = is `hu` (Empty Unit `lu` x) `hs` is `ho'st` foi @_ @(AR) Exist `li` router way `hc` x where
 
 --  -- TODO: there should be a way to shorten it
 --  router (These (This _) (This _)) = shrink_passed

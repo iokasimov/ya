@@ -658,18 +658,18 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
-   let These x new = ee `st'st'hv` old in
-   let These y upd  = eee `st'st'st` new in
-   These (source `hc_` f (These x y)) upd
+   let These x new = ee `hc` old in
+   let These y upd  = eee `hc` new in
+   source `ha` f `hc__` x `hjd` y `hjd___` upd
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `hc_` \old ->
-   let These x _ = ee `st'st'hv` old in
-   let These y _  = eee `st'st'st` old in
-   These (source `hc_` f (These x y)) old
+   let These x _ = ee `hc` old in
+   let These y _  = eee `hc` old in
+   source `ha` f `hc__` x `hjd` y `hjd___` old
 
 instance
  ( i ~ ii
