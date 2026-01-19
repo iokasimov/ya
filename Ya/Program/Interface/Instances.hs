@@ -39,8 +39,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Vo
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `hc` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
-  that (bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `hc___` fs) `yo` source
-  -- ((bs `yokl` Prior `ha` New `ha` State `ha` Event `ha` push @List `hc___` fs) `yior` source) Unit --super That
+  that (bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `hc___` fs) `yo` source
+  -- ((bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `hc___` fs) `yior` source) Unit --super That
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->

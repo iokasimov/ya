@@ -36,9 +36,6 @@ pattern Forth x = Label @_ @_ @Void x
 pattern Prior :: forall t tt ttt ll i . tt `L` ttt `T` ll `T` i `AR____` tt `L` ttt `T` ll `L` t `T` (Void `P` Void) `T` i
 pattern Prior x = Label @_ @_ @(Void `P` Void) x
 
-pattern New e = Label @(State _) @(State _) @Void e
-pattern Old e = Label @(State _) @(State _) @(Void `P` Void) e
-
 pattern Lease e = Label @(State _) @(State _) @(Void `P` Void) e
 
 pattern Every :: forall i ii iii e .
