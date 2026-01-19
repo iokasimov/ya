@@ -23,7 +23,7 @@ class Keyable k t where
 --  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
 --  key k x =
 --   let prepared = super x `yv` Adapt `ho` to @(Scrolling List) in
---   let predicate = Match `hv_` _exact_key_ k `ha` super @AR in
+--   let predicate = Match `hc_` _exact_key_ k `ha` super @AR in
 --   let adjusted = prepared `yv` spot (That Unit `lu` predicate) `ho` this in
 --   case super adjusted of
 --    This Unit ->
@@ -43,7 +43,7 @@ class Keyable k t where
 
 --   on_nonempty_list x =
 --    let prepared = x `yv` Adapt @(Nonempty List) `ho` to @(Scrolling List) in
---    let predicate = Match `hv_` _exact_key_ k `ha` super @AR in
+--    let predicate = Match `hc_` _exact_key_ k `ha` super @AR in
 --    let adjusted = prepared `yv` spot (That Unit `lu` predicate) `ho` this in
 --    case super adjusted of
 --     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` x `hs` (\i -> push (Along (i `lu` k)) `hc` x `yv` that `ho` Adapt `ho` to @List `ho` T'TT'I))
@@ -57,7 +57,7 @@ class Keyable k t where
 -- instance Keyable (Construction Maybe k) (Construction Maybe `T'TT'I` Construction List `T'TT'I` Along k) where
 --  key ks x = ks `yokl` Forth `ha` Apply `ha` go_horizontally where
 
---   predicate k = Match `hv_` _exact_key_ k `ha` this `ha` top @Tree
+--   predicate k = Match `hc_` _exact_key_ k `ha` this `ha` top @Tree
 
 --   go_horizontally k = intro @(State `T` Scrolling Tree) -- Stops `T`  `JNT` 
 --    `yuk_____` Apply `ha` State `ha` Event `ha` spot (That Unit `lu` predicate k)
@@ -71,7 +71,7 @@ class Keyable k t where
 -- Scrolling Tree 
 
  -- key (Root k ks) = super @(AR)
- --  `hv__` super @(AT) @((List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k) `T'I_` _)
+ --  `hc__` super @(AT) @((List `T'TT'I` Along k) `T'TT'I` Construction (List `T'TT'I` Along k) `T'I_` _)
  --   `ho_` Scope `ha` key @k @(List `T'TT'I` Along k) `hc` k
 
   -- `ho_` super @(AT) @((List `T'TT'I` Along k) (Construction (List `T'TT'I` Along k) _))

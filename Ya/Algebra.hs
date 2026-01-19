@@ -613,7 +613,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` S'I'II e `L` S'I'II 
 instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` t `L` t `T` ll `L` S'I'II e `T` l) (S'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
-  T'I'II (This e) -> intro `ha` T'I'II `hv` This e
+  T'I'II (This e) -> (intro `ha` T'I'II) (This e)
   T'I'II (That x) -> super (super x) `yo` source `ho` That  `ho` T'I'II
 
 instance Mapping T'I'II T'I'II (AR) (AR)
