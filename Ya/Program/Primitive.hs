@@ -11,7 +11,7 @@ import Ya.Program.Patterns
 not :: forall e ee eee .
  Covariant Objective (AR) e (eee `S` ee) =>
  e `AR_` ee `S` eee
-not = That `hs` This
+not = That `has` This
 
 swap :: forall e ee eee .
  Contravariant Objective (AR) e (eee `P` ee) =>
@@ -100,8 +100,8 @@ by index origin =
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `hc` index `hjd`
   (\x -> tbt `ha` T'I'II `hc`
-   (\index' -> is `hu_` idx origin `hc` index' `hs` is `hu` x `hc___` index' `hjd'q` index)
+   (\index' -> is `hu_` idx origin `hc` index' `has` is `hu` x `hc___` index' `hjd'q` index)
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
-exact x xx = is `hu` False Unit `hs` is `hu` True Unit `hc__` x `hjd'q` xx
+exact x xx = is `hu` False Unit `has` is `hu` True Unit `hc__` x `hjd'q` xx

@@ -23,13 +23,13 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction Maybe) `L` Alone `T` Voi
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void) `L` Alone `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `hc` \case
-  Label (Label (T'TT'I (T'I'II (This _)))) -> super Empty `hjd` Label `ha` Label `ha` (Empty `hu` empty `hs` intro)
+  Label (Label (T'TT'I (T'I'II (This _)))) -> super Empty `hjd` Label `ha` Label `ha` (Empty `hu` empty `has` intro)
   Label (Label (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x))))))))) ->
-   Exist `hc` x `hjd` Label `ha` Label `ha` (Empty `hu_` T'TT'I `hc` (xxx `yo` F'T'I'TT'I) `hs` intro @List)
+   Exist `hc` x `hjd` Label `ha` Label `ha` (Empty `hu_` T'TT'I `hc` (xxx `yo` F'T'I'TT'I) `has` intro @List)
 
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void `P` Void) `L` Alone `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `hc` \(Label (Label x)) ->
-  super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `hs` (\xx -> that (push xx x)))
+  super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
@@ -94,7 +94,7 @@ pattern Stump x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II e `T` Void) (S'I'II Unit) where
  mapping = rewrap `hc` \source ->
-  rewrap `hc`((This `compose` constant Unit `hs` That `compose` source) `compose` super)
+  rewrap `hc`((This `compose` constant Unit `has` That `compose` source) `compose` super)
 
 pattern Spare :: forall i ii .
  Component (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) =>
@@ -102,7 +102,7 @@ pattern Spare :: forall i ii .
 pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
- mapping = rewrap `hc` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `hs` Valid `ha` source `hc_` x
+ mapping = rewrap `hc` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `has` Valid `ha` source `hc_` x
 
 pattern Merge :: forall t tt i .
  ( Stackable tt
@@ -191,7 +191,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
 --  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
   
  -- component = T'I'TT'II'T'II'I `hc` \(Label (Label x)) ->
-  -- super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `hs` (\xx -> that (push xx x)))
+  -- super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
  ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
@@ -249,8 +249,8 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `hc` \source x -> T'TT'I `hc___` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (is `hu` (source `ha` this `ha` top `hc` xx `hjd` That Unit) `hs` is `hu` (source `ha` this `ha` top `hc` xx `hjd` This Unit))
-   `ha` (\xxx -> this `ha` sub `hc` xxx `hjd'ys` Apply `hc` intro @t @AR Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `hs` Valid)
+   `ha` (is `hu` (source `ha` this `ha` top `hc` xx `hjd` That Unit) `has` is `hu` (source `ha` this `ha` top `hc` xx `hjd` This Unit))
+   `ha` (\xxx -> this `ha` sub `hc` xxx `hjd'ys` Apply `hc` intro @t @AR Unit `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `has` Valid)
    `hc` xx)
 
 pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
@@ -285,7 +285,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I
  mapping = rewrap `hc` \source -> rewrap `hc`(source `ha` that `hp` source `ha` this `ha__` super @(AR))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
- mapping = rewrap `hc` \source -> rewrap `hc`(source `ho` That `hs` source `ho` This `ha__` super @(AR))
+ mapping = rewrap `hc` \source -> rewrap `hc`(source `ho` That `has` source `ho` This `ha__` super @(AR))
 
 pattern Aback x = This x :: Shifter List
 pattern Ahead x = That x :: Shifter List
@@ -299,13 +299,13 @@ pattern Front x = Label x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = is `hc_` Empty `hu` (Empty Unit `hjd` x) `hs` is `ho'st` foi @_ @(AR) Exist `hc_` _shift_ `hc` x where
+ shift way x = is `hc_` Empty `hu` (Empty Unit `hjd` x) `has` is `ho'st` foi @_ @(AR) Exist `hc_` _shift_ `hc` x where
 
   _shift_ = intro @(Halts `JNT` State `T` Scrolling List i) Unit
    `yuk___` Apply `ha` State
    `hc____` Event `ha` relay `hc'st` Empty
     `ha___` Scope `hc` at @(Shafted List i)
-   `ho__'st` Scope `ha` by @Twice `ha` (Back `hs` Fore) `hc` way
+   `ho__'st` Scope `ha` by @Twice `ha` (Back `has` Fore) `hc` way
      `ho__` Scope `hc` (as `ha` Front `ha` Stock @Alone)
    `yok___` Check
    `yok___` Apply `ha` State
@@ -314,7 +314,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok___` Apply `ha` State
    `ha____` Event `ha` relay `ha'st` Exist
    `ho__'ha` Scope `hc` at @(Shafted List i)
-    `ho_'st` Scope `ha` by `ha` (Fore `hs` Back) `hc` way
+    `ho_'st` Scope `ha` by `ha` (Fore `has` Back) `hc` way
       `ho_` Scope `hc` (as `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha` State
@@ -322,7 +322,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
     `ha___` Scope `hc` at @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `hs` is `ho'st` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
 
   found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
@@ -330,13 +330,13 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` at @(Alone i) `hp` Scope `hc` it
    `yok____` Check `ha` Stops `ha___` not `ha` found
    `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
-   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `hs` Again `hu` Reach Unit
+   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `has` Again `hu` Reach Unit
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
   `hc_` is `hu` (Empty Unit `hjd` x)
-  `hs` is `ho'st` foi @_ @(AR) Exist
+  `has` is `ho'st` foi @_ @(AR) Exist
   `hc_` (slide_passed `lv` slide_future `hc_` way) `hc` x where
 
   slide_future = intro @(Halts `JNT` State `T` Sliding List i) Unit
@@ -370,8 +370,8 @@ pattern Pitch e = That e :: Shifter Tree
 instance Shiftable Alone (Construction List) where
  shift way x = is
   `hc_` is `hu` (Empty Unit `hjd` x)
-  `hs` is `ho'st` foi @_ @(AR) Exist
-  `hc_` (horizontally `hs_` vertical_deep `hs` vertical_up `hc___` way) `hc` x where
+  `has` is `ho'st` foi @_ @(AR) Exist
+  `hc_` (horizontally `has_` vertical_deep `has` vertical_up `hc___` way) `hc` x where
 
   vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_up _ = intro @(Halts `JNT` State `T` Scrolling Tree i) Unit

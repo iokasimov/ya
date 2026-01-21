@@ -174,23 +174,23 @@ infixl 3 `hc______`
 infixl 2 `hc_______`
 infixl 1 `hc________`
 
-infixl 8 `hp`, `hp'hjd`, `hp'yp`, `hp'yp'yo'q`, `hp'ys`, `hp'ys'hs`, `hp'q`, `hjd'ys'hs`
-infixl 7 `hp_`, `hp_'yp`, `hp_'yp'yo'q`, `hp_'ys`, `hp_'ys'hs`, `hp_'q`, `hjd_'ys'hs`
-infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'hs`, `lo__'q`, `hjd__'ys'hs`
-infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'hs`, `lo___'q`, `hjd___'ys'hs`
-infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'hs`, `lo____'q`, `hjd____'ys'hs`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'hs`, `lo_____'q`, `hjd_____'ys'hs`
-infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'hs`, `lo______'q`, `hjd______'ys'hs`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'hs`, `lo_______'q`,  `hjd_______'ys'hs`
+infixl 8 `hp`, `hp'hjd`, `hp'yp`, `hp'yp'yo'q`, `hp'ys`, `hp'ys'has`, `hp'q`, `hjd'ys'has`
+infixl 7 `hp_`, `hp_'yp`, `hp_'yp'yo'q`, `hp_'ys`, `hp_'ys'has`, `hp_'q`, `hjd_'ys'has`
+infixl 6 `lo__`, `lo__'yp`, `lo__'yp'yo'q`, `lo__'ys`, `lo__'ys'has`, `lo__'q`, `hjd__'ys'has`
+infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'has`, `lo___'q`, `hjd___'ys'has`
+infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'has`, `lo____'q`, `hjd____'ys'has`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'q`, `hjd_____'ys'has`
+infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'has`, `lo______'q`, `hjd______'ys'has`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'q`,  `hjd_______'ys'has`
 
-infixl 8 `hs`
-infixl 7 `hs_`
-infixl 6 `hs__`
-infixl 5 `hs___`
-infixl 4 `hs____`
-infixl 3 `hs_____`
-infixl 2 `hs______`
-infixl 1 `hs_______`
+infixl 8 `has`
+infixl 7 `has_`
+infixl 6 `has__`
+infixl 5 `has___`
+infixl 4 `has____`
+infixl 3 `has_____`
+infixl 2 `has______`
+infixl 1 `has_______`
 
 infixl 8 `hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'q`, `hjd's`
 infixl 7 `hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yw`, `hjd_'q`, `hjd_'s`
@@ -1169,7 +1169,7 @@ yoikl'yokl x = fai
  )
  (yoikl @source @target @t @ttt @l @lll @(tt a) @(tt o) x)
 
--- TODO: hsbeling
+-- TODO: hasbeling
 yiok :: forall source target tt t i a o .
  Category target =>
  Component target (T'I'II t i `T'TT'I` tt) (T'I'II t i) =>
@@ -1882,7 +1882,7 @@ ha'yioi :: forall source u t o i ii iii a .
  u (t ii a iii) i -> source o a -> u (t ii o iii) i
 ha'yioi x = fai (fioi @source) (ha @source x)
 
--- -- TODO: rephsce with `ho_`
+-- -- TODO: rephasce with `ho_`
 -- ho_yi :: forall source u e a o .
 --  Covariant Endo Semi Functor source (T'I'II source a) =>
 --  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
@@ -1895,7 +1895,7 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 --  u e a -> source a o -> u e (Supertype o)
 -- ho_yi x = fai @source (fio @source super) (ho x)
 
--- -- TODO: rephsce with `ho_ho`
+-- -- TODO: rephasce with `ho_ho`
 -- ho_yi'ho :: forall source u e a o .
 --  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
 --  Elicitable T'I'II source a =>
@@ -2174,37 +2174,37 @@ lo_____'ys = hp'ys
 lo______'ys = hp'ys
 lo_______'ys = hp'ys
 
-hp'ys'hs, hp_'ys'hs, lo__'ys'hs, lo___'ys'hs, lo____'ys'hs, lo_____'ys'hs, lo______'ys'hs, lo_______'ys'hs
+hp'ys'has, hp_'ys'has, lo__'ys'has, lo___'ys'has, lo____'ys'has, lo_____'ys'has, lo______'ys'has, lo_______'ys'has
  :: forall t tt l a o .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o o) t =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) o) -> Arrow a (t o)
-hp'ys'hs l r = (\x -> ys'yo x (identity @(AR) `hs` identity)) `compose` hp @(AR) @(_ `P` _) l r
+hp'ys'has l r = (\x -> ys'yo x (identity @(AR) `has` identity)) `compose` hp @(AR) @(_ `P` _) l r
 
-hp_'ys'hs = hp'ys'hs
-lo__'ys'hs = hp'ys'hs
-lo___'ys'hs = hp'ys'hs
-lo____'ys'hs = hp'ys'hs
-lo_____'ys'hs = hp'ys'hs
-lo______'ys'hs = hp'ys'hs
-lo_______'ys'hs = hp'ys'hs
+hp_'ys'has = hp'ys'has
+lo__'ys'has = hp'ys'has
+lo___'ys'has = hp'ys'has
+lo____'ys'has = hp'ys'has
+lo_____'ys'has = hp'ys'has
+lo______'ys'has = hp'ys'has
+lo_______'ys'has = hp'ys'has
 
-hjd'ys'hs, hjd_'ys'hs, hjd__'ys'hs, hjd___'ys'hs, hjd____'ys'hs, hjd_____'ys'hs, hjd______'ys'hs, hjd_______'ys'hs
+hjd'ys'has, hjd_'ys'has, hjd__'ys'has, hjd___'ys'has, hjd____'ys'has, hjd_____'ys'has, hjd______'ys'has, hjd_______'ys'has
  :: forall t tt l a o .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) o o) t =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  t o -> (tt `L` tt `T` l) o -> (t o)
-hjd'ys'hs l r = ys'yo (hjd @AR @AR @_ @(t o `P` _) l r) (identity @(AR) `hs` identity)
+hjd'ys'has l r = ys'yo (hjd @AR @AR @_ @(t o `P` _) l r) (identity @(AR) `has` identity)
 
-hjd_'ys'hs = hjd'ys'hs
-hjd__'ys'hs = hjd'ys'hs
-hjd___'ys'hs = hjd'ys'hs
-hjd____'ys'hs = hjd'ys'hs
-hjd_____'ys'hs = hjd'ys'hs
-hjd______'ys'hs = hjd'ys'hs
-hjd_______'ys'hs = hjd'ys'hs
+hjd_'ys'has = hjd'ys'has
+hjd__'ys'has = hjd'ys'has
+hjd___'ys'has = hjd'ys'has
+hjd____'ys'has = hjd'ys'has
+hjd_____'ys'has = hjd'ys'has
+hjd______'ys'has = hjd'ys'has
+hjd_______'ys'has = hjd'ys'has
 
-hs, hs_, hs__, hs___, hs____, hs_____, hs______, hs_______ :: forall source i a o oo .
+has, has_, has__, has___, has____, has_____, has______, has_______ :: forall source i a o oo .
  Category source =>
  Limit T'II'I source source =>
  Covariant Objective source a (o `S` oo) =>
@@ -2215,18 +2215,18 @@ hs, hs_, hs__, hs___, hs____, hs_____, hs______, hs_______ :: forall source i a 
  (forall ee . Wrapper source (T'I'I Sum ee)) =>
  (forall ee . Wrapper source (I ee)) =>
  source o i -> source oo i -> source a i
-hs l r = wrapped (map @T'II'I @T'II'I @source @source @I @(Both Sum) identity)
+has l r = wrapped (map @T'II'I @T'II'I @source @source @I @(Both Sum) identity)
  `compose` foi @source @source l
  `compose` fio @source @source r
  `compose` objective @T'I'II @source @a @(o `S` oo)
 
-hs_ = hs
-hs__ = hs
-hs___ = hs
-hs____ = hs
-hs_____ = hs
-hs______ = hs
-hs_______ = hs
+has_ = has
+has__ = has
+has___ = has
+has____ = has
+has_____ = has
+has______ = has
+has_______ = has
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
@@ -2275,12 +2275,12 @@ lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
 
 -- `yp`: u (t e) (t ee) -> t (uu e ee)
--- `hs`: source o i -> source oo i -> source (o `S` oo) i
+-- `has`: source o i -> source oo i -> source (o `S` oo) i
 -- `hp`: target a o -> target a oo -> target a (o `P` oo)
 --     : u (source o i) (source oo i) -> source (uu o oo) i
 
 -- TODO: to test
--- rwr'hs :: forall source target r o a aa .
+-- rwr'has :: forall source target r o a aa .
  -- Category source =>
  -- Limit T'II'I source target =>
  -- Covariant Functor target target (S'I'II a) =>
@@ -2298,7 +2298,7 @@ lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity
  -- Elicitable T'II'I target r =>
  -- Elicitable T'I'II target o =>
  -- source a (Supertype r) -> source aa (Supertype r) -> target o r
--- rwr'hs l r = rwr /
+-- rwr'has l r = rwr /
  -- wrapped (map @T'II'I @T'II'I @source @target @I @(Both Sum) identity) `compose`
  -- wrapped (map @T'II'I @T'II'I @source @target @I @(Both Sum) identity) `compose`
  -- i_ (map @T'I'II @T'I'II (wrapped (left @T'II'I l))) `compose`
@@ -2552,7 +2552,7 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
 -- TODO: define `rw'rw'ha`
 -- TODO: define `rw'rw'rw'ha`
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 yo'yok
  :: forall source target t tt ttt lll a o .
  Covariant Endo Semi Functor source tt =>
@@ -2564,7 +2564,7 @@ yo'yok
  (t (tt a)) -> target (source (a) (ttt `L` ttt `T` lll `T'I` o)) (t (tt o))
 yo'yok = fai (fok @source @source @tt @ttt) `compose` yo @source @target
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall source u t tt ll a o e .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source t =>
@@ -2585,7 +2585,7 @@ ho______'yok = ho'yok
 ho_______'yok = ho'yok
 ho________'yok = ho'yok
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 ho'yuk, ho_'yuk, ho__'yuk, ho___'yuk, ho____'yuk, ho_____'yuk, ho______'yuk, ho_______'yuk, ho________'yuk
  :: forall source t tt ll a o i .
  Covariant Endo Semi Functor source tt =>
@@ -2659,7 +2659,7 @@ ha_____'kyok = ha'kyok
 ha______'kyok = ha'kyok
 ha_______'kyok = ha'kyok
 
--- TODO: defined manually temporarily, rephsce with generated version hster
+-- TODO: defined manually temporarily, rephasce with generated version haster
 ha'yok, ha_'yok, ha__'yok, ha___'yok, ha____'yok, ha_____'yok, ha______'yok, ha_______'yok, ha________'yok
  :: forall source target t tt ttt l a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -2685,7 +2685,7 @@ ha______'yok = ha'yok
 ha_______'yok = ha'yok
 ha________'yok = ha'yok
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 ha'yuk, ha_'yuk, ha__'yuk, ha___'yuk, ha____'yuk, ha_____'yuk, ha______'yuk, ha_______'yuk, ha________'yuk
  :: forall target t tt ttt l a o i .
  Contravariant Yoneda Functor (AR) target (T'II'I t i) =>
@@ -2710,7 +2710,7 @@ ha______'yuk = ha'yuk
 ha_______'yuk = ha'yuk
 ha________'yuk = ha'yuk
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 ha'yokl, ha_'yokl, ha__'yokl, ha___'yokl, ha____'yokl, ha_____'yokl, ha______'yokl, ha_______'yokl, ha________'yokl
  :: forall source target t tt ttt l ll a o i .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
@@ -2737,7 +2737,7 @@ ha______'yokl = ha'yokl
 ha_______'yokl = ha'yokl
 ha________'yokl = ha'yokl
 
--- TODO: defined manually temporarily, rephsce with generated version
+-- TODO: defined manually temporarily, rephasce with generated version
 yai'yukl, ha'yukl, ha_'yukl, ha__'yukl, ha___'yukl, ha____'yukl, ha_____'yukl, ha______'yukl, ha_______'yukl, ha________'yukl
  :: forall target t ttt tt l ll a o i .
  Constant Endo Semi Functor (AR) ttt =>

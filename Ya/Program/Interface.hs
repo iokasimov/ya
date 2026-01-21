@@ -196,12 +196,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `ha` source)
   `hc___` empty @List
-  `yv__` wrap `ha` Empty `hs` is `ho'st` that @(List _)
+  `yv__` wrap `ha` Empty `has` is `ho'st` that @(List _)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `hc` \source x -> super x
   `yokl` Prior `ha` Apply `ha` State `ha` Event
-  `ha__` Error `hu` fetch `hs` push @List `ho'ho` (fetch `ha` that) `ha` source
+  `ha__` Error `hu` fetch `has` push @List `ho'ho` (fetch `ha` that) `ha` source
   `hc___` empty @List
   `yv__` that
 
@@ -227,7 +227,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source -> wrap @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
   `ha__` Empty `hu` empty @List
-    `hs` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` to @List
+    `has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` to @List
 
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where
@@ -248,10 +248,10 @@ type family Vector x xs where
 
 -- This transformation is not natural!
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
---  mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `hs` Same `hu` True Unit `hc__` x `hjd'q` source x'
+--  mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'q` source x'
 
 instance Semigroup (AR) Boolean where
- s (These x y) = x `hjd'ys'hs` Try y
+ s (These x y) = x `hjd'ys'has` Try y
 
 instance Quasigroup (AR) Boolean where
  p (These x y) = x `hjd'yp` Try `hc` y `yu` Unit
@@ -278,7 +278,7 @@ instance Semigroup (AR) (Construction Maybe item) where
   -- )
   -- x
   -- ((T'TT'I `ha` Vahjde `ha` Label `ha` T'TT'I'TTT'I @(S) @Alone @t `ha` This `ha` Identity `ha` source)
-  --  `hs` (T'TT'I `ha` Vahjde `ha` Label `ha` (T'TT'I'TTT'I @(S) @Alone @t `ha` That `ha` (fo @AR @AR @t source)))
+  --  `has` (T'TT'I `ha` Vahjde `ha` Label `ha` (T'TT'I'TTT'I @(S) @Alone @t `ha` That `ha` (fo @AR @AR @t source)))
   -- :: Stops _ `T'TT'I` t `T'I_` _ `AR______` F'T'I'TT'I Stops t `T'TT'I_` Stops _ `T'TT'I` t `T'I__` _)
   
 
