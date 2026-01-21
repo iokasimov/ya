@@ -52,7 +52,7 @@ type Sliding t = Shifting List t
  --   `yuk____` Lease `ha` State `hc____` Event `hc___` fetch
  --     `ha___` Scope `hc` at @(Scrolling List `T'TT'I` Tree `T'I_` i)
  --       `ho_` Scope `hc` at @(Alone `T'I_` Tree `T` i)
- --        `hp` Scope `hc` it @(Scrolling Tree i)
+ --        `hop` Scope `hc` it @(Scrolling Tree i)
  --   `yok____` Check `ha` Stops `ha___` not `ha` found
  --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
  --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `has` Again `hu` Reach Unit
@@ -85,7 +85,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
 
 --  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
---   `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` at @(t i) `hp` Scope `hc` it
+--   `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` at @(t i) `hop` Scope `hc` it
 --   `yok____` Check `ha` Stops `ha___` not `ha` found
 --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
 --   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `has` Again `hu` Reach Unit
