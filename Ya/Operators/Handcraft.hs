@@ -13,27 +13,27 @@ infixl 9 `ho`, `ho'yoo`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'y
  , `ho'st'st`
  , `ho'st'st'st`
  , `ho'st'st'st'st`
- , `ho'hd`
- , `ho'hd'hd`
+ -- , `ho'hd`
+ -- , `ho'hd'hd`
  , `ho'hu`
 infixl 8 `ho_`, `ho_'yoo`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl`, `ho_'yokl'yokl`, `ho_'yokl'yukl`, `ho_'yoikl`
  , `ho_'st`
  , `ho_'st'st`
  , `ho_'st'st'st`
  , `ho_'st'st'st'st`
- , `ho_'hd`
+ -- , `ho_'hd`
 infixl 7 `ho__`, `ho__'yoo`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl`, `ho__'yokl'yokl`, `ho__'yokl'yukl`, `ho__'yoikl`
  , `ho__'st`
  , `ho__'st'st`
  , `ho__'st'st'st`
  , `ho__'st'st'st'st`
- , `ho__'hd`
+ -- , `ho__'hd`
 infixl 6 `ho___`, `ho___'yoo`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl`, `ho___'yokl'yokl`, `ho___'yokl'yukl`, `ho___'yoikl`
  , `ho___'st`
  , `ho___'st'st`
  , `ho___'st'st'st`
  , `ho___'st'st'st'st`
- , `ho___'hd`
+ -- , `ho___'hd`
 infixl 5 `ho____`, `ho____'yoo`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl`, `ho____'yokl'yokl`, `ho____'yokl'yukl`, `ho____'yoikl`
  , `ho____'st`
  , `ho____'st'st`
@@ -44,20 +44,20 @@ infixl 4 `ho_____`, `ho_____'yoo`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `
  , `ho_____'st'st`
  , `ho_____'st'st'st`
  , `ho_____'st'st'st'st`
- , `ho____'hd`
+ -- , `ho____'hd`
 infixl 3 `ho______`, `ho______'yoo`, `ho______'st`, `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`, `ho______'yoikl`
 infixl 2 `ho_______`, `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`, `ho_______'yoikl`
  , `ho_______'st`
  , `ho_______'st'st`
  , `ho_______'st'st'st`
  , `ho_______'st'st'st'st`
- , `ho_____'hd`
+ -- , `ho_____'hd`
 infixl 1 `ho________`, `ho________'yoo`, `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`, `ho________'yoikl`
  , `ho________'st`
  , `ho________'st'st`
  , `ho________'st'st'st`
  , `ho________'st'st'st'st`
- , `ho______'hd`
+ -- , `ho______'hd`
  -- , `ho________'yo`
  -- , `ho________'yoi`
 
@@ -69,8 +69,8 @@ infixl 9 `ha`, `ha'hu`
  , `ha'yokl`, `ha'yukl`
  , `ha'st`
  , `st'ha`
- , `ha'hd`
- , `ha'hd'hd`
+ -- , `ha'hd`
+ -- , `ha'hd'hd`
 infixl 8 `ha_`
  , `ha_'st`
  , `ha_'hu`
@@ -686,68 +686,68 @@ ha______ = yai
 ha_______ = yai
 ha________ = yai
 
-yai'yij :: forall source target t tt ttt i ii iii a o .
- Precategory target =>
- Contravariant Functor source (AR) (T'II'I target (t o i)) =>
- Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
- Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Contravariant Endo Semi Functor (AR) (T'II'I target (t o i)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper target (T'II'I t i e)) =>
- (forall e . Wrapper source (T'II'I tt ii e)) =>
- (forall e . Wrapper source (T'I'II ttt iii e)) =>
- (forall e . Wrapper source (T'TT'I (T'I'II ttt iii) (T'II'I tt ii) e)) =>
- t (ttt iii a) i -> target (source (tt o ii) a) (t o i)
-yai'yij = fai fij `compose` yai @source @target
+-- yai'yij :: forall source target t tt ttt i ii iii a o .
+--  Precategory target =>
+--  Contravariant Functor source (AR) (T'II'I target (t o i)) =>
+--  Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
+--  Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
+--  Contravariant Yoneda Functor source target (T'II'I t i) =>
+--  Contravariant Endo Semi Functor (AR) (T'II'I target (t o i)) =>
+--  (forall e ee . Wrapper target (T'II'I source e ee)) =>
+--  (forall e . Wrapper source (I e)) =>
+--  (forall e . Wrapper target (T'II'I t i e)) =>
+--  (forall e . Wrapper source (T'II'I tt ii e)) =>
+--  (forall e . Wrapper source (T'I'II ttt iii e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'I'II ttt iii) (T'II'I tt ii) e)) =>
+--  t (ttt iii a) i -> target (source (tt o ii) a) (t o i)
+-- yai'yij = fai fij `compose` yai @source @target
 
 -- t (ii `AR` a) i -> target ((o `P` ii) `AR` a) (t o i)
 
-yai'ydi, ha'hd :: forall source target t tt ttt i ii iii a o .
- Precategory target =>
- Contravariant Functor source (AR) (T'II'I target (t o i)) =>
- Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
- Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
- Covariant Endo Semi Functor source (T'I'II tt ii) =>
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Contravariant Endo Semi Functor (AR) (T'II'I target (t (tt o ii) i)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper target (T'II'I t i e)) =>
- (forall e . Wrapper source (T'II'I tt ii e)) =>
- (forall e . Wrapper source (T'I'II ttt iii e)) =>
- (forall e . Wrapper source (T'TT'I (T'II'I tt ii) (T'I'II ttt iii) e)) =>
- t a i -> target (source o (ttt iii a)) (t (tt o ii) i)
-yai'ydi x = fai (fdi @source) (yai @source @target x)
+-- yai'ydi, ha'hd :: forall source target t tt ttt i ii iii a o .
+--  Precategory target =>
+--  Contravariant Functor source (AR) (T'II'I target (t o i)) =>
+--  Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
+--  Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
+--  Covariant Endo Semi Functor source (T'I'II tt ii) =>
+--  Contravariant Yoneda Functor source target (T'II'I t i) =>
+--  Contravariant Endo Semi Functor (AR) (T'II'I target (t (tt o ii) i)) =>
+--  (forall e ee . Wrapper target (T'II'I source e ee)) =>
+--  (forall e . Wrapper source (I e)) =>
+--  (forall e . Wrapper target (T'II'I t i e)) =>
+--  (forall e . Wrapper source (T'II'I tt ii e)) =>
+--  (forall e . Wrapper source (T'I'II ttt iii e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'II'I tt ii) (T'I'II ttt iii) e)) =>
+--  t a i -> target (source o (ttt iii a)) (t (tt o ii) i)
+-- yai'ydi x = fai (fdi @source) (yai @source @target x)
 
 -- t a i `AR__` target (o `AR_` (ii `AR_` a)) (t (o `P` ii) i)
 
-ha'hd = yai'ydi
+-- ha'hd = yai'ydi
 
-yai'ydi'ydi, ha'hd'hd :: forall source target t tt ttt tttt ttttt i ii iii iiii iiiii a o .
- Precategory target =>
- Contravariant Functor source (AR) (T'II'I target (t o i)) =>
- Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
- Adjoint Functor source source (T'II'I tttt iiii) (T'I'II ttttt iiiii) =>
- Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
- Covariant Endo Semi Functor source (T'I'II tt ii) =>
- Covariant Endo Semi Functor source (T'II'I ttt iii) =>
- Covariant Endo Semi Functor source (T'II'I tttt iiii) =>
- Covariant Endo Semi Functor source (T'I'II ttttt iiiii) =>
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Contravariant Endo Semi Functor (AR) (T'II'I target (t (tttt (tt o ii) iiii) i)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper target (T'II'I t i e)) =>
- (forall e . Wrapper source (T'II'I tt ii e)) =>
- (forall e . Wrapper source (T'I'II ttt iii e)) =>
- (forall e . Wrapper source (T'II'I tttt iiii e)) =>
- (forall e . Wrapper source (T'I'II ttttt iiiii e)) =>
- (forall e . Wrapper source (T'TT'I (T'II'I tt ii) (T'I'II ttt iii) e)) =>
- (forall e . Wrapper source (T'TT'I (T'II'I tttt iiii) (T'I'II ttttt iiiii) e)) =>
- t a i -> target (source o (ttt iii (ttttt iiiii a))) (t (tttt (tt o ii) iiii) i)
-yai'ydi'ydi x = fai (fdi @source `compose` fdi @source) (yai @source @target x)
+-- yai'ydi'ydi, ha'hd'hd :: forall source target t tt ttt tttt ttttt i ii iii iiii iiiii a o .
+--  Precategory target =>
+--  Contravariant Functor source (AR) (T'II'I target (t o i)) =>
+--  Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
+--  Adjoint Functor source source (T'II'I tttt iiii) (T'I'II ttttt iiiii) =>
+--  Covariant Functor source (AR) (T'I'II target (source (tt ii (t o i)) a)) =>
+--  Covariant Endo Semi Functor source (T'I'II tt ii) =>
+--  Covariant Endo Semi Functor source (T'II'I ttt iii) =>
+--  Covariant Endo Semi Functor source (T'II'I tttt iiii) =>
+--  Covariant Endo Semi Functor source (T'I'II ttttt iiiii) =>
+--  Contravariant Yoneda Functor source target (T'II'I t i) =>
+--  Contravariant Endo Semi Functor (AR) (T'II'I target (t (tttt (tt o ii) iiii) i)) =>
+--  (forall e ee . Wrapper target (T'II'I source e ee)) =>
+--  (forall e . Wrapper source (I e)) =>
+--  (forall e . Wrapper target (T'II'I t i e)) =>
+--  (forall e . Wrapper source (T'II'I tt ii e)) =>
+--  (forall e . Wrapper source (T'I'II ttt iii e)) =>
+--  (forall e . Wrapper source (T'II'I tttt iiii e)) =>
+--  (forall e . Wrapper source (T'I'II ttttt iiiii e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'II'I tt ii) (T'I'II ttt iii) e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'II'I tttt iiii) (T'I'II ttttt iiiii) e)) =>
+--  t a i -> target (source o (ttt iii (ttttt iiiii a))) (t (tttt (tt o ii) iiii) i)
+-- yai'ydi'ydi x = fai (fdi @source `compose` fdi @source) (yai @source @target x)
 
 ha'hd'hd = yai'ydi'ydi
 
@@ -828,29 +828,29 @@ yio'yij x = fai fij (yio @source @target x)
 
 ho'hj = yio'yij
 
-yio'yij'yij, ho'hj'hj :: forall source target t tt ttt tttt ttttt i ii iii iiii iiiii a o .
- Precategory target =>
- Contravariant Endo Semi Functor (AR) (T'II'I target (t o i)) =>
- Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
- Adjoint Functor source source (T'II'I tttt iiii) (T'I'II ttttt iiiii) =>
- Covariant Functor source (AR) (T'I'II target (source (ttt iii (t o i)) a)) =>
- Covariant Yoneda Functor source target (T'I'II t i) =>
- Covariant Endo Semi Functor source (T'II'I tt ii) =>
- Covariant Endo Semi Functor source (T'I'II ttt iii) =>
- Contravariant Endo Semi Functor (AR) (T'II'I target (t i (ttttt iiiii (ttt iii o)))) =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- (forall e . Wrapper source (T'II'I tt ii e)) =>
- (forall e . Wrapper source (T'I'II ttt iii e)) =>
- (forall e . Wrapper source (T'II'I tttt iiii e)) =>
- (forall e . Wrapper source (T'I'II ttttt iiiii e)) =>
- (forall e . Wrapper source (T'TT'I (T'I'II ttt iii) (T'II'I tt ii) e)) =>
- (forall e . Wrapper source (T'TT'I (T'I'II ttttt iiiii) (T'II'I tttt iiii) e)) =>
- t i a -> target (source (tt (tttt a iiii) ii) o) (t i (ttttt iiiii (ttt iii o)))
-yio'yij'yij = fai (fij @source `compose` fij @source) `compose` yio @source @target
+-- yio'yij'yij, ho'hj'hj :: forall source target t tt ttt tttt ttttt i ii iii iiii iiiii a o .
+--  Precategory target =>
+--  Contravariant Endo Semi Functor (AR) (T'II'I target (t o i)) =>
+--  Adjoint Functor source source (T'II'I tt ii) (T'I'II ttt iii) =>
+--  Adjoint Functor source source (T'II'I tttt iiii) (T'I'II ttttt iiiii) =>
+--  Covariant Functor source (AR) (T'I'II target (source (ttt iii (t o i)) a)) =>
+--  Covariant Yoneda Functor source target (T'I'II t i) =>
+--  Covariant Endo Semi Functor source (T'II'I tt ii) =>
+--  Covariant Endo Semi Functor source (T'I'II ttt iii) =>
+--  Contravariant Endo Semi Functor (AR) (T'II'I target (t i (ttttt iiiii (ttt iii o)))) =>
+--  (forall e ee . Wrapper target (T'I'II source e ee)) =>
+--  (forall e . Wrapper source (I e)) =>
+--  (forall e . Wrapper target (T'I'II t i e)) =>
+--  (forall e . Wrapper source (T'II'I tt ii e)) =>
+--  (forall e . Wrapper source (T'I'II ttt iii e)) =>
+--  (forall e . Wrapper source (T'II'I tttt iiii e)) =>
+--  (forall e . Wrapper source (T'I'II ttttt iiiii e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'I'II ttt iii) (T'II'I tt ii) e)) =>
+--  (forall e . Wrapper source (T'TT'I (T'I'II ttttt iiiii) (T'II'I tttt iiii) e)) =>
+--  t i a -> target (source (tt (tttt a iiii) ii) o) (t i (ttttt iiiii (ttt iii o)))
+-- yio'yij'yij = fai (fij @source `compose` fij @source) `compose` yio @source @target
 
-ho'hj'hj = yio'yij'yij
+-- ho'hj'hj = yio'yij'yij
 
 yia :: forall source target t e a o .
  Precategory target =>
