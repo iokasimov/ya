@@ -170,19 +170,26 @@ type Constant t = t T''II
 
 type Kleisli u t = T'I'TT'II u t
 
-class (Category source, x v source target t, forall o . Mapping v T'I'II source Arrow t (Embedding v source target t o)) =>
- Yoneda v x source target t where
+class 
+ ( Category source
+ , x v source target t
+ , forall e . Mapping v T'I'II source target t (Embedding v source target t e)
+ , forall e ee . Covariant Elicitable target (UU_V_T'I'II_T_II v source target t ee e)
+ ) => Yoneda v x source target t where
  yoneda :: forall a o .
   Category source =>
   Precategory target =>
   (Supertype (v source a a) ~ source a a) =>
   Elicitable T'II'I (AR) (v source a a) =>
-  t a -> target (v source a o) (t o)
- yoneda x = super (map @v @T'I'II @source @Arrow @t @(Embedding v source target t o) identity x)
+  target (t a) (target (v source a o) (t o))
+ yoneda = super `compose` map @v @T'I'II @source @target @t @(Embedding v source target t o) identity
 
 deriving instance
- (Category source, x v source target t, forall r . Mapping v T'I'II source Arrow t (Embedding v source target t r)) =>
- Yoneda v x source target t
+ ( Category source
+ , x v source target t
+ , forall e . Mapping v T'I'II source target t (Embedding v source target t e)
+ , forall e ee . Covariant Elicitable target (UU_V_T'I'II_T_II v source target t ee e)
+ ) => Yoneda v x source target t
 
 type family Representation t where
  Representation I = Unit

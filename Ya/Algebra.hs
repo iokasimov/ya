@@ -515,42 +515,80 @@ instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> T'I'II `identity` \_ -> intro `compose` source `hc_` f Unit
 
+-- instance
+--  ( Covariant Yoneda Functor target target I
+--  , Covariant Endo Semi Functor target (T'I'II target i)
+--  , Adjoint Functor target target (T'II'I t i) (T'I'II tt i)
+--  , forall e . Wrapper target (T'II'I t i e)
+--  , forall e . Wrapper target (T'I'II target Unit e)
+--  , forall e . Wrapper target (T'I'II tt i e)
+--  , forall e . Wrapper target (T'I'TT'II'I tt t i e)
+--  , forall e . Wrapper target (T'I'II (T'I'TT'II'I tt t) i e)
+--  , forall e . Wrapper target (T'TT'I (T'I'II tt i) (T'II'I t i) e)
+--  , forall e . Wrapper target (T'TT'I (T'II'I t i) (T'I'II tt i) e)
+--  , forall e . Wrapper target (I e)
+--  ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'I'II (T'I'TT'II'I tt t) i) where
+--  mapping = rewrap `identity` \source -> rewrap
+--   `hc_` wrap @target @(T'I'TT'II'I _ _ _ _)
+--    `compose` fij @target @target identity
+--    `compose` source
+--    `compose` yv Unit
+
 instance
- ( Covariant Yoneda Functor target target I
- , Covariant Endo Semi Functor target (T'I'II target i)
- , Adjoint Functor target target (T'II'I t i) (T'I'II tt i)
- , forall e . Wrapper target (T'II'I t i e)
- , forall e . Wrapper target (T'I'II target Unit e)
- , forall e . Wrapper target (T'I'II tt i e)
- , forall e . Wrapper target (T'I'TT'II'I tt t i e)
- , forall e . Wrapper target (T'I'II (T'I'TT'II'I tt t) i e)
- , forall e . Wrapper target (T'TT'I (T'I'II tt i) (T'II'I t i) e)
- , forall e . Wrapper target (T'TT'I (T'II'I t i) (T'I'II tt i) e)
- , forall e . Wrapper target (I e)
- ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'I'II (T'I'TT'II'I tt t) i) where
+ ( Covariant Yoneda Functor (AR) (AR) I
+ , Covariant Endo Semi Functor (AR) (T'I'II (AR) i)
+ , Adjoint Functor (AR) (AR) (T'II'I t i) (T'I'II tt i)
+ , forall e . Wrapper (AR) (T'II'I t i e)
+ , forall e . Wrapper (AR) (T'I'II (AR) Unit e)
+ , forall e . Wrapper (AR) (T'I'II tt i e)
+ , forall e . Wrapper (AR) (T'I'TT'II'I tt t i e)
+ , forall e . Wrapper (AR) (T'I'II (T'I'TT'II'I tt t) i e)
+ , forall e . Wrapper (AR) (T'TT'I (T'I'II tt i) (T'II'I t i) e)
+ , forall e . Wrapper (AR) (T'TT'I (T'II'I t i) (T'I'II tt i) e)
+ , forall e . Wrapper (AR) (I e)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'I'II (T'I'TT'II'I tt t) i) where
  mapping = rewrap `identity` \source -> rewrap
-  `hc_` wrap @target @(T'I'TT'II'I _ _ _ _)
-   `compose` fij @target @target identity
+  `hc_` wrap @(AR) @(T'I'TT'II'I _ _ _ _)
+   `compose` fij @(AR) @(AR) identity
    `compose` source
    `compose` yv Unit
 
+-- instance
+--  ( Covariant Yoneda Functor target target I
+--  -- , Covariant Endo Monoidal Functor target tt tt t
+--  , Covariant Endo Semi Functor target t
+--  , Adjoint Functor target target (T'II'I tt e) (T'I'II ttt e)
+--  , Component target I (T'I'II target Unit)
+--  , Component target (T'I'II target Unit) t
+--  , forall ee . Wrapper target (I ee)
+--  , forall ee . Wrapper target (T'I'II target Unit ee)
+--  , forall ee . Wrapper target (T'TT'I (T'I'II ttt e) (T'II'I tt e) ee)
+--  , forall ee . Wrapper target (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t ee)
+--  ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t) where
+--  mapping = rewrap `identity` \source -> rewrap
+--   `hc_` fj @target @target
+--    (component @target @(T'I'II target Unit) @t
+--     `compose` component @target @I @(T'I'II target Unit)
+--     `compose` wrap @target
+--    ) `compose` source `compose` yv Unit
+
 instance
- ( Covariant Yoneda Functor target target I
- -- , Covariant Endo Monoidal Functor target tt tt t
- , Covariant Endo Semi Functor target t
- , Adjoint Functor target target (T'II'I tt e) (T'I'II ttt e)
- , Component target I (T'I'II target Unit)
- , Component target (T'I'II target Unit) t
- , forall ee . Wrapper target (I ee)
- , forall ee . Wrapper target (T'I'II target Unit ee)
- , forall ee . Wrapper target (T'TT'I (T'I'II ttt e) (T'II'I tt e) ee)
- , forall ee . Wrapper target (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t ee)
- ) => Mapping T'I'II T'I'II target target (T'I'II target Unit) (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t) where
+ ( Covariant Yoneda Functor (AR) (AR) I
+ -- , Covariant Endo Monoidal Functor (AR) tt tt t
+ , Covariant Endo Semi Functor (AR) t
+ , Adjoint Functor (AR) (AR) (T'II'I tt e) (T'I'II ttt e)
+ , Component (AR) I (T'I'II (AR) Unit)
+ , Component (AR) (T'I'II (AR) Unit) t
+ , forall ee . Wrapper (AR) (I ee)
+ , forall ee . Wrapper (AR) (T'I'II (AR) Unit ee)
+ , forall ee . Wrapper (AR) (T'TT'I (T'I'II ttt e) (T'II'I tt e) ee)
+ , forall ee . Wrapper (AR) (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t ee)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (T'TTT'TT'I (T'I'II ttt e) (T'II'I tt e) t) where
  mapping = rewrap `identity` \source -> rewrap
-  `hc_` fj @target @target
-   (component @target @(T'I'II target Unit) @t
-    `compose` component @target @I @(T'I'II target Unit)
-    `compose` wrap @target
+  `hc_` fj @(AR) @(AR)
+   (component @(AR) @(T'I'II (AR) Unit) @t
+    `compose` component @(AR) @I @(T'I'II (AR) Unit)
+    `compose` wrap @(AR)
    ) `compose` source `compose` yv Unit
 
 -- TODO: desugar `fj` and move this instance to `Instances` module

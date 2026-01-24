@@ -65,7 +65,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `hc` \source -> rewrap `hc` \x -> x
-  `yoi` is `st'ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hc` Unit)
+  `yoi` super @(AR) `ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `hc` Unit)
   `yio'yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
