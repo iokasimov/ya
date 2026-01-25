@@ -23,13 +23,13 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These x xx)) ->
   x `yo` wrap @(AR) @(ttt `L` ttt `T` lll `L` t `T` l `T` _)
      `ha` super @(AR) @(ttt `L` ttt `T` lll `L` T'TT'I'TTT'I P t tt `T` l `T` _)
-     `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt) source)
+     `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt) source)
   `hjd_`
   xx `yo` wrap @(AR) @(ttt `L` ttt `T` lll `L` tt `T` l `T` _)
      `ha` super @(AR) @(ttt `L` ttt `T` lll `L` T'TT'I'TTT'I P t tt `T` l `T` _)
-     `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` l) @(tt `TT'T'I` ttt) source)
+     `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` l) @(tt `TT'T'I` ttt) source)
      `ho` wrap @(AR) @(ttt `L` ttt `T` lll `T` _)
-  `yv_` day @T'I'II @(AR) @lll @ttt @ttt @(P) @(P) identity T'TT'I'TTT'I
+  `yi_` day @T'I'II @(AR) @lll @ttt @ttt @(P) @(P) identity T'TT'I'TTT'I
 
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -44,12 +44,12 @@ instance
   This xx -> xx
    `yo` wrap @(AR) @(ttt `L` ttt `T` ll `L` t `T` l `T` _)
    `ha` super @(AR) @(ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l `T` _)
-   `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` ll `L` t `T` l) @(t `TT'T'I` ttt) source)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` ll `L` t `T` l) @(t `TT'T'I` ttt) source)
    `yo` T'TT'I'TTT'I `ha` This
   That xx -> xx
    `yo` wrap @(AR) @(ttt `L` ttt `T` ll `L` tt `T` l `T` _)
    `ha` super @(AR) @(ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l `T` _)
-   `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) @(tt `TT'T'I` ttt) source)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) @(tt `TT'T'I` ttt) source)
    `yo` T'TT'I'TTT'I `ha` That
 
 instance
@@ -102,7 +102,7 @@ instance
    @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) source)
   `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
   `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` l `T` _)
-  `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) identity)
+  `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) identity)
   `yo` wrap @(AR) @(t `T'TT'I` F'T'I'TT'I (T'II'I P) t `T'I_` _)
 
 -- State (hc_st item) `L` State (hc_st item) `T` Void) `L` hc_st `T` (Void `P` Void)
@@ -130,8 +130,8 @@ instance
         @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) source)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` (Void) `T` _)
-      `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` (Void)) @(t `TT'T'I` tt) (super @(AR) @(F'T'I'TT'I _ _ _)))
-     `hjd_` super (super x) `yo` source `yv` wrap @(AR) @(_ `L` _ `T` Void `T` _))
+      `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` (Void)) @(t `TT'T'I` tt) (super @(AR) @(F'T'I'TT'I _ _ _)))
+     `hjd_` super (super x) `yo` source `yi` wrap @(AR) @(_ `L` _ `T` Void `T` _))
      `yp_'yo` wrap @(AR) @(F'T'I'TT'I _ _ _)
       `ha` wrap @(AR) @(Recursive _)
       `ha` wrap @(AR) @(T'TT'I _ _ _)
@@ -158,7 +158,7 @@ instance
        @(F'T'I'TT'I (T'II'I P) t `TT'T'I` tt) source)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
       `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
-      `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt) (super @(AR) @(F'T'I'TT'I _ _ _)))
+      `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt) (super @(AR) @(F'T'I'TT'I _ _ _)))
     )
     `fc` (super (super x) `yo` source)
 
@@ -178,7 +178,7 @@ instance
     @(F'T'I'TT'I (T'I'II S) t `TT'T'I` tt) source)
    `ho` wrap @(AR) @(tt `L` tt `T` ll `T` _)
    `ho` wrap @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
-   `yv` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
+   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR)
      @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void)
      @(t `TT'T'I` tt)
      (super @(AR) @(F'T'I'TT'I _ _ _)))
@@ -334,7 +334,7 @@ instance {-# OVERLAPPABLE #-}
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity`
   \(T'I'II f) e ->
    map @T'I'II @T'I'II @AR @AR @(t `T'TT'I` t `L` t `T` Void) @t source `compose` wrap
-   `compose` map @T'I'II @T'I'II @AR @AR @t @t (wrap @AR @(t `L` t `T` Void `T` _) `compose` yv e `compose` super `compose` super `compose` super)
+   `compose` map @T'I'II @T'I'II @AR @AR @t @t (wrap @AR @(t `L` t `T` Void `T` _) `compose` yi e `compose` super `compose` super `compose` super)
    `identity`f e
 
 -- NOTE: this version allow different type of states, but it requires providing types to make it compile
@@ -532,7 +532,7 @@ instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
 --   `hc_` wrap @target @(T'I'TT'II'I _ _ _ _)
 --    `compose` fij @target @target identity
 --    `compose` source
---    `compose` yv Unit
+--    `compose` yi Unit
 
 instance
  ( Covariant Yoneda Functor (AR) (AR) I
@@ -551,7 +551,7 @@ instance
   `hc_` wrap @(AR) @(T'I'TT'II'I _ _ _ _)
    `compose` fij @(AR) @(AR) identity
    `compose` source
-   `compose` yv Unit
+   `compose` yi Unit
 
 -- instance
 --  ( Covariant Yoneda Functor target target I
@@ -570,7 +570,7 @@ instance
 --    (component @target @(T'I'II target Unit) @t
 --     `compose` component @target @I @(T'I'II target Unit)
 --     `compose` wrap @target
---    ) `compose` source `compose` yv Unit
+--    ) `compose` source `compose` yi Unit
 
 instance
  ( Covariant Yoneda Functor (AR) (AR) I
@@ -589,7 +589,7 @@ instance
    (component @(AR) @(T'I'II (AR) Unit) @t
     `compose` component @(AR) @I @(T'I'II (AR) Unit)
     `compose` wrap @(AR)
-   ) `compose` source `compose` yv Unit
+   ) `compose` source `compose` yi Unit
 
 -- TODO: desugar `fj` and move this instance to `Instances` module
 instance

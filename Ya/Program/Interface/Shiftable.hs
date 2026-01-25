@@ -67,7 +67,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
  mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
   `hc___` Empty `hu` intro @(Nonempty List) x `has` push x `ho` that `hc_` r
-  `yv__` that `ho'yo` source
+  `yi__` that `ho'yo` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)

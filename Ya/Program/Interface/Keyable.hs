@@ -22,12 +22,12 @@ class Keyable k t where
 --  , Component (AR) (Shafted List) (Construction Maybe)
 --  ) => Keyable k (Construction Maybe `T'TT'I` Along k) where
 --  key k x =
---   let prepared = super x `yv` Adapt `ho` to @(Scrolling List) in
+--   let prepared = super x `yi` Adapt `ho` to @(Scrolling List) in
 --   let predicate = Match `hc_` _exact_key_ k `ha` super @AR in
---   let adjusted = prepared `yv` spot (That Unit `lu` predicate) `ho` this in
+--   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
 --   case super adjusted of
 --    This Unit ->
---     Break k `lu` ((\_ -> x) `has` (\i -> push (Along (i `lu` k)) `hc` super x `yv` that `ho` wrap @(AR)))
+--     Break k `lu` ((\_ -> x) `has` (\i -> push (Along (i `lu` k)) `hc` super x `yi` that `ho` wrap @(AR)))
 --    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
 --     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` xxx) `has` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
@@ -42,11 +42,11 @@ class Keyable k t where
 --   on_empty_list _ = Break k `lu` (Error `hu` T'TT'I empty `has` (`lu` k) `ho` Along `ho` intro @List @(AR) `ho` T'TT'I)
 
 --   on_nonempty_list x =
---    let prepared = x `yv` Adapt @(Nonempty List) `ho` to @(Scrolling List) in
+--    let prepared = x `yi` Adapt @(Nonempty List) `ho` to @(Scrolling List) in
 --    let predicate = Match `hc_` _exact_key_ k `ha` super @AR in
---    let adjusted = prepared `yv` spot (That Unit `lu` predicate) `ho` this in
+--    let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
 --    case super adjusted of
---     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` x `has` (\i -> push (Along (i `lu` k)) `hc` x `yv` that `ho` Adapt `ho` to @List `ho` T'TT'I))
+--     This Unit -> Break k `lu_` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` x `has` (\i -> push (Along (i `lu` k)) `hc` x `yi` that `ho` Adapt `ho` to @List `ho` T'TT'I))
 --     That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
 --      Valid xx `lu` (Error `hu_` T'TT'I `ha` to @List `ha` Adapt `hc` xxx `has` (\i -> T'TT'I `ha` to @List `ha` Adapt `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
