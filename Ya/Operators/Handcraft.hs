@@ -299,8 +299,8 @@ infixl 3 `q______`
 infixl 2 `q_______`
 infixl 1 `q________`
 
-infixl 7 `yor`
-infixl 7 `ryo`
+infixl 7 `hor`
+infixl 7 `rho`
 
 infixl 6 `yior`, `yoir`, `yoor`
 
@@ -2035,11 +2035,11 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 -- hu_______ = hu
 -- hu________ = hu
 
-yor :: forall source target t object o .
+hor :: forall source target t object o .
  Covariant Transformation Functor source target t (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  target (t o) (source object o)
-yor = super `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
+hor = super `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
 yior :: forall source target t object i o .
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
@@ -2064,10 +2064,13 @@ yoor :: forall source target t object a o .
  target (t o o) (source object o)
 yoor = super `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap @target @(T'I'I t _)
 
--- yor: target (t o) (source object o)
--- ryo: target (source object o) (t o)
+-- hor: target (t o) (source object o)
+-- har: target (t a) (source a object)
+-- rho: target (source object o) (t o)
+-- rhu: target (              o) (t o)
+-- rha: target (source a object) (t a)
 
-ryo :: forall source target t object a o i .
+rho :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -2077,7 +2080,7 @@ ryo :: forall source target t object a o i .
  (forall e ee . Wrapper target (T'II'I target ee e)) =>
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t a) o) o)
-ryo = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
+rho = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
 
 hjd'q, hjd_'q, hjd__'q, hjd___'q, hjd____'q, hjd_____'q, hjd______'q, hjd_______'q, hjd________'q
  :: forall target a .
