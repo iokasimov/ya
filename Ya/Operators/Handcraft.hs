@@ -299,8 +299,11 @@ infixl 3 `q______`
 infixl 2 `q_______`
 infixl 1 `q________`
 
-infixl 7 `hor`
-infixl 7 `rho`
+infixl 8 `hor`
+infixl 8 `rho`, `rhu`
+
+infixl 7 `hor_`
+infixl 7 `_rho`, `_rhu`
 
 infixl 6 `yior`, `yoir`, `yoor`
 
@@ -2035,11 +2038,13 @@ ha'yioi x = fai (fioi @source) (ha @source x)
 -- hu_______ = hu
 -- hu________ = hu
 
-hor :: forall source target t object o .
+hor, hor_ :: forall source target t object o .
  Covariant Transformation Functor source target t (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  target (t o) (source object o)
 hor = super `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
+
+hor_ = hor
 
 yior :: forall source target t object i o .
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
@@ -2070,7 +2075,7 @@ yoor = super `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II s
 -- rhu: target (              o) (t o)
 -- rha: target (source a object) (t a)
 
-rho :: forall source target t object a o i .
+rho, _rho :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -2081,6 +2086,23 @@ rho :: forall source target t object a o i .
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t a) o) o)
 rho = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
+
+_rho = rho
+
+rhu, _rhu :: forall source target t a o i .
+ Covariant Yoneda Functor source target I =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Component target (T'I'II source Unit) t =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall e . Wrapper target (source Unit e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (Supertype (source Unit a)) (target (source (t a) o) o)
+rhu = yi `compose` component @target @(T'I'II source Unit) @t `compose` wrap `compose` wrap
+
+_rhu = rhu
 
 hjd'q, hjd_'q, hjd__'q, hjd___'q, hjd____'q, hjd_____'q, hjd______'q, hjd_______'q, hjd________'q
  :: forall target a .
