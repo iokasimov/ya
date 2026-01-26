@@ -67,6 +67,18 @@ fu :: forall target t a o .
  o -> target (t a) (t o)
 fu = map @T''II @T'I'II @AR
 
+for :: forall source target t object o .
+ Covariant Endo Transformation Functor target t (T'I'II source object) =>
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ target (t o) (source object o)
+for = super @target `compose` component @target @t @(T'I'II source object)
+
+rfo :: forall source target t object o .
+ Covariant Endo Transformation Functor target (T'I'II source object) t =>
+ (forall e . Wrapper target (T'I'II source object e)) =>
+ target (source object o) (t o)
+rfo = component @target @(T'I'II source object) @t `compose` wrap @target
+
 fok :: forall source target t tt l a o .
  Component target (t `T'TT'I` tt `L` tt `T` l) t =>
  Covariant Functor source target t =>
