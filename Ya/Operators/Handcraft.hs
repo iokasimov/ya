@@ -305,7 +305,13 @@ infixl 8 `rho`, `rhu`
 infixl 7 `hor_`
 infixl 7 `_rho`, `_rhu`
 
-infixl 6 `yior`, `yoir`, `yoor`
+infixl 7 `hior`
+infixl 7 `hoir`
+infixl 7 `hoor`
+
+infixl 7 `rhio`
+infixl 7 `rhoi`
+infixl 7 `rhoo`
 
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target t a o .
@@ -2046,34 +2052,28 @@ hor = super `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source obj
 
 hor_ = hor
 
-yior :: forall source target t object i o .
+hior :: forall source target t object i o .
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i o) (source object o)
-yior = super `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` wrap @target @(T'I'II t _ _)
+hior = super `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` wrap @target @(T'I'II t _ _)
 
-yoir :: forall source target t object i o .
+hoir :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'II'I t i) =>
  Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  target (t o i) (source object o)
-yoir = super `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` wrap @target @(T'II'I t _ _)
+hoir = super `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` wrap @target @(T'II'I t _ _)
 
-yoor :: forall source target t object a o .
+hoor :: forall source target t object a o .
  Covariant Transformation Functor source target (T'I'I t) (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e . Wrapper target (T'I'I t e)) =>
  target (t o o) (source object o)
-yoor = super `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap @target @(T'I'I t _)
-
--- hor: target (t o) (source object o)
--- har: target (t a) (source a object)
--- rho: target (source object o) (t o)
--- rhu: target (              o) (t o)
--- rha: target (source a object) (t a)
+hoor = super `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap @target @(T'I'I t _)
 
 rho, _rho :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
@@ -2088,6 +2088,55 @@ rho, _rho :: forall source target t object a o i .
 rho = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
 
 _rho = rho
+
+rhio, _rhio :: forall source target t object a o i .
+ Covariant Yoneda Functor source target I =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Component target (T'I'II source object) (T'I'II t i) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (source object a) (target (source (t i a) o) o)
+rhio = yi `compose` super `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` wrap
+
+_rhio = rhio
+
+rhoi, _rhoi :: forall source target t object a o i .
+ Covariant Yoneda Functor source target I =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Component target (T'I'II source object) (T'I'II t i) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (source object a) (target (source (t i a) o) o)
+rhoi = yi `compose` super `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` wrap
+
+_rhoi = rhoi
+
+rhoo, _rhoo :: forall source target t object a o i .
+ Covariant Yoneda Functor source target I =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Component target (T'I'II source object) (T'I'I t) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (source object a) (target (source (t a a) o) o)
+rhoo = yi `compose` super `compose` component @target @(T'I'II source object) @(T'I'I t) `compose` wrap
+
+_rhoo = rhoo
+
+-- yio'rho :: forall source target t object a o i .
+--  target (t i a) (target (source a o) (t i o))
+-- yio'rho = ho
 
 rhu, _rhu :: forall source target t a o i .
  Covariant Yoneda Functor source target I =>
