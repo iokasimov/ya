@@ -34,13 +34,6 @@ instance (Precategory target, forall i ii . Wrapper target (T'I' i ii))
  mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
 
 instance
- ( Precategory target
- , forall i ii . Wrapper target (T'I' i ii)
- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II target (AR) (T'I' i `T'TT'I` t `L` t `T` l `L` T'I' i `T` ll) (T'I' i `TT'T'I` t) where
- mapping = rewrap `identity` \_ -> rewrap `identity` \(T'I' x) -> intro (T'I' x)
-
-instance
  ( forall e . Wrapper target (I e)
  , forall e . Wrapper target (t `L` t `T` l `L` I `T` ll `T` e)
  , forall e . Wrapper target (t `L` t `T` l `T` e)

@@ -356,17 +356,6 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial)
 
--- TODO: forall t e target .
-intro :: forall t target e .
- Category (AR) =>
- Category target =>
- Component target (T'I'II (AR) Unit) t =>
- Component target I (T'I'II (AR) Unit) =>
- Wrapper target (T'I'II AR Unit e) =>
- Wrapper target (I e) =>
- target `T'I` e `T'I` t e
-intro = component @target @(T'I'II (AR) Unit) @t `compose` wrap `compose` constant @(AR) @target
-
 outro :: forall t target e .
  Category target =>
  Component target t (T'I'II AR Unit) =>
@@ -571,3 +560,6 @@ instance {-# OVERLAPPABLE #-}
  , Unlabeled (t `L` tt `T` l `L` ttt `T` ll) ~ t
  ) => Unlabelable target (t `L` tt `T` l `L` ttt `T` ll) where
  unlabel = super @target `compose` super @target
+
+pattern Enter :: forall t i . t i `AR_` t i
+pattern Enter x = x

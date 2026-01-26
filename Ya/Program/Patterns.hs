@@ -9,9 +9,6 @@ pattern Arrow x = x
 pattern Same :: i `AR_` i
 pattern Same x = x
 
-pattern Enter :: forall t i . t i `AR_` t i
-pattern Enter x = x
-
 type Alone = I
 
 pattern Alone :: e -> Alone e
