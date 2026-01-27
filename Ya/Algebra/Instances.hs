@@ -497,16 +497,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (T'II'I (S) Unit) wh
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (S'I'II Unit) where
  mapping = rewrap `identity` \_ _ -> T'I'II (This Unit)
 
-instance (e ~ Unit, ee ~ Unit) =>Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (e `S` ee)) (T'I'I (P)) where
- mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
-  (source `compose` f `identity`This Unit)
-  (source `compose` f `identity`That Unit)
-
-instance (e ~ Unit, ee ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (e `S` ee)) where
- mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
-  This _ -> source x
-  That _ -> source y
-
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
@@ -572,3 +562,19 @@ instance {-# OVERLAPS #-}
 
 instance Adjoint Functor (AR) (AR) (T'II'I (P) i) (T'I'II (AR) i)
 instance Adjoint Functor (AR) (AR) (T'I'II (P) i) (T'I'II (AR) i)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These _ x) _ -> source x
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
+
+instance (e ~ Unit, ee ~ Unit) =>Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (e `S` ee)) (T'I'I (P)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
+  (source `compose` f `identity`This Unit)
+  (source `compose` f `identity`That Unit)
+
+instance (e ~ Unit, ee ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (e `S` ee)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
+  This _ -> source x
+  That _ -> source y
