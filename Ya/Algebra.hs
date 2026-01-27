@@ -284,7 +284,7 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) e) (T'II'I (P) e) where
 -- TODO: I'm not really sure about this instance... it could easily lead to an error!
 instance Mapping T'I'II T'I'II (AT) (AT) I (T'I'I (P)) where
  mapping = rewrap `compose` rewrap `identity` \source (Identity x) ->
-   let s = source x in T'I'I (this s `hjd`this s) `hjd` (\(T'I'I (These _ _)) -> Identity (that s (this s)))
+   let s = source x in T'I'I (this s `hjd` this s) `hjd` (\(T'I'I (These _ _)) -> Identity (that s (this s)))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (P'I'II e) I where
  mapping = rewrap `compose` rewrap `identity` \source (T'I'II (These e x)) ->

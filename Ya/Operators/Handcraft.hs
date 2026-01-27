@@ -193,11 +193,11 @@ infixl 3 `has_____`
 infixl 2 `has______`
 infixl 1 `has_______`
 
-infixl 8 `hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'q`, `hjd's`
-infixl 7 `hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yw`, `hjd_'q`, `hjd_'s`
-infixl 6 `hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yw`, `hjd__'q`, `hjd__'s`
-infixl 5 `hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yw`, `hjd___'q`, `hjd___'s`
-infixl 4 `hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yw`, `hjd____'q`, `hjd____'s`
+infixl 8 `hjd`, `st'hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'q`, `hjd's`
+infixl 7 `hjd_`, `st'hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yw`, `hjd_'q`, `hjd_'s`
+infixl 6 `hjd__`, `st'hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yw`, `hjd__'q`, `hjd__'s`
+infixl 5 `hjd___`, `st'hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yw`, `hjd___'q`, `hjd___'s`
+infixl 4 `hjd____`, `st'hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yw`, `hjd____'q`, `hjd____'s`
 
 infixl 8 `yi`
 infixl 7 `yi_`
@@ -3485,6 +3485,22 @@ hjd_ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` super) `co
 hjd__ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
 hjd___ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
 hjd____ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+
+st'hjd, st'hjd_, st'hjd__, st'hjd___, st'hjd____ :: forall target tt i eee e ee .
+ Adjoint Functor target target (T'II'I P e) (T'I'II tt ee) =>
+ (forall eee . Wrapper target (T'I'II tt ee `T'TT'I` T'II'I P e `T'I_` eee)) =>
+ (forall eee . Wrapper target (I eee)) =>
+ Wrapper target i =>
+ (forall eee . Wrapper target (T'II'I P e eee)) =>
+ (forall eee . Wrapper target (T'I'II tt ee eee)) =>
+ Contravariant Objective target eee (P (Supertype i) e) =>
+ target i (tt ee eee)
+st'hjd = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` super
+
+st'hjd_ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` super
+st'hjd__ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` super
+st'hjd___ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` super
+st'hjd____ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` super) `compose` super `compose` super `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` super
 
 hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
