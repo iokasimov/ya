@@ -262,14 +262,14 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`
 
-infixl 8 `yu`
-infixl 7 `yu_`
-infixl 6 `yu__`
-infixl 5 `yu___`
-infixl 4 `yu____`
-infixl 3 `yu_____`
-infixl 2 `yu______`
-infixl 1 `yu_______`
+infixl 8 `yu`, `yu'st`
+infixl 7 `yu_`, `yu_'st`
+infixl 6 `yu__`, `yu__'st`
+infixl 5 `yu___`, `yu___'st`
+infixl 4 `yu____`, `yu____'st`
+infixl 3 `yu_____`, `yu_____'st`
+infixl 2 `yu______`, `yu______'st`
+infixl 1 `yu_______`, `yu_______'st`
 
 infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
@@ -338,7 +338,7 @@ yi_____ = yi
 yi______ = yi
 yi_______ = yi
 
-yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______, yi'yo
+yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______
  :: forall source target t a o .
  Precategory target =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -358,7 +358,6 @@ yo____ = yo
 yo_____ = yo
 yo______ = yo
 yo_______ = yo
-yi'yo = yo
 
 yo'yoo :: forall source target t tt a o .
  Covariant Yoneda Functor source target (T'I t) =>
@@ -489,6 +488,27 @@ yu____ = yu
 yu_____ = yu
 yu______ = yu
 yu_______ = yu
+
+yu'st, yu_'st, yu__'st, yu___'st, yu____'st, yu_____'st, yu______'st, yu_______'st
+ :: forall target t a o .
+ Covariant Yoneda Functor target target t =>
+ (forall e . Contravariant Functor target target (T'II'I target e)) =>
+ -- Mapping T'I'II T'I'II target target I (T'I'II target a) =>
+ Covariant Endo Transformation Functor target I (T'I'II target a) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ Wrapper target o =>
+ target (t a) (target (Supertype o) (t o))
+yu'st = fai @target (wrap `compose` constant `compose` wrap) `compose` yoneda @T'I'II @Functor @target @target
+
+yu_'st = yu'st
+yu__'st = yu'st
+yu___'st = yu'st
+yu____'st = yu'st
+yu_____'st = yu'st
+yu______'st = yu'st
+yu_______'st = yu'st
 
 yui :: forall target t i a o .
  Terminal target =>
@@ -1099,7 +1119,7 @@ kyo = fai @target (fai @source super `compose` fio @source (super @_ @(I _) `com
 -- kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` wrap)
 --  `compose` kyo @source @target @t @tt @ll
 
-kyokl :: forall source target t tt ttt l ll lll a o .
+kyokl, kyokl_, _kyokl :: forall source target t tt ttt l ll lll a o .
  Covariant Yoneda Functor source target t =>
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
  Component source (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
