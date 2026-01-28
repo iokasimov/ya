@@ -230,6 +230,8 @@ infixl 7 `kyo`
 -- infixl 6 `kyok`
 
 infixl 5 `kyokl`
+infixl 4 `kyokl_`
+infixl 4 `_kyokl`
 
 -- infixl 6 `yiok`
 
@@ -1119,6 +1121,9 @@ kyokl :: forall source target t tt ttt l ll lll a o .
  target (t a) (target (source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `L` t `T` l `T` o)) (ttt (t o)))
 kyokl = fio @source (wrapped (component @source @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt)))
  `compose` kyo @source @target @t @tt @ll
+
+kyokl_ = kyokl
+_kyokl = kyokl
 
 -- TODO: Let's define ha'kyo first...
 
