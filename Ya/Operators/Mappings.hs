@@ -71,7 +71,7 @@ for :: forall source target t object o .
  Covariant Endo Transformation Functor target t (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  target (t o) (source object o)
-for = super @target `compose` component @target @t @(T'I'II source object)
+for = supertype @target `compose` component @target @t @(T'I'II source object)
 
 rfo :: forall source target t object o .
  Covariant Endo Transformation Functor target (T'I'II source object) t =>
@@ -101,7 +101,7 @@ fuk source = map @T'I'II @T'I'II @target @target @(t `T'TT'I` tt `L` tt `T` l) @
  -- Covariant Functor source target t =>
  -- (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
  -- source (tt `L` tt `T` l `T` a) o -> target (t a) (t o)
--- kfo source = fo source `compose` super `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` l)
+-- kfo source = fo source `compose` supertype `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` l)
 
 kfo :: forall source target t tt ll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -111,8 +111,8 @@ kfo :: forall source target t tt ll a o .
  (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
  source (tt a) (I `L` tt `T` ll `T` o) -> target (t a) (t o)
-kfo source = fo (super `compose` super `compose` source `compose` super)
- `compose` super `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
+kfo source = fo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
 
 kfok :: forall source target t tt ttt l ll lll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -125,8 +125,8 @@ kfok :: forall source target t tt ttt l ll lll a o .
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
  source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `T` o) -> target (t a) (t o)
 kfok source = component @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` wrap
- `compose` fo (super `compose` super `compose` source `compose` super)
- `compose` super `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
+ `compose` fo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
 
 kfokl :: forall source target t tt ttt l ll lll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -140,8 +140,8 @@ kfokl :: forall source target t tt ttt l ll lll a o .
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
  source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `L` t `T` l `T` o) -> target (t a) (ttt (t o))
 kfokl source = wrapped (component @target @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
- `compose` fo (super `compose` super `compose` source `compose` super)
- `compose` super `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
+ `compose` fo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
 
 fokl :: forall source target t tt l ll a o .
  Covariant Semi Functor source target t =>
@@ -159,7 +159,7 @@ foikl :: forall source target t tt l ll a o i .
  (forall e . Wrapper target (T'II'I t i `TT'T'I` tt `T'I_` e)) =>
  (forall e . Wrapper target (T'II'I t i e)) =>
  source a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o) -> target (t a i) (tt (t o i))
-foikl source = fo @target @target super `compose` fokl source `compose` wrap @_ @(T'II'I t i _)
+foikl source = fo @target @target supertype `compose` fokl source `compose` wrap @_ @(T'II'I t i _)
 
 fukl :: forall target t tt l ll a o .
  Constant Functor (AR) target t =>
@@ -240,7 +240,7 @@ fij :: forall source target t tt i ii a o .
  (forall e . Wrapper source (T'II'I t i e)) =>
  (forall e . Wrapper target (I e)) =>
  source (t a i) o -> target a (tt ii o)
-fij source = super `compose` fo (source `compose` super)
+fij source = supertype `compose` fo (source `compose` supertype)
  `compose` wrapped (component @target @I @(T'I'II tt ii `T'TT'I` T'II'I t i))
 
 -- TODO: effects are executed in reverse order, we can use it
@@ -253,9 +253,9 @@ fc :: forall t a o .
  Adjoint Functor (AR) (AR) (P'I'II (t a `P` t (AR a o))) (T'I'II (AR) (t a `P` t (AR a o))) =>
  Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  t (AR a o) -> (AR) (t a) (t o)
-fc = super @(AR) @(T'I'II (AR) (t a) _)
+fc = supertype @(AR) @(T'I'II (AR) (t a) _)
  `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR))
  (fd @(AR) @(AR) (wrap @_ @(T'I'II _ _ _)) `compose` wrap @_ @(T'I'II _ _ _))
  `compose` fj @(AR) @(AR) @(P'I'II (t a)) @(T'I'II (AR) _)
  (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity
- `compose` super @(AR) @(P'I'II (t a) ((t `L` t `T` Void) (AR a o))) `compose` fo @(AR) wrap)
+ `compose` supertype @(AR) @(P'I'II (t a) ((t `L` t `T` Void) (AR a o))) `compose` fo @(AR) wrap)

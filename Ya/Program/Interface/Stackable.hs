@@ -27,7 +27,7 @@ instance Stackable List where
   T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
    Exist x `hjd__` T'TT'I `hc__` xs `yo` F'T'I'TT'I
  push item s = item `hjd` rewrap
-  (Exist `ha` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` super @Arrow @(F'T'I'TT'I _ _ _))) s
+  (Exist `ha` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` supertype @Arrow @(F'T'I'TT'I _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stackable (Construction Optional) where

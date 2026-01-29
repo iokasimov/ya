@@ -18,29 +18,29 @@ import Ya.Program.Interface.Shiftable
 instance Mapping T'I'II T'I'II (AT) (AT) ((Construction Maybe) `L` Alone `T` Void) Alone where
  mapping = rewrap `hc` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `hc` \(Label (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
-   Alone `ha` this `ha` source `hc` x `hjd` (\xx -> xxx `hjd` that `ha` source `hc` x `hc` super xx)
+   Alone `ha` this `ha` source `hc` x `hjd` (\xx -> xxx `hjd` that `ha` source `hc` x `hc` supertype xx)
 
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void) `L` Alone `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `hc` \case
-  Label (Label (T'TT'I (T'I'II (This _)))) -> super Empty `hjd` Label `ha` Label `ha` (Empty `hu` empty `has` (\x' -> x' `ryu` Enter))
+  Label (Label (T'TT'I (T'I'II (This _)))) -> supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` empty `has` (\x' -> x' `ryu` Enter))
   Label (Label (T'TT'I (T'I'II (That (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x))))))))) ->
    Exist `hc` x `hjd` Label `ha` Label `ha` (Empty `hu_` T'TT'I `hc` (xxx `yo` F'T'I'TT'I) `has` (\x' -> x' `ryu` Enter @List))
 
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void `P` Void) `L` Alone `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `hc` \(Label (Label x)) ->
-  super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
+  supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Void)) List where
- mapping = rewrap `hc` \source -> rewrap `hc__` super `ho` wrap @AR `ho'yo` source `ho` Exist
+ mapping = rewrap `hc` \source -> rewrap `hc__` supertype `ho` wrap @AR `ho'yo` source `ho` Exist
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `hc` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
   that (bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `hc___` fs) `yo` source
-  -- ((bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `hc___` fs) `yior` source) Unit --super That
+  -- ((bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `hc___` fs) `yior` source) Unit --supertype That
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
@@ -50,16 +50,16 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List
  -- mapping = rewrap `hc` \source -> Alone `ha` this `ha` top `hop` wrap @(AR) `ha` this `ha` sub `ho_'yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `T` Void) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
- mapping = rewrap `hc` \source x -> super x `yo` source `hjd` wrap (empty @List)
+ mapping = rewrap `hc` \source x -> supertype x `yo` source `hjd` wrap (empty @List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `L` Construction List `T` Void) (Construction List) where
  mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These tree unfoldings))) ->
-  super unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `hc___` tree `yi__` that `ho'yo` source where
+  supertype unfoldings `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` cover `hc___` tree `yi__` that `ho'yo` source where
 
    cover (T'TT'I'TTT'I (These parent siblings)) tree =
     Unit `hjd___` that `ha` sub @Tree
-     `hc___` super parent `ryu` Enter @Tree
-     `hc___` Alone `hc` tree `hjd` super siblings
+     `hc___` supertype parent `ryu` Enter @Tree
+     `hc___` Alone `hc` tree `hjd` supertype siblings
        `yi` to @List `ha` Adapt @(Nonempty List)
        `ha` to @(Nonempty List) `ha` Adapt @(Scrolling List)
 
@@ -74,7 +74,7 @@ pattern Stock :: forall t i .
 pattern Stock x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `hc` \source x -> super x `hjd` (empty @List `hjd` empty @List) `yo` source
+ mapping = rewrap `hc` \source x -> supertype x `hjd` (empty @List `hjd` empty @List) `yo` source
 
 -- TODO: generalise
 pattern Fresh :: forall t i .
@@ -82,10 +82,10 @@ pattern Fresh :: forall t i .
 pattern Fresh x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
- mapping = rewrap `hc` \source x -> empty @List `hjd` super x `yo` source
+ mapping = rewrap `hc` \source x -> empty @List `hjd` supertype x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `hc` \source x -> empty @List `hjd` (empty @List `hjd` super x) `yo` source
+ mapping = rewrap `hc` \source x -> empty @List `hjd` (empty @List `hjd` supertype x) `yo` source
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
@@ -94,7 +94,7 @@ pattern Stump x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II e `T` Void) (S'I'II Unit) where
  mapping = rewrap `hc` \source ->
-  rewrap `hc`((This `compose` constant Unit `has` That `compose` source) `compose` super)
+  rewrap `hc`((This `compose` constant Unit `has` That `compose` source) `compose` supertype)
 
 pattern Spare :: forall i ii .
  Component (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) =>
@@ -131,17 +131,17 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
    rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` (\x' -> x' `ryu` Enter @Tree) `hc` x) scrolling_list
-    `yi` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List `ho'yo` super @(AR)
-    `yi` this @(Alone _) `ho'st` Root `hc` super scrolling_list
+    `yi` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List `ho'yo` supertype @(AR)
+    `yi` this @(Alone _) `ho'st` Root `hc` supertype scrolling_list
     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
-    `hc___` super root `ryu` Enter @Tree
+    `hc___` supertype root `ryu` Enter @Tree
     `hc___` Adapt @(Scrolling List) `ho` to @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` to @List
-     `hc__` Alone tree `hjd` super siblings
+     `hc__` Alone tree `hjd` supertype siblings
     `yo___` source
 
 -- TODO: We haven't finished yet!
@@ -165,7 +165,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
    --  let (These x xx) = this `ha` top @(Nonempty List) `hop` this `ha` sub @(Nonempty List) `hc_` nonempty_list in
    --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `hc___` starting x forest `yi__` that -- `ho` wrap @(
  
-  -- super (super unfoldings)
+  -- supertype (supertype unfoldings)
   --  `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker
   --  `hc___` wrap @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` to @List `ha` to @(Nonempty List) `hc'st` basement
   --  `yi__` that `ho'yo` source where
@@ -191,7 +191,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
 --  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
   
  -- component = T'I'TT'II'T'II'I `hc` \(Label (Label x)) ->
-  -- super Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
+  -- supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
  ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
@@ -215,7 +215,7 @@ instance
  ( Covariant Endo Semi Functor (->) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
  mapping = rewrap `hc` \source -> rewrap `ha` rewrap `ha` rewrap `ha` rewrap `hc` \(These xx x) ->
-  (xx `yo` super @AR `ha` super @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
+  (xx `yo` supertype @AR `ha` supertype @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT'I)
   `hjd` Label (xx `hjd` x `yo` source)
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
@@ -282,10 +282,10 @@ pattern Alter :: forall t i .
 pattern Alter x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I'I (P)) where
- mapping = rewrap `hc` \source -> rewrap `hc`(source `ha` that `hop` source `ha` this `ha__` super @(AR))
+ mapping = rewrap `hc` \source -> rewrap `hc`(source `ha` that `hop` source `ha` this `ha__` supertype @(AR))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
- mapping = rewrap `hc` \source -> rewrap `hc`(source `ho` That `has` source `ho` This `ha__` super @(AR))
+ mapping = rewrap `hc` \source -> rewrap `hc`(source `ho` That `has` source `ho` This `ha__` supertype @(AR))
 
 pattern Aback x = This x :: Shifter List
 pattern Ahead x = That x :: Shifter List
@@ -324,7 +324,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` Empty Unit) `hc_` _spot_ `hc` x where
 
-  found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
+  found (These w sl) = supertype (predicate `hc` w) `yui` sl `yiu` sl
 
   _spot_ = Unit `ryu` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
    `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` at @(Alone i) `hop` Scope `hc` it
@@ -407,7 +407,7 @@ instance Shiftable Alone (Construction List) where
    `ho_____'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   moves :: forall i . i `P` List (Tree i) `AR___` Maybe (i `P` Nonempty List (Tree i))
-  moves x = x `yiokl` Apply `ha` Check `ha` super @(AR)
+  moves x = x `yiokl` Apply `ha` Check `ha` supertype @(AR)
 
   splash :: forall i . i `P` (Nonempty List (Tree i)) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
   splash (These root descendants) = this `ha` top `hc` descendants
@@ -439,4 +439,4 @@ instance Shiftable Alone (Construction List) where
    let siblings = this `ha` at @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` is `hc` unfolding in
    Alone `hc` tree `hjd` siblings
    `yi` shift `hc` way `ha` is @(Scrolling List `T'I` Tree i)
-   `yi` (\x -> super @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hc` x `hjd_` this `ha` at @(Alone i) `hc` unfolding `hjd` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hc` x) `ha` that
+   `yi` (\x -> supertype @(AR) `ha` this `ha` at @(Alone `T'I` Tree i) `hc` x `hjd_` this `ha` at @(Alone i) `hc` unfolding `hjd` wrap @(AR) `ha` this `ha` at @(Twice `T'TT'I` List `T'I_` Tree i) `hc` x) `ha` that

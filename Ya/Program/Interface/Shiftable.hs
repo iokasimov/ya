@@ -82,7 +82,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
 -- spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `hc` x where
 
---  found (These w sl) = super (predicate `hc` w) `yui` sl `yiu` sl
+--  found (These w sl) = supertype (predicate `hc` w) `yui` sl `yiu` sl
 
 --  _spot_ = intro @(Stops `T` Shifting t tt i `JNT` State `T` Shifting t tt i) Unit
 --   `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` at @(t i) `hop` Scope `hc` it
@@ -93,7 +93,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 -- rewind :: forall t tt i .
 --  Shiftable t tt =>
 --  Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Unit)
--- rewind way = super @(AR) `ha` super @(AR)
+-- rewind way = supertype @(AR) `ha` supertype @(AR)
 --  `hc____` intro @(State `T` Shifting t tt i) Unit
 --    `yuk_` Apply `ha` State `ha` Event `hc` shift way
 --    `yok_` Retry `ha__` Exist `has` Exist `hu` Empty Unit

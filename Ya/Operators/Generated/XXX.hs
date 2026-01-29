@@ -29,7 +29,7 @@ yo'yo'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a)) (target (source (Supertype (a)) o) (t (tt o)))
-yo'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 
 yo'ya'st
  :: forall source target t tt a o .
@@ -43,7 +43,7 @@ yo'ya'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o)) (target (source (Supertype (a)) o) (t (tt a)))
-yo'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 
 yo'yoi'st
  :: forall source target t tt ii a o .
@@ -58,7 +58,7 @@ yo'yoi'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a ii)) (target (source (Supertype (a)) o) (t (tt o ii)))
-yo'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 
 yo'yai'st, yo'ha'st
  :: forall source target t tt ii a o .
@@ -73,7 +73,7 @@ yo'yai'st, yo'ha'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o ii)) (target (source (Supertype (a)) o) (t (tt a ii)))
-yo'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 yo'ha'st = yo'yai'st
 
 yo'yio'st, yo'ho'st
@@ -89,7 +89,7 @@ yo'yio'st, yo'ho'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (a))) (target (source (Supertype (a)) o) (t (tt ii (o))))
-yo'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 yo'ho'st = yo'yio'st
 
 yo'yia'st
@@ -105,7 +105,7 @@ yo'yia'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (o))) (target (source (Supertype (a)) o) (t (tt ii (a))))
-yo'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` yo @source @target
+yo'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` yo @source @target
 
 ya'yo'st
  :: forall source target t tt a o .
@@ -119,7 +119,7 @@ ya'yo'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o)) (target (source (Supertype (a)) o) (t (tt a)))
-ya'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 
 ya'ya'st
  :: forall source target t tt a o .
@@ -133,7 +133,7 @@ ya'ya'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a)) (target (source (Supertype (a)) o) (t (tt o)))
-ya'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 
 ya'yoi'st
  :: forall source target t tt ii a o .
@@ -148,7 +148,7 @@ ya'yoi'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o ii)) (target (source (Supertype (a)) o) (t (tt a ii)))
-ya'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 
 ya'yai'st, ya'ha'st
  :: forall source target t tt ii a o .
@@ -163,7 +163,7 @@ ya'yai'st, ya'ha'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a ii)) (target (source (Supertype (a)) o) (t (tt o ii)))
-ya'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 ya'ha'st = ya'yai'st
 
 ya'yio'st, ya'ho'st
@@ -179,7 +179,7 @@ ya'yio'st, ya'ho'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (o))) (target (source (Supertype (a)) o) (t (tt ii (a))))
-ya'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 ya'ho'st = ya'yio'st
 
 ya'yia'st
@@ -195,7 +195,7 @@ ya'yia'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (a))) (target (source (Supertype (a)) o) (t (tt ii (o))))
-ya'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` ya @source @target
+ya'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` ya @source @target
 
 yoi'yo'st
  :: forall source target t i tt a o .
@@ -210,7 +210,7 @@ yoi'yo'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a) i) (target (source (Supertype (a)) o) (t (tt o) i))
-yoi'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 
 yoi'ya'st
  :: forall source target t i tt a o .
@@ -225,7 +225,7 @@ yoi'ya'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o) i) (target (source (Supertype (a)) o) (t (tt a) i))
-yoi'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 
 yoi'yoi'st
  :: forall source target t i tt ii a o .
@@ -241,7 +241,7 @@ yoi'yoi'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a ii) i) (target (source (Supertype (a)) o) (t (tt o ii) i))
-yoi'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 
 yoi'yai'st, yoi'ha'st
  :: forall source target t i tt ii a o .
@@ -257,7 +257,7 @@ yoi'yai'st, yoi'ha'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o ii) i) (target (source (Supertype (a)) o) (t (tt a ii) i))
-yoi'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 yoi'ha'st = yoi'yai'st
 
 yoi'yio'st, yoi'ho'st
@@ -274,7 +274,7 @@ yoi'yio'st, yoi'ho'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (a)) i) (target (source (Supertype (a)) o) (t (tt ii (o)) i))
-yoi'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 yoi'ho'st = yoi'yio'st
 
 yoi'yia'st
@@ -291,7 +291,7 @@ yoi'yia'st
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (o)) i) (target (source (Supertype (a)) o) (t (tt ii (a)) i))
-yoi'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` yoi @source @target
+yoi'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` yoi @source @target
 
 yai'yo'st, ha'yo'st, ha_'yo'st, ha__'yo'st, ha___'yo'st, ha____'yo'st, ha_____'yo'st, ha______'yo'st, ha_______'yo'st
  :: forall source target t i tt a o .
@@ -306,7 +306,7 @@ yai'yo'st, ha'yo'st, ha_'yo'st, ha__'yo'st, ha___'yo'st, ha____'yo'st, ha_____'y
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o) i) (target (source (Supertype (a)) o) (t (tt a) i))
-yai'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'yo'st = yai'yo'st
 ha_'yo'st = yai'yo'st
 ha__'yo'st = yai'yo'st
@@ -329,7 +329,7 @@ yai'ya'st, ha'ya'st, ha_'ya'st, ha__'ya'st, ha___'ya'st, ha____'ya'st, ha_____'y
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a) i) (target (source (Supertype (a)) o) (t (tt o) i))
-yai'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'ya'st = yai'ya'st
 ha_'ya'st = yai'ya'st
 ha__'ya'st = yai'ya'st
@@ -353,7 +353,7 @@ yai'yoi'st, ha'yoi'st, ha_'yoi'st, ha__'yoi'st, ha___'yoi'st, ha____'yoi'st, ha_
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt o ii) i) (target (source (Supertype (a)) o) (t (tt a ii) i))
-yai'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'yoi'st = yai'yoi'st
 ha_'yoi'st = yai'yoi'st
 ha__'yoi'st = yai'yoi'st
@@ -377,7 +377,7 @@ yai'yai'st, ha'ha'st, ha_'ha'st, ha__'ha'st, ha___'ha'st, ha____'ha'st, ha_____'
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt a ii) i) (target (source (Supertype (a)) o) (t (tt o ii) i))
-yai'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'ha'st = yai'yai'st
 ha_'ha'st = yai'yai'st
 ha__'ha'st = yai'yai'st
@@ -401,7 +401,7 @@ yai'yio'st, ha'ho'st, ha_'ho'st, ha__'ho'st, ha___'ho'st, ha____'ho'st, ha_____'
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (o)) i) (target (source (Supertype (a)) o) (t (tt ii (a)) i))
-yai'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'ho'st = yai'yio'st
 ha_'ho'st = yai'yio'st
 ha__'ho'st = yai'yio'st
@@ -425,7 +425,7 @@ yai'yia'st, ha'yia'st, ha_'yia'st, ha__'yia'st, ha___'yia'st, ha____'yia'st, ha_
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t (tt ii (a)) i) (target (source (Supertype (a)) o) (t (tt ii (o)) i))
-yai'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` yai @source @target
+yai'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` yai @source @target
 ha'yia'st = yai'yia'st
 ha_'yia'st = yai'yia'st
 ha__'yia'st = yai'yia'st
@@ -448,7 +448,7 @@ yio'yo'st, ho'yo'st, ho_'yo'st, ho__'yo'st, ho___'yo'st, ho____'yo'st, ho_____'y
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt a))) (target (source (Supertype (a)) o) (t i ((tt o))))
-yio'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'yo'st = yio'yo'st
 ho_'yo'st = yio'yo'st
 ho__'yo'st = yio'yo'st
@@ -471,7 +471,7 @@ yio'ya'st, ho'ya'st, ho_'ya'st, ho__'ya'st, ho___'ya'st, ho____'ya'st, ho_____'y
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt o))) (target (source (Supertype (a)) o) (t i ((tt a))))
-yio'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'ya'st = yio'ya'st
 ho_'ya'st = yio'ya'st
 ho__'ya'st = yio'ya'st
@@ -495,7 +495,7 @@ yio'yoi'st, ho'yoi'st, ho_'yoi'st, ho__'yoi'st, ho___'yoi'st, ho____'yoi'st, ho_
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt a ii))) (target (source (Supertype (a)) o) (t i ((tt o ii))))
-yio'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'yoi'st = yio'yoi'st
 ho_'yoi'st = yio'yoi'st
 ho__'yoi'st = yio'yoi'st
@@ -519,7 +519,7 @@ yio'yai'st, ho'ha'st, ho_'ha'st, ho__'ha'st, ho___'ha'st, ho____'ha'st, ho_____'
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt o ii))) (target (source (Supertype (a)) o) (t i ((tt a ii))))
-yio'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'ha'st = yio'yai'st
 ho_'ha'st = yio'yai'st
 ho__'ha'st = yio'yai'st
@@ -543,7 +543,7 @@ yio'yio'st, ho'ho'st, ho_'ho'st, ho__'ho'st, ho___'ho'st, ho____'ho'st, ho_____'
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt ii (a)))) (target (source (Supertype (a)) o) (t i ((tt ii (o)))))
-yio'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'ho'st = yio'yio'st
 ho_'ho'st = yio'yio'st
 ho__'ho'st = yio'yio'st
@@ -567,7 +567,7 @@ yio'yia'st, ho'yia'st, ho_'yia'st, ho__'yia'st, ho___'yia'st, ho____'yia'st, ho_
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt ii (o)))) (target (source (Supertype (a)) o) (t i ((tt ii (a)))))
-yio'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` yio @source @target
+yio'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` yio @source @target
 ho'yia'st = yio'yia'st
 ho_'yia'st = yio'yia'st
 ho__'yia'st = yio'yia'st
@@ -590,7 +590,7 @@ yia'yo'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt o))) (target (source (Supertype (a)) o) (t i ((tt a))))
-yia'yo'st = fai (fo @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'yo'st = fai (fo @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 
 yia'ya'st
  :: forall source target t i tt a o .
@@ -605,7 +605,7 @@ yia'ya'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt a))) (target (source (Supertype (a)) o) (t i ((tt o))))
-yia'ya'st = fai (fa @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'ya'st = fai (fa @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 
 yia'yoi'st
  :: forall source target t i tt ii a o .
@@ -621,7 +621,7 @@ yia'yoi'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt o ii))) (target (source (Supertype (a)) o) (t i ((tt a ii))))
-yia'yoi'st = fai (foi @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'yoi'st = fai (foi @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 
 yia'yai'st, yia'ha'st
  :: forall source target t i tt ii a o .
@@ -637,7 +637,7 @@ yia'yai'st, yia'ha'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt a ii))) (target (source (Supertype (a)) o) (t i ((tt o ii))))
-yia'yai'st = fai (fai @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'yai'st = fai (fai @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 yia'ha'st = yia'yai'st
 
 yia'yio'st, yia'ho'st
@@ -654,7 +654,7 @@ yia'yio'st, yia'ho'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt ii (o)))) (target (source (Supertype (a)) o) (t i ((tt ii (a)))))
-yia'yio'st = fai (fio @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'yio'st = fai (fio @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 yia'ho'st = yia'yio'st
 
 yia'yia'st
@@ -671,7 +671,7 @@ yia'yia'st
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  Wrapper source (a) =>
  target (t i ((tt ii (a)))) (target (source (Supertype (a)) o) (t i ((tt ii (o)))))
-yia'yia'st = fai (fia @source @source @tt `compose` fai @source super) `compose` yia @source @target
+yia'yia'st = fai (fia @source @source @tt `compose` fai @source supertype) `compose` yia @source @target
 
 yo'yo'yo
  :: forall source target t tt ttt a o .

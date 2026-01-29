@@ -22,7 +22,7 @@ swap (These x y) = y `hjd` x
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
   -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
-  -- (\new -> Build x (super @Arrow @(F'T'I'TT'I _ _ _) `fo` super new) `yo` source `ho` (\(These _ y) -> y))
+  -- (\new -> Build x (supertype @Arrow @(F'T'I'TT'I _ _ _) `fo` supertype new) `yo` source `ho` (\(These _ y) -> y))
 
 fetch :: e `AR__` e `P` e
 fetch = is `hop` is
@@ -59,7 +59,7 @@ sub :: forall tt t e .
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
   (xs `yo` wrap @(AR) @(F'T'I'TT'I _ _ _))
-  (\new -> Root x `hc__` new `yo` super @Arrow @(F'T'I'TT'I _ _ _))
+  (\new -> Root x `hc__` new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
@@ -83,12 +83,12 @@ as :: forall tt ttt t i .
  Unlabelable (AR) t =>
  (Unlabeled t ~ ttt) =>
  t i `AR____` tt i `P` (tt i `AR__` ttt i)
-as = super @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
+as = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
 
 go :: forall tt t l i .
  Component (TR) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
-go = super (component @(TR)) `ho'ho` super @(AR) @(t `L` tt `T` l `T` i)
+go = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
 
 by :: forall t r e .
  (r ~ Representation t) =>
