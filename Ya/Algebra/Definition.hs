@@ -563,3 +563,20 @@ instance {-# OVERLAPPABLE #-}
 
 pattern Enter :: forall t i . t i `AR_` t i
 pattern Enter x = x
+
+-- class IS i ii | i -> ii, ii -> i where
+
+-- instance IS i i where
+
+class IS' i ii r | i ii -> r where
+
+instance IS' i i () where
+
+type IS i ii = IS' i ii ()
+
+-- class  TypeEq x y b | x y -> b
+--  instance               TypeEq x x HTrue
+--  instance b ~ HFalse => TypeEq x y b
+
+-- type family IS i ii where
+ -- IS i i = ()
