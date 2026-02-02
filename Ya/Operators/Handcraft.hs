@@ -61,7 +61,7 @@ infixl 1 `ho________` -- , `ho________'yok`, `ho________'yuk`, `ho________'yokl`
  -- , `ho________'yo`
  -- , `ho________'yoi`
 
-infixl 9 `ha`, `ha'hu`
+infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  , `ha'yok`
  -- , `ha'yuk`
  -- , `ha'kyo`
@@ -1779,19 +1779,22 @@ ha________'st'st = ha'st'st
 --  u (uu ii o) i -> source a o -> u (uu ii a) i
 -- ha'ho x = fai @(AR) @(AR) fio (ha @u x)
 
--- ha'ho'hu :: forall source target u uu u__ o e ee eee a .
- -- Precategory source =>
- -- Contravariant Yoneda Functor u__ (AR) (T'II'I u e) =>
- -- Covariant Semi Functor source u__ (T'I'II uu ee) =>
- -- Covariant Endo Semi Functor source (T'I'II u__ eee) =>
- -- Mapping T'I'II T'I'II target target I (T'I'II target a) =>
- -- Wrapper u__ (T'I'II uu ee (u__ eee a)) =>
- -- Wrapper u__ (T'I'II uu ee (u__ eee o)) =>
- -- Wrapper source (T'I'II u__ eee o) =>
- -- Wrapper source (T'I'II u__ eee a) =>
- -- Wrapper (AR) (U_1_I source a o) =>
- -- u (uu ee (u__ eee o)) e -> Supertype (U_1_I source a o) -> u (uu ee (u__ eee a)) e
--- ha'ho'hu = fai (fio @source `compose` fiu) `compose` ha @u__
+ha'ho'hu :: forall target t tt ttt o i ii iii a .
+ Terminal target =>
+ (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target (T'II'I t i) =>
+ Covariant Endo Semi Functor target (T'I'II tt ii) =>
+ Covariant Endo Semi Functor target (T'I'II ttt iii) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ (forall e ee . Wrapper target (T'I'II tt e ee)) =>
+ (forall e ee . Wrapper target (T'I'II ttt e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper (AR) (target Unit e)) =>
+ target (t (tt ii (ttt iii o)) i) (target (Supertype (target Unit o)) (t (tt ii (ttt iii a)) i))
+ha'ho'hu = fai (fio @target @target @tt `compose` fiu @target @target @ttt) `compose` yai @target @target @t
 
 -- ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'hu, ha________'hu :: forall u uu o e ee a .
  -- Terminal u =>
