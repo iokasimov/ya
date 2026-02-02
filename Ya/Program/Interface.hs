@@ -24,8 +24,8 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `hc` \source -> rewrap `hc` \(These (These i ii) (T'I'II f)) ->
   let These i' i'' = supertype `compose` supertype `identity` i in
   let These ii' ii'' = supertype `compose` supertype `compose` supertype `identity` ii in
-  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i' `hjd` wrap ii')) `hjd`
-  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i'' `hjd` wrap ii''))
+  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i' `hjd` subtype ii')) `hjd`
+  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i'' `hjd` subtype ii''))
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (I `P'T'I'TT'I` Twice `T'TT'I` List) `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source x@(T'TT'I'TTT'I (These (Identity _) (T'TT'I (T'I'I (These rl fl))))) ->
@@ -70,7 +70,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
- mapping = rewrap `hc` \source x -> x `yo` source `ho` (\x' -> x' `ryu` Enter @Tree) `yi` wrap @(AR) `hjd` (wrap @(AR) `ha` Label `ha` wrap @AR `ha` Empty) Unit `yi` wrap @(AR)
+ mapping = rewrap `hc` \source x -> x `yo` source `ho` (\x' -> x' `ryu` Enter @Tree) `yi` subtype @(AR) `hjd` (subtype @(AR) `ha` Label `ha` subtype @AR `ha` Empty) Unit `yi` subtype @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance {-# OVERLAPS #-}
@@ -196,7 +196,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `ha` source)
   `hc___` empty @List
-  `yi__` wrap `ha` Empty `has` is `ho'st` that @(List _)
+  `yi__` subtype `ha` Empty `has` is `ho'st` that @(List _)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `hc` \source x -> supertype x
@@ -212,7 +212,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
   `ha__'yokl` Prior `ha` Apply
    `ha_'yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @(Nonempty List) `ha` source
    `ha_` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _)
-  `ha__` wrap @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
+  `ha__` subtype @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
   `hc___` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `hc` start `yo` source
   `yi__` that
 
@@ -220,12 +220,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source x -> x
   `yi_` Adapt `ho` to @(Scrolling List)
-  `kyo` Range `ha` wrap @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` source
-  `yi_` Adapt `ho` to @(Nonempty List) `ho` wrap @(AR)
+  `kyo` Range `ha` subtype @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` source
+  `yi_` Adapt `ho` to @(Nonempty List) `ho` subtype @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
- mapping = rewrap `hc` \source -> wrap @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
+ mapping = rewrap `hc` \source -> subtype @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
   `ha__` Empty `hu` empty @List
     `has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` to @List
 

@@ -27,9 +27,9 @@ class Keyable k t where
 --   let adjusted = prepared `yi` spot (That Unit `lu` predicate) `ho` this in
 --   case supertype adjusted of
 --    This Unit ->
---     Break k `lu` ((\_ -> x) `has` (\i -> push (Along (i `lu` k)) `hc` supertype x `yi` that `ho` wrap @(AR)))
+--     Break k `lu` ((\_ -> x) `has` (\i -> push (Along (i `lu` k)) `hc` supertype x `yi` that `ho` subtype @(AR)))
 --    That (T'TT'I'TTT'I (These (Alone (T'II'I (These xx kk))) xxx)) ->
---     Valid xx `lu` ((\_ -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` xxx) `has` (\i -> wrap @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
+--     Valid xx `lu` ((\_ -> subtype @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` xxx) `has` (\i -> subtype @(AR) `ha` to @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
 -- instance
 --  ( Setoid (AR) k

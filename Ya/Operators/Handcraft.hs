@@ -329,10 +329,10 @@ yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  (forall e ee . Wrapper target (T'II'I target ee e)) =>
  (forall e . Wrapper target (I e)) =>
  target a (target (source a o) o)
-yi = fai @target wrap
+yi = fai @target subtype
  `compose` fio @target supertype
  `compose` yoneda @T'I'II @Functor
- `compose` wrap @target @(I a)
+ `compose` subtype @target @(I a)
 
 yi_ = yi
 yi__ = yi
@@ -350,10 +350,10 @@ yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a) (target (source a o) (t o))
-yo = fai @target wrap `compose` yoneda @T'I'II @Functor
+yo = fai @target subtype `compose` yoneda @T'I'II @Functor
 
  -- target (t a) (target (source o a) (t o))
--- ya = fai @target wrap `compose` yoneda @T'II'I @Functor
+-- ya = fai @target subtype `compose` yoneda @T'II'I @Functor
 
 yo_ = yo
 yo__ = yo
@@ -401,7 +401,7 @@ yoo :: forall source target t a o .
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a a) (target (source a o) (t o o))
-yoo = fio @target supertype `compose` yo @source @target @(T'I'I t) `compose` wrap
+yoo = fio @target supertype `compose` yo @source @target @(T'I'I t) `compose` subtype
 
 yoi
  :: forall source target t i a o .
@@ -414,7 +414,7 @@ yoi
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a i) (target (source a o) (t o i))
-yoi = fio @target supertype `compose` yo @source @target @(T'II'I t i) `compose` wrap
+yoi = fio @target supertype `compose` yo @source @target @(T'II'I t i) `compose` subtype
 
 -- TODO: add Hom functor aliases here
 yio, ho, ho_, ho__, ho___, ho____, ho_____, ho______, ho_______, ho________
@@ -428,7 +428,7 @@ yio, ho, ho_, ho__, ho___, ho____, ho_____, ho______, ho_______, ho________
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  target (t i a) (target (source a o) (t i o))
-yio = fio @target supertype `compose` yo @source @target @(T'I'II t i) `compose` wrap
+yio = fio @target supertype `compose` yo @source @target @(T'I'II t i) `compose` subtype
 
 ho = yio
 ho_ = yio
@@ -472,7 +472,7 @@ ho________'st = yio'st
 --  Wrapper target (T'I'II source a o) =>
 --  Elicitable T'I'II target (W_III_I_II w eee e o) =>
 --  w e a eee -> target (source a o) (w e o eee)
--- yioi x = compose supertype (yoneda @T'I'II @source @target @(W_III_I_II _ _ _) (wrap x))
+-- yioi x = compose supertype (yoneda @T'I'II @source @target @(W_III_I_II _ _ _) (subtype x))
 
 yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
  Covariant Yoneda Functor target target t =>
@@ -483,7 +483,7 @@ yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a 
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (t a) (target o (t o))
-yu = fai @target (wrap `compose` constant) `compose` yoneda @T'I'II @Functor @target @target
+yu = fai @target (subtype `compose` constant) `compose` yoneda @T'I'II @Functor @target @target
 
 yu_ = yu
 yu__ = yu
@@ -504,7 +504,7 @@ yu'st, yu_'st, yu__'st, yu___'st, yu____'st, yu_____'st, yu______'st, yu_______'
  (forall e . Wrapper target (I e)) =>
  Wrapper target o =>
  target (t a) (target (Supertype o) (t o))
-yu'st = fai @target (wrap `compose` constant `compose` wrap) `compose` yoneda @T'I'II @Functor @target @target
+yu'st = fai @target (subtype `compose` constant `compose` subtype) `compose` yoneda @T'I'II @Functor @target @target
 
 yu_'st = yu'st
 yu__'st = yu'st
@@ -578,17 +578,17 @@ yiu'st, hu'st, hu_'st, hu__'st, hu___'st, hu____'st, hu_____'st, hu______'st, hu
  Wrapper target (T'II'I target o Unit) =>
  (forall e . Wrapper target (T'I'II t i e)) =>
  target (t i a) (target (Supertype (target Unit o)) (t i (Supertype o)))
-yiu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+yiu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 
-hu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu_'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu__'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu___'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu_____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu_______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
-hu________'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` wrap) `compose` yio @target
+hu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu__'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu___'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu________'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 
 -- st'yiu, st'hu, st'hu_, st'hu__, st'hu___, st'hu____, st'hu_____, st'hu______, st'hu_______, st'hu________
 --  :: forall target t i a o .
@@ -606,7 +606,7 @@ hu________'st = fai @target (fio (supertype @target @o) `compose` fai @target te
 --  (forall e . Wrapper target (T'I'II t i e)) =>
 --  Wrapper target i =>
 --  t (Supertype i) a -> target (Supertype (target Unit o)) (t i o)
--- st'yiu x = yio @target (fai @target supertype x) `compose` fai @target terminal `compose` wrap
+-- st'yiu x = yio @target (fai @target supertype x) `compose` fai @target terminal `compose` subtype
 
 -- st'hu = st'yiu
 -- st'hu_ = st'yiu
@@ -624,7 +624,7 @@ ya :: forall source target t a o .
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a) (target (source o a) (t o))
-ya = fai @target wrap `compose` yoneda @T'II'I @Functor
+ya = fai @target subtype `compose` yoneda @T'II'I @Functor
 
 yai, ha, ha_, ha__, ha___, ha____, ha_____, ha______, ha_______, ha________ :: forall source target t i a o .
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
@@ -635,7 +635,7 @@ yai, ha, ha_, ha__, ha___, ha____, ha_____, ha______, ha_______, ha________ :: f
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  target (t a i) (target (source o a) (t o i))
-yai = fio @target supertype `compose` ya @source @target @(T'II'I t i) `compose` wrap
+yai = fio @target supertype `compose` ya @source @target @(T'II'I t i) `compose` subtype
 
 ha = yai
 ha_ = yai
@@ -823,7 +823,7 @@ yia :: forall source target t i a o .
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i a) (target (source o a) (t i o))
-yia = fio @target supertype `compose` ya @source @target @(T'I'II t i) `compose` wrap
+yia = fio @target supertype `compose` ya @source @target @(T'I'II t i) `compose` subtype
 
 yok, yok_, yok__, yok___, yok____, yok_____, yok______
  :: forall source target t tt ll a o .
@@ -836,7 +836,7 @@ yok, yok_, yok__, yok___, yok____, yok_____, yok______
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a) (target (source a (tt `L` tt `T` ll `T` o)) (t o))
-yok = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` wrap @target @(T'TT'I t (tt `L` tt `T` ll) _))
+yok = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _))
  `compose` yo
 
 yok_ = yok
@@ -901,7 +901,7 @@ yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (t a) (target (tt `L` tt `T` ll `T` o) (t o))
-yuk = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` wrap @target @(T'TT'I t (tt `L` tt `T` ll) _)) `compose` yu
+yuk = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _)) `compose` yu
 
 yuk_ = yuk @target @tt
 yuk__ = yuk @target @tt
@@ -950,7 +950,7 @@ kyo = fai @target (fai @source supertype `compose` fio @source (supertype @_ @(I
 --  (forall e . Wrapper source (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
 --  (forall e . Wrapper source (I e)) =>
 --  t a -> target (source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `T` o)) (t o)
--- kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` wrap)
+-- kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` subtype)
 --  `compose` kyo @source @target @t @tt @ll
 
 kyokl, kyokl_, _kyokl :: forall source target t tt ttt l ll lll a o .
@@ -1002,12 +1002,12 @@ _kyokl = kyokl
 
 -- ha'yok = fai fok `compose` ha @source @target @t
 
--- fai wrap `compose` fio (wrap `compose` wrap)
+-- fai subtype `compose` fio (subtype `compose` subtype)
 
 -- t (tt a) i `AR___` target (source o a) (t ((tttt (tt o))) i)
 
--- fio (wrap `compose` wrap) `compose` fai wrap `compose`
--- kfokl `compose` fai wrap `compose` fio (wrap `compose` wrap)
+-- fio (subtype `compose` subtype) `compose` fai subtype `compose`
+-- kfokl `compose` fai subtype `compose` fio (subtype `compose` subtype)
 
 -- kfokl: source (ttt `L` ttt `T` lll `T` a) (tt `L` tt `T` ll `L` t `T` l `T` o) -> target (t a) (tt (t o))
 -- ha'yuk = fai fuk `compose` ha @(AR) @u
@@ -1078,7 +1078,7 @@ yiokl :: forall source target t tt l ll a o i .
  target (t i a) (target (source a (tt `L` tt `T` ll `L` T'I'II t i `T` l `T'I` o)) (tt (t i o)))
 yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @(T'I'II t i `T'TT'I` tt `L` tt `T` ll `L` T'I'II t i `T` l) @(T'I'II t i `TT'T'I` tt)))
  `compose` yo
- `compose` wrap
+ `compose` subtype
 
 -- yiokl'yokl :: forall source target t tt ttt l ll lll a o i .
 --  Covariant Yoneda Functor source target (T'I'II t i) =>
@@ -1105,7 +1105,7 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 --  (forall e ee . Wrapper target (T'I'II source e ee)) =>
 --  t i (tt a) -> target (source a (ttt `L` ttt `T` lll `L` tt `T` ll `L` T'I'II t i `T` l `T` o)) (ttt (t i (tt o)))
 -- yiokl'yokl x = fai
---  (fio @source (wrap `compose` wrap)
+--  (fio @source (subtype `compose` subtype)
 --   `compose` fokl @source @source @tt @ttt @ll @lll
 --   `compose` fio @source supertype
 --  )
@@ -1124,8 +1124,8 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 -- yoikl x = fo @source supertype
 --  `compose` supertype @target @(TT'T'I (T'II'I t i) tt _)
 --  `compose` component @target @(T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(T'II'I t i `TT'T'I` tt)
---  `compose` wrap @target @((T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) _)
---  `compose` yo (wrap x)
+--  `compose` subtype @target @((T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` t `T` l) _)
+--  `compose` yo (subtype x)
 
 -- yoikl'yokl :: forall source target t tt ttt l ll lll a o i .
 --  Covariant Yoneda Functor source target (T'II'I t i) =>
@@ -1152,7 +1152,7 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 --  (forall e ee . Wrapper target (T'I'II source e ee)) =>
 --  t (tt a) i -> target (source a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (ttt (t (tt o) i))
 -- yoikl'yokl x = fai
---  (fio @source (wrap `compose` wrap)
+--  (fio @source (subtype `compose` subtype)
 --   `compose` fokl @source @source @tt @ttt @ll @lll
 --   `compose` fio @source supertype
 --  )
@@ -1169,7 +1169,7 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 --  t i a -> target (source a (tt o)) (t i o)
 -- yiok x = supertype @target @(T'I'II t i o)
 --  `compose` component @target @(T'TT'I (T'I'II t i) tt)
---  `compose` wrap @target @(T'TT'I (T'I'II t i) tt _)
+--  `compose` subtype @target @(T'TT'I (T'I'II t i) tt _)
 --  `compose` yo (T'I'II x)
 
 -- TODO: yok'yo
@@ -1198,7 +1198,7 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 --  -- (forall e . Wrapper source (ttt `T'TT'I` tt `L` lll `T'I_` e)) =>
 --  -- (forall e . Wrapper source (ttt `TT'T'I` tt `T'I_` e)) =>
 --  t (ttt a) -> target (source a (tt `L` tt `T` ll `L` _ `T` lll `T'I` o)) (t (ttt o))
--- yok'yokl x = fai (fio (wrap @source @(tt `L` _ `T` _ `T` _)) `compose` fokl @source @source @ttt @tt @l @ll)
+-- yok'yokl x = fai (fio (subtype @source @(tt `L` _ `T` _ `T` _)) `compose` fokl @source @source @ttt @tt @l @ll)
 --  (yok @source @target @t @tt @ll x `compose` fio (supertype @target @()))
 
 -- (tt `L` tt `T` ll `L` t `T` lll `T` _)
@@ -1236,7 +1236,7 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
  -- (forall e . Wrapper (AR) (TT'T'I ttt (tt `L` tt `T` ll `L` t `T` l) e)) =>
  -- t (tt a) -> target (ttt `L` ttt `T` ll `L` ttt `T` l `T` o) (t (tt o))
 -- yok'yukl x = fai
- -- (fio (wrap @(AR) @(ttt `L` tt `T` ll `T` _)) `compose` fukl @(AR) @tt @ttt @ll @lll)
+ -- (fio (subtype @(AR) @(ttt `L` tt `T` ll `T` _)) `compose` fukl @(AR) @tt @ttt @ll @lll)
  -- (yok @(AR) @target @t @ttt @lll x)
 
 -- (ttt a) `AR` (tt `L` tt `T` w0 `T` o) (t o)
@@ -1282,7 +1282,7 @@ yokl'yokl :: forall source target t tt ttt l ll lll a o .
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  target (t (tt a)) (target (source a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (ttt (t (tt o))))
 yokl'yokl = fai
- (fio @source (wrap `compose` wrap)
+ (fio @source (subtype `compose` subtype)
   `compose` fokl @source @source @tt @ttt @ll @lll
   `compose` fio @source supertype
  )
@@ -1922,14 +1922,14 @@ yor'st :: forall source target t object o .
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  Wrapper source object =>
  target (t o) (source (Supertype object) o)
-yor'st = fai @source wrap `compose` supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
+yor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
 yior :: forall source target t object i o .
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i o) (source object o)
-yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` wrap @target @(T'I'II t _ _)
+yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
 
 yior'st :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'I'II t i) =>
@@ -1940,7 +1940,7 @@ yior'st :: forall source target t object i o .
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  Wrapper source object =>
  target (t i o) (source (Supertype object) o)
-yior'st = fai @source wrap `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` wrap @target @(T'I'II t _ _)
+yior'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
 
 yoir :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'II'I t i) =>
@@ -1948,7 +1948,7 @@ yoir :: forall source target t object i o .
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  target (t o i) (source object o)
-yoir = supertype `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` wrap @target @(T'II'I t _ _)
+yoir = supertype `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` subtype @target @(T'II'I t _ _)
 
 yoir'st :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'II'I t i) =>
@@ -1959,7 +1959,7 @@ yoir'st :: forall source target t object i o .
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  Wrapper source object =>
  target (t o i) (source (Supertype object) o)
-yoir'st = fai @source wrap `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` wrap @target @(T'II'I t _ _)
+yoir'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` subtype @target @(T'II'I t _ _)
 
 yoor :: forall source target t object a o .
  Covariant Transformation Functor source target (T'I'I t) (T'I'II source object) =>
@@ -1967,7 +1967,7 @@ yoor :: forall source target t object a o .
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e . Wrapper target (T'I'I t e)) =>
  target (t o o) (source object o)
-yoor = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap @target @(T'I'I t _)
+yoor = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` subtype @target @(T'I'I t _)
 
 yoor'st :: forall source target t object a o .
  Covariant Transformation Functor source target (T'I'I t) (T'I'II source object) =>
@@ -1978,7 +1978,7 @@ yoor'st :: forall source target t object a o .
  (forall e . Wrapper target (T'I'I t e)) =>
  Wrapper source object =>
  target (t o o) (source (Supertype object) o)
-yoor'st = fai @source wrap `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` wrap @target @(T'I'I t _)
+yoor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` subtype @target @(T'I'I t _)
 
 ryo, _ryo :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
@@ -1990,7 +1990,7 @@ ryo, _ryo :: forall source target t object a o i .
  (forall e ee . Wrapper target (T'II'I target ee e)) =>
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t a) o) o)
-ryo = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
+ryo = yi `compose` component @target @(T'I'II source object) @t `compose` subtype
 
 _ryo = ryo
 
@@ -2004,7 +2004,7 @@ _ryo = ryo
 --  (forall e ee . Wrapper target (T'II'I target ee e)) =>
 --  (forall e . Wrapper target (I e)) =>
 --  target (source object a) (target (source (t a) o) o)
--- st'ryo = yi `compose` component @target @(T'I'II source object) @t `compose` wrap
+-- st'ryo = yi `compose` component @target @(T'I'II source object) @t `compose` subtype
 
 -- st'_ryo = st'ryo
 
@@ -2019,7 +2019,7 @@ ryu, _ryu :: forall source target t a o i .
  (forall e . Wrapper target (source Unit e)) =>
  (forall e . Wrapper target (I e)) =>
  target (Supertype (source Unit a)) (target (source (t a) o) o)
-ryu = yi `compose` component @target @(T'I'II source Unit) @t `compose` wrap `compose` wrap
+ryu = yi `compose` component @target @(T'I'II source Unit) @t `compose` subtype `compose` subtype
 
 _ryu = ryu
 
@@ -2038,8 +2038,8 @@ st'ryu, st'_ryu :: forall source target t a o i .
  (forall e . Wrapper target (I e)) =>
  target (Supertype (source Unit a)) (target (source (t (Supertype a)) o) o)
 st'ryu = yi `compose` component @target @(T'I'II source Unit) @t
- `compose` wrap @target @(T'I'II source Unit (Supertype a))
- `compose` wrap @target @(source Unit (Supertype a))
+ `compose` subtype @target @(T'I'II source Unit (Supertype a))
+ `compose` subtype @target @(source Unit (Supertype a))
  `compose` supertype @target @a
 
 st'_ryu = st'ryu
@@ -2055,7 +2055,7 @@ ryio, _ryio :: forall source target t object a o i .
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t i a) o) o)
-ryio = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` wrap
+ryio = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` subtype
 
 _ryio = ryio
 
@@ -2071,7 +2071,7 @@ ryiu, _ryiu :: forall source target t a o i .
  (forall e . Wrapper target (source Unit e)) =>
  (forall e . Wrapper target (I e)) =>
  target (Supertype (source Unit a)) (target (source (t i a) o) o)
-ryiu = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'II t i) `compose` wrap `compose` wrap
+ryiu = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'II t i) `compose` subtype `compose` subtype
 
 _ryiu = ryiu
 
@@ -2086,7 +2086,7 @@ ryoi, _ryoi :: forall source target t object a o i .
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t i a) o) o)
-ryoi = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` wrap
+ryoi = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'II t i) `compose` subtype
 
 _ryoi = ryoi
 
@@ -2102,7 +2102,7 @@ ryui, _ryui :: forall source target t a o i .
  (forall e . Wrapper target (source Unit e)) =>
  (forall e . Wrapper target (I e)) =>
  target (Supertype (source Unit a)) (target (source (t i a) o) o)
-ryui = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'II t i) `compose` wrap `compose` wrap
+ryui = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'II t i) `compose` subtype `compose` subtype
 
 _ryui = ryui
 
@@ -2117,7 +2117,7 @@ ryoo, _ryoo :: forall source target t object a o i .
  (forall e . Wrapper target (T'I'I t e)) =>
  (forall e . Wrapper target (I e)) =>
  target (source object a) (target (source (t a a) o) o)
-ryoo = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'I t) `compose` wrap
+ryoo = yi `compose` supertype `compose` component @target @(T'I'II source object) @(T'I'I t) `compose` subtype
 
 _ryoo = ryoo
 
@@ -2133,7 +2133,7 @@ ryuu, _ryuu :: forall source target t a o i .
  (forall e . Wrapper target (source Unit e)) =>
  (forall e . Wrapper target (I e)) =>
  target (Supertype (source Unit a)) (target (source (t a a) o) o)
-ryuu = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'I t) `compose` wrap `compose` wrap
+ryuu = yi `compose` supertype `compose` component @target @(T'I'II source Unit) @(T'I'I t) `compose` subtype `compose` subtype
 
 _ryuu = ryuu
 
@@ -2507,7 +2507,7 @@ yp'yu x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
  -- u (t e ee) (t e eee) -> t e (ee `P` eee)
 -- yip = supertype @Arrow
  -- `compose` day @T'I'II @(AR) @(T'I'II t e) @u @(P) identity identity
- -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+ -- `compose` fio @Arrow subtype `compose` foi @Arrow subtype
 
 -- TODO: try to generalize
 -- yip'yo :: forall u e ee eee t r .
@@ -2517,7 +2517,7 @@ yp'yu x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
  -- u (t e ee) (t e eee) -> (AR) (ee `P` eee) r -> t e r
 -- yip'yo x f = supertype @Arrow
  -- `compose` day @T'I'II @(AR) @(T'I'II t e) @u @(P) identity f
- -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+ -- `compose` fio @Arrow subtype `compose` foi @Arrow subtype
  -- `hc`x
 
 -- TODO: try to generalize
@@ -2563,7 +2563,7 @@ ys'yu x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
  -- u (t e ee) (t e eee) -> t e (ee `S` eee)
 -- yis = supertype @Arrow
  -- `compose` day @T'I'II @(AR) @(T'I'II t e) @u @(S) identity identity
- -- `compose` fio @Arrow wrap `compose` foi @Arrow wrap
+ -- `compose` fio @Arrow subtype `compose` foi @Arrow subtype
 
 -- TODO: try to generalize
 yw :: forall u e ee t tt l .
@@ -2673,14 +2673,14 @@ yp'yp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
  -- Elicitable T'II'I target o =>
  -- Elicitable T'I'II target a =>
  -- target (Supertype a) (Supertype o) -> target a o
--- w'rw target = wrap @target `compose` target `compose` st @target
+-- w'rw target = subtype @target `compose` target `compose` st @target
 
 -- rw'w :: forall target a o .
  -- Precategory target =>
  -- Elicitable T'II'I target a =>
  -- Elicitable T'I'II target o =>
  -- target a o -> target (Supertype a) (Supertype o)
--- rw'w target = _' @target `compose` target `compose` wrap @target
+-- rw'w target = _' @target `compose` target `compose` subtype @target
 
 -- yi__, yi___, yi____, yi_____, yi______ :: forall target a .
  -- Precategory target =>
@@ -3108,7 +3108,7 @@ ho________'yokl = yio'yokl
 --  u i (t (tt a)) -> target (source a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (u i (ttt (t (tt o))))
 -- yio'yokl'yokl x = fai @(AR)
 --  (fokl @source @source @t @ttt @ll @lll
---   `compose` fio @source (wrap @source @(ttt `L` ttt `T` lll `L` t `T` ll `T` _) `compose` wrap @source @(_ `L` _ `T` _ `T` _))
+--   `compose` fio @source (subtype @source @(ttt `L` ttt `T` lll `L` t `T` ll `T` _) `compose` subtype @source @(_ `L` _ `T` _ `T` _))
 --   `compose` fokl @source @source @tt @ttt @ll @lll
 --   `compose` fio @source (supertype @source @(_ `L` _ `T` _ `T` _)))
 --  (yio @source x)
@@ -3155,7 +3155,7 @@ ho________'yokl = yio'yokl
 --  u i (t (tt a)) -> target (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o) (u i (ttt (t (tt o))))
 -- yio'yokl'yukl x = fai @(AR)
 --  (fokl @(AR) @(AR) @t @ttt @ll @lll
---   `compose` fio @(AR) (wrap @(AR) @(_ `L` _ `T` ll `T` _) `compose` wrap @(AR) @(_ `L` _ `T` _ `T` _))
+--   `compose` fio @(AR) (subtype @(AR) @(_ `L` _ `T` ll `T` _) `compose` subtype @(AR) @(_ `L` _ `T` _ `T` _))
 --   `compose` fukl @(AR) @tt @ttt @ll @lll
 --   `compose` supertype @(AR) @(_ `L` _ `T` _ `T` _))
 --  (yio @(AR) x)
@@ -3392,7 +3392,7 @@ hjd_______'yw = hjd'yw
  -- Elicitable T'II'I target ((f `T'TT'I` g) e) =>
  -- target (f (g e)) ((f `JNT` g) e)
 -- jt = component @target @(f `T'TT'I` g) @(f `JNT` g) @e
- -- `compose` wrap @target @((f `T'TT'I` g) e)
+ -- `compose` subtype @target @((f `T'TT'I` g) e)
 
 -- TODO: generalize
 -- yp'yp'jt :: forall e ee t tt .
@@ -3425,12 +3425,12 @@ hjd, hjd_, hjd__, hjd___, hjd____ :: forall target tt i eee e ee .
  (forall eee . Wrapper target (T'I'II tt ee eee)) =>
  Contravariant Objective target eee (P i e) =>
  target i (tt ee eee)
-hjd = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+hjd = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype
 
-hjd_ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
-hjd__ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
-hjd___ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
-hjd____ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap
+hjd_ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype
+hjd__ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype
+hjd___ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype
+hjd____ = fio @target (objective @T'II'I @target @eee @(P i e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype
 
 st'hjd, st'hjd_, st'hjd__, st'hjd___, st'hjd____ :: forall target tt i eee e ee .
  Adjoint Functor target target (T'II'I P e) (T'I'II tt ee) =>
@@ -3441,12 +3441,12 @@ st'hjd, st'hjd_, st'hjd__, st'hjd___, st'hjd____ :: forall target tt i eee e ee 
  (forall eee . Wrapper target (T'I'II tt ee eee)) =>
  Contravariant Objective target eee (P (Supertype i) e) =>
  target i (tt ee eee)
-st'hjd = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` supertype
+st'hjd = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
 
-st'hjd_ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` supertype
-st'hjd__ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` supertype
-st'hjd___ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` supertype
-st'hjd____ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` wrap @_ @(I (Supertype i)) `compose` supertype
+st'hjd_ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
+st'hjd__ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
+st'hjd___ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
+st'hjd____ = fio @target (objective @T'II'I @target @eee @(P (Supertype i) e) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ee `T'TT'I` T'II'I P e) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
 
 hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
@@ -3456,7 +3456,7 @@ hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  (forall eee . Wrapper target (T'I'II tt ee eee)) =>
  target (t (tt ee i) e) i
 hdj = supertype `compose` component @target @(T'II'I t e `T'TT'I` T'I'II tt ee) @I 
- `compose` wrap `compose` wrap `compose` foi @target wrap
+ `compose` subtype `compose` subtype `compose` foi @target subtype
 
 hdj_ = hdj
 hdj__ = hdj

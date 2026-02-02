@@ -65,7 +65,7 @@ map :: forall v vv source target t tt a o .
  Elicitable T'II'I Arrow (v source a o) =>
  Elicitable T'I'II Arrow (vv target (t a) (tt o)) =>
  Supertype (v source a o) -> Supertype (vv target (t a) (tt o))
-map source = supertype @Arrow (mapping @v @vv @source @target @t @tt @a @o (wrap source))
+map source = supertype @Arrow (mapping @v @vv @source @target @t @tt @a @o (subtype source))
 
 class Component target t tt where
  component :: target (t i) (tt i)
@@ -344,7 +344,7 @@ day :: forall v source l t tt u uu a o e ee .
   -> u (t e) (tt `L` tt `T` l `T'I` ee) -> t o
 day source t x = map @v @T'I'II @source @(AR)
  @(Day v source u uu t (tt `L` tt `T` l) e ee) @t source
- (wrap (These x (wrap @_ @(v source (uu e ee) a) t)))
+ (subtype (These x (subtype @_ @(v source (uu e ee) a) t)))
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
@@ -369,28 +369,28 @@ rewrap :: forall target a o .
  Elicitable T'II'I target o =>
  Elicitable T'I'II target a =>
  target (Supertype a) (Supertype o) -> target a o
-rewrap f = wrap `compose` f `compose` supertype
+rewrap f = subtype `compose` f `compose` supertype
 
 wrapped :: forall target a o .
  Precategory target =>
  Elicitable T'I'II target o =>
  Elicitable T'II'I target a =>
  target a o -> target (Supertype a) (Supertype o)
-wrapped f = supertype `compose` f `compose` wrap
+wrapped f = supertype `compose` f `compose` subtype
 
 i_ :: forall target u a o e .
  Precategory target =>
  Elicitable T'II'I target (T'II'I u e a) =>
  Elicitable T'I'II target (T'II'I u e o) =>
  target (T'II'I u e a) (T'II'I u e o) -> target (u a e) (u o e)
-i_ f = supertype @target @(T'II'I _ _ _) `compose` f `compose` wrap @target @(T'II'I _ _ _)
+i_ f = supertype @target @(T'II'I _ _ _) `compose` f `compose` subtype @target @(T'II'I _ _ _)
 
 _i :: forall target u a o e .
  Precategory target =>
  Elicitable T'II'I target (T'I'II u e a) =>
  Elicitable T'I'II target (T'I'II u e o) =>
  target (T'I'II u e a) (T'I'II u e o) -> target (u e a) (u e o)
-_i f = supertype @target @(T'I'II _ _ _) `compose` f `compose` wrap @target @(T'I'II _ _ _)
+_i f = supertype @target @(T'I'II _ _ _) `compose` f `compose` subtype @target @(T'I'II _ _ _)
 
 cata :: forall target t e .
  Covariant Endo Semi Functor target t =>
@@ -413,7 +413,7 @@ ana :: forall target t e .
  Covariant Endo Semi Functor target t =>
  Elicitable T'II'I target (Recursive t) =>
  target e (t e) -> target e (Recursive t)
-ana target = wrap `compose` map @T'I'II @T'I'II (ana target) `compose` target
+ana target = subtype `compose` map @T'I'II @T'I'II (ana target) `compose` target
 
 this :: forall e ee . e `P` ee -> e
 this (These x _) = x
@@ -430,7 +430,7 @@ constant :: forall source target a o .
  target o (source a o)
 constant = supertype @_ @(T'I'II source a _)
  `compose` component @target
- `compose` wrap @target @(I o)
+ `compose` subtype @target @(I o)
 
 is :: Category AR_ => e `AR_` e
 is = identity
@@ -441,11 +441,11 @@ type W = Whether
 
 instance Wrapper (AR) x
  => Elicitable T'I'II (T'I'TT'II'T'II'I (AR) (P)) x where
- elicit = T'I'II (T'I'TT'II'T'II'I (\x -> These (supertype x) wrap))
+ elicit = T'I'II (T'I'TT'II'T'II'I (\x -> These (supertype x) subtype))
 
 instance Wrapper (AR) x
  => Elicitable T'II'I (T'I'TT'II'T'II'I (AR) (P)) x where
- elicit = T'II'I (T'I'TT'II'T'II'I (\x -> These (wrap x) supertype))
+ elicit = T'II'I (T'I'TT'II'T'II'I (\x -> These (subtype x) supertype))
 
 class Setoid target e where
  equality :: target (e `P` e) (e `P` e `S` e)
@@ -475,7 +475,7 @@ instance {-# OVERLAPPABLE #-} (Category target, Wrapper target a, Objective T'I'
  => Objective T'I'II target a o where objective = objective @T'I'II @target `compose` supertype @target
 
 instance {-# OVERLAPPABLE #-} (Category target, Wrapper target a, Objective T'II'I target (Supertype a) o)
- => Objective T'II'I target a o where objective = wrap @target `compose` objective @T'II'I @target
+ => Objective T'II'I target a o where objective = subtype @target `compose` objective @T'II'I @target
 
 instance (e ~ eee, ee ~ eeee, Category target) => Objective T'I'II target (e `S` ee) (eee `S` eeee) where
  objective = identity
@@ -495,6 +495,16 @@ instance (e ~ eee, ee ~ eeee, Category target) => Objective T'I'II target (e `AR
 instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `AR` ee) (eee `AR` eeee) where
  objective = identity
 
+supertype :: forall target i .
+ Covariant Elicitable target i =>
+ target i (Supertype i)
+supertype = let T'I'II x = elicit in x
+
+subtype :: forall target i .
+ Elicitable T'II'I target i =>
+ target (Supertype i) i
+subtype = let T'II'I x = elicit in x
+
 basetype :: forall target i .
  Covariant Objective target i (Basetype i) =>
  target i (Basetype i)
@@ -504,11 +514,6 @@ bound :: forall target i .
  Contravariant Objective target i (Basetype i) =>
  target (Basetype i) i
 bound = objective @T'II'I @target
-
-supertype :: forall target i .
- Covariant Elicitable target i =>
- target i (Supertype i)
-supertype = let T'I'II x = elicit in x
 
 -- TODO: generalize, move to `Abstract` module
 newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))

@@ -21,7 +21,7 @@ swap (These x y) = y `hjd` x
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
-  -- ((T'TT'I / wrap @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
+  -- ((T'TT'I / subtype @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
   -- (\new -> Build x (supertype @Arrow @(F'T'I'TT'I _ _ _) `fo` supertype new) `yo` source `ho` (\(These _ y) -> y))
 
 fetch :: e `AR__` e `P` e
@@ -58,7 +58,7 @@ sub :: forall tt t e .
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
-  (xs `yo` wrap @(AR) @(F'T'I'TT'I _ _ _))
+  (xs `yo` subtype @(AR) @(F'T'I'TT'I _ _ _))
   (\new -> Root x `hc__` new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _))
 
 embed :: forall f g e .
@@ -71,7 +71,7 @@ joint :: forall f g e .
  Component (AR) (f `T'TT'I` g) (f `JNT` g) =>
  Elicitable T'II'I (AR) ((f `T'TT'I` g) e) =>
  f (g e) -> (f `JNT` g) `T'I` e
-joint = wrap @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
+joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 to :: forall tt t i l .
  Component (->) (t `L` tt `T` l) tt =>
