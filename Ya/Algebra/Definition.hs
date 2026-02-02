@@ -495,10 +495,10 @@ instance (e ~ eee, ee ~ eeee, Category target) => Objective T'I'II target (e `AR
 instance (e ~ eee, ee ~ eeee, Category target) => Objective T'II'I target (e `AR` ee) (eee `AR` eeee) where
  objective = identity
 
-basic :: forall target i .
+basetype :: forall target i .
  Covariant Objective target i (Basetype i) =>
  target i (Basetype i)
-basic = objective @T'I'II @target
+basetype = objective @T'I'II @target
 
 bound :: forall target i .
  Contravariant Objective target i (Basetype i) =>
@@ -563,20 +563,3 @@ instance {-# OVERLAPPABLE #-}
 
 pattern Enter :: forall t i . t i `AR_` t i
 pattern Enter x = x
-
--- class IS i ii | i -> ii, ii -> i where
-
--- instance IS i i where
-
-class IS' i ii r | i ii -> r where
-
-instance IS' i i () where
-
-type IS i ii = IS' i ii ()
-
--- class  TypeEq x y b | x y -> b
---  instance               TypeEq x x HTrue
---  instance b ~ HFalse => TypeEq x y b
-
--- type family IS i ii where
- -- IS i i = ()
