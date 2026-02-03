@@ -143,12 +143,12 @@ infixl 1 `ha________`
  , `ha________'yokl`
  -- , `ha________'yukl`
 
-infixl 9 `hu`, `hu'st` --, `st'hu`
-infixl 8 `hu_`, `hu_'st` --, `st'hu_`
-infixl 7 `hu__`, `hu__'st` --, `st'hu__`
-infixl 6 `hu___`, `hu___'st` --, `st'hu___`
-infixl 5 `hu____`, `hu____'st` --, `st'hu____`
-infixl 4 `hu_____`, `hu_____'st` --, `st'hu_____`
+infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
+infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
+infixl 7 `hu__`, `hu__'st`, `hu__'bt`  --, `st'hu__`
+infixl 6 `hu___`, `hu___'st`, `hu___'bt`  --, `st'hu___`
+infixl 5 `hu____`, `hu____'st`, `hu____'bt`  --, `st'hu____`
+infixl 4 `hu_____`, `hu_____'st`, `hu_____'bt`  --, `st'hu_____`
 infixl 3 `hu______`, `hu______'st` -- , `st'hu______`
 infixl 2 `hu_______`, `hu_______'st` --, `st'hu_______`
 infixl 1 `hu________`, `hu________'st` --, `st'hu________`
@@ -589,6 +589,36 @@ hu_____'st = fai @target (fio (supertype @target @o) `compose` fai @target termi
 hu______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 hu_______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 hu________'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+
+yiu'bt, hu'bt, hu_'bt, hu__'bt, hu___'bt, hu____'bt, hu_____'bt, hu______'bt, hu_______'bt, hu________'bt
+ :: forall target t i a o .
+ Terminal target =>
+ Category target =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Covariant Yoneda Functor target target (T'I'II t i) =>
+ Covariant Functor target target (T'I'II target a) =>
+ Contravariant Functor target target (T'II'I target o) =>
+ Wrapper target (target Unit o) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ Wrapper target (Supertype (target Unit o)) =>
+ Covariant Objective target o (Basetype o) =>
+ Wrapper target (T'II'I target o Unit) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ target (t i a) (target (Supertype (target Unit o)) (t i (Basetype o)))
+yiu'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+
+hu'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu__'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu___'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu____'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_____'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu_______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
+hu________'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 
 -- st'yiu, st'hu, st'hu_, st'hu__, st'hu___, st'hu____, st'hu_____, st'hu______, st'hu_______, st'hu________
 --  :: forall target t i a o .
