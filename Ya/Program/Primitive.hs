@@ -90,12 +90,12 @@ amend :: forall tt t l i .
  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
 amend = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
 
-by :: forall t r e .
+point :: forall t r e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
  Covariant Naperian Functor (AR) (AR) t =>
  Representation t `AR_` Supertype (Attribute `T'I` t e `T'I` e)
-by index origin =
+point index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `hc` index `hjd`
