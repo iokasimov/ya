@@ -306,7 +306,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `hc____` Event `ha` relay `hc'st` Empty
     `ha___` Scope `hc` at @(Shafted List i)
    `ho__'st` Scope `ha` by @Twice `ha` (Back `has` Fore) `hc` way
-     `ho__` Scope `hc_` as `ha` Front `ha` Stock @Alone
+     `ho__` Scope `hc_` focus `ha` Front `ha` Stock @Alone
 
    `yok___` Check
    `yok___` Apply `ha` State
@@ -316,7 +316,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ha____` Event `ha` relay `ha'st` Exist
    `ho__'ha` Scope `hc` at @(Shafted List i)
     `ho_'st` Scope `ha` by `ha` (Fore `has` Back) `hc` way
-      `ho_` Scope `hc` (as `ha` Front `ha` Fresh @Alone)
+      `ho_` Scope `hc` (focus `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha` State
    `hc____` Event `hc` fetch

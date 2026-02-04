@@ -78,12 +78,12 @@ morph :: forall tt t i l .
  t `L` tt `T` l `T` i `AR____` tt `T` i
 morph = component
 
-as :: forall tt ttt t i .
+focus :: forall tt ttt t i .
  Component (AT) t tt =>
  Unlabelable (AR) t =>
  (Unlabeled t ~ ttt) =>
  t i `AR____` tt i `P` (tt i `AR__` ttt i)
-as = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
+focus = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
 
 go :: forall tt t l i .
  Component (TR) (t `L` tt `T` l) tt =>
