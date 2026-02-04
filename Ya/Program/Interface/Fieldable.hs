@@ -8,23 +8,23 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 class Fieldable e r where
- at :: Reference (P) r e e
+ field :: Reference (P) r e e
 
 instance {-# OVERLAPPABLE #-}
  ( Covariant Objective (AR) ee (eee `P` eeee)
  , Contravariant Objective (AR) ee (eee `P` eeee)
  , Fieldable e (eee `P` eeee)
  ) => Fieldable e ee where
- at = (fio @(AR) `compose` fio @(AR))
+ field = (fio @(AR) `compose` fio @(AR))
    (objective @T'II'I @AR @ee @(eee `P` eeee))
-  `compose` at @e @(eee `P` eeee)
+  `compose` field @e @(eee `P` eeee)
   `compose` objective @T'I'II @AR @ee @(eee `P` eeee)
 
 instance Fieldable e e where
- at = it
+ field = it
 
 instance Fieldable e (ee `P` e) where
- at (These x xx) = xx `hjd` (x `hjd`)
+ field (These x xx) = xx `hjd` (x `hjd`)
 
 instance {-# OVERLAPS #-} Fieldable e ee => Fieldable e (ee `P` eee) where
- at (These x xs) = this `ha` at @e @ee `hc` x `hjd_` that `ha` at @e @ee `hc` x `ho` (`hjd` xs)
+ field (These x xs) = this `ha` field @e @ee `hc` x `hjd_` that `ha` field @e @ee `hc` x `ho` (`hjd` xs)
