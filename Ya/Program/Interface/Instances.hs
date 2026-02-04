@@ -87,8 +87,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Vo
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `hc` \source x -> empty @List `hjd` (empty @List `hjd` supertype x) `yo` source
 
-pattern Locus :: forall t i .
- Tree i `AR__` Tree `L` t `T` (Void) `T` i
+pattern Locus :: forall t tt i .
+ tt i `AR__` tt `L` t `T` (Void) `T` i
 pattern Locus x = Label x
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
