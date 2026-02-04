@@ -314,7 +314,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk___` Apply `ha_` State
    `hc____` Event `hc_` relay `hc'st` Empty
     `ha___` Scope `hc_` field @(Shafted List i)
-   `ho__'st` Scope `hc_` point @Twice `ha` (Back `has` Fore) `hc` way
+   `ho__'st` Scope `hc_` index @Twice `ha` (Back `has` Fore) `hc` way
      `ho__` Scope `hc_` focus `ha` Front `ha` Stock @Alone
    `yok___` Check
    `yok___` Apply `ha` State
@@ -323,7 +323,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok___` Apply `ha` State
    `ha____` Event `ha` relay `ha'st` Exist
    `ho__'ha` Scope `hc` field @(Shafted List i)
-    `ho_'st` Scope `ha` point `ha` (Fore `has` Back) `hc` way
+    `ho_'st` Scope `ha` index `ha` (Fore `has` Back) `hc` way
       `ho_` Scope `hc` (focus `ha` Front `ha` Fresh @Alone)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk___` Apply `ha_` State
@@ -351,17 +351,17 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   slide_future = Unit `ryu` Enter @(Halts `JNT` State `T` Sliding List i)
    `yuk____` Apply `ha` State `hc___` Event `hc` pop `ha_` Scope `hc` field @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` point `hc'st` Aback
-   `yuk____` Apply `ha` State `hc___` Event `hc` pop `ha__` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` point `hc'st` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` index `hc'st` Aback
+   `yuk____` Apply `ha` State `hc___` Event `hc` pop `ha__` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` index `hc'st` Ahead
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho_'ha` Scope `hc` field @(List _)
 
   slide_passed = Unit `ryu` Enter @(Halts `JNT` State `T` Sliding List _)
-   `yuk____` Apply `ha` State `hc___` Event `hc` pop `ha__` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` point `hc'st` Aback
+   `yuk____` Apply `ha` State `hc___` Event `hc` pop `ha__` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` index `hc'st` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` window_extract_last `ho_'ha` Scope `hc` field @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` point `hc'st` Ahead
+   `yok____` Apply `ha` State `ha___` Event `ha` push `ho__'ha` Scope `hc` field @(Shafted List i) `ho_'st` Scope `ha` index `hc'st` Ahead
    `yuk____` Apply `ha` State `hc___` Event `hc` fetch `ha__` Scope `hc` field @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
