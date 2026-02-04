@@ -57,7 +57,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
   -- T'TT'I `st` that ((supertype xs `yokl` State `ha` Transition `ha_` restoring `ho'ho` (Unit `hjd`)) `he_'st` supertype sl) `yo` source where
 
    -- restoring (T'TT'I'TTT'I (These focus shafted)) scrolling_list_tree = T'TT'I'TTT'I
-    -- `he__` Alone (Tree `st` supertype focus `he__` to @(Nonempty List) `st` scrolling_list_tree `yo` supertype @((AR)) `yi` supertype @(AR))
+    -- `he__` Alone (Tree `st` supertype focus `he__` morph @(Nonempty List) `st` scrolling_list_tree `yo` supertype @((AR)) `yi` supertype @(AR))
      -- `hjd` supertype shafted
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
@@ -219,15 +219,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
  (Construction Optional `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source x -> x
-  `yi_` Adapt `ho` to @(Scrolling List)
+  `yi_` Adapt `ho` morph @(Scrolling List)
   `kyo` Range `ha` subtype @(AR) @(Scrolling List `L` Scrolling List `T` Void `T` _) `ha'yo` source
-  `yi_` Adapt `ho` to @(Nonempty List) `ho` subtype @(AR)
+  `yi_` Adapt `ho` morph @(Nonempty List) `ho` subtype @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `hc` \source -> subtype @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _)
   `ha__` Empty `hu` empty @List
-    `has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` to @List
+    `has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` morph @List
 
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where

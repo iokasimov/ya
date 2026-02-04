@@ -73,10 +73,10 @@ joint :: forall f g e .
  f (g e) -> (f `JNT` g) `T'I` e
 joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
-to :: forall tt t i l .
+morph :: forall tt t i l .
  Component (->) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` tt `T` i
-to = component
+morph = component
 
 as :: forall tt ttt t i .
  Component (AT) t tt =>
