@@ -85,10 +85,10 @@ focus :: forall tt ttt t i .
  t i `AR____` tt i `P` (tt i `AR__` ttt i)
 focus = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
 
-go :: forall tt t l i .
+amend :: forall tt t l i .
  Component (TR) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
-go = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
+amend = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
 
 by :: forall t r e .
  (r ~ Representation t) =>
