@@ -848,13 +848,13 @@ instance
    map @T'I'II @T'I'II @target @target @(Day T'I'II target u uu t (tt `L` tt `T` ll) _ _) @t source
    `compose` subtype `compose` foi (foi @target @target supertype)
 
-instance {-# OVERLAPPABLE #-}
- ( Covariant Transformation Functor (AR) (AR) t tt
- , Covariant Transformation Functor (AR) (AR) tt t
- ) => Component (AT) t tt where
- component = T'I'TT'II'T'II'I `identity` \x ->
-  map @T'I'II @T'I'II @(AR) @(AR) @t @tt identity x
-  `hjd` map @T'I'II @T'I'II @(AR) @(AR) @tt @t identity
+-- instance {-# OVERLAPPABLE #-}
+--  ( Covariant Transformation Functor (AR) (AR) t tt
+--  , Covariant Transformation Functor (AR) (AR) tt t
+--  ) => Component (AT) t tt where
+--  component = T'I'TT'II'T'II'I `identity` \x ->
+--   map @T'I'II @T'I'II @(AR) @(AR) @t @tt identity x
+--   `hjd` map @T'I'II @T'I'II @(AR) @(AR) @tt @t identity
 
 instance {-# OVERLAPPABLE #-}
  Mapping T'I'II T'I'II (AR) (AR) t t

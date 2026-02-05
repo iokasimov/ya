@@ -121,8 +121,6 @@ pattern Build xs = F'T'I'TT'I xs
 pattern Affix :: forall t i . t (Supertype (Construction t i)) `P` i `AR__` Supertype (Construction t i)
 pattern Affix x = Recursive (T'TT'I (Along x))
 
-pattern Root x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))
-
 pattern Node x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))

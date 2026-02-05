@@ -51,7 +51,7 @@ top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
 top (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs old))))) =
-  old `hjd` (\new -> Root new xs)
+  old `hjd` (\new -> xs `hjd` new)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
@@ -59,7 +59,7 @@ sub :: forall tt t e .
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
   (xs `yo` subtype @(AR) @(F'T'I'TT'I _ _ _))
-  (\new -> Root x `hc__` new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _))
+  (\new -> new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _) `hjd` x)
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>

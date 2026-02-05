@@ -60,7 +60,7 @@ type Sliding t = Shifting List t
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
  (I `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `hc` \source (Label (Root x xs)) ->
+ mapping = rewrap `hc` \source (Label (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
   Alone `hc` source x `hjd___` empty @List `hjd_` T'TT'I (xs `yo` F'T'I'TT'I) `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
@@ -80,7 +80,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
--- spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` by Empty) `li` _spot_ `hc` x where
+-- spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` index Empty) `li` _spot_ `hc` x where
 
 --  found (These w sl) = supertype (predicate `hc` w) `yui` sl `yiu` sl
 
@@ -88,7 +88,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 --   `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` field @(t i) `hop` Scope `hc` it
 --   `yok____` Check `ha` Stops `ha___` not `ha` found
 --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
---   `yok____` Retry `ha` is `ha__` Break `hu` by Ok `has` Again `hu` Reach Unit
+--   `yok____` Retry `ha` is `ha__` Break `hu` index Ok `has` Again `hu` Reach Unit
 
 -- rewind :: forall t tt i .
 --  Shiftable t tt =>

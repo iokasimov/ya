@@ -15,7 +15,12 @@ import Ya.Program.Interface.Shiftable
 
 -- TODO: think about labels for these two instances below!
 
-instance Mapping T'I'II T'I'II (AT) (AT) ((Construction Maybe) `L` Alone `T` Void) Alone where
+pattern Root :: forall t tt i .
+ (t ~ Construction tt) =>
+ Construction tt i `AR__` Construction tt `L` Alone `T` (Void) `T` i
+pattern Root x = Label x
+
+instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) Alone where
  mapping = rewrap `hc` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `hc` \(Label (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
    Alone `ha` this `ha` source `hc` x `hjd` (\xx -> xxx `hjd` that `ha` source `hc` x `hc` supertype xx)
@@ -136,13 +141,13 @@ pattern Aloft :: forall t i .
  t `P'T'I'TT'I` Tree `T'I___` i `AR_____` (t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void) `T` i
 pattern Aloft x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
-  mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
-   rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` (\x' -> x' `ryu` Enter @Tree) `hc` x) scrolling_list
-    `yi` Adapt @(Scrolling List) `ho` morph @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` morph @List `ho'yo` supertype @(AR)
-    `yi` this @(Alone _) `ho'st` Root `hc` supertype scrolling_list
-    `yo` source
+-- instance Mapping T'I'II T'I'II (AR) (AR)
+--  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
+--   mapping = rewrap `hc` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
+--    rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` (\x' -> x' `ryu` Enter @Tree) `hc` x) scrolling_list
+--     `yi` Adapt @(Scrolling List) `ho` morph @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` morph @List `ho'yo` supertype @(AR)
+--     `yi` (\x' -> supertype scrolling_list `hjd` supertype (this @(Alone _) x'))
+--     `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
