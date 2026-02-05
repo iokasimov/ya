@@ -78,17 +78,16 @@ morph :: forall tt t i l .
  t `L` tt `T` l `T` i `AR____` tt `T` i
 morph = component
 
-focus :: forall tt ttt t i .
+point :: forall tt t i .
  Component (AT) t tt =>
  Unlabelable (AR) t =>
- (Unlabeled t ~ ttt) =>
- t i `AR____` tt i `P` (tt i `AR__` ttt i)
-focus = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
+ t i `AR____` tt i `P` (tt i `AR__` Unlabeled t i)
+point = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
 
-amend :: forall tt t l i .
- Component (TR) (t `L` tt `T` l) tt =>
- t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
-amend = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
+-- amend :: forall tt t l i .
+--  Component (TR) (t `L` tt `T` l) tt =>
+--  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
+-- amend = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
 
 index :: forall t r e .
  (r ~ Representation t) =>
