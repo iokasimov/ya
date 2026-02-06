@@ -208,14 +208,14 @@ infixl 3 `yi_____`
 infixl 2 `yi______`
 infixl 1 `yi_______`
 
-infixl 8 `yo`, `yo'yp`, `yo'yoo`, `yo'yuu` --, `yo'yok`
-infixl 7 `yo_`, `yoo`
-infixl 6 `yo__`
-infixl 5 `yo___`
-infixl 4 `yo____`
-infixl 3 `yo_____`
-infixl 2 `yo______`
-infixl 1 `yo_______`
+infixl 8 `yo`, `yo'st`, `yo'yp`, `yo'yoo`, `yo'yuu` --, `yo'yok`
+infixl 7 `yo_`, `yo_'st`, `yoo`
+infixl 6 `yo__`, `yo__'st`
+infixl 5 `yo___`, `yo___'st`
+infixl 4 `yo____`, `yo____'st`
+infixl 3 `yo_____`, `yo_____'st`
+infixl 2 `yo______`, `yo______'st`
+infixl 1 `yo_______`, `yo_______'st`
 
 infixl 7 `yok` --, `yok'yokl`, `yok'yukl`
 infixl 6 `yok_` --, `yok_'yokl`, `yok_'yukl`
@@ -352,9 +352,6 @@ yo, yo_, yo__, yo___, yo____, yo_____, yo______, yo_______
  target (t a) (target (source a o) (t o))
 yo = fai @target subtype `compose` yoneda @T'I'II @Functor
 
- -- target (t a) (target (source o a) (t o))
--- ya = fai @target subtype `compose` yoneda @T'II'I @Functor
-
 yo_ = yo
 yo__ = yo
 yo___ = yo
@@ -362,6 +359,27 @@ yo____ = yo
 yo_____ = yo
 yo______ = yo
 yo_______ = yo
+
+yo'st, yo_'st, yo__'st, yo___'st, yo____'st, yo_____'st, yo______'st, yo_______'st
+ :: forall source target t a o .
+ Precategory target =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
+ Covariant Yoneda Functor source target t =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper source e) =>
+ target (t a) (target (source (Supertype a) o) (t o))
+yo'st = fai @target (fai @source supertype) `compose` yo @source @target @t
+
+yo_'st = yo'st
+yo__'st = yo'st
+yo___'st = yo'st
+yo____'st = yo'st
+yo_____'st = yo'st
+yo______'st = yo'st
+yo_______'st = yo'st
 
 yo'yoo :: forall source target t tt a o .
  Covariant Yoneda Functor source target (T'I t) =>
