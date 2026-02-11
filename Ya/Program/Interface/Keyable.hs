@@ -51,7 +51,7 @@ class Keyable k t where
 --      Valid xx `lu` (Error `hu_` T'TT'I `ha` morph @List `ha` Adapt `hc` xxx `has` (\i -> T'TT'I `ha` morph @List `ha` Adapt `ha` morph @(Nonempty List) `ha` Adapt `hc` T'TT'I'TTT'I (These (Alone (T'II'I (These i kk))) xxx)))
 
 -- _exact_key_ k (T'II'I (These _ kk)) =
---  Wrong `hu` False Unit `has` Valid `hu` True Unit `li_` (k `lu'q` kk)
+--  Wrong `hu` False Unit `has` Valid `hu` True Unit `li_` (k `lu'eq` kk)
 
 -- TODO: I think it should work. Here I'm going to use an instance above and then _locate_ (Down Unit `P` ) with Scrolling Tree
 -- instance Keyable (Construction Maybe k) (Construction Maybe `T'TT'I` Construction List `T'TT'I` Along k) where

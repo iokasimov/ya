@@ -175,14 +175,14 @@ infixl 3 `hc______`
 infixl 2 `hc_______`
 infixl 1 `hc________`
 
-infixl 8 `hop`, `hop'hjd`, `hop'yp`, `hop'yp'yo'q`, `hop'ys`, `hop'ys'has`, `hop'q`, `hjd'ys'has`
-infixl 7 `hop_`, `hop_'yp`, `hop_'yp'yo'q`, `hop_'ys`, `hop_'ys'has`, `hop_'q`, `hjd_'ys'has`
-infixl 6 `hop__`, `hop__'yp`, `hop__'yp'yo'q`, `hop__'ys`, `hop__'ys'has`, `hop__'q`, `hjd__'ys'has`
-infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'q`, `lo___'ys`, `lo___'ys'has`, `lo___'q`, `hjd___'ys'has`
-infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'q`, `lo____'ys`, `lo____'ys'has`, `lo____'q`, `hjd____'ys'has`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'q`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'q`, `hjd_____'ys'has`
-infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'q`, `lo______'ys`, `lo______'ys'has`, `lo______'q`, `hjd______'ys'has`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'q`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'q`,  `hjd_______'ys'has`
+infixl 8 `hop`, `hop'hjd`, `hop'yp`, `hop'yp'yo'eq`, `hop'ys`, `hop'ys'has`, `hop'eq`, `hjd'ys'has`
+infixl 7 `hop_`, `hop_'yp`, `hop_'yp'yo'eq`, `hop_'ys`, `hop_'ys'has`, `hop_'eq`, `hjd_'ys'has`
+infixl 6 `hop__`, `hop__'yp`, `hop__'yp'yo'eq`, `hop__'ys`, `hop__'ys'has`, `hop__'eq`, `hjd__'ys'has`
+infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'eq`, `lo___'ys`, `lo___'ys'has`, `lo___'eq`, `hjd___'ys'has`
+infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'eq`, `lo____'ys`, `lo____'ys'has`, `lo____'eq`, `hjd____'ys'has`
+infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'eq`, `hjd_____'ys'has`
+infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
+infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
 
 infixl 8 `has`
 infixl 7 `has_`
@@ -193,11 +193,11 @@ infixl 3 `has_____`
 infixl 2 `has______`
 infixl 1 `has_______`
 
-infixl 8 `hjd`, `st'hjd`, `hjd'yp`, `hjd'yp'yo'q`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'q`, `hjd's`
-infixl 7 `hjd_`, `st'hjd_`, `hjd_'yp`, `hjd_'yp'yo'q`, `hjd_'ys`, `hjd_'yw`, `hjd_'q`, `hjd_'s`
-infixl 6 `hjd__`, `st'hjd__`, `hjd__'yp`, `hjd__'yp'yo'q`, `hjd__'ys`, `hjd__'yw`, `hjd__'q`, `hjd__'s`
-infixl 5 `hjd___`, `st'hjd___`, `hjd___'yp`, `hjd___'yp'yo'q`, `hjd___'ys`, `hjd___'yw`, `hjd___'q`, `hjd___'s`
-infixl 4 `hjd____`, `st'hjd____`, `hjd____'yp`, `hjd____'yp'yo'q`, `hjd____'ys`, `hjd____'yw`, `hjd____'q`, `hjd____'s`
+infixl 8 `hjd`, `st'hjd`, `hjd'yp`, `hjd'yp'yo'eq`, `hjd'ys`, `hjd'yp'yp`, `hjd'yw`, `hjd'eq`, `hjd's`
+infixl 7 `hjd_`, `st'hjd_`, `hjd_'yp`, `hjd_'yp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`, `hjd_'s`
+infixl 6 `hjd__`, `st'hjd__`, `hjd__'yp`, `hjd__'yp'yo'eq`, `hjd__'ys`, `hjd__'yw`, `hjd__'eq`, `hjd__'s`
+infixl 5 `hjd___`, `st'hjd___`, `hjd___'yp`, `hjd___'yp'yo'eq`, `hjd___'ys`, `hjd___'yw`, `hjd___'eq`, `hjd___'s`
+infixl 4 `hjd____`, `st'hjd____`, `hjd____'yp`, `hjd____'yp'yo'eq`, `hjd____'ys`, `hjd____'yw`, `hjd____'eq`, `hjd____'s`
 
 infixl 8 `yi`
 infixl 7 `yi_`
@@ -291,15 +291,15 @@ infixl 7 `yiu`, `yiu'st` --, `st'yiu`
 
 -- infixl 6 `yioi`
 
-infixl 9 `q`
-infixl 8 `q_`
-infixl 7 `q__`
-infixl 6 `q___`
-infixl 5 `q____`
-infixl 4 `q_____`
-infixl 3 `q______`
-infixl 2 `q_______`
-infixl 1 `q________`
+infixl 8 `eq`
+infixl 7 `eq_`
+infixl 6 `eq__`
+infixl 5 `eq___`
+infixl 4 `eq____`
+infixl 3 `eq_____`
+infixl 2 `eq______`
+infixl 1 `eq_______`
+infixl 0 `eq________`
 
 infixl 7 `yor`, `yor'st`
 infixl 7 `ryo`, `ryu`, `st'ryu`
@@ -2189,7 +2189,7 @@ _ryuu = ryuu
 --  target (t i a) (target (source a o) (t i o))
 -- yio'ryo = ho
 
-hjd'q, hjd_'q, hjd__'q, hjd___'q, hjd____'q, hjd_____'q, hjd______'q, hjd_______'q, hjd________'q
+hjd'eq, hjd_'eq, hjd__'eq, hjd___'eq, hjd____'eq, hjd_____'eq, hjd______'eq, hjd_______'eq, hjd________'eq
  :: forall target a .
  Adjoint Functor target target (T'II'I (P) a) (T'I'II target a) =>
  (forall e . Wrapper target ((T'I'II target a `T'TT'I` T'II'I (P) a) e)) =>
@@ -2198,18 +2198,18 @@ hjd'q, hjd_'q, hjd__'q, hjd___'q, hjd____'q, hjd_____'q, hjd______'q, hjd_______
  (forall e . Wrapper target (I e)) =>
  Setoid target a =>
  target a (target a (a `P` a `S` a))
-hjd'q = fij @target @target @(P) @target q
+hjd'eq = fij @target @target @(P) @target eq
 
-hjd_'q = hjd'q
-hjd__'q = hjd'q
-hjd___'q = hjd'q
-hjd____'q = hjd'q
-hjd_____'q = hjd'q
-hjd______'q = hjd'q
-hjd_______'q = hjd'q
-hjd________'q = hjd'q
+hjd_'eq = hjd'eq
+hjd__'eq = hjd'eq
+hjd___'eq = hjd'eq
+hjd____'eq = hjd'eq
+hjd_____'eq = hjd'eq
+hjd______'eq = hjd'eq
+hjd_______'eq = hjd'eq
+hjd________'eq = hjd'eq
 
-hop'q, hop_'q, hop__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, lo________'q
+hop'eq, hop_'eq, hop__'eq, lo___'eq, lo____'eq, lo_____'eq, lo______'eq, lo_______'eq, lo________'eq
  :: forall target i a .
  Category target =>
  Covariant Limit target target =>
@@ -2221,16 +2221,16 @@ hop'q, hop_'q, hop__'q, lo___'q, lo____'q, lo_____'q, lo______'q, lo_______'q, l
  (forall e . Wrapper target (I e)) =>
  Setoid target a =>
  target i a `AR__` target i a `AR_` target i (a `P` a `S` a)
-hop'q x y = q `compose` hop x y
+hop'eq x y = eq `compose` hop x y
 
-hop_'q = hop'q
-hop__'q = hop'q
-lo___'q = hop'q
-lo____'q = hop'q
-lo_____'q = hop'q
-lo______'q = hop'q
-lo_______'q = hop'q
-lo________'q = hop'q
+hop_'eq = hop'eq
+hop__'eq = hop'eq
+lo___'eq = hop'eq
+lo____'eq = hop'eq
+lo_____'eq = hop'eq
+lo______'eq = hop'eq
+lo_______'eq = hop'eq
+lo________'eq = hop'eq
 
 hjd's, hjd_'s, hjd__'s, hjd___'s, hjd____'s, hjd_____'s, hjd______'s, hjd_______'s, hjd________'s
  :: forall target a .
@@ -2361,22 +2361,22 @@ lo_____'yp = hop'yp
 lo______'yp = hop'yp
 lo_______'yp = hop'yp
 
-hop'yp'yo'q, hop_'yp'yo'q, hop__'yp'yo'q, lo___'yp'yo'q, lo____'yp'yo'q, lo_____'yp'yo'q, lo______'yp'yo'q, lo_______'yp'yo'q
+hop'yp'yo'eq, hop_'yp'yo'eq, hop__'yp'yo'eq, lo___'yp'yo'eq, lo____'yp'yo'eq, lo_____'yp'yo'eq, lo______'yp'yo'eq, lo_______'yp'yo'eq
  :: forall a o t tt ll .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` ll) o o) t =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Setoid (AR) o =>
  Arrow a (t o) -> Arrow a (tt `L` tt `T` ll `T` o) -> Arrow a (t (o `P` o `S` o))
-hop'yp'yo'q x xx xxx = yp'yo (hop x xx xxx) q
+hop'yp'yo'eq x xx xxx = yp'yo (hop x xx xxx) eq
 
-hop_'yp'yo'q = hop'yp'yo'q
-hop__'yp'yo'q = hop'yp'yo'q
-lo___'yp'yo'q = hop'yp'yo'q
-lo____'yp'yo'q = hop'yp'yo'q
-lo_____'yp'yo'q = hop'yp'yo'q
-lo______'yp'yo'q = hop'yp'yo'q
-lo_______'yp'yo'q = hop'yp'yo'q
+hop_'yp'yo'eq = hop'yp'yo'eq
+hop__'yp'yo'eq = hop'yp'yo'eq
+lo___'yp'yo'eq = hop'yp'yo'eq
+lo____'yp'yo'eq = hop'yp'yo'eq
+lo_____'yp'yo'eq = hop'yp'yo'eq
+lo______'yp'yo'eq = hop'yp'yo'eq
+lo_______'yp'yo'eq = hop'yp'yo'eq
 
 hop'ys, hop_'ys, hop__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
  :: forall t tt l a o oo .
@@ -3301,7 +3301,7 @@ hjd____'yp = hjd'yp
 hjd_____'yp = hjd'yp
 hjd______'yp = hjd'yp
 
-hjd'yp'yo'q, hjd_'yp'yo'q, hjd__'yp'yo'q, hjd___'yp'yo'q, hjd____'yp'yo'q, hjd_____'yp'yo'q, hjd______'yp'yo'q, hjd_______'yp'yo'q
+hjd'yp'yo'eq, hjd_'yp'yo'eq, hjd__'yp'yo'eq, hjd___'yp'yo'eq, hjd____'yp'yo'eq, hjd_____'yp'yo'eq, hjd______'yp'yo'eq, hjd_______'yp'yo'eq
  :: forall o t tt l .
  Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` l) o o) t =>
  -- Covariant Monoidal Functor (AR) (AR) (P) P l t =>
@@ -3309,15 +3309,15 @@ hjd'yp'yo'q, hjd_'yp'yo'q, hjd__'yp'yo'q, hjd___'yp'yo'q, hjd____'yp'yo'q, hjd__
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Setoid (AR) o =>
  t o -> (tt `L` tt `T` l) o -> t (o `P` o `S` o)
-hjd'yp'yo'q source_left r = yp'yo (hjd @AR source_left r) q
+hjd'yp'yo'eq source_left r = yp'yo (hjd @AR source_left r) eq
 
-hjd_'yp'yo'q = hjd'yp'yo'q
-hjd__'yp'yo'q = hjd'yp'yo'q
-hjd___'yp'yo'q = hjd'yp'yo'q
-hjd____'yp'yo'q = hjd'yp'yo'q
-hjd_____'yp'yo'q = hjd'yp'yo'q
-hjd______'yp'yo'q = hjd'yp'yo'q
-hjd_______'yp'yo'q = hjd'yp'yo'q
+hjd_'yp'yo'eq = hjd'yp'yo'eq
+hjd__'yp'yo'eq = hjd'yp'yo'eq
+hjd___'yp'yo'eq = hjd'yp'yo'eq
+hjd____'yp'yo'eq = hjd'yp'yo'eq
+hjd_____'yp'yo'eq = hjd'yp'yo'eq
+hjd______'yp'yo'eq = hjd'yp'yo'eq
+hjd_______'yp'yo'eq = hjd'yp'yo'eq
 
 -- hjd'yip, hjd_'yip, hjd__'yip, hjd___'yip, hjd____'yip, hjd_____'yip, hjd______'yip, hjd_______'yip
  -- :: forall e o oo t .
@@ -3573,17 +3573,17 @@ hc___'bt = hc'bt
 hc____'bt = hc'bt
 hc_____'bt = hc'bt
 
-q, q_, q__, q___, q____, q_____, q______, q_______, q________ ::
+eq, eq_, eq__, eq___, eq____, eq_____, eq______, eq_______, eq________ ::
  forall target e .
  Setoid target e =>
  target (e `P` e) (e `P` e `S` e)
-q = equality
+eq = equality
 
-q_ = q
-q__ = q
-q___ = q
-q____ = q
-q_____ = q
-q______ = q
-q_______ = q
-q________ = q
+eq_ = eq
+eq__ = eq
+eq___ = eq
+eq____ = eq
+eq_____ = eq
+eq______ = eq
+eq_______ = eq
+eq________ = eq

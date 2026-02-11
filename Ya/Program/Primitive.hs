@@ -68,13 +68,13 @@ embed = component @(AR) @g @(f `JNT` g) @e
 
 -- TODO: replace this expression with a label
 joint :: forall f g e .
- Component (AR) (f `T'TT'I` g) (f `JNT` g) =>
- Elicitable T'II'I (AR) ((f `T'TT'I` g) e) =>
- f (g e) -> (f `JNT` g) `T'I` e
+ Component (AR) (f `T'TT'I` g) (f `JNT` g)  =>
+ Wrapper (AR) (f `T'TT'I` g `T'I_` e) =>
+ f `T'I` g `T` e `AR_______` f `JNT` g `T'I_` e
 joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
 morph :: forall tt t i l .
- Component (->) (t `L` tt `T` l) tt =>
+ Component (AR) (t `L` tt `T` l) tt =>
  t `L` tt `T` l `T` i `AR____` tt `T` i
 morph = component
 
@@ -99,8 +99,8 @@ index index origin =
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `hc` index `hjd`
   (\x -> tbt `ha` T'I'II `hc`
-   (\index' -> is `hu_` idx origin `hc` index' `has` is `hu` x `hc___` index' `hjd'q` index)
+   (\index' -> is `hu_` idx origin `hc` index' `has` is `hu` x `hc___` index' `hjd'eq` index)
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
-exact x xx = is `hu` False Unit `has` is `hu` True Unit `hc__` x `hjd'q` xx
+exact x xx = is `hu` False Unit `has` is `hu` True Unit `hc__` x `hjd'eq` xx

@@ -248,7 +248,7 @@ type family Vector x xs where
 
 -- This transformation is not natural!
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
---  mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'q` source x'
+--  mapping = rewrap `hc` \source -> rewrap `hc` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'eq` source x'
 
 instance Semigroup (AR) Boolean where
  s (These x y) = x `hjd'ys'has` Try y
