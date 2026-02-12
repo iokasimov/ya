@@ -296,7 +296,7 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) e) I where
 
 -- TODO: I should alse test how attributes behave on sums
 
--- This instance for normal state propagation. How unnormal should look hc_ke?
+-- This instance for normal state propagation. How abnormal should look like?
 instance (e ~ ee) =>
  Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void)
@@ -323,6 +323,14 @@ instance (Covariant Lax Monoidal Functor (AR) (AR) (P) (P) Void t, e ~ ee)
  mapping = rewrap `identity` \source (T'I'II (T'I'TT'II'I x)) ->
   subtype @_ @(T'TTT'TT'I _ _ _ _) `compose` subtype @_ @(T'I'II _ _ _)
   `identity` ((\x' -> x' `ryu` Enter) `compose` map @T'I'II @T'I'II source `compose` subtype @_ @(T'II'I _ _ _) `compose` x)
+
+instance (i ~ ii)
+ => Mapping T'I'II T'I'II (AR) (AR)
+  (T'I'II (T'I'TT'II'I (AR) (P)) ii)
+  (T'I'II (AR) i) where
+ mapping = rewrap `identity` \source ->
+  rewrap `identity` \x i ->
+   source `hc____` supertype x i `yoir` Unit
 
 instance {-# OVERLAPPABLE #-} Covariant Transformation Functor (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll) t => Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (AR) e `T'TT'I` t `T'TT'I_` tt `L` tt `T` ll) (T'I'II (AR) e `T'TT'I` t) where
