@@ -8,15 +8,16 @@ import Ya.Algebra.Abstract
 infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
+infixl 6 `S___`
 
-infixl 8 `AR`, `AT`, `C'AR`, `C'AT`, `TR`, `C'TR`
-infixl 7 `AR_`, `AT_`, `C'AR_`, `C'AT_`, `TR_`, `C'TR_`
-infixl 6 `AR__`, `AT__`, `C'AR__`, `C'AT__`, `TR__`, `C'TR__`
-infixl 5 `AR___`, `AT___`, `C'AR___`, `C'AT___`, `TR___`, `C'TR___`
-infixl 4 `AR____`, `AT____`, `C'AR____`, `C'AT____`, `TR____`, `C'TR____`
-infixl 3 `AR_____`, `AT_____`, `C'AR_____`, `C'AT_____`, `TR_____`, `C'TR_____`
-infixl 2 `AR______`, `AT______`, `C'AR______`, `C'AT______`, `TR______`, `C'TR______`
-infixl 1 `AR_______`, `AT_______`, `C'AR_______`, `C'AT_______`, `TR_______`, `C'TR_______`
+infixl 8 `AR`, `AT`, `TR`, `C'AR`, `C'AT`, `C'TR`
+infixl 7 `AR_`, `AT_`, `TR_`, `C'AR_`, `C'AT_`, `C'TR_`
+infixl 6 `AR__`, `AT__`, `TR__`, `C'AR__`, `C'AT__`, `C'TR__`
+infixl 5 `AR___`, `AT___`, `TR___`, `C'AR___`, `C'AT___`,`C'TR___`
+infixl 4 `AR____`, `AT____`, `TR____`, `C'AR____`, `C'AT____`,`C'TR____`
+infixl 3 `AR_____`, `AT_____`, `TR_____`, `C'AR_____`, `C'AT_____`,`C'TR_____`
+infixl 2 `AR______`, `AT______`, `TR______`, `C'AR______`, `C'AT______`, `C'TR______`
+infixl 1 `AR_______`, `AT_______`, `TR_______`, `C'AR_______`, `C'AT_______`,`C'TR_______`
 
 infixl 5 `P'T'I'TT'I`
 infixl 5 `S'T'I'TT'I`
