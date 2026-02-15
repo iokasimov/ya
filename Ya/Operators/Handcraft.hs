@@ -319,6 +319,10 @@ infixl 5 `_ryio`, `_ryiu`
 infixl 5 `_ryoi`, `_ryui`
 infixl 5 `_ryoo`, `_ryuu`
 
+infixl 7 `rya`
+
+infixl 6 `_rya`
+
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target t a o .
  Covariant Yoneda Functor source target I =>
@@ -2041,6 +2045,21 @@ ryo, _ryo :: forall source target t object a o i .
 ryo = yi `compose` component @target @(T'I'II source object) @t `compose` subtype
 
 _ryo = ryo
+
+rya, _rya :: forall source target t object a o i .
+ Covariant Yoneda Functor source target I =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Component target (T'II'I source object) t =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (source a object) (target (source (t a) o) o)
+rya = yi `compose` component @target @(T'II'I source object) @t `compose` subtype
+
+_rya = rya
 
 -- st'ryo, st'_ryo :: forall source target t object a o i .
 --  Covariant Yoneda Functor source target I =>
