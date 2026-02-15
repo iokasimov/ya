@@ -19,7 +19,7 @@ infixl 3 `AR_____`, `AT_____`, `TR_____`, `C'AR_____`, `C'AT_____`,`C'TR_____`
 infixl 2 `AR______`, `AT______`, `TR______`, `C'AR______`, `C'AT______`, `C'TR______`
 infixl 1 `AR_______`, `AT_______`, `TR_______`, `C'AR_______`, `C'AT_______`,`C'TR_______`
 
-infixl 8 `RA`, `TA`, `RT`,
+infixl 8 `RA`, `TA`, `RT`
 infixl 7 `RA_`, `TA_`, `RT_`
 infixl 6 `RA__`, `TA__`, `RT__`
 infixl 5 `RA___`, `TA___`, `RT___`
@@ -40,6 +40,15 @@ type AR_____ = (AR)
 type AR______ = (AR)
 type AR_______ = (AR)
 
+type RA ii i = AR i ii
+type RA_ ii i = AR i ii
+type RA__ ii i = AR i ii
+type RA___ ii i = AR i ii
+type RA____ ii i = AR i ii
+type RA_____ ii i = AR i ii
+type RA______ ii i = AR i ii
+type RA_______ ii i = AR i ii
+
 type AT = T'I'TT'II'T'II'I (AR) (P)
 type AT_ = T'I'TT'II'T'II'I (AR) (P)
 type AT__ = T'I'TT'II'T'II'I (AR) (P)
@@ -49,6 +58,15 @@ type AT_____ = T'I'TT'II'T'II'I (AR) (P)
 type AT______ = T'I'TT'II'T'II'I (AR) (P)
 type AT_______ = T'I'TT'II'T'II'I (AR) (P)
 
+type TA ii i = AT i ii
+type TA_ ii i = AT i ii
+type TA__ ii i = AT i ii
+type TA___ ii i = AT i ii
+type TA____ ii i = AT i ii
+type TA_____ ii i = AT i ii
+type TA______ ii i = AT i ii
+type TA_______ ii i = AT i ii
+
 type TR = T'I'TT'II'I (AR) (P)
 type TR_ = T'I'TT'II'I (AR) (P)
 type TR__ = T'I'TT'II'I (AR) (P)
@@ -57,6 +75,15 @@ type TR____ = T'I'TT'II'I (AR) (P)
 type TR_____ = T'I'TT'II'I (AR) (P)
 type TR______ = T'I'TT'II'I (AR) (P)
 type TR_______ = T'I'TT'II'I (AR) (P)
+
+type RT ii i = TR i ii
+type RT_ ii i = TR i ii
+type RT__ ii i = TR i ii
+type RT___ ii i = TR i ii
+type RT____ ii i = TR i ii
+type RT_____ ii i = TR i ii
+type RT______ ii i = TR i ii
+type RT_______ ii i = TR i ii
 
 class Dumb x
 instance Dumb x
@@ -233,8 +260,9 @@ type P__ = P
 
 type (S) = Object Void
 
-type S_ = (S)
-type S__ = (S)
+type S_ = S
+type S__ = S
+type S___ = S
 
 type family Minus r e where
  Minus (e `S` ee) e = ee
