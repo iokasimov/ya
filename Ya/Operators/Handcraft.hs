@@ -319,9 +319,11 @@ infixl 5 `_ryio`, `_ryiu`
 infixl 5 `_ryoi`, `_ryui`
 infixl 5 `_ryoo`, `_ryuu`
 
+infixl 7 `yar`
 infixl 7 `rya`
 
 infixl 6 `_rya`
+infixl 6 `yar_`
 
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target t a o .
@@ -2031,6 +2033,14 @@ yoor'st :: forall source target t object a o .
  Wrapper source object =>
  target (t o o) (source (Supertype object) o)
 yoor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` subtype @target @(T'I'I t _)
+
+yar, yar_ :: forall source target t object a .
+ Covariant Transformation Functor source target t (T'II'I source object) =>
+ (forall e . Wrapper target (T'II'I source object e)) =>
+ target (t a) (source a object)
+yar = supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'II'I source object) identity
+
+yar_ = yar
 
 ryo, _ryo :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
