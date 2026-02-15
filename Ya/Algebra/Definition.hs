@@ -19,6 +19,15 @@ infixl 3 `AR_____`, `AT_____`, `TR_____`, `C'AR_____`, `C'AT_____`,`C'TR_____`
 infixl 2 `AR______`, `AT______`, `TR______`, `C'AR______`, `C'AT______`, `C'TR______`
 infixl 1 `AR_______`, `AT_______`, `TR_______`, `C'AR_______`, `C'AT_______`,`C'TR_______`
 
+infixl 8 `RA`, `TA`, `RT`,
+infixl 7 `RA_`, `TA_`, `RT_`
+infixl 6 `RA__`, `TA__`, `RT__`
+infixl 5 `RA___`, `TA___`, `RT___`
+infixl 4 `RA____`, `TA____`, `RT____`
+infixl 3 `RA_____`, `TA_____`, `RT_____`
+infixl 2 `RA______`, `TA______`, `RT______`
+infixl 1 `RA_______`, `TA_______`, `RT_______`
+
 infixl 5 `P'T'I'TT'I`
 infixl 5 `S'T'I'TT'I`
 
