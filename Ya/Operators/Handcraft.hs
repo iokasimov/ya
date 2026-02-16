@@ -61,15 +61,14 @@ infixl 1 `ho________` -- , `ho________'yok`, `ho________'yuk`, `ho________'yokl`
  -- , `ho________'yo`
  -- , `ho________'yoi`
 
-infixl 9 `hor`, `hor'st`
-infixl 8 `hor_`, `hor_'st`
-infixl 7 `hor__`, `hor__'st`
-infixl 6 `hor___`, `hor___'st`
-infixl 5 `hor____`, `hor____'st`
-infixl 4 `hor_____`, `hor_____'st`
-infixl 3 `hor______`, `hor______'st`
-infixl 2 `hor_______`, `hor_______'st`
-infixl 1 `hor________`, `hor________'st`
+infixl 8 `hor`, `hor'st`
+infixl 7 `hor_`, `hor_'st`
+infixl 6 `hor__`, `hor__'st`
+infixl 5 `hor___`, `hor___'st`
+infixl 4 `hor____`, `hor____'st`
+infixl 3 `hor_____`, `hor_____'st`
+infixl 2 `hor______`, `hor______'st`
+infixl 1 `hor_______`, `hor_______'st`
 
 infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  , `ha'yok`
@@ -153,15 +152,14 @@ infixl 1 `ha________`
  , `ha________'yokl`
  -- , `ha________'yukl`
 
-infixl 9 `har`, `har'st`
-infixl 8 `har_`, `har_'st`
-infixl 7 `har__`, `har__'st`
-infixl 6 `har___`, `har___'st`
-infixl 5 `har____`, `har____'st`
-infixl 4 `har_____`, `har_____'st`
-infixl 3 `har______`, `har______'st`
-infixl 2 `har_______`, `har_______'st`
-infixl 1 `har________`, `har________'st`
+infixl 8 `har`, `har'st`
+infixl 7 `har_`, `har_'st`
+infixl 6 `har__`, `har__'st`
+infixl 5 `har___`, `har___'st`
+infixl 4 `har____`, `har____'st`
+infixl 3 `har_____`, `har_____'st`
+infixl 2 `har______`, `har______'st`
+infixl 1 `har_______`, `har_______'st`
 
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
