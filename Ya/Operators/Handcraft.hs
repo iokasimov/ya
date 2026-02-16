@@ -61,6 +61,16 @@ infixl 1 `ho________` -- , `ho________'yok`, `ho________'yuk`, `ho________'yokl`
  -- , `ho________'yo`
  -- , `ho________'yoi`
 
+infixl 9 `hor`, `hor'st`
+infixl 8 `hor_`, `hor_'st`
+infixl 7 `hor__`, `hor__'st`
+infixl 6 `hor___`, `hor___'st`
+infixl 5 `hor____`, `hor____'st`
+infixl 4 `hor_____`, `hor_____'st`
+infixl 3 `hor______`, `hor______'st`
+infixl 2 `hor_______`, `hor_______'st`
+infixl 1 `hor________`, `hor________'st`
+
 infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  , `ha'yok`
  -- , `ha'yuk`
@@ -142,6 +152,16 @@ infixl 1 `ha________`
  -- , `ha________'yuk`
  , `ha________'yokl`
  -- , `ha________'yukl`
+
+infixl 9 `har`, `har'st`
+infixl 8 `har_`, `har_'st`
+infixl 7 `har__`, `har__'st`
+infixl 6 `har___`, `har___'st`
+infixl 5 `har____`, `har____'st`
+infixl 4 `har_____`, `har_____'st`
+infixl 3 `har______`, `har______'st`
+infixl 2 `har_______`, `har_______'st`
+infixl 1 `har________`, `har________'st`
 
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
@@ -1978,14 +1998,23 @@ yor'st :: forall source target t object o .
  target (t o) (source (Supertype object) o)
 yor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
-yior :: forall source target t object i o .
+yior, hor, hor_, hor__, hor___, hor____, hor_____, hor______, hor_______ :: forall source target t object i o .
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i o) (source object o)
 yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
 
-yior'st :: forall source target t object i o .
+hor = yior
+hor_ = yior
+hor__ = yior
+hor___ = yior
+hor____ = yior
+hor_____ = yior
+hor______ = yior
+hor_______ = yior
+
+yior'st, hor'st, hor_'st, hor__'st, hor___'st, hor____'st, hor_____'st, hor______'st, hor_______ :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'I'II t i) =>
  Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
  (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
@@ -1995,6 +2024,15 @@ yior'st :: forall source target t object i o .
  Wrapper source object =>
  target (t i o) (source (Supertype object) o)
 yior'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
+
+hor'st = yior'st
+hor_'st = yior'st
+hor__'st = yior'st
+hor___'st = yior'st
+hor____'st = yior'st
+hor_____'st = yior'st
+hor______'st = yior'st
+hor_______'st = yior'st
 
 yoir :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'II'I t i) =>
