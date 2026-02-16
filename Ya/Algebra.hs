@@ -704,7 +704,7 @@ instance
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok` Label @_ @_ @Void `ha` constant @(AR) (map @T'I'II @T'I'II @_ @_ @_ @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) source (T'TT'I x)) `ha` supertype @(AR) `ha` supertype @(AR)
 
--- TODO: generahc_ze using adjunctions
+-- TODO: generalise using adjunctions
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` Void) eee eeee)
@@ -809,13 +809,13 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 --    )
 --    `compose` supertype @target @(TT'T'I _ _ _)
 
--- TODO: generahc_ze with hc_mits
+-- TODO: generalise with hc_mits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'I'II e `T` Void) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   T'I'II (These e x) -> supertype (supertype x) `yo` source `ho` These e `ho` T'I'II
 
--- TODO: generahc_ze with hc_mits
+-- TODO: generalise with hc_mits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'II'I e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'II'I e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
@@ -826,7 +826,7 @@ instance Covariant Endo Semi Functor (AR) t =>
 --  mapping = rewrap `identity` \source -> rewrap `identity` \x ->
 --   T'I'II `identity` \e -> x `yo` source `compose` (`hc_` e) `compose` supertype
 
--- TODO: generahc_ze
+-- TODO: generalise
 -- We need this instance to make `yok'yoklKL` work
 -- instance {-# OVERLAPS #-} Component (AR) (T'TT'I t tt) t =>
  -- Mapping T'I'II T'I'II (AR) (AR) (T'TT'I t (Label l tt)) t where
@@ -932,7 +932,13 @@ instance
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `has` T'I'II `ha` subtype @AR `ha` source
 
--- TODO: generahc_ze over categories
+-- instance Mapping T'II'I T'I'II (AR) (AR) (T'I'II (AR) i) (T'II'I i) where
+--  mapping = rewrap `identity` \source -> rewrap `identity` \x ->
+  -- source (x Unit)
+ 
+ -- T'I'II `ha` subtype @AR `ha` source `has` T'I'II `ha` subtype @AR `ha` source
+
+-- TODO: generalise over categories
 instance {-# OVERLAPPABLE #-}
  (Setoid (AR) (Supertype e), Wrapper (AR) e)
  => Setoid (AR) e where
