@@ -2008,14 +2008,14 @@ yior, hor, hor_, hor__, hor___, hor____, hor_____, hor______, hor_______ :: fora
  target (t i o) (source object o)
 yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
 
-hor = yior
-hor_ = yior
-hor__ = yior
-hor___ = yior
-hor____ = yior
-hor_____ = yior
-hor______ = yior
-hor_______ = yior
+hor = yior @source @target @t @object
+hor_ = yior @source @target @t @object
+hor__ = yior @source @target @t @object
+hor___ = yior @source @target @t @object
+hor____ = yior @source @target @t @object
+hor_____ = yior @source @target @t @object
+hor______ = yior @source @target @t @object
+hor_______ = yior @source @target @t @object
 
 yior'st, hor'st, hor_'st, hor__'st, hor___'st, hor____'st, hor_____'st, hor______'st, hor_______'st :: forall source target t object i o .
  Covariant Yoneda Functor source target (T'I'II t i) =>
