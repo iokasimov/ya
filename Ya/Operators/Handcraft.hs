@@ -152,14 +152,14 @@ infixl 1 `ha________`
  , `ha________'yokl`
  -- , `ha________'yukl`
 
-infixl 8 `har`, `har'st`
-infixl 7 `har_`, `har_'st`
-infixl 6 `har__`, `har__'st`
-infixl 5 `har___`, `har___'st`
-infixl 4 `har____`, `har____'st`
-infixl 3 `har_____`, `har_____'st`
-infixl 2 `har______`, `har______'st`
-infixl 1 `har_______`, `har_______'st`
+infixl 8 `har`, `har'st`, `bt'har`
+infixl 7 `har_`, `har_'st`, `bt'har_`
+infixl 6 `har__`, `har__'st`, `bt'har__`
+infixl 5 `har___`, `har___'st`, `bt'har___`
+infixl 4 `har____`, `har____'st`, `bt'har____`
+infixl 3 `har_____`, `har_____'st`, `bt'har_____`
+infixl 2 `har______`, `har______'st`, `bt'har______`
+infixl 1 `har_______`, `har_______'st`, `bt'har_______`
 
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
@@ -336,7 +336,7 @@ infixl 6 `_rya`
 infixl 6 `yar_`
 
 infixl 6 `yiar`, `yiar'st`
-infixl 6 `yair`, `yair'st`
+infixl 6 `yair`, `yair'st`, `bt'yair`
 infixl 6 `yaar`, `yaar'st`
 
 infixl 6 `ryio`, `ryiu`
@@ -2119,6 +2119,25 @@ har____'st = yair'st @source @target @t @object
 har_____'st = yair'st @source @target @t @object
 har______'st = yair'st @source @target @t @object
 har_______'st = yair'st @source @target @t @object
+
+bt'yair, bt'har, bt'har_, bt'har__, bt'har___, bt'har____, bt'har_____, bt'har______, bt'har_______ :: forall source target t object r i a .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ Covariant Objective target r (t a i) =>
+ (Basetype r ~ t a i) =>
+ target r (source a object)
+bt'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` basetype
+
+bt'har = bt'yair @source @target @t @object
+bt'har_ = bt'yair @source @target @t @object
+bt'har__ = bt'yair @source @target @t @object
+bt'har___ = bt'yair @source @target @t @object
+bt'har____ = bt'yair @source @target @t @object
+bt'har_____ = bt'yair @source @target @t @object
+bt'har______ = bt'yair @source @target @t @object
+bt'har_______ = bt'yair @source @target @t @object
 
 yiar :: forall source target t object i a .
  Contravariant Yoneda Functor source target (T'I'II t i) =>
