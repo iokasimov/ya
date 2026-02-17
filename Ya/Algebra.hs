@@ -837,7 +837,7 @@ instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (t `L` t `T` l) where
- mapping = rewrap `identity` \source -> rewrap `identity` \f -> (\x' -> x' `ryu` Enter) `compose` source `identity`f Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> (\x' -> x' `ryu` Enter) `compose` source `identity` f Unit
 
 instance
  ( forall e ee . Covariant Transformation Functor target target (Covariant Day target u uu t (tt `L` tt `T` ll) e ee) t

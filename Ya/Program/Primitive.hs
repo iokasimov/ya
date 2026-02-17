@@ -99,8 +99,8 @@ index index origin =
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `hc` index `hjd`
   (\x -> tbt `ha` T'I'II `hc`
-   (\index' -> is `hu_` idx origin `hc` index' `has` is `hu` x `hc___` index' `hjd'eq` index)
+   (\index' -> is `hu` (idx origin `hc` index') `has` is `hu` x `har__` index' `hjd'eq` index)
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
-exact x xx = is `hu` False Unit `has` is `hu` True Unit `hc__` x `hjd'eq` xx
+exact x xx = is `hu` False Unit `has` is `hu` True Unit `har_` x `hjd'eq` xx

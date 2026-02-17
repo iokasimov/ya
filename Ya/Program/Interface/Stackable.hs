@@ -7,14 +7,14 @@ import Ya.Program.Primitive
 import Ya.Program.Labels
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
- mapping = rewrap `hc` \(T'I'TT'II'T'II'I source) ->
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `hc` \x -> x `yo` this `ha` source
-   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` (\(These f xxx) -> f xxx))
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` hdj @(AR))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
- mapping = rewrap `hc` \(T'I'TT'II'T'II'I source) ->
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `hc` \x -> x `yo` this `ha` source
-   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` (\(These f xxx) -> f xxx))
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` hdj @(AR))
 
 class Stackable datastructure where
  pop :: datastructure item `AR__` Optional item `P` datastructure item
@@ -25,7 +25,7 @@ instance Stackable List where
  pop = \case
   T'TT'I (T'I'II (This _)) -> Empty Unit `hjd` empty @List
   T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-   Exist x `hjd__` T'TT'I `hc__` xs `yo` F'T'I'TT'I
+   Exist x `hjd__` T'TT'I `har_` xs `yo` F'T'I'TT'I
  push item s = item `hjd` rewrap
   (Exist `ha` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` supertype @Arrow @(F'T'I'TT'I _ _ _))) s
 
