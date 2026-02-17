@@ -329,7 +329,7 @@ infixl 6 `yior`, `yior'st`
 infixl 6 `yoir`, `yoir'st`
 infixl 6 `yoor`, `yoor'st`
 
-infixl 7 `yar`
+infixl 7 `yar`, `yar'st`
 infixl 7 `rya`
 
 infixl 6 `_rya`
@@ -2076,12 +2076,23 @@ yoor'st :: forall source target t object a o .
 yoor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'I t) @(T'I'II source object) identity `compose` subtype @target @(T'I'I t _)
 
 yar, yar_ :: forall source target t object a .
- Covariant Transformation Functor source target t (T'II'I source object) =>
+ Contravariant Transformation Functor source target t (T'II'I source object) =>
  (forall e . Wrapper target (T'II'I source object e)) =>
  target (t a) (source a object)
-yar = supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'II'I source object) identity
+yar = supertype `compose` map @T'II'I @T'I'II @source @target @t @(T'II'I source object) identity
 
 yar_ = yar
+
+yar'st, yar_'st :: forall source target t object a .
+ Contravariant Transformation Functor source target t (T'II'I source object) =>
+ (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ Wrapper source object =>
+ target (t a) (source a (Supertype object))
+yar'st = fio @source supertype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @t @(T'II'I source object) identity
+
+yar_'st = yar'st @source @target @t @object
 
 yair, har, har_, har__, har___, har____, har_____, har______, har_______ :: forall source target t object i a .
  Contravariant Yoneda Functor source target (T'II'I t i) =>
