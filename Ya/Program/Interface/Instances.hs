@@ -338,7 +338,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu'st` Empty) `hc_` _spot_ `hc` x where
 
-  found (These w sl) = supertype (predicate `hc` w) `yui` sl `yiu` sl
+  found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yuu` sl
 
   _spot_ = Unit `ryu` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
    `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` field @(Alone i) `hop` Scope `hc` it

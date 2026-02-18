@@ -289,6 +289,8 @@ infixl 3 `yu_____`, `yu_____'st`
 infixl 2 `yu______`, `yu______'st`
 infixl 1 `yu_______`, `yu_______'st`
 
+infixl 7 `yuu`
+
 infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
@@ -694,6 +696,18 @@ hu________'bt = fai @target (fio (basetype @target @o) `compose` fai @target ter
 -- st'hu______ = st'yiu
 -- st'hu_______ = st'yiu
 -- st'hu________ = st'yiu
+
+yuu :: forall target t a o .
+ Covariant Yoneda Functor target target (T'I'I t) =>
+ (forall e . Covariant Endo Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Functor target (T'II'I target e)) =>
+ Covariant Endo Transformation Functor target I (T'I'II target a) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (t a a) (target o (t o o))
+yuu = fio @target supertype `compose` yu @target `compose` subtype @target @(T'I'I t _)
 
 ya :: forall source target t a o .
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
