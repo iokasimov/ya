@@ -355,7 +355,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` field @(Alone i) `hop` Scope `hc` it
    `yok____` Check `ha` Stops `ha` not `ha` found
    `yuk____` Apply `ha` State `hc___` Event `ha` shift `hc` way
-   `yok____` Retry `ha__` Break `hu'st` Ok `has` Again `hu'st` Reach
+   `yok____` Retry `ha__` Break `hu'st` Ok `has` Again `hu'st` Break
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
