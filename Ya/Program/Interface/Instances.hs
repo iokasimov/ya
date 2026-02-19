@@ -201,6 +201,17 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   T'TT'I (T'TT'I'TTT'I (These (x `yo` (`hjd` This Unit) `ha` source) (xs `yo` (`hjd` That Unit) `ha` source)))
 
+pattern Reach  :: forall ttt t tt i .
+ Component (AT) ((t `P'T'I'TT'I` tt) `L` ttt `T` (Void)) ttt =>
+ t `P'T'I'TT'I` tt `T'I___` i `AR______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
+pattern Reach x = Label x
+
+instance {-# OVERLAPS #-} Component (AT) ((t `P'T'I'TT'I` tt) `L` t `T` (Void)) t where
+ component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xs))) -> x `hjd` (`hjd` xs)
+
+instance {-# OVERLAPS #-} Component (AT) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void)) tt where
+ component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xs))) -> xs `hjd` (x `hjd`)
+
 -- instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AT) (AT) (I `P'T'I'TT'I` Twice `T'TT'I` List)
 --  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
   

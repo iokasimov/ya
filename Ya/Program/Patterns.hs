@@ -71,10 +71,10 @@ type Catch = T'I'II (S)
 pattern Catch :: i -> Stops i ii
 pattern Catch x = T'I'II (This x)
 
-type Reach = T'I'II (S)
+-- type Reach = T'I'II (S)
 
-pattern Reach :: i -> Stops i ii
-pattern Reach x = T'I'II (This x)
+-- pattern Reach :: i -> Stops i ii
+-- pattern Reach x = T'I'II (This x)
 
 pattern Wrong :: i -> Stops i ii
 pattern Wrong x = T'I'II (This x)
