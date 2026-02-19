@@ -103,11 +103,11 @@ instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (List `P'T'I'TT'I`
  component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd` xxx)
 
 pattern Stump :: forall i e .
- Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
- S'I'II i e `AR__` S'I'II i `L` S'I'II i `T` Void `T` e
+ Component (AR) (S'I'II i `L` S'I'II Unit `T` Void) (S'I'II Unit) =>
+ S'I'II i e `AR__` S'I'II i `L` S'I'II Unit `T` Void `T` e
 pattern Stump x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II e `T` Void) (S'I'II Unit) where
+instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II Unit `T` Void) (S'I'II Unit) where
  mapping = rewrap `identity` \source ->
   rewrap `hc`((This `compose` constant Unit `has` That `compose` source) `compose` supertype)
 
