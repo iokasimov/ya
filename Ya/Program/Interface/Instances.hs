@@ -97,9 +97,10 @@ pattern Locus :: forall t tt i .
 pattern Locus x = Label x
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
- component = T'I'TT'II'T'II'I `hc` \case
-  (Label (T'TT'I'TTT'I (These x xxx))) ->
-   x `hjd` (\xx -> xx `hjd` xxx)
+ component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd` xxx)
+
+instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (List `P'T'I'TT'I` List)) `L` Alone `T` Void) Alone where
+ component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd` xxx)
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II i `T` Void) (S'I'II Unit) =>
@@ -201,15 +202,18 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   T'TT'I (T'TT'I'TTT'I (These (x `yo` (`hjd` This Unit) `ha` source) (xs `yo` (`hjd` That Unit) `ha` source)))
 
-pattern Reach  :: forall ttt t tt i .
- Component (AT) ((t `P'T'I'TT'I` tt) `L` ttt `T` (Void)) ttt =>
- t `P'T'I'TT'I` tt `T'I___` i `AR______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
+-- pattern Reach  :: forall ttt t tt i .
+ -- Component (AT) ((t `P'T'I'TT'I` tt) `L` ttt `T` (Void)) ttt =>
+ -- t `P'T'I'TT'I` tt `T'I___` i `AR______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
+pattern Reach  :: forall tt t i .
+ Component (AT) (t `L` tt `T` (Void)) tt =>
+ t `T'I` i `AR______` t `L` tt `T` (Void) `T` i
 pattern Reach x = Label x
 
-instance {-# OVERLAPS #-} Component (AT) ((t `P'T'I'TT'I` tt) `L` t `T` (Void)) t where
+instance Component (AT) ((t `P'T'I'TT'I` tt) `L` t `T` (Void)) t where
  component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xs))) -> x `hjd` (`hjd` xs)
 
-instance {-# OVERLAPS #-} Component (AT) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void)) tt where
+instance Component (AT) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void)) tt where
  component = T'I'TT'II'T'II'I `hc` \(Label (T'TT'I'TTT'I (These x xs))) -> xs `hjd` (x `hjd`)
 
 -- instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AT) (AT) (I `P'T'I'TT'I` Twice `T'TT'I` List)
