@@ -79,12 +79,14 @@ infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  -- , `ha'yukl`
  , `ha'st`
  , `ha'hjd`
+ , `ha'hjd'eq`
  -- , `st'ha`
  -- , `ha'hd`
  -- , `ha'hd'hd`
 infixl 8 `ha_`
  , `ha_'st`
  , `ha_'hjd`
+ , `ha_'hjd'eq`
  , `ha_'hu`
  , `ha_'yok`
  -- , `ha_'yuk`
@@ -95,6 +97,7 @@ infixl 8 `ha_`
 infixl 7 `ha__`
  , `ha__'st`
  , `ha__'hjd`
+ , `ha__'hjd'eq`
  , `ha__'hu`
  , `ha__'yok`
  -- , `ha__'yuk`
@@ -105,6 +108,7 @@ infixl 7 `ha__`
 infixl 6 `ha___`
  , `ha___'st`
  , `ha___'hjd`
+ , `ha___'hjd'eq`
  , `ha___'hu`
  , `ha___'yok`
  -- , `ha___'yuk`
@@ -115,6 +119,7 @@ infixl 6 `ha___`
 infixl 5 `ha____`
  , `ha____'st`
  , `ha____'hjd`
+ , `ha____'hjd'eq`
  , `ha____'hu`
  , `ha____'yok`
  -- , `ha____'yuk`
@@ -125,6 +130,7 @@ infixl 5 `ha____`
 infixl 4 `ha_____`
  , `ha_____'st`
  , `ha_____'hjd`
+ , `ha_____'hjd'eq`
  , `ha_____'hu`
  , `ha_____'yok`
  -- , `ha_____'yuk`
@@ -135,6 +141,7 @@ infixl 4 `ha_____`
 infixl 3 `ha______`
  , `ha______'st`
  , `ha______'hjd`
+ , `ha______'hjd'eq`
  , `ha______'hu`
  , `ha______'yok`
  -- , `ha______'yuk`
@@ -145,6 +152,7 @@ infixl 3 `ha______`
 infixl 2 `ha_______`
  , `ha_______'st`
  , `ha_______'hjd`
+ , `ha_______'hjd'eq`
  , `ha_______'hu`
  , `ha_______'yok`
  -- , `ha_______'yuk`
@@ -155,6 +163,7 @@ infixl 2 `ha_______`
 infixl 1 `ha________`
  , `ha________'st`
  , `ha________'hjd`
+ , `ha________'hjd'eq`
  , `ha________'hu`
  -- , `ha________'yok`
  -- , `ha________'yuk`
@@ -310,7 +319,7 @@ infixl 8 `yw`, `yw'yo`, `yw'yokl`
 
 infixl 7 `yoi`
 
-infixl 7 `yai`, `yai'st`, `yai'hjd` -- `yai'yukl`
+infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 
 infixl 7 `yui` --, `yui'st`
 
@@ -3756,6 +3765,36 @@ ha_____'hjd = yai'hjd @target @t @tt @i @ii @iii @iiii
 ha______'hjd = yai'hjd @target @t @tt @i @ii @iii @iiii
 ha_______'hjd = yai'hjd @target @t @tt @i @ii @iii @iiii
 ha________'hjd = yai'hjd @target @t @tt @i @ii @iii @iiii
+
+yai'hjd'eq, ha'hjd'eq, ha_'hjd'eq, ha__'hjd'eq, ha___'hjd'eq, ha____'hjd'eq, ha_____'hjd'eq, ha______'hjd'eq, ha_______'hjd'eq, ha________'hjd'eq
+ :: forall target t i ii iiii a o .
+ Contravariant Yoneda Functor (AR) target (T'II'I t i) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Adjoint Functor target target (T'II'I P ii) (T'I'II AR ii) =>
+ (forall e . Wrapper target (T'I'II AR ii `T'TT'I` T'II'I P ii `T'I_` e)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (T'II'I P ii e)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ (forall e ee . Wrapper target (T'II'I AR e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ Contravariant Objective (AR) a (P (AR o a) (AR ii iiii)) =>
+ Setoid (AR) a =>
+ target (t (a `P` a `S` a) i) (target a (t a i))
+yai'hjd'eq = fai @AR (hjd'eq @(AR)) `compose` yai @AR @target @t @i
+
+ha'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha_'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha__'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha___'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha____'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha_____'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha______'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha_______'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
+ha________'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
 
 hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
