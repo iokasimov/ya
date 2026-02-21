@@ -3781,7 +3781,6 @@ yai'hjd'eq, ha'hjd'eq, ha_'hjd'eq, ha__'hjd'eq, ha___'hjd'eq, ha____'hjd'eq, ha_
  (forall e ee . Wrapper target (T'II'I AR e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
- Contravariant Objective (AR) a (P (AR o a) (AR ii iiii)) =>
  Setoid (AR) a =>
  target (t (a `P` a `S` a) i) (target a (t a i))
 yai'hjd'eq = fai @AR (hjd'eq @(AR)) `compose` yai @AR @target @t @i
