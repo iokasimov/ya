@@ -231,31 +231,29 @@ instance
 --   yoneda @T'I'II x (T'II'I `compose` (\x_ -> These (source x_) e))
 
 -- TODO: to fix
-instance Mapping T'I'II T'I'II (AR) (AR)
- (T'I'II (T'I'TT'II'I (AR) (P)) e)
- (T'I'II (T'I'TT'II'I (AR) (P)) e) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (TR) e) (T'I'II (TR) e) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \f x ->
   i_ (map @T'I'II @T'I'II source) (f x)
 
-instance Mapping T'I'II T'I'II
- (T'I'TT'II'I (AR) (P)) (AR)
- (T'I'II (T'I'TT'II'I (AR) (P)) i)
- (T'I'II (T'I'TT'II'I (AR) (P)) i) where
+instance Mapping T'I'II T'I'II (TR) (AR) (T'I'II (TR) i) (T'I'II (TR) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
   -> rewrap `compose` rewrap `identity` \origin i ->
    let These result ii = origin i in
    let These update _ = source result in
    These update i
 
-instance Mapping T'II'I T'I'II
- (T'I'TT'II'I (AR) (P)) (AR)
- (T'II'I (T'I'TT'II'I (AR) (P)) i)
- (T'II'I (T'I'TT'II'I (AR) (P)) i) where
+instance Mapping T'II'I T'I'II (TR) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
   -> rewrap `compose` rewrap `identity` \origin o ->
    let These a oo = source o in
    let These i _ = origin a in
    These i oo
+
+instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (AT) i) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \origin x ->
+  let These a ao = supertype source x in
+  let These i aa = origin a in
+  These i (\_ -> ao aa)
 
 -- instance
  -- Covariant Endo Semi Functor (AR) t =>
