@@ -82,7 +82,7 @@ point :: forall tt t i .
  Component (AT) t tt =>
  Unlabelable (AR) t =>
  t i `AR____` tt i `P` (tt i `AR__` Unlabeled t i)
-point = supertype @(AR) `hc` component @(AT) `ho'ho'ho` unlabel @(AR)
+point = supertype @(AR) `har` component @(AT) `ho_'ho'ho` unlabel @(AR)
 
 -- amend :: forall tt t l i .
 --  Component (TR) (t `L` tt `T` l) tt =>
@@ -97,9 +97,9 @@ index :: forall t r e .
 index index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
- idx origin `hc` index `hjd`
-  (\x -> tbt `ha` T'I'II `hc`
-   (\index' -> is `hu` (idx origin `hc` index') `has` is `hu` x `har__` index' `hjd'eq` index)
+ idx origin `bt'har` index `hjd`
+  (\x -> tbt `ha` T'I'II `har`
+   (\index' -> is `hu` (idx origin `bt'har` index') `has` is `hu` x `har__` index' `hjd'eq` index)
   )
 
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean

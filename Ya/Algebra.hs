@@ -86,7 +86,7 @@ instance
   (day @T'I'II @(AR) @Void @(S'I'II Unit) @(S'I'II Unit) @(P) @P identity
      (day @T'I'II @(AR) @Void @(F'T'I'TT'I (T'II'I P) _) @(F'T'I'TT'I (T'II'I P) _) @(P) @(S) identity (source `compose` f)
   `compose` fio @(AR) subtype)
-     `hc__` supertype i `hjd` subtype (supertype ii))
+     `har_` supertype i `hjd` subtype (supertype ii))
 
 -- 1. t (F'T'I'TT'I (T'II'I P) t ((tt `L` tt `T` ll `L` (t `T'TT'I` F'T'I'TT'I (T'II'I P) t) `T` l `T` _)))
 -- 2. t (tt (F'T'I'TT'I (T'II'I P) t _))
@@ -711,18 +711,18 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `har` \old ->
-   let These x new = ee `hc` old in
-   let These y upd  = eee `hc` new in
-   source `ha` f `hc__` x `hjd` y `hjd___` upd
+   let These x new = ee `bt'har` old in
+   let These y upd  = eee `bt'har` new in
+   source `ha` f `har_` x `hjd` y `hjd___` upd
 
 instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `har` \old ->
-   let These x _ = ee `hc` old in
-   let These y _  = eee `hc` old in
-   source `ha` f `hc__` x `hjd` y `hjd___` old
+   let These x _ = ee `bt'har` old in
+   let These y _  = eee `bt'har` old in
+   source `ha` f `har_` x `hjd` y `hjd___` old
 
 instance
  ( i ~ ii
@@ -809,13 +809,13 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
 --    )
 --    `compose` supertype @target @(TT'T'I _ _ _)
 
--- TODO: generalise with hc_mits
+-- TODO: generalise with limits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` t `L` t `T` Void `L` P'I'II e `T` Void) (P'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   T'I'II (These e x) -> supertype (supertype x) `yo` source `ho` These e `ho` T'I'II
 
--- TODO: generalise with hc_mits
+-- TODO: generalise with limits
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'II'I e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'II'I e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case

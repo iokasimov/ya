@@ -201,15 +201,11 @@ infixl 1 `hu________`, `hu________'st` --, `st'hu________`
 -- infixl 2 `he_______'ho`, `he_______'ho'st`
 -- infixl 1 `he________'ho`, `he________'ho'st`
 
-infixl 9 `hc`, `hc'st`, `hc'bt`
-infixl 8 `hc_`, `hc_'st`, `hc_'bt`, `hdj`
-infixl 7 `hc__`, `hc__'st`, `hc__'bt`, `hdj_`
-infixl 6 `hc___`, `hc___'st`, `hc___'bt`, `hdj__`
-infixl 5 `hc____`, `hc____'st`, `hc____'bt`, `hdj___`
-infixl 4 `hc_____`, `hc_____'st`, `hc_____'bt`, `hdj____`
-infixl 3 `hc______`
-infixl 2 `hc_______`
-infixl 1 `hc________`
+infixl 8 `hdj`
+infixl 7 `hdj_`
+infixl 6 `hdj__`
+infixl 5 `hdj___`
+infixl 4 `hdj____`
 
 infixl 8 `hop`, `hop'hjd`, `hop'yp`, `hop'yp'yo'eq`, `hop'ys`, `hop'ys'has`, `hop'eq`, `hjd'ys'has`
 infixl 7 `hop_`, `hop_'yp`, `hop_'yp'yo'eq`, `hop_'ys`, `hop_'ys'has`, `hop_'eq`, `hjd_'ys'has`
@@ -3809,68 +3805,6 @@ hdj_ = hdj
 hdj__ = hdj
 hdj___ = hdj
 hdj____ = hdj
-
-hc, hc_, hc__, hc___, hc____, hc_____, hc______, hc_______, hc________
- :: forall target i tt o a .
- Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
- (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
- (forall e . Wrapper target (I e)) =>
- (forall e . Wrapper target (T'II'I (P) a e)) =>
- (forall e . Wrapper target (T'I'II tt a e)) =>
- (forall e . Wrapper target (T'TT'I (T'I'II tt a) (T'II'I (P) a) e)) =>
- Covariant Objective target i (tt a o) =>
- (Basetype i ~ tt a o) =>
- target i (tt a o)
-hc = basetype
-
-hc_ = hc
-hc__ = hc
-hc___ = hc
-hc____ = hc
-hc_____ = hc
-hc______ = hc
-hc_______ = hc
-hc________ = hc
-
-hc'st, hc_'st, hc__'st, hc___'st, hc____'st, hc_____'st :: forall target i tt o a .
- Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I tt e)) =>
- (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
- (forall e . Wrapper target (I e)) =>
- (forall e . Wrapper target (T'II'I (P) a e)) =>
- (forall e . Wrapper target (T'I'II tt a e)) =>
- (forall e . Wrapper target (T'TT'I (T'I'II tt a) (T'II'I (P) a) e)) =>
- Covariant Objective target i (tt (Supertype a) o) =>
- Covariant Elicitable target a =>
- (forall e . Wrapper target (T'II'I tt o e)) =>
- target i (tt a o)
-hc'st = fai @target supertype `compose` objective @T'I'II @target @i @(tt (Supertype a) o)
-
-hc_'st = hc'st
-hc__'st = hc'st
-hc___'st = hc'st
-hc____'st = hc'st
-hc_____'st = hc'st
-
-hc'bt, hc_'bt, hc__'bt, hc___'bt, hc____'bt, hc_____'bt :: forall target i tt o a .
- Adjoint Functor target target (T'II'I (P) a) (T'I'II tt a) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I tt e)) =>
- (forall e . Wrapper target (T'II'I (P) a `T'TT'I` T'I'II tt a `T'I_` e)) =>
- (forall e . Wrapper target (I e)) =>
- (forall e . Wrapper target (T'II'I (P) a e)) =>
- (forall e . Wrapper target (T'I'II tt a e)) =>
- (forall e . Wrapper target (T'TT'I (T'I'II tt a) (T'II'I (P) a) e)) =>
- Covariant Objective target i (tt (Basetype a) o) =>
- Covariant Objective target a (Basetype a) =>
- (forall e . Wrapper target (T'II'I tt o e)) =>
- target i (tt a o)
-hc'bt = fai @target basetype `compose` objective @T'I'II @target @i @(tt (Basetype a) o)
-
-hc_'bt = hc'bt
-hc__'bt = hc'bt
-hc___'bt = hc'bt
-hc____'bt = hc'bt
-hc_____'bt = hc'bt
 
 eq, eq_, eq__, eq___, eq____, eq_____, eq______, eq_______, eq________ ::
  forall target e .
