@@ -8,13 +8,13 @@ import Ya.Program.Labels
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `hc` \x -> x `yo` this `ha` source
-   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` hdj @(AR))
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'yp` Align `har` xx `yo_` hdj @(AR))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `hc` \x -> x `yo` this `ha` source
-   `hjd_` (\xx -> x `yo` that `ha` source `hjd'yp` Align `hc` xx `yo` hdj @(AR))
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'yp` Align `har` xx `yo_` hdj @(AR))
 
 class Stackable datastructure where
  pop :: datastructure item `AR__` Optional item `P` datastructure item

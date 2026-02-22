@@ -27,4 +27,4 @@ instance Fieldable e (ee `P` e) where
  field (These x xx) = xx `hjd` (x `hjd`)
 
 instance {-# OVERLAPS #-} Fieldable e ee => Fieldable e (ee `P` eee) where
- field (These x xs) = this `ha` field @e @ee `hc` x `hjd_` that `ha` field @e @ee `hc` x `ho` (`hjd` xs)
+ field (These x xs) = this `ha` field @e @ee `har` x `hjd_` that `ha` field @e @ee `har` x `ho_` (`hjd` xs)
