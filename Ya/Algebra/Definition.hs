@@ -548,10 +548,10 @@ basetype :: forall target i .
  target i (Basetype i)
 basetype = objective @T'I'II @target
 
-bound :: forall target i .
+boundtype :: forall target i .
  Contravariant Objective target i (Basetype i) =>
  target (Basetype i) i
-bound = objective @T'II'I @target
+boundtype = objective @T'II'I @target
 
 -- TODO: generalize, move to `Abstract` module
 newtype U_I_UU_M_I_II_II u uu i ii = U_I_UU_M_I_II_II (u i (uu (M i ii) ii))
