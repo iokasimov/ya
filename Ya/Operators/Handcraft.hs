@@ -170,14 +170,14 @@ infixl 1 `ha________`
  , `ha________'yokl`
  -- , `ha________'yukl`
 
-infixl 8 `har`, `har'st`, `bt'har`
-infixl 7 `har_`, `har_'st`, `bt'har_`
-infixl 6 `har__`, `har__'st`, `bt'har__`
-infixl 5 `har___`, `har___'st`, `bt'har___`
-infixl 4 `har____`, `har____'st`, `bt'har____`
-infixl 3 `har_____`, `har_____'st`, `bt'har_____`
-infixl 2 `har______`, `har______'st`, `bt'har______`
-infixl 1 `har_______`, `har_______'st`, `bt'har_______`
+infixl 8 `har`, `har'st`, `bt'har`, `bt'har'st`
+infixl 7 `har_`, `har_'st`, `bt'har_`, `bt'har_'st`
+infixl 6 `har__`, `har__'st`, `bt'har__`, `bt'har__'st`
+infixl 5 `har___`, `har___'st`, `bt'har___`, `bt'har___'st`
+infixl 4 `har____`, `har____'st`, `bt'har____`, `bt'har____'st`
+infixl 3 `har_____`, `har_____'st`, `bt'har_____`, `bt'har_____'st`
+infixl 2 `har______`, `har______'st`, `bt'har______`, `bt'har______'st`
+infixl 1 `har_______`, `har_______'st`, `bt'har_______`, `bt'har_______'st`
 
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
@@ -352,7 +352,7 @@ infixl 6 `_rya`
 infixl 6 `yar_`
 
 infixl 6 `yiar`, `yiar'st`
-infixl 6 `yair`, `yair'st`, `bt'yair`
+infixl 6 `yair`, `yair'st`, `bt'yair`, `bt'yair'st`
 infixl 6 `yaar`, `yaar'st`
 
 infixl 6 `ryio`, `ryiu`
@@ -2211,6 +2211,35 @@ bt'har____ = bt'yair @source @target @t @i
 bt'har_____ = bt'yair @source @target @t @i
 bt'har______ = bt'yair @source @target @t @i
 bt'har_______ = bt'yair @source @target @t @i
+
+bt'yair'st :: forall source target t object r i a .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ Covariant Objective target r (t (Supertype a) i) =>
+ (Basetype r ~ t (Supertype a) i) =>
+ Wrapper source a =>
+ target r (source a object)
+bt'yair'st = fai @source supertype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` basetype
+
+bt'har'st, bt'har_'st, bt'har__'st, bt'har___'st, bt'har____'st, bt'har_____'st, bt'har______'st, bt'har_______'st :: forall source target t r i a .
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ Covariant Objective target r (t (Supertype a) i) =>
+ (Basetype r ~ t (Supertype a) i) =>
+ Wrapper source a =>
+ target r (source a i)
+bt'har'st = bt'yair'st @source @target @t @i
+bt'har_'st = bt'yair'st @source @target @t @i
+bt'har__'st = bt'yair'st @source @target @t @i
+bt'har___'st = bt'yair'st @source @target @t @i
+bt'har____'st = bt'yair'st @source @target @t @i
+bt'har_____'st = bt'yair'st @source @target @t @i
+bt'har______'st = bt'yair'st @source @target @t @i
+bt'har_______'st = bt'yair'st @source @target @t @i
 
 yiar :: forall source target t object i a .
  Contravariant Yoneda Functor source target (T'I'II t i) =>
