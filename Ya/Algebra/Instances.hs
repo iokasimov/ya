@@ -529,7 +529,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (S'I'II Unit) where
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T` Void) ee eee) t
+instance (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T` Void) e ee) t)
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TT'I x) (Label (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
@@ -571,7 +571,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
 
-instance (e ~ Unit, ee ~ Unit) =>Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (e `S` ee)) (T'I'I (P)) where
+instance (e ~ Unit, ee ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (e `S` ee)) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
   (source `compose` f `identity`This Unit)
   (source `compose` f `identity`That Unit)

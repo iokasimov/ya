@@ -17,14 +17,14 @@ import Ya.Program.Interface.Keyable as Exports
 import Ya.Program.Interface.Instances as Exports
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Twice `T'TT'I` List) where
- mapping = rewrap `identity` \_ _ -> empty `hjd` empty
+ mapping = rewrap `identity` \_ _ -> empty `hjd'tb` empty
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Day (AR) (P) (S) (Twice `T'TT'I` List) ((Twice `T'TT'I` List) `L` (Twice `T'TT'I` List) `T` Void) i ii) (Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These (These i ii) (T'I'II f)) ->
   let These i' i'' = supertype `compose` supertype `identity` i in
   let These ii' ii'' = supertype `compose` supertype `compose` supertype `identity` ii in
-  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i' `hjd` subtype ii')) `hjd`
+  (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i' `hjd` subtype ii')) `hjd'tb`
   (day @T'I'II @(AR) @Void @List @List @(P) @(S) identity (source `compose` f) (i'' `hjd` subtype ii''))
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (I `P'T'I'TT'I` Twice `T'TT'I` List) `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
@@ -61,7 +61,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x ->
-  empty @List `hjd__` empty @List `hjd_` List `ha` Exist `ha` Build `har` supertype (x `yo` source)
+  empty @List `hjd__'tb` empty @List `hjd_'tb` List `ha` Exist `ha` Build `har` supertype (x `yo` source)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> x
@@ -85,8 +85,8 @@ instance {-# OVERLAPS #-}
             (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
    `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd` (T'TT'I (T'I'I (
-      (sx `yo` source `hjd_` xs `yo` source))))))
+     `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd'tb` (T'TT'I (T'I'I (
+      (sx `yo` source `hjd_'tb` xs `yo` source))))))
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
@@ -100,7 +100,7 @@ instance {-# OVERLAPS #-}
                (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
    `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
    `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
-     `yo` (\(These (These sx x) xs) -> x `yo` source `hjd__` sx `yo` source `hjd_` xs `yo` source)
+     `yo` (\(These (These sx x) xs) -> x `yo` source `hjd__'tb` sx `yo` source `hjd_'tb` xs `yo` source)
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) tt
@@ -249,17 +249,17 @@ type family Vector x xs where
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
 --  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'eq` source x'
 
-instance Semigroup (AR) Boolean where
- s (These x y) = x `hjd'ys'has` Try y
+-- instance Semigroup (AR) Boolean where
+ -- s (These x y) = x `hjd'ys'has` Try y
 
-instance Quasigroup (AR) Boolean where
- p (These x y) = x `hjd_'yp` Try `har` y `yu_` Unit
+-- instance Quasigroup (AR) Boolean where
+ -- p (These x y) = x `hjd_'yp` Try `har` y `yu_` Unit
 
-instance Semigroup (AR) (List item) where
- s (These x y) = x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` y `yi__` that
+-- instance Semigroup (AR) (List item) where
+ -- s (These x y) = x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` y `yi__` that
 
-instance Semigroup (AR) (Construction Maybe item) where
- s (These x y) = x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` y `yi__` that
+-- instance Semigroup (AR) (Construction Maybe item) where
+ -- s (These x y) = x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` y `yi__` that
 
 -- instance
  -- ( Covariant Endo Semi Functor (AR) t

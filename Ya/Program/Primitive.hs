@@ -14,9 +14,9 @@ not :: forall e ee eee .
 not = That `has` This
 
 swap :: forall e ee eee .
- Contravariant Objective (AR) e (eee `P` ee) =>
- ee `P` eee `AR_` e
-swap (These x y) = y `hjd` x
+ -- Contravariant Objective (AR) e (eee `P` ee) =>
+ ee `P` eee `AR_` eee `P` ee
+swap (These x y) = These y x
 
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
@@ -30,10 +30,11 @@ fetch = is `hop` is
 relay :: ee -> e `AR__` e `P` ee
 relay new old = old `hjd` new
 
-leaf :: forall t e .
- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
- e -> Recursive (T'I'II (P) e `T'TT'I` t)
-leaf x = x `hjd_` empty `yo` initial @(AR)
+-- leaf :: forall t e .
+ -- -- Contravariant Objective target iii (P _ _) =>
+ -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
+ -- e -> Recursive (T'I'II (P) e `T'TT'I` t)
+-- leaf x = x `hjd_'tb` empty `yo` initial @(AR)
 
 it :: forall e . Reference (P) e e e
 it x = x `hjd` identity
@@ -51,15 +52,15 @@ top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
 top (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs old))))) =
-  old `hjd` (\new -> xs `hjd` new)
+  old `hjd` (\new -> xs `hjd'tb` new)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
 sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
-  (xs `yo` subtype @(AR) @(F'T'I'TT'I _ _ _))
-  (\new -> new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _) `hjd` x)
+ (xs `yo` subtype @(AR) @(F'T'I'TT'I _ _ _))
+ (\new -> new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _) `hjd'tb` x)
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>

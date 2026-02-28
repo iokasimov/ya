@@ -715,14 +715,14 @@ instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
    let These y upd  = eee `bt'har` new in
    source `ha` f `har_` x `hjd` y `hjd___` upd
 
-instance (e ~ ee) => Mapping T'I'II T'I'II (AR) (AR)
-  (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) ee `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
+instance Mapping T'I'II T'I'II (AR) (AR)
+  (Day T'I'II (AR) (P) P (T'I'II (T'I'TT'II'I (AR) (P)) e) (T'I'II (T'I'TT'II'I (AR) (P)) e `L` T'I'II (T'I'TT'II'I (AR) (P)) ee `T` (Void `P` Void)) eee eeee)
   (T'I'II (T'I'TT'II'I (AR) (P)) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These ee eee) (T'I'II f) -> T'I'TT'II'I `har` \old ->
    let These x _ = ee `bt'har` old in
    let These y _  = eee `bt'har` old in
-   source `ha` f `har_` x `hjd` y `hjd___` old
+   These (source `ha` f `har_` x `hjd` y) old
 
 instance
  ( i ~ ii
@@ -735,7 +735,7 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TTT'TT'I (T'I'II x)) (Label (T'TTT'TT'I (T'I'II y)))) (T'I'II f) ->
    T'I'II `identity` \old -> x old `yok` \(T'II'I (These e btw)) ->
-    Label @_ @_ @Void (source `compose` f `compose` (e `hjd`) `fo'fo` y btw)
+    Label @_ @_ @Void (source `compose` f `compose` (These e) `fo'fo` y btw)
 
 instance
  ( i ~ ii
@@ -743,14 +743,14 @@ instance
  , forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
  , Covariant Yoneda Functor (AR) (AR) t
  ) => Mapping T'I'II T'I'II (AR) (AR)
-  (Day T'I'II (AR) (P) P (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) (t `L` t `T` Void) eee eeee)
+  (Day T'I'II (AR) (P) P (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) ii) t) (t `L` t `T` Void) eee eeee)
   (T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TTT'TT'I (T'I'II x)) xx) (T'I'II f) ->
    T'I'II `identity` \old ->
     day @T'I'II @(AR) @Void @t @t @(P) @(P) identity
-    (\(These i ii) -> i `yo` (`hjd` ii) `ho` f `ho` source)
-    (x old `hjd` xx)
+    (\(These i ii) -> i `yo` (\x' -> These x' ii) `ho` f `ho` source)
+    (These (x old) xx)
 
 -- instance
  -- ( Component (AR) (t `T'TT'I` t) t
@@ -819,7 +819,7 @@ instance Covariant Endo Semi Functor (AR) t =>
 instance Covariant Endo Semi Functor (AR) t =>
  Mapping T'I'II T'I'II (AR) (AR) (P'II'I e `T'TT'I` t `L` t `T` Void `L` P'II'I e `T` Void) (P'II'I e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
-  T'II'I (These x e) -> supertype (supertype x) `yo` source `ho` (`hjd` e) `ho` T'II'I
+  T'II'I (These x e) -> supertype (supertype x) `yo` source `ho` (\x' -> These x' e) `ho` T'II'I
 
 -- instance Covariant Endo Semi Functor (AR) t =>
 --  Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` T'I'II (AR) e `L` T'I'II (AR) e `T` Void `L` t `T` Void) (t `TT'T'I` T'I'II (AR) e) where
@@ -922,12 +922,12 @@ instance
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` supertype @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
     `hop` is `ho'st` that `ho'yo` source
-   `ho__` (\(These x xx) -> x `yo` rewrap ((`hjd_` xx) `ho` T'TT'I'TTT'I)))
+   `ho__` (\(These x xx) -> x `yo` rewrap ((\x' -> These x' xx) `ho` T'TT'I'TTT'I)))
    `hop__` (is `ho'st` that
     `ho` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho` supertype @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
     `hop` is `ho'st` this `ho'yo` source
-   `ho__` (\(These x xx) -> x `yo` rewrap ((xx `hjd_`) `ho` T'TT'I'TTT'I)))
+   `ho__` (\(These x xx) -> x `yo` rewrap (These xx `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `has` T'I'II `ha` subtype @AR `ha` source
@@ -942,7 +942,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
 instance {-# OVERLAPPABLE #-}
  (Setoid (AR) (Supertype e), Wrapper (AR) e)
  => Setoid (AR) e where
- equality (These x xx) = equality (supertype x `hjd` supertype xx)
+ equality (These x xx) = equality (These (supertype x) (supertype xx))
   `yoi` (`yoi` subtype @(AR)) `ho` (`yio` subtype @(AR))
   `yio` subtype @(AR)
 
@@ -950,14 +950,18 @@ instance {-# OVERLAPS #-} Setoid (AR) Unit where
  equality _ = That Unit
 
 instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `S` ee) where
- equality (These (This x) (This xx)) = equality (x `hjd` xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
- equality (These (That x) (That xx)) = equality (x `hjd` xx) `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
+ equality (These (This x) (This xx)) = equality (These x xx) `yoi` (`yio` This) `ho` (`yoi` This) `yio` This
+ equality (These (That x) (That xx)) = equality (These x xx) `yoi` (`yio` That) `ho` (`yoi` That) `yio` That
  equality (These x xx) = This (These x xx)
 
-instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `P` ee) where
+instance {-# OVERLAPS #-}
+ ( Setoid (AR) e
+ , Setoid (AR) ee
+ , forall e ee . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) ee)
+ ) => Setoid (AR) (e `P` ee) where
  equality (These (These x xx) (These xxx xxxx)) = case equality (x `hjd` xxx) `hjd` equality (xx `hjd` xxxx) of
   These (That x') (That xx') -> That (These x' xx')
-  These _ _ -> This ((x `hjd` xx) `hjd` (xxx `hjd` xxxx))
+  These _ _ -> This ((These x xx) `hjd` (These xxx xxxx))
 
 type instance Supertype (e `P` (ee `P` eee)) = e `P` ee `P` eee
 

@@ -346,7 +346,7 @@ class
  , Covariant x source target tt
  , Covariant Transformation x target source (T'TT'I t tt) I
  , Covariant Transformation x source target I (T'TT'I tt t)
- ) => Adjoint x source target t tt | t -> tt
+ ) => Adjoint x source target t tt -- | t -> tt
 
 class
  ( forall e ee . Mapping v vv source target (Day v source u uu t (t `L` t `T` l) e ee) t
@@ -373,16 +373,16 @@ deriving instance Monoidal v T'II'I Functor source target u uu l t
  => Oplax v Monoidal Functor source target u uu l t
 
 -- TODO: Yoneda version?
-day :: forall v source l t tt u uu a o e ee .
- Mapping v T'I'II source (AR) (Day v source u uu t (tt `L` tt `T` l) e ee) t =>
+day :: forall v source l t tt u uu a o i ii .
+ (forall e ee . Mapping v T'I'II source (AR) (Day v source u uu t (tt `L` tt `T` l) e ee) t) =>
  Wrapper (AR) (v source a o) =>
- Wrapper (AR) (v source (uu e ee) a) =>
+ Wrapper (AR) (v source (uu i ii) a) =>
  Supertype (v source a o)
-  -> Supertype (v source (uu e ee) a)
-  -> u (t e) (tt `L` tt `T` l `T'I` ee) -> t o
+  -> Supertype (v source (uu i ii) a)
+  -> u (t i) (tt `L` tt `T` l `T'I` ii) -> t o
 day source t x = map @v @T'I'II @source @(AR)
- @(Day v source u uu t (tt `L` tt `T` l) e ee) @t source
- (subtype (These x (subtype @_ @(v source (uu e ee) a) t)))
+ @(Day v source u uu t (tt `L` tt `T` l) i ii) @t source
+ (subtype (These x (subtype @_ @(v source (uu i ii) a) t)))
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
