@@ -2576,6 +2576,27 @@ hjd________'s = hjd's
 
 hop, hop_, hop__, lo___, lo____, lo_____, lo______, lo_______
  :: forall target r a o oo .
+ Covariant Limit target target =>
+ Covariant Functor target target (T'I'II Product a) =>
+ Covariant Functor target target (T'II'I Product oo) =>
+ (forall e ee . Wrapper target (T'I'II Product e ee)) =>
+ (forall e ee . Wrapper target (T'II'I Product e ee)) =>
+ (forall e . Wrapper target (Both Product e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target a o -> target a oo -> target a (o `P` oo)
+hop l r = foi @target @target l `compose` fio @target @target r
+ `compose` wrapped (map @T'II'I @T'II'I @target @target @(Both Product) @I identity)
+
+hop_ = hop
+hop__ = hop
+lo___ = hop
+lo____ = hop
+lo_____ = hop
+lo______ = hop
+lo_______ = hop
+
+hop'tb, hop_'tb, hop__'tb, lo___'tb, lo____'tb, lo_____'tb, lo______'tb, lo_______'tb
+ :: forall target r a o oo .
  Category target =>
  Limit T'I'II target target =>
  Contravariant Objective target r (o `P` oo) =>
@@ -2586,17 +2607,17 @@ hop, hop_, hop__, lo___, lo____, lo_____, lo______, lo_______
  (forall e . Wrapper target (Both Product e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target a oo -> target a r
-hop l r = objective @T'II'I @target @_ @(o `P` oo)
+hop'tb l r = objective @T'II'I @target @_ @(o `P` oo)
  `compose` foi @target @target l `compose` fio @target @target r
  `compose` wrapped (map @T'II'I @T'II'I @target @target @(Both Product) @I identity)
 
-hop_ = hop
-hop__ = hop
-lo___ = hop
-lo____ = hop
-lo_____ = hop
-lo______ = hop
-lo_______ = hop
+hop_'tb = hop'tb
+hop__'tb = hop'tb
+lo___'tb = hop'tb
+lo____'tb = hop'tb
+lo_____'tb = hop'tb
+lo______'tb = hop'tb
+lo_______'tb = hop'tb
 
 -- TODO: define longer versions of this operator
 hop'hjd :: forall target a aa o oo .
