@@ -207,14 +207,14 @@ infixl 6 `hdj__`
 infixl 5 `hdj___`
 infixl 4 `hdj____`
 
-infixl 8 `hop`, `hop'hjd`, `hop'yp`, `hop'yp'yo'eq`, `hop'ys`, `hop'ys'has`, `hop'eq`, `hjd'ys'has`
-infixl 7 `hop_`, `hop_'yp`, `hop_'yp'yo'eq`, `hop_'ys`, `hop_'ys'has`, `hop_'eq`, `hjd_'ys'has`
-infixl 6 `hop__`, `hop__'yp`, `hop__'yp'yo'eq`, `hop__'ys`, `hop__'ys'has`, `hop__'eq`, `hjd__'ys'has`
-infixl 5 `lo___`, `lo___'yp`, `lo___'yp'yo'eq`, `lo___'ys`, `lo___'ys'has`, `lo___'eq`, `hjd___'ys'has`
-infixl 4 `lo____`, `lo____'yp`, `lo____'yp'yo'eq`, `lo____'ys`, `lo____'ys'has`, `lo____'eq`, `hjd____'ys'has`
-infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'eq`, `hjd_____'ys'has`
-infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
-infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
+infixl 8 `hop`, `hop'tb`, `hop'hjd`, `hop'yp`, `hop'yp'yo'eq`, `hop'ys`, `hop'ys'has`, `hop'eq`, `hjd'ys'has`
+infixl 7 `hop_`, `hop_'tb`, `hop_'yp`, `hop_'yp'yo'eq`, `hop_'ys`, `hop_'ys'has`, `hop_'eq`, `hjd_'ys'has`
+infixl 6 `hop__`, `hop__'tb`, `hop__'yp`, `hop__'yp'yo'eq`, `hop__'ys`, `hop__'ys'has`, `hop__'eq`, `hjd__'ys'has`
+infixl 5 `lo___`, `lo___'tb`, `lo___'yp`, `lo___'yp'yo'eq`, `lo___'ys`, `lo___'ys'has`, `lo___'eq`, `hjd___'ys'has`
+infixl 4 `lo____`, `lo____'tb`, `lo____'yp`, `lo____'yp'yo'eq`, `lo____'ys`, `lo____'ys'has`, `lo____'eq`, `hjd____'ys'has`
+infixl 3 `lo_____`, `lo_____'tb`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'eq`, `hjd_____'ys'has`
+infixl 2 `lo______`, `lo______'tb`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
+infixl 1 `lo_______`, `lo_______'tb`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
 
 infixl 8 `has`, `bt'has`
 infixl 7 `has_`, `bt'has_`
