@@ -195,12 +195,12 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `ha` source)
   `bt'har__` empty @List
-  `yi__` subtype `ha` Empty `tb'has` is `ho'st` that @(List _)
+  `yi__` subtype `ha` Empty `bt'has` is `ho'st` that @(List _)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Prior `ha` Apply `ha` State `ha` Event
-  `ha__` Error `hu` fetch `tb'has` push @List `ho'ho` (fetch `ha` that) `ha` source
+  `ha__` Error `hu` fetch `bt'has` push @List `ho'ho` (fetch `ha` that) `ha` source
   `bt'har__` empty @List
   `yi__` that
 
@@ -226,7 +226,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source -> subtype @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _) 
   `ha__` Empty `hu` empty @List
-    `tb'has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` morph @List
+    `bt'has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` morph @List
 
 -- TODO: Add a label
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (Construction Optional `T'TT'I` Construction Optional) where

@@ -216,14 +216,14 @@ infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`, `lo_____'ys'
 infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
 infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
 
-infixl 8 `has`, `tb'has`
-infixl 7 `has_`, `tb'has_`
-infixl 6 `has__`, `tb'has__`
-infixl 5 `has___`, `tb'has___`
-infixl 4 `has____`, `tb'has____`
-infixl 3 `has_____`, `tb'has_____`
-infixl 2 `has______`, `tb'has______`
-infixl 1 `has_______`, `tb'has_______`
+infixl 8 `has`, `bt'has`
+infixl 7 `has_`, `bt'has_`
+infixl 6 `has__`, `bt'has__`
+infixl 5 `has___`, `bt'has___`
+infixl 4 `has____`, `bt'has____`
+infixl 3 `has_____`, `bt'has_____`
+infixl 2 `has______`, `bt'has______`
+infixl 1 `has_______`, `bt'has_______`
 
 infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'yp`, `hjd'yp'yo'eq`, `hjd'ys`, `hjd'yw`, `hjd'eq` -- `hjd'yp'yp`,
 infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'yp`, `hjd_'yp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`
@@ -2732,7 +2732,7 @@ has_____ = has
 has______ = has
 has_______ = has
 
-tb'has, tb'has_, tb'has__, tb'has___, tb'has____, tb'has_____, tb'has______, tb'has_______ :: forall target i a o oo .
+bt'has, bt'has_, bt'has__, bt'has___, bt'has____, bt'has_____, bt'has______, bt'has_______ :: forall target i a o oo .
  Contravariant Limit target target =>
  Covariant Objective target a (o `S` oo) =>
  (forall e . Covariant Functor target target (T'I'II S e)) =>
@@ -2742,18 +2742,18 @@ tb'has, tb'has_, tb'has__, tb'has___, tb'has____, tb'has_____, tb'has______, tb'
  (forall ee . Wrapper target (T'I'I Sum ee)) =>
  (forall ee . Wrapper target (I ee)) =>
  target o i -> target oo i -> target a i
-tb'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+bt'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
  `compose` foi @target @target l
  `compose` fio @target @target r
  `compose` objective @T'I'II @target @a @(o `S` oo)
 
-tb'has_ = tb'has
-tb'has__ = tb'has
-tb'has___ = tb'has
-tb'has____ = tb'has
-tb'has_____ = tb'has
-tb'has______ = tb'has
-tb'has_______ = tb'has
+bt'has_ = bt'has
+bt'has__ = bt'has
+bt'has___ = bt'has
+bt'has____ = bt'has
+bt'has_____ = bt'has
+bt'has______ = bt'has
+bt'has_______ = bt'has
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .

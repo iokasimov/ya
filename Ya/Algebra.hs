@@ -675,7 +675,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
-      `tb'has` (\x' -> x' `ryu` Enter @(T'I'II (T'I'TT'II'I (AR) (P)) i)) `ha` source
+      `bt'has` (\x' -> x' `ryu` Enter @(T'I'II (T'I'TT'II'I (AR) (P)) i)) `ha` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` I `L` I `T` Recursive)
@@ -693,7 +693,7 @@ instance
  mapping = rewrap `identity` \source -> \(T'TT'I x) ->
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
-      `tb'has` (\x' -> x' `ryu` Enter @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t)) `ha` source
+      `bt'has` (\x' -> x' `ryu` Enter @(T'TTT'TT'I (T'I'II (AR) i) (T'II'I (P) i) t)) `ha` source
 
 instance
  ( Covariant Yoneda Functor (AR) (AR) t
@@ -905,7 +905,7 @@ instance
     `ho__` supertype @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
     `ho__'yo` rewrap @AR @(t `L` t `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `har` This `ho` T'TT'I'TTT'I
     `ho__` This
-    `tb'has__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
+    `bt'has__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho__` supertype @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
     `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `har` That `ho` T'TT'I'TTT'I
     `ho__` That
@@ -930,7 +930,7 @@ instance
    `ho__` (\(These x xx) -> x `yo` rewrap (These xx `ho` T'TT'I'TTT'I)))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
- mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `tb'has` T'I'II `ha` subtype @AR `ha` source
+ mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `bt'has` T'I'II `ha` subtype @AR `ha` source
 
 -- instance Mapping T'II'I T'I'II (AR) (AR) (T'I'II (AR) i) (T'II'I i) where
 --  mapping = rewrap `identity` \source -> rewrap `identity` \x ->
