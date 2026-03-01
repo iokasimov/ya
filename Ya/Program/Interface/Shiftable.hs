@@ -66,7 +66,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
-  `bt'har__` Empty `hu` (x `ryu` Enter @(Nonempty List)) `has` push x `ho` that `har` r
+  `bt'har__` Empty `hu` (x `ryu` Enter @(Nonempty List)) `tb'has` push x `ho` that `har` r
   `yi__` that `ho'yo` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)

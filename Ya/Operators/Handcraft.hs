@@ -216,14 +216,14 @@ infixl 3 `lo_____`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`, `lo_____'ys'
 infixl 2 `lo______`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
 infixl 1 `lo_______`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
 
-infixl 8 `has`
-infixl 7 `has_`
-infixl 6 `has__`
-infixl 5 `has___`
-infixl 4 `has____`
-infixl 3 `has_____`
-infixl 2 `has______`
-infixl 1 `has_______`
+infixl 8 `has`, `tb'has`
+infixl 7 `has_`, `tb'has_`
+infixl 6 `has__`, `tb'has__`
+infixl 5 `has___`, `tb'has___`
+infixl 4 `has____`, `tb'has____`
+infixl 3 `has_____`, `tb'has_____`
+infixl 2 `has______`, `tb'has______`
+infixl 1 `has_______`, `tb'has_______`
 
 infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'yp`, `hjd'yp'yo'eq`, `hjd'ys`, `hjd'yw`, `hjd'eq` -- `hjd'yp'yp`,
 infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'yp`, `hjd_'yp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`
@@ -2662,7 +2662,7 @@ hop'ys'has, hop_'ys'has, hop__'ys'has, lo___'ys'has, lo____'ys'has, lo_____'ys'h
  :: forall t tt l a o .
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) e ee) t) =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) o) -> Arrow a (t o)
-hop'ys'has l r = (\x -> ys'yo x (identity @(AR) `has` identity)) `compose` hop @(AR) @(_ `P` _) l r
+hop'ys'has l r = (\x -> ys'yo @Arrow x (identity @(AR) `has` identity)) `compose` hop @(AR) @(_ `P` _) l r
 
 hop_'ys'has = hop'ys'has
 hop__'ys'has = hop'ys'has
@@ -2690,21 +2690,18 @@ hjd_____'ys'has = hjd'ys'has
 hjd______'ys'has = hjd'ys'has
 hjd_______'ys'has = hjd'ys'has
 
-has, has_, has__, has___, has____, has_____, has______, has_______ :: forall source i a o oo .
- Category source =>
- Limit T'II'I source source =>
- Covariant Objective source a (o `S` oo) =>
- Covariant Endo Semi Functor source (S'I'II o) =>
- Covariant Endo Semi Functor source (T'II'I Sum i) =>
- (forall ee eee . Wrapper source (S'I'II ee eee)) =>
- (forall ee eee . Wrapper source (T'II'I Sum ee eee)) =>
- (forall ee . Wrapper source (T'I'I Sum ee)) =>
- (forall ee . Wrapper source (I ee)) =>
- source o i -> source oo i -> source a i
-has l r = wrapped (map @T'II'I @T'II'I @source @source @I @(Both Sum) identity)
- `compose` foi @source @source l
- `compose` fio @source @source r
- `compose` objective @T'I'II @source @a @(o `S` oo)
+has, has_, has__, has___, has____, has_____, has______, has_______ :: forall target i a o oo .
+ Contravariant Limit target target =>
+ (forall e . Covariant Functor target target (T'I'II S e)) =>
+ (forall e . Covariant Functor target target (T'II'I S e)) =>
+ (forall ee eee . Wrapper target (T'I'II Sum ee eee)) =>
+ (forall ee eee . Wrapper target (T'II'I Sum ee eee)) =>
+ (forall ee . Wrapper target (T'I'I Sum ee)) =>
+ (forall ee . Wrapper target (I ee)) =>
+ target o i -> target oo i -> target (o `S` oo) i
+has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+ `compose` foi @target @target l
+ `compose` fio @target @target r
 
 has_ = has
 has__ = has
@@ -2713,6 +2710,29 @@ has____ = has
 has_____ = has
 has______ = has
 has_______ = has
+
+tb'has, tb'has_, tb'has__, tb'has___, tb'has____, tb'has_____, tb'has______, tb'has_______ :: forall target i a o oo .
+ Contravariant Limit target target =>
+ Covariant Objective target a (o `S` oo) =>
+ (forall e . Covariant Functor target target (T'I'II S e)) =>
+ (forall e . Covariant Functor target target (T'II'I S e)) =>
+ (forall ee eee . Wrapper target (T'I'II Sum ee eee)) =>
+ (forall ee eee . Wrapper target (T'II'I Sum ee eee)) =>
+ (forall ee . Wrapper target (T'I'I Sum ee)) =>
+ (forall ee . Wrapper target (I ee)) =>
+ target o i -> target oo i -> target a i
+tb'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+ `compose` foi @target @target l
+ `compose` fio @target @target r
+ `compose` objective @T'I'II @target @a @(o `S` oo)
+
+tb'has_ = tb'has
+tb'has__ = tb'has
+tb'has___ = tb'has
+tb'has____ = tb'has
+tb'has_____ = tb'has
+tb'has______ = tb'has
+tb'has_______ = tb'has
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .

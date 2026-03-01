@@ -11,12 +11,12 @@ import Ya.Program.Patterns
 not :: forall e ee eee .
  Covariant Objective (AR) e (eee `S` ee) =>
  e `AR_` ee `S` eee
-not = That `has` This
+not = That `tb'has` This
 
 swap :: forall e ee eee .
  -- Contravariant Objective (AR) e (eee `P` ee) =>
  ee `P` eee `AR_` eee `P` ee
-swap (These x y) = These y x
+swap (These x y) = y `hjd` x
 
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
