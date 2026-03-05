@@ -10,14 +10,14 @@ infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
 infixl 6 `S___`
 
-infixl 8 `AR`, `AT`, `TR`, `C'AR`, `C'AT`, `C'TR`
-infixl 7 `AR_`, `AT_`, `TR_`, `C'AR_`, `C'AT_`, `C'TR_`
-infixl 6 `AR__`, `AT__`, `TR__`, `C'AR__`, `C'AT__`, `C'TR__`
-infixl 5 `AR___`, `AT___`, `TR___`, `C'AR___`, `C'AT___`,`C'TR___`
-infixl 4 `AR____`, `AT____`, `TR____`, `C'AR____`, `C'AT____`,`C'TR____`
-infixl 3 `AR_____`, `AT_____`, `TR_____`, `C'AR_____`, `C'AT_____`,`C'TR_____`
-infixl 2 `AR______`, `AT______`, `TR______`, `C'AR______`, `C'AT______`, `C'TR______`
-infixl 1 `AR_______`, `AT_______`, `TR_______`, `C'AR_______`, `C'AT_______`,`C'TR_______`
+infixl 8 `AR`, `AT`, `TR`, `AS`, `C'AR`, `C'AT`, `C'TR`
+infixl 7 `AR_`, `AT_`, `TR_`, `AS_`, `C'AR_`, `C'AT_`, `C'TR_`
+infixl 6 `AR__`, `AT__`, `TR__`, `AS__`, `C'AR__`, `C'AT__`, `C'TR__`
+infixl 5 `AR___`, `AT___`, `TR___`, `AS___`, `C'AR___`, `C'AT___`,`C'TR___`
+infixl 4 `AR____`, `AT____`, `TR____`, `AS____`, `C'AR____`, `C'AT____`,`C'TR____`
+infixl 3 `AR_____`, `AT_____`, `TR_____`, `AS_____`, `C'AR_____`, `C'AT_____`,`C'TR_____`
+infixl 2 `AR______`, `AT______`, `TR______`, `AS______`, `C'AR______`, `C'AT______`, `C'TR______`
+infixl 1 `AR_______`, `AT_______`, `TR_______`, `AS_______`, `C'AR_______`, `C'AT_______`,`C'TR_______`
 
 infixl 8 `RA`, `TA`, `RT`
 infixl 7 `RA_`, `TA_`, `RT_`
@@ -84,6 +84,15 @@ type RT____ ii i = TR i ii
 type RT_____ ii i = TR i ii
 type RT______ ii i = TR i ii
 type RT_______ ii i = TR i ii
+
+type AS = T'TT'I'II'I (P) (AR)
+type AS_ = T'TT'I'II'I (P) (AR)
+type AS__ = T'TT'I'II'I (P) (AR)
+type AS___ = T'TT'I'II'I (P) (AR)
+type AS____ = T'TT'I'II'I (P) (AR)
+type AS_____ = T'TT'I'II'I (P) (AR)
+type AS______ = T'TT'I'II'I (P) (AR)
+type AS_______ = T'TT'I'II'I (P) (AR)
 
 class Dumb x
 instance Dumb x
