@@ -91,25 +91,37 @@ type Attribute = T'I'TT'II'T'II'I (AR) P
 pattern Attribute :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Attribute e ee
 pattern Attribute x = T'I'TT'II'T'II'I @(AR) @(P) x
 
+type Transition = T'I'TT'II'I (AR) (P)
+
+pattern Transition :: i `AR` ii `P` i `AR__` Transition i ii
+pattern Transition x = T'I'TT'II'I @(AR) @(P) x
+
 type Scope = T'I'TT'II'T'II'I (AR) P
 
 pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
 pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 
-type Transition = T'I'TT'II'I (AR) (P)
+type Event = T'I'TT'II'I (AR) (P)
 
-pattern Transition :: e `AR_` ee `P` e `AR__` Transition e ee
-pattern Transition x = T'I'TT'II'I @(AR) @(P) x
-
-type Event = T'I'TT'II'I (AR) P
-
-pattern Event :: e `AR_` ee `P` e `AR__` Event e ee
+pattern Event :: i `AR` ii `P` i `AR__` Event i ii
 pattern Event x = T'I'TT'II'I @(AR) @(P) x
 
-type State = T'I'II Transition
+type State = T'I'II Event
 
-pattern State :: forall e o . Transition e o -> State e o
-pattern State x = T'I'II @Transition x
+pattern State :: forall i o . Event i o -> State i o
+pattern State x = T'I'II @Event x
+
+type Assignment = T'TT'I'II'I (P) (AR)
+
+type Place = T'TT'I'II'I (P) (AR)
+
+pattern Place :: i `AR` ii `P_` i `AR__` Place i ii
+pattern Place x = T'TT'I'II'I @(P) @(AR) x
+
+type Store = T'I'II Place
+
+pattern Store :: forall i o . Place i o -> Store i o
+pattern Store x = T'I'II @Place x
 
 type Branching t tt i = t i `T'TT'I` tt
 
@@ -186,6 +198,8 @@ type Stream = Construction Alone
 
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
+
+type Mealy = F'T'I'TT'I State
 
 type Way = Unit `S` Unit
 
