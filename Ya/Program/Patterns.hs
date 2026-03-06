@@ -125,10 +125,15 @@ pattern Store x = T'I'II @Place x
 
 type Branching t tt i = t i `T'TT'I` tt
 
-type Construction = F'T'I'TT'I Along
+type Origination = F'T'I'TT'I
+
+pattern Origination :: forall t tt i . Supertype (Origination t tt i) `AR____` Origination t tt i
+pattern Origination x = F'T'I'TT'I x
+
+type Construction = Origination Along
 
 pattern Build :: forall t i . Supertype (Construction t i) `AR____` Construction t i
-pattern Build xs = F'T'I'TT'I xs
+pattern Build xs = Origination xs
 
 pattern Affix :: forall t i . t (Supertype (Construction t i)) `P` i `AR__` Supertype (Construction t i)
 pattern Affix x = Recursive (T'TT'I (Along x))
@@ -137,12 +142,12 @@ pattern Node x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 -- pattern Yet x xs = Recursive (T'I'TT'II (These x xs))
 
-type Instruction = F'T'I'TT'I Stops
+type Instruction = Origination Stops
 
 -- TODO: t `C'AR___` Instruction t
 
 pattern Instruction :: forall t i . Supertype (Instruction t i) `AR____` Instruction t i
-pattern Instruction xs = F'T'I'TT'I xs
+pattern Instruction xs = Origination xs
 
 pattern Impel :: t (Recursive (T'I'II (S) i `T'TT'I` t)) `AR____` Supertype (Instruction t i)
 pattern Impel xs = Recursive (T'TT'I (T'I'II (That xs)))
@@ -174,12 +179,12 @@ type family Nonempty datastructure where
  Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
 pattern Nonempty :: forall t i . Recursive (Along i `T'TT'I` Brancher t) -> Construction (Brancher t) i
-pattern Nonempty xs = F'T'I'TT'I xs
+pattern Nonempty xs = Origination xs
 
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
-pattern Tree x xs = F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Build xs))) x))))
+pattern Tree x xs = Origination (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Build xs))) x))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)
@@ -199,7 +204,7 @@ type Stream = Construction Alone
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
-type Mealy = F'T'I'TT'I State
+type Mealy = Origination State
 
 type Way = Unit `S` Unit
 
