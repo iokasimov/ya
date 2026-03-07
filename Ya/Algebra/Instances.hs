@@ -261,6 +261,18 @@ instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (AT) i) where
  -- mapping = rewrap `identity` \(T'I'TT'II'I source) ->
   -- T'I'TT'II'I `identity` \x -> x `yo` this `ha` source `lu_` x `yo` that `ha` source
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AS) i) (T'I'II (AS) i) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(These between x) -> (These (source `compose` between) x)
+
+-- instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AS) i) (T'II'I (AS) i) where
+ -- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(These between x) ->
+  -- let These a ao = source `supertype` between x in
+  -- (These (source `compose` between) a)
+
+ -- source : (o `AT` a) ~ (o `AR` a `P` (a `AR` o))
+-- between : a `AR` i
+      -- x : a
+
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Embedding (AR) (AR) t e)
  (Covariant Embedding (AR) (AR) t e) where
