@@ -125,10 +125,10 @@ pattern Store x = T'I'II @Place x
 
 type Branching t tt i = t i `T'TT'I` tt
 
-type Origination = F'T'I'TT'I
+type Origination = F'T'I'TT
 
 pattern Origination :: forall t tt i . Supertype (Origination t tt i) `AR____` Origination t tt i
-pattern Origination x = F'T'I'TT'I x
+pattern Origination x = F'T'I'TT x
 
 type Construction = Origination Along
 
@@ -204,7 +204,11 @@ type Stream = Construction Alone
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
-type Mealy = Origination State
+-- newtype F'T'I'TT'I t tt i = F'T'I'TT'I (Recursive (t i `T'TT'I` tt))
+
+-- type Mealy = Origination Given `?` Along
+
+-- type Moore = Origination Along `?` Given
 
 type Way = Unit `S` Unit
 

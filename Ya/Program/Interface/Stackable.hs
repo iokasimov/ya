@@ -25,15 +25,15 @@ instance Stackable List where
  pop = \case
   T'TT'I (T'I'II (This _)) -> Empty Unit `hjd` empty @List
   T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-   Exist x `hjd__` T'TT'I `har_` xs `yo` F'T'I'TT'I
+   Exist x `hjd__` T'TT'I `har_` xs `yo` F'T'I'TT
  push item s = item `hjd` rewrap
-  (Exist `ha` F'T'I'TT'I `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` supertype @Arrow @(F'T'I'TT'I _ _ _))) s
+  (Exist `ha` F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (`hjd` item) `ha` (`yo` supertype @Arrow @(F'T'I'TT _ _ _))) s
 
 -- TODO: refactor, it's hard to read
 instance Stackable (Construction Optional) where
  pop = \case
-  F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Exist xs) x)))) -> Exist x `hjd` F'T'I'TT'I xs
-  F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These (Empty xs) x)))) -> Empty Unit `hjd_` Empty xs `hjd'tb` x
+  F'T'I'TT (Recursive (T'TT'I (T'II'I (These (Exist xs) x)))) -> Exist x `hjd` F'T'I'TT xs
+  F'T'I'TT (Recursive (T'TT'I (T'II'I (These (Empty xs) x)))) -> Empty Unit `hjd_` Empty xs `hjd'tb` x
  push x = \old -> x `hjd` Item x `ha` T'I'II `ha` That `rewrap` old
 
 pattern Plane :: Stackable t => t i -> t `L` t `T` Void `T` i

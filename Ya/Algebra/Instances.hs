@@ -324,8 +324,8 @@ instance
  , forall i . Covariant Endo Semi Functor source (T'I'II u i `T'TT'I` t)
  , forall i . Covariant Endo Semi Functor source (T'II'I u (t i))
  , forall i . Covariant Semi Functor source target (T'II'I u (t i))
- , forall e . Wrapper source (F'T'I'TT'I (T'I'II u) t e)
- , forall e . Wrapper target (F'T'I'TT'I (T'I'II u) t e)
+ , forall e . Wrapper source (F'T'I'TT (T'I'II u) t e)
+ , forall e . Wrapper target (F'T'I'TT (T'I'II u) t e)
  , forall i . Wrapper source (Recursive (T'I'II u i `T'TT'I` t))
  , forall i . Wrapper target (Recursive (T'I'II u i `T'TT'I` t))
  , forall i ii . Wrapper source (T'II'I u i ii)
@@ -334,11 +334,11 @@ instance
  , forall i ii . Wrapper target (T'I'II u i ii)
  , forall i ii . Wrapper source ((T'I'II u i `T'TT'I` t) ii)
  , forall i ii . Wrapper target ((T'I'II u i `T'TT'I` t) ii)
- ) => Mapping T'I'II T'I'II source target (F'T'I'TT'I (T'I'II u) t) (F'T'I'TT'I (T'I'II u) t) where
+ ) => Mapping T'I'II T'I'II source target (F'T'I'TT (T'I'II u) t) (F'T'I'TT (T'I'II u) t) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity`
   ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'II'I u (t _)) @(T'II'I u (t _)) source))
   `compose` map @T'I'II @T'I'II @source @target @(T'I'II u _ `T'TT'I` t) @(T'I'II u _ `T'TT'I` t)
-   (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT'I (T'I'II u) t) @(F'T'I'TT'I (T'I'II u) t) source))
+   (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT (T'I'II u) t) @(F'T'I'TT (T'I'II u) t) source))
   )
 
 instance
@@ -346,8 +346,8 @@ instance
  , forall i . Covariant Endo Semi Functor source (T'II'I u i `T'TT'I` t)
  , forall i . Covariant Endo Semi Functor source (T'I'II u (t i))
  , forall i . Covariant Semi Functor source target (T'I'II u (t i))
- , forall e . Wrapper source (F'T'I'TT'I (T'II'I u) t e)
- , forall e . Wrapper target (F'T'I'TT'I (T'II'I u) t e)
+ , forall e . Wrapper source (F'T'I'TT (T'II'I u) t e)
+ , forall e . Wrapper target (F'T'I'TT (T'II'I u) t e)
  , forall i . Wrapper source (Recursive (T'II'I u i `T'TT'I` t))
  , forall i . Wrapper target (Recursive (T'II'I u i `T'TT'I` t))
  , forall i ii . Wrapper source (T'II'I u i ii)
@@ -356,11 +356,11 @@ instance
  , forall i ii . Wrapper target (T'I'II u i ii)
  , forall i ii . Wrapper source ((T'II'I u i `T'TT'I` t) ii)
  , forall i ii . Wrapper target ((T'II'I u i `T'TT'I` t) ii)
- ) => Mapping T'I'II T'I'II source target (F'T'I'TT'I (T'II'I u) t) (F'T'I'TT'I (T'II'I u) t) where
+ ) => Mapping T'I'II T'I'II source target (F'T'I'TT (T'II'I u) t) (F'T'I'TT (T'II'I u) t) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity`
   ((rewrap `compose` rewrap) (wrapped (map @T'I'II @T'I'II @_ @_ @(T'I'II u (t _)) @(T'I'II u (t _)) source))
   `compose` map @T'I'II @T'I'II @source @target @(T'II'I u _ `T'TT'I` t) @(T'II'I u _ `T'TT'I` t)
-   (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT'I (T'II'I u) t) @(F'T'I'TT'I (T'II'I u) t) source))
+   (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT (T'II'I u) t) @(F'T'I'TT (T'II'I u) t) source))
   )
 
 instance {-# OVERLAPPABLE #-} Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) a) (T'I'II (AR) a) where

@@ -51,16 +51,16 @@ dim = fui @AR @AR Unit
 top :: forall tt t e .
  (tt ~ Construction t) =>
  Supertype (Construction t e `AT` e)
-top (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs old))))) =
+top (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs old))))) =
   old `hjd` (\new -> xs `hjd'tb` new)
 
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
  Supertype (Construction t e `AT` t (Construction t e))
-sub (F'T'I'TT'I (Recursive (T'TT'I (T'II'I (These xs x))))) = These
- (xs `yo` subtype @(AR) @(F'T'I'TT'I _ _ _))
- (\new -> new `yo` supertype @Arrow @(F'T'I'TT'I _ _ _) `hjd'tb` x)
+sub (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x))))) = These
+ (xs `yo` subtype @(AR) @(F'T'I'TT _ _ _))
+ (\new -> new `yo` supertype @Arrow @(F'T'I'TT _ _ _) `hjd'tb` x)
 
 embed :: forall f g e .
  Component (AR) g (f `JNT` g) =>
