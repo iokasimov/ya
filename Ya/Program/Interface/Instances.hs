@@ -322,9 +322,9 @@ pattern Ahead x = That x :: Shifter List
 pattern Above x = This x :: Shifter List
 pattern Below x = That x :: Shifter List
 
-pattern Front :: forall i tt target .
- tt i `AR__` tt `L` Alone `T` (Void) `T` i
-pattern Front x = Label x
+-- pattern Front :: forall i tt t target .
+ -- tt i `AR__` tt `L` Maybe `T` (Void) `T` i
+-- pattern Front x = Label x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
