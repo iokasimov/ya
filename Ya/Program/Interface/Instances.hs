@@ -26,15 +26,15 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
    Alone `ha` this `ha` source `har` x `hjd'tb` (\xx -> xxx `hjd_'tb` that `ha` source `har` x `har` supertype xx)
 
 -- TODO: refactor, pattern matching is redundant here
-instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void) `L` Alone `T` (Void)) Maybe where
+instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
-  Label (Label (T'TT'I (T'I'II (This _)))) -> supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` empty `bt'has` (\x' -> x' `ryu` Enter))
-  Label (Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x))))))))) ->
-   Exist `har` x `hjd` Label `ha` Label `ha` (Empty `hu_` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> x' `ryu` Enter @List))
+  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `hu` empty `bt'has` (\x' -> x' `ryu` Enter))
+  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
+   Exist `har` x `hjd` Label `ha` (Empty `hu_` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> x' `ryu` Enter @List))
 
-instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Alone `T` (Void `P` Void) `L` Alone `T` (Void)) Maybe where
- component = T'I'TT'II'T'II'I `identity` \(Label (Label x)) ->
-  supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `bt'has` (\xx -> that (push xx x)))
+instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
+ component = T'I'TT'II'T'II'I `identity` \(Label x) ->
+  supertype Empty `hjd` Label `ha` (Empty `hu` x `bt'has` (\xx -> that (push xx x)))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
@@ -335,7 +335,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `har____` Event `ha__` relay `har_'st` Empty
     `ha____` Scope `har_` field @(Shafted List i)
    `ho___'st` Scope `har_` index @Twice `ha` (Back `has` Fore) `har` way
-     `ho___` Scope `har_` point `ha` Front `ha` Stock @Alone
+     `ho___` Scope `har_` point `ha` Stock @Maybe
    `yok____` Check
    `yok____` Apply `ha__` State
    `ha_____` Event `ha__` relay `ha` Alone
@@ -344,7 +344,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ha_____` Event `ha__` relay `ha'st` Exist
    `ho___'ha` Scope `har_` field @(Shafted List i)
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
-      `ho_` (Scope `har` point `ha` Front `ha` Fresh @Alone)
+      `ho_` (Scope `har` point `ha` Fresh @Maybe)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk____` Apply `ha_` State
    `har____` Event `har` fetch

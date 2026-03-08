@@ -79,11 +79,10 @@ morph :: forall tt t i l .
  t `L` tt `T` l `T` i `AR____` tt `T` i
 morph = component
 
-point :: forall tt t i .
- Component (AT) t tt =>
- Unlabelable (AR) t =>
- t i `AR____` tt i `P` (tt i `AR__` Unlabeled t i)
-point = supertype @(AR) `har` component @(AT) `ho_'ho'ho` unlabel @(AR)
+point :: forall tt t i l .
+ Component (AT) (t `L` tt `T` l) tt =>
+ t `L` tt `T` l `T` i `AR____` tt i `P` (tt i `AR__` t i)
+point = supertype @(AR) `har` component @(AT) `ho_'ho'ho` supertype @(AR)
 
 -- amend :: forall tt t l i .
 --  Component (TR) (t `L` tt `T` l) tt =>
