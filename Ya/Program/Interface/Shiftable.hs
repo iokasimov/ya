@@ -38,7 +38,7 @@ type Scrolling t = Shifting Alone t
 type Scrollable t = Shiftable Alone t
 
 -- pattern Range :: forall t e . Scrollable t => e `AR__` Alone `L` Scrolling t `T` Void `T` e
-pattern Range :: forall t tt e . (t ~ Scrolling tt, Scrollable tt) => e `AR__` Alone `L` t `T` Void `T` e
+pattern Range :: forall t i tt . (t ~ Scrolling tt, Scrollable tt) => i `AR__` Alone `L` t `T` Void `T` i
 pattern Range x = Label (Alone x)
 
 type Sliding t = Shifting List t
