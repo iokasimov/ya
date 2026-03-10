@@ -272,8 +272,10 @@ infixl 7 `kyo`
 -- infixl 6 `kyok`
 
 infixl 5 `kyokl`
-infixl 4 `kyokl_`
-infixl 4 `_kyokl`
+infixl 4 `kyokl_`, `_kyokl`
+infixl 3 `kyokl__`
+infixl 2 `kyokl___`
+infixl 1 `kyokl____`
 
 -- infixl 6 `yiok`
 
@@ -1074,7 +1076,7 @@ kyo = fai @target (fai @source supertype `compose` fio @source (supertype @_ @(I
 -- kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` subtype)
 --  `compose` kyo @source @target @t @tt @ll
 
-kyokl, kyokl_, _kyokl :: forall source target t tt ttt l ll lll a o .
+kyokl, kyokl_, kyokl__, kyokl___, kyokl____, _kyokl :: forall source target t tt ttt l ll lll a o .
  Covariant Yoneda Functor source target t =>
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
  Component source (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
@@ -1098,6 +1100,9 @@ kyokl = fio @source (wrapped (component @source @(t `T'TT'I` ttt `L` ttt `T` lll
  `compose` kyo @source @target @t @tt @ll
 
 kyokl_ = kyokl
+kyokl__ = kyokl
+kyokl___ = kyokl
+kyokl____ = kyokl
 _kyokl = kyokl
 
 -- TODO: Let's define ha'kyo first...
