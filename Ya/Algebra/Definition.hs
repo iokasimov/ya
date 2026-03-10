@@ -94,6 +94,19 @@ type AS_____ = T'TT'I'II'I (P) (AR)
 type AS______ = T'TT'I'II'I (P) (AR)
 type AS_______ = T'TT'I'II'I (P) (AR)
 
+
+newtype L t tt l i = Label (t i)
+
+type Label = L
+
+type instance Supertype (L t _t l i) = t i
+
+instance Elicitable T'I'II (->) (L t _t l i)
+ where elicit = T'I'II (\(Label x) -> x)
+
+instance Elicitable T'II'I (->) (L t _t l i)
+ where elicit = T'II'I Label
+
 class Dumb x
 instance Dumb x
 
