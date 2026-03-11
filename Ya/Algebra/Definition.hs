@@ -5,6 +5,8 @@ module Ya.Algebra.Definition where
 
 import Ya.Algebra.Abstract
 
+infixl 9 `L`
+
 infixl 9 `P`, `S`, `M`
 infixl 8 `P_`, `S_`, `M_`
 infixl 7 `P__`, `S__`, `M__`
@@ -625,6 +627,45 @@ instance {-# OVERLAPPABLE #-}
  , Unlabeled (t `L` tt `T` l `L` ttt `T` ll) ~ t
  ) => Unlabelable target (t `L` tt `T` l `L` ttt `T` ll) where
  unlabel = supertype @target `compose` supertype @target
+
+class Multicomponent target t tt ll where
+ multicomponent :: target (t `L` tt `T` ll `T` i) (tt i)
+
+instance
+ ( Component target (t `L` tt `T` ll) tt
+ ) => Multicomponent target t tt ll where
+ multicomponent = component @target @(t `L` tt `T` ll) @tt
+
+instance {-# OVERLAPPABLE #-}
+ ( Precategory target
+ , forall e . Wrapper target (tt `L` ttt `T` lll `T` e)
+ , forall e . Wrapper target (t `L` tt `T` ll `L` ttt `T` lll `T` e)
+ , Component target (t `L` tt `T` ll) tt
+ , Component target (tt `L` ttt `T` lll) ttt
+ ) => Multicomponent target (t `L` tt `T` ll) ttt lll where
+ multicomponent = component @target @(tt `L` ttt `T` lll) @ttt
+  `compose` subtype @target @(tt `L` ttt `T` lll `T` _)
+  `compose` component @target @(t `L` tt `T` ll) @tt
+  `compose` supertype @target @(t `L` tt `T` ll `L` ttt `T` lll `T` _)
+
+instance {-# OVERLAPS #-}
+ ( Precategory target
+ , forall e . Wrapper target (tt `L` ttt `T` lll `T` e)
+ , forall e . Wrapper target (ttt `L` tttt `T` llll `T` e)
+ , forall e . Wrapper target (t `L` tt `T` ll `L` ttt `T` lll `T` e)
+ , forall e . Wrapper target (tt `L` ttt `T` lll `L` tttt `T` llll `T` e)
+ , forall e . Wrapper target (t `L` tt `T` ll `L` ttt `T` lll `L` tttt `T` llll `T` e)
+ , Component target (t `L` tt `T` ll) tt
+ , Component target (tt `L` ttt `T` lll) ttt
+ , Component target (ttt `L` tttt `T` llll) tttt
+ ) => Multicomponent target (t `L` tt `T` ll `L` ttt `T` lll) tttt llll where
+ multicomponent = component @target @(ttt `L` tttt `T` llll) @tttt
+  `compose` rewrap (component @target @(tt `L` ttt `T` lll) @ttt)
+  `compose` subtype @target @(tt `L` ttt `T` lll `L` tttt `T` llll `T` _)
+  `compose` subtype @target @(tt `L` ttt `T` lll `T` _)
+  `compose` component @target @(t `L` tt `T` ll) @tt
+  `compose` supertype @target @(t `L` tt `T` ll `L` ttt `T` lll `T` _)
+  `compose` supertype @target @(t `L` tt `T` ll `L` ttt `T` lll `L` tttt `T` llll `T` _)
 
 pattern Enter :: forall t i . t i `AR_` t i
 pattern Enter x = x
