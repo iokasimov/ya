@@ -521,7 +521,7 @@ type S'T'I'TT'I = T'TT'I'TTT'I (S)
 pattern LT x = T'TT'I'TTT'I (This x)
 pattern RT x = T'TT'I'TTT'I (That x)
 
-pattern Clasp :: forall t tt ttt i . t (tt i) (ttt i) `AR___` T'TT'I'TTT'I t tt ttt i
+pattern Clasp :: forall tt ttt t i . t (tt i) (ttt i) `AR___` T'TT'I'TTT'I t tt ttt i
 pattern Clasp x = T'TT'I'TTT'I x
 
 type family Basetype x where
