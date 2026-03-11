@@ -126,11 +126,13 @@ mutate :: forall t tt ll i .
 mutate = multicomponent @(AR) @t @tt @ll
 
 within :: forall t tt ll i .
+ Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (AT) t tt ll =>
- t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` tt `T` i `AR` t `T` i
-within = supertype @(AR) `har` multicomponent @(AT) @t @tt @ll `yio'yio'yio` supertype @(AR)
+ t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` tt `T` i `AR` Unlabeled (t `L` tt `T` ll) `T` i
+within = supertype @(AR) `har` multicomponent @(AT) @t @tt @ll `yio'yio'yio` unlabel @(AR)
 
 switch :: forall t tt ll i .
+ Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (TR) t tt ll =>
- t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` t `T` i
-switch = supertype @(AR) `har` multicomponent @(TR) @t @tt @ll `yio'yio` supertype @(AR)
+ t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` Unlabeled (t `L` tt `T` ll) `T` i
+switch = supertype @(AR) `har` multicomponent @(TR) @t @tt @ll `yio'yio` unlabel @(AR)
