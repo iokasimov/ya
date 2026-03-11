@@ -105,21 +105,6 @@ index index origin =
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
 exact x xx = is `hu` False Unit `has` is `hu` True Unit `har_` x `hjd'eq` xx
 
-{-
-type family Arrowed target t tt ll i where
- Arrowed (AR) t tt ll i = t `L` tt `T` ll `T` i `AR____` tt `T` i
- Arrowed (AT) t tt ll i = t `L` tt `T` ll `T` i `AR____` tt i `P` (tt i `AR__` t i)
-
-class Transforming target t tt ll where
- to :: Arrowed target t tt ll i
-
-instance Multicomponent (AR) t tt ll => Transforming (AR) t tt ll where
- to = multicomponent @(AR) @t @tt @ll
-
-instance Multicomponent (AT) t tt ll => Transforming (AT) t tt ll where
- to = supertype @(AR) `har` multicomponent @(AT) @t @tt @ll `ho_'ho'ho` supertype @(AR)
--}
-
 mutate :: forall t tt ll i .
  Multicomponent (AR) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i

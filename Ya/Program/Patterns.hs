@@ -204,11 +204,9 @@ type Stream = Construction Alone
 pattern Stream :: Stream i -> Stream i
 pattern Stream xs = xs
 
--- newtype F'T'I'TT'I t tt i = F'T'I'TT'I (Recursive (t i `T'TT'I` tt))
+type Mealy = F'T'I'TT'II Along Given
 
--- type Mealy = Origination Given `?` Along
-
--- type Moore = Origination Along `?` Given
+type Moore = F'T'I'TT'II Given Along
 
 type Way = Unit `S` Unit
 
