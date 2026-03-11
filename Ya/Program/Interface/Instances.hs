@@ -15,9 +15,8 @@ import Ya.Program.Interface.Shiftable
 
 -- TODO: think about labels for these two instances below!
 
-pattern Root :: forall t tt i .
- (t ~ Construction tt) =>
- Construction tt i `AR__` Construction tt `L` Alone `T` (Void) `T` i
+pattern Root :: forall tt t i .
+ t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Root x = Label x
 
 instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) Alone where
@@ -74,8 +73,11 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T`
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` List `T` Void) List where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
 
-pattern Stock :: forall t i .
- List i `AR__` List `L` t `T` (Void) `T` i
+-- pattern Stock :: forall t i .
+ -- List i `AR__` List `L` t `T` (Void) `T` i
+
+pattern Stock :: forall tt t i .
+ t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Stock x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
@@ -95,8 +97,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Vo
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (empty @List `hjd'tb` supertype x) `yo` source
 
-pattern Locus :: forall t tt i .
- tt i `AR__` tt `L` t `T` (Void) `T` i
+pattern Locus :: forall tt t i .
+ t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Locus x = Label x
 
 instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (List `P'T'I'TT'I` List)) `L` Alone `T` Void) Alone where
@@ -105,7 +107,7 @@ instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (List `P'T'I'TT'I`
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd'tb` (`hjd'tb` xxx)
 
-pattern Shaft  :: forall tt t i .
+pattern Shaft :: forall tt t i .
  t `P'T'I'TT'I` tt `T'I___` i `AR______` (t `P'T'I'TT'I` tt) `L` tt `T` (Void) `T` i
 pattern Shaft x = Label x
 

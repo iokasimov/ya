@@ -35,7 +35,7 @@ pattern Forth :: forall tt t i . t i `AR____` t `L` tt `T` (Void) `T` i
 pattern Forth x = Label @_ @_ @Void x
 
 -- pattern Prior :: forall t tt ttt ll i . tt `L` ttt `T` ll `T` i `AR____` tt `L` ttt `T` ll `L` t `T` (Void `P` Void) `T` i
-pattern Prior :: forall t tt i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
+pattern Prior :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Prior x = Label @_ @_ @(Void `P` Void) x
 
 pattern Lease e = Label @(State _) @(State _) @(Void `P` Void) e
