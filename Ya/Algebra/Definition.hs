@@ -631,12 +631,12 @@ instance {-# OVERLAPPABLE #-}
 class Multicomponent target t tt ll where
  multicomponent :: target (t `L` tt `T` ll `T` i) (tt i)
 
-instance
+instance {-# OVERLAPPABLE #-}
  ( Component target (t `L` tt `T` ll) tt
  ) => Multicomponent target t tt ll where
  multicomponent = component @target @(t `L` tt `T` ll) @tt
 
-instance {-# OVERLAPPABLE #-}
+instance {-# OVERLAPS #-}
  ( Precategory target
  , forall e . Wrapper target (tt `L` ttt `T` lll `T` e)
  , forall e . Wrapper target (t `L` tt `T` ll `L` ttt `T` lll `T` e)
