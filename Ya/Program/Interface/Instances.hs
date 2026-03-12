@@ -48,7 +48,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Vo
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
-  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` x `yi__` that `hjd__'tb` xs `yi__` Merge `ho` morph @List `yo__` source
+  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` x `yi__` that `hjd__'tb` xs `yi__` Merge `ho` mutate `yo__` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hop` subtype @(AR) `ha` this `ha` sub `ho_'yo` source
@@ -64,8 +64,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `
     Unit `hjd___'tb` that `ha` sub @Tree
      `har__` supertype parent `ryu` Enter @Tree
      `har__` Alone `har` tree `hjd'tb` supertype siblings
-       `yi` morph @List `ha` Adapt @(Nonempty List)
-       `ha` morph @(Nonempty List) `ha` Adapt @(Scrolling List)
+       `yi` mutate `ha` Adapt @(Nonempty List)
+       `ha` mutate `ha` Adapt @(Scrolling List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
@@ -158,16 +158,17 @@ instance
   x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
     `bt'har__` xx `yi__` that `ho'yo` source
 
-pattern Aloft :: forall t i .
- Component (AR) ((t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree =>
- t `P'T'I'TT'I` Tree `T'I___` i `AR_____` (t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void) `T` i
+pattern Aloft :: forall tt t i .
+ -- Component (AR) ((t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree =>
+ -- t `P'T'I'TT'I` Tree `T'I___` i `AR_____` (t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void) `T` i
+ t i `AR_____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Aloft x = Label x
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
 --   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These scrolling_list tree))) ->
 --    rewrap (\x -> Alone tree `hjd` that @(Twice `T'TT'I` List `T'I_` _) `ho'yo` (\x' -> x' `ryu` Enter @Tree) `hc` x) scrolling_list
---     `yi` Adapt @(Scrolling List) `ho` morph @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` morph @List `ho'yo` supertype @(AR)
+--     `yi` Adapt @(Scrolling List) `ho` mutate @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` mutate @List `ho'yo` supertype @(AR)
 --     `yi` (\x' -> supertype scrolling_list `hjd` supertype (this @(Alone _) x'))
 --     `yo` source
 
@@ -176,7 +177,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
     `har__` supertype root `ryu` Enter @Tree
-    `har__` Adapt @(Scrolling List) `ho` morph @(Nonempty List) `ho` Adapt @(Nonempty List) `ho` morph @List
+    `har__` Adapt @(Scrolling List) `ho` mutate `ho` Adapt @(Nonempty List) `ho` mutate
      `har_` Alone tree `hjd'tb` supertype siblings
     `yo___` source
 
@@ -185,7 +186,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) (List `T'TT'I` Tree) where
 --  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These basement unfoldings)) ->
---   let result = morph @List `ha` morph @(Nonempty List) `hc'st` basement in
+--   let result = mutate @List `ha` mutate @(Nonempty List) `hc'st` basement in
 --   Empty `hu` subtype result
 --   -- `la______` (\x -> x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker `har__` result `yi__` that `ho` subtype @(AR))
 --   `la______` proceed result
@@ -195,15 +196,15 @@ instance Mapping T'I'II T'I'II (AR) (AR)
    
 --    starting :: (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i `AR_______` List (Tree i) `AR_____` Tree i
 --    starting (T'TT'I'TTT'I (These (Identity focused) (T'TT'I (T'TT'I (T'I'I (These sx xs)))))) forest = that `ha` sub @Tree
---     `har_` intro @Tree `hc` focused `har_` sx `hjd` (forest `hjd` xs `yi` Merge @List @List `ho` morph @List) `yi` morph @List @(Twice `T'TT'I` List) @(Tree _)
+--     `har_` intro @Tree `hc` focused `har_` sx `hjd` (forest `hjd` xs `yi` Merge @List @List `ho` mutate @List) `yi` mutate @List @(Twice `T'TT'I` List) @(Tree _)
 
    -- proceed forest nonempty_list =
    --  let (These x xx) = this `ha` top @(Nonempty List) `hop` this `ha` sub @(Nonempty List) `har` nonempty_list in
    --  xx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` topping `har__` starting x forest `yi__` that -- `ho` subtype @(
- 
+
   -- supertype (supertype unfoldings)
   --  `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` worker
-  --  `har__` subtype @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` morph @List `ha` morph @(Nonempty List) `hc'st` basement
+  --  `har__` subtype @(AR) @(List `T'TT'I` Tree `T'I_` _) `ha` mutate @List `ha` mutate @(Nonempty List) `hc'st` basement
   --  `yi__` that `ho'yo` source where
 
   --  -- TODO: we haven't finished yet...
@@ -373,7 +374,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `har____` Event `ha__` relay `har_'st` Empty
     `ha____` Scope `har_` field @(Shafted List i)
    `ho___'st` Scope `har_` index @Twice `ha` (Back `has` Fore) `har` way
-     `ho___` Scope `har_` point `ha` Stock @Maybe
+     `ho___` Scope `har_` within `ha` Stock @Maybe
    `yok____` Check
    `yok____` Apply `ha__` State
    `ha_____` Event `ha__` relay `ha` Alone
@@ -382,7 +383,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ha_____` Event `ha__` relay `ha'st` Exist
    `ho___'ha` Scope `har_` field @(Shafted List i)
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
-      `ho_` (Scope `har` point `ha` Fresh @Maybe)
+      `ho_` (Scope `har` within `ha` Fresh @Maybe)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yuk____` Apply `ha_` State
    `har____` Event `har` fetch
@@ -434,6 +435,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
 
+{-
 instance Shiftable Alone (Construction List) where
  shift way x = is
   `har` is `hu` (Empty Unit `hjd` x)
@@ -452,7 +454,7 @@ instance Shiftable Alone (Construction List) where
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
   aloft unfolding tree = Alone `ha` this `ha` top `har` tree
-   `hjd_'tb` unfolding `hjd'tb` tree `yi` morph @Tree `ha` Aloft @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
+   `hjd_'tb` unfolding `hjd'tb` tree `yi` mutate `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
 
    -- List `T'TT'I` (T'TT'I List (P'T'I'TT'I Alone (T'TT'I (T'TT'I Twice List) Tree)))
 
@@ -478,7 +480,7 @@ instance Shiftable Alone (Construction List) where
 
   splash :: forall i . i `P` Nonempty List (Tree i) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
   splash (These root descendants) = this `ha` top `har` descendants
-   `hjd__'tb` Alone `har` root `hjd_'tb` subtype @(AR) `ha` morph `ha` Fresh @(Shafted List) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants
+   `hjd__'tb` Alone `har` root `hjd_'tb` subtype @(AR) `ha` mutate `ha` Fresh @(Shafted List) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants
 
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = Unit `ryu` Enter @(Halts `JNT` State `T` Scrolling Tree i)
@@ -507,3 +509,4 @@ instance Shiftable Alone (Construction List) where
    Alone `har` tree `hjd'tb` siblings
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` field @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` field @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` field @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
+-}

@@ -74,21 +74,6 @@ joint :: forall f g e .
  f `T'I` g `T` e `AR_______` f `JNT` g `T'I_` e
 joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
-morph :: forall tt t i l .
- Component (AR) (t `L` tt `T` l) tt =>
- t `L` tt `T` l `T` i `AR____` tt `T` i
-morph = component
-
-point :: forall tt t i l .
- Component (AT) (t `L` tt `T` l) tt =>
- t `L` tt `T` l `T` i `AR____` tt i `P` (tt i `AR__` t i)
-point = supertype @(AR) `har` component @(AT) `ho_'ho'ho` supertype @(AR)
-
--- amend :: forall tt t l i .
---  Component (TR) (t `L` tt `T` l) tt =>
---  t `L` tt `T` l `T` i `AR____` (tt `T` i) `P` (t `T` i)
--- amend = supertype (component @(TR)) `ho'ho` supertype @(AR) @(t `L` tt `T` l `T` i)
-
 index :: forall t r e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
