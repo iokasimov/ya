@@ -435,7 +435,6 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
 
-{-
 instance Shiftable Alone (Construction List) where
  shift way x = is
   `har` is `hu` (Empty Unit `hjd` x)
@@ -454,7 +453,7 @@ instance Shiftable Alone (Construction List) where
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
   aloft unfolding tree = Alone `ha` this `ha` top `har` tree
-   `hjd_'tb` unfolding `hjd'tb` tree `yi` mutate `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree)
+   `hjd_'tb` unfolding `hjd'tb` tree `yi` mutate `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree)
 
    -- List `T'TT'I` (T'TT'I List (P'T'I'TT'I Alone (T'TT'I (T'TT'I Twice List) Tree)))
 
@@ -509,4 +508,3 @@ instance Shiftable Alone (Construction List) where
    Alone `har` tree `hjd'tb` siblings
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` field @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` field @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` field @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
--}
