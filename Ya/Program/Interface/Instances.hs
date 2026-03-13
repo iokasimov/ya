@@ -101,7 +101,13 @@ pattern Locus :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Locus x = Label x
 
-instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (List `P'T'I'TT'I` List)) `L` Alone `T` Void) Alone where
+instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
+ component (Label (T'TT'I'TTT'I (These x xxx))) = x
+
+instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
+ component (Label (T'TT'I'TTT'I (These x xxx))) = x
+
+instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd'tb` (`hjd'tb` xxx)
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
