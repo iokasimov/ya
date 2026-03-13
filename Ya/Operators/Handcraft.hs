@@ -269,7 +269,12 @@ infixl 1 `yok______` --, `yok______'yokl`, `yok______'yukl`
 
 infixl 7 `kyo`
 
--- infixl 6 `kyok`
+infixl 6 `kyok`
+infixl 5 `_kyok`, `kyok_`
+infixl 4 `__kyok`, `_kyok_`, `kyok__`
+infixl 3 `___kyok`, `__kyok_`, `_kyok__`, `kyok___`
+infixl 2 `____kyok`, `___kyok_`, `__kyok__`, `_kyok___`, `kyok____`
+infixl 1 `_____kyok`, `____kyok_`, `___kyok__`, `__kyok___`, `_kyok____`, `kyok_____`
 
 infixl 5 `kyokl`
 infixl 4 `kyokl_`, `_kyokl`
@@ -1058,23 +1063,51 @@ kyo = fai @target (fai @source supertype `compose` fio @source (supertype @_ @(I
 --  `compose` yo @source @target @t
 --  `compose` supertype (component @(AR) @t @(t `T'TT'I` tt `L` tt `T` ll) x)
 
--- kyok :: forall source target t tt ttt l ll lll a o .
---  Covariant Yoneda Functor source target t =>
---  Component (AR) t (t `T'TT'I` tt `L` tt `T` ll) =>
---  Component source (t `T'TT'I` ttt `L` ttt `T` lll) t =>
---  (forall e . Contravariant Functor source target (T'II'I source e)) =>
---  (forall e . Covariant Functor source target (T'I'II source e)) =>
---  (forall e . Covariant Functor source (AR) (T'I'II target e)) =>
---  (forall e ee . Wrapper target (T'I'II source e ee)) =>
---  (forall e ee . Wrapper target (T'II'I source e ee)) =>
---  (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
---  (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
---  (forall e . Wrapper source (t `TT'T'I` ttt `T'I_` e)) =>
---  (forall e . Wrapper source (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
---  (forall e . Wrapper source (I e)) =>
---  t a -> target (source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `T` o)) (t o)
--- kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` subtype)
---  `compose` kyo @source @target @t @tt @ll
+kyok, _kyok, kyok_, __kyok, _kyok_, kyok__, ___kyok, __kyok_, _kyok__, kyok___, ____kyok, ___kyok_, __kyok__, _kyok___, kyok____, _____kyok, ____kyok_, ___kyok__, __kyok___, _kyok____, kyok_____
+ :: forall source target t tt ttt l ll lll a o .
+ Covariant Yoneda Functor source target t =>
+ Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
+ Component source (t `T'TT'I` ttt `L` ttt `T` lll) t =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e . Contravariant Functor source target (T'II'I source e)) =>
+ (forall e . Covariant Functor source target (T'I'II source e)) =>
+ (forall e . Covariant Functor source target (T'I'II target e)) =>
+ (forall e . Covariant Functor source (AR) (T'I'II target e)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (t `TT'T'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e . Wrapper target (t `TT'T'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper source (t `T'TT'I` ttt `L` ttt `T` lll `T'I_` e)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ target (t a) (target (source (tt a) (I `L` tt `T` ll `T'I` ttt `L` ttt `T` lll `T` o)) (t o))
+kyok = fio @source (component @source @(t `T'TT'I` ttt `L` ttt `T` lll) @t `compose` subtype)
+ `compose` kyo @source @target @t @tt @ll
+
+_kyok = kyok
+kyok_ = kyok
+__kyok = kyok
+_kyok_ = kyok
+kyok__ = kyok
+___kyok = kyok
+__kyok_ = kyok
+_kyok__ = kyok
+kyok___ = kyok
+____kyok = kyok
+___kyok_ = kyok
+__kyok__ = kyok
+_kyok___ = kyok
+kyok____ = kyok
+_____kyok = kyok
+____kyok_ = kyok
+___kyok__ = kyok
+__kyok___ = kyok
+_kyok____ = kyok
+kyok_____ = kyok
 
 kyokl, kyokl_, kyokl__, kyokl___, kyokl____, _kyokl :: forall source target t tt ttt l ll lll a o .
  Covariant Yoneda Functor source target t =>
