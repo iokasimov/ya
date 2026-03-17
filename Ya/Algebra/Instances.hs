@@ -583,12 +583,28 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
 
-instance (e ~ Unit, ee ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (e `S` ee)) (T'I'I (P)) where
+instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
-  (source `compose` f `identity`This Unit)
-  (source `compose` f `identity`That Unit)
+  (source `compose` f `identity` This Unit)
+  (source `compose` f `identity` That Unit)
 
-instance (e ~ Unit, ee ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (e `S` ee)) where
+instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (i `S` ii)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
   This _ -> source x
   That _ -> source y
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
+ , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (P'T'I'TT'I t tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
+  (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i) @t source `identity` T'I'II (f `compose` This))
+  (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt source `identity` T'I'II (f `compose` That))
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (P'T'I'TT'I t tt) (T'I'II (AR) (i `S` ii)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
+  This i -> map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i) source x `supertype` i
+  That ii -> map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii) source y `supertype` ii
