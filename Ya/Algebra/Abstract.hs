@@ -4,13 +4,13 @@ module Ya.Algebra.Abstract where
 
 infixl 9 #, `T`
 infixl 8 `T_`, `T'I`, `I'T`, `T'TT`, `TT'T`
-infixl 7 `T__`, `T'I_`, `I'T_`, `T'TT'I`, `TT'T'I`
-infixl 6 `T___`, `T'I__`, `I'T__`, `T'TT'I_`
-infixl 5 `T____`, `T'I___`, `I'T___`
-infixl 4 `T_____`
-infixl 3 `T______`
-infixl 2 `T_______`
-infixl 1 `T________`
+infixl 7 `T__`, `T'I_`, `I'T_`, `T'TT_`, `TT'T_`, `T'TT'I`, `TT'T'I`
+infixl 6 `T___`, `T'I__`, `I'T__`, `T'TT__`, `TT'T__`, `T'TT'I_`
+infixl 5 `T____`, `T'I___`, `I'T___`, `T'TT___`, `TT'T___`
+infixl 4 `T_____`, `T'TT____`, `TT'T____`
+infixl 3 `T______`, `T'TT_____`, `TT'T_____`
+infixl 2 `T_______`, `T'TT______`, `TT'T______`
+infixl 1 `T________`, `T'TT_______`, `TT'T_______`
 
 type T t = t
 type T_ t = t
@@ -33,7 +33,22 @@ type I'T__ i t = t i
 type I'T___ i t = t i
 
 type T'TT t tt i = t (tt i)
+type T'TT_ t tt i = t (tt i)
+type T'TT__ t tt i = t (tt i)
+type T'TT___ t tt i = t (tt i)
+type T'TT____ t tt i = t (tt i)
+type T'TT_____ t tt i = t (tt i)
+type T'TT______ t tt i = t (tt i)
+type T'TT_______ t tt i = t (tt i)
+
 type TT'T t tt i = tt (t i)
+type TT'T_ t tt i = tt (t i)
+type TT'T__ t tt i = tt (t i)
+type TT'T___ t tt i = tt (t i)
+type TT'T____ t tt i = tt (t i)
+type TT'T_____ t tt i = tt (t i)
+type TT'T______ t tt i = tt (t i)
+type TT'T_______ t tt i = tt (t i)
 
 type family Supertype e
 
