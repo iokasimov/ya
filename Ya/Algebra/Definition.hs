@@ -96,7 +96,6 @@ type AS_____ = T'TT'I'II'I (P) (AR)
 type AS______ = T'TT'I'II'I (P) (AR)
 type AS_______ = T'TT'I'II'I (P) (AR)
 
-
 newtype L t tt l i = Label (t i)
 
 type Label = L

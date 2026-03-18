@@ -596,7 +596,7 @@ instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (P'T'I'TT'I t tt) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (t `P'T'I'TT'I` tt) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i) @t source `identity` T'I'II (f `compose` This))
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt source `identity` T'I'II (f `compose` That))
@@ -604,7 +604,27 @@ instance
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
- ) => Mapping T'I'II T'I'II (AR) (AR) (P'T'I'TT'I t tt) (T'I'II (AR) (i `S` ii)) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) (T'I'II (AR) (i `S` ii)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
   This i -> map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i) source x `supertype` i
   That ii -> map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii) source y `supertype` ii
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
+ , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `P` ii)) (t `T'TT'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity`
+  (let currying i ii iii = i (These ii iii) in
+   map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i) @t
+    (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt source `compose` T'I'II)
+   `compose` T'I'II
+   `compose` currying)
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt) (T'I'II (AR) (i `P` ii)) where
+ mapping = rewrap `identity` \source -> rewrap `identity`
+  (let uncurrying i (These ii iii) = i ii iii in
+  uncurrying `compose` supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i)
+    (supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii) source))
