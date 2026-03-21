@@ -511,6 +511,12 @@ instance Wrapper (AR) x
 class Setoid target e where
  equality :: target (e `P` e) (e `P` e `S` e)
 
+pattern Forge :: forall t tt i . t `T'TT` tt `T'I` i `AR___` t `T'TT'I` tt `T'I_` i
+pattern Forge x = T'TT'I x
+
+pattern Wedge :: forall t tt i . t `TT'T` tt `T'I` i `AR___` t `TT'T'I` tt `T'I_` i
+pattern Wedge x = TT'T'I x
+
 type P'T'I'TT'I = T'TT'I'TTT'I (P)
 
 pattern LRT x xx = T'TT'I'TTT'I (These x xx)
