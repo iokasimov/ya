@@ -366,6 +366,12 @@ infixl 7 `ryo`, `ryu`, `st'ryu`
 infixl 6 `yor_`
 infixl 6 `_ryo`, `_ryu`, `st'_ryu`
 
+infixl 5 `__ryo`
+infixl 4 `___ryo`
+infixl 3 `____ryo`
+infixl 2 `_____ryo`
+infixl 1 `______ryo`
+
 infixl 6 `yior`, `yior'st`
 infixl 6 `yoir`, `yoir'st`
 infixl 6 `yoor`, `yoor'st`
@@ -2339,7 +2345,7 @@ yaar'st :: forall source target t object a .
  target (t a a) (source (Supertype a) object)
 yaar'st = fai @source subtype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'I'I t) @(T'II'I source object) identity `compose` subtype @target @(T'I'I t _)
 
-ryo, _ryo :: forall source target t object a o i .
+ryo, _ryo, __ryo, ___ryo, ____ryo, _____ryo, ______ryo :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -2352,6 +2358,11 @@ ryo, _ryo :: forall source target t object a o i .
 ryo = yi `compose` map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` subtype
 
 _ryo = ryo
+__ryo = ryo
+___ryo = ryo
+____ryo = ryo
+_____ryo = ryo
+______ryo = ryo
 
 -- st'ryo, st'_ryo :: forall source target t object a o i .
 --  Covariant Yoneda Functor source target I =>
