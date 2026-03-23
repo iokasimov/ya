@@ -17,6 +17,7 @@ instance
  ) => Mapping T'I'II T'I'II target (AR) (T'I' i `T'TT'I` t `L` t `T` l `L` T'I' i `T` ll) (T'I' i `TT'T'I` t) where
  mapping = rewrap `identity` \_ -> rewrap `identity` \(T'I' x) -> T'I' x `ryu` Enter
 
+{-
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
@@ -58,6 +59,7 @@ instance
    `ha` supertype @(AR) @(ttt `L` ttt `T` ll `L` T'TT'I'TTT'I S t tt `T` l `T` _)
    `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) @(tt `TT'T'I` ttt) source)
    `yo` T'TT'I'TTT'I `ha` That
+-}
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (S'I'II Unit)

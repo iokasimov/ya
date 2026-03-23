@@ -47,6 +47,29 @@ instance
    `compose` supertype @target @(t `L` t `T` l `L` I `T` ll `T` _)
    `compose` supertype @target @(I _))
 
+-- TODO: generalise up to any tensors
+-- TODO: generalise up to any categories
+instance
+ ( forall e . Wrapper (AR) (t `L` t `T` l `L` I `T` ll `T` e)
+ , forall e . Wrapper (AR) (t `L` t `T` l `T` e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II (P) e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I (P) e)
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` t `L` t `T` l `L` tt `T` ll) (tt `TT'T'I` t)
+ , Covariant Transformation Functor (AR) (AR) (ttt `T'TT'I` t `L` t `T` l `L` ttt `T` ll) (ttt `TT'T'I` t)
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((tt `P'T'I'TT'I` ttt) `T'TT'I` t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll) ((tt `P'T'I'TT'I` ttt) `TT'T'I` t) where
+ mapping = rewrap `identity` \source -> rewrap (
+  day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (subtype @(AR) @(tt `P'T'I'TT'I` ttt `T'I___` _))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) _) @(T'II'I (P) _)
+   (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` l `L` tt `T` ll) @(tt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll `T` _) @(t `L` t `T` l `L` tt `T` ll `T` _) identity)))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (P) _) @(T'I'II (P) _)
+   (subtype @(AR) @(t `L` t `T` Void `T` _) `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(ttt `T'TT'I` t `L` t `T` l `L` ttt `T` ll) @(ttt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll `T` _) @(t `L` t `T` l `L` ttt `T` ll `T` _) identity)))
+  `compose` supertype)
+
 instance
  ( Covariant Semi Functor source target tt
  , Covariant Endo Semi Functor target t
