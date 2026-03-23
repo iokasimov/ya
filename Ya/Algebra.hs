@@ -95,6 +95,7 @@ instance
 -- 3. t (tt `L` tt `T` ll `L` t `T` l `T` (F'T'I'TT (T'II'I P) t _))
 -- 4. tt (t (F'T'I'TT (T'II'I P) t _))
 
+{-
 -- TODO: refactor, make these transformations more efficient
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -113,6 +114,7 @@ instance
   `ho` subtype @(AR) @(tt `L` tt `T` ll `L` t `T` l `T` _)
   `yi` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) identity)
   `yo` subtype @(AR) @(t `T'TT'I` F'T'I'TT (T'II'I P) t `T'I_` _)
+-}
 
 -- State (hc_st item) `L` State (hc_st item) `T` Void) `L` hc_st `T` (Void `P` Void)
 

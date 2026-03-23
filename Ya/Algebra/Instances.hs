@@ -47,6 +47,25 @@ instance
    `compose` supertype @target @(t `L` t `T` l `L` I `T` ll `T` _)
    `compose` supertype @target @(I _))
 
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) (t `TT'T'I` ttt)
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll) ((t `T'TT'I` tt) `TT'T'I` ttt) where
+ mapping = rewrap `identity` \source -> rewrap (
+  map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (subtype @(AR) @(t `T'TT'I` tt `T'I_` _))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) @(t `TT'T'I` ttt) identity)
+  `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
+   (subtype @(AR) @(ttt `L` ttt `T` lll `L` t `T` ll `T` _)
+   `compose` subtype @(AR) @(ttt `L` ttt `T` lll `T` _)
+   `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) @(tt `TT'T'I` ttt) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt
+    (rewrap @(AR) @(ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll `T` _) @(ttt `L` ttt `T` lll `L` tt `T` ll `T` _) identity)
+   )
+  `compose` supertype)
+
 -- TODO: generalise up to any tensors
 -- TODO: generalise up to any categories
 instance
@@ -568,7 +587,7 @@ instance (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P)
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TT'I x) (Label (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
-   day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `identity`These (supertype x e) (subtype (supertype xx e))))
+   day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `identity` These (supertype x e) (subtype (supertype xx e))))
 
 -- 0: (S'I'II e `TT'T'I` t `T'TT'I_` Void `L`  (S'I'II e `TT'T'I` t)) _
 -- 1: (S'I'II e `TT'T'I` t) (Void `L` ((S'I'II e `TT'T'I` t) _))
