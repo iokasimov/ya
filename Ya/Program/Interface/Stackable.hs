@@ -23,7 +23,7 @@ class Stackable datastructure where
 -- TODO: refactor, it's hard to read
 instance Stackable List where
  pop = \case
-  T'TT'I (T'I'II (This _)) -> Empty Unit `hjd` empty @List
+  T'TT'I (T'I'II (This _)) -> Empty Unit `hjd` T'TT'I (Empty Unit)
   T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
    Exist x `hjd__` T'TT'I `har_` xs `yo` F'T'I'TT
  push item s = item `hjd` rewrap
