@@ -38,7 +38,11 @@ pattern Forth x = Label @_ @_ @Void x
 pattern Prior :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Prior x = Label @_ @_ @(Void `P` Void) x
 
-pattern Lease e = Label @(State _) @(State _) @(Void `P` Void) e
+pattern Allot :: forall e t i . t i `AR_____` t `L` State e `T` (Void) `T` i
+pattern Allot e = Label @_ @(State _) @(Void) e
+
+pattern Lease :: forall e t i . t i `AR_____` t `L` State e `T` (Void `P` Void) `T` i
+pattern Lease e = Label @_ @(State _) @(Void `P` Void) e
 
 pattern Every :: forall i ii iii e .
  Component (AR) (Covariant Day (AR) (P) (P) (S'I'II iii) (S'I'II iii `L` S'I'II iii `T` Void) i ii) (S'I'II iii) =>

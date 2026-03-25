@@ -53,9 +53,6 @@ type Maybe = S'I'II Unit
 pattern Maybe :: Unit `S` e `AR_` Maybe e
 pattern Maybe x = T'I'II @(S) @Unit x
 
-pattern Allot :: ee -> Stops e ee
-pattern Allot x = T'I'II (That x)
-
 type Stops = T'I'II (S)
 
 pattern Stops x = T'I'II @(S) x
