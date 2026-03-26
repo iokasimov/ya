@@ -42,8 +42,8 @@ pattern Plane i = Label i
 pattern Whirl :: Stackable t => t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Whirl i = Label i
 
-pattern Align :: Stackable t => t i -> t `L` t `T` Void `T` i
+pattern Align :: t i -> t `L` t `T` Void `T` i
 pattern Align i = Label i
 
-pattern Cross :: Stackable t => t i -> t `L` t `T` (Void `P` Void) `T` i
+pattern Cross :: t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Cross i = Label i
