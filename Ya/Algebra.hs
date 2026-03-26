@@ -17,6 +17,69 @@ instance
  ) => Mapping T'I'II T'I'II target (AR) (T'I' i `T'TT'I` t `L` t `T` l `L` T'I' i `T` ll) (T'I' i `TT'T'I` t) where
  mapping = rewrap `identity` \_ -> rewrap `identity` \(T'I' x) -> T'I' x `ryu` Enter
 
+instance
+ ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `T'TT'I` tt) ((t `T'TT'I` tt) `L` (t `T'TT'I` tt) `T` (Void)) e ee) (t `T'TT'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  These (These (T'TT'I e) (Label (T'TT'I ee))) (T'I'II f) ->
+    day @T'I'II @(AR) @Void @t @t @(P) @(P) identity
+     (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) identity (source `compose` f) `compose` fio @(AR) subtype)
+      (These e (subtype ee))
+
+instance
+ ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` (Void)) e ee) (t `P'T'I'TT'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These (These (T'TT'I'TTT'I (These xx x)) (Label (T'TT'I'TTT'I (These xxxx xxx)))) (T'I'II f)) ->
+  These (day @T'I'II @(AR) @Void @t @t @(P) @(P) source f (These xx (Label xxxx))) (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) source f (These x (Label xxx)))
+
+-- TODO: generalise up to any tensors
+-- TODO: generalise up to any categories
+instance
+ ( forall e . Wrapper (AR) (t `L` t `T` l `T` e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II (P) e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I (P) e)
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void)) (tt `TT'T'I` t)
+ , Covariant Transformation Functor (AR) (AR) (ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void)) (ttt `TT'T'I` t)
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((tt `P'T'I'TT'I` ttt) `T'TT'I` t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void)) ((tt `P'T'I'TT'I` ttt) `TT'T'I` t) where
+ mapping = rewrap `identity` \source -> rewrap (
+  day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (subtype @(AR) @(tt `P'T'I'TT'I` ttt `T'I___` _))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) _) @(T'II'I (P) _)
+   (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void)) @(tt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void) `T` _) @(t `L` t `T` l `L` tt `T` (Void) `T` _) identity)))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (P) _) @(T'I'II (P) _)
+   (subtype @(AR) @(t `L` t `T` Void `T` _) `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void)) @(ttt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void) `T` _) @(t `L` t `T` l `L` ttt `T` (Void) `T` _) identity)))
+  `compose` supertype)
+
+{-
+-- fc: t (AR a o) -> (AR) (t a) (t o)
+-- TODO: generalise up to any categories
+instance
+ ( forall e . Wrapper (AR) (t `L` t `T` l `T` e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II (P) e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I (P) e)
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void `P` Void)) (tt `TT'T'I` t)
+ , Covariant Transformation Functor (AR) (AR) (ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void `P` Void)) (ttt `TT'T'I` t)
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((tt `P'T'I'TT'I` ttt) `T'TT'I` t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void `P` Void)) ((tt `P'T'I'TT'I` ttt) `TT'T'I` t) where
+ mapping = rewrap `identity` \source -> rewrap (
+  day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (\(These x xx) -> subtype @(AR) @(tt `P'T'I'TT'I` ttt `T'I___` _) `identity` (\xx' -> These x xx') xx)
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) _) @(T'II'I (P) _)
+   (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void `P` Void)) @(tt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void `P` Void) `T` _) @(t `L` t `T` l `L` tt `T` (Void `P` Void) `T` _) identity)))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (P) _) @(T'I'II (P) _)
+   (subtype @(AR) @(t `L` t `T` Void `T` _) `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void `P` Void)) @(ttt `TT'T'I` t) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void `P` Void) `T` _) @(t `L` t `T` l `L` ttt `T` (Void `P` Void) `T` _) identity)))
+  `compose` supertype)
+-}
+
 {-
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -219,15 +282,15 @@ instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t)
   F'T'I'TT `compose` Recursive `compose` T'TT'I `compose` T'II'I
    `identity`These (empty @t `yo` initial @(AR)) (source `identity`f Unit)
 
-instance
- ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (F'T'I'TT (T'II'I P) t)
- ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (t `T'TT'I` F'T'I'TT (T'II'I P) t) ((t `T'TT'I` F'T'I'TT (T'II'I P) t) `L` (t `T'TT'I` F'T'I'TT (T'II'I P) t) `T` Void) e ee) (t `T'TT'I` F'T'I'TT (T'II'I P) t) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These (These (T'TT'I e) (Label (T'TT'I ee))) (T'I'II f) ->
-    day @T'I'II @(AR) @Void @t @t @(P) @P identity
-     (day @T'I'II @(AR) @Void @(F'T'I'TT (T'II'I P) t) @(F'T'I'TT (T'II'I P) t) @(P) @P identity (source `compose` f) `compose` fio @(AR) subtype)
-      (These e (subtype ee))
+-- instance
+ -- ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
+ -- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void (F'T'I'TT (T'II'I P) t)
+ -- ) => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P (t `T'TT'I` F'T'I'TT (T'II'I P) t) ((t `T'TT'I` F'T'I'TT (T'II'I P) t) `L` (t `T'TT'I` F'T'I'TT (T'II'I P) t) `T` Void) e ee) (t `T'TT'I` F'T'I'TT (T'II'I P) t) where
+ -- mapping = rewrap `identity` \source -> rewrap `identity` \case
+  -- These (These (T'TT'I e) (Label (T'TT'I ee))) (T'I'II f) ->
+    -- day @T'I'II @(AR) @Void @t @t @(P) @P identity
+     -- (day @T'I'II @(AR) @Void @(F'T'I'TT (T'II'I P) t) @(F'T'I'TT (T'II'I P) t) @(P) @P identity (source `compose` f) `compose` fio @(AR) subtype)
+      -- (These e (subtype ee))
 
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
