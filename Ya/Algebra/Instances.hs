@@ -29,9 +29,13 @@ instance (Precategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II T'I'II target target I I where
  mapping = rewrap rewrap
 
-instance (Precategory target, forall i ii . Wrapper target (T'I' i ii))
- => Mapping T'I'II T'I'II target (AR) (T'I' i) (T'I' i) where
- mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
+instance
+ ( Precategory target
+ , forall e . Wrapper target (I e)
+ , forall e . Wrapper target (I `L` I `T` Void `T` e)
+ , forall e . Wrapper target (I `T'TT'I` I `L` I `T` Void `T'I_` e)
+ ) => Mapping T'I'II T'I'II target target I (T'TT'I I (T (L I I) Void)) where
+ mapping = rewrap `identity` \source -> rewrap (subtype @target @(I _) `compose` subtype @target @(I `L` I `T` Void `T` _) `compose` subtype @target @(I _) `compose` source)
 
 instance
  ( forall e . Wrapper target (I e)
@@ -47,6 +51,11 @@ instance
    `compose` supertype @target @(t `L` t `T` l `L` I `T` ll `T` _)
    `compose` supertype @target @(I _))
 
+instance (Precategory target, forall i ii . Wrapper target (T'I' i ii))
+ => Mapping T'I'II T'I'II target (AR) (T'I' i) (T'I' i) where
+ mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
+
+-- TODO: generalise up to any categories
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
@@ -64,29 +73,6 @@ instance
    `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt
     (rewrap @(AR) @(ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll `T` _) @(ttt `L` ttt `T` lll `L` tt `T` ll `T` _) identity)
    )
-  `compose` supertype)
-
--- TODO: generalise up to any tensors
--- TODO: generalise up to any categories
-instance
- ( forall e . Wrapper (AR) (t `L` t `T` l `L` I `T` ll `T` e)
- , forall e . Wrapper (AR) (t `L` t `T` l `T` e)
- , forall e . Covariant Endo Semi Functor (AR) (T'I'II (P) e)
- , forall e . Covariant Endo Semi Functor (AR) (T'II'I (P) e)
- , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
- , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` t `L` t `T` l `L` tt `T` ll) (tt `TT'T'I` t)
- , Covariant Transformation Functor (AR) (AR) (ttt `T'TT'I` t `L` t `T` l `L` ttt `T` ll) (ttt `TT'T'I` t)
- , Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
- ) => Mapping T'I'II T'I'II (AR) (AR) ((tt `P'T'I'TT'I` ttt) `T'TT'I` t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll) ((tt `P'T'I'TT'I` ttt) `TT'T'I` t) where
- mapping = rewrap `identity` \source -> rewrap (
-  day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (subtype @(AR) @(tt `P'T'I'TT'I` ttt `T'I___` _))
-  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) _) @(T'II'I (P) _)
-   (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` l `L` tt `T` ll) @(tt `TT'T'I` t) source)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll `T` _) @(t `L` t `T` l `L` tt `T` ll `T` _) identity)))
-  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (P) _) @(T'I'II (P) _)
-   (subtype @(AR) @(t `L` t `T` Void `T` _) `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(ttt `T'TT'I` t `L` t `T` l `L` ttt `T` ll) @(ttt `TT'T'I` t) source)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` ll `T` _) @(t `L` t `T` l `L` ttt `T` ll `T` _) identity)))
   `compose` supertype)
 
 instance
@@ -644,12 +630,13 @@ instance
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt source `identity` T'I'II (f `compose` That))
 
 instance
- ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
+ ( iii ~ i `S` ii
+ , Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
- ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) (T'I'II (AR) (i `S` ii)) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) (T'I'II (AR) (iii)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
-  This i -> map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i) source x `supertype` i
-  That ii -> map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii) source y `supertype` ii
+  This i -> map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) _) source x `supertype` i
+  That ii -> map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) _) source y `supertype` ii
 
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
