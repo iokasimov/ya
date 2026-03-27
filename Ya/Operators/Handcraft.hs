@@ -234,14 +234,14 @@ infixl 3 `lo_____`, `lo_____'tb`, `lo_____'yp`, `lo_____'yp'yo'eq`, `lo_____'ys`
 infixl 2 `lo______`, `lo______'tb`, `lo______'yp`, `lo______'yp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
 infixl 1 `lo_______`, `lo_______'tb`, `lo_______'yp`, `lo_______'yp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
 
-infixl 8 `has`, `bt'has`
-infixl 7 `has_`, `bt'has_`
-infixl 6 `has__`, `bt'has__`
-infixl 5 `has___`, `bt'has___`
-infixl 4 `has____`, `bt'has____`
-infixl 3 `has_____`, `bt'has_____`
-infixl 2 `has______`, `bt'has______`
-infixl 1 `has_______`, `bt'has_______`
+infixl 8 `has`, `st'has`, `bt'has`
+infixl 7 `has_`, `st'has_`, `bt'has_`
+infixl 6 `has__`, `st'has__`, `bt'has__`
+infixl 5 `has___`, `st'has___`, `bt'has___`
+infixl 4 `has____`, `st'has____`, `bt'has____`
+infixl 3 `has_____`, `st'has_____`, `bt'has_____`
+infixl 2 `has______`, `st'has______`, `bt'has______`
+infixl 1 `has_______`, `st'has_______`, `bt'has_______`
 
 infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'yp`, `hjd'yp'yo'eq`, `hjd'ys`, `hjd'yw`, `hjd'eq` -- `hjd'yp'yp`,
 infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'yp`, `hjd_'yp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`
@@ -2804,6 +2804,30 @@ has____ = has
 has_____ = has
 has______ = has
 has_______ = has
+
+st'has, st'has_, st'has__, st'has___, st'has____, st'has_____, st'has______, st'has_______ :: forall target i a o oo .
+ Contravariant Limit target target =>
+ Covariant Elicitable target a =>
+ (Supertype a ~ (o `S` oo)) =>
+ (forall e . Covariant Functor target target (T'I'II S e)) =>
+ (forall e . Covariant Functor target target (T'II'I S e)) =>
+ (forall ee eee . Wrapper target (T'I'II Sum ee eee)) =>
+ (forall ee eee . Wrapper target (T'II'I Sum ee eee)) =>
+ (forall ee . Wrapper target (T'I'I Sum ee)) =>
+ (forall ee . Wrapper target (I ee)) =>
+ target o i -> target oo i -> target a i
+st'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+ `compose` foi @target @target l
+ `compose` fio @target @target r
+ `compose` supertype @target @a
+
+st'has_ = st'has
+st'has__ = st'has
+st'has___ = st'has
+st'has____ = st'has
+st'has_____ = st'has
+st'has______ = st'has
+st'has_______ = st'has
 
 bt'has, bt'has_, bt'has__, bt'has___, bt'has____, bt'has_____, bt'has______, bt'has_______ :: forall target i a o oo .
  Contravariant Limit target target =>
