@@ -541,7 +541,7 @@ yio'st, ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho
  Covariant Yoneda Functor source target (T'I'II t i) =>
  Contravariant Semi Functor source target (T'II'I source o) =>
  Covariant Semi Functor source target (T'I'II source o) =>
- Wrapper source a =>
+ Covariant Elicitable source a =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
@@ -1482,8 +1482,8 @@ ho'st'st, ho_'st'st, ho__'st'st, ho___'st'st, ho____'st'st, ho_____'st'st, ho___
  Covariant Yoneda Functor source target (T'I'II u i) =>
  Contravariant Semi Functor source target (T'II'I source o) =>
  Covariant Semi Functor source target (T'I'II source o) =>
- Wrapper source a =>
- Wrapper source (Supertype a) =>
+ Covariant Elicitable source a =>
+ Covariant Elicitable source (Supertype a) =>
  (forall e . Wrapper target (T'I'II u i e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
