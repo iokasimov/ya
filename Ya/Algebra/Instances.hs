@@ -650,6 +650,17 @@ instance
    `compose` currying)
 
 instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
+ , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (ii `P` i)) (t `TT'T'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity`
+  (let currying i ii iii = i (These ii iii) in
+   map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt
+    (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i) @t source `compose` T'I'II)
+   `compose` T'I'II
+   `compose` currying)
+
+instance
  ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt) (T'I'II (AR) (i `P` ii)) where
@@ -657,3 +668,12 @@ instance
   (let uncurrying i (These ii iii) = i ii iii in
   uncurrying `compose` supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i)
     (supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii) source))
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `TT'T'I` tt) (T'I'II (AR) (ii `P` i)) where
+ mapping = rewrap `identity` \source -> rewrap `identity`
+  (let uncurrying i (These ii iii) = i ii iii in
+  uncurrying `compose` supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) ii)
+    (supertype @(AR) `compose` map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) i) source))

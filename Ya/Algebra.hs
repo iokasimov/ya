@@ -30,6 +30,16 @@ instance
 instance
  ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
  , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `TT'T'I` tt) ((t `TT'T'I` tt) `L` (t `TT'T'I` tt) `T` (Void)) e ee) (t `TT'T'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  These (These (TT'T'I e) (Label (TT'T'I ee))) (T'I'II f) ->
+    day @T'I'II @(AR) @Void @tt @tt @(P) @(P) identity
+     (day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `compose` fio @(AR) subtype)
+      (These e (subtype ee))
+
+instance
+ ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
  ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` (Void)) e ee) (t `P'T'I'TT'I` tt) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These (These (T'TT'I'TTT'I (These xx x)) (Label (T'TT'I'TTT'I (These xxxx xxx)))) (T'I'II f)) ->
   These (day @T'I'II @(AR) @Void @t @t @(P) @(P) source f (These xx (Label xxxx))) (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) source f (These x (Label xxx)))
