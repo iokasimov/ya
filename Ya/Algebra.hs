@@ -1055,3 +1055,42 @@ instance Elicitable T'II'I (AR) (e `S` (ee `S` eee))
 
 instance Elicitable T'I'II (AR) (e `S` (ee `S` eee))
  where elicit = T'I'II (This `ha` This `has_` This `ha` That `has` That)
+
+type instance Supertype Unit = Unit
+
+instance Elicitable T'I'II (AR) Unit where
+ elicit = T'I'II identity
+
+type instance Supertype (i `S` Unit) = i `S` Unit
+
+instance Elicitable T'I'II (AR) (i `S` Unit) where
+ elicit = T'I'II identity
+
+type instance Supertype (i `P` Unit) = Supertype i
+
+instance Elicitable T'I'II (AR) i
+ => Elicitable T'I'II (AR) (i `P_` Unit) where
+ elicit = T'I'II (\(These x _) -> supertype x)
+
+type instance Supertype (Unit `P_` i `S` Unit) = i `S` Unit
+
+instance Elicitable T'I'II (AR) (Unit `P_` ii `S` Unit) where
+ elicit = T'I'II (\(These _ x) -> x)
+
+type instance Supertype (i `S` Unit `P_` ii `S` Unit) = Supertype (Supertype i `P_` ii `S` Unit) `S_` ii `S` Unit
+
+instance (Elicitable T'I'II (AR) i, Elicitable T'I'II (AR) (Supertype i `P_` ii `S` Unit))
+ => Elicitable T'I'II (AR) (i `S` Unit `P_` ii `S` Unit) where
+ elicit = T'I'II (\case {
+  These (This x) xx -> This (supertype (These (supertype x) xx));
+  These (That _) xx -> That xx;
+  })
+
+type instance Supertype (i `P` iii `P_` ii `S` Unit) = Supertype (Supertype (Supertype (i `P` iii)) `P_` ii `S` Unit)
+
+instance
+ ( Elicitable T'I'II (AR) (i `P_` iii)
+ , Elicitable T'I'II (AR) (Supertype (i `P_` iii))
+ , Elicitable T'I'II (AR) (Supertype (Supertype (i `P_` iii)) `P_` ii `S` Unit)
+ ) => Elicitable T'I'II (AR) (i `P` iii `P_` ii `S` Unit) where
+ elicit = T'I'II (\(These x xx) -> supertype (These (supertype (supertype x)) xx))
