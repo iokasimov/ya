@@ -6,10 +6,10 @@ infixl 9 #, `T`
 infixl 8 `T_`, `T'I`, `I'T`, `T'TT`, `TT'T`
 infixl 7 `T__`, `T'I_`, `I'T_`, `T'TT_`, `TT'T_`, `T'TT'I`, `TT'T'I`
 infixl 6 `T___`, `T'I__`, `I'T__`, `T'TT__`, `TT'T__`, `T'TT'I_`
-infixl 5 `T____`, `T'I___`, `I'T___`, `T'TT___`, `TT'T___`
-infixl 4 `T_____`, `T'TT____`, `TT'T____`
-infixl 3 `T______`, `T'TT_____`, `TT'T_____`
-infixl 2 `T_______`, `T'TT______`, `TT'T______`
+infixl 5 `T____`, `T'I___`, `I'T___`, `T'TT___`, `TT'T___`, `T'TT'I__`
+infixl 4 `T_____`, `T'TT____`, `TT'T____`, `T'TT'I___`
+infixl 3 `T______`, `T'TT_____`, `TT'T_____`, `T'TT'I____`
+infixl 2 `T_______`, `T'TT______`, `TT'T______`, `T'TT'I_____`
 infixl 1 `T________`, `T'TT_______`, `TT'T_______`
 
 type T t = t
@@ -87,6 +87,10 @@ pattern Fixed x = Recursive x
 newtype T'TT'I t tt i = T'TT'I (t (tt i))
 
 type T'TT'I_ = T'TT'I
+type T'TT'I__ = T'TT'I
+type T'TT'I___ = T'TT'I
+type T'TT'I____ = T'TT'I
+type T'TT'I_____ = T'TT'I
 
 type instance Supertype (t `T'TT'I` tt `T'I_` i) = t (tt i)
 
