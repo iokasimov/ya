@@ -19,6 +19,12 @@ pattern Root :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Root x = Label x
 
+instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \case
+   T'I'II (This _) -> T'I'II `har'st` This `hjd_` is `hu'st` Empty
+   T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `hu'st` Empty `bt'has_` Exist `ha` that (source x)
+
 instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) Alone where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
