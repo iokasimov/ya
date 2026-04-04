@@ -675,14 +675,13 @@ instance {-# OVERLAPS #-}
 pattern Enter :: forall t i . t i `AR_` t i
 pattern Enter x = x
 
-pattern Null :: Void `AR_` Void
+pattern Null, Fail :: Void `AR_` Void
 pattern Null x = x
-
-pattern Fail :: Void `AR_` Void
 pattern Fail x = x
 
-pattern Only :: Unit `AR_` Unit
+pattern Only, Pass :: Unit `AR_` Unit
 pattern Only x = x
-
-pattern Pass :: Unit `AR_` Unit
 pattern Pass x = x
+
+pattern Sole :: Unit `P` Unit `AR_` Unit `P` Unit
+pattern Sole x = x
