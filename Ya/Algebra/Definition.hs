@@ -685,3 +685,6 @@ pattern Pass x = x
 
 pattern Sole :: Unit `P` Unit `AR_` Unit `P` Unit
 pattern Sole x = x
+
+pattern None :: Void `P` Void `AR_` Void `P` Void
+pattern None x = x
