@@ -241,10 +241,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
 
 -- Define `Rewindable` typeclass, there should be instances for `Scrolling List``identity``Sliding List`
 
-type family Vector x xs where
- Vector x (y `P` xs) = (x ~ y, Vector x xs)
- Vector x y = x ~ y
-
 -- This transformation is not natural!
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
 --  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'eq` source x'
