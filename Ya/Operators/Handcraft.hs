@@ -319,6 +319,8 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`
 
+infixl 8 `yv`
+
 infixl 8 `yu`, `yu'st`
 infixl 7 `yu_`, `yu_'st`
 infixl 6 `yu__`, `yu__'st`
@@ -567,6 +569,16 @@ ho________'st = yio'st
 --  Elicitable T'I'II target (W_III_I_II w eee e o) =>
 --  w e a eee -> target (source a o) (w e o eee)
 -- yioi x = compose supertype (yoneda @T'I'II @source @target @(W_III_I_II _ _ _) (subtype x))
+
+yv :: forall target t a o .
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Yoneda Functor target target t =>
+ Covariant Endo Transformation Functor target I (T'I'II target o) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (t a) (target a (t o))
+yv = fai @target (subtype `compose` constant) `compose` yoneda @T'II'I @Functor @target @target
 
 yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
  Covariant Yoneda Functor target target t =>
