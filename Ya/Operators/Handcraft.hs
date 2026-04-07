@@ -197,6 +197,8 @@ infixl 3 `har_____`, `har_____'st`, `bt'har_____`, `bt'har_____'st`
 infixl 2 `har______`, `har______'st`, `bt'har______`, `bt'har______'st`
 infixl 1 `har_______`, `har_______'st`, `bt'har_______`, `bt'har_______'st`
 
+infixl 9 `hv`
+
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
 infixl 7 `hu__`, `hu__'st`, `hu__'bt`  --, `st'hu__`
@@ -343,6 +345,8 @@ infixl 8 `yw`, `yw'yo`, `yw'yokl`
 infixl 7 `yoi`, `yio'hjd`
 
 infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
+
+infixl 7 `yvi`
 
 infixl 7 `yui` --, `yui'st`
 
@@ -578,18 +582,29 @@ yv :: forall target t a o .
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (t a) (target a (t o))
-yv = fai @target (subtype `compose` constant) `compose` yoneda @T'II'I @Functor @target @target
+yv = fai @target constant `compose` ya @target @target
+
+yvi, hv :: forall target t a o i .
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
+ Covariant Endo Transformation Functor target I (T'I'II target o) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (t a i) (target a (t o i))
+yvi = fai @target constant `compose` yai @target
+
+hv = yvi
 
 yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
  Covariant Yoneda Functor target target t =>
  (forall e . Contravariant Functor target target (T'II'I target e)) =>
- -- Mapping T'I'II T'I'II target target I (T'I'II target a) =>
  Covariant Endo Transformation Functor target I (T'I'II target a) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (t a) (target o (t o))
-yu = fai @target (subtype `compose` constant) `compose` yoneda @T'I'II @Functor @target @target
+yu = fai @target constant `compose` yo @target @target
 
 yu_ = yu
 yu__ = yu
