@@ -679,12 +679,14 @@ pattern Null, Fail :: Void `AR_` Void
 pattern Null x = x
 pattern Fail x = x
 
-pattern Only, Pass :: Unit `AR_` Unit
-pattern Only x = x
+pattern Pass :: Unit `AR_` Unit
 pattern Pass x = x
+
+pattern Only :: Unit `S` Void `AR_` Unit `S` Void
+pattern Only x = x
 
 pattern Sole :: Unit `P` Unit `AR_` Unit `P` Unit
 pattern Sole x = x
 
-pattern None :: Void `P` Void `AR_` Void `P` Void
+pattern None :: Void `P` i `AR_` Void `P` i
 pattern None x = x
