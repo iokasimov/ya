@@ -197,7 +197,7 @@ infixl 3 `har_____`, `har_____'st`, `bt'har_____`, `bt'har_____'st`
 infixl 2 `har______`, `har______'st`, `bt'har______`, `bt'har______'st`
 infixl 1 `har_______`, `har_______'st`, `bt'har_______`, `bt'har_______'st`
 
-infixl 9 `hv`
+-- infixl 9 `hv`
 
 infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
 infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
@@ -321,7 +321,7 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`
 
-infixl 8 `yv`
+-- infixl 8 `yv`
 
 infixl 8 `yu`, `yu'st`
 infixl 7 `yu_`, `yu_'st`
@@ -346,7 +346,7 @@ infixl 7 `yoi`, `yio'hjd`
 
 infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 
-infixl 7 `yvi`
+-- infixl 7 `yvi`
 
 infixl 7 `yui` --, `yui'st`
 
@@ -574,6 +574,7 @@ ho________'st = yio'st
 --  w e a eee -> target (source a o) (w e o eee)
 -- yioi x = compose supertype (yoneda @T'I'II @source @target @(W_III_I_II _ _ _) (subtype x))
 
+{-
 yv :: forall target t a o .
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
  Contravariant Yoneda Functor target target t =>
@@ -581,20 +582,28 @@ yv :: forall target t a o .
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e . Wrapper target (I e)) =>
- target (t a) (target a (t o))
-yv = fai @target constant `compose` ya @target @target
+ target (t a) (target o (t o))
+yv = fai @target (_ :: _) `compose` ya @target @target
+
+-- f: target a (source o a)
 
 yvi, hv :: forall target t a o i .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
  (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
  Covariant Endo Transformation Functor target I (T'I'II target o) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
  (forall e . Wrapper target (I e)) =>
  target (t a i) (target a (t o i))
 yvi = fai @target constant `compose` yai @target
 
 hv = yvi
+
+experiment :: I Unit `AR` Unit `S` Unit
+experiment = (This :: Unit `AR` Unit `S` Unit) `hv` Unit
+-}
 
 yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
  Covariant Yoneda Functor target target t =>
