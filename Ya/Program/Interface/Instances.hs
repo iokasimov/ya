@@ -25,6 +25,16 @@ instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
    T'I'II (This _) -> T'I'II `har'st` This `hjd_` is `hu'st` Empty
    T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `hu'st` Empty `bt'has_` Exist `ha` that (source x)
 
+instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `hjd_'tb` (\xx -> x `yo` that `ha` source `hjd_'yp` Align `har` xx `yo_` hdj @(AR))
+
+instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'yp` Align `har` xx `yo_` hdj @(AR))
+
 instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) Alone where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
@@ -33,9 +43,9 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
-  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `hu` empty `bt'has` (\x' -> x' `ryu` Enter))
+  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `hu` empty `bt'has` (\x' -> is @(Unit `P` Unit) `hu` x' `ryo` Enter))
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
-   Exist `har` x `hjd` Label `ha` (Empty `hu_` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> x' `ryu` Enter @List))
+   Exist `har` x `hjd` Label `ha` (Empty `hu_` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> is @(Unit `P` Unit) `hu` x' `ryo` Enter @List))
 
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
@@ -52,9 +62,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Vo
  -- mapping = rewrap `identity` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
   -- that (bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `bt'har__` fs) `yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
-  sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` x `yi__` that `hjd__'tb` xs `yi__` Merge `ho` mutate `yo__` source
+-- instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
+ -- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
+  -- sx `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` x `yi__` that `hjd__'tb` xs `yi__` Merge `ho` mutate `yo__` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hop` subtype @(AR) `ha` this `ha` sub `ho_'yo` source
@@ -101,7 +111,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Vo
  mapping = rewrap `identity` \source x -> empty @List `hjd'tb` supertype x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (empty @List `hjd'tb` supertype x) `yo` source
+ -- mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (empty @List `hjd'tb` supertype x) `yo` source
+ mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (None `ho'st` initial `ryo` Enter @List `hjd_'tb` supertype x) `yo` source
 
 pattern Locus :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
@@ -152,23 +163,53 @@ pattern Spare x = Label (T'TT'I x)
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
  mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `bt'has` Valid `ha` source `har` x
 
-pattern Merge :: forall t tt i .
- ( Stackable tt
- , Covariant Endo Semi Functor (->) tt
+-- pattern Chary :: forall i ii .
+ -- Component (AR) ((P'II'I ii `T'TT'I` S'I'II Unit) `L` (P'II'I ii `T'TT'I` S'I'II Unit) `T` Void) (S'I'II ii) =>
+ -- P'II'I ii (S'I'II iii i) `AR___` (P'II'I ii `T'TT'I` S'I'II iii) `L` (P'II'I ii `T'TT'I` S'I'II iii) `T` Void `T` i
+-- pattern Chary x = Label (T'TT'I x)
+
+pattern Merge :: forall t tt ttt i .
+ -- ( Stackable tt
+ ( Covariant Endo Semi Functor (->) tt
  , Covariant Endo Yoneda Functor (->) t
- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` tt `T` (Void `P` Void `P` Void) `T` i
+ -- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ -- ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void `P` Void `P` Void) `T` i
+ ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
 pattern Merge x = Label x
 
-instance
- ( Stackable tt
- , Covariant Endo Semi Functor (->) tt
- , Covariant Yoneda Functor (->) (->) t
- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void `P` Void `P` Void)) tt where
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+ (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
-    `bt'har__` xx `yi__` that `ho'yo` source
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+ (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+ (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+ (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
+
+-- instance
+ -- ( Stackable tt
+ -- ( Covariant Endo Semi Functor (->) tt
+ -- , Covariant Yoneda Functor (->) (->) t
+ -- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
+ -- ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void `P` Void `P` Void)) tt where
+ -- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  -- x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
+    -- `bt'har__` xx `yi__` that `ho'yo` source
 
 pattern Aloft :: forall tt t i .
  -- Component (AR) ((t `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree =>
@@ -332,7 +373,7 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
- mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `har` source `har` empty @List) where
+ mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `har` source `har_` (T'TT'I `har'st` Empty)) where
 
   worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `har`
    (\xx -> xx
@@ -441,8 +482,11 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   window_extract_last passed w =
    push @List passed w `yi` that
     `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
-    `bt'har__` empty @List
+    `bt'har__` T'TT'I `har'st` Empty
     `yi__` that `ho` pop @List
+
+-- None `h?` `ryo` Enter @Maybe
+-- Pass `hu'st` A `ryo` Enter @Maybe
 
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree

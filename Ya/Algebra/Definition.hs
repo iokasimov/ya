@@ -690,3 +690,6 @@ pattern Sole x = x
 
 pattern None :: Void `P` i `AR_` Void `P` i
 pattern None x = x
+
+pattern Some :: Unit `S` i `AR_` Unit `S` i
+pattern Some x = x
