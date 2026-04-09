@@ -351,7 +351,7 @@ infixl 8 `ys`, `ys'yo`, `ys'yu`
 
 infixl 8 `yw`, `yw'yo`, `yw'yokl`
 
-infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'hjd`
+infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'ut`, `yio'hjd`
 
 infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 
@@ -567,15 +567,33 @@ yio'vt, ho'vt, ho_'vt, ho__'vt, ho___'vt, ho____'vt, ho_____'vt, ho______'vt, ho
  target (t i Void) (target Unit (t i o))
 yio'vt = fai @target (fai @source initial `compose` subtype @target @(source Void o)) `compose` yio @source @target @t
 
-ho'vt = yio'vt
-ho_'vt = yio'vt
-ho__'vt = yio'vt
-ho___'vt = yio'vt
-ho____'vt = yio'vt
-ho_____'vt = yio'vt
-ho______'vt = yio'vt
-ho_______'vt = yio'vt
-ho________'vt = yio'vt
+ho'vt = yio'vt @source @target
+ho_'vt = yio'vt @source @target
+ho__'vt = yio'vt @source @target
+ho___'vt = yio'vt @source @target
+ho____'vt = yio'vt @source @target
+ho_____'vt = yio'vt @source @target
+ho______'vt = yio'vt @source @target
+ho_______'vt = yio'vt @source @target
+ho________'vt = yio'vt @source @target
+
+yio'ut
+ :: forall source target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ Contravariant Semi Functor source target (T'II'I source o) =>
+ Covariant Semi Functor source target (T'I'II source o) =>
+ Terminal source =>
+ (forall e . Wrapper target (source Unit e)) =>
+ (Supertype (source Unit o) ~ o) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t i a) (target o (t i o))
+yio'ut = fai @target (fai @source terminal `compose` subtype @target @(source Unit o)) `compose` yio @source @target @t
 
 yio'st, ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho_______'st, ho________'st
  :: forall source target t i a o .
