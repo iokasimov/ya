@@ -207,10 +207,10 @@ type Moore = F'T'I'TT'II Given Along
 
 type Way = Unit `S` Unit
 
-pattern Back :: forall r e ee . (r ~ e `S` ee) => e -> r
+pattern Back :: forall e ee r . (r ~ e `S` ee) => e -> r
 pattern Back x = This x
 
-pattern Fore :: forall r ee e . (r ~ e `S` ee) => ee -> r
+pattern Fore :: forall ee e r . (r ~ e `S` ee) => ee -> r
 pattern Fore x = That x
 
 type Match = T'II'I Arrow Boolean

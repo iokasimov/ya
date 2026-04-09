@@ -448,10 +448,10 @@ instance Elicitable T'II'I (->) (W_III_I_II w iii i ii)
 
 type instance Supertype (Arrow Unit ii) = ii
 
-instance (i ~ Unit) => Elicitable T'II'I (->) (Arrow i ii)
+instance Elicitable T'II'I (->) (Arrow Unit ii)
  where elicit = T'II'I (\ii -> (\_ -> ii))
 
-instance (i ~ Unit) => Elicitable T'I'II (->) (Arrow i ii)
+instance Elicitable T'I'II (->) (Arrow Unit ii)
  where elicit = T'I'II (\f -> f ())
 
 data Void

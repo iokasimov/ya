@@ -22,7 +22,7 @@ pattern Root x = Label x
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This _) -> T'I'II `har'st` This `hjd_` is `hu'st` Empty
+   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` is `hu'st` Empty
    T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `hu'st` Empty `bt'has_` Exist `ha` that (source x)
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
@@ -111,8 +111,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Vo
  mapping = rewrap `identity` \source x -> empty @List `hjd'tb` supertype x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
- -- mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (empty @List `hjd'tb` supertype x) `yo` source
- mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (None `ho'st` initial `ryo` Enter @List `hjd_'tb` supertype x) `yo` source
+ mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (empty @List `hjd'tb` supertype x) `yo` source
+ -- mapping = rewrap `identity` \source x -> empty @List `hjd'tb` (None `ho'st` initial `ryo` Enter @List `hjd_'tb` supertype x) `yo` source
 
 pattern Locus :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
@@ -451,7 +451,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Lease `ha` State `har___` Event `har__` fetch `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
    `yok____` Check `ha` Stops `ha` not `ha` found
    `yuk____` Apply `ha` State `har___` Event `ha` shift `har` way
-   `yok____` Retry `ha__` Break `hu'st` Ok `bt'has` Again `hu'st` Break
+   `yok____` Retry `ha__` Break `hu'st` Ok @Unit `bt'has` Again `hu'st` Break @Unit
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
@@ -477,7 +477,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Apply `ha` State `har___` Event `har` fetch `ha__` Scope `har` field @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
-  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `har_'st` This
+  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `har_'st` This @Unit
 
   window_extract_last passed w =
    push @List passed w `yi` that
