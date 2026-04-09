@@ -143,8 +143,8 @@ instance {-# OVERLAPS #-}
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (List `P'T'I'TT'I` Twice `T'TT'I` List) `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These _ (T'TT'I (T'I'I (These rl fl))))) ->
   List `ha` Exist `ha` Build `ha` Item (Label x) `har` supertype (Last @Unit)
-    `hjd__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha__` is `hu` x) `bt'har` empty @List `yi` that
-     `hjd_` (fl `yokl` Label @_ @_ @Void `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `hu` x)
+    `hjd__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha__` is `ho'ut` x) `bt'har` empty @List `yi` that
+     `hjd_` (fl `yokl` Label @_ @_ @Void `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `ho'ut` x)
       `bt'har` empty @List `yi` that
      `yi_` T'TT'I `ha` T'I'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
@@ -200,7 +200,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Prior `ha` Apply `ha` State `ha` Event
-  `ha__` Error `hu` fetch `bt'has` push @List `ho'ho` (fetch `ha` that) `ha` source
+  `ha__` Error `ho'ut` fetch `bt'has` push @List `ho'ho` (fetch `ha` that) `ha` source
   `bt'har__` empty @List
   `yi__` that
 
@@ -225,7 +225,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
 instance Mapping T'I'II T'I'II (AR) (AR) List
  (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` (Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source -> subtype @(AR) @(List `T'TT'I` Scrolling List `L` Scrolling List `T` Void `T'I_` _) 
-  `ha__` Empty `hu` empty @List
+  `ha__` Empty `ho'ut` empty @List
     `bt'has` map @T'I'II @T'I'II @(AR) @(AR) @(Nonempty List) @(Nonempty List `T'TT'I` Scrolling List `L` Scrolling List `T` Void) source `ho'st` Adapt `ho` mutate
 
 -- TODO: Add a label
@@ -243,7 +243,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
 
 -- This transformation is not natural!
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
---  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `hu` False Unit `has` Same `hu` True Unit `hc__` x `hjd'eq` source x'
+--  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `ho'ut` False Unit `has` Same `ho'ut` True Unit `hc__` x `hjd'eq` source x'
 
 -- instance Semigroup (AR) Boolean where
  -- s (These x y) = x `hjd'ys'has` Try y

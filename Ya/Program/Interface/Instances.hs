@@ -22,8 +22,8 @@ pattern Root x = Label x
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` is `hu'st` Empty
-   T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `hu'st` Empty `bt'has_` Exist `ha` that (source x)
+   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` is `ho'ut'st` Empty
+   T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `ho'ut'st` Empty `bt'has_` Exist `ha` that (source x)
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
@@ -43,13 +43,13 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
-  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `hu` empty `bt'has` (\x' -> is @(Unit `P` Unit) `hu` x' `ryo` Enter))
+  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `ho'ut` empty `bt'has` (\x' -> is @(Unit `P` Unit) `ho'ut` x' `ryo` Enter))
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
-   Exist `har` x `hjd` Label `ha` (Empty `hu_` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> is @(Unit `P` Unit) `hu` x' `ryo` Enter @List))
+   Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> is @(Unit `P` Unit) `ho'ut` x' `ryo` Enter @List))
 
 instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (Empty `hu` x `bt'has` (\xx -> that (push xx x)))
+  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
@@ -161,7 +161,7 @@ pattern Spare :: forall i ii .
 pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
- mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `hu` Error i `bt'has` Valid `ha` source `har` x
+ mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `ho'ut` Error i `bt'has` Valid `ha` source `har` x
 
 -- pattern Chary :: forall i ii .
  -- Component (AR) ((P'II'I ii `T'TT'I` S'I'II Unit) `L` (P'II'I ii `T'TT'I` S'I'II Unit) `T` Void) (S'I'II ii) =>
@@ -361,8 +361,8 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source x -> T'TT'I `har__` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (is `hu` (source `ha` this `ha` top `har` xx `hjd` That Unit) `bt'has` is `hu` (source `ha` this `ha` top `har` xx `hjd` This Unit))
-   `ha` (\xxx -> this `ha` sub `har` xxx `hjd'ys` (Unit `ryu` Apply @t) `yokl` Apply `ha` Check `ha__` Error `hu` Error Unit `bt'has` Valid)
+   `ha` (is `ho'ut` (source `ha` this `ha` top `har` xx `hjd` That Unit) `bt'has` is `ho'ut` (source `ha` this `ha` top `har` xx `hjd` This Unit))
+   `ha` (\xxx -> this `ha` sub `har` xxx `hjd'ys` (Unit `ryu` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
    `har` xx)
 
 pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
@@ -420,7 +420,7 @@ pattern Below x = That x :: Shifter List
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = is `har` Empty `hu` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
+ shift way x = is `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
 
   _shift_ = Unit `ryu` Enter @(Halts `JNT` State `T` Scrolling List i)
    `yuk____` Apply `ha__` State
@@ -443,7 +443,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
     `ha____` Scope `har` field @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `bt'has_` is `ho'st` foi @_ @(AR) (Empty `hu'st` Empty) `har_` _spot_ `bt'har` x where
+ spot (These way predicate) x = foi Exist `ha` fetch `bt'has_` is `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
 
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yuu` sl
 
@@ -451,12 +451,12 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yuk____` Lease `ha` State `har___` Event `har__` fetch `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
    `yok____` Check `ha` Stops `ha` not `ha` found
    `yuk____` Apply `ha` State `har___` Event `ha` shift `har` way
-   `yok____` Retry `ha__` Break `hu'st` Ok @Unit `bt'has` Again `hu'st` Break @Unit
+   `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
 
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
-  `har_` is `hu` (Empty Unit `hjd` x)
+  `har_` is `ho'ut` (Empty Unit `hjd` x)
   `bt'has_` is `ho'st` foi @_ @(AR) Exist
   `har_` (slide_passed `lv` slide_future `har` way) `bt'har` x where
 
@@ -486,14 +486,14 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
     `yi__` that `ho` pop @List
 
 -- None `h?` `ryo` Enter @Maybe
--- Pass `hu'st` A `ryo` Enter @Maybe
+-- Pass `ho'ut'st` A `ryo` Enter @Maybe
 
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
  shift way x = is
-  `har` is `hu` (Empty Unit `hjd` x)
+  `har` is `ho'ut` (Empty Unit `hjd` x)
   `bt'has` is `ho'st` foi @_ @(AR) Exist
   `har_` (horizontally `has_` vertical_deep `has` vertical_up `har_` way) `bt'har` x where
 

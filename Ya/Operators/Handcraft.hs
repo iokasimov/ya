@@ -621,8 +621,10 @@ yio'ut'st, ho'ut'st, ho_'ut'st, ho__'ut'st, ho___'ut'st, ho____'ut'st, ho_____'u
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- target (t i a) (target (Supertype o) (t i o))
-yio'ut'st = fai @target (fai @target terminal `compose` subtype @target @(target Unit o) `compose` subtype) `compose` yio @target @target @t
+ target (t i a) (target o (t i (Supertype o)))
+yio'ut'st = fio @target (fio @target supertype)
+ `compose` fai @target (fai @target terminal `compose` subtype @target @(target Unit o))
+ `compose` yio @target @target @t
 
 ho'ut'st = yio'ut'st
 ho_'ut'st = yio'ut'st
