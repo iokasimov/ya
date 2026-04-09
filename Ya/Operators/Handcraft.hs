@@ -9,7 +9,7 @@ import Ya.Algebra.Instances ()
 import Ya.Operators.Mappings
 
 infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'yukl`, `ho'yoikl` -- `ho'yokl'yokl`, `ho'yokl'yukl`, --, `ho'yoo`
- , `ho'vt`
+ , `ho'vt`, `ho'ut`
  , `ho'st`
  , `ho'st'st`
  , `ho'hjd`
@@ -20,7 +20,7 @@ infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yuk`, `ho'yokl`, `ho'
  -- , `ho'hu`
 infixl 8 `ho_`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl` --, `ho_'yokl'yokl`, `ho_'yokl'yukl`
  , `ho_'yoikl` --, `ho_'yoo`,
- , `ho_'vt`
+ , `ho_'vt`, `ho_'ut`
  , `ho_'st`
  , `ho_'st'st`
  , `ho_'hjd`
@@ -29,7 +29,7 @@ infixl 8 `ho_`, `ho_'yu`, `ho_'yok`, `ho_'yuk`, `ho_'yokl`, `ho_'yukl` --, `ho_'
  -- , `ho_'hd`
 infixl 7 `ho__`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl` --, `ho__'yokl'yokl`, `ho__'yokl'yukl`
  , `ho__'yoikl` -- `ho__'yoo`,
- , `ho__'vt`
+ , `ho__'vt`, `ho__'ut`
  , `ho__'st`
  , `ho__'st'st`
  , `ho__'hjd`
@@ -38,7 +38,7 @@ infixl 7 `ho__`, `ho__'yu`, `ho__'yok`, `ho__'yuk`, `ho__'yokl`, `ho__'yukl` --,
  -- , `ho__'hd`
 infixl 6 `ho___`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yukl` --, `ho___'yokl'yokl`, `ho___'yokl'yukl`
  , `ho___'yoikl`
- , `ho___'vt`
+ , `ho___'vt`, `ho___'ut`
  , `ho___'st`
  , `ho___'st'st`
  , `ho___'hjd`
@@ -47,7 +47,7 @@ infixl 6 `ho___`, `ho___'yu`, `ho___'yok`, `ho___'yuk`, `ho___'yokl`, `ho___'yuk
  -- , `ho___'hd`
 infixl 5 `ho____`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho____'yukl` --, `ho____'yokl'yokl`, `ho____'yokl'yukl`
  , `ho____'yoikl`
- , `ho____'vt`
+ , `ho____'vt`, `ho____'ut`
  , `ho____'st`
  , `ho____'st'st`
  , `ho____'hjd`
@@ -55,7 +55,7 @@ infixl 5 `ho____`, `ho____'yu`, `ho____'yok`, `ho____'yuk`, `ho____'yokl`, `ho__
  -- , `ho____'st'st'st'st`
 infixl 4 `ho_____`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, `ho_____'yukl` --, `ho_____'yokl'yokl`, `ho_____'yokl'yukl`
  , `ho_____'yoikl`
- , `ho_____'vt`
+ , `ho_____'vt`, `ho_____'ut`
  , `ho_____'st`
  , `ho_____'st'st`
  , `ho_____'hjd`
@@ -63,13 +63,13 @@ infixl 4 `ho_____`, `ho_____'yu`, `ho_____'yok`, `ho_____'yuk`, `ho_____'yokl`, 
  -- , `ho_____'st'st'st'st`
  -- , `ho____'hd`
 infixl 3 `ho______`
- , `ho______'vt`
+ , `ho______'vt`, `ho______'ut`
  , `ho______'st` -- , `ho______'yok`, `ho______'yuk`, `ho______'yokl`, `ho______'yokl'yokl`, `ho______'yokl'yukl`, `ho______'yukl`
  , `ho______'yoikl`
  , `ho______'hjd`
 infixl 2 `ho_______`  -- `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_______'yokl`, `ho_______'yokl'yokl`, `ho_______'yokl'yukl`, `ho_______'yukl`
  , `ho_______'yoikl`
- , `ho_______'vt`
+ , `ho_______'vt`, `ho_______'ut`
  , `ho_______'st`
  , `ho_______'st'st`
  , `ho_______'hjd`
@@ -78,7 +78,7 @@ infixl 2 `ho_______`  -- `ho_______'yoo`, `ho_______'yok`, `ho_______'yuk`, `ho_
  -- , `ho_____'hd`
 infixl 1 `ho________` -- , `ho________'yok`, `ho________'yuk`, `ho________'yokl`, `ho________'yukl` , `ho________'yokl'yokl`, `ho________'yokl'yukl`
  , `ho________'yoikl`
- , `ho________'vt`
+ , `ho________'vt`, `ho________'ut`
  , `ho________'st`
  , `ho________'st'st`
  , `ho________'hjd`
@@ -577,7 +577,7 @@ ho______'vt = yio'vt @source @target
 ho_______'vt = yio'vt @source @target
 ho________'vt = yio'vt @source @target
 
-yio'ut
+yio'ut, ho'ut, ho_'ut, ho__'ut, ho___'ut, ho____'ut, ho_____'ut, ho______'ut, ho_______'ut, ho________'ut
  :: forall source target t i a o .
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -594,6 +594,16 @@ yio'ut
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i a) (target o (t i o))
 yio'ut = fai @target (fai @source terminal `compose` subtype @target @(source Unit o)) `compose` yio @source @target @t
+
+ho'ut = yio'ut @source @target
+ho_'ut = yio'ut @source @target
+ho__'ut = yio'ut @source @target
+ho___'ut = yio'ut @source @target
+ho____'ut = yio'ut @source @target
+ho_____'ut = yio'ut @source @target
+ho______'ut = yio'ut @source @target
+ho_______'ut = yio'ut @source @target
+ho________'ut = yio'ut @source @target
 
 yio'st, ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho_______'st, ho________'st
  :: forall source target t i a o .
