@@ -550,60 +550,60 @@ ho_______ = yio
 ho________ = yio
 
 yio'vt, ho'vt, ho_'vt, ho__'vt, ho___'vt, ho____'vt, ho_____'vt, ho______'vt, ho_______'vt, ho________'vt
- :: forall source target t i a o .
+ :: forall target t i a o .
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Covariant Yoneda Functor source target (T'I'II t i) =>
- Contravariant Semi Functor source target (T'II'I source o) =>
- Covariant Semi Functor source target (T'I'II source o) =>
- Initial source =>
- (forall e . Wrapper target (source Void e)) =>
- (Supertype (source Void o) ~ Unit) =>
+ Covariant Endo Yoneda Functor target (T'I'II t i) =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Initial target =>
+ (forall e . Wrapper target (target Void e)) =>
+ (Supertype (target Void o) ~ Unit) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i Void) (target Unit (t i o))
-yio'vt = fai @target (fai @source initial `compose` subtype @target @(source Void o)) `compose` yio @source @target @t
+yio'vt = fai @target (fai @target initial `compose` subtype @target @(target Void o)) `compose` yio @target @target @t
 
-ho'vt = yio'vt @source @target
-ho_'vt = yio'vt @source @target
-ho__'vt = yio'vt @source @target
-ho___'vt = yio'vt @source @target
-ho____'vt = yio'vt @source @target
-ho_____'vt = yio'vt @source @target
-ho______'vt = yio'vt @source @target
-ho_______'vt = yio'vt @source @target
-ho________'vt = yio'vt @source @target
+ho'vt = yio'vt
+ho_'vt = yio'vt
+ho__'vt = yio'vt
+ho___'vt = yio'vt
+ho____'vt = yio'vt
+ho_____'vt = yio'vt
+ho______'vt = yio'vt
+ho_______'vt = yio'vt
+ho________'vt = yio'vt
 
 yio'ut, ho'ut, ho_'ut, ho__'ut, ho___'ut, ho____'ut, ho_____'ut, ho______'ut, ho_______'ut, ho________'ut
- :: forall source target t i a o .
+ :: forall target t i a o .
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Covariant Yoneda Functor source target (T'I'II t i) =>
- Contravariant Semi Functor source target (T'II'I source o) =>
- Covariant Semi Functor source target (T'I'II source o) =>
- Terminal source =>
- (forall e . Wrapper target (source Unit e)) =>
- (Supertype (source Unit o) ~ o) =>
+ Covariant Endo Yoneda Functor target (T'I'II t i) =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Terminal target =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit o) ~ o) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i a) (target o (t i o))
-yio'ut = fai @target (fai @source terminal `compose` subtype @target @(source Unit o)) `compose` yio @source @target @t
+yio'ut = fai @target (fai @target terminal `compose` subtype @target @(target Unit o)) `compose` yio @target @target @t
 
-ho'ut = yio'ut @source @target
-ho_'ut = yio'ut @source @target
-ho__'ut = yio'ut @source @target
-ho___'ut = yio'ut @source @target
-ho____'ut = yio'ut @source @target
-ho_____'ut = yio'ut @source @target
-ho______'ut = yio'ut @source @target
-ho_______'ut = yio'ut @source @target
-ho________'ut = yio'ut @source @target
+ho'ut = yio'ut @target
+ho_'ut = yio'ut @target
+ho__'ut = yio'ut @target
+ho___'ut = yio'ut @target
+ho____'ut = yio'ut @target
+ho_____'ut = yio'ut @target
+ho______'ut = yio'ut @target
+ho_______'ut = yio'ut @target
+ho________'ut = yio'ut @target
 
 yio'st, ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho_______'st, ho________'st
  :: forall source target t i a o .
