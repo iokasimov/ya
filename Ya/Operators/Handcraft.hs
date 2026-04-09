@@ -595,15 +595,15 @@ yio'ut, ho'ut, ho_'ut, ho__'ut, ho___'ut, ho____'ut, ho_____'ut, ho______'ut, ho
  target (t i a) (target o (t i o))
 yio'ut = fai @target (fai @target terminal `compose` subtype @target @(target Unit o)) `compose` yio @target @target @t
 
-ho'ut = yio'ut @target
-ho_'ut = yio'ut @target
-ho__'ut = yio'ut @target
-ho___'ut = yio'ut @target
-ho____'ut = yio'ut @target
-ho_____'ut = yio'ut @target
-ho______'ut = yio'ut @target
-ho_______'ut = yio'ut @target
-ho________'ut = yio'ut @target
+ho'ut = yio'ut
+ho_'ut = yio'ut
+ho__'ut = yio'ut
+ho___'ut = yio'ut
+ho____'ut = yio'ut
+ho_____'ut = yio'ut
+ho______'ut = yio'ut
+ho_______'ut = yio'ut
+ho________'ut = yio'ut
 
 yio'st, ho'st, ho_'st, ho__'st, ho___'st, ho____'st, ho_____'st, ho______'st, ho_______'st, ho________'st
  :: forall source target t i a o .
