@@ -693,3 +693,19 @@ pattern None x = x
 
 pattern Some :: Unit `S` i `AR_` Unit `S` i
 pattern Some x = x
+
+type instance Supertype (Arrow Unit i) = i
+
+instance Elicitable T'II'I (->) (Arrow Unit i)
+ where elicit = T'II'I (\i -> (\_ -> i))
+
+instance Elicitable T'I'II (->) (Arrow Unit i)
+ where elicit = T'I'II (\f -> f ())
+
+type instance Supertype (Arrow Void i) = Unit
+
+instance Elicitable T'II'I (->) (Arrow Void i)
+ where elicit = T'II'I (\_ -> initial)
+
+instance Elicitable T'I'II (->) (Arrow Void i)
+ where elicit = T'I'II (\_ -> Unit)
