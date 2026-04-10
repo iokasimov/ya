@@ -347,11 +347,7 @@ infixl 8 `yw`, `yw'yo`, `yw'yokl`
 
 infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'st'vt`, `yio'ut`, `yio'ut'st`, `yio'hjd`
 
-infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
-
--- infixl 7 `yvi`
-
-infixl 7 `yui` --, `yui'st`
+infixl 7 `yai`, `yai'st`, `yai'ut`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 
 infixl 7 `yio`, `yio'yp`, `yio'yoikl` -- , `yio'yokl`, `yio'yukl`, `yio'yokl'yokl`, `yio'yokl'yukl`
 
@@ -683,6 +679,33 @@ ho_____'ut'st = yio'ut'st
 ho______'ut'st = yio'ut'st
 ho_______'ut'st = yio'ut'st
 ho________'ut'st = yio'ut'st
+
+yai'ut, ha'ut, ha_'ut, ha__'ut, ha___'ut, ha____'ut, ha_____'ut, ha______'ut, ha_______'ut, ha________'ut
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target (T'II'I t i) =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Terminal target =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit a) ~ a) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t a i) (target a (t o i))
+yai'ut = fai @target (fai @target terminal `compose` subtype @target @(target Unit a))
+ `compose` yai @target @target @t
+
+ha'ut = yai'ut
+ha_'ut = yai'ut
+ha__'ut = yai'ut
+ha___'ut = yai'ut
+ha____'ut = yai'ut
+ha_____'ut = yai'ut
+ha______'ut = yai'ut
+ha_______'ut = yai'ut
+ha________'ut = yai'ut
 
 {-
 yv :: forall target t a o .
