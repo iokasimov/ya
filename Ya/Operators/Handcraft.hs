@@ -333,16 +333,14 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`, `ya'ut`, `ya'vt`
 
--- infixl 8 `yv`
-
-infixl 8 `yu`, `yu'st`
-infixl 7 `yu_`, `yu_'st`
-infixl 6 `yu__`, `yu__'st`
-infixl 5 `yu___`, `yu___'st`
-infixl 4 `yu____`, `yu____'st`
-infixl 3 `yu_____`, `yu_____'st`
-infixl 2 `yu______`, `yu______'st`
-infixl 1 `yu_______`, `yu_______'st`
+infixl 8 `yu'st`
+infixl 7 `yu_'st`
+infixl 6 `yu__'st`
+infixl 5 `yu___'st`
+infixl 4 `yu____'st`
+infixl 3 `yu_____'st`
+infixl 2 `yu______'st`
+infixl 1 `yu_______'st`
 
 infixl 7 `yuu`
 
@@ -775,24 +773,6 @@ ha______'ut = yai'ut
 ha_______'ut = yai'ut
 ha________'ut = yai'ut
 
-yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
- Covariant Yoneda Functor target target t =>
- (forall e . Contravariant Functor target target (T'II'I target e)) =>
- Covariant Endo Transformation Functor target I (T'I'II target a) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (I e)) =>
- target (t a) (target o (t o))
-yu = fai @target constant `compose` yo @target @target
-
-yu_ = yu
-yu__ = yu
-yu___ = yu
-yu____ = yu
-yu_____ = yu
-yu______ = yu
-yu_______ = yu
-
 yu'st, yu_'st, yu__'st, yu___'st, yu____'st, yu_____'st, yu______'st, yu_______'st
  :: forall target t a o .
  Covariant Yoneda Functor target target t =>
@@ -815,16 +795,17 @@ yu______'st = yu'st
 yu_______'st = yu'st
 
 yuu :: forall target t a o .
+ Terminal target =>
  Covariant Yoneda Functor target target (T'I'I t) =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Covariant Endo Transformation Functor target I (T'I'II target a) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper target (T'I'I t e)) =>
- (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit o) ~ o) =>
  target (t a a) (target o (t o o))
-yuu = fio @target supertype `compose` yu @target `compose` subtype @target @(T'I'I t _)
+yuu = fio @target supertype `compose` yo'ut @target `compose` subtype @target @(T'I'I t _)
 
 ya :: forall source target t a o .
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -1134,19 +1115,20 @@ yok______ = yok
 -- yok_____'st'st = yok'st'st
 -- yok______'st'st = yok'st'st
 
-yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______, yi'yuk
+yuk, yuk_, yuk__, yuk___, yuk____, yuk_____, yuk______
  :: forall target tt t ll a o .
+ Terminal target =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  Covariant Yoneda Functor target target t =>
  Covariant Endo Transformation Functor target (T'TT'I t (tt `L` tt `T` ll)) t =>
- Covariant Endo Transformation Functor target I (T'I'II target a) =>
  (forall e . Wrapper target ((t `T'TT'I` tt `L` tt `T` ll) e)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit (tt `L` tt `T` ll `T` o)) ~ (tt `L` tt `T` ll `T` o)) =>
  target (t a) (target (tt `L` tt `T` ll `T` o) (t o))
-yuk = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _)) `compose` yu
+yuk = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _)) `compose` yo'ut
 
 yuk_ = yuk @target @tt
 yuk__ = yuk @target @tt
@@ -1154,7 +1136,6 @@ yuk___ = yuk @target @tt
 yuk____ = yuk @target @tt
 yuk_____ = yuk @target @tt
 yuk______ = yuk @target @tt
-yi'yuk = yuk @target @tt
 
 kyo :: forall source target t tt ll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -1313,9 +1294,8 @@ li'yokl = yokl
 yukl, yukl_, yukl__, yukl___, yukl____, yukl_____
  :: forall target t tt l ll a o .
  Category target =>
- Covariant Endo Transformation Functor target I (T'I'II target a) =>
+ Terminal target =>
  Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
- -- Component target I (T'I'II target a) =>
  Covariant Yoneda Functor target target t =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -1324,12 +1304,12 @@ yukl, yukl_, yukl__, yukl___, yukl____, yukl_____
  (forall i ii . Wrapper target (T'I'II target i (tt `L` tt `T` ll `L` t `T` l `T` ii))) =>
  (forall i ii . Wrapper target (T'I'II target ((tt `L` tt `T` ll) i) ii)) =>
  (forall i ii . Wrapper target (T'II'I target (tt `L` tt `T` ll `L` t `T` l `T` i) ii)) =>
- -- (forall e . Wrapper target (I (tt `L` tt `T` ll `L` t `T` l `T` e))) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit (tt `L` tt `T` ll `L` t `T` l `T` o)) ~ (tt `L` tt `T` ll `L` t `T` l `T` o)) =>
  target (t a) (target (tt `L` tt `T` ll `L` t `T` l `T` o) (tt (t o)))
-yukl = fio (wrapped @target (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt))) `compose` yu
+yukl = fio (wrapped @target (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt))) `compose` yo'ut
 
 yukl_ = yukl
 yukl__ = yukl
@@ -1433,23 +1413,6 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 --   `compose` fio @source supertype
 --  )
 --  (yoikl @source @target @t @ttt @l @lll @(tt a) @(tt o) x)
-
--- -- TODO: hasbeling
--- yiok :: forall source target tt t i a o .
---  Category target =>
---  Component target (T'I'II t i `T'TT'I` tt) (T'I'II t i) =>
---  Covariant Yoneda Functor source target (T'I'II t i) =>
---  (forall e ee . Wrapper target (T'I'II source e ee)) =>
---  Elicitable T'I'II target (T'I'II t i o) =>
---  Elicitable T'II'I target (T'TT'I (T'I'II t i) tt o) =>
---  t i a -> target (source a (tt o)) (t i o)
--- yiok x = supertype @target @(T'I'II t i o)
---  `compose` component @target @(T'TT'I (T'I'II t i) tt)
---  `compose` subtype @target @(T'TT'I (T'I'II t i) tt _)
---  `compose` yo (T'I'II x)
-
--- TODO: yok'yo
--- TODO: yok'st'yo
 
 -- yok'yokl--, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok______'yokl
 --  :: forall source target t tt ttt l ll lll a o .
