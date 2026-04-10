@@ -254,6 +254,15 @@ infixl 3 `has_____`, `st'has_____`, `bt'has_____`
 infixl 2 `has______`, `st'has______`, `bt'has______`
 infixl 1 `has_______`, `st'has_______`, `bt'has_______`
 
+infixl 8 `hap`
+infixl 7 `hap_`
+infixl 6 `hap__`
+infixl 5 `hap___`
+infixl 4 `hap____`
+infixl 3 `hap_____`
+infixl 2 `hap______`
+infixl 1 `hap_______`
+
 infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'yp`, `hjd'yp'yo'eq`, `hjd'ys`, `hjd'yw`, `hjd'eq` -- `hjd'yp'yp`,
 infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'yp`, `hjd_'yp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`
 infixl 6 `hjd__`, `hjd__'tb`, `st'hjd__`, `st'hjd__'tb`, `hjd__'yp`, `hjd__'yp'yo'eq`, `hjd__'ys`, `hjd__'yw`, `hjd__'eq`
@@ -3005,6 +3014,24 @@ bt'has____ = bt'has
 bt'has_____ = bt'has
 bt'has______ = bt'has
 bt'has_______ = bt'has
+
+hap, hap_, hap__, hap___, hap____, hap_____, hap______, hap_______ :: forall target a aa o oo .
+ (forall e . Covariant Functor target target (T'I'II (P) e)) =>
+ (forall e . Covariant Functor target target (T'II'I (P) e)) =>
+ (forall ee eee . Wrapper target (T'I'II (P) ee eee)) =>
+ (forall ee eee . Wrapper target (T'II'I (P) ee eee)) =>
+ (forall ee . Wrapper target (T'I'I (P) ee)) =>
+ (forall ee . Wrapper target (I ee)) =>
+ target a o -> target aa oo -> target (a `P` aa) (o `P` oo)
+hap l r = foi @target @target l `compose` fio @target @target r
+
+hap_ = hap
+hap__ = hap
+hap___ = hap
+hap____ = hap
+hap_____ = hap
+hap______ = hap
+hap_______ = hap
 
 lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  :: forall a aa aaa o .
