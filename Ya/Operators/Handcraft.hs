@@ -735,7 +735,7 @@ yu'st, yu_'st, yu__'st, yu___'st, yu____'st, yu_____'st, yu______'st, yu_______'
  (forall e . Wrapper target (I e)) =>
  Wrapper target o =>
  target (t a) (target (Supertype o) (t o))
-yu'st = fai @target (subtype `compose` constant `compose` subtype) `compose` yoneda @T'I'II @Functor @target @target
+yu'st = fai @target (constant `compose` subtype) `compose` yo @target @target
 
 yu_'st = yu'st
 yu__'st = yu'st
@@ -744,112 +744,6 @@ yu____'st = yu'st
 yu_____'st = yu'st
 yu______'st = yu'st
 yu_______'st = yu'st
-
-yui :: forall target t i a o .
- Terminal target =>
- Category target =>
- Covariant Yoneda Functor target target (T'II'I t i) =>
- Covariant Functor target target (T'I'II target a) =>
- Covariant Endo Transformation Functor target I (T'I'II target Unit) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Functor target target (T'II'I target e)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e . Wrapper target (T'II'I t i e)) =>
- (Supertype (target Unit o) ~ o) =>
- (forall e . Wrapper target (target Unit e)) =>
- (forall e . Wrapper target (I e)) =>
- target (t a i) (target (Supertype (target Unit o)) (t o i))
-yui = fai @target (fai @target terminal `compose` constant) `compose` yoi @target
-
-yiu, hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________
- :: forall target t i a o .
- Terminal target =>
- Category target =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Functor target target (T'II'I target e)) =>
- Covariant Yoneda Functor target target (T'I'II t i) =>
- Covariant Functor target target (T'I'II target a) =>
- Contravariant Functor target target (T'II'I target o) =>
- Covariant Endo Transformation Functor target I (T'I'II target Unit) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (I e)) =>
- (Supertype (target Unit o) ~ o) =>
- (forall e . Wrapper target (target Unit e)) =>
- target (t i a) (target (Supertype (target Unit o)) (t i o))
-yiu = fai @target (fai @target terminal `compose` constant) `compose` yio @target
-
-hu = yiu
-hu_ = yiu
-hu__ = yiu
-hu___ = yiu
-hu____ = yiu
-hu_____ = yiu
-hu______ = yiu
-hu_______ = yiu
-hu________ = yiu
-
-yiu'st, hu'st, hu_'st, hu__'st, hu___'st, hu____'st, hu_____'st, hu______'st, hu_______'st, hu________'st
- :: forall target t i a o .
- Terminal target =>
- Category target =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Covariant Yoneda Functor target target (T'I'II t i) =>
- Covariant Functor target target (T'I'II target a) =>
- Contravariant Functor target target (T'II'I target o) =>
- Wrapper target (target Unit o) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- Wrapper target (Supertype (target Unit o)) =>
- Wrapper target o =>
- Wrapper target (T'II'I target o Unit) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- target (t i a) (target (Supertype (target Unit o)) (t i (Supertype o)))
-yiu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-
-hu'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu__'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu___'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_____'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_______'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu________'st = fai @target (fio (supertype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-
-yiu'bt, hu'bt, hu_'bt, hu__'bt, hu___'bt, hu____'bt, hu_____'bt, hu______'bt, hu_______'bt, hu________'bt
- :: forall target t i a o .
- Terminal target =>
- Category target =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Covariant Yoneda Functor target target (T'I'II t i) =>
- Covariant Functor target target (T'I'II target a) =>
- Contravariant Functor target target (T'II'I target o) =>
- Wrapper target (target Unit o) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- Wrapper target (Supertype (target Unit o)) =>
- Covariant Objective target o (Basetype o) =>
- Wrapper target (T'II'I target o Unit) =>
- (forall e . Wrapper target (T'I'II t i e)) =>
- target (t i a) (target (Supertype (target Unit o)) (t i (Basetype o)))
-yiu'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-
-hu'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu__'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu___'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu____'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_____'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu_______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-hu________'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 
 yuu :: forall target t a o .
  Covariant Yoneda Functor target target (T'I'I t) =>
