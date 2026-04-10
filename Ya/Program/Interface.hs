@@ -16,8 +16,8 @@ import Ya.Program.Interface.Shiftable as Exports
 import Ya.Program.Interface.Keyable as Exports
 import Ya.Program.Interface.Instances as Exports
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Twice `T'TT'I` List) where
- mapping = rewrap `identity` \_ _ -> empty `hjd'tb` empty
+-- instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Twice `T'TT'I` List) where
+ -- mapping = rewrap `identity` \_ _ -> empty `hjd'tb` empty
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Covariant Day (AR) (P) (S) (Twice `T'TT'I` List) ((Twice `T'TT'I` List) `L` (Twice `T'TT'I` List) `T` Void) i ii) (Twice `T'TT'I` List) where
@@ -40,14 +40,19 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice 
    Scrolling List item `P` List item `AR__`
    List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs
-   `yukl___` Forth `ha` Apply `har____` State `har__` Event `har` (shift @Alone @List @item `har'st` Fore @Unit `ho_` that `ho` fetch) `ha__` Scope `har` field @(Scrolling List item)
+   `yokl___'ut` Forth `ha` Apply `har____` State `har__` Event `har` (shift @Alone @List @item `har'st` Fore @Unit `ho_` that `ho` fetch) `ha__` Scope `har` field @(Scrolling List item)
    `yok__` Apply `ha` State `ha___` Event `ha` push @List `ha` Label `ho__'ha` Scope `har` field @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
-   `bt'har_____` x `hjd` empty @List
+   `bt'har_____` x `hjd__` Null `ho'vt` Unit `ryo` Enter
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Construction List))) where
   mapping = rewrap `identity` \source x -> T'TT'I'TTT'I
-   (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` T'TT'I (T'I'I (empty @List `hjd` empty @List)))) `hjd` T'TT'I (Label `har` empty @List))
+   -- (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` T'TT'I (T'I'I (empty @List `hjd` empty @List)))) `hjd` T'TT'I (Label `har` empty @List))
+   -- (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` (Bare `ho'st'vt` Unit `ryo` Enter @(Shafted List)))) `hjd` T'TT'I (Label `har` empty @List))
+   (T'TT'I (T'TT'I'TTT'I ((x `yo` source `yi` Alone) `hjd` (Bare @Unit `hap` None @Void `ho_'st'vt` Unit `ryo` Enter @(Shafted List)))) `hjd` T'TT'I (Label `har` empty @List))
+-}
+-- (Unit `S` Unit) `P` (Unit `P` Unit)
 
 -- instance Mapping T'I'II T'I'II Arrow Arrow
  -- ((Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List)) `T'TT'I` Construction List `P'T'I'TT'I` (Reverse List `T'TT'I` (Alone `P'T'I'TT'I` (Reverse List `P'T'I'TT'I` Forward List) `T'TT'I` Construction List)))
