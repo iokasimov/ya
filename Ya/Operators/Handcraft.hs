@@ -331,7 +331,7 @@ infixl 1 `yukl_____`
 infixl 5 `yiokl` --, `yiokl'yokl`
 -- infixl 5 `yoikl`, `yoikl'yokl`
 
-infixl 8 `ya`
+infixl 8 `ya`, `ya'ut`, `ya'vt`
 
 -- infixl 8 `yv`
 
@@ -799,6 +799,38 @@ ya :: forall source target t a o .
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a) (target (source o a) (t o))
 ya = fai @target subtype `compose` yoneda @T'II'I @Functor
+
+ya'vt
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target t =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Initial target =>
+ (forall e . Wrapper target (target Void e)) =>
+ (Supertype (target Void a) ~ Unit) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ target (t a) (target Unit (t Void))
+ya'vt = fai @target (fai @target initial `compose` subtype @target @(target Void a))
+ `compose` ya @target @target @t
+
+ya'ut
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target t =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Terminal target =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit a) ~ a) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ target (t a) (target a (t o))
+ya'ut = fai @target (fai @target terminal `compose` subtype @target @(target Unit a))
+ `compose` ya @target @target @t
 
 yai, ha, ha_, ha__, ha___, ha____, ha_____, ha______, ha_______, ha________ :: forall source target t i a o .
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
