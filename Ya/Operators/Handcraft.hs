@@ -141,6 +141,7 @@ infixl 7 `ha__`
 infixl 6 `ha___`
  , `ha___'st`
  , `ha___'ut`
+ , `ha___'vt`
  , `ha___'hjd`
  , `ha___'hjd'eq`
  , `ha___'hu`
@@ -153,6 +154,7 @@ infixl 6 `ha___`
 infixl 5 `ha____`
  , `ha____'st`
  , `ha____'ut`
+ , `ha____'vt`
  , `ha____'hjd`
  , `ha____'hjd'eq`
  , `ha____'hu`
@@ -354,7 +356,7 @@ infixl 8 `yw`, `yw'yo`, `yw'yokl`
 
 infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'st'vt`, `yio'ut`, `yio'ut'st`, `yio'hjd`
 
-infixl 7 `yai`, `yai'st`, `yai'ut`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
+infixl 7 `yai`, `yai'st`, `yai'vt`, `yai'ut`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 
 infixl 7 `yio`, `yio'yp`, `yio'yoikl` -- , `yio'yokl`, `yio'yukl`, `yio'yokl'yokl`, `yio'yokl'yukl`
 
@@ -1014,8 +1016,7 @@ yok, yok_, yok__, yok___, yok____, yok_____, yok______
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  target (t a) (target (source a (tt `L` tt `T` ll `T` o)) (t o))
-yok = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _))
- `compose` yo
+yok = fio (component @target @(T'TT'I t (tt `L` tt `T` ll)) `compose` subtype @target @(T'TT'I t (tt `L` tt `T` ll) _)) `compose` yo
 
 yok_ = yok
 yok__ = yok
