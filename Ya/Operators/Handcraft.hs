@@ -106,6 +106,7 @@ infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  -- , `ha'yukl`
  , `ha'st`
  , `ha'ut`
+ , `ha'vt`
  , `ha'hjd`
  , `ha'hjd'eq`
  -- , `st'ha`
@@ -114,6 +115,7 @@ infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
 infixl 8 `ha_`
  , `ha_'st`
  , `ha_'ut`
+ , `ha_'vt`
  , `ha_'hjd`
  , `ha_'hjd'eq`
  , `ha_'hu`
@@ -126,6 +128,7 @@ infixl 8 `ha_`
 infixl 7 `ha__`
  , `ha__'st`
  , `ha__'ut`
+ , `ha__'vt`
  , `ha__'hjd`
  , `ha__'hjd'eq`
  , `ha__'hu`
@@ -162,6 +165,7 @@ infixl 5 `ha____`
 infixl 4 `ha_____`
  , `ha_____'st`
  , `ha_____'ut`
+ , `ha_____'vt`
  , `ha_____'hjd`
  , `ha_____'hjd'eq`
  , `ha_____'hu`
@@ -174,6 +178,7 @@ infixl 4 `ha_____`
 infixl 3 `ha______`
  , `ha______'st`
  , `ha______'ut`
+ , `ha______'vt`
  , `ha______'hjd`
  , `ha______'hjd'eq`
  , `ha______'hu`
@@ -186,6 +191,7 @@ infixl 3 `ha______`
 infixl 2 `ha_______`
  , `ha_______'st`
  , `ha_______'ut`
+ , `ha_______'vt`
  , `ha_______'hjd`
  , `ha_______'hjd'eq`
  , `ha_______'hu`
@@ -198,6 +204,7 @@ infixl 2 `ha_______`
 infixl 1 `ha________`
  , `ha________'st`
  , `ha________'ut`
+ , `ha________'vt`
  , `ha________'hjd`
  , `ha________'hjd'eq`
  , `ha________'hu`
@@ -660,8 +667,6 @@ yio'ut'st, ho'ut'st, ho_'ut'st, ho__'ut'st, ho___'ut'st, ho____'ut'st, ho_____'u
  (forall e . Wrapper target (target Unit e)) =>
  (Supertype (target Unit o) ~ o) =>
  (Wrapper target o) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
@@ -679,6 +684,33 @@ ho_____'ut'st = yio'ut'st
 ho______'ut'st = yio'ut'st
 ho_______'ut'st = yio'ut'st
 ho________'ut'st = yio'ut'st
+
+yai'vt, ha'vt, ha_'vt, ha__'vt, ha___'vt, ha____'vt, ha_____'vt, ha______'vt, ha_______'vt, ha________'vt
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target (T'II'I t i) =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Initial target =>
+ (forall e . Wrapper target (target Void e)) =>
+ (Supertype (target Void a) ~ Unit) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t a i) (target Unit (t Void i))
+yai'vt = fai @target (fai @target initial `compose` subtype @target @(target Void a))
+ `compose` yai @target @target @t
+
+ha'vt = yai'vt @target @t @i @a @o
+ha_'vt = yai'vt @target @t @i @a @o
+ha__'vt = yai'vt @target @t @i @a @o
+ha___'vt = yai'vt @target @t @i @a @o
+ha____'vt = yai'vt @target @t @i @a @o
+ha_____'vt = yai'vt @target @t @i @a @o
+ha______'vt = yai'vt @target @t @i @a @o
+ha_______'vt = yai'vt @target @t @i @a @o
+ha________'vt = yai'vt @target @t @i @a @o
 
 yai'ut, ha'ut, ha_'ut, ha__'ut, ha___'ut, ha____'ut, ha_____'ut, ha______'ut, ha_______'ut, ha________'ut
  :: forall target t i a o .
@@ -706,37 +738,6 @@ ha_____'ut = yai'ut
 ha______'ut = yai'ut
 ha_______'ut = yai'ut
 ha________'ut = yai'ut
-
-{-
-yv :: forall target t a o .
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Contravariant Yoneda Functor target target t =>
- Covariant Endo Transformation Functor target I (T'I'II target o) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e . Wrapper target (I e)) =>
- target (t a) (target o (t o))
-yv = fai @target (_ :: _) `compose` ya @target @target
-
--- f: target a (source o a)
-
-yvi, hv :: forall target t a o i .
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
- Covariant Endo Transformation Functor target I (T'I'II target o) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Wrapper target (I e)) =>
- target (t a i) (target a (t o i))
-yvi = fai @target constant `compose` yai @target
-
-hv = yvi
-
-experiment :: I Unit `AR` Unit `S` Unit
-experiment = (This :: Unit `AR` Unit `S` Unit) `hv` Unit
--}
 
 yu, yu_, yu__, yu___, yu____, yu_____, yu______, yu_______ :: forall target t a o .
  Covariant Yoneda Functor target target t =>
