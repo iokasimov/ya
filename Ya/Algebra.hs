@@ -471,7 +471,7 @@ instance
  (T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) tt) where
   mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(T'I'II x) ->
     \old -> x old `yok` \(T'II'I (These (Label @_ @_ @(Void `P` Void) (T'I'II (T'I'TT'II'I f))) btw))
-      -> (Label @_ @_ @Void `compose` (\x' -> x' `ryu` Enter @tt)) `identity`(T'II'I (f btw `yiu` old) `yo` source)
+      -> (Label @_ @_ @Void `compose` (\x' -> x' `ryu` Enter @tt)) `identity`(T'II'I (f btw `yio'ut` old) `yo` source)
 
 instance
  ( Covariant Functor target target tt

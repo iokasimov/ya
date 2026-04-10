@@ -206,30 +206,6 @@ infixl 3 `har_____`, `har_____'st`, `bt'har_____`, `bt'har_____'st`
 infixl 2 `har______`, `har______'st`, `bt'har______`, `bt'har______'st`
 infixl 1 `har_______`, `har_______'st`, `bt'har_______`, `bt'har_______'st`
 
--- infixl 9 `hv`
-
-infixl 9 `hu`, `hu'st`, `hu'bt`  --, `st'hu`
-infixl 8 `hu_`, `hu_'st`, `hu_'bt`  --, `st'hu_`
-infixl 7 `hu__`, `hu__'st`, `hu__'bt`  --, `st'hu__`
-infixl 6 `hu___`, `hu___'st`, `hu___'bt`  --, `st'hu___`
-infixl 5 `hu____`, `hu____'st`, `hu____'bt`  --, `st'hu____`
-infixl 4 `hu_____`, `hu_____'st`, `hu_____'bt`  --, `st'hu_____`
-infixl 3 `hu______`, `hu______'st` -- , `st'hu______`
-infixl 2 `hu_______`, `hu_______'st` --, `st'hu_______`
-infixl 1 `hu________`, `hu________'st` --, `st'hu________`
-
---, `st'st'ho`, `st'st'st'ho`
-
--- infixl 9 `st'ho`, `st'ho'st`
--- infixl 8 `he_'ho`, `he_'ho'st`
--- infixl 7 `he__'ho`, `he__'ho'st`
--- infixl 6 `he___'ho`, `he___'ho'st`
--- infixl 5 `he____'ho`, `he____'ho'st`
--- infixl 4 `he_____'ho`, `he_____'ho'st`
--- infixl 3 `he______'ho`, `he______'ho'st`
--- infixl 2 `he_______'ho`, `he_______'ho'st`
--- infixl 1 `he________'ho`, `he________'ho'st`
-
 infixl 8 `hdj`
 infixl 7 `hdj_`
 infixl 6 `hdj__`
@@ -369,8 +345,6 @@ infixl 7 `yai`, `yai'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yukl`
 infixl 7 `yui` --, `yui'st`
 
 infixl 7 `yio`, `yio'yp`, `yio'yoikl` -- , `yio'yokl`, `yio'yukl`, `yio'yokl'yokl`, `yio'yokl'yukl`
-
-infixl 7 `yiu`, `yiu'st` --, `st'yiu`
 
 -- infixl 6 `yioi`
 
@@ -876,34 +850,6 @@ hu_____'bt = fai @target (fio (basetype @target @o) `compose` fai @target termin
 hu______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 hu_______'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
 hu________'bt = fai @target (fio (basetype @target @o) `compose` fai @target terminal `compose` subtype) `compose` yio @target
-
--- st'yiu, st'hu, st'hu_, st'hu__, st'hu___, st'hu____, st'hu_____, st'hu______, st'hu_______, st'hu________
---  :: forall target t i a o .
---  Terminal target =>
---  Category target =>
---  Covariant Yoneda Functor target target (T'I'II t i) =>
---  Contravariant Functor target (AR) (T'II'I t a) =>
---  Covariant Functor target target (T'I'II target a) =>
---  Contravariant Functor target target (T'II'I target o) =>
---  Wrapper target (target Unit o) =>
---  Wrapper target (Supertype (target Unit o)) =>
---  (forall e ee . Wrapper target (T'I'II target e ee)) =>
---  (forall e ee . Wrapper target (T'II'I target e ee)) =>
---  (forall e . Wrapper target (T'II'I target e Unit)) =>
---  (forall e . Wrapper target (T'I'II t i e)) =>
---  Wrapper target i =>
---  t (Supertype i) a -> target (Supertype (target Unit o)) (t i o)
--- st'yiu x = yio @target (fai @target supertype x) `compose` fai @target terminal `compose` subtype
-
--- st'hu = st'yiu
--- st'hu_ = st'yiu
--- st'hu__ = st'yiu
--- st'hu___ = st'yiu
--- st'hu____ = st'yiu
--- st'hu_____ = st'yiu
--- st'hu______ = st'yiu
--- st'hu_______ = st'yiu
--- st'hu________ = st'yiu
 
 yuu :: forall target t a o .
  Covariant Yoneda Functor target target (T'I'I t) =>
@@ -2174,14 +2120,6 @@ ha______'hu = ha'hu
 ha_______'hu = ha'hu
 ha________'hu = ha'hu
 
--- ha'yo :: forall source u t o e a .
---  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
---  Contravariant Yoneda Functor source (AR) (T'II'I u e) =>
---  Covariant Endo Semi Functor source t =>
---  Constant Semi Functor source (AR) t =>
---  u (t a) e -> source o a -> u (t o) e
--- ha'yo x = fai (fo @source) (ha @source x)
-
 ha'yioi :: forall source u t o i ii iii a .
  Covariant Yoneda Functor source (AR) (T'I'II u i) =>
  Contravariant Yoneda Functor source (AR) (T'II'I u i) =>
@@ -2189,59 +2127,6 @@ ha'yioi :: forall source u t o i ii iii a .
  (forall e . Wrapper source (W_III_I_II t iii ii e)) =>
  u (t ii a iii) i -> source o a -> u (t ii o iii) i
 ha'yioi x = fai (fioi @source) (ha @source x)
-
--- -- TODO: rephasce with `ho_`
--- ho_yi :: forall source u e a o .
---  Covariant Endo Semi Functor source (T'I'II source a) =>
---  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
---  Contravariant Semi Functor source (AR) (T'II'I (AR) (u e (Supertype o))) =>
---  Contravariant Yoneda Functor source (AR) (T'II'I (AR) (u e (Supertype o))) =>
---  Elicitable T'I'II (AR) (T'I'II u e o) =>
---  Elicitable T'I'II source o =>
---  Wrapper source (T'I'II source a o) =>
---  Wrapper source (T'I'II source a (Supertype o)) =>
---  u e a -> source a o -> u e (Supertype o)
--- ho_yi x = fai @source (fio @source supertype) (ho x)
-
--- -- TODO: rephasce with `ho_ho`
--- ho_yi'ho :: forall source u e a o .
---  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
---  Elicitable T'I'II source a =>
---  u e a -> source (Supertype a) o -> u e o
--- ho_yi'ho x xx = x `ho` st @source `ho` xx
-
--- hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
- -- forall target t i a o .
- -- Covariant Yoneda Functor target target (T'I'II t i) =>
- -- Mapping T'I'II T'I'II target target I (T'I'II target a) =>
- -- (forall e ee . Wrapper target (T'I'II targee ee )o) =>
- -- Wrapper target (T'I'II t i o) =>
- -- Wrapper target (I o) =>
- -- t i a -> target o (t i o)
--- hu = yiu
-
--- hu, hu_, hu__, hu___, hu____, hu_____, hu______, hu_______, hu________ ::
- -- forall source target t i a o .
- -- Terminal source =>
- -- Category source =>
- -- Covariant Yoneda Functor source target (T'I'II t i) =>
- -- Covariant Functor source target (T'I'II source a) =>
- -- Contravariant Functor source target (T'II'I source o) =>
- -- Wrapper target (T'I'II source a o) =>
- -- Wrapper target (T'II'I source o a) =>
- -- Wrapper target (T'II'I source o Unit) =>
- -- Wrapper target (T'I'II t i o) =>
- -- t i a -> target (source Unit o) (t i o)
--- hu x = yio @source x `compose` fai @source terminal
-
--- hu_ = hu
--- hu__ = hu
--- hu___ = hu
--- hu____ = hu
--- hu_____ = hu
--- hu______ = hu
--- hu_______ = hu
--- hu________ = hu
 
 yor, yor_ :: forall source target t object o .
  Covariant Transformation Functor source target t (T'I'II source object) =>
