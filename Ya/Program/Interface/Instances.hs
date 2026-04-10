@@ -458,7 +458,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift way x = is
   `har_` is `ho'ut` (Empty Unit `hjd` x)
   `bt'has_` is `ho'st` foi @_ @(AR) Exist
-  `har_` (slide_passed `lv` slide_future `har` way) `bt'har` x where
+  `har_` (is `ho'ut` slide_passed `has` is `ho'ut` slide_future `har` way) `bt'har` x where
 
   slide_future = Unit `ryu` Enter @(Halts `JNT` State `T` Sliding List i)
    `yuk____` Apply `ha` State `har__` Event `har` pop `ha__` Scope `har` field @(List _)
