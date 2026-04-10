@@ -272,7 +272,7 @@ infixl 3 `yi_____`
 infixl 2 `yi______`
 infixl 1 `yi_______`
 
-infixl 8 `yo`, `yo'st`, `yo'yp`, `yo'yoo`, `yo'yuu` --, `yo'yok`
+infixl 8 `yo`, `yo'st`, `yo'vt`, `yo'ut`, `yo'yp`, `yo'yoo`, `yo'yuu` --, `yo'yok`
 infixl 7 `yo_`, `yo_'st`, `yoo`
 infixl 6 `yo__`, `yo__'st`
 infixl 5 `yo___`, `yo___'st`
@@ -468,6 +468,40 @@ yo____'st = yo'st
 yo_____'st = yo'st
 yo______'st = yo'st
 yo_______'st = yo'st
+
+yo'vt
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Covariant Endo Yoneda Functor target t =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Initial target =>
+ (forall e . Wrapper target (target Void e)) =>
+ (Supertype (target Void o) ~ Unit) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ target (t Void) (target Unit (t o))
+yo'vt = fai @target (fai @target initial `compose` subtype @target @(target Void o)) `compose` yo @target @target @t
+
+yo'ut
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Covariant Endo Yoneda Functor target t =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Terminal target =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit o) ~ o) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ target (t a) (target o (t o))
+yo'ut = fai @target (fai @target terminal `compose` subtype @target @(target Unit o)) `compose` yo @target @target @t
 
 yo'yoo :: forall source target t tt a o .
  Covariant Yoneda Functor source target (T'I t) =>
