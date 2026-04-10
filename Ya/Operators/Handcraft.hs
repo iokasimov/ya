@@ -105,6 +105,7 @@ infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  , `ha'yokl`
  -- , `ha'yukl`
  , `ha'st`
+ , `ha'ut`
  , `ha'hjd`
  , `ha'hjd'eq`
  -- , `st'ha`
@@ -112,6 +113,7 @@ infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
  -- , `ha'hd'hd`
 infixl 8 `ha_`
  , `ha_'st`
+ , `ha_'ut`
  , `ha_'hjd`
  , `ha_'hjd'eq`
  , `ha_'hu`
@@ -123,6 +125,7 @@ infixl 8 `ha_`
  -- , `ha_'yukl`
 infixl 7 `ha__`
  , `ha__'st`
+ , `ha__'ut`
  , `ha__'hjd`
  , `ha__'hjd'eq`
  , `ha__'hu`
@@ -134,6 +137,7 @@ infixl 7 `ha__`
  -- , `ha__'yukl`
 infixl 6 `ha___`
  , `ha___'st`
+ , `ha___'ut`
  , `ha___'hjd`
  , `ha___'hjd'eq`
  , `ha___'hu`
@@ -145,6 +149,7 @@ infixl 6 `ha___`
  -- , `ha___'yukl`
 infixl 5 `ha____`
  , `ha____'st`
+ , `ha____'ut`
  , `ha____'hjd`
  , `ha____'hjd'eq`
  , `ha____'hu`
@@ -156,6 +161,7 @@ infixl 5 `ha____`
  -- , `ha____'yukl`
 infixl 4 `ha_____`
  , `ha_____'st`
+ , `ha_____'ut`
  , `ha_____'hjd`
  , `ha_____'hjd'eq`
  , `ha_____'hu`
@@ -167,6 +173,7 @@ infixl 4 `ha_____`
  -- , `ha_____'yukl`
 infixl 3 `ha______`
  , `ha______'st`
+ , `ha______'ut`
  , `ha______'hjd`
  , `ha______'hjd'eq`
  , `ha______'hu`
@@ -178,6 +185,7 @@ infixl 3 `ha______`
  -- , `ha______'yukl`
 infixl 2 `ha_______`
  , `ha_______'st`
+ , `ha_______'ut`
  , `ha_______'hjd`
  , `ha_______'hjd'eq`
  , `ha_______'hu`
@@ -189,6 +197,7 @@ infixl 2 `ha_______`
  -- , `ha_______'yukl`
 infixl 1 `ha________`
  , `ha________'st`
+ , `ha________'ut`
  , `ha________'hjd`
  , `ha________'hjd'eq`
  , `ha________'hu`
