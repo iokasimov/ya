@@ -338,7 +338,7 @@ right source = map @v @v @source @target @(T'I'II (Object (Aught v)) e) @I @a @o
 
 type Limit v source target =
  ( Cone v source target (Object (Aught v))
- , Mapping v v source target I (Both (Object (Aught v)))
+ , Mapping v v source target I (T'I'I (Object (Aught v)))
  )
 
 type Product = Object Unit
@@ -597,12 +597,12 @@ type Flout = T'I'
 
 pattern Flout x = T'I' x
 
-type Twice = Both (P)
+type Twice = T'I'I (P)
 
 pattern Twice :: i `P` i `AR___` T'I'I P i
 pattern Twice x = T'I'I x
 
-type Opted = Both (S)
+type Opted = T'I'I (S)
 
 pattern Opted :: i `S` i `AR___` T'I'I S i
 pattern Opted x = T'I'I x

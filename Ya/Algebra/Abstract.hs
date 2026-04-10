@@ -264,11 +264,6 @@ type Arrow = (->)
 
 type Function = (->)
 
-type Both = T'I'I
-
-pattern Both :: u i i -> T'I'I u i
-pattern Both x = T'I'I x
-
 pattern In :: u e ee -> T'II'I u ee e
 pattern In x = T'II'I x
 

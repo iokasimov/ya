@@ -2786,11 +2786,11 @@ hop, hop_, hop__, lo___, lo____, lo_____, lo______, lo_______
  Covariant Functor target target (T'II'I Product oo) =>
  (forall e ee . Wrapper target (T'I'II Product e ee)) =>
  (forall e ee . Wrapper target (T'II'I Product e ee)) =>
- (forall e . Wrapper target (Both Product e)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target a oo -> target a (o `P` oo)
 hop l r = foi @target @target l `compose` fio @target @target r
- `compose` wrapped (map @T'II'I @T'II'I @target @target @(Both Product) @I identity)
+ `compose` wrapped (map @T'II'I @T'II'I @target @target @(T'I'I Product) @I identity)
 
 hop_ = hop
 hop__ = hop
@@ -2809,12 +2809,12 @@ hop'tb, hop_'tb, hop__'tb, lo___'tb, lo____'tb, lo_____'tb, lo______'tb, lo_____
  Covariant Endo Semi Functor target (T'II'I Product oo) =>
  (forall e ee . Wrapper target (T'I'II Product e ee)) =>
  (forall e ee . Wrapper target (T'II'I Product e ee)) =>
- (forall e . Wrapper target (Both Product e)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target a oo -> target a r
 hop'tb l r = objective @T'II'I @target @_ @(o `P` oo)
  `compose` foi @target @target l `compose` fio @target @target r
- `compose` wrapped (map @T'II'I @T'II'I @target @target @(Both Product) @I identity)
+ `compose` wrapped (map @T'II'I @T'II'I @target @target @(T'I'I Product) @I identity)
 
 hop_'tb = hop'tb
 hop__'tb = hop'tb
@@ -2832,7 +2832,7 @@ hop'hjd :: forall target a aa o oo .
  Covariant Endo Semi Functor target (T'II'I (P) oo) =>
  (forall e ee . Wrapper target (e `P'I'II` ee)) =>
  (forall e ee . Wrapper target (T'II'I (P) e ee)) =>
- (forall e . Wrapper target (Both (P) e)) =>
+ (forall e . Wrapper target (T'I'I (P) e)) =>
  (forall e . Wrapper target (I e)) =>
  target a o -> target aa oo -> target (a `P` aa) (o `P` oo)
 hop'hjd l r = hop
@@ -2925,7 +2925,7 @@ has, has_, has__, has___, has____, has_____, has______, has_______ :: forall tar
  (forall ee . Wrapper target (T'I'I Sum ee)) =>
  (forall ee . Wrapper target (I ee)) =>
  target o i -> target oo i -> target (o `S` oo) i
-has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(T'I'I Sum) identity)
  `compose` foi @target @target l
  `compose` fio @target @target r
 
@@ -2948,7 +2948,7 @@ st'has, st'has_, st'has__, st'has___, st'has____, st'has_____, st'has______, st'
  (forall ee . Wrapper target (T'I'I Sum ee)) =>
  (forall ee . Wrapper target (I ee)) =>
  target o i -> target oo i -> target a i
-st'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+st'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(T'I'I Sum) identity)
  `compose` foi @target @target l
  `compose` fio @target @target r
  `compose` supertype @target @a
@@ -2971,7 +2971,7 @@ bt'has, bt'has_, bt'has__, bt'has___, bt'has____, bt'has_____, bt'has______, bt'
  (forall ee . Wrapper target (T'I'I Sum ee)) =>
  (forall ee . Wrapper target (I ee)) =>
  target o i -> target oo i -> target a i
-bt'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(Both Sum) identity)
+bt'has l r = wrapped (map @T'II'I @T'II'I @target @target @I @(T'I'I Sum) identity)
  `compose` foi @target @target l
  `compose` fio @target @target r
  `compose` objective @T'I'II @target @a @(o `S` oo)
@@ -2996,36 +2996,36 @@ lv, lv_, lv__, lv___, lv____, lv_____, lv______, lv_______
  Wrapper (AR) ((AR) Unit o) =>
  (Supertype ((AR) Unit o) ~ o) =>
  o -> o -> a -> o
-lv l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
 
-lv_ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv_ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv__ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv__ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv___ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv___ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv_____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv_____ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)
-lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(Both Sum) identity)
+lv_______ l r = wrapped (map @T'II'I @T'II'I @(AR) @(AR) @I @(T'I'I Sum) identity)
  `compose` fui @(AR) @(AR) l
  `compose` fiu @(AR) @(AR) r
  `compose` objective @T'I'II @(AR) @a @(aa `S` aaa)

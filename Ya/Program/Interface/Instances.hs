@@ -83,10 +83,10 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `
        `yi` mutate `ha` Adapt @(Nonempty List)
        `ha` mutate `ha` Adapt @(Scrolling List)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` Construction Optional `T` Void) (Construction Optional) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Both (P) `L` List `T` Void) List where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` List `T` Void) List where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
 
 -- pattern Stock :: forall t i .
