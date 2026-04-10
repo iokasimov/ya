@@ -333,15 +333,6 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`, `ya'ut`, `ya'vt`
 
-infixl 8 `yu'st`
-infixl 7 `yu_'st`
-infixl 6 `yu__'st`
-infixl 5 `yu___'st`
-infixl 4 `yu____'st`
-infixl 3 `yu_____'st`
-infixl 2 `yu______'st`
-infixl 1 `yu_______'st`
-
 infixl 7 `yuu`
 
 infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
@@ -772,27 +763,6 @@ ha_____'ut = yai'ut
 ha______'ut = yai'ut
 ha_______'ut = yai'ut
 ha________'ut = yai'ut
-
-yu'st, yu_'st, yu__'st, yu___'st, yu____'st, yu_____'st, yu______'st, yu_______'st
- :: forall target t a o .
- Covariant Yoneda Functor target target t =>
- (forall e . Contravariant Functor target target (T'II'I target e)) =>
- -- Mapping T'I'II T'I'II target target I (T'I'II target a) =>
- Covariant Endo Transformation Functor target I (T'I'II target a) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (I e)) =>
- Wrapper target o =>
- target (t a) (target (Supertype o) (t o))
-yu'st = fai @target (constant `compose` subtype) `compose` yo @target @target
-
-yu_'st = yu'st
-yu__'st = yu'st
-yu___'st = yu'st
-yu____'st = yu'st
-yu_____'st = yu'st
-yu______'st = yu'st
-yu_______'st = yu'st
 
 yuu :: forall target t a o .
  Terminal target =>
