@@ -335,10 +335,10 @@ infixl 8 `ya`, `ya'ut`, `ya'vt`
 
 infixl 7 `yoo'ut`
 
-infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
+infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yo'ut`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
 
-infixl 8 `ys`, `ys'yo`, `ys'yu`
+infixl 8 `ys`, `ys'yo`, `ys'yo'ut`
 -- infixl 7 `yis`
 
 infixl 8 `yw`, `yw'yo`, `yw'yokl`
@@ -2810,10 +2810,10 @@ yp'yo'hd :: forall i ii r t tt l .
  t i `P` (tt `L` tt `T` l) ii -> (i `AR_` ii `AR` r) -> t r
 yp'yo'hd x f = day @T'I'II @(AR) @l @t @tt @(P) @P identity (fdi f) x
 
-yp'yu :: forall i ii r t tt l .
+yp'yo'ut :: forall i ii r t tt l .
  (forall e ee .Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` l) e ee) t) =>
  t i `P` (tt `L` tt `T` l) ii -> r -> t r
-yp'yu x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
+yp'yo'ut x xx = day @T'I'II @(AR) @l @t @tt @(P) @P identity (constant xx) x
 
 -- TODO: try to generalize
 -- yip :: forall u e ee eee t .
@@ -2864,11 +2864,11 @@ ys'yo :: forall source t tt l i ii u r .
 ys'yo x f = day @T'I'II @source @l @t @tt @u @(S) identity f x
 
 -- TODO: try to generalize
-ys'yu :: forall t tt l i ii u r .
+ys'yo'ut :: forall t tt l i ii u r .
  (forall e . Mapping T'I'II T'I'II (->) (->) I (T'I'II (AR) e)) =>
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) u (S) t (tt `L` tt `T` l) e ee) t) =>
  u (t i) ((tt `L` tt `T` l) ii) -> r -> t r
-ys'yu x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
+ys'yo'ut x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
 
 -- TODO: try to generalize
 -- yis :: forall u e ee eee t .
