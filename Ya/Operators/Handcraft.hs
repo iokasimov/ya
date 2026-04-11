@@ -8,7 +8,7 @@ import Ya.Algebra.Instances ()
 
 import Ya.Operators.Mappings
 
-infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yok'ut`, `ho'yokl`, `ho'yokl'ut`, `ho'yoikl` -- `ho'yokl'yokl`, `ho'yokl'yokl`, --, `ho'yoo`
+infixl 9 `ho`, `ho'yioi`, `ho'yoo'ut`, `ho'yoi'ut`, `ho'yok`, `ho'yok'ut`, `ho'yokl`, `ho'yokl'ut`, `ho'yoikl` -- `ho'yokl'yokl`, `ho'yokl'yokl`, --, `ho'yoo`
  , `ho'vt`, `ho'st'vt`, `ho'ut`, `ho'ut'st`
  , `ho'st`
  , `ho'st'st`
@@ -18,7 +18,7 @@ infixl 9 `ho`, `ho'yioi`, `ho'yu`, `ho'yui`, `ho'yok`, `ho'yok'ut`, `ho'yokl`, `
  -- , `ho'hd`
  -- , `ho'hd'hd`
  -- , `ho'hu`
-infixl 8 `ho_`, `ho_'yu`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --, `ho_'yokl'yokl`, `ho_'yokl'yokl`
+infixl 8 `ho_`, `ho_'yoo'ut`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --, `ho_'yokl'yokl`, `ho_'yokl'yokl`
  , `ho_'yoikl` --, `ho_'yoo`,
  , `ho_'vt`, `ho_'st'vt`, `ho_'ut`, `ho_'ut'st`
  , `ho_'st`
@@ -27,7 +27,7 @@ infixl 8 `ho_`, `ho_'yu`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --,
  -- , `ho_'st'st'st`
  -- , `ho_'st'st'st'st`
  -- , `ho_'hd`
-infixl 7 `ho__`, `ho__'yu`, `ho__'yok`, `ho__'yok'ut`, `ho__'yokl`, `ho__'yokl'ut` --, `ho__'yokl'yokl`, `ho__'yokl'yokl`
+infixl 7 `ho__`, `ho__'yoo'ut`, `ho__'yok`, `ho__'yok'ut`, `ho__'yokl`, `ho__'yokl'ut` --, `ho__'yokl'yokl`, `ho__'yokl'yokl`
  , `ho__'yoikl` -- `ho__'yoo`,
  , `ho__'vt`, `ho__'st'vt`, `ho__'ut`, `ho__'ut'st`
  , `ho__'st`
@@ -36,7 +36,7 @@ infixl 7 `ho__`, `ho__'yu`, `ho__'yok`, `ho__'yok'ut`, `ho__'yokl`, `ho__'yokl'u
  -- , `ho__'st'st'st`
  -- , `ho__'st'st'st'st`
  -- , `ho__'hd`
-infixl 6 `ho___`, `ho___'yu`, `ho___'yok`, `ho___'yok'ut`, `ho___'yokl`, `ho___'yokl'ut` --, `ho___'yokl'yokl`, `ho___'yokl'yokl`
+infixl 6 `ho___`, `ho___'yoo'ut`, `ho___'yok`, `ho___'yok'ut`, `ho___'yokl`, `ho___'yokl'ut` --, `ho___'yokl'yokl`, `ho___'yokl'yokl`
  , `ho___'yoikl`
  , `ho___'vt`, `ho___'st'vt`, `ho___'ut`, `ho___'ut'st`
  , `ho___'st`
@@ -45,7 +45,7 @@ infixl 6 `ho___`, `ho___'yu`, `ho___'yok`, `ho___'yok'ut`, `ho___'yokl`, `ho___'
  -- , `ho___'st'st'st`
  -- , `ho___'st'st'st'st`
  -- , `ho___'hd`
-infixl 5 `ho____`, `ho____'yu`, `ho____'yok`, `ho____'yok'ut`, `ho____'yokl`, `ho____'yokl'ut` --, `ho____'yokl'yokl`, `ho____'yokl'yokl`
+infixl 5 `ho____`, `ho____'yoo'ut`, `ho____'yok`, `ho____'yok'ut`, `ho____'yokl`, `ho____'yokl'ut` --, `ho____'yokl'yokl`, `ho____'yokl'yokl`
  , `ho____'yoikl`
  , `ho____'vt`, `ho____'st'vt`, `ho____'ut`, `ho____'ut'st`
  , `ho____'st`
@@ -53,7 +53,7 @@ infixl 5 `ho____`, `ho____'yu`, `ho____'yok`, `ho____'yok'ut`, `ho____'yokl`, `h
  , `ho____'hjd`
  -- , `ho____'st'st'st`
  -- , `ho____'st'st'st'st`
-infixl 4 `ho_____`, `ho_____'yu`, `ho_____'yok`, `ho_____'yok'ut`, `ho_____'yokl`, `ho_____'yokl'ut` --, `ho_____'yokl'yokl`, `ho_____'yokl'yokl`
+infixl 4 `ho_____`, `ho_____'yoo'ut`, `ho_____'yok`, `ho_____'yok'ut`, `ho_____'yokl`, `ho_____'yokl'ut` --, `ho_____'yokl'yokl`, `ho_____'yokl'yokl`
  , `ho_____'yoikl`
  , `ho_____'vt`, `ho_____'st'vt`, `ho_____'ut`, `ho_____'ut'st`
  , `ho_____'st`
@@ -272,7 +272,7 @@ infixl 3 `yi_____`
 infixl 2 `yi______`
 infixl 1 `yi_______`
 
-infixl 8 `yo`, `yo'st`, `yo'vt`, `yo'ut`, `yo'yp`, `yo'yoo`, `yo'yuu` --, `yo'yok`
+infixl 8 `yo`, `yo'st`, `yo'vt`, `yo'ut`, `yo'yp`, `yo'yoo`, `yo'yoo'ut`
 infixl 7 `yo_`, `yo_'st`, `yoo`
 infixl 6 `yo__`, `yo__'st`
 infixl 5 `yo___`, `yo___'st`
@@ -333,7 +333,7 @@ infixl 5 `yiokl` --, `yiokl'yokl`
 
 infixl 8 `ya`, `ya'ut`, `ya'vt`
 
-infixl 7 `yuu`
+infixl 7 `yoo'ut`
 
 infixl 8 `yp`, `yp'yo`, `yp'yo'hd`, `yp'yu`, `yp'yp`, `yp'yp'yo`, `yp'ys` --, `yp'yok`, `yp'yokl` --, `yp'yp'jt`, `yp'yp'jt'yok`
 infixl 7 `yp_'yo`-- , `yip`, `yip'yo`, `yip'yp`, `yip'yip`, `yip'yis`
@@ -503,7 +503,7 @@ yo'yoo :: forall source target t tt a o .
  target (t (tt a a)) (target (source a o) (t (tt o o)))
 yo'yoo = fai (foo @source @source @tt) `compose` yo @source @target
 
-yo'yuu :: forall target t tt a aa o .
+yo'yoo'ut :: forall target t tt a aa o .
  Precategory target =>
  Covariant Yoneda Functor target target (T'I t) =>
  Covariant Functor target target (T'I'II tt a) =>
@@ -518,7 +518,7 @@ yo'yuu :: forall target t tt a aa o .
  Terminal target =>
  Contravariant Functor (AR) (AR) (T'II'I target (t (tt o o))) =>
  target (t (tt a aa)) (target (Supertype (target Unit o)) (t (tt o o)))
-yo'yuu = fai (fuu @target @target @tt) `compose` yo @target @target
+yo'yoo'ut = fai (fuu @target @target @tt) `compose` yo @target @target
 
 yoo :: forall source target t a o .
  Precategory target =>
@@ -764,7 +764,7 @@ ha______'ut = yai'ut
 ha_______'ut = yai'ut
 ha________'ut = yai'ut
 
-yuu :: forall target t a o .
+yoo'ut :: forall target t a o .
  Terminal target =>
  Covariant Yoneda Functor target target (T'I'I t) =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
@@ -775,7 +775,7 @@ yuu :: forall target t a o .
  (forall e . Wrapper target (target Unit e)) =>
  (Supertype (target Unit o) ~ o) =>
  target (t a a) (target o (t o o))
-yuu = fio @target supertype `compose` yo'ut @target `compose` subtype @target @(T'I'I t _)
+yoo'ut = fio @target supertype `compose` yo'ut @target `compose` subtype @target @(T'I'I t _)
 
 ya :: forall source target t a o .
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -1728,7 +1728,7 @@ ho'hu = fai (fiu @source) `compose` ho @t
 -- ho_______'yoo = ho'yoo
 -- ho________'yoo = ho'yoo
 
-ho'yu, ho_'yu, ho__'yu, ho___'yu, ho____'yu, ho_____'yu, ho______'yu, ho_______'yu, ho________'yu
+ho'yoo'ut, ho_'yoo'ut, ho__'yoo'ut, ho___'yoo'ut, ho____'yoo'ut, ho_____'yoo'ut, ho______'yoo'ut, ho_______'yoo'ut, ho________'yoo'ut
  :: forall u t o e a .
  Covariant Yoneda Functor (AR) (AR) (T'I'II u e) =>
  Contravariant Yoneda Functor (AR) (AR) (T'II'I u e) =>
@@ -1736,16 +1736,16 @@ ho'yu, ho_'yu, ho__'yu, ho___'yu, ho____'yu, ho_____'yu, ho______'yu, ho_______'
  Covariant Endo Semi Functor (AR) t =>
  Constant Semi Functor (AR) (AR) t =>
  u e (t a) -> o -> u e (t o)
-ho'yu x = fai @(AR) @(AR) (fu @(AR)) (ho @(AR) x)
+ho'yoo'ut x = fai @(AR) @(AR) (fu @(AR)) (ho @(AR) x)
 
-ho_'yu = ho'yu
-ho__'yu = ho'yu
-ho___'yu = ho'yu
-ho____'yu = ho'yu
-ho_____'yu = ho'yu
-ho______'yu = ho'yu
-ho_______'yu = ho'yu
-ho________'yu = ho'yu
+ho_'yoo'ut = ho'yoo'ut
+ho__'yoo'ut = ho'yoo'ut
+ho___'yoo'ut = ho'yoo'ut
+ho____'yoo'ut = ho'yoo'ut
+ho_____'yoo'ut = ho'yoo'ut
+ho______'yoo'ut = ho'yoo'ut
+ho_______'yoo'ut = ho'yoo'ut
+ho________'yoo'ut = ho'yoo'ut
 
 -- ho'yoi, ho_'yoi, ho__'yoi, ho___'yoi, ho____'yoi, ho_____'yoi, ho______'yoi, ho_______'yoi, ho________'yoi
 --  :: forall source u t o e a .
@@ -1765,7 +1765,7 @@ ho________'yu = ho'yu
 -- ho_______'yoi = ho'yoi
 -- ho________'yoi = ho'yoi
 
-ho'yui, ho_'yui, ho__'yui, ho___'yui, ho____'yui, ho_____'yui, ho______'yui, ho_______'yui, ho________'yui
+ho'yoi'ut, ho_'yoi'ut, ho__'yoi'ut, ho___'yoi'ut, ho____'yoi'ut, ho_____'yoi'ut, ho______'yoi'ut, ho_______'yoi'ut, ho________'yoi'ut
  :: forall u t o e a .
  Covariant Yoneda Functor (AR) (AR) (T'I'II u e) =>
  Contravariant Yoneda Functor (AR) (AR) (T'II'I u e) =>
@@ -1773,16 +1773,16 @@ ho'yui, ho_'yui, ho__'yui, ho___'yui, ho____'yui, ho_____'yui, ho______'yui, ho_
  Covariant Endo Semi Functor (AR) (T'II'I t e) =>
  Constant Semi Functor (AR) (AR) (T'II'I t e) =>
  u e (t a e) -> o -> u e (t o e)
-ho'yui x = fai @(AR) @(AR) (fui @(AR)) (ho @(AR) x)
+ho'yoi'ut x = fai @(AR) @(AR) (fui @(AR)) (ho @(AR) x)
 
-ho_'yui = ho'yui
-ho__'yui = ho'yui
-ho___'yui = ho'yui
-ho____'yui = ho'yui
-ho_____'yui = ho'yui
-ho______'yui = ho'yui
-ho_______'yui = ho'yui
-ho________'yui = ho'yui
+ho_'yoi'ut = ho'yoi'ut
+ho__'yoi'ut = ho'yoi'ut
+ho___'yoi'ut = ho'yoi'ut
+ho____'yoi'ut = ho'yoi'ut
+ho_____'yoi'ut = ho'yoi'ut
+ho______'yoi'ut = ho'yoi'ut
+ho_______'yoi'ut = ho'yoi'ut
+ho________'yoi'ut = ho'yoi'ut
 
 ho'yioi :: forall source u t o i ii iii a .
  Covariant Yoneda Functor source (AR) (T'I'II u i) =>
@@ -2353,6 +2353,7 @@ ______ryo = ryo
 
 -- st'_ryo = st'ryo
 
+-- TODO: `u` is not used standalone anymore
 ryu, _ryu :: forall source target t a o i .
  Covariant Yoneda Functor source target I =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
