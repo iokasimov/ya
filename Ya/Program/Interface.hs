@@ -75,7 +75,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
- mapping = rewrap `identity` \source x -> x `yo` source `ho` (\x' -> x' `ryu` Enter @Tree) `yi` subtype @(AR) `hjd` (subtype @(AR) `ha` Label `ha` subtype @AR `ha` Empty) Unit `yi` subtype @(AR)
+ mapping = rewrap `identity` \source x -> x `yo` source `ho` (\x' -> Only `ho'ut` x' `ryo` Enter @Tree) `yi` subtype @(AR) `hjd` (subtype @(AR) `ha` Label `ha` subtype @AR `ha` Empty) Unit `yi` subtype @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance {-# OVERLAPS #-}
@@ -196,7 +196,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` Void) 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void `P` Void)) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Prior `ha` Apply
-  `ha__` (\x' -> x' `ryu` Enter @(Halts `JNT` State `T'I` List _))
+  `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `JNT` State `T'I` List _))
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `ha` source)
   `bt'har__` empty @List

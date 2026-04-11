@@ -362,10 +362,10 @@ infixl 1 `eq_______`
 infixl 0 `eq________`
 
 infixl 7 `yor`, `yor'st`
-infixl 7 `ryo`, `ryu`, `st'ryu`
+infixl 7 `ryo`
 
 infixl 6 `yor_`
-infixl 6 `_ryo`, `_ryu`, `st'_ryu`
+infixl 6 `_ryo`
 
 infixl 5 `__ryo`
 infixl 4 `___ryo`
@@ -2352,43 +2352,6 @@ ______ryo = ryo
 -- st'ryo = yi `compose` component @target @(T'I'II source object) @t `compose` subtype
 
 -- st'_ryo = st'ryo
-
--- TODO: `u` is not used standalone anymore
-ryu, _ryu :: forall source target t a o i .
- Covariant Yoneda Functor source target I =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Component target (T'I'II source Unit) t =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target ee e)) =>
- (forall e . Wrapper target (source Unit e)) =>
- (forall e . Wrapper target (I e)) =>
- target (Supertype (source Unit a)) (target (source (t a) o) o)
-ryu = yi `compose` component @target @(T'I'II source Unit) @t `compose` subtype `compose` subtype
-
-_ryu = ryu
-
-st'ryu, st'_ryu :: forall source target t a o i .
- Covariant Yoneda Functor source target I =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- Component target (T'I'II source Unit) t =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target ee e)) =>
- (forall e . Wrapper target (source Unit e)) =>
- (Supertype (source Unit a) ~ a) =>
- (Supertype (source Unit (Supertype a)) ~ Supertype a) =>
- Wrapper target (Supertype (source Unit a)) =>
- (forall e . Wrapper target (I e)) =>
- target (Supertype (source Unit a)) (target (source (t (Supertype a)) o) o)
-st'ryu = yi `compose` component @target @(T'I'II source Unit) @t
- `compose` subtype @target @(T'I'II source Unit (Supertype a))
- `compose` subtype @target @(source Unit (Supertype a))
- `compose` supertype @target @a
-
-st'_ryu = st'ryu
 
 ryio, _ryio :: forall source target t object a o i .
  Covariant Yoneda Functor source target I =>
