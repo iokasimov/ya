@@ -17,7 +17,7 @@ infixl 9 `ho`, `ho'yioi`, `ho'yoo'ut`, `ho'yoi'ut`, `ho'yok`, `ho'yok'ut`, `ho'y
  -- , `ho'st'st'st'st`
  -- , `ho'hd`
  -- , `ho'hd'hd`
- -- , `ho'hu`
+ -- , `ho'ho'ut`
 infixl 8 `ho_`, `ho_'yoo'ut`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --, `ho_'yokl'yokl`, `ho_'yokl'yokl`
  , `ho_'yoikl` --, `ho_'yoo`,
  , `ho_'vt`, `ho_'st'vt`, `ho_'ut`, `ho_'ut'st`
@@ -97,7 +97,7 @@ infixl 3 `hor_____`, `hor_____'st`
 infixl 2 `hor______`, `hor______'st`
 infixl 1 `hor_______`, `hor_______'st`
 
-infixl 9 `ha`, `ha'ho'hu`, `ha'hu`
+infixl 9 `ha`, `ha'ho'ho'ut`, `ha'ho'ut`
  , `ha'yok`
  -- , `ha'yok`
  -- , `ha'kyo`
@@ -118,7 +118,7 @@ infixl 8 `ha_`
  , `ha_'vt`
  , `ha_'hjd`
  , `ha_'hjd'eq`
- , `ha_'hu`
+ , `ha_'ho'ut`
  , `ha_'yok`
  -- , `ha_'yok`
  -- , `ha_'kyo`
@@ -131,7 +131,7 @@ infixl 7 `ha__`
  , `ha__'vt`
  , `ha__'hjd`
  , `ha__'hjd'eq`
- , `ha__'hu`
+ , `ha__'ho'ut`
  , `ha__'yok`
  -- , `ha__'yok`
  -- , `ha__'kyo`
@@ -144,7 +144,7 @@ infixl 6 `ha___`
  , `ha___'vt`
  , `ha___'hjd`
  , `ha___'hjd'eq`
- , `ha___'hu`
+ , `ha___'ho'ut`
  , `ha___'yok`
  -- , `ha___'yok`
  -- , `ha___'kyo`
@@ -157,7 +157,7 @@ infixl 5 `ha____`
  , `ha____'vt`
  , `ha____'hjd`
  , `ha____'hjd'eq`
- , `ha____'hu`
+ , `ha____'ho'ut`
  , `ha____'yok`
  -- , `ha____'yok`
  -- , `ha____'kyo`
@@ -170,7 +170,7 @@ infixl 4 `ha_____`
  , `ha_____'vt`
  , `ha_____'hjd`
  , `ha_____'hjd'eq`
- , `ha_____'hu`
+ , `ha_____'ho'ut`
  , `ha_____'yok`
  -- , `ha_____'yok`
  -- , `ha_____'kyo`
@@ -183,7 +183,7 @@ infixl 3 `ha______`
  , `ha______'vt`
  , `ha______'hjd`
  , `ha______'hjd'eq`
- , `ha______'hu`
+ , `ha______'ho'ut`
  , `ha______'yok`
  -- , `ha______'yok`
  -- , `ha______'kyo`
@@ -196,7 +196,7 @@ infixl 2 `ha_______`
  , `ha_______'vt`
  , `ha_______'hjd`
  , `ha_______'hjd'eq`
- , `ha_______'hu`
+ , `ha_______'ho'ut`
  , `ha_______'yok`
  -- , `ha_______'yok`
  -- , `ha_______'kyo`
@@ -209,7 +209,7 @@ infixl 1 `ha________`
  , `ha________'vt`
  , `ha________'hjd`
  , `ha________'hjd'eq`
- , `ha________'hu`
+ , `ha________'ho'ut`
  -- , `ha________'yok`
  -- , `ha________'yok`
  , `ha________'yokl`
@@ -1619,7 +1619,7 @@ ho________'st'st = ho'st'st
 -- yio'ho'yui = yio'yio'yui
 -- ho'ho'yui = yio'yio'yui
 
--- ho'ho'hu :: forall source u uu uuu o i ee eee a .
+-- ho'ho'ho'ut :: forall source u uu uuu o i ee eee a .
  -- Category source =>
  -- Terminal source =>
  -- Covariant Yoneda Functor uuu (AR) (T'I'II u i) =>
@@ -1630,9 +1630,9 @@ ho________'st'st = ho'st'st
  -- (forall i . Wrapper source (T'I'II uuu eee i)) =>
  -- Wrapper (AR) (source Unit o) =>
  -- u i (uu ee (uuu eee a)) -> Supertype (source Unit o) -> u i (uu ee (uuu eee o))
--- ho'ho'hu = fai (fio @source `compose` fiu @source) `compose` ho @uuu
+-- ho'ho'ho'ut = fai (fio @source `compose` fiu @source) `compose` ho @uuu
 
-ho'hu :: forall source t tt o i ii a .
+ho'ho'ut :: forall source t tt o i ii a .
  Category source =>
  Terminal source =>
  Covariant Yoneda Functor t source (T'I'II t i) =>
@@ -1649,7 +1649,7 @@ ho'hu :: forall source t tt o i ii a .
  (forall e ee . Wrapper source (T'II'I source e ee)) =>
  (forall e ee . Wrapper source (T'I'II source e ee)) =>
  source (t i (tt ii a)) (source (Supertype (source Unit o)) (t i (tt ii o)))
-ho'hu = fai (fiu @source) `compose` ho @t
+ho'ho'ut = fai (fiu @source) `compose` ho @t
 
 -- ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
 --  :: forall source u uu o i ii a .
@@ -1839,7 +1839,7 @@ ho'yioi x = fai (fioi @source) (ho @source x)
 -- he_______'ho'st = st'ho'st
 -- he________'ho'st = st'ho'st
 
--- st'hu
+-- st'ho'ut
  -- :: forall source target u i a o .
  -- Precategory source =>
  -- Category target =>
@@ -1854,7 +1854,7 @@ ho'yioi x = fai (fioi @source) (ho @source x)
  -- Wrapper target (T'I'II u i o) =>
  -- Wrapper target (T'I'II source a o) =>
  -- u (Supertype i) a -> target (Supertype (target () o)) (u i o)
--- st'hu = yiu @target @u `compose` st @source
+-- st'ho'ut = yiu @target @u `compose` st @source
 
 -- st'st'ho
  -- :: forall source target u i a o .
@@ -1988,7 +1988,7 @@ ha________'st'st = ha'st'st
 --  u (uu ii o) i -> source a o -> u (uu ii a) i
 -- ha'ho x = fai @(AR) @(AR) fio (ha @u x)
 
-ha'ho'hu :: forall target t tt ttt o i ii iii a .
+ha'ho'ho'ut :: forall target t tt ttt o i ii iii a .
  Terminal target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  Contravariant Endo Yoneda Functor target (T'II'I t i) =>
@@ -2003,9 +2003,9 @@ ha'ho'hu :: forall target t tt ttt o i ii iii a .
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e . Wrapper (AR) (target Unit e)) =>
  target (t (tt ii (ttt iii o)) i) (target (Supertype (target Unit o)) (t (tt ii (ttt iii a)) i))
-ha'ho'hu = fai (fio @target @target @tt `compose` fiu @target @target @ttt) `compose` yai @target @target @t
+ha'ho'ho'ut = fai (fio @target @target @tt `compose` fiu @target @target @ttt) `compose` yai @target @target @t
 
--- ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'hu, ha________'hu :: forall u uu o e ee a .
+-- ha'ho'ut, ha_'ho'ut, ha__'ho'ut, ha___'ho'ut, ha____'ho'ut, ha_____'ho'ut, ha______'ho'ut, ha_______'ho'ut, ha________'ho'ut :: forall u uu o e ee a .
  -- Terminal u =>
  -- Covariant Semi Functor u u (T'I'II uu ee) =>
  -- Constant Semi Functor u u (T'I'II uu ee) =>
@@ -2015,9 +2015,9 @@ ha'ho'hu = fai (fio @target @target @tt `compose` fiu @target @target @ttt) `com
  -- Elicitable T'II'I u (U_1_I u a o) =>
  -- Elicitable T'II'I (AR) (U_1_I u a o) =>
  -- u (uu ee o) e -> u Unit o -> u (uu ee a) e
--- ha'hu x = fai @(AR) @(AR) fiu (ha @u x)
+-- ha'ho'ut x = fai @(AR) @(AR) fiu (ha @u x)
 
--- ha'st'hu :: forall source u uu o e ee a .
+-- ha'st'ho'ut :: forall source u uu o e ee a .
  -- Covariant Semi Functor u u (T'I'II uu ee) =>
  -- Constant Semi Functor u u (T'I'II uu ee) (T'I'II uu ee) =>
  -- Contravariant Yoneda Functor u (AR) (T'II'I u e) =>
@@ -2025,9 +2025,9 @@ ha'ho'hu = fai (fio @target @target @tt `compose` fiu @target @target @ttt) `com
  -- Wrapper u (T'I'II uu ee o) =>
  -- Elicitable T'II'I (AR) (u () o) =>
  -- u (uu ee o) e -> Supertype (u () o) -> u (uu ee a) e
--- ha'st'hu x = fai @(AR) @(AR) fiu (ha'st @u x)
+-- ha'st'ho'ut x = fai @(AR) @(AR) fiu (ha'st @u x)
 
-ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'hu, ha________'hu
+ha'ho'ut, ha_'ho'ut, ha__'ho'ut, ha___'ho'ut, ha____'ho'ut, ha_____'ho'ut, ha______'ho'ut, ha_______'ho'ut, ha________'ho'ut
  :: forall u uu o i ii a .
  Terminal u =>
  Covariant Semi Functor u u (T'I'II uu ii) =>
@@ -2036,16 +2036,16 @@ ha'hu, ha_'hu, ha__'hu, ha___'hu, ha____'hu, ha_____'hu, ha______'hu, ha_______'
  (forall e ee . Wrapper u (T'I'II uu e ee)) =>
  (forall e . Wrapper (AR) (u Unit e)) =>
  u (uu ii o) i -> Supertype (u Unit o) -> u (uu ii a) i
-ha'hu x = fai @(AR) @(AR) (fiu @u) (ha @u x)
+ha'ho'ut x = fai @(AR) @(AR) (fiu @u) (ha @u x)
 
-ha_'hu = ha'hu
-ha__'hu = ha'hu
-ha___'hu = ha'hu
-ha____'hu = ha'hu
-ha_____'hu = ha'hu
-ha______'hu = ha'hu
-ha_______'hu = ha'hu
-ha________'hu = ha'hu
+ha_'ho'ut = ha'ho'ut
+ha__'ho'ut = ha'ho'ut
+ha___'ho'ut = ha'ho'ut
+ha____'ho'ut = ha'ho'ut
+ha_____'ho'ut = ha'ho'ut
+ha______'ho'ut = ha'ho'ut
+ha_______'ho'ut = ha'ho'ut
+ha________'ho'ut = ha'ho'ut
 
 ha'yioi :: forall source u t o i ii iii a .
  Covariant Yoneda Functor source (AR) (T'I'II u i) =>
@@ -3416,7 +3416,7 @@ ha________'yokl = ha'yokl
 -- yok_____'hj = yok'hj
 -- yok______'hj = yok'hj
 
--- yok'hu :: forall source t tt a o e .
+-- yok'ho'ut :: forall source t tt a o e .
   -- Precategory source =>
   -- Covariant Yoneda Functor source source t =>
   -- Mapping T'I'II T'I'II source source (T'I'II source e) (T'I'II source e) =>
@@ -3433,7 +3433,7 @@ ha________'yokl = ha'yokl
   -- Elicitable T'II'I source (U_1_I source a (tt o)) =>
   -- Elicitable T'II'I (AR) (U_1_I source a (tt o)) =>
   -- t e -> Supertype (U_1_I source a (tt o)) -> source (source e a) (t o)
--- yok'hu x f = yok @_ @_ @tt x `compose` fiu @source f
+-- yok'ho'ut x f = yok @_ @_ @tt x `compose` fiu @source f
 
 -- yokl__ :: forall source t t tt a o e .
  -- Category source =>
