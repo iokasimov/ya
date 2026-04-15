@@ -243,8 +243,7 @@ fij :: forall source target t tt i ii a o .
 fij source = supertype `compose` fo (source `compose` supertype)
  `compose` wrapped (component @target @I @(T'I'II tt ii `T'TT'I` T'II'I t i))
 
--- TODO: effects are executed in reverse order, we can use it
--- to alter execution order, in Scrolling List for example
+-- TODO: find a way to generalise
 fc :: forall t a o .
  Covariant Endo Semi Functor (AR) t =>
  Covariant Endo Semi Functor (AR) (T'I'II (AR) a) =>
@@ -254,8 +253,5 @@ fc :: forall t a o .
  Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
  t (AR a o) -> (AR) (t a) (t o)
 fc = supertype @(AR) @(T'I'II (AR) (t a) _)
- `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR))
- (fd @(AR) @(AR) (subtype @_ @(T'I'II _ _ _)) `compose` subtype @_ @(T'I'II _ _ _))
- `compose` fj @(AR) @(AR) @(P'I'II (t a)) @(T'I'II (AR) _)
- (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity
- `compose` supertype @(AR) @(P'I'II (t a) ((t `L` t `T` Void) (AR a o))) `compose` fo @(AR) subtype)
+ `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR)) (fd @(AR) @(AR) (subtype @_ @(T'I'II _ _ _)) `compose` subtype @_ @(T'I'II _ _ _))
+ `compose` fj @(AR) @(AR) @(P'I'II (t a)) @(T'I'II (AR) _) (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity `compose` supertype @(AR) @(P'I'II (t a) ((t `L` t `T` Void) (AR a o))) `compose` fo @(AR) subtype)

@@ -611,12 +611,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
 
-instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (T'I'I (P)) where
+-- instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (T'I'I (P)) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
   (source `compose` f `identity` This Unit)
   (source `compose` f `identity` That Unit)
 
-instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (i `S` ii)) where
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (Unit `S` Unit)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x y) -> \case
   This _ -> source x
   That _ -> source y
