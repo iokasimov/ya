@@ -446,8 +446,12 @@ instance Category (AT) where
  identity = T'I'TT'II'T'II'I `identity` \x -> These x identity
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i) (T'I'II (AR) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \origin x ->
-  source `compose` this `identity` supertype origin x
+ mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
+  source `compose` this `compose` supertype origin
+
+instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AT) i) (T'II'I (AR) i) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
+  this `compose` supertype origin `compose` source
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
