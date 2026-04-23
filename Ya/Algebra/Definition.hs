@@ -683,6 +683,9 @@ pattern Only, Pass :: Unit `AR_` Unit
 pattern Only x = x
 pattern Pass x = x
 
+pattern Both :: Unit `S` Unit `AR_` Unit `S` Unit
+pattern Both x = x
+
 pattern Sole :: Unit `P` Unit `AR_` Unit `P` Unit
 pattern Sole x = x
 
