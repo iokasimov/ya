@@ -266,15 +266,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (TR) e) (T'I'II (TR) e) where
 instance Mapping T'I'II T'I'II (TR) (AR) (T'I'II (TR) i) (T'I'II (TR) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
   -> rewrap `compose` rewrap `identity` \origin i ->
-   let These result ii = origin i in
-   let These update _ = source result in
-   These update i
+   let These a ii = origin i in
+   let These o _a = source a in
+   These o ii
 
 instance Mapping T'II'I T'I'II (TR) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
  mapping = rewrap `identity` \(T'I'TT'II'I source)
   -> rewrap `compose` rewrap `identity` \origin o ->
    let These a oo = source o in
-   let These i _ = origin a in
+   let These i _a = origin a in
    These i oo
 
 instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (AT) i) where
