@@ -98,6 +98,11 @@ type Scope = T'I'TT'II'T'II'I (AR) P
 pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
 pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 
+type Reach = T'I'II Scope
+
+pattern Reach :: forall i o . Scope i o -> Reach i o
+pattern Reach x = T'I'II @Scope x
+
 type Event = T'I'TT'II'I (AR) (P)
 
 pattern Event :: i `AR` ii `P` i `AR__` Event i ii
