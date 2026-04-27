@@ -293,8 +293,16 @@ instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t)
 
 instance
  ( Covariant Endo Semi Functor (AR) t
- , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) (i `P` ii)) (t `T'TT'I` F'T'I'TT (T'II'I P) t)
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` (i `P` ii))) (F'T'I'TT (T'II'I P) t) where
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) Unit) t
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (F'T'I'TT (T'II'I P) t)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (t `T'TT'I` F'T'I'TT (T'II'I P) t) where
+ mapping = rewrap `identity` \source (T'I'II f) ->
+  source `ha` f `ha` supertype @AR @(Unit `P` (Unit `S` Unit)) `ryo` Enter @(t `T'TT'I` F'T'I'TT (T'II'I P) t)
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) i) (t `T'TT'I` F'T'I'TT (T'II'I P) t)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` i)) (F'T'I'TT (T'II'I P) t) where
  mapping = rewrap `identity` \source (T'I'II f) ->
   supertype (source `ha` f `ha` That `ryo` Enter @(t `T'TT'I` F'T'I'TT (T'II'I P) t)) `yo` supertype @(AR) `hjd_'tb` source `har'st` f `ha` This
 
