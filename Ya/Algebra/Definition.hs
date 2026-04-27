@@ -689,7 +689,7 @@ pattern Both x = x
 pattern Sole :: Unit `P` Unit `AR_` Unit `P` Unit
 pattern Sole x = x
 
-pattern None :: i `P` Void `AR_` i `P` Void
+pattern None :: Void `P` Unit `AR_` Void `P` Unit
 pattern None x = x
 
 pattern Bare :: i `S` Void `AR_` i `S` Void
