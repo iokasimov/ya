@@ -990,6 +990,10 @@ instance Mapping T'II'I T'I'II (AT) (AT)
   These (map @T'II'I @T'I'II (T'I'TT'II'T'II'I source) x)
    (constant @(AR) x)
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i `L` T'I'II (TR) i `T` (Void)) (T'I'II (TR) i) where
+ mapping = rewrap `identity` \source -> (rewrap `compose` rewrap) `identity` \f x ->
+  let These xx ff = supertype f x in These (source xx) (ff xx)
+
 -- instance
  -- ( Mapping T'I'II T'I'II (AR) (AR) (t `TT'T'I` tt) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l)
  -- , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt)
