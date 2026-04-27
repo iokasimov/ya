@@ -51,6 +51,12 @@ instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
   supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
 
+instance {-# OVERLAPS #-} Component (TR) (List `L` Maybe `T` (Void)) Maybe where
+ component = T'I'TT'II'I `identity` \case
+  Label (T'TT'I (T'I'II (This _))) -> Empty Unit `hjd` Label (T'TT'I (Empty Unit))
+  Label (T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x))))))) ->
+   Exist x `hjd__` Label `ha` T'TT'I `har_` xs `yo` F'T'I'TT
+
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
 
@@ -200,6 +206,15 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
 
+-- TODO: `Prior` behaviour is needed here
+{-
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Covariant Transformation Functor (AR) (AR) ((t `P'T'I'TT'I` Alone) `T'TT'I` State (List e) `L` State (List e) `T` (Void) `L` (t `P'T'I'TT'I` Alone) `T` (Void)) ((t `P'T'I'TT'I` Alone) `TT'T'I` State (List e))
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Alone) `L` List `T` (Void)) List where
+ mapping = rewrap `identity` \source x -> supertype x `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push `ha` source `bt'har__` Null `ho'vt` Unit `ryo` Enter @List `yior` Unit
+-}
+
 -- instance
  -- ( Stackable tt
  -- ( Covariant Endo Semi Functor (->) tt
@@ -228,7 +243,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
    that `ha` sub @Tree
-    `har__` Only `ho'ut` supertype root `ryo` Enter @Tree
+    `har__` Only `ho'ut'st` root `ryo` Enter @Tree
     `har__` Adapt @(Scrolling List) `ho` mutate `ho` Adapt @(Nonempty List) `ho` mutate
      `har_` Alone tree `hjd'tb` supertype siblings
     `yo___` source
