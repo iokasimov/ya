@@ -130,7 +130,7 @@ map source = supertype @Arrow (mapping @v @vv @source @target @t @tt @a @o (subt
 class Component target t tt where
  component :: target (t i) (tt i)
 
-type C'AR t tt = forall i . Component (AR) t tt => Unlabeled t i `AR` Unlabeled tt i
+type C'AR t tt = forall i . t i `AR` tt i
 
 type C'AR_ t tt = C'AR t tt
 type C'AR__ t tt = C'AR t tt
@@ -140,7 +140,7 @@ type C'AR_____ t tt = C'AR t tt
 type C'AR______ t tt = C'AR t tt
 type C'AR_______ t tt = C'AR t tt
 
-type C'AT t tt = forall i . Component (AT) t tt => Unlabeled t i `AT` Unlabeled tt i
+type C'AT t tt = forall i . t i `AT` tt i
 
 type C'AT_ t tt = C'AT t tt
 type C'AT__ t tt = C'AT t tt
@@ -150,7 +150,7 @@ type C'AT_____ t tt = C'AT t tt
 type C'AT______ t tt = C'AT t tt
 type C'AT_______ t tt = C'AT t tt
 
-type C'TR t tt = forall i . Component (TR) t tt => Unlabeled t i `TR` Unlabeled tt i
+type C'TR t tt = forall i . t i `TR` tt i
 
 type C'TR_ t tt = C'TR t tt
 type C'TR__ t tt = C'TR t tt
