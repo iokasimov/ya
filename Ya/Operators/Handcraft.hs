@@ -2072,14 +2072,18 @@ yor'st :: forall source target t object o .
 yor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
 
 yior :: forall source target t object i o .
- Covariant Transformation Functor source target (T'I'II t i) (T'I'II source object) =>
+ Category source =>
+ Precategory target =>
+ Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i o) (source object o)
 yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
 
 hor, hor_, hor__, hor___, hor____, hor_____, hor______, hor_______ :: forall source target t i o .
- Covariant Transformation Functor source target (T'I'II t i) (T'I'II source i) =>
+ Category source =>
+ Precategory target =>
+ Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source i) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i o) (source i o)
@@ -2093,8 +2097,9 @@ hor______ = yior @source @target @t @i
 hor_______ = yior @source @target @t @i
 
 yior'st :: forall source target t object i o .
- Covariant Yoneda Functor source target (T'I'II t i) =>
- Covariant Transformation Functor source target (T'I'II t i) (T'I'II source (Supertype object)) =>
+ Category source =>
+ Precategory target =>
+ Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source (Supertype object)) =>
  (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
@@ -2122,7 +2127,6 @@ hor______'st = yior'st @source @target @t @i
 hor_______'st = yior'st @source @target @t @i
 
 yoir :: forall source target t object i o .
- Covariant Yoneda Functor source target (T'II'I t i) =>
  Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2130,7 +2134,6 @@ yoir :: forall source target t object i o .
 yoir = supertype `compose` map @T'I'II @T'I'II @source @target @(T'II'I t _) @(T'I'II source object) identity `compose` subtype @target @(T'II'I t _ _)
 
 yoir'st :: forall source target t object i o .
- Covariant Yoneda Functor source target (T'II'I t i) =>
  Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
  (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
@@ -2178,16 +2181,18 @@ yar'st = fai @source subtype `compose` supertype `compose` map @T'II'I @T'I'II @
 yar_'st = yar'st @source @target @t @object
 
 yair :: forall source target t object i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  target (t a i) (source a object)
 yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _)
 
 har, har_, har__, har___, har____, har_____, har______, har_______ :: forall source target t i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
- Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  target (t a i) (source a i)
@@ -2201,7 +2206,8 @@ har______ = yair @source @target @t @i
 har_______ = yair @source @target @t @i
 
 yair'st :: forall source target t object i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
  (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
@@ -2211,7 +2217,8 @@ yair'st :: forall source target t object i a .
 yair'st = fai @source supertype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _)
 
 har'st, har_'st, har__'st, har___'st, har____'st, har_____'st, har______'st, har_______'st :: forall source target t i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
  (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
@@ -2228,7 +2235,8 @@ har______'st = yair'st @source @target @t @i
 har_______'st = yair'st @source @target @t @i
 
 bt'yair :: forall source target t object r i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2238,7 +2246,8 @@ bt'yair :: forall source target t object r i a .
 bt'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` basetype
 
 bt'har, bt'har_, bt'har__, bt'har___, bt'har____, bt'har_____, bt'har______, bt'har_______ :: forall source target t r i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2255,7 +2264,8 @@ bt'har______ = bt'yair @source @target @t @i
 bt'har_______ = bt'yair @source @target @t @i
 
 bt'yair'st :: forall source target t object r i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2266,7 +2276,8 @@ bt'yair'st :: forall source target t object r i a .
 bt'yair'st = fai @source supertype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` basetype
 
 bt'har'st, bt'har_'st, bt'har__'st, bt'har___'st, bt'har____'st, bt'har_____'st, bt'har______'st, bt'har_______'st :: forall source target t r i a .
- Contravariant Yoneda Functor source target (T'II'I t i) =>
+ Category source =>
+ Precategory target =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2284,16 +2295,19 @@ bt'har______'st = bt'yair'st @source @target @t @i
 bt'har_______'st = bt'yair'st @source @target @t @i
 
 yiar :: forall source target t object i a .
- Contravariant Yoneda Functor source target (T'I'II t i) =>
- Contravariant Transformation Functor source target (T'I'II t i) (T'II'I source object) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'I'II t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  target (t i a) (source a object)
 yiar = supertype `compose` map @T'II'I @T'I'II @source @target @(T'I'II t _) @(T'II'I source object) identity `compose` subtype @target @(T'I'II t _ _)
 
 yiar'st :: forall source target t object i a .
- Contravariant Yoneda Functor source target (T'I'II t i) =>
- Contravariant Transformation Functor source target (T'I'II t i) (T'II'I source object) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'II'I source object) (T'II'I source object) =>
+ Contravariant Mapping T'I'II source target (T'I'II t i) (T'II'I source object) =>
  (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
@@ -2302,7 +2316,9 @@ yiar'st :: forall source target t object i a .
 yiar'st = fai @source subtype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'I'II t _) @(T'II'I source object) identity `compose` subtype @target @(T'I'II t _ _)
 
 yaar :: forall source target t object a .
- Contravariant Transformation Functor source target (T'I'I t) (T'II'I source object) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'I'I t) (T'II'I source object) =>
  (forall e . Wrapper target (T'II'I source object e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e . Wrapper target (T'I'I t e)) =>
@@ -2310,7 +2326,10 @@ yaar :: forall source target t object a .
 yaar = supertype `compose` map @T'II'I @T'I'II @source @target @(T'I'I t) @(T'II'I source object) identity `compose` subtype @target @(T'I'I t _)
 
 yaar'st :: forall source target t object a .
- Contravariant Transformation Functor source target (T'I'I t) (T'II'I source object) =>
+ Category source =>
+ Precategory target =>
+ Contravariant Mapping T'I'II source target (T'II'I source object) (T'II'I source object) =>
+ Contravariant Mapping T'I'II source target (T'I'I t) (T'II'I source object) =>
  (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
