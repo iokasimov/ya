@@ -692,9 +692,6 @@ pattern Sole x = x
 pattern None :: Void `P` Unit `AR_` Void `P` Unit
 pattern None x = x
 
-pattern Bare :: i `S` Void `AR_` i `S` Void
-pattern Bare x = x
-
 pattern Some :: Unit `S` i `AR_` Unit `S` i
 pattern Some x = x
 
