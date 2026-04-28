@@ -17,7 +17,7 @@ infixl 9 `ho`, `ho'yioi`, `ho'yoo'ut`, `ho'yoi'ut`, `ho'yok`, `ho'yok'ut`, `ho'y
  -- , `ho'st'st'st'st`
  -- , `ho'hd`
  -- , `ho'hd'hd`
- -- , `ho'ho'ut`
+ , `ho'ho'ut`
 infixl 8 `ho_`, `ho_'yoo'ut`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --, `ho_'yokl'yokl`, `ho_'yokl'yokl`
  , `ho_'yoikl` --, `ho_'yoo`,
  , `ho_'vt`, `ho_'st'vt`, `ho_'ut`, `ho_'ut'st`

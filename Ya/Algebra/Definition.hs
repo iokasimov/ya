@@ -230,11 +230,11 @@ type Constant t = t T''II
 
 type Kleisli u t = T'I'TT'II u t
 
-class 
+class
  ( Category source
  , x v source target t
  , forall e . Mapping v T'I'II source target t (Embedding v source target t e)
- , forall e ee . Covariant Elicitable target (UU_V_T'I'II_T_II v source target t ee e)
+ , forall e ee . Covariant Elicitable target (Embedding v source target t ee e)
  ) => Yoneda v x source target t where
  yoneda :: forall a o .
   Category source =>
@@ -248,7 +248,7 @@ deriving instance
  ( Category source
  , x v source target t
  , forall e . Mapping v T'I'II source target t (Embedding v source target t e)
- , forall e ee . Covariant Elicitable target (UU_V_T'I'II_T_II v source target t ee e)
+ , forall e ee . Covariant Elicitable target (Embedding v source target t ee e)
  ) => Yoneda v x source target t
 
 type family Representation t where

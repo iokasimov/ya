@@ -14,7 +14,7 @@ instance
  ( Covariant Semi Functor source target t
  , forall e . Wrapper target (t `L` tt `T` ll `T` e)
  ) => Mapping T'I'II T'I'II source target (t `L` tt `T` ll) (t `L` tt `T` ll) where
- mapping = rewrap `identity`(rewrap `compose` map @T'I'II @T'I'II @source @target @t @t)
+ mapping = rewrap `identity` (rewrap `compose` map @T'I'II @T'I'II @source @target @t @t)
 
 instance
  ( Covariant Semi Functor source target t
