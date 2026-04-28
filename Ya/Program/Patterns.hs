@@ -222,3 +222,9 @@ type Match = T'II'I Arrow Boolean
 
 pattern Match :: e `AR` Boolean `AR_` Match e
 pattern Match e = T'II'I e
+
+pattern Pull :: forall i . i `AR` (i `P` i)
+pattern Pull x <- These x xx where Pull x = These x x
+
+pattern Push :: forall ii i . ii `AR_` i `AR` i `P` ii
+pattern Push xx x <- These x xx
