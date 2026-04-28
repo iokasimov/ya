@@ -40,7 +40,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (I `P'T'I'TT'I` Twice 
    Scrolling List item `P` List item `AR__`
    List (Scrolling List `L` Scrolling List `T` Void `T` item) `P` (Scrolling List item `P` List (Scrolling List `L` Scrolling List `T` Void `T` item))
   positions (These x xs) = xs
-   `yokl___'ut` Forth `ha` Apply `har____` State `har__` Event `har` (shift @Alone @List @item `har'st` Fore @Unit `ho_` that `ho` fetch) `ha__` Scope `har` field @(Scrolling List item)
+   `yokl___'ut` Forth `ha` Apply `har____` State `har__` Event `har` (shift @Alone @List @item `har'st` Fore @Unit `ho_` that `ho` Fetch) `ha__` Scope `har` field @(Scrolling List item)
    `yok__` Apply `ha` State `ha___` Event `ha` push @List `ha` Label `ho__'ha` Scope `har` field @(List `T'I` Scrolling List `L` Scrolling List `T` Void `T` item)
    `bt'har_____` x `hjd__` Null `ho'vt` Unit `ryo` Enter
 
@@ -205,7 +205,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Prior `ha` Apply `ha` State `ha` Event
-  `ha__` Error `ho'ut` fetch `bt'has` push @List `ho'ho` (fetch `ha` that) `ha` source
+  `ha__` Error `ho'ut` Fetch `bt'has` push @List `ho'ho` (Fetch `ha` that) `ha` source
   `bt'har__` empty @List
   `yi__` that
 

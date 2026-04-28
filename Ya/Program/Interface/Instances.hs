@@ -438,31 +438,31 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 
   _shift_ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List i)
    `yok____'ut` Apply `ha__` State
-   `har____` Event `ha__` relay `har_'st` Empty
+   `har____` Event `ha__` Renew `har_'st` Empty
     `ha____` Scope `har_` field @(Shafted List i)
    `ho___'st` Scope `har_` index @Twice `ha` (Back `has` Fore) `har` way
      `ho___` Scope `har_` within `ha` Stock @Maybe
    `yok____` Check
    `yok____` Apply `ha__` State
-   `ha_____` Event `ha__` relay `ha` Alone
+   `ha_____` Event `ha__` Renew `ha` Alone
    `ho___'ha` Scope `har_` field @(Alone i)
    `yok____` Apply `ha__` State
-   `ha_____` Event `ha__` relay `ha'st` Exist
+   `ha_____` Event `ha__` Renew `ha'st` Exist
    `ho___'ha` Scope `har_` field @(Shafted List i)
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
       `ho_` (Scope `har` within `ha` Fresh @Maybe)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yok____'ut` Apply `ha_` State
-   `har____` Event `har` fetch
+   `har____` Event `har` Fetch
     `ha____` Scope `har` field @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` fetch `bt'has_` is `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
+ spot (These way predicate) x = foi Exist `ha` Fetch `bt'has_` is `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
 
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
-   `yok____'ut` Lease `ha` State `har___` Event `har__` fetch `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
+   `yok____'ut` Lease `ha` State `har___` Event `har__` Fetch `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
    `yok____` Check `ha` Stops `ha` not `ha` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
@@ -488,7 +488,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Apply `ha` State `ha____` Event `ha` window_extract_last `ho__'ha` Scope `har` field @(List _)
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead
-   `yok____'ut` Apply `ha` State `har___` Event `har` fetch `ha__` Scope `har` field @(List _)
+   `yok____'ut` Apply `ha` State `har___` Event `har` Fetch `ha__` Scope `har` field @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
   window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `har_'st` This @Unit
@@ -532,12 +532,12 @@ instance Shiftable Alone (Construction List) where
   vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_deep _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
-    `har____` Event `har` fetch
+    `har____` Event `har` Fetch
      `ha____` Scope `har` field @(Tree `T'I` i)
       `ho___` Scope `har` top @Tree
         `hop_` Scope `har` sub @Tree
    `yok_____` Check `ha'yo` splash `ha` moves
-   `yok_____` Apply `ha` State `ha____` Event `ha` relay `ha` this
+   `yok_____` Apply `ha` State `ha____` Event `ha` Renew `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
@@ -561,7 +561,7 @@ instance Shiftable Alone (Construction List) where
    `yok_____` Apply `ha_` State
      `ha____` Event `ha_` (\unfolding tree -> scroll `har` way `har` unfolding `har` tree `hjd` tree)
     `ho___'ha` Scope `har` field @(Tree i)
-   `yok_____` Apply `ha_` State `ha____` Event `ha` relay `ha` this
+   `yok_____` Apply `ha_` State `ha____` Event `ha` Renew `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)

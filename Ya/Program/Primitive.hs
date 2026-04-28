@@ -24,12 +24,6 @@ swap (These x y) = y `hjd` x
   -- ((T'TT'I / subtype @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
   -- (\new -> Build x (supertype @Arrow @(F'T'I'TT'I _ _ _) `fo` supertype new) `yo` source `ho` (\(These _ y) -> y))
 
-fetch :: e `AR__` e `P` e
-fetch = is `hop` is
-
-relay :: ee -> e `AR__` e `P` ee
-relay new old = old `hjd` new
-
 -- leaf :: forall t e .
  -- -- Contravariant Objective target iii (P _ _) =>
  -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
