@@ -215,14 +215,14 @@ infixl 1 `ha________`
  , `ha________'yokl`
  -- , `ha________'yokl`
 
-infixl 8 `har`, `har'st`, `bt'har`, `bt'har'st`
-infixl 7 `har_`, `har_'st`, `bt'har_`, `bt'har_'st`
-infixl 6 `har__`, `har__'st`, `bt'har__`, `bt'har__'st`
-infixl 5 `har___`, `har___'st`, `bt'har___`, `bt'har___'st`
-infixl 4 `har____`, `har____'st`, `bt'har____`, `bt'har____'st`
-infixl 3 `har_____`, `har_____'st`, `bt'har_____`, `bt'har_____'st`
-infixl 2 `har______`, `har______'st`, `bt'har______`, `bt'har______'st`
-infixl 1 `har_______`, `har_______'st`, `bt'har_______`, `bt'har_______'st`
+infixl 8 `har`, `har'st`, `st'har`, `bt'har`, `bt'har'st`
+infixl 7 `har_`, `har_'st`, `st'har_`, `bt'har_`, `bt'har_'st`
+infixl 6 `har__`, `har__'st`, `st'har__`, `bt'har__`, `bt'har__'st`
+infixl 5 `har___`, `har___'st`, `st'har___`, `bt'har___`, `bt'har___'st`
+infixl 4 `har____`, `har____'st`, `st'har____`, `bt'har____`, `bt'har____'st`
+infixl 3 `har_____`, `har_____'st`, `st'har_____`, `bt'har_____`, `bt'har_____'st`
+infixl 2 `har______`, `har______'st`, `st'har______`, `bt'har______`, `bt'har______'st`
+infixl 1 `har_______`, `har_______'st`, `st'har_______`, `bt'har_______`, `bt'har_______'st`
 
 infixl 8 `hdj`
 infixl 7 `hdj_`
@@ -384,7 +384,7 @@ infixl 6 `_rya`
 infixl 6 `yar_`
 
 infixl 6 `yiar`, `yiar'st`
-infixl 6 `yair`, `yair'st`, `bt'yair`, `bt'yair'st`
+infixl 6 `yair`, `yair'st`, `st'yair`, `bt'yair`, `bt'yair'st`
 infixl 6 `yaar`, `yaar'st`
 
 infixl 6 `ryio`
@@ -2233,6 +2233,35 @@ har____'st = yair'st @source @target @t @i
 har_____'st = yair'st @source @target @t @i
 har______'st = yair'st @source @target @t @i
 har_______'st = yair'st @source @target @t @i
+
+st'yair :: forall source target t object r i a .
+ Category source =>
+ Precategory target =>
+ Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ Covariant Elicitable target r =>
+ (Supertype r ~ t a i) =>
+ target r (source a object)
+st'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` supertype
+
+st'har, st'har_, st'har__, st'har___, st'har____, st'har_____, st'har______, st'har_______ :: forall source target t r i a .
+ Category source =>
+ Precategory target =>
+ Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ Covariant Elicitable target r =>
+ (Supertype r ~ t a i) =>
+ target r (source a i)
+st'har = st'yair @source @target @t @i
+st'har_ = st'yair @source @target @t @i
+st'har__ = st'yair @source @target @t @i
+st'har___ = st'yair @source @target @t @i
+st'har____ = st'yair @source @target @t @i
+st'har_____ = st'yair @source @target @t @i
+st'har______ = st'yair @source @target @t @i
+st'har_______ = st'yair @source @target @t @i
 
 bt'yair :: forall source target t object r i a .
  Category source =>
