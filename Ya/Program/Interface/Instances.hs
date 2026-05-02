@@ -107,15 +107,16 @@ instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
 
 -- TODO: generalise
-pattern Fresh :: forall t i .
- List i `AR__` List `L` t `T` (Void `P` Void) `T` i
+pattern Fresh :: forall t i ii . t ii `AR__` t `L` Stops i `T` (Void `P` Void) `T` ii
 pattern Fresh x = Label x
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` supertype x `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void `P` Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` (Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` supertype x) `yo` source
+-}
 
 pattern Locus :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
