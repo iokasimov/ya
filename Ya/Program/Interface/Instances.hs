@@ -35,6 +35,10 @@ instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Ma
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
    `hjd_` (\xx -> x `yo` that `ha` source `hjd_'yp` Align `har` xx `yo_` hdj @(AR))
 
+pattern Root :: forall t i .
+ t i `AR__` t `L` Alone `T` (Void) `T` i
+pattern Root x = Label x
+
 instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) Alone where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
