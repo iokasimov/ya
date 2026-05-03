@@ -57,18 +57,6 @@ type Sliding t = Shifting List t
  --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
  --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `has` Again `hu` Reach Unit
 
-instance Mapping T'I'II T'I'II (AR) (AR)
- (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
- (I `P'T'I'TT'I` Twice `T'TT'I` List) where
- mapping = rewrap `identity` \source (Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-  Alone `har` source x `hjd___'tb` T'TT'I (Empty Unit) `hjd_'tb` T'TT'I (xs `yo` F'T'I'TT) `yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (Identity x) (T'TT'I (T'I'I (These l r)))))) ->
-  l `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
-  `bt'har__` Empty `ho'ut` (Only `ho'ut` x `ryo` Enter @(Nonempty List)) `bt'has` push x `ho` that `har` r
-  `yi__` that `ho'yo` source
-
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `TT'T'I` t) where

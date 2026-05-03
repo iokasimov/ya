@@ -66,6 +66,19 @@ pattern Adapt x = Label @t @tt @Void x
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Void)) List where
  mapping = rewrap `identity` \source -> rewrap `har_` supertype `ho` subtype @AR `ho'yo` source `ho` Exist
 
+instance Mapping T'I'II T'I'II (AR) (AR)
+ (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
+ (I `P'T'I'TT'I` Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source (Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
+  Alone `har` source x `hjd___'tb` T'TT'I (Empty Unit) `hjd_'tb` T'TT'I (xs `yo` F'T'I'TT) `yo` source
+
+instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
+  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ha` Exist `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
+   -- `bt'har___` (Empty `ho'ut` (Only `ho'ut` x `ryo` Enter) `bt'has` push x `ho` that `har` r)
+   `bt'har___` derive `ha` Merge `ha` Clasp `har_` x `hjd` r
+   `yi___` that `ho'yo` source
+
 -- TODO: replace it with `Merge`
 -- instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  -- mapping = rewrap `identity` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
