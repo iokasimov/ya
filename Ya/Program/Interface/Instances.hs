@@ -110,9 +110,28 @@ instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
 
--- TODO: generalise
 pattern Fresh :: forall t i ii . t ii `AR__` t `L` Stops i `T` (Void `P` Void) `T` ii
 pattern Fresh x = Label x
+
+instance {-# OVERLAPS #-}
+ ( forall e . Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) Unit) t
+ ) => Component (AR) (Construction t `L` Maybe `T` (Void `P` Void)) Maybe where
+ component _ = supertype Empty
+
+instance {-# OVERLAPS #-}
+ Component (AR) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
+ component _ = supertype Empty
+
+instance {-# OVERLAPS #-}
+ ( forall e . Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) Unit) t
+ ) => Component (AT) (Construction t `L` Maybe `T` (Void `P` Void)) Maybe where
+ component = T'I'TT'II'T'II'I `identity` \(Label x) ->
+  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> F'T'I'TT (Recursive (T'TT'I (T'II'I (These (Pass `ho'ut` supertype x `ryo` Enter @t) xx))))))
+
+instance {-# OVERLAPS #-}
+ Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
+ component = T'I'TT'II'T'II'I `identity` \(Label x) ->
+  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
