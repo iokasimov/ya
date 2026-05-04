@@ -228,3 +228,9 @@ pattern Pull x <- These x xx where Pull x = These x x
 
 pattern Push :: forall ii i . ii `AR_` i `AR` i `P` ii
 pattern Push xx x = These x xx
+
+pattern Drop :: forall ii i . Maybe i `AR` Maybe i `P` Maybe ii
+pattern Drop x = These x (Empty Unit)
+
+pattern Park :: forall ii i . ii `AR_` Alone i `AR` Alone i `P` Alone ii
+pattern Park xx x = These x (Alone xx)
