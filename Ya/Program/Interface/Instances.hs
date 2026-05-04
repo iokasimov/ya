@@ -15,10 +15,6 @@ import Ya.Program.Interface.Shiftable
 
 -- TODO: think about labels for these two instances below!
 
-pattern Root :: forall tt t i .
- t i `AR__` t `L` tt `T` (Void) `T` i
-pattern Root x = Label x
-
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
@@ -44,16 +40,14 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
   T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
    Alone `ha` this `ha` source `har` x `hjd'tb` (\xx -> xxx `hjd_'tb` that `ha` source `har` x `har` supertype xx)
 
+-- First
+
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `ho___'ut` Null `ho'vt` Unit `ryo` Enter `bt'has__` (\x' -> Sole `ho'ut` x' `ryo` Enter))
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
-
-instance {-# OVERLAPS #-} Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
- component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
 
 instance {-# OVERLAPS #-} Component (TR) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \case
@@ -111,6 +105,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` Construction Optional `T
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` List `T` Void) List where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
 
+-- pattern Ended
+-- pattern Begin
+
 pattern Stock :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Stock x = Label x
@@ -145,6 +142,8 @@ instance {-# OVERLAPS #-}
  Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
   supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
+
+-- instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void)) (Twice `T'TT'I` List) where
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
@@ -216,6 +215,15 @@ pattern Merge :: forall t tt ttt i .
  -- ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void `P` Void `P` Void) `T` i
  ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
 pattern Merge x = Label x
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+ ((Alone `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+ (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  Empty `ho___'ut` Only `ho'ut'st` x `ryo` Enter @(Nonempty List)
+   `has___` supertype (Event `ha` Push `ha` Exist `har'st` x `ha__` Scope `har` within `ha` Fresh) `ho` that
+   `har___` basetype xx
+   `yo____` source
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  ((F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
@@ -485,7 +493,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ha_____` Event `ha__` Push `ha'st` Exist
    `ho___'ha` Scope `har_` field @(Shafted List i)
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
-      `ho_` (Scope `har` within `ha` Fresh @Maybe)
+      `ho_` (Scope `har` within @List @Maybe `ha` Fresh)
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` Pull
@@ -560,10 +568,6 @@ instance Shiftable Alone (Construction List) where
   aloft unfolding tree = Alone `ha` this `ha` top `har` tree
    `hjd_'tb` unfolding `hjd'tb` tree `yi` derive `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree)
 
-   -- List `T'TT'I` (T'TT'I List (P'T'I'TT'I Alone (T'TT'I (T'TT'I Twice List) Tree)))
-
- -- (L (P'T'I'TT'I (P'T'I'TT'I Alone (T'TT'I (T'TT'I Twice List) Tree)) Tree) Tree Void) (F'T'I'TT Along List)
-
   vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_deep _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
@@ -584,7 +588,7 @@ instance Shiftable Alone (Construction List) where
 
   splash :: forall i . i `P` Nonempty List (Tree i) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
   splash (These root descendants) = this `ha` top `har` descendants
-   `hjd__'tb` Alone `har` root `hjd_'tb` subtype @(AR) `ha` derive `ha` Fresh @(Shafted List) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants
+   `hjd__'tb` (Alone `har` root `hjd_'tb` subtype @(AR) `ha` (T'TT'I `ha` T'I'I `ha` These (Null `ho'vt` Unit `ryo` Enter @List)) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants)
 
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = Only `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
