@@ -68,7 +68,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
-  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ha` Exist `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
+  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Swap `ha` Exist `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
    -- `bt'har___` (Empty `ho'ut` (Only `ho'ut` x `ryo` Enter) `bt'has` push x `ho` that `har` r)
    `bt'har___` derive `ha` Merge `ha` Clasp `har_` x `hjd` r
    `yi___` that `ho'yo` source
@@ -221,7 +221,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   Empty `ho___'ut` Only `ho'ut'st` x `ryo` Enter @(Nonempty List)
-   `has___` supertype (Event `ha` Push `ha` Exist `har'st` x `ha__` Scope `har` within `ha` Fresh) `ho` that
+   `has___` supertype (Event `ha` Swap `ha` Exist `har'st` x `ha__` Scope `har` within `ha` Fresh) `ho` that
    `har___` basetype xx
    `yo____` source
 
@@ -481,16 +481,16 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 
   _shift_ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List i)
    `yok____'ut` Apply `ha__` State
-   `har____` Event `ha__` Push `har_'st` Empty
+   `har____` Event `ha__` Swap `har_'st` Empty
     `ha____` Scope `har_` field @(Shafted List i)
    `ho___'st` Scope `har_` index @Twice `ha` (Back `has` Fore) `har` way
      `ho___` Scope `har_` within `ha` Stock @Maybe
    `yok____` Check
    `yok____` Apply `ha__` State
-   `ha_____` Event `ha__` Push `ha` Alone
+   `ha_____` Event `ha__` Swap `ha` Alone
    `ho___'ha` Scope `har_` field @(Alone i)
    `yok____` Apply `ha__` State
-   `ha_____` Event `ha__` Push `ha'st` Exist
+   `ha_____` Event `ha__` Swap `ha'st` Exist
    `ho___'ha` Scope `har_` field @(Shafted List i)
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
       `ho_` (Scope `har` within @List @Maybe `ha` Fresh)
@@ -576,7 +576,7 @@ instance Shiftable Alone (Construction List) where
       `ho___` Scope `har` top @Tree
         `hop_` Scope `har` sub @Tree
    `yok_____` Check `ha'yo` splash `ha` moves
-   `yok_____` Apply `ha` State `ha____` Event `ha` Push `ha` this
+   `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
@@ -601,7 +601,7 @@ instance Shiftable Alone (Construction List) where
    `yok_____` Apply `ha_` State
      `ha____` Event `ha_` (\unfolding tree -> scroll `har` way `har` unfolding `har` tree `hjd` tree)
     `ho___'ha` Scope `har` field @(Tree i)
-   `yok_____` Apply `ha_` State `ha____` Event `ha` Push `ha` this
+   `yok_____` Apply `ha_` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)

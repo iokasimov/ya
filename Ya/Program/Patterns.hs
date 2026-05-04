@@ -226,8 +226,8 @@ pattern Match e = T'II'I e
 pattern Pull :: forall i . i `AR` (i `P` i)
 pattern Pull x <- These x xx where Pull x = These x x
 
-pattern Push :: forall ii i . ii `AR_` i `AR` i `P` ii
-pattern Push xx x = These x xx
+pattern Swap :: forall ii i . ii `AR_` i `AR` i `P` ii
+pattern Swap xx x = These x xx
 
 pattern Drop :: forall ii i . Maybe i `AR` Maybe i `P` Maybe ii
 pattern Drop x = These x (Empty Unit)
