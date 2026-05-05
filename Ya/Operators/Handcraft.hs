@@ -18,6 +18,7 @@ infixl 9 `ho`, `ho'yioi`, `ho'yoo'ut`, `ho'yoi'ut`, `ho'yok`, `ho'yok'ut`, `ho'y
  -- , `ho'hd`
  -- , `ho'hd'hd`
  , `ho'ho'ut`
+ , `ho'ho'ut'st`
 infixl 8 `ho_`, `ho_'yoo'ut`, `ho_'yok`, `ho_'yok'ut`, `ho_'yokl`, `ho_'yokl'ut` --, `ho_'yokl'yokl`, `ho_'yokl'yokl`
  , `ho_'yoikl` --, `ho_'yoo`,
  , `ho_'vt`, `ho_'st'vt`, `ho_'ut`, `ho_'ut'st`
@@ -1647,85 +1648,30 @@ ho'ho'ut :: forall source t tt o i ii a .
  (forall e ee . Wrapper source (T'I'II t e ee)) =>
  (forall e ee . Wrapper source (T'II'I source e ee)) =>
  (forall e ee . Wrapper source (T'I'II source e ee)) =>
- source (t i (tt ii a)) (source (Supertype (source Unit o)) (t i (tt ii o)))
+ (Supertype (source Unit o) ~ o) =>
+ source (t i (tt ii a)) (source (o) (t i (tt ii o)))
 ho'ho'ut = fai (fiu @source) `compose` ho @t
 
--- ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, ho_______'ha, ho________'ha
---  :: forall source u uu o i ii a .
---  Covariant Yoneda Functor u (AR) (T'I'II u i) =>
---  Contravariant Yoneda Functor u (AR) (T'II'I u i) =>
---  Contravariant Semi Functor source u (T'II'I uu ii) =>
---  Contravariant Endo Semi Functor (AR) (T'II'I (AR) (u i (uu a ii))) =>
---  (forall e ee . Wrapper u (T'II'I uu e ee)) =>
---  (forall e ee . Wrapper source (T'I'II u e ee)) =>
---  u i (uu o ii) -> source a o -> u i (uu a ii)
--- ho'ha x = fai @(AR) @(AR) fai (ho @u x)
-
--- ho_'ha = ho'ha
--- ho__'ha = ho'ha
--- ho___'ha = ho'ha
--- ho____'ha = ho'ha
--- ho_____'ha = ho'ha
--- ho______'ha = ho'ha
--- ho_______'ha = ho'ha
--- ho________'ha = ho'ha
-
--- ho'ha'st'st, ho_'ha'st'st, ho__'ha'st'st, ho___'ha'st'st, ho____'ha'st'st, ho_____'ha'st'st, ho______'ha'st'st, ho_______'ha'st'st, ho________'ha'st'st
---  :: forall source u uu o i ii a .
---  Covariant Yoneda Functor u (AR) (T'I'II u i) =>
---  Contravariant Semi Functor source u (T'II'I uu ii) =>
---  (forall e ee . Wrapper u (T'II'I uu e ee)) =>
---  Wrapper source a =>
---  Wrapper source (Supertype a) =>
---  u i (uu o ii) -> source (Supertype (Supertype a)) o -> u i (uu a ii)
--- ho'ha'st'st x = fai (fai `compose` fai @source supertype'supertype) (ho @u x)
-
--- ho_'ha'st'st = ho'ha'st'st
--- ho__'ha'st'st = ho'ha'st'st
--- ho___'ha'st'st = ho'ha'st'st
--- ho____'ha'st'st = ho'ha'st'st
--- ho_____'ha'st'st = ho'ha'st'st
--- ho______'ha'st'st = ho'ha'st'st
--- ho_______'ha'st'st = ho'ha'st'st
--- ho________'ha'st'st = ho'ha'st'st
-
--- ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo, ho______'yo, ho_______'yo, ho________'yo
---  :: forall source u t o e a .
---  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
---  Contravariant Yoneda Functor source (AR) (T'II'I u e) =>
---  Covariant Endo Semi Functor source t =>
---  Constant Semi Functor source (AR) t =>
---  u e (t a) -> source a o -> u e (t o)
--- ho'yo x = fai (fo @source) (ho @source x)
-
--- ho_'yo = ho'yo
--- ho__'yo = ho'yo
--- ho___'yo = ho'yo
--- ho____'yo = ho'yo
--- ho_____'yo = ho'yo
--- ho______'yo = ho'yo
--- ho_______'yo = ho'yo
--- ho________'yo = ho'yo
-
--- ho'yoo, ho_'yoo, ho__'yoo, ho___'yoo, ho____'yoo, ho_____'yoo, ho______'yoo, ho_______'yoo, ho________'yoo
---  :: forall source target t i tt a o .
---  Covariant Endo Semi Functor source (T'I'I tt) =>
---  Covariant Yoneda Functor source target (T'I'II t i) =>
---  (forall e ee . Wrapper target (T'I'II t e ee)) =>
---  Contravariant Endo Semi Functor (AR) (T'II'I target (t i ((tt o o)))) =>
---  (forall e ee . Wrapper target (T'I'II source e ee)) =>
---  (forall e . Wrapper source (T'I'I tt e)) =>
---  target (t i (tt a a)) (target (source (a) o) (t i (tt o o)))
--- ho'yoo = fai (foo @source @source @tt) `compose` yio @source @target
-
--- ho_'yoo = ho'yoo
--- ho__'yoo = ho'yoo
--- ho___'yoo = ho'yoo
--- ho____'yoo = ho'yoo
--- ho_____'yoo = ho'yoo
--- ho______'yoo = ho'yoo
--- ho_______'yoo = ho'yoo
--- ho________'yoo = ho'yoo
+ho'ho'ut'st :: forall source t tt o i ii a .
+ Category source =>
+ Terminal source =>
+ Covariant Yoneda Functor t source (T'I'II t i) =>
+ Contravariant Yoneda Functor (AR) (AR) (T'II'I t i) =>
+ Covariant Semi Functor source t (T'I'II tt ii) =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II (AR) e)) =>
+ (forall e . Contravariant Semi Functor (AR) source (T'II'I source e)) =>
+ (forall e . Covariant Endo Semi Functor source (T'I'II source e)) =>
+ (forall e . Contravariant Endo Semi Functor source (T'II'I source e)) =>
+ (forall e . Wrapper t (T'I'II tt ii e)) =>
+ (forall e . Wrapper (AR) (source Unit e)) =>
+ (forall e ee . Wrapper source (T'I'II tt e ee)) =>
+ (forall e ee . Wrapper source (T'I'II t e ee)) =>
+ (forall e ee . Wrapper source (T'II'I source e ee)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ Covariant Elicitable (AR) o =>
+ (Supertype (source Unit (Supertype o)) ~ Supertype o) =>
+ source (t i (tt ii a)) (source (o) (t i (tt ii (Supertype o))))
+ho'ho'ut'st = fai (fiu @source `compose` supertype) `compose` ho @t
 
 ho'yoo'ut, ho_'yoo'ut, ho__'yoo'ut, ho___'yoo'ut, ho____'yoo'ut, ho_____'yoo'ut, ho______'yoo'ut, ho_______'yoo'ut, ho________'yoo'ut
  :: forall u t o e a .
