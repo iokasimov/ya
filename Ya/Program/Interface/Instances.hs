@@ -45,7 +45,7 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
-  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (Empty `ho___'ut` Null `ho'vt` Unit `ryo` Enter `bt'has__` (\x' -> Sole `ho'ut` x' `ryo` Enter))
+  Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (\_ -> Null `ho'vt` Unit `ryo` Enter)
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
 
@@ -68,7 +68,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
-  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Swap `ha` Exist `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
+  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
    -- `bt'har___` (Empty `ho'ut` (Only `ho'ut` x `ryo` Enter) `bt'has` push x `ho` that `har` r)
    `bt'har___` derive `ha` Merge `ha` Clasp `har_` x `hjd` r
    `yi___` that `ho'yo` source
