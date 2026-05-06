@@ -208,15 +208,36 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P
 -- pattern Chary x = Label (T'TT'I x)
 
 pattern Merge :: forall t tt ttt i .
- -- ( Stackable tt
  ( Covariant Endo Semi Functor (->) tt
  , Covariant Endo Yoneda Functor (->) t
- -- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
- -- ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void `P` Void `P` Void) `T` i
  ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
 pattern Merge x = Label x
 
-instance Mapping T'I'II T'I'II (AR) (AR)
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Covariant Transformation Functor (AR) (AR)
+  (t `T'TT'I` State (F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e) `L` State (F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e) `T` (Void) `L` t `T` (Void `P` Void))
+  (t `TT'T'I` State (F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e))
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  ((t `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+  (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+   `bt'har___` xx `yi____` that `ho'yo` source
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Covariant Transformation Functor (AR) (AR)
+  (t `T'TT'I` State (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e) `L` State (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e) `T` (Void) `L` t `T` (Void `P` Void))
+  (t `TT'T'I` State (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `T'I_` e))
+ ) => Mapping T'I'II T'I'II (AR) (AR)
+  ((t `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
+  (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
+ mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
+  x `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+   `bt'har___` xx `yi____` that `ho'yo` source
+
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
  (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
@@ -224,30 +245,6 @@ instance Mapping T'I'II T'I'II (AR) (AR)
    `has___` supertype (Event `ha` Swap `ha` Exist `har'st` x `ha__` Scope `har` within `ha` Fresh) `ho` that
    `har___` basetype xx
    `yo____` source
-
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
- (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
- (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
- (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
-
-instance Mapping T'I'II T'I'II (AR) (AR)
- ((T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit) `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
- (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` xx `yi__` that `ho'yo` source
 
 -- TODO: `Prior` behaviour is needed here
 {-
