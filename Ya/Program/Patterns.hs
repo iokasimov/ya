@@ -223,11 +223,14 @@ type Match = T'II'I Arrow Boolean
 pattern Match :: e `AR` Boolean `AR_` Match e
 pattern Match e = T'II'I e
 
-pattern Pull :: forall i . i `AR` (i `P` i)
+pattern Pull :: forall i . i `AR` i `P` i
 pattern Pull x <- These x xx where Pull x = These x x
 
 pattern Swap :: forall ii i . ii `AR_` i `AR` i `P` ii
 pattern Swap xx x = These x xx
+
+pattern Push :: forall ii i . ii `AR_` Maybe i `AR` Maybe i `P` Maybe ii
+pattern Push xx x = These x (Exist xx)
 
 pattern Drop :: forall ii i . Maybe i `AR` Maybe i `P` Maybe ii
 pattern Drop x = These x (Empty Unit)
