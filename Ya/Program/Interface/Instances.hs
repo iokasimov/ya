@@ -470,6 +470,21 @@ pattern Ahead x = That x :: Shifter List
 pattern Above x = This x :: Shifter List
 pattern Below x = That x :: Shifter List
 
+pattern Forth :: forall tt t i . t i `AR____` t `L` tt `T` (Void) `T` i
+pattern Forth x = Label @_ @_ @Void x
+
+instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` t) `L` t `T` (Void)) t where
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> xx `hjd'tb` (x `hjd'tb`)
+
+pattern Prior :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
+pattern Prior x = Label @_ @_ @(Void `P` Void) x
+
+instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` t) `L` t `T` (Void `P` Void)) t where
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> x `hjd'tb` (xx `hjd'tb`)
+
+-- instance Component (TR) (t `P'T'I'TT'I` Twice `T'TT'I` List) Maybe where
+ -- component = T'I'TT'II'I `identity` \case
+
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = is `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
