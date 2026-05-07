@@ -69,7 +69,6 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @(Nonempty List) @Maybe `ha` Fresh
-   -- `bt'har___` (Empty `ho'ut` (Only `ho'ut` x `ryo` Enter) `bt'has` push x `ho` that `har` r)
    `bt'har___` derive `ha` Merge `ha` Clasp `har_` x `hjd` r
    `yi___` that `ho'yo` source
 
@@ -136,12 +135,12 @@ instance {-# OVERLAPS #-}
  ( forall e . Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) Unit) t
  ) => Component (AT) (Construction t `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> F'T'I'TT (Recursive (T'TT'I (T'II'I (These (Pass `ho'ut` supertype x `ryo` Enter @t) xx))))))
+  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (Pass `ho'ut'st` x `ryo` Enter @t `hjd_`)))
 
 instance {-# OVERLAPS #-}
  Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx -> that (push xx x)))
+  supertype Empty `hjd` Label `ha` (\xx -> rewrap (`yo` (\x' -> that `ha` within @(Nonempty List) @Maybe `ha` Fresh `har` x' `har` xx)) x)
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void)) (Twice `T'TT'I` List) where
 
@@ -431,9 +430,10 @@ instance
 
   worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `har`
    (\xx -> xx
-    `yoi` fo @AR @AR (worker source (that (push @List `har` Unit `har` depth)))
+    `yoi` fo @AR @AR (worker source (that (Event `har` Push Unit `ha__` Scope `har` within `ha` Fresh `bt'har_` depth)))
     `yio` (\xxx -> source xxx `hjd'tb` depth)
    )
+
 
 -- TODO: Move all `Forth` instances to here
 instance Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
@@ -507,6 +507,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
 
+{-
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
  shift way x = is
@@ -517,7 +518,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   slide_future = Pass `ryo` Enter @(Halts `JNT` State `T` Sliding List i)
    `yok____'ut` Apply `ha` State `har__` Event `har` happen @List @Maybe `ha` First `ha__` Scope `har` field @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback
+   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback `ho__` Scope `har` within `ha` Fresh
    `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho__'ha` Scope `har` field @(List _)
@@ -527,20 +528,21 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_extract_last `ho__'ha` Scope `har` field @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead
+   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead `ho__` Scope `har` within `ha` Fresh
    `yok____'ut` Apply `ha` State `har___` Event `har` Pull `ha__` Scope `har` field @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
-  window_future r w = is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `har_'st` This @Unit
+  window_future r w = is @(List _) w
+   `yokl_` Prior `ha` Apply `ha` State `ha___` (Event `ha` Push) `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
+   `bt'har___` Only `ho'ut'st` r `ryo` Enter @List
 
   window_extract_last passed w =
+   -- Event `ha` Push `har` w `ha__` Scope `har` within `ha` Fresh
    push @List passed w `yi` that
-    `yokl` Forth `ha` Apply `ha` State `ha` Event `ha` push
-    `bt'har__` T'TT'I `har'st` Empty
-    `yi__` that `ho_` happen @List @Maybe `ha` First
-
--- None `h?` `ryo` Enter @Maybe
--- Pass `ho'ut'st` A `ryo` Enter @Maybe
+    `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
+    `bt'har___` Null `ho'vt` Unit `ryo` Enter @List
+    `yi___` that `ho_` happen @List @Maybe `ha` First
+-}
 
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
@@ -575,9 +577,10 @@ instance Shiftable Alone (Construction List) where
    `yok_____` Check `ha'yo` splash `ha` moves
    `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
-   `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
+   `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+        `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   moves :: forall i . i `P` List (Tree i) `AR___` Maybe (i `P` Nonempty List (Tree i))
@@ -600,9 +603,10 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` field @(Tree i)
    `yok_____` Apply `ha_` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` field @(Tree i)
-   `lo____'yp` Apply `ha_` State `ha____` Event `ha` push `ha` that
+   `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+        `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` Alone `ha` this `ha` top @Tree `ha` this
 
   -- TODO: the problem here is that we ignore information about successfulness of horizontal shifting!
