@@ -167,18 +167,17 @@ instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` Li
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd'tb` (`hjd'tb` xxx)
 
-pattern Shaft :: forall tt t i .
- t `P'T'I'TT'I` tt `T'I___` i `AR______` (t `P'T'I'TT'I` tt) `L` tt `T` (Void) `T` i
+pattern Shaft :: forall t i . t i `AR____` t `L` (Twice `T'TT'I` List) `T` (Void) `T` i
 pattern Shaft x = Label x
 
 instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` (Twice `T'TT'I` List) `T` Void) (Twice `T'TT'I` List) where
  component = \(Label (T'TT'I'TTT'I (These x xx))) -> xx
 
-instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree))) `L` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `T` Void) (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
- component = \(Label (T'TT'I'TTT'I (These x xx))) -> xx
-
 instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` (Twice `T'TT'I` List) `T` Void) (Twice `T'TT'I` List) where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> xx `hjd'tb` (x `hjd'tb`)
+
+instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree))) `L` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `T` Void) (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
+ component = \(Label (T'TT'I'TTT'I (These x xx))) -> xx
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree))) `L` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `T` Void) (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> xx `hjd'tb` (x `hjd'tb`)
