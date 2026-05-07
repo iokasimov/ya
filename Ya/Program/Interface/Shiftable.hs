@@ -8,7 +8,6 @@ import Ya.Program.Labels
 
 import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
-import Ya.Program.Interface.Stackable
 
 type family Shafted t where
  Shafted List = Twice `T'TT'I` List

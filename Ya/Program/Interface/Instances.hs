@@ -10,7 +10,6 @@ import Ya.Program.Labels
 
 import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
-import Ya.Program.Interface.Stackable
 import Ya.Program.Interface.Shiftable
 
 -- TODO: think about labels for these two instances below!
@@ -619,3 +618,15 @@ instance Shiftable Alone (Construction List) where
    Alone `har` tree `hjd'tb` siblings
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` field @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` field @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` field @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
+
+pattern Plane :: t i -> t `L` t `T` Void `T` i
+pattern Plane i = Label i
+
+pattern Whirl :: t i -> t `L` t `T` (Void `P` Void) `T` i
+pattern Whirl i = Label i
+
+pattern Align :: t i -> t `L` t `T` Void `T` i
+pattern Align i = Label i
+
+pattern Cross :: t i -> t `L` t `T` (Void `P` Void) `T` i
+pattern Cross i = Label i

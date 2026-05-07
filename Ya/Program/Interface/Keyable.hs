@@ -8,7 +8,6 @@ import Ya.Program.Patterns
 import Ya.Program.Primitive
 
 import Ya.Program.Interface.Fieldable
-import Ya.Program.Interface.Stackable
 import Ya.Program.Interface.Shiftable
 
 class Keyable k t where
