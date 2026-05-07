@@ -32,7 +32,6 @@ library
     Ya.Program.Interface.Fieldable
     Ya.Program.Interface.Matchable
     Ya.Program.Interface.Shiftable
-    Ya.Program.Interface.Keyable
     Ya.Program.Interface.Instances
     Ya.Program.Patterns
     Ya.Program.Primitive

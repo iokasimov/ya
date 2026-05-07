@@ -12,7 +12,6 @@ import Ya.Program.Labels
 import Ya.Program.Interface.Fieldable as Exports
 import Ya.Program.Interface.Matchable as Exports
 import Ya.Program.Interface.Shiftable as Exports
-import Ya.Program.Interface.Keyable as Exports
 import Ya.Program.Interface.Instances as Exports
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (Twice `T'TT'I` List) where
