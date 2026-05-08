@@ -633,6 +633,15 @@ instance {-# OVERLAPPABLE #-}
  ) => Unlabelable target (t `L` tt `T` l `L` ttt `T` ll) where
  unlabel = supertype @target `compose` supertype @target
 
+instance {-# OVERLAPPABLE #-}
+ ( Precategory target
+ , forall i . Wrapper target (t `L` tt `T` l `T` i)
+ , forall i . Wrapper target (t `L` tt `T` l `L` ttt `T` ll `T` i)
+ , forall i . Wrapper target (t `L` tt `T` l `L` ttt `T` ll `L` tttt `T` lll `T` i)
+ , Unlabeled (t `L` tt `T` l `L` ttt `T` ll `L` tttt `T` lll) ~ t
+ ) => Unlabelable target (t `L` tt `T` l `L` ttt `T` ll `L` tttt `T` lll) where
+ unlabel = supertype @target `compose` supertype @target `compose` supertype @target
+
 class Multicomponent target t tt ll where
  multicomponent :: target (t `L` tt `T` ll `T` i) (tt i)
 
@@ -641,7 +650,7 @@ instance {-# OVERLAPPABLE #-}
  ) => Multicomponent target t tt ll where
  multicomponent = component @target @(t `L` tt `T` ll) @tt
 
-instance {-# OVERLAPS #-}
+instance {-# OVERLAPPABLE #-}
  ( Precategory target
  , forall e . Wrapper target (tt `L` ttt `T` lll `T` e)
  , forall e . Wrapper target (t `L` tt `T` ll `L` ttt `T` lll `T` e)
@@ -653,7 +662,7 @@ instance {-# OVERLAPS #-}
   `compose` component @target @(t `L` tt `T` ll) @tt
   `compose` supertype @target @(t `L` tt `T` ll `L` ttt `T` lll `T` _)
 
-instance {-# OVERLAPS #-}
+instance {-# OVERLAPPABLE #-}
  ( Precategory target
  , forall e . Wrapper target (tt `L` ttt `T` lll `T` e)
  , forall e . Wrapper target (ttt `L` tttt `T` llll `T` e)
