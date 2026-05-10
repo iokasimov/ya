@@ -644,3 +644,12 @@ pattern Align i = Label i
 
 pattern Cross :: t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Cross i = Label i
+
+instance {-# OVERLAPS #-}
+ ( Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) i) List
+ , Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) ii) List
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit `S` ii)) (Alone `P'T'I'TT'I` Twice `T'TT'I` List) where
+ mapping = rewrap `identity` \source (T'I'II f) ->
+  source `ha` f `ha` This `ha` That `ryo` Enter @Alone
+   `hjd___'tb` source `ha` f `ha` This `ha` This `ryo` Enter @List
+    `hjd__'tb` source `ha` f `ha` That `ryo` Enter @List
