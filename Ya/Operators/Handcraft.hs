@@ -3799,37 +3799,35 @@ st'hjd___'tb = fio @target (objective @T'II'I @target @iii @((P) (Supertype i) i
 st'hjd____'tb = fio @target (objective @T'II'I @target @iii @((P) (Supertype i) ii) `compose` supertype) `compose` supertype `compose` supertype `compose` component @target @I @(T'I'II tt ii `T'TT'I` T'II'I (P) ii) `compose` subtype @_ @(I (Supertype i)) `compose` supertype
 
 yai'hjd, ha'hjd, ha_'hjd, ha__'hjd, ha___'hjd, ha____'hjd, ha_____'hjd, ha______'hjd, ha_______'hjd, ha________'hjd
- :: forall target t tt ttt i ii iii iiii a o .
- (forall e . Adjoint Functor target target (T'II'I tt e) (T'I'II target e)) =>
- Contravariant Yoneda Functor target target (T'II'I t i) =>
+ :: forall source target t tt ttt i ii iii a o .
+ (forall e ee . Adjoint Functor source source (T'II'I tt e) (T'I'II ttt ee)) =>
+ Contravariant Yoneda Functor source target (T'II'I t i) =>
+ (forall e . Contravariant Semi Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Endo Semi Functor source (T'II'I source e)) =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Semi Functor target target (T'II'I target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- (forall e ee . Adjoint Functor target target (T'II'I tt e) (T'I'II ttt ee)) =>
- (forall e . Wrapper target (I e)) =>
- (forall e . Wrapper target (T'II'I tt ii e)) =>
- (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e ee . Wrapper source (T'II'I tt e ee)) =>
+ (forall e ee . Wrapper source (T'I'II ttt e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e ee . Wrapper target (T'II'I tt e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (T'TT'I (T'II'I tt (ttt iii iiii)) (T'I'II target (ttt iii iiii)) e)) =>
- (forall e . Wrapper target (T'TT'I (T'I'II target (ttt iii iiii)) (T'II'I tt (ttt iii iiii)) e)) =>
- (forall e ee eee . Wrapper target (T'II'I tt e `T'TT'I` T'I'II target ee `T'I_` eee)) =>
- (forall e ee eee . Wrapper target (T'I'II target ee `T'TT'I` T'II'I tt e `T'I_` eee)) =>
- -- Contravariant Objective (AR) a (tt (AR o a) (ttt iii iiii)) =>
- target (t (tt (target o a) (ttt iii iiii)) i) (target (target o a) (t (ttt iii iiii) i))
-yai'hjd = fai @target hjd `compose` yai @target @target @t @i
+ (forall e ee . Wrapper source (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee eee . Wrapper source (T'I'II ttt ee `T'TT'I` T'II'I tt e `T'I_` eee)) =>
+ (forall e ee eee . Wrapper source (T'II'I tt ee `T'TT'I` T'I'II ttt e `T'I_` eee)) =>
+ target (t a i) (target (source (ttt ii (tt o ii)) a) (t o i))
+yai'hjd = fai @source (fai @source hjd) `compose` yai @source @target @t @i
 
-ha'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha_'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha__'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha___'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha____'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha_____'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha______'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha_______'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ha________'hjd = yai'hjd @target @t @tt @ttt @i @ii @iii @iiii
+ha'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha_'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha__'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha___'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha____'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha_____'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha______'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha_______'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
+ha________'hjd = yai'hjd @source @target @t @tt @ttt @i @ii @iii
 
 yai'hjd'eq, ha'hjd'eq, ha_'hjd'eq, ha__'hjd'eq, ha___'hjd'eq, ha____'hjd'eq, ha_____'hjd'eq, ha______'hjd'eq, ha_______'hjd'eq, ha________'hjd'eq
  :: forall target t i ii iiii a o .
