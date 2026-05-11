@@ -3859,6 +3859,38 @@ ha_______'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
 ha________'hjd'eq = yai'hjd'eq @target @t @i @ii @iiii @a @o
 
 yio'hjd, ho'hjd, ho_'hjd, ho__'hjd, ho___'hjd, ho____'hjd, ho_____'hjd, ho______'hjd, ho_______'hjd, ho________'hjd
+ :: forall source target (t :: * -> * -> *) tt ttt i ii iii a o .
+ (forall e ee . Adjoint Functor source source (T'II'I tt e) (T'I'II ttt ee)) =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ (forall e . Contravariant Semi Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Endo Semi Functor source (T'II'I source e)) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e ee . Wrapper source (T'II'I tt e ee)) =>
+ (forall e ee . Wrapper source (T'I'II ttt e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper source (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee eee . Wrapper source (T'I'II ttt ee `T'TT'I` T'II'I tt e `T'I_` eee)) =>
+ (forall e ee eee . Wrapper source (T'II'I tt ee `T'TT'I` T'I'II ttt e `T'I_` eee)) =>
+ target (t i a) (target (source (ttt ii (tt a ii)) o) (t i o))
+yio'hjd = fai @source (fai @source hjd) `compose` yio @source @target @t @i
+
+ho'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho_'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho__'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho___'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho____'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho_____'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho______'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho_______'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+ho________'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
+
+{-
+yio'hjd, ho'hjd, ho_'hjd, ho__'hjd, ho___'hjd, ho____'hjd, ho_____'hjd, ho______'hjd, ho_______'hjd, ho________'hjd
  :: forall target t tt ttt i ii iii iiii a o .
  (forall e . Adjoint Functor target target (T'II'I tt e) (T'I'II target e)) =>
  Covariant Yoneda Functor target target (T'I'II t i) =>
