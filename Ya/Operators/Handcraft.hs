@@ -3889,41 +3889,6 @@ ho______'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
 ho_______'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
 ho________'hjd = yio'hjd @source @target @t @tt @ttt @i @ii @iii
 
-{-
-yio'hjd, ho'hjd, ho_'hjd, ho__'hjd, ho___'hjd, ho____'hjd, ho_____'hjd, ho______'hjd, ho_______'hjd, ho________'hjd
- :: forall target t tt ttt i ii iii iiii a o .
- (forall e . Adjoint Functor target target (T'II'I tt e) (T'I'II target e)) =>
- Covariant Yoneda Functor target target (T'I'II t i) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Semi Functor target target (T'II'I target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
- (forall e ee . Adjoint Functor target target (T'II'I tt e) (T'I'II ttt ee)) =>
- (forall e . Wrapper target (I e)) =>
- (forall e . Wrapper target (T'II'I tt ii e)) =>
- (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e ee . Wrapper target (T'II'I tt e ee)) =>
- (forall e ee . Wrapper target (T'I'II target e ee)) =>
- (forall e ee . Wrapper target (T'II'I target e ee)) =>
- (forall e . Wrapper target (T'TT'I (T'II'I tt (ttt iii iiii)) (T'I'II target (ttt iii iiii)) e)) =>
- (forall e . Wrapper target (T'TT'I (T'I'II target (ttt iii iiii)) (T'II'I tt (ttt iii iiii)) e)) =>
- (forall e ee eee . Wrapper target (T'II'I tt e `T'TT'I` T'I'II target ee `T'I_` eee)) =>
- (forall e ee eee . Wrapper target (T'I'II target ee `T'TT'I` T'II'I tt e `T'I_` eee)) =>
- -- Contravariant Objective (AR) a (tt (AR o a) (ttt iii iiii)) =>
- target (t i (ttt iii iiii)) (target (target a o) (t i (tt (target a o) (ttt iii iiii))))
- -- target (t i (tt (target a o) (ttt iii iiii))) (target (target a o) (t i (ttt iii iiii)))
-yio'hjd = fai @target hjd `compose` yio @target @target @t @i
-
-ho'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho_'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho__'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho___'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho____'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho_____'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho______'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho_______'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-ho________'hjd = yio'hjd @target @t @tt @ttt @i @ii @iii @iiii
-
 hdj, hdj_, hdj__, hdj___, hdj____ :: forall target t tt i e ee .
  Adjoint Functor target target (T'II'I t e) (T'I'II tt ee) =>
  (forall eee . Wrapper target (T'II'I t e `T'TT'I` T'I'II tt ee `T'I_` eee)) =>
