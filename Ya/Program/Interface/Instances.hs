@@ -139,9 +139,7 @@ instance {-# OVERLAPS #-}
 instance {-# OVERLAPS #-}
  Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (\xx -> rewrap (`yo` (\x' -> that `ha` within @(Nonempty List) @Maybe `ha` Fresh `har` x' `har` xx)) x)
-
--- instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void)) (Twice `T'TT'I` List) where
+  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These (supertype x `yo` supertype @(AR)) xx')))))))))
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
