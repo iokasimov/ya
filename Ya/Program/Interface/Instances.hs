@@ -41,6 +41,11 @@ instance Mapping T'I'II T'I'II (AT) (AT) ((Construction t) `L` Alone `T` Void) A
 
 -- First
 
+instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
+ component = \case
+  Label (T'TT'I (T'I'II (This _))) -> supertype Empty
+  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
+
 -- TODO: refactor, pattern matching is redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
@@ -112,11 +117,6 @@ pattern Stock x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void)) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x -> supertype x `hjd'tb` (Null `ho'vt` Unit `ryo` Enter @List `hjd__'tb` Null `ho'vt` Unit `ryo` Enter @List) `yo` source
-
-instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
- component = \case
-  Label (T'TT'I (T'I'II (This _))) -> supertype Empty
-  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
 
 pattern Fresh :: forall t i ii . t ii `AR__` t `L` Stops i `T` (Void `P` Void) `T` ii
 pattern Fresh x = Label x
@@ -463,15 +463,15 @@ instance {-# OVERLAPS #-} Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
 instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> xx `hjd'tb` (x `hjd'tb`)
 
-instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void)) Maybe where
+instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
-   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus
-   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Prior @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus
+   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Prior @List `ha` Shaft `yok____` Check
+   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
+   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
+   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
 
 pattern Prior :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Prior x = Label @_ @_ @(Void `P` Void) x
@@ -485,15 +485,15 @@ instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` List) `L` List `T` (Vo
 pattern Shift :: forall tt t i ll . Scrolling t `L` tt `T` ll `T` i `AR____` Scrolling t `L` tt `T` ll `T` i
 pattern Shift x = x
 
-instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
+instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
-   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Prior @List `ha` Shaft `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus
-   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus
+   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
+     `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
+     `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Prior @List `ha` Shaft
+   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
