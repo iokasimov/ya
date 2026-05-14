@@ -448,11 +448,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `has` source `ho` This `ha__` supertype @(AR))
 
+{-
 pattern Aback x = This x :: Shifter List
 pattern Ahead x = That x :: Shifter List
 
 pattern Above x = This x :: Shifter List
 pattern Below x = That x :: Shifter List
+-}
 
 pattern Forth :: forall tt t i . t i `AR____` t `L` tt `T` (Void) `T` i
 pattern Forth x = Label @_ @_ @Void x
