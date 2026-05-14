@@ -79,7 +79,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 -- TODO: replace it with `Merge`
 -- instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
  -- mapping = rewrap `identity` \source (Label (T'TT'I (T'I'I ((These bs fs))))) -> 
-  -- that (bs `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push @List `bt'har__` fs) `yo` source
+  -- that (bs `yokl` Aback `ha` Apply `ha` State `ha` Event `ha` push @List `bt'har__` fs) `yo` source
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` List `T` (Void)) List where
  -- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These sx xs)))))) ->
@@ -217,7 +217,7 @@ instance
   ((t `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
   (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
    `bt'har___` xx `yi____` that `ho'yo` source
 
 instance
@@ -229,7 +229,7 @@ instance
   ((t `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
   (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
    `bt'har___` xx `yi____` that `ho'yo` source
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
@@ -241,7 +241,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
    `har___` basetype xx
    `yo____` source
 
--- TODO: `Prior` behaviour is needed here
+-- TODO: `Aback` behaviour is needed here
 {-
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -257,7 +257,7 @@ instance
  -- , forall e . Mapping T'I'II T'I'II (->) (->) (t `T'TT'I` State (tt e) `L` State (tt e) `T` Void `L` t `T` (Void `P` Void)) (t `TT'T'I` State (tt e))
  -- ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `L` tt `T` (Void `P` Void `P` Void)) tt where
  -- mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  -- x `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push
+  -- x `yokl` Aback `ha` Apply `ha` State `ha` Event `ha` push
     -- `bt'har__` xx `yi__` that `ho'yo` source
 
 pattern Aloft :: forall tt t i .
@@ -470,13 +470,13 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
-   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Prior @List `ha` Shaft `yok____` Check
+   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
    `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
    `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
 
-pattern Prior :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
-pattern Prior x = Label @_ @_ @(Void `P` Void) x
+pattern Aback :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
+pattern Aback x = Label @_ @_ @(Void `P` Void) x
 
 instance {-# OVERLAPS #-} Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Void `P` Void)) List where
  component = \(Label (T'TT'I (T'I'I (These x xx)))) -> x
@@ -494,7 +494,7 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
    `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
      `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
-     `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Prior @List `ha` Shaft
+     `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Aback @List `ha` Shaft
    `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
@@ -505,7 +505,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok____'ut` Apply `ha__` State
    `har____` Event `ha__` Swap `har_'st` Empty
     `ha____` Scope `har_` within `ha` Shaft
-     `ho___` (is `ho'ut` (Scope `har` within @_ @List `ha` Prior) `has` is `ho'ut` (Scope `har` within @_ @List `ha` Forth)) `har` way
+     `ho___` (is `ho'ut` (Scope `har` within @_ @List `ha` Aback) `has` is `ho'ut` (Scope `har` within @_ @List `ha` Forth)) `har` way
      `ho___` Scope `har_` within `ha` First
    `yok____` Check
    `yok____` Apply `ha__` State
@@ -558,13 +558,13 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
   window_future r w = is @(List _) w
-   `yokl_` Prior `ha` Apply `ha` State `ha___` (Event `ha` Push) `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
+   `yokl_` Aback `ha` Apply `ha` State `ha___` (Event `ha` Push) `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
    `bt'har___` Only `ho'ut'st` r `ryo` Enter @List
 
   window_extract_last passed w =
    -- Event `ha` Push `har` w `ha__` Scope `har` within `ha` Fresh
    push @List passed w `yi` that
-    `yokl_` Prior `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
+    `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
     `bt'har___` Null `ho'vt` Unit `ryo` Enter @List
     `yi___` that `ho_` happen @List @Maybe `ha` First
 -}
@@ -645,15 +645,19 @@ instance Shiftable Alone (Construction List) where
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` field @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` field @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` field @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
 
+-- TODO: specify `t` label
 pattern Plane :: t i -> t `L` t `T` Void `T` i
 pattern Plane i = Label i
 
+-- TODO: specify `t` label
 pattern Whirl :: t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Whirl i = Label i
 
+-- TODO: specify `t` label
 pattern Align :: t i -> t `L` t `T` Void `T` i
 pattern Align i = Label i
 
+-- TODO: specify `t` label
 pattern Cross :: t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Cross i = Label i
 
@@ -663,6 +667,14 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source (T'I'II f) ->
   source `ha` f `ha` This `ryo` Enter @List `hjd__'tb` source `ha` f `ha` That `ryo` Enter @List
+
+instance {-# OVERLAPS #-}
+ ( Supertype (Unit `P_` Unit `S` i) ~ (Unit `S` i)
+ , Covariant Elicitable (AR) (Unit `P_` Unit `S` i)
+ , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) (Unit `S` i)) (F'T'I'TT Along Maybe)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` i)) (Maybe `T'TT'I` F'T'I'TT Along Maybe) where
+ mapping = rewrap `identity` \source (T'I'II f) ->
+  source `ha` f `ha` supertype @AR @(Unit `P` (Unit `S` i)) `ryo` Enter @(Maybe `T'TT'I` F'T'I'TT Along Maybe)
 
 instance {-# OVERLAPS #-}
  ( Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) i) List
