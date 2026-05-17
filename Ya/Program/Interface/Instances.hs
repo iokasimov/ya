@@ -410,7 +410,7 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source x -> T'TT'I `har__` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (is `ho'ut` (source `ha` this `ha` top `har` xx `hjd` That Unit) `bt'has` is `ho'ut` (source `ha` this `ha` top `har` xx `hjd` This Unit))
+   `ha` (is `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @_ @Alone `ha` Apply `har` xx `hjd` That Unit) `bt'has` is `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @_ @Alone `ha` Apply `har` xx `hjd` This Unit))
    `ha` (\xxx -> this `ha` sub `har` xxx `hjd'ys` (Pass `ryo` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
    `har` xx)
 
@@ -589,7 +589,7 @@ instance Shiftable Alone (Construction List) where
    `ho___'ha` Scope `har` field @(Tree `T'I` i)
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
-  aloft unfolding tree = Alone `ha` this `ha` top `har` tree
+  aloft unfolding tree = this `ha` within @_ @Alone `ha` Apply `har` tree
    `hjd_'tb` unfolding `hjd'tb` tree `yi` derive `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree)
 
   vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
@@ -597,7 +597,7 @@ instance Shiftable Alone (Construction List) where
    `yok_____'ut` Apply `ha_` State
     `har____` Event `har` Pull
      `ha____` Scope `har` field @(Tree `T'I` i)
-      `ho___` Scope `har` top @Tree
+      `ho___` Scope `har` within @Tree @Alone `ha` Apply
         `hop_` Scope `har` sub @Tree
    `yok_____` Check `ha'yo` splash `ha` moves
    `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
@@ -606,13 +606,13 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
-   `ho______'yo` Alone `ha` this `ha` top @Tree `ha` this
+   `ho______'yo` this `ha` within @_ @Alone `ha` Apply `ha` this
 
-  moves :: forall i . i `P` List (Tree i) `AR___` Maybe (i `P` Nonempty List (Tree i))
+  moves :: forall i . Alone i `P` List (Tree i) `AR___` Maybe (Alone i `P` Nonempty List (Tree i))
   moves x = x `yiokl` Apply `ha` Check `ha` supertype @(AR)
 
-  splash :: forall i . i `P` Nonempty List (Tree i) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
-  splash (These root descendants) = this `ha` top `har` descendants
+  splash :: forall i . Alone i `P` Nonempty List (Tree i) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
+  splash (These (Alone root) descendants) = supertype @(AR) `ha` this `ha` within @_ @Alone `ha` Apply `har` descendants
    `hjd__'tb` (Alone `har` root `hjd_'tb` subtype @(AR) `ha` (T'TT'I `ha` T'I'I `ha` These (Null `ho'vt` Unit `ryo` Enter @List)) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants)
 
   horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
@@ -632,7 +632,7 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
-   `ho______'yo` Alone `ha` this `ha` top @Tree `ha` this
+   `ho______'yo` this `ha__` within @Tree @Alone `ha` Apply `ha__` this
 
   -- TODO: the problem here is that we ignore information about successfulness of horizontal shifting!
   scroll :: forall i . Shifter List

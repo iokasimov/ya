@@ -26,24 +26,22 @@ swap (These x y) = y `hjd` x
  -- e -> Recursive (T'I'II (P) e `T'TT'I` t)
 -- leaf x = x `hjd_'tb` empty `yo` initial @(AR)
 
+-- TODO: rename to `mirror`
 it :: forall e . Reference (P) e e e
 it x = x `hjd` identity
 
+-- TODO: remove
 be :: o `AR__` a `AR_` o
 be = constant
 
+-- TODO: remove
 dim :: forall a t i .
  Covariant Functor (AR) (AR) (T'II'I t i) =>
  (forall e . Wrapper (AR) (T'II'I t i e)) =>
  t a i `AR` t Unit i
 dim = fui @AR @AR Unit
 
-top :: forall tt t e .
- (tt ~ Construction t) =>
- Supertype (Construction t e `AT` e)
-top (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs old))))) =
-  old `hjd` (\new -> xs `hjd'tb` new)
-
+-- TODO: remove
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
@@ -64,6 +62,7 @@ joint :: forall f g e .
  f `T'I` g `T` e `AR_______` f `JNT` g `T'I_` e
 joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
 
+-- TODO: remove
 index :: forall t r e .
  (r ~ Representation t) =>
  Setoid Arrow (Representation t) =>
@@ -77,6 +76,7 @@ index index origin =
    (\index' -> is `ho'ut` (idx origin `bt'har` index') `has` is `ho'ut` x `har__` index' `hjd'eq` index)
   )
 
+-- TODO: remove, we already have `ha'hjd'eq`
 exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
 exact x xx = is `ho'ut` False Unit `has` is `ho'ut` True Unit `har_` x `hjd'eq` xx
 
