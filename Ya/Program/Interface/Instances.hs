@@ -528,7 +528,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
    `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
-   `yok____` Check `ha` Stops `ha` not `ha` found
+   `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
 

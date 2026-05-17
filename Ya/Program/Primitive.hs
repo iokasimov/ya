@@ -8,10 +8,6 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 
-not :: forall e ee eee .
- Covariant Objective (AR) e (eee `S` ee) =>
- e `AR_` ee `S` eee
-not = That `bt'has` This
 
 swap :: forall e ee eee .
  -- Contravariant Objective (AR) e (eee `P` ee) =>
