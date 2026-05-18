@@ -8,7 +8,6 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 
--- TODO: rename to `mirror`
 mirror :: Supertype (i `AT` i)
 mirror x = x `hjd` identity
 

@@ -149,9 +149,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (List `P'T'I'TT'I` Twice `T'T
  mapping = rewrap `identity` \source x -> Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` (Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` supertype x) `yo` source
 -}
 
-pattern Locus :: forall tt t i .
+pattern Front :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
-pattern Locus x = Label x
+pattern Front x = Label x
 
 instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
@@ -471,9 +471,9 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
 
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
    `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
+   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
    `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
+   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
 
 pattern Aback :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Aback x = Label @_ @_ @(Void `P` Void) x
@@ -493,9 +493,9 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
 
   worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
    `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
-     `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Locus @Alone
+     `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
      `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Aback @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Locus @Alone
+   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
