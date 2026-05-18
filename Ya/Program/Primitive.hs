@@ -65,10 +65,6 @@ index index origin =
    (\index' -> is `ho'ut` (idx origin `bt'har` index') `has` is `ho'ut` x `har__` index' `hjd'eq` index)
   )
 
--- TODO: remove, we already have `ha'hjd'eq`
-exact :: forall i . Setoid (AR) i => i `AR___` i `AR__` Boolean
-exact x xx = is `ho'ut` False Unit `has` is `ho'ut` True Unit `har_` x `hjd'eq` xx
-
 derive :: forall t tt ll i .
  Multicomponent (AR) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i
