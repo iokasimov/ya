@@ -293,14 +293,6 @@ instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t)
 
 instance
  ( Covariant Endo Semi Functor (AR) t
- , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) Unit) t
- , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (F'T'I'TT (T'II'I P) t)
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (t `T'TT'I` F'T'I'TT (T'II'I P) t) where
- mapping = rewrap `identity` \source (T'I'II f) ->
-  source `ha` f `ha` supertype @AR @(Unit `P` (Unit `S` Unit)) `ryo` Enter @(t `T'TT'I` F'T'I'TT (T'II'I P) t)
-
-instance
- ( Covariant Endo Semi Functor (AR) t
  , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) i) (t `T'TT'I` F'T'I'TT (T'II'I P) t)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` i)) (F'T'I'TT (T'II'I P) t) where
  mapping = rewrap `identity` \source (T'I'II f) ->
@@ -1119,9 +1111,9 @@ instance Elicitable T'I'II (AR) i
  => Elicitable T'I'II (AR) (i `P_` Unit) where
  elicit = T'I'II (\(These x _) -> supertype x)
 
-type instance Supertype (Unit `P_` i `S` Unit) = i `S` Unit
+type instance Supertype (Unit `P_` i `S` ii) = i `S` ii
 
-instance Elicitable T'I'II (AR) (Unit `P_` ii `S` Unit) where
+instance Elicitable T'I'II (AR) (Unit `P_` i `S` ii) where
  elicit = T'I'II (\(These _ x) -> x)
 
 type instance Supertype (i `S` Unit `P_` ii `S` Unit) = Supertype (Supertype i `P_` ii `S` Unit) `S_` ii `S` Unit
