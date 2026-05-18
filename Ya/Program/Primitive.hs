@@ -8,15 +8,9 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 
--- TODO: should be moved later
--- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
- -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
-  -- ((T'TT'I / subtype @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
-  -- (\new -> Build x (supertype @Arrow @(F'T'I'TT'I _ _ _) `fo` supertype new) `yo` source `ho` (\(These _ y) -> y))
-
 -- TODO: rename to `mirror`
-it :: forall e . Reference (P) e e e
-it x = x `hjd` identity
+mirror :: Supertype (i `AT` i)
+mirror x = x `hjd` identity
 
 -- TODO: remove
 sub :: forall tt t e .

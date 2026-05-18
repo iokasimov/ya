@@ -7,8 +7,8 @@ import Ya.Operators
 import Ya.Program.Patterns
 import Ya.Program.Primitive
 
-class Fieldable e r where
- field :: Reference (P) r e e
+class Fieldable i r where
+ field :: Supertype (r `AT` i)
 
 instance {-# OVERLAPPABLE #-}
  ( Covariant Objective (AR) ee (eee `P` eeee)
@@ -21,7 +21,7 @@ instance {-# OVERLAPPABLE #-}
   `compose` objective @T'I'II @AR @ee @(eee `P` eeee)
 
 instance Fieldable e e where
- field = it
+ field = mirror
 
 instance Fieldable e (ee `P` e) where
  field (These x xx) = xx `hjd` (x `hjd`)

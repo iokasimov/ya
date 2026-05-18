@@ -397,7 +397,7 @@ instance
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void)) where
- mapping = rewrap `identity` \source (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x))))) -> 
+ mapping = rewrap `identity` \source (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x))))) ->
   xs `yo` wrapped @(AR) @(F'T'I'TT Along t _) (`yo` source `ho` (`hjd'tb` That Unit)) `hjd_'tb` source x `hjd'tb` This Unit
 
 pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` (Void `P` Void) `T` i
@@ -527,7 +527,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
-   `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` it
+   `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` mirror
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
@@ -582,7 +582,7 @@ instance Shiftable Alone (Construction List) where
   vertical_up _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` happen `ha` First
-    `ha____` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` it
+    `ha____` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
    `yok____` Check `ha_` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Apply `ha_` State
    `ha_____` Event `ha_` aloft
@@ -604,7 +604,7 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+     `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` this `ha` within @_ @Alone `ha` Apply `ha` this
 
@@ -621,7 +621,7 @@ instance Shiftable Alone (Construction List) where
    -- `har_____` Event `har` pop
    `har_____` Event `har` happen @List @Maybe `ha` First
     `ha_____` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-    `ho___'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+    `ho___'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok_____` Check
    `yok_____` Apply `ha_` State
      `ha____` Event `ha_` (\unfolding tree -> scroll `har` way `har` unfolding `har` tree `hjd` tree)
@@ -630,7 +630,7 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` field @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho__'st` Scope `har` it @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+     `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` this `ha__` within @Tree @Alone `ha` Apply `ha__` this
 
