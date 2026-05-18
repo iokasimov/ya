@@ -510,7 +510,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Check
    `yok____` Apply `ha__` State
    `ha_____` Event `ha__` Swap `ha` Alone
-   `ho___'ha` Scope `har_` field @(Alone i)
+   `ho___'ha` Scope `har_` record @(Alone i)
    `yok____` Apply `ha__` State
    `ha_____` Event `ha__` Swap `ha'st` Exist
    `ho___'ha` Scope `har_` within `ha` Shaft
@@ -519,7 +519,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` Pull
-    `ha____` Scope `har` field @(Alone i)
+    `ha____` Scope `har` record @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` Pull `bt'has_` is `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
@@ -527,7 +527,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
-   `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` field @(Alone i) `hop_` Scope `har` mirror
+   `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` record @(Alone i) `hop_` Scope `har` mirror
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
@@ -541,20 +541,20 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   `har_` (is `ho'ut` slide_passed `has` is `ho'ut` slide_future `har` way) `bt'har` x where
 
   slide_future = Pass `ryo` Enter @(Halts `JNT` State `T` Sliding List i)
-   `yok____'ut` Apply `ha` State `har__` Event `har` happen @List @Maybe `ha` First `ha__` Scope `har` field @(List _)
+   `yok____'ut` Apply `ha` State `har__` Event `har` happen @List @Maybe `ha` First `ha__` Scope `har` record @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback `ho__` Scope `har` within `ha` Fresh
-   `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead
+   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback `ho__` Scope `har` within `ha` Fresh
+   `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho__'ha` Scope `har` field @(List _)
+   `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho__'ha` Scope `har` record @(List _)
 
   slide_passed = Pass `ryo` Enter @(Halts `JNT` State `T` Sliding List _)
-   `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback
+   `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` window_extract_last `ho__'ha` Scope `har` field @(List _)
+   `yok____` Apply `ha` State `ha____` Event `ha` window_extract_last `ho__'ha` Scope `har` record @(List _)
    `yok____` Check
-   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` field @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead `ho__` Scope `har` within `ha` Fresh
-   `yok____'ut` Apply `ha` State `har___` Event `har` Pull `ha__` Scope `har` field @(List _)
+   `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Ahead `ho__` Scope `har` within `ha` Fresh
+   `yok____'ut` Apply `ha` State `har___` Event `har` Pull `ha__` Scope `har` record @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
   window_future r w = is @(List _) w
@@ -582,11 +582,11 @@ instance Shiftable Alone (Construction List) where
   vertical_up _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` happen `ha` First
-    `ha____` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
+    `ha____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
    `yok____` Check `ha_` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Apply `ha_` State
    `ha_____` Event `ha_` aloft
-   `ho___'ha` Scope `har` field @(Tree `T'I` i)
+   `ho___'ha` Scope `har` record @(Tree `T'I` i)
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
   aloft unfolding tree = this `ha` within @_ @Alone `ha` Apply `har` tree
@@ -596,14 +596,14 @@ instance Shiftable Alone (Construction List) where
   vertical_deep _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
     `har____` Event `har` Pull
-     `ha____` Scope `har` field @(Tree `T'I` i)
+     `ha____` Scope `har` record @(Tree `T'I` i)
       `ho___` Scope `har` within @Tree @Alone `ha` Apply
         `hop_` Scope `har` sub @Tree
    `yok_____` Check `ha'yo` splash `ha` moves
    `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
-    `ho___'ha` Scope `har` field @(Tree i)
+    `ho___'ha` Scope `har` record @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
-    `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+    `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` this `ha` within @_ @Alone `ha` Apply `ha` this
@@ -620,16 +620,16 @@ instance Shiftable Alone (Construction List) where
    `yok_____'ut` Apply `ha_` State
    -- `har_____` Event `har` pop
    `har_____` Event `har` happen @List @Maybe `ha` First
-    `ha_____` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+    `ha_____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
     `ho___'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok_____` Check
    `yok_____` Apply `ha_` State
      `ha____` Event `ha_` (\unfolding tree -> scroll `har` way `har` unfolding `har` tree `hjd` tree)
-    `ho___'ha` Scope `har` field @(Tree i)
+    `ho___'ha` Scope `har` record @(Tree i)
    `yok_____` Apply `ha_` State `ha____` Event `ha` Swap `ha` this
-    `ho___'ha` Scope `har` field @(Tree i)
+    `ho___'ha` Scope `har` record @(Tree i)
    `lo____'yp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
-    `ho___'ha` Scope `har` field @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+    `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` this `ha__` within @Tree @Alone `ha` Apply `ha__` this
@@ -640,10 +640,10 @@ instance Shiftable Alone (Construction List) where
    `AR____` Tree i
    `AR___` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `T'I___` i)
   scroll way unfolding tree =
-   let siblings = this `ha` field @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` is `har` unfolding in
+   let siblings = this `ha` record @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` is `har` unfolding in
    Alone `har` tree `hjd'tb` siblings
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
-   `yi_` (\x -> supertype @(AR) `ha` this `ha` field @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` field @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` field @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
+   `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` record @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
 
 -- TODO: specify `t` label
 pattern Plane :: t i -> t `L` t `T` Void `T` i
