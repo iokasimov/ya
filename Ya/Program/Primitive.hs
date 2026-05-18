@@ -8,23 +8,11 @@ import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
 
-
-swap :: forall e ee eee .
- -- Contravariant Objective (AR) e (eee `P` ee) =>
- ee `P` eee `AR_` eee `P` ee
-swap (These x y) = y `hjd` x
-
 -- TODO: should be moved later
 -- instance Mapping T'I'II T'I'II Attribute Attribute (Construction t) (t `T'TT'I` Construction t)
  -- where mapping = rewrap `compose` rewrap `compose` rewrap / \source (Build x xs) -> These 
   -- ((T'TT'I / subtype @Arrow @(F'T'I'TT'I _ _ _) `fo` xs) `yo` source `ho` (\(These y _) -> y))
   -- (\new -> Build x (supertype @Arrow @(F'T'I'TT'I _ _ _) `fo` supertype new) `yo` source `ho` (\(These _ y) -> y))
-
--- leaf :: forall t e .
- -- -- Contravariant Objective target iii (P _ _) =>
- -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t =>
- -- e -> Recursive (T'I'II (P) e `T'TT'I` t)
--- leaf x = x `hjd_'tb` empty `yo` initial @(AR)
 
 -- TODO: rename to `mirror`
 it :: forall e . Reference (P) e e e
