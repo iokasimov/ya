@@ -31,13 +31,6 @@ it :: forall e . Reference (P) e e e
 it x = x `hjd` identity
 
 -- TODO: remove
-dim :: forall a t i .
- Covariant Functor (AR) (AR) (T'II'I t i) =>
- (forall e . Wrapper (AR) (T'II'I t i e)) =>
- t a i `AR` t Unit i
-dim = fui @AR @AR Unit
-
--- TODO: remove
 sub :: forall tt t e .
  (tt ~ Construction t) =>
  Covariant Endo Semi Functor (AR) t =>
