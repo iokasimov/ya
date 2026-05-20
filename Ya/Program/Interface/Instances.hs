@@ -144,10 +144,12 @@ pattern Front :: forall tt t i .
  t i `AR__` t `L` tt `T` (Void) `T` i
 pattern Front x = Label x
 
-instance Mapping T'I'II T'I'II (AT) (AT) (Construction t `L` Alone `T` Void) Alone where
- mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
-   Alone `ha` this `ha` source `har` x `hjd'tb` (\xx -> xxx `hjd_'tb` that `ha` source `har` x `har` supertype xx)
+instance {-# OVERLAPS #-} Component (AR) (Construction t `L` Alone `T` Void) Alone where
+ component = \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) -> Alone `har` x
+
+instance {-# OVERLAPS #-} Component (AT) (Construction t `L` Alone `T` Void) Alone where
+ component = T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
+   Alone `har` x `hjd` (\xx -> xxx `hjd_'tb` supertype xx)
 
 instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
@@ -156,10 +158,10 @@ instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alon
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
 
 instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd'tb` (`hjd'tb` xxx)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd'tb` xxx)
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd'tb` (`hjd'tb` xxx)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd'tb` xxx)
 
 pattern Stock :: forall tt t i .
  t i `AR__` t `L` (tt `T'TT'I` Construction tt) `T` (Void `P` Void) `T` i
@@ -179,16 +181,15 @@ instance {-# OVERLAPS #-}
 
 instance {-# OVERLAPS #-}
  ( Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` (Void)) t
- , Component (AR) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void)) (t `T'TT'I` Construction t)
+ , Component (AR) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t)
  ) => Component (AR) ((t `T'TT'I` Construction t) `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t) where
  component = \(Label (T'TT'I x)) ->
   let internal = derive @(Construction t) @(t `T'TT'I` Construction t) `ha` Stock in
   T'TT'I (x `yok` Apply `ha` supertype @(AR) `ha` internal)
 
 instance {-# OVERLAPS #-}
- ( Covariant Endo Semi Functor (AR) t
- , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` (Void)) t
- , Component (AT) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void)) (t `T'TT'I` Construction t)
+ ( Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` (Void)) t
+ , Component (AT) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t)
  ) => Component (AT) ((t `T'TT'I` Construction t) `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t) where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I x)) ->
   let internal = within @(Construction t) @(t `T'TT'I` Construction t) `ha` Stock in
