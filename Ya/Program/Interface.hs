@@ -68,7 +68,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source x ->
-  empty @List `hjd__'tb` empty @List `hjd_'tb` List `ha` Exist `ha` Build `har` supertype (x `yo` source)
+  Null `ho'vt` Unit `ryo` Enter @List `hjd__'tb` Null `ho'vt` Unit `ryo` Enter @List `hjd_'tb` List `ha` Exist `ha` Build `har` supertype (x `yo` source)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List) (List `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> x
@@ -184,20 +184,20 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P List (List `L
    e `yokl` (\x -> Aback `ha` Apply `har`
     (supertype ee `yokl` (\xx -> Aback `ha` Apply `ha` State `har__` Event `har` Push (source `ha` f `har_` x `hjd` xx) `ha__` Scope `har` within `ha` Fresh))
    )
-   `bt'har___` empty @List
+   `bt'har___` Null `ho'vt` Unit `ryo` Enter @List
    `yi______` that `ho` supertype @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P (Construction Optional) (Construction Optional `L` Construction Optional `T` (Void `P` Void)) e ee) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These e (Label ee)) (T'I'II f) ->
    (e `yokl` (\x -> Aback `ha` Apply `har` (ee `yokl` (\xx -> Aback `ha` Apply `ha` State `har__` Event `har` Push (source `ha` f `har_` x `hjd` xx) `ha__` Scope `har` within `ha` Fresh))))
-   `bt'har___` empty @List
+   `bt'har___` Null `ho'vt` Unit `ryo` Enter @List
    `yi______` that `ho` (\r -> let (T'TT'I (T'I'II (That rr))) = r in rr) `ho` supertype @(AR)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` Void) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Aback `ha` Apply `ha__'yokl` (Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh) `ha__` supertype @(AR)
-  `bt'har__` empty @List
+  `bt'har__` Null `ho'vt` Unit `ryo` Enter @List
   `yi__` that
 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void `P` Void)) List where
@@ -206,7 +206,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
   `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `JNT` State `T'I` List _))
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
-  `bt'har__` empty @List
+  `bt'har__` Null `ho'vt` Unit `ryo` Enter @List
   `yi__` subtype `ha` Empty `bt'has` is `ho'st` that @(List _)
 
 {-

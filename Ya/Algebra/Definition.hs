@@ -413,10 +413,6 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 
 -- TODO: coday -- Oplax Monoidal Functor
 
--- TODO: generalize
-empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
-empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial)
-
 -- TODO: replace with `st'ts`?
 rewrap :: forall target a o .
  Precategory target =>
@@ -425,6 +421,7 @@ rewrap :: forall target a o .
  target (Supertype a) (Supertype o) -> target a o
 rewrap f = subtype `compose` f `compose` supertype
 
+-- TODO: replace with `ts'st`?
 wrapped :: forall target a o .
  Precategory target =>
  Elicitable T'I'II target o =>

@@ -309,7 +309,7 @@ instance
 -- TODO: remove later in favour of more generalised approach
 instance (Initial (AR), Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t) =>
  Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (t `T'TT'I` F'T'I'TT (T'II'I P) tt) where
- mapping = rewrap `identity` \_ _ -> T'TT'I (empty @t `yo` initial @(AR))
+ mapping = rewrap `identity` \_ _ -> T'TT'I (Null `ho'vt` Unit `ryo` Enter @t)
 
 -- Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (F'T'I'TT (T'II'I P) Maybe) where
 -- _ `S` Unit
