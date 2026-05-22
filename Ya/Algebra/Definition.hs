@@ -417,14 +417,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 empty :: forall t o . Covariant Lax Monoidal Functor (AR) (AR) (P) (S) Void t => t o
 empty = component @(AR) @(T'I'II (AR) Void) @t (T'I'II initial)
 
-outro :: forall t target e .
- Category target =>
- Component target t (T'I'II AR Unit) =>
- Wrapper target (T'I'II AR Unit e) =>
- Wrapper target (AR Unit e) =>
- target `T'I` t e `T'I` e
-outro = supertype `compose` supertype `compose` component @target @t @(T'I'II (AR) Unit)
-
+-- TODO: replace with `st'ts`?
 rewrap :: forall target a o .
  Precategory target =>
  Elicitable T'II'I target o =>
