@@ -48,6 +48,9 @@ instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
 
+pattern Sever :: List `L` T'I'II (S) i `T` Void `T` ii `AR__` List `L` T'I'II (S) i `T` Void `T` ii
+pattern Sever x = x
+
 instance {-# OVERLAPS #-} Component (TR) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> Empty Unit `hjd` Label (T'TT'I (Empty Unit))
