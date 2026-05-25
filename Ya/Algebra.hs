@@ -40,6 +40,14 @@ instance
 instance
  ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
  , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` (Void)) e ee) (t `S'T'I'TT'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These (These (T'TT'I'TTT'I x) (Label (T'TT'I'TTT'I xx))) (T'I'II f)) -> case These x xx of
+  These (This x') (This xx') -> This (day @T'I'II @(AR) @Void @t @t @(P) @(P) source f (These x' (Label xx')))
+  These (That x') (That xx') -> That (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) source f (These x' (Label xx')))
+
+instance
+ ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
  ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` (Void)) e ee) (t `P'T'I'TT'I` tt) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These (These (T'TT'I'TTT'I (These xx x)) (Label (T'TT'I'TTT'I (These xxxx xxx)))) (T'I'II f)) ->
   These (day @T'I'II @(AR) @Void @t @t @(P) @(P) source f (These xx (Label xxxx))) (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) source f (These x (Label xxx)))
@@ -992,7 +1000,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i `L` T'I'II (TR) i `T` (V
   -- map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) (this `ha` source) x
   -- `hjd` _
 
--- TODO: try to generahc_se
+-- TODO: try to generalise
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
@@ -1009,7 +1017,7 @@ instance
     `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `har` That `ho` T'TT'I'TTT'I
     `ho__` That
 
--- TODO: try to generahc_se
+-- TODO: try to generalise
 instance
  ( Covariant Endo Semi Functor (AR) t
  , Covariant Endo Semi Functor (AR) tt
