@@ -44,26 +44,24 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \(These (These (T'TT'I'TTT'I (These xx x)) (Label (T'TT'I'TTT'I (These xxxx xxx)))) (T'I'II f)) ->
   These (day @T'I'II @(AR) @Void @t @t @(P) @(P) source f (These xx (Label xxxx))) (day @T'I'II @(AR) @Void @tt @tt @(P) @(P) source f (These x (Label xxx)))
 
--- TODO: generalise up to any tensors
--- TODO: generalise up to any categories
 instance
  ( forall e . Wrapper (AR) (t `L` t `T` l `T` e)
- , forall e . Covariant Endo Semi Functor (AR) (T'I'II (P) e)
- , forall e . Covariant Endo Semi Functor (AR) (T'II'I (P) e)
- , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II tensor e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I tensor e)
+ , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) tensor tensor t (t `L` t `T` Void) e ee) t
  , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void)) (tt `TT'T'I` t)
  , Covariant Transformation Functor (AR) (AR) (ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void)) (ttt `TT'T'I` t)
  , Covariant Endo Semi Functor (AR) tt
  , Covariant Endo Semi Functor (AR) ttt
- ) => Mapping T'I'II T'I'II (AR) (AR) ((tt `P'T'I'TT'I` ttt) `T'TT'I` t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void)) ((tt `P'T'I'TT'I` ttt) `TT'T'I` t) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'TT'I'TTT'I tensor tt ttt `T'TT'I` t `L` t `T` l `L` T'TT'I'TTT'I tensor tt ttt `T` (Void)) (T'TT'I'TTT'I tensor tt ttt `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap (
-  day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (subtype @(AR) @(tt `P'T'I'TT'I` ttt `T'I___` _))
-  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I (P) _) @(T'II'I (P) _)
+  day @T'I'II @(AR) @Void @t @t @tensor @tensor identity (subtype @(AR) @(T'TT'I'TTT'I tensor tt ttt `T'I___` _))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'II'I tensor _) @(T'II'I tensor _)
    (wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` t `L` t `T` l `L` tt `T` (Void)) @(tt `TT'T'I` t) source)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void) `T` _) @(t `L` t `T` l `L` tt `T` (Void) `T` _) identity)))
-  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II (P) _) @(T'I'II (P) _)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt (rewrap @(AR) @(t `L` t `T` l `L` T'TT'I'TTT'I tensor tt ttt `T` (Void) `T` _) @(t `L` t `T` l `L` tt `T` (Void) `T` _) identity)))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(T'I'II tensor _) @(T'I'II tensor _)
    (subtype @(AR) @(t `L` t `T` Void `T` _) `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(ttt `T'TT'I` t `L` t `T` l `L` ttt `T` (Void)) @(ttt `TT'T'I` t) source)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` (tt `P'T'I'TT'I` ttt) `T` (Void) `T` _) @(t `L` t `T` l `L` ttt `T` (Void) `T` _) identity)))
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (rewrap @(AR) @(t `L` t `T` l `L` T'TT'I'TTT'I tensor tt ttt `T` (Void) `T` _) @(t `L` t `T` l `L` ttt `T` (Void) `T` _) identity)))
   `compose` supertype)
 
 {-
