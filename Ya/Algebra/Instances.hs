@@ -626,6 +626,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (Unit `S` Unit
   This _ -> source x
   That _ -> source y
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'I (P) `T'TT'I` T'II'I (P) (Unit `S` Unit) `L` T'II'I (P) (Unit `S` Unit) `T` (Void)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These x xx) -> T'I'I (These (Label (T'II'I (These (source x) (This Unit)))) (Label (T'II'I (These (source xx) (That Unit)))))
+
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
