@@ -1039,11 +1039,25 @@ instance
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `bt'has` T'I'II `ha` subtype @AR `ha` source
 
--- instance Mapping T'II'I T'I'II (AR) (AR) (T'I'II (AR) i) (T'II'I i) where
---  mapping = rewrap `identity` \source -> rewrap `identity` \x ->
-  -- source (x Unit)
- 
- -- T'I'II `ha` subtype @AR `ha` source `has` T'I'II `ha` subtype @AR `ha` source
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` t') I
+ , Mapping T'I'II T'I'II (AR) (AR) (tt `T'TT'I` tt') I
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `S'T'I'TT'I` tt) `T'TT'I` (t' `P'T'I'TT'I` tt')) I where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  T'TT'I'TTT'I (This x) -> wrapped (map @T'I'II @T'I'II @AR @AR @(t `T'TT'I` t') @I source) (x `yo` this `compose` supertype @(AR) @((t' `P'T'I'TT'I` tt') _))
+  T'TT'I'TTT'I (That x) -> wrapped (map @T'I'II @T'I'II @AR @AR @(tt `T'TT'I` tt') @I source) (x `yo` that `compose` supertype @(AR) @((t' `P'T'I'TT'I` tt') _))
+
+instance
+ ( Covariant Endo Semi Functor (AR) t'
+ , Covariant Endo Semi Functor (AR) tt'
+ , Mapping T'I'II T'I'II (AR) (AR) I (t' `T'TT'I` t)
+ , Mapping T'I'II T'I'II (AR) (AR) I (tt' `T'TT'I` tt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) I ((t' `P'T'I'TT'I` tt') `T'TT'I` (t `S'T'I'TT'I` tt)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'TT'I'TTT'I (These
+  (wrapped (map @T'I'II @T'I'II @AR @AR @I @(t' `T'TT'I` t) source) x `yo` T'TT'I'TTT'I `ha` This)
+  (wrapped (map @T'I'II @T'I'II @AR @AR @I @(tt' `T'TT'I` tt) source) x `yo` T'TT'I'TTT'I `ha` That))
 
 -- TODO: generalise over categories
 instance {-# OVERLAPPABLE #-}
