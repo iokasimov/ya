@@ -531,6 +531,12 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
      `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Aback @List `ha` Shaft
    `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
 
+pattern Shift :: forall tt t i ll . Scrolling t `L` tt `T` ll `T` i `AR____` Scrolling t `L` tt `T` ll `T` i
+pattern Shift x = x
+
+pattern Slide :: forall tt t i ll . Sliding t `L` tt `T` ll `T` i `AR____` Sliding t `L` tt `T` ll `T` i
+pattern Slide x = x
+
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = is `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
