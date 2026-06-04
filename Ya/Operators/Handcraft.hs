@@ -2001,7 +2001,9 @@ ha'yioi :: forall source u t o i ii iii a .
 ha'yioi x = fai (fioi @source) (ha @source x)
 
 yor, yor_ :: forall source target t object o .
- Covariant Transformation Functor source target t (T'I'II source object) =>
+ Category source =>
+ Category target =>
+ Covariant Mapping T'I'II source target t (T'I'II source object) =>
  (forall e . Wrapper target (T'I'II source object e)) =>
  target (t o) (source object o)
 yor = supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source object) identity
@@ -2009,7 +2011,9 @@ yor = supertype `compose` map @T'I'II @T'I'II @source @target @t @(T'I'II source
 yor_ = yor
 
 yor'st :: forall source target t object o .
- Covariant Transformation Functor source target t (T'I'II source object) =>
+ Category source =>
+ Category target =>
+ Covariant Mapping T'I'II source target t (T'I'II source object) =>
  (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
