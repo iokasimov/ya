@@ -351,6 +351,9 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 --  mapping = rewrap `identity` \source -> rewrap `identity`
 --   \(T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r))))) ->
 
+pattern Stage :: forall t i . i `AR__` I `L` t `T` Void `T` i
+pattern Stage x = Label (Alone x)
+
 pattern Focus :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
 pattern Focus x = Label (Alone x)
 
