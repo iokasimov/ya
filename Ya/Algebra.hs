@@ -1102,10 +1102,10 @@ instance {-# OVERLAPS #-} (Setoid (AR) e, Setoid (AR) ee) => Setoid (AR) (e `S` 
  equality (These x xx) = This (These x xx)
 
 instance {-# OVERLAPS #-}
- ( Setoid (AR) e
- , Setoid (AR) ee
- , forall e ee . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) ee)
- ) => Setoid (AR) (e `P` ee) where
+ ( Setoid (AR) i
+ , Setoid (AR) ii
+ , forall e . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) e)
+ ) => Setoid (AR) (i `P` ii) where
  equality (These (These x xx) (These xxx xxxx)) = case equality (x `hjd` xxx) `hjd` equality (xx `hjd` xxxx) of
   These (That x') (That xx') -> That (These x' xx')
   These _ _ -> This ((These x xx) `hjd` (These xxx xxxx))
