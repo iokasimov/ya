@@ -197,6 +197,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) i) (T'II'I (P) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These x e -> These (source x) e
 
+instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e) (T'II'I (P) e `T'TT'I` T'II'I (P) e `L` T'II'I (P) e `T` Void) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(These xx x) -> T'II'I (These (Label (T'II'I (These (source xx) x))) x)
+
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) i) (T'I'II (S) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   That x -> That (source x)
@@ -481,7 +484,7 @@ instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AT) i) (T'II'I (AR) i) where
   -- map @T'II'I @T'I'II `identity`(\(These x _) -> x) `compose` source
 
 instance Covariant Endo Semi Functor (AR) t =>
- Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (S) (S) t (t `L` t `T` l) ee eee) t where
+ Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (S) (S) t (t `L` t `T` (Void)) ee eee) t where
  mapping = rewrap `identity` \source (U_V_UU_UUU_UUUU_T'TT'I_II_III (These x (T'I'II f))) -> case x of
   This xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` This) `identity`xx
   That xx -> map @T'I'II @T'I'II @AR @AR @t (source `compose` f `compose` That) `identity`supertype xx
@@ -615,7 +618,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
 
--- instance (i ~ Unit, ii ~ Unit) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (T'I'I (P)) where
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
   (source `compose` f `identity` This Unit)
