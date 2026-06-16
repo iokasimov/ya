@@ -24,9 +24,6 @@ type family Shifter t where
  Shifter (Construction (Twice `T'TT'I` Maybe)) = Unit `S` Unit `S` Unit
  Shifter (Construction List) = Unit `S` Unit `S_` Unit `S` Unit
 
--- TODO: Rephasce with a natural transformation?
--- focus :: Supertype (Scope `T'I` Shifting t tt i `T'I` t i)
-
 -- TODO: flux, axis, rest
 class Shiftable t tt where
  shift :: Shifter tt `AR___` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (t i))
@@ -41,8 +38,6 @@ pattern Range :: forall t i tt . (t ~ Scrolling tt, Scrollable tt) => i `AR__` A
 pattern Range x = Label (Alone x)
 
 type Sliding t = Shifting List t
-
--- TODO: define instances to compose attributes like: attr `ha` attr
 
 -- pattern Broad x = This x :: Shifter Tree
 -- pattern Level x = That x :: Shifter Tree

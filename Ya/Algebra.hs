@@ -384,7 +384,7 @@ instance
      `identity`These e__ (subtype ee__))
     (source `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity`These e_ ee_)
 
-instance Mapping T'I'II T'I'II (AT) (AT) (P'I'II e) (P'I'II e) where
+instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (P) e) (T'I'II (P) e) where
  mapping = rewrap `compose` rewrap `identity` \source (T'I'II (These e x)) ->
    let s = source x in T'I'II (These e (this s)) `hjd` fo (that s)
 
@@ -1008,6 +1008,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i `L` T'I'II (TR) i `T` (V
   -- map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) @(t `TT'T'I` tt) (this `ha` source) x
   -- `hjd` _
 
+{-
 -- TODO: try to generalise
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -1023,6 +1024,23 @@ instance
     `bt'has__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho__` supertype @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
     `ho__'yo` rewrap @AR @(tt `L` tt `T` Void `T` _) @((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` Void `T` _) `har` That `ho` T'TT'I'TTT'I
+    `ho__` That
+-}
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` ttt `L` ttt `T` Void)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tttt `L` tttt `T` Void)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `T'TT'I` (ttt `S'T'I'TT'I` tttt) `L` (ttt `S'T'I'TT'I` tttt) `T` Void) where
+ mapping = rewrap `identity` \source -> T'TT'I'TTT'I `ho` T'TT'I
+  `ha____` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` ttt `L` ttt `T` Void) source
+    `ho__` supertype @AR @(t `T'TT'I` ttt `L` ttt `T` Void `T'I_` _)
+    `ho__'yo` rewrap @AR @(ttt `L` ttt `T` Void `T` _) @((ttt `S'T'I'TT'I` tttt) `L` (ttt `S'T'I'TT'I` tttt) `T` Void `T` _) `har` This `ho` T'TT'I'TTT'I
+    `ho__` This
+    `bt'has__` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tttt `L` tttt `T` Void) source
+    `ho__` supertype @AR @(tt `T'TT'I` tttt `L` tttt `T` Void `T'I_` _)
+    `ho__'yo` rewrap @AR @(tttt `L` tttt `T` Void `T` _) @((ttt `S'T'I'TT'I` tttt) `L` (ttt `S'T'I'TT'I` tttt) `T` Void `T` _) `har` That `ho` T'TT'I'TTT'I
     `ho__` That
 
 -- TODO: try to generalise

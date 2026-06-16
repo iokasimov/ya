@@ -521,9 +521,6 @@ instance {-# OVERLAPS #-} Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
 instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` List) `L` List `T` (Void `P` Void)) List where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> x `hjd'tb` (`hjd'tb` xx)
 
-pattern Shift :: forall tt t i ll . Scrolling t `L` tt `T` ll `T` i `AR____` Scrolling t `L` tt `T` ll `T` i
-pattern Shift x = x
-
 instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
