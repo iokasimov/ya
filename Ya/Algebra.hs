@@ -38,6 +38,14 @@ instance
       (These e (subtype ee))
 
 instance
+ ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) e)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) e)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (t `S'T'I'TT'I` tt) (T'I'II (AR) e) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  This xx -> \r -> source (xx `yor` r)
+  That xx -> \r -> source (xx `yor` r)
+
+instance
  ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
  , forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) tt (tt `L` tt `T` Void) e ee) tt
  ) => Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (P) (t `S'T'I'TT'I` tt) ((t `S'T'I'TT'I` tt) `L` (t `S'T'I'TT'I` tt) `T` (Void)) e ee) (t `S'T'I'TT'I` tt) where
