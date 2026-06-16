@@ -732,3 +732,24 @@ instance {-# OVERLAPS #-}
     `bt'har___` Null `ho'vt` Unit `ryo` Enter @List)
         `yior` Unit
    `hjd___'tb` source `ha` f `ha` That `ryo` Enter @List
+
+pattern Trace :: forall t i . i `AR__` I `L` Along (List (t Unit)) `T` Void `T` i
+pattern Trace x = Label (Alone x)
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) t t
+ , Mapping T'I'II T'I'II (AR) (AR) tt tt
+ , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` tt `L` tt `T` Void)
+ , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) Unit)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t) (F'T'I'TT (T'I'II S) t `T'TT'I` Along (List `T'I` tt Unit) `L` Along (List `T'I` tt Unit) `T` Void) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  Recursive (T'TT'I (T'I'II (This x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (This (Label (T'II'I (These (source x) (Null `ho'vt` Unit `ryo` Enter @List))))))))
+  Recursive (T'TT'I (T'I'II (That x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (That (
+   supertype @(AR) @(t `T'TT'I` tt `L` tt `T` Void `T'I_` _) `ha` map @T'I'II @T'I'II @(AR) @(AR) @t @(t `T'TT'I` tt `L` tt `T` Void) identity `har` x
+    `yo` (\(Label xx) -> supertype
+       (wrapped
+        (map @T'I'II @T'I'II @(AR) @(AR) @(F'T'I'TT (T'I'II S) t) @(F'T'I'TT (T'I'II S) t `T'TT'I` Along (List `T'I` tt Unit) `L` Along (List `T'I` tt Unit) `T` Void) source)
+        (xx `yor` Unit)
+        `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `har` fu Unit xx `ha__` Scope `har` within `ha` Fresh)) xxx)))
+    )
+   ))))))
