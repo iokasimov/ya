@@ -15,3 +15,5 @@ type family JNT inner effect where
  JNT inner (T'I'II (T'I'TT'II'I (AR) (P)) e) = T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) inner
 
 type JNT_ inner effect = JNT inner effect
+
+type Jointed outer inner = JNT inner outer
