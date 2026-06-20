@@ -6,14 +6,13 @@ module Ya.Algebra.Effectful where
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
-infixl 7 `JNT`
-infixl 6 `JNT_`
+infixl 7 `J'T'TT'I`
 
-type family JNT inner effect where
- JNT inner (T'I'II (AR) e) = T'TT'I (T'I'II (AR) e) inner
- JNT inner (S'I'II e) = TT'T'I (S'I'II e) inner
- JNT inner (T'I'II (T'I'TT'II'I (AR) (P)) e) = T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) inner
+type family J'T'TT'I inner effect where
+ J'T'TT'I inner (T'I'II (AR) e) = T'TT'I (T'I'II (AR) e) inner
+ J'T'TT'I inner (S'I'II e) = TT'T'I (S'I'II e) inner
+ J'T'TT'I inner (T'I'II (T'I'TT'II'I (AR) (P)) e) = T'TTT'TT'I (T'I'II (AR) e) (T'II'I (P) e) inner
 
-type JNT_ inner effect = JNT inner effect
+type JNT_ inner effect = J'T'TT'I inner effect
 
-type Jointed outer inner = JNT inner outer
+type Jointed outer inner = J'T'TT'I inner outer

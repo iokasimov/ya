@@ -21,16 +21,16 @@ sub (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x))))) = These
  (\new -> new `yo` supertype @Arrow @(F'T'I'TT _ _ _) `hjd'tb` x)
 
 embed :: forall f g e .
- Component (AR) g (f `JNT` g) =>
- g e -> (f `JNT` g) e
-embed = component @(AR) @g @(f `JNT` g) @e
+ Component (AR) g (f `J'T'TT'I` g) =>
+ g e -> (f `J'T'TT'I` g) e
+embed = component @(AR) @g @(f `J'T'TT'I` g) @e
 
 -- TODO: replace this expression with a label
 joint :: forall f g e .
- Component (AR) (f `T'TT'I` g) (f `JNT` g)  =>
+ Component (AR) (f `T'TT'I` g) (f `J'T'TT'I` g)  =>
  Wrapper (AR) (f `T'TT'I` g `T'I_` e) =>
- f `T'I` g `T` e `AR_______` f `JNT` g `T'I_` e
-joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `JNT` g) @e
+ f `T'I` g `T` e `AR_______` f `J'T'TT'I` g `T'I__` e
+joint = subtype @(AR) @((f `T'TT'I` g) e) `ho` component @(AR) @(f `T'TT'I` g) @(f `J'T'TT'I` g) @e
 
 -- TODO: remove
 index :: forall t r e .

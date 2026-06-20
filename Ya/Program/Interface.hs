@@ -203,7 +203,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` Void) 
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void `P` Void)) List where
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Aback `ha` Apply
-  `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `JNT` State `T'I` List _))
+  `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `J'T'TT'I` State `T'I` List _))
    `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
   `bt'har__` Null `ho'vt` Unit `ryo` Enter @List

@@ -506,11 +506,23 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
-  worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
+  worker = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List _)
    `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
    `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
    `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
    `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
+
+{- TODO: to implement this effectively we need a Finger Tree
+instance {-# OVERLAPS #-} Component (TR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
+ component = T'I'TT'II'I `identity` \x ->
+  Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
+
+  worker = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Sliding List _)
+   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
+   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
+   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
+   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
+-}
 
 pattern Aback :: forall tt t i . t i `AR____` t `L` tt `T` (Void `P` Void) `T` i
 pattern Aback x = Label @_ @_ @(Void `P` Void) x
@@ -525,7 +537,7 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
-  worker = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List _)
+  worker = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List _)
    `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
      `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
      `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Aback @List `ha` Shaft
@@ -541,7 +553,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = is `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
 
-  _shift_ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling List i)
+  _shift_ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List i)
    `yok____'ut` Apply `ha__` State
    `har____` Event `ha__` Swap `har_'st` Empty
     `ha____` Scope `har_` within `ha` Shaft
@@ -566,7 +578,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
-  _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `JNT` State `T` Scrolling List i)
+  _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `J'T'TT'I` State `T` Scrolling List i)
    `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` record @(Alone i) `hop_` Scope `har` mirror
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
@@ -580,7 +592,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
   `bt'has_` is `ho'st` foi @_ @(AR) Exist
   `har_` (is `ho'ut` slide_passed `has` is `ho'ut` slide_future `har` way) `bt'har` x where
 
-  slide_future = Pass `ryo` Enter @(Halts `JNT` State `T` Sliding List i)
+  slide_future = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Sliding List i)
    `yok____'ut` Apply `ha` State `har__` Event `har` happen @List @Maybe `ha` First `ha__` Scope `har` record @(List _)
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` Push `ho___'ha` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback `ho__` Scope `har` within `ha` Fresh
@@ -588,7 +600,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_future `ho__'ha` Scope `har` record @(List _)
 
-  slide_passed = Pass `ryo` Enter @(Halts `JNT` State `T` Sliding List _)
+  slide_passed = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Sliding List _)
    `yok____'ut` Apply `ha` State `har___` Event `har` happen @List @Maybe `ha` First `ha___` Scope `har` record @(Shafted List i) `ho__'st` Scope `ha` index `har'st` Aback
    `yok____` Check
    `yok____` Apply `ha` State `ha____` Event `ha` window_extract_last `ho__'ha` Scope `har` record @(List _)
@@ -618,8 +630,8 @@ instance Shiftable Alone (Construction List) where
   `bt'has` is `ho'st` foi @_ @(AR) Exist
   `har_` (horizontally `has_` vertical_deep `has` vertical_up `har_` way) `bt'har` x where
 
-  vertical_up :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
-  vertical_up _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
+  vertical_up :: forall i . Unit `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
+  vertical_up _ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` happen `ha` First
     `ha____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
@@ -632,8 +644,8 @@ instance Shiftable Alone (Construction List) where
   aloft unfolding tree = this `ha` within @_ @Alone `ha` Apply `har` tree
    `hjd_'tb` unfolding `hjd'tb` tree `yi` derive `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree)
 
-  vertical_deep :: forall i . Unit `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
-  vertical_deep _ = Pass `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
+  vertical_deep :: forall i . Unit `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
+  vertical_deep _ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
     `har____` Event `har` Pull
      `ha____` Scope `har` record @(Tree `T'I` i)
