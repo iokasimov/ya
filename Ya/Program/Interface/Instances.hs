@@ -456,8 +456,7 @@ pattern Depth x = Label (Alone x)
 
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
- , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
- , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
+ , Covariant Endo Semi Functor (AR) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
  mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `har` source `har_` (T'TT'I `har'st` Empty)) where
 
@@ -467,6 +466,24 @@ instance
     `yio` (\xxx -> source xxx `hjd'tb` depth)
    )
 
+-- TODO: try to define `Depth` for `Instruction`!
+
+{-
+pattern Index :: forall i . i `AR__` I `L` Along (Nonempty List Unit) `T` Void `T` i
+pattern Index x = Label (Alone x)
+
+instance
+ ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
+ , Covariant Endo Semi Functor (AR) t
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Construction Maybe Unit) `L` Along (Construction Maybe Unit) `T` Void) where
+ mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `har` source `har_` (T'TT'I `har'st` Empty)) where
+
+  worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `har`
+   (\xx -> xx
+    `yoi` fo @AR @AR (worker source (that (Event `har` Push Unit `ha__` Scope `har` within `ha` Fresh `bt'har_` depth)))
+    `yio` (\xxx -> source xxx `hjd'tb` depth)
+   )
+-}
 -- instance Mapping T'I'II T'I'II (AR) (AR)
  -- (Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree)
  -- ((Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
@@ -667,8 +684,8 @@ instance Shiftable Alone (Construction List) where
   splash (These (Alone root) descendants) = supertype @(AR) `ha` this `ha` within @_ @Alone `ha` Apply `har` descendants
    `hjd__'tb` (Alone `har` root `hjd_'tb` subtype @(AR) `ha` (T'TT'I `ha` T'I'I `ha` These (Null `ho'vt` Unit `ryo` Enter @List)) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants)
 
-  horizontally :: forall i . Shifter List `AR___` (Halts `JNT` State `T` Scrolling Tree i) `T'I_` Alone i
-  horizontally way = Only `ryo` Enter @(Halts `JNT` State `T` Scrolling Tree i)
+  horizontally :: forall i . Shifter List `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
+  horizontally way = Only `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
    -- `har_____` Event `har` pop
    `har_____` Event `har` happen @List @Maybe `ha` First
@@ -696,6 +713,18 @@ instance Shiftable Alone (Construction List) where
    Alone `har` tree `hjd'tb` siblings
    `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` record @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
+
+pattern Steal :: t i `AR____` t `L` T'I'II (S) e `T` (Void `P` Void `P` Void) `T` i
+pattern Steal i = Label i
+
+instance Mapping T'I'II T'I'II (AR) (AR)
+  (T'TTT'TT'I (T'I'II (AR) ii) (T'II'I (P) ii) (T'I'II (S) (T'II'I (P) i ii)) `T'TT'I` T'I'II (S) i `L` T'I'II (S) i `T` (Void `P` Void `P` Void))
+  (T'TTT'TT'I (T'I'II (AR) ii) (T'II'I (P) ii) (T'I'II (S) (T'II'I (P) i ii))) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(T'I'II f) x ->
+  T'I'II `ha` This
+   `bt'has_` (\(T'II'I (These x' ii)) -> (T'I'II `ha` This `ha` T'II'I `ha` These ii)
+     `bt'has` (T'I'II `ha` That `ha` T'II'I `ha` (\i' -> These i' ii) `ha` source) `har` x')
+   `har_` f x
 
 -- TODO: specify `t` label
 pattern Plane :: t i -> t `L` t `T` Void `T` i
