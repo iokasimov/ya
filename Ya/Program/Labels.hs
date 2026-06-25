@@ -14,8 +14,8 @@ pattern Again :: forall e t . e `AR__` Alone `L` t `T` Recursive `T` e
 pattern Again i = Label @_ @_ @Recursive (Alone i)
 
 pattern Check, Try
- :: forall e i t .
- t e `AR__` t `L` S'I'II i `T` Void `T'I` e
+ :: forall e t i .
+ t i `AR__` t `L` S'I'II e `T` Void `T'I` i
 pattern Check e = Label e
 pattern Try e = Label e
 
@@ -42,3 +42,6 @@ pattern Every x = Label @_ @_ @Void x
 
 pattern Level :: forall t i . i `AR__` Alone `L` t `T` Void `T` i
 pattern Level x = Label (Alone x)
+
+pattern Claim :: forall i t ii . t ii `AR__` t `L` T'I'II (AR) i `T` (Void) `T` ii
+pattern Claim x = Label x
