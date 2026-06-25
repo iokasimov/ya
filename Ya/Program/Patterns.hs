@@ -26,8 +26,13 @@ pattern Selfsame x = T'I'II (That x)
 
 type Given = T'I'II (AR)
 
-pattern Given :: e `AR` e `AR__` Given e e
-pattern Given e = T'I'II e
+pattern Given :: e `AR` ee `AR__` Given e ee
+pattern Given x = T'I'II x
+
+type Taken = T'II'I (AR)
+
+pattern Taken :: ee `AR` e `AR__` Taken e ee
+pattern Taken x = T'II'I x
 
 type Supplied = T'II'I P
 
