@@ -203,7 +203,20 @@ instance
   `yo` subtype @(AR) @(t `T'TT'I` F'T'I'TT (T'II'I P) t `T'I_` _)
 -}
 
--- State (hc_st item) `L` State (hc_st item) `T` Void) `L` hc_st `T` (Void `P` Void)
+{-
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` tt `L` tt `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t) (F'T'I'TT (T'I'II S) t `T'TT'I` (tt `S'T'I'TT'I` I) `L` (tt `S'T'I'TT'I` I) `T` Void) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(Recursive (T'TT'I (T'I'II xxx))) -> case xxx of
+  This x -> F'T'I'TT (Recursive (T'TT'I (T'I'II (This (Label (T'TT'I'TTT'I (That (Identity (source x)))))))))
+  That xx -> F'T'I'TT (Recursive (T'TT'I (T'I'II (That (
+x 
+  Label (T'TT'I'TTT'I (That (Identity (source x))))
+
+  )))))
+-}
+
+-- xx: t (Recursive _)
 
 -- TODO: reduce a number of transformations here
 -- 1. (F'T'I'TT (T'II'I P) t (L l tt _))
@@ -281,6 +294,14 @@ instance
      @(t `TT'T'I` tt)
      (supertype @(AR) @(F'T'I'TT _ _ _)))
    `yo` F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` That
+
+{-
+instance (
+ Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` tt `L` tt `T` Void)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t) (F'T'I'TT (T'I'II S) t `T'TT'I` (tt `S'T'I'TT'I` I) `L` (tt `S'T'I'TT'I` I) `T` Void) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  Recursive (T'TT'I (T'I'II (This x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (This (Label (T'TT'I'TTT'I (That (Identity (source x)))))))))
+-}
 
 -- TODO: try to simplify
 instance
@@ -618,6 +639,7 @@ instance
    )
   `compose` supertype @target
 
+{-
 instance
  ( Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
  , Covariant Endo Semi Functor (AR) tt
@@ -627,7 +649,7 @@ instance
   `compose` component @(AR) @I @(T'I'II (AR) Unit)
   `compose` subtype @(AR)
   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt source
-
+-}
 -- instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` L (S'I'II () ()) tt) (T'II'I (P) e `TT'T'I` tt) =>
  -- Mapping T'I'II T'I'II (AR) (AR)
   -- (T'I'II (T'I'TT'II'I (AR) (P)) e `T'TT'I` tt)
@@ -717,6 +739,7 @@ instance
     `compose` subtype @(AR)
    ) `compose` source `compose` yi Unit
 
+{-
 -- TODO: desugar `fj` and move this instance to `Instances` module
 instance
  ( Covariant Endo Semi Functor target t
@@ -767,6 +790,7 @@ instance
  mapping = rewrap `identity` \source -> subtype @target @(T'TTT'TT'I _ _ _ _)
   `compose` fj (wrapped (map @T'I'II @T'I'II @source @target @(tt `T'TT'I` TT'T'I tttt t) @(tt `TT'T'I` TT'T'I tttt t) source))
   `compose` component @target @t @(tttt `TT'T'I` t)
+-}
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` S'I'II e `L` S'I'II e `T` l) (S'I'II e) where
  mapping = rewrap `identity` \source -> \case
@@ -774,11 +798,17 @@ instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` S'I'II e `L` S'I'II 
   T'TT'I (T'I'II (That (Label (T'I'II (This e))))) -> T'I'II (This e)
   T'TT'I (T'I'II (This e)) -> T'I'II (This e)
 
-instance Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t =>
+instance Covariant Lax Monoidal Functor (AR) (AR) (P) P ll t =>
  Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `T'TT'I` t `L` t `T` ll `L` S'I'II e `T` l) (S'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   T'I'II (This e) -> ((\x' -> Only `ho'ut` x' `ryo` Enter) `ha` T'I'II) (This e)
   T'I'II (That x) -> supertype (supertype x) `yo` source `ho` That  `ho` T'I'II
+
+{-
+instance {-# OVERLAPS #-} Covariant Endo Semi Functor (AR) t =>
+ Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` (T'I'II (AR) i `L` T'I'II (AR) i `T` (Void) `L` t `T` (Void))) (t `TT'T'I` T'I'II (AR) i) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'I'II (\i -> x `yo` (\x' -> x' `bt'har` i) `ho` source)
+-}
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` S'I'II e `L` S'I'II e `T` Recursive)
@@ -878,12 +908,14 @@ instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
  mapping = rewrap `identity` \source (T'I'II f) ->
   TT'T'I `compose` (\x' -> Only `ho'ut` x' `ryo` Enter) `compose` T'I'II `compose` That `compose` source `identity`f Unit
 
+{-
 -- TODO: Finish, it's for Halts transformer
 instance Covariant Lax Monoidal Functor (AR)  (AR) (P) P Void t =>
  Mapping T'I'II T'I'II (AR) (AR)
   (Day T'I'II (AR) (P) P (S'I'II e `TT'T'I` t) ((S'I'II e `TT'T'I` t) `L` (S'I'II e `TT'T'I` t) `T` Void) ee eee)
   (S'I'II e `TT'T'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
+-}
 
 -- 1. t (tt (t (tt _)))
 -- 2. t (t (tt (tt _)))
@@ -1062,6 +1094,10 @@ instance
     `hop` is `ho'st` this `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap (These xx `ho` T'TT'I'TTT'I)))
 
+-- instance Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `T'TT'I` ttt `L` ttt `T` Void) (t `P'T'I'TT'I` tt) where
+
+-- instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (r `S` rr)) (t `P'T'I'TT'I` tt) where
+
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'II (AR) Unit) where
  mapping = rewrap `identity` \source -> T'I'II `ha` subtype @AR `ha` source `bt'has` T'I'II `ha` subtype @AR `ha` source
 
@@ -1084,6 +1120,18 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'TT'I'TTT'I (These
   (wrapped (map @T'I'II @T'I'II @AR @AR @I @(t' `T'TT'I` t) source) x `yo` T'TT'I'TTT'I `ha` This)
   (wrapped (map @T'I'II @T'I'II @AR @AR @I @(tt' `T'TT'I` tt) source) x `yo` T'TT'I'TTT'I `ha` That))
+
+{-
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Mapping T'I'II T'I'II (AR) (AR) (t `T'TT'I` t') I
+ , Mapping T'I'II T'I'II (AR) (AR) (tt `T'TT'I` tt') I
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t `T'TT'I` F'T'I'TT (T'II'I P) tt) I where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  T'TT'I'TTT'I (This x) -> wrapped (map @T'I'II @T'I'II @AR @AR @(t `T'TT'I` t') @I source) (x `yo` this `compose` supertype @(AR) @((t' `P'T'I'TT'I` tt') _))
+  T'TT'I'TTT'I (That x) -> wrapped (map @T'I'II @T'I'II @AR @AR @(tt `T'TT'I` tt') @I source) (x `yo` that `compose` supertype @(AR) @((t' `P'T'I'TT'I` tt') _))
+-}
 
 -- TODO: generalise over categories
 instance {-# OVERLAPPABLE #-}
