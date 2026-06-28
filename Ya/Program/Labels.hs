@@ -22,11 +22,8 @@ pattern Retry x = Label @_ @_ @Recursive x
 pattern Until :: forall e i t . t i `AR__` t `L` S'I'II e `T` Void `T` i
 pattern Until x = Label @_ @_ @Void x
 
--- pattern Allot :: forall e t i . t i `AR_____` t `L` State e `T` (Void) `T` i
--- pattern Allot e = Label @_ @(State _) @(Void) e
-
-pattern Lease :: forall e t i . t i `AR_____` t `L` State e `T` (Void `P` Void) `T` i
-pattern Lease e = Label @_ @(State _) @(Void `P` Void) e
+pattern Reset :: forall e t i . t i `AR_____` t `L` State e `T` (Void `P` Void) `T` i
+pattern Reset e = Label @_ @(State _) @(Void `P` Void) e
 
 pattern Every :: forall i ii iii e .
  Component (AR) (Covariant Day (AR) (P) (P) (S'I'II iii) (S'I'II iii `L` S'I'II iii `T` Void) i ii) (S'I'II iii) =>
