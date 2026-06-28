@@ -75,9 +75,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List
   `yoi` supertype @(AR) `ho` (\i -> List `ha` Exist `ha` Build `ha` Item (source i) `ha` Last `har` Unit)
   `yio'yo` source
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
- ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
- mapping = rewrap `identity` \source x -> x `yo` source `ho` (\x' -> Only `ho'ut` x' `ryo` Enter @Tree) `yi` subtype @(AR) `hjd` (subtype @(AR) `ha` Label `ha` subtype @AR `ha` Empty) Unit `yi` subtype @(AR)
+-- instance Mapping T'I'II T'I'II (AR) (AR) (Alone `P'T'I'TT'I` Twice `T'TT'I` List)
+ -- ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Reverse List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
+ -- mapping = rewrap `identity` \source x -> x `yo` source `ho` (\x' -> Only `ho'ut` x' `ryo` Enter @Tree) `yi` subtype @(AR) `hjd` (subtype @(AR) `ha` Label `ha` subtype @AR `ha` Empty) Unit `yi` subtype @(AR)
 
 -- TODO: check this instance, I'm not sure it works correctly
 instance {-# OVERLAPS #-}
@@ -204,7 +204,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Aback `ha` Apply
   `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `J'T'TT'I` State `T'I` List _))
-   `ho_'yok` Try `ha'st'st` is @(Maybe (Nonempty List _))
+   `ho_'yok` Check `ha'st'st` is @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
   `bt'har__` Null `ho'vt` Unit `ryo` Enter @List
   `yi__` subtype `ha` Empty `bt'has` is `ho'st` that @(List _)

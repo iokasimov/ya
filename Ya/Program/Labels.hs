@@ -7,30 +7,23 @@ import Ya.Program.Patterns
 pattern Apply :: forall tt t i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Apply x = Label @t @tt @Void x
 
-pattern First :: t ii `AR__` t `L` T'I'II (S) i `T` Void `T` ii
+pattern First :: forall t e i . t i `AR__` t `L` T'I'II (S) e `T` Void `T` i
 pattern First x = Label x
 
 pattern Again :: forall e t . e `AR__` Alone `L` t `T` Recursive `T` e
-pattern Again i = Label @_ @_ @Recursive (Alone i)
+pattern Again x = Label @_ @_ @Recursive (Alone x)
 
-pattern Check, Try
- :: forall e t i .
- t i `AR__` t `L` S'I'II e `T` Void `T'I` i
-pattern Check e = Label e
-pattern Try e = Label e
+pattern Check :: forall e t i . t i `AR__` t `L` S'I'II e `T` Void `T'I` i
+pattern Check x = Label x
 
-pattern Retry :: forall e i t . t e `AR__` t `L` S'I'II i `T` Recursive `T` e
--- pattern Retry :: forall t tt e . t e `AR__` t `L` tt ` Recursive `T` e
-pattern Retry e = Label @_ @_ @Recursive e
+pattern Retry :: forall t i e . t i `AR__` t `L` S'I'II e `T` Recursive `T` i
+pattern Retry x = Label @_ @_ @Recursive x
 
-pattern Until :: forall i e t . t e `AR__` t `L` S'I'II i `T` Void `T` e
-pattern Until e = Label @_ @_ @Void e
+pattern Until :: forall e i t . t i `AR__` t `L` S'I'II e `T` Void `T` i
+pattern Until x = Label @_ @_ @Void x
 
-type Forward t = t `L` t `T` Void
-type Reverse t = t `L` t `T` (Void `P` Void)
-
-pattern Allot :: forall e t i . t i `AR_____` t `L` State e `T` (Void) `T` i
-pattern Allot e = Label @_ @(State _) @(Void) e
+-- pattern Allot :: forall e t i . t i `AR_____` t `L` State e `T` (Void) `T` i
+-- pattern Allot e = Label @_ @(State _) @(Void) e
 
 pattern Lease :: forall e t i . t i `AR_____` t `L` State e `T` (Void `P` Void) `T` i
 pattern Lease e = Label @_ @(State _) @(Void `P` Void) e
