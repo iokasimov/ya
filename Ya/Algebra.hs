@@ -1083,15 +1083,15 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) tt (tt `T'TT'I` tt `L` tt `T` Void)
  ) => Mapping T'I'II T'I'II (AR) (AR) (t `P'T'I'TT'I` tt) ((t `P'T'I'TT'I` tt) `T'TT'I` (t `P'T'I'TT'I` tt) `L` (t `P'T'I'TT'I` tt) `T` Void) where
  mapping = rewrap `identity` \source -> T'TT'I'TTT'I `ho` T'TT'I
-  `ha____` (is `ho'st` this
+  `ha____` (itself `ho'st` this
     `ho` map @T'I'II @T'I'II @AR @AR @t @(t `T'TT'I` t `L` t `T` Void) source
     `ho` supertype @AR @(t `T'TT'I` t `L` t `T` Void `T'I_` _)
-    `hop` is `ho'st` that `ho'yo` source
+    `hop` itself `ho'st` that `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap ((\x' -> These x' xx) `ho` T'TT'I'TTT'I)))
-   `hop__` (is `ho'st` that
+   `hop__` (itself `ho'st` that
     `ho` map @T'I'II @T'I'II @AR @AR @tt @(tt `T'TT'I` tt `L` tt `T` Void) source
     `ho` supertype @AR @(tt `T'TT'I` tt `L` tt `T` Void `T'I_` _)
-    `hop` is `ho'st` this `ho'yo` source
+    `hop` itself `ho'st` this `ho'yo` source
    `ho__` (\(These x xx) -> x `yo` rewrap (These xx `ho` T'TT'I'TTT'I)))
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` tt) `T'TT'I` ttt `L` ttt `T` Void) (t `P'T'I'TT'I` tt) where

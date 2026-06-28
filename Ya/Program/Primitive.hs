@@ -43,7 +43,7 @@ index index origin =
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
  idx origin `bt'har` index `hjd`
   (\x -> tbt `ha` T'I'II `har`
-   (\index' -> is `ho'ut` (idx origin `bt'har` index') `has` is `ho'ut` x `har__` index' `hjd'eq` index)
+   (\index' -> itself `ho'ut` (idx origin `bt'har` index') `has` itself `ho'ut` x `har__` index' `hjd'eq` index)
   )
 
 derive :: forall tt t ll i .

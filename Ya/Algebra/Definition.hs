@@ -483,8 +483,8 @@ constant = supertype @_ @(T'I'II source a _)
  `compose` component @target
  `compose` subtype @target @(I o)
 
-is :: Category AR_ => e `AR_` e
-is = identity
+itself :: Category AR_ => e `AR_` e
+itself = identity
 
 type Whether = U_T'I'II_UT'I'II Sum Product
 

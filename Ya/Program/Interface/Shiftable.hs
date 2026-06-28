@@ -49,7 +49,7 @@ type Sliding t = Shifting List t
  --        `hop` Scope `hc` it @(Scrolling Tree i)
  --   `yok____` Check `ha` Stops `ha___` not `ha` found
  --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
- --   `yok____` Retry `ha` is `ha__` Break `hu` Ok Unit `has` Again `hu` Reach Unit
+ --   `yok____` Retry `ha` itself `ha__` Break `hu` Ok Unit `has` Again `hu` Reach Unit
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` t `L` t `T` Void `L` (Shifting Alone List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T` Void)
@@ -62,7 +62,7 @@ type Sliding t = Shifting List t
 --  Fieldable (t i) (Shifting t tt i) =>
 --  Wrapper (AR) (Shifting t tt i) =>
 --  Shifter tt `P` Match (t i) `AR_` Supertype (Event `T'I` Shifting t tt i `T'I` Maybe (Shifting t tt i))
--- spot (These way predicate) x = foi Exist `ha` fetch `has` is `ho'st` foi @_ @(AR) (Empty `hu` index Empty) `li` _spot_ `hc` x where
+-- spot (These way predicate) x = foi Exist `ha` fetch `has` itself `ho'st` foi @_ @(AR) (Empty `hu` index Empty) `li` _spot_ `hc` x where
 
 --  found (These w sl) = supertype (predicate `hc` w) `yui` sl `yiu` sl
 
@@ -70,7 +70,7 @@ type Sliding t = Shifting List t
 --   `yuk____` Lease `ha` State `hc___` Event `hc__` fetch `ha__` Scope `hc` field @(t i) `hop` Scope `hc` it
 --   `yok____` Check `ha` Stops `ha___` not `ha` found
 --   `yuk____` Apply `ha` State `hc___` Event `hc__` shift `hc` way
---   `yok____` Retry `ha` is `ha__` Break `hu` index Ok `has` Again `hu` Reach Unit
+--   `yok____` Retry `ha` itself `ha__` Break `hu` index Ok `has` Again `hu` Reach Unit
 
 -- rewind :: forall t tt i .
 --  Shiftable t tt =>
@@ -85,7 +85,7 @@ pattern Expand e = That e
 
 -- TODO: it's here temporaly, I should find a way to generalize it:
 -- adjust :: forall i . Unit `S` Unit `P` Shifter List `AR_` Supertype (Event `T'I` Sliding List i `T'I` Maybe i)
--- adjust way x = is `hu` (Empty Unit `lu` x) `has` is `ho'st` foi @_ @(AR) Exist `li` router way `hc` x where
+-- adjust way x = itself `hu` (Empty Unit `lu` x) `has` itself `ho'st` foi @_ @(AR) Exist `li` router way `hc` x where
 
 --  -- TODO: there should be a way to shorten it
 --  router (These (This _) (This _)) = shrink_passed
@@ -111,7 +111,7 @@ pattern Expand e = That e
 --   `yok____` Check
 --   `yok____` Apply `ha` State `ha___` Event `ha` window_future `ho_'ha` Scope `hc` field @(List i)
 
---  window_future r w = (is @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `hc___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit) `yui` r
+--  window_future r w = (itself @(List _) w `yokl` Prior `ha` Apply `ha` State `ha` Event `ha` push `hc___` List `ha` Exist `ha` Build `ha` Item r `ha` T'I'II `ha` This `hc` Unit) `yui` r
 
 --  -- [3 2 1] (4 5 6) [7 8 9] ---> [3 2 1] (4 5) [6 7 8 9]
 --  shrink_future = intro @(Halts `JNT` State `T` Sliding List _) Unit

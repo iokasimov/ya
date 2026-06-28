@@ -17,7 +17,7 @@ import Ya.Program.Interface.Shiftable
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` is `ho'ut'st` Empty
+   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` itself `ho'ut'st` Empty
    T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `ho'ut'st` Empty `bt'has_` Exist `ha` that (source x)
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
@@ -41,7 +41,7 @@ instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
 
--- TODO: refactor, pattern matching is redundant here
+-- TODO: refactor, pattern matching itself redundant here
 instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (\_ -> Null `ho'vt` Unit `ryo` Enter)
@@ -275,7 +275,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
    `har___` basetype xx
    `yo____` source
 
--- TODO: `Aback` behaviour is needed here
+-- TODO: `Aback` behaviour itself needed here
 {-
 instance
  ( Covariant Endo Semi Functor (AR) t
@@ -447,7 +447,7 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source x -> T'TT'I `har__` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (is `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` That Unit) `bt'has` is `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` This Unit))
+   `ha` (itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` That Unit) `bt'has` itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` This Unit))
    `ha` (\xxx -> this `ha` sub `har` xxx `hjd'ys` (Pass `ryo` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
    `har` xx)
 
@@ -568,13 +568,13 @@ pattern Slide x = x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = is `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` is `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
+ shift way x = itself `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` itself `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
 
   _shift_ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List i)
    `yok____'ut` Apply `ha__` State
    `har____` Event `ha__` Swap `har_'st` Empty
     `ha____` Scope `har_` within `ha` Shaft
-     `ho___` (is `ho'ut` (Scope `har` within @List `ha` Aback) `has` is `ho'ut` (Scope `har` within @List `ha` Forth)) `har` way
+     `ho___` (itself `ho'ut` (Scope `har` within @List `ha` Aback) `has` itself `ho'ut` (Scope `har` within @List `ha` Forth)) `har` way
      `ho___` Scope `har_` within `ha` First
    `yok____` Check
    `yok____` Apply `ha__` State
@@ -585,13 +585,13 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `ho___'ha` Scope `har_` within `ha` Shaft
     `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
       `ho_` (Scope `har` within @Maybe @List `ha` Fresh)
-   -- TODO: there it is - if I use `Lease` label instead of `Apply` state doesn't change
+   -- TODO: there it itself - if I use `Lease` label instead of `Apply` state doesn't change
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` Pull
     `ha____` Scope `har` record @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
- spot (These way predicate) x = foi Exist `ha` Pull `bt'has_` is `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
+ spot (These way predicate) x = foi Exist `ha` Pull `bt'has_` itself `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
 
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
@@ -604,10 +604,10 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
 {-
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting List List i `T'I` Maybe (List i))
- shift way x = is
-  `har_` is `ho'ut` (Empty Unit `hjd` x)
-  `bt'has_` is `ho'st` foi @_ @(AR) Exist
-  `har_` (is `ho'ut` slide_passed `has` is `ho'ut` slide_future `har` way) `bt'har` x where
+ shift way x = itself
+  `har_` itself `ho'ut` (Empty Unit `hjd` x)
+  `bt'has_` itself `ho'st` foi @_ @(AR) Exist
+  `har_` (itself `ho'ut` slide_passed `has` itself `ho'ut` slide_future `har` way) `bt'har` x where
 
   slide_future = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Sliding List i)
    `yok____'ut` Apply `ha` State `har__` Event `har` happen @List @Maybe `ha` First `ha__` Scope `har` record @(List _)
@@ -626,7 +626,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
    `yok____'ut` Apply `ha` State `har___` Event `har` Pull `ha__` Scope `har` record @(List _)
 
   window_future :: i `AR_____` List i `AR___` List i `P` List i
-  window_future r w = is @(List _) w
+  window_future r w = itself @(List _) w
    `yokl_` Aback `ha` Apply `ha` State `ha___` (Event `ha` Push) `ho__'ha` Scope `har` within @List @Maybe `ha` Fresh
    `bt'har___` Only `ho'ut'st` r `ryo` Enter @List
 
@@ -642,9 +642,9 @@ pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
- shift way x = is
-  `har` is `ho'ut` (Empty Unit `hjd` x)
-  `bt'has` is `ho'st` foi @_ @(AR) Exist
+ shift way x = itself
+  `har` itself `ho'ut` (Empty Unit `hjd` x)
+  `bt'has` itself `ho'st` foi @_ @(AR) Exist
   `har_` (horizontally `has_` vertical_deep `has` vertical_up `har_` way) `bt'har` x where
 
   vertical_up :: forall i . Unit `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
@@ -652,7 +652,7 @@ instance Shiftable Alone (Construction List) where
    `yok____'ut` Apply `ha_` State
    `har____` Event `har` happen `ha` First
     `ha____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
-   `yok____` Check `ha_` is @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+   `yok____` Check `ha_` itself @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Apply `ha_` State
    `ha_____` Event `ha_` aloft
    `ho___'ha` Scope `har` record @(Tree `T'I` i)
@@ -703,15 +703,15 @@ instance Shiftable Alone (Construction List) where
         `ho__` Scope `har` within `ha` Fresh
    `ho______'yo` this `ha__` within @Alone @Tree `ha` Apply `ha__` this
 
-  -- TODO: the problem here is that we ignore information about successfulness of horizontal shifting!
+  -- TODO: the problem here itself that we ignore information about successfulness of horizontal shifting!
   scroll :: forall i . Shifter List
    `AR_____` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i
    `AR____` Tree i
    `AR___` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `T'I___` i)
   scroll way unfolding tree =
-   let siblings = this `ha` record @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` is `har` unfolding in
+   let siblings = this `ha` record @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` itself `har` unfolding in
    Alone `har` tree `hjd'tb` siblings
-   `yi_` shift `har` way `ha_` is @(Scrolling List `T'I` Tree i)
+   `yi_` shift `har` way `ha_` itself @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` record @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
 
 pattern Steal :: t i `AR____` t `L` T'I'II (S) e `T` (Void `P` Void `P` Void) `T` i

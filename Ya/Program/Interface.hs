@@ -89,9 +89,9 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` Void) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
-            (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) is)
-   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
+            (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
+   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) itself)
+   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd'tb` (T'TT'I (T'I'I (
       (sx `yo` source `hjd_'tb` xs `yo` source))))))
 
@@ -104,9 +104,9 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` tttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` (Void `P` Void)) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
-               (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) is)
-   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) is)
+               (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
+   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) itself)
+   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These (These sx x) xs) -> x `yo` source `hjd__'tb` sx `yo` source `hjd_'tb` xs `yo` source)
 
 instance {-# OVERLAPS #-}
@@ -116,8 +116,8 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` Void) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
-            (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
+            (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
+   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 instance {-# OVERLAPS #-}
@@ -127,8 +127,8 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void)) (tt `TT'T'I` ttt)
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` (Void `P` Void)) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
-            (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) is)
-   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) is)
+            (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
+   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 -- instance
@@ -151,8 +151,8 @@ instance {-# OVERLAPS #-}
 instance Mapping T'I'II T'I'II (AR) (AR) (List `P'T'I'TT'I` Twice `T'TT'I` List) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` (List `P'T'I'TT'I` Twice `T'TT'I` List) `L` (List `P'T'I'TT'I` Twice `T'TT'I` List) `T` Void) where
  mapping = rewrap `identity` \source x@(T'TT'I'TTT'I (These _ (T'TT'I (T'I'I (These rl fl))))) ->
   List `ha` Exist `ha` Build `ha` Item (Label x) `har` supertype (Last @Unit)
-    `hjd__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha__` is `ho'ut` x) `bt'har` empty @List `yi` that
-     `hjd_` (fl `yokl` Label @_ @_ @Void `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` is `ho'ut` x)
+    `hjd__` (rl `yokl` Label @_ @_ @(Void `P` Void) `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Back Unit) `ha__` itself `ho'ut` x) `bt'har` empty @List `yi` that
+     `hjd_` (fl `yokl` Label @_ @_ @Void `ha` Apply `ha` State `ha` Event `ha` push @List `ha` Label `ha` that `ha` shift (Fore Unit) `ha_` itself `ho'ut` x)
       `bt'har` empty @List `yi` that
      `yi_` T'TT'I `ha` T'I'I
     `yi__` T'TT'I'TTT'I `ho` T'TT'I
@@ -204,10 +204,10 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` List `L` List `T` (Void 
  mapping = rewrap `identity` \source x -> supertype x
   `yokl` Aback `ha` Apply
   `ha__` (\x' -> Pass `ho'ut` x' `ryo` Enter @(Halts `J'T'TT'I` State `T'I` List _))
-   `ho_'yok` Check `ha'st'st` is @(Maybe (Nonempty List _))
+   `ho_'yok` Check `ha'st'st` itself @(Maybe (Nonempty List _))
    `ho_'yok` Apply `ha` (\xx -> xx `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
   `bt'har__` Null `ho'vt` Unit `ryo` Enter @List
-  `yi__` subtype `ha` Empty `bt'has` is `ho'st` that @(List _)
+  `yi__` subtype `ha` Empty `bt'has` itself `ho'st` that @(List _)
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T` Void) List where
@@ -260,9 +260,9 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
 
 -- Define `Rewindable` typeclass, there should be instances for `Scrolling List``identity``Sliding List`
 
--- This transformation is not natural!
+-- This transformation itself not natural!
 -- instance (forall i . Setoid (AR) i) => Mapping T'II'I T'I'II (AR) (AR) I Match where
---  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> is `ho'ut` False Unit `has` Same `ho'ut` True Unit `hc__` x `hjd'eq` source x'
+--  mapping = rewrap `identity` \source -> rewrap `identity` \x x' -> itself `ho'ut` False Unit `has` Same `ho'ut` True Unit `hc__` x `hjd'eq` source x'
 
 -- instance Semigroup (AR) Boolean where
  -- s (These x y) = x `hjd'ys'has` Try y
