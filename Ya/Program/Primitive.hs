@@ -46,18 +46,18 @@ index index origin =
    (\index' -> is `ho'ut` (idx origin `bt'har` index') `has` is `ho'ut` x `har__` index' `hjd'eq` index)
   )
 
-derive :: forall t tt ll i .
+derive :: forall tt t ll i .
  Multicomponent (AR) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i
 derive = multicomponent @(AR) @t @tt @ll
 
-within :: forall t tt ll i .
+within :: forall tt t ll i .
  Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (AT) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` tt `T` i `AR` Unlabeled (t `L` tt `T` ll) `T` i
 within = supertype @(AR) `har` multicomponent @(AT) @t @tt @ll `yio'yio'yio` unlabel @(AR)
 
-happen :: forall t tt ll i .
+happen :: forall tt t ll i .
  Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (TR) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` Unlabeled (t `L` tt `T` ll) `T` i
