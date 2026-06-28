@@ -596,7 +596,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `J'T'TT'I` State `T` Scrolling List i)
-   `yok____'ut` Lease `ha` State `har___` Event `har__` Pull `ha___` Scope `har` record @(Alone i) `hop_` Scope `har` mirror
+   `yok____'ut` Reset `ha` State `har___` Event `har__` Pull `ha___` Scope `har` record @(Alone i) `hop_` Scope `har` mirror
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
