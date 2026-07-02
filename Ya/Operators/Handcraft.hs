@@ -240,14 +240,14 @@ infixl 6 `hdj__`
 infixl 5 `hdj___`
 infixl 4 `hdj____`
 
-infixl 8 `hop`, `hop'tb`, `hop'hjd`, `hop'dcpp`, `hop'dcpp'yo'eq`, `hop'ys`, `hop'ys'has`, `hop'eq`, `hjd'ys'has`
-infixl 7 `hop_`, `hop_'tb`, `hop_'dcpp`, `hop_'dcpp'yo'eq`, `hop_'ys`, `hop_'ys'has`, `hop_'eq`, `hjd_'ys'has`
-infixl 6 `hop__`, `hop__'tb`, `hop__'dcpp`, `hop__'dcpp'yo'eq`, `hop__'ys`, `hop__'ys'has`, `hop__'eq`, `hjd__'ys'has`
-infixl 5 `lo___`, `lo___'tb`, `lo___'dcpp`, `lo___'dcpp'yo'eq`, `lo___'ys`, `lo___'ys'has`, `lo___'eq`, `hjd___'ys'has`
-infixl 4 `lo____`, `lo____'tb`, `lo____'dcpp`, `lo____'dcpp'yo'eq`, `lo____'ys`, `lo____'ys'has`, `lo____'eq`, `hjd____'ys'has`
-infixl 3 `lo_____`, `lo_____'tb`, `lo_____'dcpp`, `lo_____'dcpp'yo'eq`, `lo_____'ys`, `lo_____'ys'has`, `lo_____'eq`, `hjd_____'ys'has`
-infixl 2 `lo______`, `lo______'tb`, `lo______'dcpp`, `lo______'dcpp'yo'eq`, `lo______'ys`, `lo______'ys'has`, `lo______'eq`, `hjd______'ys'has`
-infixl 1 `lo_______`, `lo_______'tb`, `lo_______'dcpp`, `lo_______'dcpp'yo'eq`, `lo_______'ys`, `lo_______'ys'has`, `lo_______'eq`,  `hjd_______'ys'has`
+infixl 8 `hop`, `hop'tb`, `hop'hjd`, `hop'dcpp`, `hop'dcpp'yo'eq`, `hop'dcps`, `hop'dcps'has`, `hop'eq`, `hjd'dcps'has`
+infixl 7 `hop_`, `hop_'tb`, `hop_'dcpp`, `hop_'dcpp'yo'eq`, `hop_'dcps`, `hop_'dcps'has`, `hop_'eq`, `hjd_'dcps'has`
+infixl 6 `hop__`, `hop__'tb`, `hop__'dcpp`, `hop__'dcpp'yo'eq`, `hop__'dcps`, `hop__'dcps'has`, `hop__'eq`, `hjd__'dcps'has`
+infixl 5 `lo___`, `lo___'tb`, `lo___'dcpp`, `lo___'dcpp'yo'eq`, `lo___'dcps`, `lo___'dcps'has`, `lo___'eq`, `hjd___'dcps'has`
+infixl 4 `lo____`, `lo____'tb`, `lo____'dcpp`, `lo____'dcpp'yo'eq`, `lo____'dcps`, `lo____'dcps'has`, `lo____'eq`, `hjd____'dcps'has`
+infixl 3 `lo_____`, `lo_____'tb`, `lo_____'dcpp`, `lo_____'dcpp'yo'eq`, `lo_____'dcps`, `lo_____'dcps'has`, `lo_____'eq`, `hjd_____'dcps'has`
+infixl 2 `lo______`, `lo______'tb`, `lo______'dcpp`, `lo______'dcpp'yo'eq`, `lo______'dcps`, `lo______'dcps'has`, `lo______'eq`, `hjd______'dcps'has`
+infixl 1 `lo_______`, `lo_______'tb`, `lo_______'dcpp`, `lo_______'dcpp'yo'eq`, `lo_______'dcps`, `lo_______'dcps'has`, `lo_______'eq`,  `hjd_______'dcps'has`
 
 infixl 8 `has`, `st'has`, `bt'has`
 infixl 7 `has_`, `st'has_`, `bt'has_`
@@ -267,11 +267,11 @@ infixl 3 `hap_____`
 infixl 2 `hap______`
 infixl 1 `hap_______`
 
-infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'dcpp`, `hjd'dcpp'yo'eq`, `hjd'ys`, `hjd'yw`, `hjd'eq` -- `hjd'dcpp'dcpp`,
-infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'dcpp`, `hjd_'dcpp'yo'eq`, `hjd_'ys`, `hjd_'yw`, `hjd_'eq`
-infixl 6 `hjd__`, `hjd__'tb`, `st'hjd__`, `st'hjd__'tb`, `hjd__'dcpp`, `hjd__'dcpp'yo'eq`, `hjd__'ys`, `hjd__'yw`, `hjd__'eq`
-infixl 5 `hjd___`, `hjd___'tb`, `st'hjd___`, `st'hjd___'tb`, `hjd___'dcpp`, `hjd___'dcpp'yo'eq`, `hjd___'ys`, `hjd___'yw`, `hjd___'eq`
-infixl 4 `hjd____`, `hjd____'tb`, `st'hjd____`, `st'hjd____'tb`, `hjd____'dcpp`, `hjd____'dcpp'yo'eq`, `hjd____'ys`, `hjd____'yw`, `hjd____'eq`
+infixl 8 `hjd`, `hjd'tb`, `st'hjd`, `st'hjd'tb`, `hjd'dcpp`, `hjd'dcpp'yo'eq`, `hjd'dcps`, `hjd'yw`, `hjd'eq` -- `hjd'dcpp'dcpp`,
+infixl 7 `hjd_`, `hjd_'tb`, `st'hjd_`, `st'hjd_'tb`, `hjd_'dcpp`, `hjd_'dcpp'yo'eq`, `hjd_'dcps`, `hjd_'yw`, `hjd_'eq`
+infixl 6 `hjd__`, `hjd__'tb`, `st'hjd__`, `st'hjd__'tb`, `hjd__'dcpp`, `hjd__'dcpp'yo'eq`, `hjd__'dcps`, `hjd__'yw`, `hjd__'eq`
+infixl 5 `hjd___`, `hjd___'tb`, `st'hjd___`, `st'hjd___'tb`, `hjd___'dcpp`, `hjd___'dcpp'yo'eq`, `hjd___'dcps`, `hjd___'yw`, `hjd___'eq`
+infixl 4 `hjd____`, `hjd____'tb`, `st'hjd____`, `st'hjd____'tb`, `hjd____'dcpp`, `hjd____'dcpp'yo'eq`, `hjd____'dcps`, `hjd____'yw`, `hjd____'eq`
 
 infixl 8 `yi`
 infixl 7 `yi_`
@@ -351,10 +351,10 @@ infixl 8 `ya`, `ya'ut`, `ya'vt`
 
 infixl 7 `yoo'ut`
 
-infixl 8 `dcpp`, `dcpp'yo`, `dcpp'yo'hd`, `dcpp'yo'ut`, `dcpp'dcpp`, `dcpp'dcpp'yo`, `dcpp'ys` --, `dcpdcppyok`, `dcpp'yokl` --, `dcpp'dcpp'jt`, `dcpp'dcpp'jt'yok`
+infixl 6 `dcpp`, `dcpp'yo`, `dcpp'yo'hd`, `dcpp'yo'ut`, `dcpp'dcpp`, `dcpp'dcpp'yo`, `dcpp'dcps` --, `dcpdcppyok`, `dcpp'yokl` --, `dcpp'dcpp'jt`, `dcpp'dcpp'jt'yok`
 -- infixl 7 `dcpp_'yo`-- , `yip`, `yip'yo`, `yip'dcpp`, `yip'yip`, `yip'yis`
 
-infixl 8 `ys`, `ys'yo`, `ys'yo'ut`
+infixl 6 `dcps`, `dcps'yo`, `dcps'yo'ut`
 -- infixl 7 `yis`
 
 infixl 8 `yw`, `yw'yo`, `yw'yokl`
@@ -2681,35 +2681,35 @@ lo_____'dcpp'yo'eq = hop'dcpp'yo'eq
 lo______'dcpp'yo'eq = hop'dcpp'yo'eq
 lo_______'dcpp'yo'eq = hop'dcpp'yo'eq
 
-hop'ys, hop_'ys, hop__'ys, lo___'ys, lo____'ys, lo_____'ys, lo______'ys, lo_______'ys
+hop'dcps, hop_'dcps, hop__'dcps, lo___'dcps, lo____'dcps, lo_____'dcps, lo______'dcps, lo_______'dcps
  :: forall t tt l a o oo .
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) e ee) t) =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) oo) -> Arrow a (t (Sum o oo))
-hop'ys l r = ys `compose` hop @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
+hop'dcps l r = dcps `compose` hop @(AR) @(t o `P` (tt `L` tt `T` l) oo) l r
 
-hop_'ys = hop'ys
-hop__'ys = hop'ys
-lo___'ys = hop'ys
-lo____'ys = hop'ys
-lo_____'ys = hop'ys
-lo______'ys = hop'ys
-lo_______'ys = hop'ys
+hop_'dcps = hop'dcps
+hop__'dcps = hop'dcps
+lo___'dcps = hop'dcps
+lo____'dcps = hop'dcps
+lo_____'dcps = hop'dcps
+lo______'dcps = hop'dcps
+lo_______'dcps = hop'dcps
 
-hop'ys'has, hop_'ys'has, hop__'ys'has, lo___'ys'has, lo____'ys'has, lo_____'ys'has, lo______'ys'has, lo_______'ys'has
+hop'dcps'has, hop_'dcps'has, hop__'dcps'has, lo___'dcps'has, lo____'dcps'has, lo_____'dcps'has, lo______'dcps'has, lo_______'dcps'has
  :: forall t tt l a o .
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) e ee) t) =>
  Arrow a (t o) -> Arrow a ((tt `L` tt `T` l) o) -> Arrow a (t o)
-hop'ys'has l r = (\x -> ys'yo @Arrow x (identity @(AR) `has` identity)) `compose` hop @(AR) @(_ `P` _) l r
+hop'dcps'has l r = (\x -> dcps'yo @Arrow x (identity @(AR) `has` identity)) `compose` hop @(AR) @(_ `P` _) l r
 
-hop_'ys'has = hop'ys'has
-hop__'ys'has = hop'ys'has
-lo___'ys'has = hop'ys'has
-lo____'ys'has = hop'ys'has
-lo_____'ys'has = hop'ys'has
-lo______'ys'has = hop'ys'has
-lo_______'ys'has = hop'ys'has
+hop_'dcps'has = hop'dcps'has
+hop__'dcps'has = hop'dcps'has
+lo___'dcps'has = hop'dcps'has
+lo____'dcps'has = hop'dcps'has
+lo_____'dcps'has = hop'dcps'has
+lo______'dcps'has = hop'dcps'has
+lo_______'dcps'has = hop'dcps'has
 
-hjd'ys'has, hjd_'ys'has, hjd__'ys'has, hjd___'ys'has, hjd____'ys'has, hjd_____'ys'has, hjd______'ys'has, hjd_______'ys'has
+hjd'dcps'has, hjd_'dcps'has, hjd__'dcps'has, hjd___'dcps'has, hjd____'dcps'has, hjd_____'dcps'has, hjd______'dcps'has, hjd_______'dcps'has
  :: forall t tt l a o .
  Covariant Endo Semi Functor (AR) t =>
  (forall e ee . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) ee)) =>
@@ -2717,15 +2717,15 @@ hjd'ys'has, hjd_'ys'has, hjd__'ys'has, hjd___'ys'has, hjd____'ys'has, hjd_____'y
  (forall e . Covariant Yoneda Functor (AR) (AR) (T'I'II Product e)) =>
  (forall e . Covariant Yoneda Functor (AR) (AR) (T'II'I Product e)) =>
  t o -> (tt `L` tt `T` l) o -> (t o)
-hjd'ys'has l r = ys'yo @(AR) @t @tt @l (hjd @AR @P @AR l r) (identity @(AR) `has` identity)
+hjd'dcps'has l r = dcps'yo @(AR) @t @tt @l (hjd @AR @P @AR l r) (identity @(AR) `has` identity)
 
-hjd_'ys'has = hjd'ys'has
-hjd__'ys'has = hjd'ys'has
-hjd___'ys'has = hjd'ys'has
-hjd____'ys'has = hjd'ys'has
-hjd_____'ys'has = hjd'ys'has
-hjd______'ys'has = hjd'ys'has
-hjd_______'ys'has = hjd'ys'has
+hjd_'dcps'has = hjd'dcps'has
+hjd__'dcps'has = hjd'dcps'has
+hjd___'dcps'has = hjd'dcps'has
+hjd____'dcps'has = hjd'dcps'has
+hjd_____'dcps'has = hjd'dcps'has
+hjd______'dcps'has = hjd'dcps'has
+hjd_______'dcps'has = hjd'dcps'has
 
 has, has_, has__, has___, has____, has_____, has______, has_______ :: forall target i a o oo .
  Contravariant Limit target target =>
@@ -2904,24 +2904,24 @@ yio'dcpp :: forall ttt i ii iii t tt ll .
 yio'dcpp = fio (day @T'I'II @(AR) @ll @tt @tt @ttt @(P) identity identity)
 
 -- TODO: try to generalize
-ys :: forall ttt i ii t tt l .
+dcps :: forall ttt i ii t tt l .
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) ttt (S) t (tt `L` tt `T` l) e ee) t) =>
  ttt (t i) ((tt `L` tt `T` l) ii) -> t (i `S` ii)
-ys = day @T'I'II @(AR) @l @t @tt @ttt @(S) identity identity
+dcps = day @T'I'II @(AR) @l @t @tt @ttt @(S) identity identity
 
 -- TODO: try to generalize
-ys'yo :: forall source t tt l i ii u r .
+dcps'yo :: forall source t tt l i ii u r .
  Category source =>
  (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source u (S) t (tt `L` tt `T` l) e ee) t) =>
  u (t i) ((tt `L` tt `T` l) ii) -> source (i `S` ii) r -> t r
-ys'yo x f = day @T'I'II @source @l @t @tt @u @(S) identity f x
+dcps'yo x f = day @T'I'II @source @l @t @tt @u @(S) identity f x
 
 -- TODO: try to generalize
-ys'yo'ut :: forall t tt l i ii u r .
+dcps'yo'ut :: forall t tt l i ii u r .
  (forall e . Mapping T'I'II T'I'II (->) (->) I (T'I'II (AR) e)) =>
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) u (S) t (tt `L` tt `T` l) e ee) t) =>
  u (t i) ((tt `L` tt `T` l) ii) -> r -> t r
-ys'yo'ut x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
+dcps'yo'ut x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
 
 -- TODO: try to generalize
 -- yis :: forall u e ee eee t .
@@ -2969,13 +2969,13 @@ dcpp'dcpp = day @T'I'II @(AR) @l @t @ttt @ttttt @(P) identity
  (day @T'I'II @(AR) @ll @tt @tttt @(P) @P identity identity)
 
 -- TODO: generalize
-dcpp'ys :: forall ttt i ii t tt l ll .
+dcpp'dcps :: forall ttt i ii t tt l ll .
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) ttt (P) t (t `L` t `T` l) e ee) t) =>
  (forall e ee . Covariant Endo Transformation Functor (AR) (Covariant Day (AR) (P) (S) tt (tt `L` tt `T` ll) e ee) tt) =>
  -- Covariant Lax Monoidal Functor (AR) (AR) ttt (P) l t =>
  -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) ll tt =>
  ttt (t (tt i)) ((t `L` t `T` l) ((tt `L` tt `T` ll) ii)) -> t (tt (i `S` ii))
-dcpp'ys = day @T'I'II @(AR) @l @t @t @ttt @(P) identity
+dcpp'dcps = day @T'I'II @(AR) @l @t @t @ttt @(P) identity
  (day @T'I'II @(AR) @ll @tt @tt @(P) @(S) identity identity)
 
 -- yip'dcpp :: forall u e ee eee t tt .
@@ -3657,7 +3657,7 @@ hjd_______'dcpp'yo'eq = hjd'dcpp'yo'eq
 -- hjd______'yip = hjd'yip
 -- hjd_______'yip = hjd'yip
 
-hjd'ys, hjd_'ys, hjd__'ys, hjd___'ys, hjd____'ys, hjd_____'ys, hjd______'ys, hjd_______'ys
+hjd'dcps, hjd_'dcps, hjd__'dcps, hjd___'dcps, hjd____'dcps, hjd_____'dcps, hjd______'dcps, hjd_______'dcps
  :: forall i ii t tt l .
  -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) l t =>
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) e ee) t) =>
@@ -3665,15 +3665,15 @@ hjd'ys, hjd_'ys, hjd__'ys, hjd___'ys, hjd____'ys, hjd_____'ys, hjd______'ys, hjd
  Covariant Yoneda Functor (AR) (AR) (P'I'II (t i)) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
  t i -> (tt `L` tt `T` l) ii -> t (i `S` ii)
-hjd'ys l r = ys @P @i @ii @t @tt @l (hjd @AR @P @AR @_ l r)
+hjd'dcps l r = dcps @P @i @ii @t @tt @l (hjd @AR @P @AR @_ l r)
 
-hjd_'ys = hjd'ys
-hjd__'ys = hjd'ys
-hjd___'ys = hjd'ys
-hjd____'ys = hjd'ys
-hjd_____'ys = hjd'ys
-hjd______'ys = hjd'ys
-hjd_______'ys = hjd'ys
+hjd_'dcps = hjd'dcps
+hjd__'dcps = hjd'dcps
+hjd___'dcps = hjd'dcps
+hjd____'dcps = hjd'dcps
+hjd_____'dcps = hjd'dcps
+hjd______'dcps = hjd'dcps
+hjd_______'dcps = hjd'dcps
 
 -- hjd'yis, hjd_'yis, hjd__'yis, hjd___'yis, hjd____'yis, hjd_____'yis, hjd______'yis, hjd_______'yis
  -- :: forall e o oo t .
@@ -3703,7 +3703,7 @@ hjd'dcpp'dcpp :: forall o oo t tt l ll .
 hjd'dcpp'dcpp l r = dcpp'dcpp @(P) (hjd @AR @P @AR l r)
 -}
 
-hjd'dcpp'ys
+hjd'dcpp'dcps
  :: forall t tt l ll i ii .
  Covariant Endo Semi Functor (AR) t =>
  (forall e ee . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) ee)) =>
@@ -3712,7 +3712,7 @@ hjd'dcpp'ys
  (forall e . Covariant Yoneda Functor (AR) (AR) (T'II'I Product e)) =>
  (forall e . Covariant Yoneda Functor (AR) (AR) (T'I'II Product e)) =>
  t (tt i) -> (t `L` t `T` l) ((tt `L` tt `T` ll) ii) -> t (tt (i `S` ii))
-hjd'dcpp'ys l r = dcpp'ys @(P) @i @ii @t @tt @l @ll (hjd @AR @P @AR l r)
+hjd'dcpp'dcps l r = dcpp'dcps @(P) @i @ii @t @tt @l @ll (hjd @AR @P @AR l r)
 
 -- hjd'yip'dcpp
  -- :: forall t tt o oo e .
