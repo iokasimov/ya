@@ -671,7 +671,7 @@ instance Shiftable Alone (Construction List) where
    `yok_____` Check `ha'yo` splash `ha` moves
    `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` record @(Tree i)
-   `lo____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
+   `hop____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
@@ -697,7 +697,7 @@ instance Shiftable Alone (Construction List) where
     `ho___'ha` Scope `har` record @(Tree i)
    `yok_____` Apply `ha_` State `ha____` Event `ha` Swap `ha` this
     `ho___'ha` Scope `har` record @(Tree i)
-   `lo____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
+   `hop____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
     `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
      `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
         `ho__` Scope `har` within `ha` Fresh
