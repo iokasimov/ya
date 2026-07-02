@@ -90,8 +90,8 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` Void) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
             (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
-   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) itself)
-   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
+   `hjd'dcpp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` Void `T` _) itself)
+   `hjd'dcpp` Apply (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These (These sx x) xs) -> T'TT'I'TTT'I ((x `yo` source) `hjd'tb` (T'TT'I (T'I'I (
       (sx `yo` source `hjd_'tb` xs `yo` source))))))
 
@@ -105,8 +105,8 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `T'TT'I` tttt `L` tttt `T` ll `L` (t `P'T'I'TT'I` Twice `T'TT'I` tt) `T` (Void `P` Void)) ((t `P'T'I'TT'I` Twice `T'TT'I` tt) `TT'T'I` tttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I'TTT'I (These w (T'TT'I (T'I'I (These r f))))) ->
                (f `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
-   `hjd'yp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) itself)
-   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
+   `hjd'dcpp` Apply (w `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` t `T` (Void `P` Void) `T` _) itself)
+   `hjd'dcpp` Apply (r `yokl` rewrap @(AR) @_ @(tttt `L` tttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These (These sx x) xs) -> x `yo` source `hjd__'tb` sx `yo` source `hjd_'tb` xs `yo` source)
 
 instance {-# OVERLAPS #-}
@@ -117,7 +117,7 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` Void) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
-   `hjd'yp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
+   `hjd'dcpp` Apply (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 instance {-# OVERLAPS #-}
@@ -128,7 +128,7 @@ instance {-# OVERLAPS #-}
  ) => Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` ll `L` (Twice `T'TT'I` tt) `T` (Void `P` Void)) ((Twice `T'TT'I` tt) `TT'T'I` ttt) where
   mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'I'I (These r f))) ->
             (f `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` (Void `P` Void) `T` _) itself)
-   `hjd'yp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
+   `hjd'dcpp` Apply (r `yokl` rewrap @(AR) @_ @(ttt `L` ttt `T` ll `L` tt `T` Void `T` _) itself)
      `yo` (\(These sx xs) -> T'TT'I (T'I'I (These (sx `yo` source) (xs `yo` source))))
 
 -- instance
@@ -268,7 +268,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) List
  -- s (These x y) = x `hjd'ys'has` Try y
 
 -- instance Quasigroup (AR) Boolean where
- -- p (These x y) = x `hjd_'yp` Try `har` y `yu_` Unit
+ -- p (These x y) = x `hjd_'dcpp` Try `har` y `yu_` Unit
 
 -- instance Semigroup (AR) (List item) where
  -- s (These x y) = x `yokl` Aback `ha` Apply `ha` State `ha` Event `ha` push `bt'har__` y `yi__` that
