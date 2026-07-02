@@ -107,6 +107,7 @@ infixl 9 `ha`, `ha'ho'ho'ut`, `ha'ho'ut`
  -- , `ha'yokl`
  , `ha'st`
  , `ha'ut`
+ , `ha'ut'st`
  , `ha'vt`
  , `ha'hjd`
  , `ha'hjd'eq`
@@ -116,6 +117,7 @@ infixl 9 `ha`, `ha'ho'ho'ut`, `ha'ho'ut`
 infixl 8 `ha_`
  , `ha_'st`
  , `ha_'ut`
+ , `ha_'ut'st`
  , `ha_'vt`
  , `ha_'hjd`
  , `ha_'hjd'eq`
@@ -129,6 +131,7 @@ infixl 8 `ha_`
 infixl 7 `ha__`
  , `ha__'st`
  , `ha__'ut`
+ , `ha__'ut'st`
  , `ha__'vt`
  , `ha__'hjd`
  , `ha__'hjd'eq`
@@ -142,6 +145,7 @@ infixl 7 `ha__`
 infixl 6 `ha___`
  , `ha___'st`
  , `ha___'ut`
+ , `ha___'ut'st`
  , `ha___'vt`
  , `ha___'hjd`
  , `ha___'hjd'eq`
@@ -155,6 +159,7 @@ infixl 6 `ha___`
 infixl 5 `ha____`
  , `ha____'st`
  , `ha____'ut`
+ , `ha____'ut'st`
  , `ha____'vt`
  , `ha____'hjd`
  , `ha____'hjd'eq`
@@ -168,6 +173,7 @@ infixl 5 `ha____`
 infixl 4 `ha_____`
  , `ha_____'st`
  , `ha_____'ut`
+ , `ha_____'ut'st`
  , `ha_____'vt`
  , `ha_____'hjd`
  , `ha_____'hjd'eq`
@@ -181,6 +187,7 @@ infixl 4 `ha_____`
 infixl 3 `ha______`
  , `ha______'st`
  , `ha______'ut`
+ , `ha______'ut'st`
  , `ha______'vt`
  , `ha______'hjd`
  , `ha______'hjd'eq`
@@ -194,6 +201,7 @@ infixl 3 `ha______`
 infixl 2 `ha_______`
  , `ha_______'st`
  , `ha_______'ut`
+ , `ha_______'ut'st`
  , `ha_______'vt`
  , `ha_______'hjd`
  , `ha_______'hjd'eq`
@@ -207,6 +215,7 @@ infixl 2 `ha_______`
 infixl 1 `ha________`
  , `ha________'st`
  , `ha________'ut`
+ , `ha________'ut'st`
  , `ha________'vt`
  , `ha________'hjd`
  , `ha________'hjd'eq`
@@ -763,6 +772,35 @@ ha_____'ut = yai'ut
 ha______'ut = yai'ut
 ha_______'ut = yai'ut
 ha________'ut = yai'ut
+
+yai'ut'st, ha'ut'st, ha_'ut'st, ha__'ut'st, ha___'ut'st, ha____'ut'st, ha_____'ut'st, ha______'ut'st, ha_______'ut'st, ha________'ut'st
+ :: forall target t i a o .
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Contravariant Endo Yoneda Functor target (T'II'I t i) =>
+ Contravariant Endo Semi Functor target (T'II'I target o) =>
+ Covariant Endo Semi Functor target (T'I'II target o) =>
+ Terminal target =>
+ (forall e . Wrapper target (target Unit e)) =>
+ (Supertype (target Unit a) ~ a) =>
+ (Covariant Elicitable target (Supertype o)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t a i) (target (a) (t (Supertype o) i))
+yai'ut'st = fio @target (fai @target supertype)
+ `compose` fai @target (fai @target terminal `compose` subtype @target @(target Unit a))
+ `compose` yai @target @target @t
+
+ha'ut'st = yai'ut'st @target @t @i @a @o
+ha_'ut'st = yai'ut'st @target @t @i @a @o
+ha__'ut'st = yai'ut'st @target @t @i @a @o
+ha___'ut'st = yai'ut'st @target @t @i @a @o
+ha____'ut'st = yai'ut'st @target @t @i @a @o
+ha_____'ut'st = yai'ut'st @target @t @i @a @o
+ha______'ut'st = yai'ut'st @target @t @i @a @o
+ha_______'ut'st = yai'ut'st @target @t @i @a @o
+ha________'ut'st = yai'ut'st @target @t @i @a @o
 
 yoo'ut :: forall target t a o .
  Terminal target =>
