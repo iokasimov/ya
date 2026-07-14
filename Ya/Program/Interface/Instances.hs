@@ -791,3 +791,12 @@ instance
         `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `har` fu Unit xx `ha__` Scope `har` within `ha` Fresh)) xxx)))
     )
    ))))))
+
+pattern Sieve :: forall t i . (t `P'T'I'TT'I` T'II'I (AR) Boolean) i `AR__` (t `P'T'I'TT'I` T'II'I (AR) Boolean) `L` t `T` (Void) `T` i
+pattern Sieve x = Label x
+
+instance Component (AR) ((List `P'T'I'TT'I` Match) `L` List `T` Void) List where
+ component = \(Label (T'TT'I'TTT'I (These x xx))) ->
+  let separator xx' x' = False `ho'ut` (x' `hjd` Empty Unit) `bt'has` True `ho'ut` (x' `hjd` Exist xx') `har_` xx `st'har` xx' in
+  that (x `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` separator `ho__'ha` Scope `har` within `ha` Fresh
+   `bt'har___` Null `ho'vt` Unit `ryo` Enter @List)

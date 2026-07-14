@@ -395,7 +395,6 @@ class x v T'II'I xx source target u uu l t
 deriving instance Monoidal v T'II'I Functor source target u uu l t
  => Oplax v Monoidal Functor source target u uu l t
 
--- TODO: Yoneda version?
 day :: forall v source l t tt u uu a o i ii .
  (forall e ee . Mapping v T'I'II source (AR) (Day v source u uu t (tt `L` tt `T` l) e ee) t) =>
  Wrapper (AR) (v source a o) =>
