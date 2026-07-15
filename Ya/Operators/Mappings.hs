@@ -255,3 +255,24 @@ fc :: forall t a o .
 fc = supertype @(AR) @(T'I'II (AR) (t a) _)
  `compose` (fo @(AR) @(AR) `compose` fo @(AR) @(AR)) (fd @(AR) @(AR) (subtype @_ @(T'I'II _ _ _)) `compose` subtype @_ @(T'I'II _ _ _))
  `compose` fj @(AR) @(AR) @(P'I'II (t a)) @(T'I'II (AR) _) (day @T'I'II @(AR) @Void @t @t @(P) @P identity identity `compose` supertype @(AR) @(P'I'II (t a) ((t `L` t `T` Void) (AR a o))) `compose` fo @(AR) subtype)
+
+dc :: forall v source target l t tt u uu a o i ii .
+ Component target (Day v source u uu t (tt `L` tt `T` l) i ii) t =>
+ Wrapper (AR) (v source a o) =>
+ Wrapper (AR) (v source (uu i ii) a) =>
+ target (Day v source u uu t (tt `L` tt `T` l) i ii a) (t a)
+dc = component @target @(Day v source u uu t (tt `L` tt `T` l) i ii) @t
+
+{-
+dc'yi :: forall v source (target :: * -> * -> *) l t tt u uu a o i ii .
+ Component target (Day v source u uu t (tt `L` tt `T` l) i ii) t =>
+ Wrapper (AR) (v source a o) =>
+ Wrapper (AR) (v source (uu i ii) a) =>
+ target (u (t i) (tt `L` tt `T` l `T` ii)) (t (uu i ii))
+dc'yi = fio @(AR) @(AR)
+ (\x -> U_V_UU_UUU_UUUU_T'TT'I_II_III (These x (T'I'II identity)))
+ (component @target @(Day v source u uu t (tt `L` tt `T` l) i ii) @t)
+-}
+
+ -- target (u (t i) (tt `L` tt `T` l `T` ii)) (t (uu i ii))
+ -- `compose` suptype @target @(Day v source u uu t (tt `L` tt `T` l) i ii a) `compose` ()
