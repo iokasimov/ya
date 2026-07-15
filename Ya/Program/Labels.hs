@@ -19,9 +19,6 @@ pattern Check x = Label x
 pattern Retry :: forall t i e . t i `AR__` t `L` S'I'II e `T` Recursive `T` i
 pattern Retry x = Label @_ @_ @Recursive x
 
-pattern Until :: forall e i t . t i `AR__` t `L` S'I'II e `T` Void `T` i
-pattern Until x = Label @_ @_ @Void x
-
 pattern Reset :: forall e t i . t i `AR_____` t `L` State e `T` (Void `P` Void) `T` i
 pattern Reset e = Label @_ @(State _) @(Void `P` Void) e
 

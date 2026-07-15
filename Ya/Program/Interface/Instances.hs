@@ -48,6 +48,16 @@ instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
 
+pattern Until :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` Void `T` i
+pattern Until x = Label @_ @_ @Void x
+
+instance {-# OVERLAPS #-}
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Transformation Functor (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
+ ) => Component (AR) ((t `T'TT'I` Match) `L` Match `T` (Void)) Match where
+ component (Label (T'TT'I x)) = T'II'I `identity` \i -> True `bt'has` Ok `ho'ut'st` False
+  `har___` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `har` xx i)
+
 pattern Sever :: List `L` T'I'II (S) i `T` Void `T` ii `AR__` List `L` T'I'II (S) i `T` Void `T` ii
 pattern Sever x = x
 
