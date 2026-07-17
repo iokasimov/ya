@@ -516,11 +516,11 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Day T'I'II (AR) (P) (W) (S'I'II e) (S'I'II e `L` S'I'II e `T` Void) ee eee) (S'I'II e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'I'II (That ee)) (Label (T'I'II (That eee)))) (T'I'II f) ->
-   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity`These ee eee
+   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` That `identity` These ee eee
   These (These (T'I'II (That ee)) _) (T'I'II f) ->
-   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity`This ee
+   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity` This ee
   These (These (T'I'II (This _)) (Label (T'I'II (That eee)))) (T'I'II f) ->
-   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity`That eee
+   That `compose` source `compose` f `compose` U_T'I'II_UT'I'II `compose` This `identity` That eee
   These (These (T'I'II (This e)) (Label (T'I'II (This _)))) (T'I'II _) ->
    This e
 

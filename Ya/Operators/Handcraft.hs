@@ -3741,8 +3741,8 @@ hjd'dcpp'dcps l r = dcpp'dcps @(P) @i @ii @t @tt @l @ll (hjd @AR @P @AR l r)
  -- forall target tt i eee e ee . target i (tt ee eee)
 
 hjd'dcpw, hjd_'dcpw, hjd__'dcpw, hjd___'dcpw, hjd____'dcpw, hjd_____'dcpw, hjd______'dcpw, hjd_______'dcpw
- :: forall e o oo t tt l .
- (forall e ee . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) ee)) =>
+ :: forall o oo t tt l .
+ (forall e . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) e)) =>
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (W) t (tt `L` tt `T` l) e ee) t) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
