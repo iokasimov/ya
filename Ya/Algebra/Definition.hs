@@ -313,14 +313,14 @@ type S'I'II = T'I'II S
 type S'II'I = T'II'I S
 
 class
- ( forall e . Mapping v v source target (T'II'I u e) I
- , forall e . Mapping v v source target (T'I'II u e) I
- ) => Cone v source target u
+ ( forall e . Mapping v v source target (T'II'I t e) I
+ , forall e . Mapping v v source target (T'I'II t e) I
+ ) => Cone v source target t
 
 deriving instance
- ( forall e . Mapping v v source target (T'II'I u e) I
- , forall e . Mapping v v source target (T'I'II u e) I
- ) => Cone v source target u
+ ( forall e . Mapping v v source target (T'II'I t e) I
+ , forall e . Mapping v v source target (T'I'II t e) I
+ ) => Cone v source target t
 
 left :: forall v source target a o e .
  Cone v source target (Object (Aught v)) =>
@@ -485,9 +485,7 @@ constant :: forall source target a o .
  Elicitable T'I'II target (T'I'II source a o) =>
  Elicitable T'II'I target (I o) =>
  target o (source a o)
-constant = supertype @_ @(T'I'II source a _)
- `compose` component @target
- `compose` subtype @target @(I o)
+constant = supertype @_ @(T'I'II source a _) `compose` component @target `compose` subtype @target @(I o)
 
 itself :: Category AR_ => e `AR_` e
 itself = identity
