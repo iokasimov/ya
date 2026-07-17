@@ -2859,7 +2859,6 @@ dcpp :: forall target i ii t tt l .
  target (t i `P_` tt `L` tt `T` l `T` ii) (t `T'I` i `P` ii)
 dcpp = day' @T'I'II @target @target @l @t @tt @(P) @(P) identity `compose` subtype `compose` (identity `hop` identity `ho'ut` subtype identity)
 
--- TODO: try to generalize
 dcpp'yo, yp_'yo :: forall a aa o t tt l .
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) P t (tt `L` tt `T` l) e ee) t) =>
  t a `P` (tt `L` tt `T` l) aa -> (a `P` aa `AR` o) -> t o
@@ -2946,29 +2945,38 @@ dcps'yo'ut x r = day @T'I'II @(AR) @l @t @tt @u @(S) identity (constant r) x
  -- `compose` fio @Arrow subtype `compose` foi @Arrow subtype
 
 -- TODO: try to generalize
-dcpw :: forall u i ii t tt l .
- (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) u (W) t (tt `L` tt `T` l) e ee) t) =>
- u (t i) ((tt `L` tt `T` l) ii) -> t (i `S` ii `S_` i `P` ii)
-dcpw = day @T'I'II @(AR) @l @t @tt @u @(W) identity supertype
+dcpw :: forall target i ii t tt l .
+ Covariant Limit target target =>
+ (forall e ee . Mapping T'I'II T'I'II target target (Covariant Day target (P) (W) t (tt `L` tt `T` l) e ee) t) =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II target e)) =>
+ (forall e . Covariant Functor target target (T'I'II Product e)) =>
+ (forall e . Covariant Functor target target (T'II'I Product e)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II target (P) (W) t (tt `L` tt `T` l) e ee eee)) =>
+ (forall e ee . Wrapper target (T'I'II Product e ee)) =>
+ (forall e ee . Wrapper target (T'II'I Product e ee)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
+ (forall e . Wrapper target (I e)) =>
+ target (t i `P_` tt `L` tt `T` l `T` ii) (t (i `W` ii))
+dcpw = day' @T'I'II @target @target @l @t @tt @(P) @(W) identity `compose` subtype `compose` (identity `hop` identity `ho'ut` subtype identity)
 
 -- TODO: try to generalize
 dcpw'yo :: forall source u i ii r t tt ll .
  Category source =>
- (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t) =>
+ (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source (P) (W) t (tt `L` tt `T` ll) e ee) t) =>
  Wrapper source (i `W` ii) =>
- u (t i) (tt `L` tt `T` ll `T` ii) -> source (i `S` ii `S_` i `P` ii) r -> t r
-dcpw'yo x f = day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` supertype) x
+ P (t i) (tt `L` tt `T` ll `T` ii) -> source (i `W` ii) r -> t r
+dcpw'yo x f = day @T'I'II @source @ll @t @tt @(P) @(W) identity f x
 
 -- TODO: try to generalize
-dcpw'yokl :: forall source u i ii r t tt ttt l ll lll .
+dcpw'yokl :: forall source i ii r t tt ttt l ll lll .
  Category source =>
  Covariant Endo Transformation Functor (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
- (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source u (W) t (tt `L` tt `T` ll) e ee) t) =>
+ (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source (P) (W) t (tt `L` tt `T` ll) e ee) t) =>
  Wrapper source (i `W` ii) =>
- u (t i) (tt `L` tt `T` ll `T` ii) -> source (i `S` ii `S_` i `P` ii) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
+ P (t i) (tt `L` tt `T` ll `T` ii) -> source (i `W` ii) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
 dcpw'yokl x f = wrapped
  (component @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) @(t `TT'T'I` ttt))
- (day @T'I'II @source @ll @t @tt @u @(W) identity (f `compose` supertype) x)
+ (day @T'I'II @source @ll @t @tt @(P) @(W) identity f x)
 
 -- TODO: try to generalize
 dcpp'dcpp :: forall ttttt i ii t tt ttt tttt l ll .
@@ -3671,7 +3679,6 @@ hjd_______'dcpp'yo'eq = hjd'dcpp'yo'eq
 
 hjd'dcps, hjd_'dcps, hjd__'dcps, hjd___'dcps, hjd____'dcps, hjd_____'dcps, hjd______'dcps, hjd_______'dcps
  :: forall i ii t tt l .
- -- Covariant Lax Monoidal Functor (AR) (AR) (P) (S) l t =>
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (S) t (tt `L` tt `T` l) e ee) t) =>
  (forall e . Adjoint Functor (AR) (AR) (T'II'I (P) e) (T'I'II (AR) e)) =>
  Covariant Yoneda Functor (AR) (AR) (P'I'II (t i)) =>
@@ -3686,22 +3693,6 @@ hjd____'dcps = hjd'dcps
 hjd_____'dcps = hjd'dcps
 hjd______'dcps = hjd'dcps
 hjd_______'dcps = hjd'dcps
-
--- hjd'yis, hjd_'yis, hjd__'yis, hjd___'yis, hjd____'yis, hjd_____'yis, hjd______'yis, hjd_______'yis
- -- :: forall e o oo t .
- -- Covariant Monoidal Functor (AR) (AR) (P) (S) (T'I'II t e) =>
- -- Covariant Yoneda Functor (AR) (AR) (P'I'II (t e o)) =>
- -- Covariant Yoneda Functor (AR) (AR) (T'II'I (P) ()) =>
- -- t e o -> t e oo -> t e (o `S` oo)
--- hjd'yis l r = yis (hjd l r)
-
--- hjd_'yis = hjd'yis
--- hjd__'yis = hjd'yis
--- hjd___'yis = hjd'yis
--- hjd____'yis = hjd'yis
--- hjd_____'yis = hjd'yis
--- hjd______'yis = hjd'yis
--- hjd_______'yis = hjd'yis
 
 {-
 hjd'dcpp'dcpp :: forall o oo t tt l ll .
@@ -3764,8 +3755,8 @@ hjd'dcpw, hjd_'dcpw, hjd__'dcpw, hjd___'dcpw, hjd____'dcpw, hjd_____'dcpw, hjd__
  (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Covariant Day (AR) (P) (W) t (tt `L` tt `T` l) e ee) t) =>
  Covariant Yoneda Functor (AR) (AR) (T'II'I Product ()) =>
  Covariant Yoneda Functor (AR) (AR) (T'I'II Product (t o)) =>
- t o -> (tt `L` tt `T` l) oo -> t (o `S` oo `S_` o `P` oo)
-hjd'dcpw l r = dcpw @P @o @oo @t @tt @l (hjd @AR @P @AR l r)
+ t o -> (tt `L` tt `T` l) oo -> t (o `W` oo)
+hjd'dcpw l r = dcpw @(AR) @o @oo @t @tt @l (hjd @AR @P @AR l r)
 
 hjd_'dcpw = hjd'dcpw
 hjd__'dcpw = hjd'dcpw
