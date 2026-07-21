@@ -89,11 +89,11 @@ fok source = component @target @(t `T'TT'I` tt `L` tt `T` l) @t
 
 fuk :: forall target t tt l a o .
  Constant Functor (AR) target t =>
- Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` l) t =>
+ Component target (t `T'TT'I` tt `L` tt `T` l) t =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
  (forall e . Wrapper target (I `T'I` tt `L` tt `T` l `T` e)) =>
  (tt `L` tt `T` l) o -> target (t a) (t o)
-fuk source = map @T'I'II @T'I'II @target @target @(t `T'TT'I` tt `L` tt `T` l) @t identity
+fuk source = component @target @(t `T'TT'I` tt `L` tt `T` l) @t
  `compose` subtype `compose` fu @target source
 
 -- kfo :: forall source target t tt l a o .
@@ -145,7 +145,7 @@ kfokl source = wrapped (component @target @(t `T'TT'I` ttt `L` ttt `T` lll `L` t
 
 fokl :: forall source target t tt l ll a o .
  Covariant Semi Functor source target t =>
- Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` e)) =>
  (forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)) =>
  source a (tt `L` tt `T` ll `L` t `T` l `T` o) -> target (t a) (tt (t o))
@@ -154,7 +154,7 @@ fokl source = wrapped (component @target @(t `T'TT'I` tt `L` tt `T` ll `L` t `T`
 foikl :: forall source target t tt l ll a o i .
  Covariant Semi Functor source target (T'II'I t i) =>
  Covariant Endo Semi Functor target tt =>
- Covariant Endo Transformation Functor target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l) (T'II'I t i `TT'T'I` tt) =>
+ Component target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l) (T'II'I t i `TT'T'I` tt) =>
  (forall e . Wrapper target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l `T'I_` e)) =>
  (forall e . Wrapper target (T'II'I t i `TT'T'I` tt `T'I_` e)) =>
  (forall e . Wrapper target (T'II'I t i e)) =>
@@ -163,7 +163,7 @@ foikl source = fo @target @target supertype `compose` fokl source `compose` subt
 
 fukl :: forall target t tt l ll a o .
  Constant Functor (AR) target t =>
- Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` e)) =>
  (forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)) =>
  (forall e . Wrapper target (I `T'I_` tt `L` tt `T` ll `L` t `T` l `T'I` e)) =>

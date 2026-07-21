@@ -1293,7 +1293,7 @@ _kyokl = kyokl
 
 yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
  forall source target t tt l ll a o .
- Covariant Endo Transformation Functor target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Yoneda Functor source target t =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -1521,8 +1521,8 @@ yokl'yokl :: forall source target t tt ttt l ll lll a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
  Covariant Semi Functor source target ttt =>
- Covariant Endo Transformation Functor target (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
- Covariant Endo Transformation Functor source (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
+ Component target (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
+ Component source (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
@@ -2978,7 +2978,7 @@ dcpw'yo x f = day @T'I'II @source @ll @t @tt @(P) @(W) identity f x
 -- TODO: try to generalize
 dcpw'yokl :: forall source i ii r t tt ttt l ll lll .
  Category source =>
- Covariant Endo Transformation Functor (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
+ Component (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
  (forall e ee . Covariant Transformation Functor source (AR) (Covariant Day source (P) (W) t (tt `L` tt `T` ll) e ee) t) =>
  Wrapper source (i `W` ii) =>
  P (t i) (tt `L` tt `T` ll `T` ii) -> source (i `W` ii) (ttt `L` ttt `T` lll `L` t `T` l `T` r) -> ttt (t r)
@@ -3289,7 +3289,7 @@ ha'yokl, ha_'yokl, ha__'yokl, ha___'yokl, ha____'yokl, ha_____'yokl, ha______'yo
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source ttt =>
- Covariant Endo Transformation Functor source (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) (tt `TT'T'I` ttt) =>
+ Component source (tt `T'TT'I` ttt `L` ttt `T` ll `L` tt `T` l) (tt `TT'T'I` ttt) =>
  (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e . Covariant Endo Yoneda Functor target (T'I'II target e)) =>
@@ -3452,7 +3452,7 @@ yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, h
  Covariant Semi Functor source (AR) (T'I'II u e) =>
  Covariant Endo Semi Functor source tt =>
  Covariant Endo Semi Functor source t =>
- Covariant Endo Transformation Functor source (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Component source (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Yoneda Functor source (AR) (T'I'II u e) =>
  (forall ee . Wrapper source ((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) ee)) =>
  (forall ee . Wrapper source ((t `T'TT'I` tt) ee)) =>
@@ -3573,7 +3573,7 @@ yio'yokl'ut, ho'yokl'ut, ho_'yokl'ut, ho__'yokl'ut, ho___'yokl'ut, ho____'yokl'u
  Covariant Semi Functor (AR) (AR) (T'I'II u e) =>
  Covariant Endo Semi Functor (AR) tt =>
  Constant Endo Semi Functor (AR) t =>
- Covariant Endo Transformation Functor (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ Component (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  Covariant Endo Transformation Functor (AR) I (T'I'II (AR) a) =>
  Covariant Endo Yoneda Functor (AR) (T'I'II u e) =>
  (forall ee . Wrapper (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` ee)) =>
@@ -3599,7 +3599,8 @@ yio'yoikl, ho'yoikl, ho_'yoikl, ho__'yoikl, ho___'yoikl, ho____'yoikl, ho_____'y
  Covariant Semi Functor source (AR) (T'I'II t i) =>
  Covariant Endo Semi Functor source ttt =>
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
- Covariant Endo Transformation Functor source (T'II'I tt ii `T'TT'I` ttt `L` ttt `T` ll `L` T'II'I tt ii `T` l) (T'II'I tt ii `TT'T'I` ttt) =>
+ -- Covariant Endo Semi Functor source (T'II'I tt ii `T'TT'I` ttt `L` ttt `T` ll `L` T'II'I tt ii `T` l) =>
+ Component source (T'II'I tt ii `T'TT'I` ttt `L` ttt `T` ll `L` T'II'I tt ii `T` l) (T'II'I tt ii `TT'T'I` ttt) =>
  Covariant Yoneda Functor source (AR) (T'I'II t i) =>
  (forall e . Wrapper source ((T'II'I tt ii `T'TT'I` ttt `L` ttt `T` ll `L` T'II'I tt ii `T` l) e)) =>
  (forall e . Wrapper source ((T'II'I tt ii `T'TT'I` ttt) e)) =>
