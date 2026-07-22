@@ -810,3 +810,14 @@ instance Component (AR) ((List `P'T'I'TT'I` Match) `L` List `T` Void) List where
   let separator xx' x' = False `ho'ut` (x' `hjd` Empty Unit) `bt'has` True `ho'ut` (x' `hjd` Exist xx') `har_` xx `st'har` xx' in
   that (x `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` separator `ho__'ha` Scope `har` within `ha` Fresh
    `bt'har___` Null `ho'vt` Unit `ryo` Enter @List)
+
+pattern Found :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
+pattern Found x = Label @_ @_ @(Void `P` Void) x
+
+-- TODO: this implementation is inefficient - we should iterate over list, not predicates
+-- TODO: generalise label for `List`, probably generalise `List` as well
+instance Component (AR) (List `T'TT'I` Match `L` Match `T` (Void `P` Void) `L` List `T` (Void)) (List `TT'T'I` Match) where
+ component (T'TT'I x) = (TT'T'I `compose` T'II'I) `identity` \xx ->
+  Break `ho'ut'st` False `st'has` Ok `ho'ut'st` True
+   `har___` x `yokl` Forth `ha` Check `ha__` Ok `st'has` Break `ha__`
+   (\i -> xx `yokl` Forth `ha` Check `ha` (\ii -> Ok `st'has` Break `har_` i `bt'har` ii))
