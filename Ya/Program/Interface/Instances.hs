@@ -48,8 +48,8 @@ instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
 
-pattern Until :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` Void `T` i
-pattern Until x = Label @_ @_ @Void x
+pattern Until :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void) `T` i
+pattern Until x = Label @_ @_ @(Void) x
 
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
