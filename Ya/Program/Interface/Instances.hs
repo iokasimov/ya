@@ -816,8 +816,11 @@ pattern Found x = Label @_ @_ @(Void `P` Void) x
 
 -- TODO: this implementation is inefficient - we should iterate over list, not predicates
 -- TODO: generalise label for `List`, probably generalise `List` as well
-instance Component (AR) (List `T'TT'I` Match `L` Match `T` (Void `P` Void) `L` List `T` (Void)) (List `TT'T'I` Match) where
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Component (AR) (t `T'TT'I` Stops e `L` Stops e `T` (Void) `L` t `T` l) (t `TT'T'I` Stops e)
+ ) => Component (AR) (t `T'TT'I` Match `L` Match `T` (Void `P` Void) `L` t `T` l) (t `TT'T'I` Match) where
  component (T'TT'I x) = (TT'T'I `compose` T'II'I) `identity` \xx ->
   Break `ho'ut'st` False `st'has` Ok `ho'ut'st` True
-   `har___` x `yokl` Forth `ha` Check `ha__` Ok `st'has` Break `ha__`
-   (\i -> xx `yokl` Forth `ha` Check `ha` (\ii -> Ok `st'has` Break `har_` i `bt'har` ii))
+   `har___` x `yokl` Label @_ @_ @l `ha` Check `ha__` Ok `st'has` Break `ha__`
+   (\i -> xx `yokl` Label @_ @_ @l `ha` Check `ha` (\ii -> Ok `st'has` Break `har_` i `bt'har` ii))
