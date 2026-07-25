@@ -11,8 +11,8 @@ pattern Same x = x
 
 type Alone = I
 
-pattern Alone :: e -> Alone e
-pattern Alone e = Identity e
+pattern Alone :: forall i . i -> Alone i
+pattern Alone x = Identity x
 
 type Boolean = S'I'II Unit Unit
 
@@ -236,6 +236,9 @@ pattern Swap xx x = These x xx
 
 pattern Push :: forall ii i . ii `AR_` Maybe i `AR` Maybe i `P` Maybe ii
 pattern Push xx x = These x (Exist xx)
+
+-- pattern Skip :: forall ii i . ii `AR_` Maybe i `AR` Maybe i `P` Maybe ii
+-- pattern Skip xx x = These x (Empty Unit)
 
 pattern Drop :: forall ii i . Maybe i `AR` Maybe i `P` Maybe ii
 pattern Drop x = These x (Empty Unit)
