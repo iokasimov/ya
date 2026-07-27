@@ -45,7 +45,6 @@ library
     GADTs
     QuantifiedConstraints
     InstanceSigs
-    StandaloneKindSignatures
     FlexibleContexts
     FlexibleInstances
     KindSignatures
