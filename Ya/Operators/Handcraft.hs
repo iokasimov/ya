@@ -373,7 +373,7 @@ infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'st'vt`, `yio'ut`, `yio'ut'st`, `yio'hjd
 
 infixl 7 `yai`, `yai'st`, `yai'vt`, `yai'ut`, `yai'ut'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yokl`
 
-infixl 7 `yio`, `yio'dcpp`, `yio'yoikl` -- , `yio'yokl`, `yio'yokl`, `yio'yokl'yokl`, `yio'yokl'yokl`
+infixl 7 `yio`, `yio'dcpp`, `yio'yoikl`, `yio'yokl` -- `yio'yokl'yokl`, `yio'yokl'yokl`
 
 -- infixl 6 `yioi`
 
@@ -3455,21 +3455,26 @@ ha________'yokl = ha'yokl
  -- t (u e a) -> u (source a o) (t o)
 -- yokl__ x = fai fio (yokl @source @u x)
 
--- TODO: generalize
 yio'yokl, ho'yokl, ho_'yokl, ho__'yokl, ho___'yokl, ho____'yokl, ho_____'yokl, ho______'yokl, ho_______'yokl, ho________'yokl
- :: forall source u t tt l ll a o e .
- Covariant Semi Functor source (AR) (T'I'II u e) =>
+ :: forall source target t tt ttt l ll a o e .
+ (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
  Covariant Endo Semi Functor source tt =>
- Covariant Endo Semi Functor source t =>
- Component source (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
- Covariant Yoneda Functor source (AR) (T'I'II u e) =>
- (forall ee . Wrapper source ((t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) ee)) =>
- (forall ee . Wrapper source ((t `T'TT'I` tt) ee)) =>
- (forall ee . Wrapper source ((t `TT'T'I` tt) ee)) =>
- (forall ee . Wrapper source (tt `L` tt `T` ll `L` t `T` l `T` ee)) =>
+ Covariant Endo Semi Functor source ttt =>
+ Component source (ttt `T'TT'I` tt `L` tt `T` ll `L` ttt `T` l) (ttt `TT'T'I` tt) =>
+ Covariant Yoneda Functor source target (T'I'II t e) =>
+ (forall ee . Wrapper source ((ttt `T'TT'I` tt `L` tt `T` ll `L` ttt `T` l) ee)) =>
+ (forall ee . Wrapper source ((ttt `T'TT'I` tt) ee)) =>
+ (forall ee . Wrapper source ((ttt `TT'T'I` tt) ee)) =>
+ (forall ee . Wrapper source (tt `L` tt `T` ll `L` ttt `T` l `T` ee)) =>
  (forall ee . Wrapper source (tt `L` tt `T` ll `T` ee)) =>
- u e (t a) -> source a (tt `L` tt `T` ll `L` t `T` l `T` o) -> u e (tt (t o))
-yio'yokl x = fai fokl (ho @source x)
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t e (ttt a)) (target (source a (tt `L` tt `T` ll `L` ttt `T` l `T` o)) (t e (tt (ttt o))))
+yio'yokl = fai fokl `compose` ho @source
 
 ho'yokl = yio'yokl
 ho_'yokl = yio'yokl
