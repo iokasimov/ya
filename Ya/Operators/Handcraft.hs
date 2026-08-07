@@ -373,7 +373,7 @@ infixl 7 `yoi`, `yio'st`, `yio'vt`, `yio'st'vt`, `yio'ut`, `yio'ut'st`, `yio'hjd
 
 infixl 7 `yai`, `yai'st`, `yai'vt`, `yai'ut`, `yai'ut'st`, `yai'hjd`, `yai'hjd'eq` -- `yai'yokl`
 
-infixl 7 `yio`, `yio'dcpp`, `yio'yoikl`, `yio'yokl` -- `yio'yokl'yokl`, `yio'yokl'yokl`
+infixl 7 `yio`, `yio'dcpp`, `yio'yoikl`, `yio'yok` , `yio'yokl` -- `yio'yokl'yokl`, `yio'yokl'yokl`
 
 -- infixl 6 `yioi`
 
@@ -3141,26 +3141,34 @@ dcpp'dcpp'yo x f = day @T'I'II @(AR) @l @t @ttt @(P) @P identity
 --  (t (tt a)) -> target (source (a) (ttt `L` ttt `T` lll `T'I` o)) (t (tt o))
 -- yo'yok = fai (fok @source @source @tt @ttt) `compose` yo @source @target
 
--- TODO: defined manually temporarily, rephasce with generated version
-ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall source t tt ttt lll a o e .
+-- TODO: defined manually temporarily, replace with generated version
+yio'yok, ho'yok, ho_'yok, ho__'yok, ho___'yok, ho____'yok, ho_____'yok, ho______'yok, ho_______'yok, ho________'yok :: forall source target t tt ttt lll a o i .
  Covariant Endo Semi Functor source ttt =>
  Covariant Endo Semi Functor source tt =>
- Mapping T'I'II T'I'II source source (tt `T'TT'I` ttt `L` ttt `T` lll) tt =>
- Covariant Yoneda Functor source (AR) (T'I'II t e) =>
- (forall ee . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` lll) ee)) =>
- (forall ee . Wrapper source ((tt `T'TT'I` ttt) ee)) =>
- (forall ee . Wrapper source (ttt `L` ttt `T` lll `T` ee)) =>
- t e (tt a) -> source a (ttt `L` ttt `T` lll `T` o) -> t e (tt o)
-ho'yok x = fai fok (ho @source x)
+ (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ Component source (tt `T'TT'I` ttt `L` ttt `T` lll) tt =>
+ (forall e . Covariant Yoneda Functor source target (T'I'II t e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt `L` ttt `T` lll) e)) =>
+ (forall e . Wrapper source ((tt `T'TT'I` ttt) e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t i (tt a)) (target (source a (ttt `L` ttt `T` lll `T` o)) (t i (tt o)))
+yio'yok = fai fok `compose` ho @source
 
-ho_'yok = ho'yok
-ho__'yok = ho'yok
-ho___'yok = ho'yok
-ho____'yok = ho'yok
-ho_____'yok = ho'yok
-ho______'yok = ho'yok
-ho_______'yok = ho'yok
-ho________'yok = ho'yok
+ho'yok = yio'yok
+ho_'yok = yio'yok
+ho__'yok = yio'yok
+ho___'yok = yio'yok
+ho____'yok = yio'yok
+ho_____'yok = yio'yok
+ho______'yok = yio'yok
+ho_______'yok = yio'yok
+ho________'yok = yio'yok
 
 -- TODO: defined manually temporarily, rephasce with generated version
 ho'yok'ut, ho_'yok'ut, ho__'yok'ut, ho___'yok'ut, ho____'yok'ut, ho_____'yok'ut, ho______'yok'ut, ho_______'yok'ut, ho________'yok'ut
