@@ -206,11 +206,6 @@ type family Prefix t k where
  Prefix List k = List `T'TT'I` Along k
  Prefix (Construction Maybe) k = Construction Maybe `T'TT'I` Along k
 
-type Stream = Construction Alone
-
-pattern Stream :: Stream i -> Stream i
-pattern Stream xs = xs
-
 type Mealy = F'T'I'TT'II Along Given
 
 type Moore = F'T'I'TT'II Given Along
