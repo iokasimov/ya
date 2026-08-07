@@ -390,6 +390,11 @@ infixl 0 `eq________`
 infixl 7 `yor`, `yor'st`
 infixl 7 `ryo`
 
+infixl 5 `ryokl`
+infixl 4 `ryokl_`
+infixl 3 `ryokl__`
+infixl 2 `ryokl___`
+
 infixl 6 `yor_`
 infixl 6 `_ryo`
 
@@ -2474,6 +2479,24 @@ rya, _rya :: forall source target t object a o i .
 rya = yi `compose` map @T'II'I @T'I'II @source @target @(T'II'I source object) @t identity `compose` subtype
 
 _rya = rya
+
+ryokl, ryokl_, ryokl__, ryokl___ :: forall source target t tt l ll object a o i .
+ Covariant Yoneda Functor source target t =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
+ (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Covariant Mapping T'I'II source target (T'I'II source object) t =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target ee e)) =>
+ (forall i . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` i)) =>
+ (forall i . Wrapper target ((t `TT'T'I` tt) i)) =>
+ target (source object a) (target (source a (tt `L` tt `T` ll `L` t `T` l `T` o)) (tt (t o)))
+ryokl = yokl `compose` map @T'I'II @T'I'II @source @target @(T'I'II source object) @t identity `compose` subtype
+
+ryokl_ = ryokl
+ryokl__ = ryokl
+ryokl___ = ryokl
 
 -- yio'ryo :: forall source target t object a o i .
 --  target (t i a) (target (source a o) (t i o))
