@@ -185,6 +185,8 @@ type family Nonempty datastructure where
  Nonempty (Maybe `T'TT'I` Construction Maybe) = Construction Maybe
  Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
+type Stream = Construction Maybe
+
 pattern Nonempty :: forall t i . Recursive (Along i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = Origination xs
 
