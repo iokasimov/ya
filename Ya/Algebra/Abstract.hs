@@ -132,6 +132,16 @@ instance Elicitable T'I'II (->) (T'TTT'TT'I f g h i)
 instance Elicitable T'II'I (->) (T'TTT'TT'I f g h i)
  where elicit = T'II'I T'TTT'TT'I
 
+newtype TT'T'TT'I t tt i = TT'T'TT'I (tt (t (tt i)))
+
+type instance Supertype (TT'T'TT'I t tt i) = tt (t (tt i))
+
+instance Elicitable T'I'II (->) (TT'T'TT'I t tt i)
+ where elicit = T'I'II (\(TT'T'TT'I x) -> x)
+
+instance Elicitable T'II'I (->) (TT'T'TT'I t tt i)
+ where elicit = T'II'I TT'T'TT'I
+
 data U_ u i ii
 
 newtype T'I'I u i = T'I'I (u i i)
