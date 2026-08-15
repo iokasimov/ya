@@ -218,17 +218,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (List `T'TT'I` S'I'II i `L` S'I'II i `T
   `yi__` that
 -}
 
-instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
- mapping = rewrap `identity` \source x -> let start = (supertype (supertype (supertype (supertype (supertype x))))) in
-  this `har` start
-  `yokl` Apply `ha` Apply
-  `ha__'yokl` Aback `ha` Apply
-   `ha_'yokl` (Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
-   `ha_` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _)
-  `ha__` subtype @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
-  `bt'har__` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `har` start `yo` source
-  `yi__` that
-
 {-
 -- TODO: rewrite once refering instance get restored
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional)
