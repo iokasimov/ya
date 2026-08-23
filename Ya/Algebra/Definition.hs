@@ -206,6 +206,16 @@ deriving instance
 
 type Endo v x c target = x v c target target
 
+class
+ ( forall e . Covariant Endo Semi x target (T'I'II target e)
+ , forall e . Contravariant Endo Semi x target (T'II'I target e)
+ ) => Hom x target
+
+instance
+ ( forall e . Covariant Endo Semi Functor target (T'I'II target e)
+ , forall e . Contravariant Endo Semi Functor target (T'II'I target e)
+ ) => Hom Functor target
+
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 {- LAW: mapping @tt @tt morphism . component @t @tt ≡ component @t @tt . mapping morphism @t @t -}
 class
@@ -219,8 +229,6 @@ deriving instance
  , x v source target t
  , x v source target tt
  ) => Transformation v x source target t tt
-
-type Dinatural = T'II'I
 
 type Covariant t = t T'I'II
 
