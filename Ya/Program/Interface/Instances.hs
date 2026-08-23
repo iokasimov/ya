@@ -34,13 +34,13 @@ pattern Root x = Label x
 
 -- First
 
-instance Component (AR) (List `L` Maybe `T` (Void)) Maybe where
+instance (e ~ Unit) => Component (AR) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
 
 -- TODO: refactor, pattern matching itself redundant here
-instance {-# OVERLAPS #-} Component (AT) (List `L` Maybe `T` (Void)) Maybe where
+instance {-# OVERLAPS #-} (e ~ Unit) => Component (AT) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = T'I'TT'II'T'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (\_ -> Null `ho'vt` Unit `ryo` Enter)
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
