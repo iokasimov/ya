@@ -4045,3 +4045,25 @@ eq_____ = eq
 eq______ = eq
 eq_______ = eq
 eq________ = eq
+
+infixl 6 `yo'nt'yo`
+
+yo'nt'yo
+ :: forall source target t tt ll a o .
+ Hom Functor source =>
+ Hom Functor target =>
+ Covariant Yoneda Functor source target t =>
+ Component target (t `L` tt `T` ll) tt =>
+ (forall e . Contravariant Functor source target (T'II'I target e)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` T'I'I target `T` Void `T` e)) =>
+ (forall e . Wrapper source (I `L` T'I'I target `T` Void `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper target (t `L` tt `T` ll `T` e)) =>
+ target (t a) (target (source a (I `L` T'I'I target `T` Void `L` tt `T` ll `T` o)) (tt o))
+yo'nt'yo = fio (component @target @(t `L` tt `T` ll) @tt `compose` subtype @target)
+ `compose` (fai @source `compose` fio @source) (supertype `compose` supertype `compose` supertype)
+ `compose` yo
