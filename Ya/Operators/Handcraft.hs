@@ -2100,6 +2100,7 @@ yor'st = fai @source subtype `compose` supertype `compose` map @T'I'II @T'I'II @
 
 yior :: forall source target t object i o .
  Category source =>
+ Precategory target =>
  Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source object) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
@@ -2108,6 +2109,7 @@ yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T
 
 hor, hor_, hor__, hor___, hor____, hor_____, hor______, hor_______ :: forall source target t i o .
  Category source =>
+ Precategory target =>
  Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source i) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
@@ -2206,6 +2208,7 @@ yar_'st = yar'st @source @target @t @object
 
 yair :: forall source target t object i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2214,6 +2217,7 @@ yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T
 
 har, har_, har__, har___, har____, har_____, har______, har_______ :: forall source target t i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2256,6 +2260,7 @@ har_______'st = yair'st @source @target @t @i
 
 st'yair :: forall source target t object r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2266,6 +2271,7 @@ st'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) 
 
 st'har, st'har_, st'har__, st'har___, st'har____, st'har_____, st'har______, st'har_______ :: forall source target t r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2283,6 +2289,7 @@ st'har_______ = st'yair @source @target @t @i
 
 bt'yair :: forall source target t object r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2293,6 +2300,7 @@ bt'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) 
 
 bt'har, bt'har_, bt'har__, bt'har___, bt'har____, bt'har_____, bt'har______, bt'har_______ :: forall source target t r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
@@ -2310,6 +2318,7 @@ bt'har_______ = bt'yair @source @target @t @i
 
 bt'yair'st :: forall source target t object r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I source object) (T'II'I source object) =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
@@ -2322,6 +2331,7 @@ bt'yair'st = fai @source supertype `compose` supertype `compose` map @T'II'I @T'
 
 bt'har'st, bt'har_'st, bt'har__'st, bt'har___'st, bt'har____'st, bt'har_____'st, bt'har______'st, bt'har_______'st :: forall source target t r i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'II'I source i) (T'II'I source i) =>
  Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
@@ -2341,6 +2351,7 @@ bt'har_______'st = bt'yair'st @source @target @t @i
 
 yiar :: forall source target t object i a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'I'II t i) (T'II'I source object) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
@@ -2360,6 +2371,7 @@ yiar'st = fai @source subtype `compose` supertype `compose` map @T'II'I @T'I'II 
 
 yaar :: forall source target t object a .
  Category source =>
+ Precategory target =>
  Contravariant Mapping T'I'II source target (T'I'I t) (T'II'I source object) =>
  (forall e . Wrapper target (T'II'I source object e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
