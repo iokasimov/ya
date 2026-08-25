@@ -21,8 +21,7 @@ yo'yo
  :: forall source target t tt a o .
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -34,8 +33,7 @@ yo'ya
  :: forall source target t tt a o .
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -48,8 +46,7 @@ yo'yoi
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -62,8 +59,7 @@ yo'yai, yo'ha
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -77,8 +73,7 @@ yo'yio, yo'ho
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -92,8 +87,7 @@ yo'yia
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -105,8 +99,7 @@ ya'yo
  :: forall source target t tt a o .
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -118,8 +111,7 @@ ya'ya
  :: forall source target t tt a o .
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -132,8 +124,7 @@ ya'yoi
  Covariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -146,8 +137,7 @@ ya'yai, ya'ha
  Contravariant Endo Semi Functor source (T'II'I tt ii) =>
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -161,8 +151,7 @@ ya'yio, ya'ho
  Covariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -176,8 +165,7 @@ ya'yia
  Contravariant Endo Semi Functor source (T'I'II tt ii) =>
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target t =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -190,8 +178,7 @@ yoi'yo
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -204,8 +191,7 @@ yoi'ya
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -219,8 +205,7 @@ yoi'yoi
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -234,8 +219,7 @@ yoi'yai, yoi'ha
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -250,8 +234,7 @@ yoi'yio, yoi'ho
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -266,8 +249,7 @@ yoi'yia
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -280,8 +262,7 @@ yai'yo, ha'yo, ha_'yo, ha__'yo, ha___'yo, ha____'yo, ha_____'yo, ha______'yo, ha
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -302,8 +283,7 @@ yai'ya, ha'ya, ha_'ya, ha__'ya, ha___'ya, ha____'ya, ha_____'ya, ha______'ya, ha
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -325,8 +305,7 @@ yai'yoi, ha'yoi, ha_'yoi, ha__'yoi, ha___'yoi, ha____'yoi, ha_____'yoi, ha______
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -348,8 +327,7 @@ yai'yai, ha'ha, ha_'ha, ha__'ha, ha___'ha, ha____'ha, ha_____'ha, ha______'ha, h
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -371,8 +349,7 @@ yai'yio, ha'ho, ha_'ho, ha__'ho, ha___'ho, ha____'ho, ha_____'ho, ha______'ho, h
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -394,8 +371,7 @@ yai'yia, ha'yia, ha_'yia, ha__'yia, ha___'yia, ha____'yia, ha_____'yia, ha______
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target (T'II'I t i) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -416,8 +392,7 @@ yio'yo, ho'yo, ho_'yo, ho__'yo, ho___'yo, ho____'yo, ho_____'yo, ho______'yo, ho
  Covariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -438,8 +413,7 @@ yio'ya, ho'ya, ho_'ya, ho__'ya, ho___'ya, ho____'ya, ho_____'ya, ho______'ya, ho
  Contravariant Endo Semi Functor source tt =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -461,8 +435,7 @@ yio'yoi, ho'yoi, ho_'yoi, ho__'yoi, ho___'yoi, ho____'yoi, ho_____'yoi, ho______
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -484,8 +457,7 @@ yio'yai, ho'ha, ho_'ha, ho__'ha, ho___'ha, ho____'ha, ho_____'ha, ho______'ha, h
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -507,8 +479,7 @@ yio'yio, ho'ho, ho_'ho, ho__'ho, ho___'ho, ho____'ho, ho_____'ho, ho______'ho, h
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -530,8 +501,7 @@ yio'yia, ho'yia, ho_'yia, ho__'yia, ho___'yia, ho____'yia, ho_____'yia, ho______
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Covariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -552,8 +522,7 @@ yia'yo
  Covariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -566,8 +535,7 @@ yia'ya
  Contravariant Endo Semi Functor source tt =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -581,8 +549,7 @@ yia'yoi
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -596,8 +563,7 @@ yia'yai, yia'ha
  (forall e ee . Wrapper source (T'II'I tt e ee)) =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -612,8 +578,7 @@ yia'yio, yia'ho
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
@@ -628,8 +593,7 @@ yia'yia
  (forall e ee . Wrapper source (T'I'II tt e ee)) =>
  Contravariant Yoneda Functor source target (T'I'II t i) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
- (forall e . Covariant Endo Semi Functor target (T'I'II target e)) =>
- (forall e . Contravariant Endo Semi Functor target (T'II'I target e)) =>
+ Hom Functor target =>
  (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
