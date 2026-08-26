@@ -190,6 +190,9 @@ type Stream = Construction Maybe
 pattern Nonempty :: forall t i . Recursive (Along i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = Origination xs
 
+type family Infinite datastructure where
+ Infinite (Maybe `T'TT'I` Construction Maybe) = Construction Alone
+
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
