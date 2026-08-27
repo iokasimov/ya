@@ -27,8 +27,5 @@ pattern Every :: forall i ii iii e .
  S'I'II iii e `AR__` S'I'II iii `L` S'I'II iii `T` Void `T` e
 pattern Every x = Label @_ @_ @Void x
 
-pattern Level :: forall t i . i `AR__` Alone `L` t `T` Void `T` i
-pattern Level x = Label (Alone x)
-
 pattern Claim :: forall i t ii . t ii `AR__` t `L` T'I'II (AR) i `T` (Void) `T` ii
 pattern Claim x = Label x

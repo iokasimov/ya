@@ -417,6 +417,9 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->
   xx `yo` wrapped @(AR) @(F'T'I'TT Along _ _) (`yo` source `ho` (`hjd'tb` This Unit)) `hjd_'tb` source x `hjd'tb` That Unit `hjd_'tb` xxx `yo` source `ho` (`hjd'tb` This Unit)
 
+pattern Level :: forall t i . i `AR__` Alone `L` t `T` Void `T` i
+pattern Level x = Label (Alone x)
+
 instance
  ( Covariant Endo Semi Functor (->) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
