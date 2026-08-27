@@ -836,3 +836,64 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
   `ha__` subtype @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
   `bt'har__` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `har` start `yo` source
   `yi__` that
+
+pattern Stack :: forall t i . i -> I `L` t `T` (Void `P` Void) `T` i
+pattern Stack i = Label (Identity i)
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source ->
+  T'TT'I `compose` T'I'II `compose` That
+   `compose` map @T'I'II @T'I'II @(AR) @(AR)
+    @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void))
+    @(F'T'I'TT (T'II'I P) Maybe) source
+   `compose` rewrap @(AR)
+     @(T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void) `T` _)
+     @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void) `T` _)
+     identity
+
+instance
+ ( Covariant Transformation Functor (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) ->
+  supertype (map @T'I'II @T'I'II @(AR) @(AR)
+    @(T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void))
+    @(Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) source
+    `identity` (Label `compose` T'I'II `identity` (f `compose` This))) `yo` supertype @(AR)
+   `hjd_'tb` source `har'st` f `ha` That
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> Empty `har` Unit `hjd_'tb` source `har'st` f
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> T'TT'I `ha` T'I'II `ha` That `har` (Empty `har` Unit `hjd_'tb` source `har'st` f)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \_ _ -> T'TT'I `ha` T'I'II `ha` This `har` Unit
+
+pattern Plain :: forall t i . i -> I `L` t `T` (Void) `T` i
+pattern Plain i = Label (Identity i)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` I `T` (Void)) I where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> Identity (source (f Unit))
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` t `T` (Void)) t
+ , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii `L` tt `T` (Void)) tt
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii) `L` (t `P'T'I'TT'I` tt) `T` (Void)) (t `P'T'I'TT'I` tt) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
+  (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i `L` t `T` (Void)) @t source `compose` Label `identity` T'I'II (supertype f `compose` This))
+  (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii `L` tt `T` (Void)) @tt source `compose` Label `identity` T'I'II (supertype f `compose` That))
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) ->
+  that (source `ha` f `ha` This `ho'nt'yo` Stack @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack )
+
+instance
+ ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe)
+ ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (F'T'I'TT (T'II'I P) Maybe) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) ->
+  that (source `ha` f `ha` This `ho'nt'yo` Stack @(Nonempty List) `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack)
