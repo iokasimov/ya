@@ -4056,12 +4056,11 @@ yo'nt'yo
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `T` e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
  (forall e . Wrapper target (t `L` tt `T` ll `T` e)) =>
- target (t a) (target (source a (I `L` T'I'I target `T` Void `L` tt `T` ll `T` o)) (tt o))
+ target (t a) (target (source a (I `L` tt `T` ll `T` o)) (tt o))
 yo'nt'yo = fio (component @target @(t `L` tt `T` ll) @tt `compose` subtype @target)
- `compose` (fai @source `compose` fio @source) (supertype `compose` supertype `compose` supertype)
+ `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` yo
 
 ya'nt'ya
@@ -4076,12 +4075,11 @@ ya'nt'ya
  (forall e ee . Wrapper target (T'II'I target e ee)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `T` e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
  (forall e . Wrapper target (t `L` tt `T` ll `T` e)) =>
- target (t a) (target (source o (I `L` T'I'I target `T` Void `L` tt `T` ll `T` a)) (tt o))
+ target (t a) (target (source o (I `L` tt `T` ll `T` a)) (tt o))
 ya'nt'ya = fio (component @target @(t `L` tt `T` ll) @tt `compose` subtype @target)
- `compose` (fai @source `compose` fio @source) (supertype `compose` supertype `compose` supertype)
+ `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` ya
 
 yio'nt'yo, ho'nt'yo
@@ -4089,7 +4087,7 @@ yio'nt'yo, ho'nt'yo
  Hom Functor source =>
  Hom Functor target =>
  (forall e . Covariant Yoneda Functor source target (T'I'II t e)) =>
- (forall e . Component target (T'I'II t e `L` tt `T` ll) tt) =>
+ Component target (T'I'II t i `L` tt `T` ll) tt =>
  (forall e . Contravariant Functor source target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e ee . Wrapper source (T'I'II source e ee)) =>
@@ -4097,12 +4095,11 @@ yio'nt'yo, ho'nt'yo
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `T` e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
  (forall e ee . Wrapper target (T'I'II t ee `L` tt `T` ll `T` e)) =>
- target (t i a) (target (source a (I `L` T'I'I target `T` Void `L` tt `T` ll `T` o)) (tt o))
+ target (t i a) (target (source a (I `L` tt `T` ll `T` o)) (tt o))
 yio'nt'yo = fio (component @target @(T'I'II t i `L` tt `T` ll) @tt `compose` subtype @target)
- `compose` (fai @source `compose` fio @source) (supertype `compose` supertype `compose` supertype)
+ `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` yo
  `compose` subtype
 
@@ -4113,7 +4110,7 @@ yai'nt'ya, ha'nt'ya
  Hom Functor source =>
  Hom Functor target =>
  (forall e . Contravariant Yoneda Functor source target (T'II'I t e)) =>
- (forall e . Component target (T'II'I t e `L` tt `T` ll) tt) =>
+ Component target (T'II'I t i `L` tt `T` ll) tt =>
  (forall e . Contravariant Functor source target (T'II'I target e)) =>
  (forall e ee . Wrapper target (T'II'I source e ee)) =>
  (forall e ee . Wrapper source (T'I'II source e ee)) =>
@@ -4121,12 +4118,11 @@ yai'nt'ya, ha'nt'ya
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
  (forall e ee . Wrapper target (T'II'I t e ee)) =>
  (forall e . Wrapper source (I e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `T` e)) =>
- (forall e . Wrapper source (I `L` T'I'I target `T` Void `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
  (forall e ee . Wrapper target (T'II'I t ee `L` tt `T` ll `T` e)) =>
- target (t a i) (target (source o (I `L` T'I'I target `T` Void `L` tt `T` ll `T` a)) (tt o))
+ target (t a i) (target (source o (I `L` tt `T` ll `T` a)) (tt o))
 yai'nt'ya = fio (component @target @(T'II'I t i `L` tt `T` ll) @tt `compose` subtype @target)
- `compose` (fai @source `compose` fio @source) (supertype `compose` supertype `compose` supertype)
+ `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` ya
  `compose` subtype
 
