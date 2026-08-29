@@ -4040,6 +4040,7 @@ eq______ = eq
 eq_______ = eq
 eq________ = eq
 
+infixl 8 `ho'nt'ho`, `ha'nt'ha`
 infixl 7 `ho'nt'yo`, `ha'nt'ya`
 infixl 6 `yo'nt'yo`, `ya'nt'ya`
 infixl 5 `yio'nt'yo`, `yai'nt'ya`
@@ -4150,3 +4151,23 @@ yai'nt'ya = fio (component @target @(T'II'I t i `L` tt `T` ll) @tt `compose` sub
  `compose` subtype
 
 ha'nt'ya = yai'nt'ya
+
+ho'nt'ho
+ :: forall target t tt ll a o i ii .
+ (forall e . Covariant Yoneda Functor target target (T'I'II t e)) =>
+ Component target (T'I'II t i `L` T'I'II tt ii `T` (Void)) (T'I'II tt ii) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e ee . Wrapper target (T'I'II tt e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t ee `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ target (t i o) (tt ii o)
+ho'nt'ho = (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
+
+ha'nt'ha
+ :: forall target t tt ll a o i ii .
+ (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
+ Component target (T'II'I t i `L` T'II'I tt ii `T` (Void)) (T'II'I tt ii) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ (forall e ee . Wrapper target (T'II'I tt e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t ee `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ target (t a i) (tt a ii)
+ha'nt'ha = (wrapped (component @target @(T'II'I t i `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii))) `compose` subtype
