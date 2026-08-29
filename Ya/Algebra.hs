@@ -1227,3 +1227,9 @@ instance
  , Elicitable T'I'II (AR) (Supertype (Supertype (i `P_` iii)) `P_` ii `S` Unit)
  ) => Elicitable T'I'II (AR) (i `P` iii `P_` ii `S` Unit) where
  elicit = T'I'II (\(These x xx) -> supertype (These (supertype (supertype x)) xx))
+
+instance {-# OVERLAPS #-} (i ~ ii ) => Component (AR) (T'I'II (AR) i `L` T'I'II (AR) ii `T` (Void)) (T'I'II (AR) ii) where
+ component = rewrap `identity` (identity `compose` supertype)
+
+instance {-# OVERLAPS #-} (i ~ ii ) => Component (AR) (T'II'I (AR) i `L` T'II'I (AR) ii `T` (Void)) (T'II'I (AR) ii) where
+ component = rewrap `identity` (identity `compose` supertype)
