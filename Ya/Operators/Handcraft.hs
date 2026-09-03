@@ -4040,7 +4040,7 @@ eq______ = eq
 eq_______ = eq
 eq________ = eq
 
-infixl 8 `ho'nt'ho`, `ha'nt'ha`, `ha'nt'ha'st`
+infixl 8 `ho'nt'ho`, `ho'nt'ho'st`, `ha'nt'ha`, `ha'nt'ha'st`
 infixl 7 `ho'nt'yo`, `ha'nt'ya`
 infixl 6 `yo'nt'yo`, `ya'nt'ya`
 infixl 5 `yio'nt'yo`, `yai'nt'ya`
@@ -4161,6 +4161,18 @@ ho'nt'ho
  (forall e ee . Wrapper target (T'I'II t ee `L` T'I'II tt ii `T` (Void) `T` e)) =>
  target (t i o) (tt ii o)
 ho'nt'ho = (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
+
+ho'nt'ho'st
+ :: forall target t tt o i ii .
+ (forall e . Covariant Endo Yoneda Functor target (T'I'II t e)) =>
+ (forall e . Covariant Endo Yoneda Functor target (T'I'II tt e)) =>
+ Component target (T'I'II t i `L` T'I'II tt ii `T` (Void)) (T'I'II tt ii) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ (forall e ee . Wrapper target (T'I'II tt e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t ee `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ Covariant Elicitable target o =>
+ target (t i o) (tt ii (Supertype o))
+ho'nt'ho'st = fio @target @target supertype `compose` (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
 
 ha'nt'ha
  :: forall target t tt a i ii .
