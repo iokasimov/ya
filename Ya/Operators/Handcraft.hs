@@ -4040,7 +4040,7 @@ eq______ = eq
 eq_______ = eq
 eq________ = eq
 
-infixl 8 `ho'nt'ho`, `ho'nt'ho'st`, `ha'nt'ha`, `ha'nt'ha'st`
+infixl 8 `ha'nt'ha`, `ha'nt'ha'st`
 infixl 7 `ho'nt'yo`, `ha'nt'ya`
 
 infixl 5 `yio'nt'yo`, `yai'nt'ya`
@@ -4178,7 +4178,15 @@ yai'nt'ya = fio (component @target @(T'II'I t i `L` tt `T` ll) @tt `compose` sub
 
 ha'nt'ya = yai'nt'ya
 
-ho'nt'ho
+infixl 8 `ho'nt'ho`, `ho'nt'ho'st`
+infixl 7 `ho'nt_'ho`, `ho'nt_'ho'st`
+infixl 6 `ho'nt__'ho`, `ho'nt__'ho'st`
+infixl 5 `ho'nt___'ho`, `ho'nt___'ho'st`
+infixl 4 `ho'nt____'ho`, `ho'nt____'ho'st`
+infixl 3 `ho'nt_____'ho`, `ho'nt_____'ho'st`
+infixl 2 `ho'nt______'ho`, `ho'nt______'ho'st`
+
+ho'nt'ho, ho'nt_'ho, ho'nt__'ho, ho'nt___'ho, ho'nt____'ho, ho'nt_____'ho, ho'nt______'ho
  :: forall target t tt o i ii .
  (forall e . Covariant Yoneda Functor target target (T'I'II t e)) =>
  Component target (T'I'II t i `L` T'I'II tt ii `T` (Void)) (T'I'II tt ii) =>
@@ -4188,7 +4196,14 @@ ho'nt'ho
  target (t i o) (tt ii o)
 ho'nt'ho = (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
 
-ho'nt'ho'st
+ho'nt_'ho = ho'nt'ho
+ho'nt__'ho = ho'nt'ho
+ho'nt___'ho = ho'nt'ho
+ho'nt____'ho = ho'nt'ho
+ho'nt_____'ho = ho'nt'ho
+ho'nt______'ho = ho'nt'ho
+
+ho'nt'ho'st, ho'nt_'ho'st, ho'nt__'ho'st, ho'nt___'ho'st, ho'nt____'ho'st, ho'nt_____'ho'st, ho'nt______'ho'st
  :: forall target t tt o i ii .
  (forall e . Covariant Endo Yoneda Functor target (T'I'II t e)) =>
  (forall e . Covariant Endo Yoneda Functor target (T'I'II tt e)) =>
@@ -4199,6 +4214,13 @@ ho'nt'ho'st
  Covariant Elicitable target o =>
  target (t i o) (tt ii (Supertype o))
 ho'nt'ho'st = fio @target @target supertype `compose` (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
+
+ho'nt_'ho'st = ho'nt'ho'st
+ho'nt__'ho'st = ho'nt'ho'st
+ho'nt___'ho'st = ho'nt'ho'st
+ho'nt____'ho'st = ho'nt'ho'st
+ho'nt_____'ho'st = ho'nt'ho'st
+ho'nt______'ho'st = ho'nt'ho'st
 
 ha'nt'ha
  :: forall target t tt a i ii .
