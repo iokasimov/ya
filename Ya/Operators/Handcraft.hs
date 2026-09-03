@@ -4043,8 +4043,6 @@ eq________ = eq
 infixl 8 `ho'nt'ho`, `ho'nt'ho'st`, `ha'nt'ha`, `ha'nt'ha'st`
 infixl 7 `ho'nt'yo`, `ha'nt'ya`
 
-infixl 6 `ya'nt'ya`
-
 infixl 5 `yio'nt'yo`, `yai'nt'ya`
 infixl 4 `yio'nt'yio` --, `yai'nt'yai`
 
@@ -4080,7 +4078,14 @@ yo'nt___'yo = yo'nt'yo
 yo'nt____'yo = yo'nt'yo
 yo'nt_____'yo = yo'nt'yo
 
-ya'nt'ya
+infixl 6 `ya'nt'ya`
+infixl 5 `ya'nt_'ya`
+infixl 4 `ya'nt__'ya`
+infixl 3 `ya'nt___'ya`
+infixl 2 `ya'nt____'ya`
+infixl 1 `ya'nt_____'ya`
+
+ya'nt'ya, ya'nt_'ya, ya'nt__'ya, ya'nt___'ya, ya'nt____'ya, ya'nt_____'ya
  :: forall source target t tt ll a o .
  Hom Functor source =>
  Hom Functor target =>
@@ -4098,6 +4103,12 @@ ya'nt'ya
 ya'nt'ya = fio (component @target @(t `L` tt `T` ll) @tt `compose` subtype @target)
  `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` ya
+
+ya'nt_'ya = ya'nt'ya
+ya'nt__'ya = ya'nt'ya
+ya'nt___'ya = ya'nt'ya
+ya'nt____'ya = ya'nt'ya
+ya'nt_____'ya = ya'nt'ya
 
 yio'nt'yo, ho'nt'yo
  :: forall source target t tt ll a o i .
