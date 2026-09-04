@@ -4041,7 +4041,6 @@ eq_______ = eq
 eq________ = eq
 
 infixl 8 `ha'nt'ha`, `ha'nt'ha'st`
-infixl 7 `ha'nt'ya`
 
 infixl 4 `yio'nt'yio` --, `yai'nt'yai`
 
@@ -4170,7 +4169,14 @@ yio'nt'yio = fio (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` l
 
 infixl 5 `yai'nt'ya`
 
-yai'nt'ya, ha'nt'ya
+infixl 7 `ha'nt'ya`
+infixl 6 `ha'nt_'ya`
+infixl 5 `ha'nt__'ya`
+infixl 3 `ha'nt___'ya`
+infixl 2 `ha'nt____'ya`
+infixl 1 `ha'nt_____'ya`
+
+yai'nt'ya, ha'nt'ya, ha'nt_'ya, ha'nt__'ya, ha'nt___'ya, ha'nt____'ya, ha'nt_____'ya
  :: forall source target t tt ll a o i .
  Hom Functor source =>
  Hom Functor target =>
@@ -4192,6 +4198,11 @@ yai'nt'ya = fio (component @target @(T'II'I t i `L` tt `T` ll) @tt `compose` sub
  `compose` subtype
 
 ha'nt'ya = yai'nt'ya
+ha'nt_'ya = yai'nt'ya
+ha'nt__'ya = yai'nt'ya
+ha'nt___'ya = yai'nt'ya
+ha'nt____'ya = yai'nt'ya
+ha'nt_____'ya = yai'nt'ya
 
 infixl 8 `ho'nt'ho`, `ho'nt'ho'st`
 infixl 7 `ho'nt_'ho`, `ho'nt_'ho'st`
