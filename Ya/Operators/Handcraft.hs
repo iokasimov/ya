@@ -4040,10 +4040,6 @@ eq______ = eq
 eq_______ = eq
 eq________ = eq
 
-infixl 8 `ha'nt'ha`, `ha'nt'ha'st`
-
-infixl 4 `yio'nt'yio` --, `yai'nt'yai`
-
 infixl 6 `yo'nt'yo`
 infixl 5 `yo'nt_'yo`
 infixl 4 `yo'nt__'yo`
@@ -4144,6 +4140,8 @@ ho'nt__'yo = yio'nt'yo
 ho'nt___'yo = yio'nt'yo
 ho'nt____'yo = yio'nt'yo
 ho'nt_____'yo = yio'nt'yo
+
+infixl 4 `yio'nt'yio`
 
 yio'nt'yio
  :: forall source target t tt ll a o i ii .
@@ -4248,7 +4246,15 @@ ho'nt____'ho'st = ho'nt'ho'st
 ho'nt_____'ho'st = ho'nt'ho'st
 ho'nt______'ho'st = ho'nt'ho'st
 
-ha'nt'ha
+infixl 8 `ha'nt'ha`, `ha'nt'ha'st`
+infixl 7 `ha'nt_'ha`, `ha'nt_'ha'st`
+infixl 6 `ha'nt__'ha`, `ha'nt__'ha'st`
+infixl 5 `ha'nt___'ha`, `ha'nt___'ha'st`
+infixl 4 `ha'nt____'ha`, `ha'nt____'ha'st`
+infixl 3 `ha'nt_____'ha`, `ha'nt_____'ha'st`
+infixl 2 `ha'nt______'ha`, `ha'nt______'ha'st`
+
+ha'nt'ha, ha'nt_'ha, ha'nt__'ha, ha'nt___'ha, ha'nt____'ha, ha'nt_____'ha, ha'nt______'ha
  :: forall target t tt a i ii .
  (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
  Component target (T'II'I t i `L` T'II'I tt ii `T` (Void)) (T'II'I tt ii) =>
@@ -4258,7 +4264,14 @@ ha'nt'ha
  target (t a i) (tt a ii)
 ha'nt'ha = (wrapped (component @target @(T'II'I t i `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii))) `compose` subtype
 
-ha'nt'ha'st
+ha'nt_'ha = ha'nt'ha
+ha'nt__'ha = ha'nt'ha
+ha'nt___'ha = ha'nt'ha
+ha'nt____'ha = ha'nt'ha
+ha'nt_____'ha = ha'nt'ha
+ha'nt______'ha = ha'nt'ha
+
+ha'nt'ha'st, ha'nt_'ha'st, ha'nt__'ha'st, ha'nt___'ha'st, ha'nt____'ha'st, ha'nt_____'ha'st, ha'nt______'ha'st
  :: forall target t tt a i ii .
  (forall e . Contravariant Endo Yoneda Functor target (T'II'I t e)) =>
  (forall e . Contravariant Endo Yoneda Functor target (T'II'I tt e)) =>
@@ -4269,3 +4282,10 @@ ha'nt'ha'st
  Covariant Elicitable target a =>
  target (t (Supertype a) i) (tt a ii)
 ha'nt'ha'st = fai @target @target supertype `compose` (wrapped (component @target @(T'II'I t i `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii))) `compose` subtype
+
+ha'nt_'ha'st = ha'nt'ha'st
+ha'nt__'ha'st = ha'nt'ha'st
+ha'nt___'ha'st = ha'nt'ha'st
+ha'nt____'ha'st = ha'nt'ha'st
+ha'nt_____'ha'st = ha'nt'ha'st
+ha'nt______'ha'st = ha'nt'ha'st
