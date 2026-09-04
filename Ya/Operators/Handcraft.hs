@@ -4041,9 +4041,8 @@ eq_______ = eq
 eq________ = eq
 
 infixl 8 `ha'nt'ha`, `ha'nt'ha'st`
-infixl 7 `ho'nt'yo`, `ha'nt'ya`
+infixl 7 `ha'nt'ya`
 
-infixl 5 `yio'nt'yo`, `yai'nt'ya`
 infixl 4 `yio'nt'yio` --, `yai'nt'yai`
 
 infixl 6 `yo'nt'yo`
@@ -4110,7 +4109,16 @@ ya'nt___'ya = ya'nt'ya
 ya'nt____'ya = ya'nt'ya
 ya'nt_____'ya = ya'nt'ya
 
-yio'nt'yo, ho'nt'yo
+infixl 5 `yio'nt'yo`
+
+infixl 7 `ho'nt'yo`
+infixl 6 `ho'nt_'yo`
+infixl 5 `ho'nt__'yo`
+infixl 3 `ho'nt___'yo`
+infixl 2 `ho'nt____'yo`
+infixl 1 `ho'nt_____'yo`
+
+yio'nt'yo, ho'nt'yo, ho'nt_'yo, ho'nt__'yo, ho'nt___'yo, ho'nt____'yo, ho'nt_____'yo
  :: forall source target t tt ll a o i .
  Hom Functor source =>
  Hom Functor target =>
@@ -4132,6 +4140,11 @@ yio'nt'yo = fio (component @target @(T'I'II t i `L` tt `T` ll) @tt `compose` sub
  `compose` subtype
 
 ho'nt'yo = yio'nt'yo
+ho'nt_'yo = yio'nt'yo
+ho'nt__'yo = yio'nt'yo
+ho'nt___'yo = yio'nt'yo
+ho'nt____'yo = yio'nt'yo
+ho'nt_____'yo = yio'nt'yo
 
 yio'nt'yio
  :: forall source target t tt ll a o i ii .
@@ -4154,6 +4167,8 @@ yio'nt'yio = fio (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` l
  `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` yo
  `compose` subtype
+
+infixl 5 `yai'nt'ya`
 
 yai'nt'ya, ha'nt'ya
  :: forall source target t tt ll a o i .
