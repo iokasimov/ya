@@ -1053,9 +1053,9 @@ yia = fio @target supertype `compose` ya @source @target @(T'I'II t i) `compose`
 
 yok, yok_, yok__, yok___, yok____, yok_____, yok______
  :: forall source target t tt ll a o .
- Component target (t `T'TT'I` tt `L` tt `T` ll) t =>
- Covariant Yoneda Functor source target t =>
  Hom Functor target =>
+ Covariant Yoneda Functor source target t =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll) t =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
  (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
  (forall e ee . Wrapper target (T'I'II target e ee)) =>
@@ -1193,10 +1193,10 @@ ______kyo = kyo
 
 kyok, _kyok, kyok_, __kyok, _kyok_, kyok__, ___kyok, __kyok_, _kyok__, kyok___, ____kyok, ___kyok_, __kyok__, _kyok___, kyok____, _____kyok, ____kyok_, ___kyok__, __kyok___, _kyok____, kyok_____
  :: forall source target t tt ttt l ll lll a o .
+ Hom Functor target =>
  Covariant Yoneda Functor source target t =>
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
  Component source (t `T'TT'I` ttt `L` ttt `T` lll) t =>
- Hom Functor target =>
  (forall e . Contravariant Functor source target (T'II'I source e)) =>
  (forall e . Covariant Functor source target (T'I'II source e)) =>
  (forall e . Covariant Functor source target (T'I'II target e)) =>
@@ -1238,11 +1238,11 @@ _kyok____ = kyok
 kyok_____ = kyok
 
 kyokl, kyokl_, kyokl__, kyokl___, kyokl____, _kyokl :: forall source target t tt ttt l ll lll a o .
+ Hom Functor target =>
  Covariant Yoneda Functor source target t =>
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
  Component source (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
  (forall e . Contravariant Functor source target (T'II'I source e)) =>
- Hom Functor target =>
  (forall e . Covariant Functor source target (T'I'II target e)) =>
  (forall e . Covariant Functor source target (T'I'II source e)) =>
  (forall e . Covariant Functor source (AR) (T'I'II target e)) =>
@@ -1330,11 +1330,11 @@ _kyakl = kyakl
 -- kfokl: source (ttt `L` ttt `T` lll `T` a) (tt `L` tt `T` ll `L` t `T` l `T` o) -> target (t a) (tt (t o))
 -- ha'yok = fai fuk `compose` ha @(AR) @u
 
-yokl, yokl_, yokl__, yokl___, yokl____, yokl_____, li'yokl ::
+yokl, yokl_, yokl__, yokl___, yokl____, yokl_____ ::
  forall source target t tt l ll a o .
- Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
- Covariant Yoneda Functor source target t =>
  Hom Functor target =>
+ Covariant Yoneda Functor source target t =>
+ Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
  (forall i . Wrapper target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l `T'I_` i)) =>
  (forall i . Wrapper target ((t `TT'T'I` tt) i)) =>
  (forall e ee . Wrapper target (T'I'II source e ee)) =>
@@ -1348,8 +1348,6 @@ yokl__ = yokl
 yokl___ = yokl
 yokl____ = yokl
 yokl_____ = yokl
-
-li'yokl = yokl
 
 yokl'ut, yokl_'ut, yokl__'ut, yokl___'ut, yokl____'ut, yokl_____'ut
  :: forall target t tt l ll a o .
@@ -1506,8 +1504,6 @@ yiokl = fio (fo @source supertype `compose` wrapped @target (component @target @
 -- yok____'yokl = yok'yokl
 -- yok_____'yokl = yok'yokl
 -- yok______'yokl = yok'yokl
-
--- li'yok'yokl = yok'yokl
 
 -- yok'yokl, yok_'yokl, yok__'yokl, yok___'yokl, yok____'yokl, yok_____'yokl, yok______'yokl
  -- :: forall target t tt ttt l ll lll a o .
