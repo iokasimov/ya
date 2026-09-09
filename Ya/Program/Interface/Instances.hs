@@ -56,6 +56,28 @@ instance {-# OVERLAPS #-}
  component (Label (T'TT'I x)) = T'II'I `identity` \i -> True `bt'has` Ok `ho'ut'st` False
   `har___` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `har` xx i)
 
+{-
+pattern Total :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
+pattern Total x = Label @_ @_ @(Void `P` Void) x
+
+instance {-# OVERLAPS #-}
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Transformation Functor (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
+ ) => Component (AR) ((t `T'TT'I` Match) `L` Match `T` (Void `P` Void)) Match where
+-}
+
+{-
+-- TODO: rewrite implementation!
+instance {-# OVERLAPS #-}
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Transformation Functor (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
+ ) => Component (AR) ((t `T'TT'I` Match) `L` Match `T` (Void)) Match where
+ component (Label (T'TT'I x)) = T'II'I `identity` \i -> True `bt'has` Ok `ho'ut'st` False
+  `har___` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `har` xx i)
+-}
+
+-- List (Match Latin) `AR__` Match (List Latin)
+
 pattern Sever :: List `L` T'I'II (S) i `T` Void `T` ii `AR__` List `L` T'I'II (S) i `T` Void `T` ii
 pattern Sever x = x
 
@@ -758,13 +780,6 @@ instance {-# OVERLAPS #-}
    `bt'har___` Null `ho'vt` Unit `ryo` Enter @List) `yior` Unit
    `hjd____'tb` source `ha` f `ha` That `ryo` Enter @List
 
-instance {-# OVERLAPS #-}
- ( Supertype (Unit `P_` Unit `S` i) ~ (Unit `S` i)
- , Covariant Elicitable (AR) (Unit `P_` Unit `S` i)
- , Covariant Transformation Functor (AR) (AR) (T'I'II (AR) (Unit `S` i)) (F'T'I'TT Along Maybe)
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` i)) (Maybe `T'TT'I` F'T'I'TT Along Maybe) where
- mapping = rewrap `identity` \source (T'I'II f) ->
-  source `ha` f `ha` supertype @AR @(Unit `P` (Unit `S` i)) `ryo` Enter @(Maybe `T'TT'I` F'T'I'TT Along Maybe)
 
 instance {-# OVERLAPS #-}
  ( Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) i) List

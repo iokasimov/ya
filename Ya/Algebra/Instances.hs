@@ -177,17 +177,37 @@ instance
     -- (wrapped (map @T'I'II @T'I'II @source @target @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) source))) `compose`
    -- supertype @target @(T'TT'I'TTT'I u t tt _)
 
+{-
+-- add a label
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i) (T'I'II (AR) i) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
+  source `compose` this `compose` supertype origin
+-}
+
+-- TODO: add a label
 instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'II (These e (T'I'II f))) -> source (f e)
 
+-- TODO: add a label
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` P'I'II e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'I'II `identity` \e -> T'I'II (These e (source x))
 
+-- TODO: remove
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e `T'TT'I` T'II'I (P) e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'I'II `identity` \e -> T'II'I (These (source x) e)
 
+instance Mapping T'I'II T'I'II (AR) (AR) (I `L` (T'I'II (AR) e `T'TT'I` T'II'I (P) e) `T` (Void)) (T'I'II (AR) e `T'TT'I` T'II'I (P) e) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \x -> \e -> T'II'I (These (source x) e)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` (T'I'II (AR) e `T'TT'I` T'II'I (P) e) `T` (Void)) (T'I'II (AR) e `T'TT'I` T'II'I (P) e) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \f -> \e -> T'II'I (These (source (f Unit)) e)
+
+-- TODO: remove
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'II'I (These (T'I'II f) e)) -> source (f e)
+
+instance Mapping T'I'II T'I'II (AR) (AR) ((T'II'I (P) e `T'TT'I` T'I'II (AR) e) `L` I `T` (Void)) I where
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'II'I (These (T'I'II f) e))) -> source (f e)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) i) (T'I'II (P) i) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
@@ -419,6 +439,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'I (P)) where
 instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e) I where
  mapping (T'I'II source) = T'I'II `identity` \(T'I'II (These _ x)) -> Identity (source x)
 
+-- TODO: add a label
 instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e) I where
  mapping (T'I'II source) = T'I'II `identity` \(T'II'I (These x _)) -> Identity (source x)
 
@@ -493,6 +514,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) P I (I `L` I `T` V
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (Identity e) (Label (Identity ee))) (T'I'II f) -> source (f (These e ee))
 
+-- TODO: remove
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) I where
  mapping = rewrap `identity` \source (T'I'II f) -> Identity (source (f Unit))
 
@@ -524,8 +546,19 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   These (These (T'I'II (This e)) (Label (T'I'II (This _)))) (T'I'II _) ->
    This e
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` T'I'II (S) i `T` (Void)) (T'I'II (S) i) where
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> T'I'II (That (source (f Unit)))
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void `L` T'I'II (S) Unit `T` (Void)) (T'I'II (S) Unit) where
+ mapping = rewrap `identity` \_ _ -> T'I'II (This Unit)
+
+-- TODO: remove
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit) (S'I'II e) where
  mapping = rewrap `identity` \source (T'I'II f) -> T'I'II (That (source (f Unit)))
+
+-- TODO: remove
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (S'I'II Unit) where
+ mapping = rewrap `identity` \_ _ -> T'I'II (This Unit)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (S) (S'I'II e) (S'I'II e `L` S'I'II e `T` Void) ee eee) (S'I'II e) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
@@ -542,9 +575,6 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (T'II'I (S) Unit) wh
 --   These (These (T'II'I (This ee)) _) (T'I'II f) -> This (source (f (This ee)))
 --   These (These _ (T'II'I (This eee))) (T'I'II f) -> This (source (f (That eee)))
 --   These (These _ (T'II'I (That eee))) _ -> That eee
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void) (S'I'II Unit) where
- mapping = rewrap `identity` \_ _ -> T'I'II (This Unit)
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
@@ -631,6 +661,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'II (AR) (Unit `S` Unit
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P)) (T'I'I (P) `T'TT'I` T'II'I (P) (Unit `S` Unit) `L` T'II'I (P) (Unit `S` Unit) `T` (Void)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These x xx) -> T'I'I (These (Label (T'II'I (These (source x) (This Unit)))) (Label (T'II'I (These (source xx) (That Unit)))))
 
+-- TODO: remove
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
@@ -639,6 +670,7 @@ instance
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i) @t source `identity` T'I'II (f `compose` This))
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii) @tt source `identity` T'I'II (f `compose` That))
 
+-- TODO: remove
 instance
  ( iii ~ i `S` ii
  , Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
@@ -648,6 +680,7 @@ instance
   This i -> map @T'I'II @T'I'II @AR @AR @t @(T'I'II (AR) _) source x `supertype` i
   That ii -> map @T'I'II @T'I'II @AR @AR @tt @(T'I'II (AR) _) source y `supertype` ii
 
+-- TODO: remove
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
@@ -659,6 +692,7 @@ instance
    `compose` T'I'II
    `compose` currying)
 
+-- TODO: remove
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) t
  , Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) ii) tt
@@ -670,6 +704,7 @@ instance
    `compose` T'I'II
    `compose` currying)
 
+-- TODO: remove
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) i)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) ii)
