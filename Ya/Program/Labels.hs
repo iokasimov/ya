@@ -29,3 +29,6 @@ pattern Every x = Label @_ @_ @Void x
 
 pattern Claim :: forall i t ii . t ii `AR__` t `L` T'I'II (AR) i `T` (Void) `T` ii
 pattern Claim x = Label x
+
+pattern Spark :: forall t i . i `AR__` I `L` t `T` Void `T` i
+pattern Spark x = Label (Alone x)
