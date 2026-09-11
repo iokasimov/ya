@@ -4242,13 +4242,13 @@ ho'nt____'ho'st = ho'nt'ho'st
 ho'nt_____'ho'st = ho'nt'ho'st
 ho'nt______'ho'st = ho'nt'ho'st
 
-infixl 8 `ha'nt'ha`, `st'ha'nt'ha`, `ha'nt'ha'st`
-infixl 7 `ha'nt_'ha`, `st'ha'nt_'ha`, `ha'nt_'ha'st`
-infixl 6 `ha'nt__'ha`, `st'ha'nt__'ha`, `ha'nt__'ha'st`
-infixl 5 `ha'nt___'ha`, `st'ha'nt___'ha`, `ha'nt___'ha'st`
-infixl 4 `ha'nt____'ha`, `st'ha'nt____'ha`, `ha'nt____'ha'st`
-infixl 3 `ha'nt_____'ha`, `st'ha'nt_____'ha`, `ha'nt_____'ha'st`
-infixl 2 `ha'nt______'ha`, `st'ha'nt______'ha`, `ha'nt______'ha'st`
+infixl 8 `ha'nt'ha`, `st'ha'nt'ha`, `bt'ha'nt'ha`, `ha'nt'ha'st`
+infixl 7 `ha'nt_'ha`, `st'ha'nt_'ha`, `bt'ha'nt_'ha`, `ha'nt_'ha'st`
+infixl 6 `ha'nt__'ha`, `st'ha'nt__'ha`, `bt'ha'nt__'ha`, `ha'nt__'ha'st`
+infixl 5 `ha'nt___'ha`, `st'ha'nt___'ha`, `bt'ha'nt___'ha`, `ha'nt___'ha'st`
+infixl 4 `ha'nt____'ha`, `st'ha'nt____'ha`, `bt'ha'nt____'ha`, `ha'nt____'ha'st`
+infixl 3 `ha'nt_____'ha`, `st'ha'nt_____'ha`, `bt'ha'nt_____'ha`, `ha'nt_____'ha'st`
+infixl 2 `ha'nt______'ha`, `st'ha'nt______'ha`, `bt'ha'nt______'ha`, `ha'nt______'ha'st`
 
 ha'nt'ha, ha'nt_'ha, ha'nt__'ha, ha'nt___'ha, ha'nt____'ha, ha'nt_____'ha, ha'nt______'ha
  :: forall target t tt a i ii .
@@ -4285,6 +4285,25 @@ st'ha'nt___'ha = st'ha'nt'ha
 st'ha'nt____'ha = st'ha'nt'ha
 st'ha'nt_____'ha = st'ha'nt'ha
 st'ha'nt______'ha = st'ha'nt'ha
+
+bt'ha'nt'ha, bt'ha'nt_'ha, bt'ha'nt__'ha, bt'ha'nt___'ha, bt'ha'nt____'ha, bt'ha'nt_____'ha, bt'ha'nt______'ha
+ :: forall target e t tt a i ii .
+ (forall e . Contravariant Yoneda Functor target target (T'II'I t e)) =>
+ Component target (T'II'I t i `L` T'II'I tt ii `T` (Void)) (T'II'I tt ii) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ (forall e ee . Wrapper target (T'II'I tt e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t ee `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ Covariant Objective target e (t a i) =>
+ (Basetype e ~ t a i) =>
+ target e (tt a ii)
+bt'ha'nt'ha = wrapped (component @target @(T'II'I t i `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii)) `compose` subtype `compose` basetype
+
+bt'ha'nt_'ha = bt'ha'nt'ha
+bt'ha'nt__'ha = bt'ha'nt'ha
+bt'ha'nt___'ha = bt'ha'nt'ha
+bt'ha'nt____'ha = bt'ha'nt'ha
+bt'ha'nt_____'ha = bt'ha'nt'ha
+bt'ha'nt______'ha = bt'ha'nt'ha
 
 ha'nt'ha'st, ha'nt_'ha'st, ha'nt__'ha'st, ha'nt___'ha'st, ha'nt____'ha'st, ha'nt_____'ha'st, ha'nt______'ha'st
  :: forall target t tt a i ii .
