@@ -15,18 +15,18 @@ import Ya.Program.Interface.Shiftable
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This _) -> T'I'II `har'st` This @Unit `hjd_` itself `ho'ut'st` Empty
-   T'I'II (That x) -> T'I'II `ha` That `ha` this `har` source x `hjd__` Empty `ho'ut'st` Empty `bt'has_` Exist `ha` that (source x)
+   T'I'II (This _) -> T'I'II `ha'nt'ha'st` This @Unit `hjd_` itself `ho'ut'st` Empty
+   T'I'II (That x) -> T'I'II `ha` That `ha` this `ha'nt'ha` source x `hjd__` Empty `ho'ut'st` Empty `bt'has_` Exist `ha` that (source x)
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
-   `hjd_'tb` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `har` xx `yo_` hdj @(AR))
+   `hjd_'tb` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
 
 instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
-   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `har` xx `yo_` hdj @(AR))
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
 
 pattern Root :: forall t i .
  t i `AR__` t `L` Alone `T` (Void) `T` i
@@ -37,14 +37,14 @@ pattern Root x = Label x
 instance (e ~ Unit) => Component (AR) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty
-  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `har` x
+  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `ha'nt'ha` x
 
 -- TODO: refactor, pattern matching itself redundant here
 instance {-# OVERLAPS #-} (e ~ Unit) => Component (AT) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = T'I'TT'II'T'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (\_ -> Null `ho'vt` Unit `ryo` Enter)
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
-   Exist `har` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
+   Exist `ha'nt'ha` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
 
 pattern Until :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void) `T` i
 pattern Until x = Label @_ @_ @(Void) x
@@ -54,7 +54,7 @@ instance {-# OVERLAPS #-}
  , Covariant Endo Transformation Functor (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
  ) => Component (AR) ((t `T'TT'I` Match) `L` Match `T` (Void)) Match where
  component (Label (T'TT'I x)) = T'II'I `identity` \i -> True `bt'has` Ok `ho'ut'st` False
-  `har___` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `har` xx i)
+  `ha'nt___'ha` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `ha'nt'ha` xx i)
 
 {-
 pattern Total :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
@@ -96,11 +96,11 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
  (I `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source (Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-  Alone `har` source x `hjd___'tb` T'TT'I (Empty Unit) `hjd_'tb` T'TT'I (xs `yo` F'T'I'TT) `yo` source
+  Alone `ha'nt'ha` source x `hjd___'tb` T'TT'I (Empty Unit) `hjd_'tb` T'TT'I (xs `yo` F'T'I'TT) `yo` source
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
-  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within @Maybe @(Nonempty List) `ha` Fresh
+  l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within @Maybe @(Nonempty List) `ha` Fresh
    `bt'har___` derive `ha` Merge `ha` Clasp `har_` x `hjd` r
    `yi___` that `ho'yo` source
 
@@ -126,15 +126,15 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `
    cover (T'TT'I'TTT'I (These parent siblings)) tree =
     Unit `hjd___'tb` that `ha` sub @Tree
      `har__` Only `ho'ut` supertype parent `ryo` Enter @Tree
-     `har__` Alone `har` tree `hjd'tb` supertype siblings
+     `har__` Alone `ha'nt'ha` tree `hjd'tb` supertype siblings
        `yi` derive `ha` Adapt @(Nonempty List)
        `ha` derive `ha` Adapt @(Scrolling List)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` Construction Optional `T` Void) (Construction Optional) where
- mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `ha'nt'ha` Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` List `T` Void) List where
- mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `har` Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `ha'nt'ha` Unit
 
 -- pattern Ended
 -- pattern Begin
@@ -178,11 +178,11 @@ pattern Front :: forall tt t i .
 pattern Front x = Label x
 
 instance {-# OVERLAPS #-} Component (AR) (Construction t `L` Alone `T` Void) Alone where
- component = \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) -> Alone `har` x
+ component = \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) -> Alone `ha'nt'ha` x
 
 instance {-# OVERLAPS #-} Component (AT) (Construction t `L` Alone `T` Void) Alone where
  component = T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
-   Alone `har` x `hjd` (\xx -> xxx `hjd_'tb` supertype xx)
+   Alone `ha'nt'ha` x `hjd` (\xx -> xxx `hjd_'tb` supertype xx)
 
 instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
@@ -227,7 +227,7 @@ instance {-# OVERLAPS #-}
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I x)) ->
   let internal = within @(t `T'TT'I` Construction t) @(Construction t) `ha` Stock in
   T'TT'I (x `yok` Apply `ha` supertype @(AR) `ha` this `ha` internal)
-   `hjd` (\x' -> Label (T'TT'I (x `yo_` (\xx -> that `ha` internal `har` xx `har` x'))))
+   `hjd` (\x' -> Label (T'TT'I (x `yo_` (\xx -> that `ha` internal `ha'nt'ha` xx `ha'nt'ha` x'))))
 
 pattern Shaft :: forall t i . t i `AR____` t `L` (Twice `T'TT'I` List) `T` (Void) `T` i
 pattern Shaft x = Label x
@@ -251,7 +251,7 @@ pattern Stump x = Label x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II Unit `T` Void) (S'I'II Unit) where
  mapping = rewrap `identity` \source ->
-  rewrap `har` (This `compose` constant Unit `has` That `compose` source) `compose` supertype
+  rewrap `ha'nt'ha` (This `compose` constant Unit `has` That `compose` source) `compose` supertype
 
 pattern Spare :: forall i ii .
  Component (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) =>
@@ -259,7 +259,7 @@ pattern Spare :: forall i ii .
 pattern Spare x = Label (T'TT'I x)
 
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
- mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `ho'ut` Error i `bt'has` Valid `ha` source `har` x
+ mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `ho'ut` Error i `bt'has` Valid `ha` source `ha'nt'ha` x
 
 -- pattern Chary :: forall i ii .
  -- Component (AR) ((P'II'I ii `T'TT'I` S'I'II Unit) `L` (P'II'I ii `T'TT'I` S'I'II Unit) `T` Void) (S'I'II ii) =>
@@ -281,7 +281,7 @@ instance
   ((t `P'T'I'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
   (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'har___` xx `yi____` that `ho'yo` source
 
 instance
@@ -293,7 +293,7 @@ instance
   ((t `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
   (T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
-  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+  x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'har___` xx `yi____` that `ho'yo` source
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
@@ -301,7 +301,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   Empty `ho___'ut` Only `ho'ut'st` x `ryo` Enter @(Nonempty List)
-   `has___` supertype (Event `ha` Swap `ha` Exist `har'st` x `ha__` Scope `har` within `ha` Fresh) `ho` that
+   `has___` supertype (Event `ha` Swap `ha` Exist `ha'nt'ha'st` x `ha__` Scope `ha'nt'ha` within `ha` Fresh) `ho` that
    `har___` basetype xx
    `yo____` source
 
@@ -480,9 +480,9 @@ instance
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source x -> T'TT'I `har__` x
   `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
-   `ha` (itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` That Unit) `bt'has` itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` xx `hjd` This Unit))
-   `ha` (\xxx -> this `ha` sub `har` xxx `hjd'dcps` (Pass `ryo` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
-   `har` xx)
+   `ha` (itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `ha'nt'ha` xx `hjd` That Unit) `bt'has` itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `ha'nt'ha` xx `hjd` This Unit))
+   `ha` (\xxx -> this `ha` sub `ha'nt'ha` xxx `hjd'dcps` (Pass `ryo` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
+   `ha'nt'ha` xx)
 
 pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
 pattern Depth x = Label (Alone x)
@@ -491,11 +491,11 @@ instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Endo Semi Functor (AR) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
- mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `har` source `har_` (T'TT'I `har'st` Empty)) where
+ mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `ha'nt'ha` source `har_` (T'TT'I `ha'nt'ha'st` Empty)) where
 
-  worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `har`
+  worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `ha'nt'ha`
    (\xx -> xx
-    `yoi` fo @AR @AR (worker source (that (Event `har` Push Unit `ha__` Scope `har` within `ha` Fresh `bt'har_` depth)))
+    `yoi` fo @AR @AR (worker source (that (Event `ha'nt'ha` Push Unit `ha__` Scope `ha'nt'ha` within `ha` Fresh `bt'har_` depth)))
     `yio` (\xxx -> source xxx `hjd'tb` depth)
    )
 
@@ -557,10 +557,10 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
   worker = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List _)
-   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
-   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
-   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Forth @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
+   `yok____'ut` Apply `ha` State `har__` Event `ha'nt'ha` Drop `ha__` Scope `ha'nt'ha` within `ha` First `ha` Aback @List `ha` Shaft `yok____` Check
+   `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `ha'nt'ha` within `ha` Front @Alone
+   `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `ha` Forth @List `ha` Shaft
+   `yok____'ut` Apply `ha` State `har__` Event `ha'nt'ha` Pull `ha__` Scope `ha'nt'ha` within `ha` Front @Alone
 
 {- TODO: to implement this effectively we need a Finger Tree
 instance {-# OVERLAPS #-} Component (TR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
@@ -588,10 +588,10 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'har___` worker `bt'har'st` x where
 
   worker = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List _)
-   `yok____'ut` Apply `ha` State `har__` Event `har` Drop `ha__` Scope `har` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
-     `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `har` within `ha` Front @Alone
-     `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `har` within `ha` Fresh `ha` Aback @List `ha` Shaft
-   `yok____'ut` Apply `ha` State `har__` Event `har` Pull `ha__` Scope `har` within `ha` Front @Alone
+   `yok____'ut` Apply `ha` State `har__` Event `ha'nt'ha` Drop `ha__` Scope `ha'nt'ha` within `ha` First `ha` Forth @List `ha` Shaft `yok____` Check
+     `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `ha'nt'ha` within `ha` Front @Alone
+     `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `ha` Aback @List `ha` Shaft
+   `yok____'ut` Apply `ha` State `har__` Event `ha'nt'ha` Pull `ha__` Scope `ha'nt'ha` within `ha` Front @Alone
 
 pattern Shift :: forall tt t i ll . Scrolling t `L` tt `T` ll `T` i `AR____` Scrolling t `L` tt `T` ll `T` i
 pattern Shift x = x
@@ -601,13 +601,13 @@ pattern Slide x = x
 
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
- shift way x = itself `har` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` itself `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
+ shift way x = itself `ha'nt'ha` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` itself `ho'st` foi @_ @(AR) Exist `har_` _shift_ `bt'har` x where
 
   _shift_ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling List i)
    `yok____'ut` Apply `ha__` State
    `har____` Event `ha__` Swap `har_'st` Empty
     `ha____` Scope `har_` within `ha` Shaft
-     `ho___` (itself `ho'ut` (Scope `har` within @List `ha` Aback) `has` itself `ho'ut` (Scope `har` within @List `ha` Forth)) `har` way
+     `ho___` (itself `ho'ut` (Scope `ha'nt'ha` within @List `ha` Aback) `has` itself `ho'ut` (Scope `ha'nt'ha` within @List `ha` Forth)) `ha'nt'ha` way
      `ho___` Scope `har_` within `ha` First
    `yok____` Check
    `yok____` Apply `ha__` State
@@ -616,12 +616,12 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Apply `ha__` State
    `ha_____` Event `ha__` Swap `ha'st` Exist
    `ho___'ha` Scope `har_` within `ha` Shaft
-    `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `har` way
-      `ho_` (Scope `har` within @Maybe @List `ha` Fresh)
+    `ho__'st` Scope `ha_` index `ha` (Fore `has` Back) `ha'nt'ha` way
+      `ho_` (Scope `ha'nt'ha` within @Maybe @List `ha` Fresh)
    -- TODO: there it itself - if I use `Lease` label instead of `Apply` state doesn't change
    `yok____'ut` Apply `ha_` State
-   `har____` Event `har` Pull
-    `ha____` Scope `har` record @(Alone i)
+   `har____` Event `ha'nt'ha` Pull
+    `ha____` Scope `ha'nt'ha` record @(Alone i)
 
  spot :: forall i . Shifter List `P` Match (Alone i) `AR_` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe `T` Shifting Alone List i)
  spot (These way predicate) x = foi Exist `ha` Pull `bt'has_` itself `ho'st` foi @_ @(AR) (Empty `ho'ut'st` Empty) `har_` _spot_ `bt'har` x where
@@ -629,9 +629,9 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
   found (These w sl) = supertype @(AR) @Boolean (predicate `yar` w) `yoo'ut` sl
 
   _spot_ = Pass `ryo` Enter @(Stops `T` Scrolling List i `J'T'TT'I` State `T` Scrolling List i)
-   `yok____'ut` Reset `ha` State `har___` Event `har__` Pull `ha___` Scope `har` record @(Alone i) `hop_` Scope `har` mirror
+   `yok____'ut` Reset `ha` State `har___` Event `har__` Pull `ha___` Scope `ha'nt'ha` record @(Alone i) `hop_` Scope `ha'nt'ha` mirror
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
-   `yok____'ut` Apply `ha` State `har___` Event `ha` shift `har` way
+   `yok____'ut` Apply `ha` State `har___` Event `ha` shift `ha'nt'ha` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
 
 {-
@@ -676,64 +676,64 @@ pattern Pitch e = That e :: Shifter Tree
 
 instance Shiftable Alone (Construction List) where
  shift way x = itself
-  `har` itself `ho'ut` (Empty Unit `hjd` x)
+  `ha'nt'ha` itself `ho'ut` (Empty Unit `hjd` x)
   `bt'has` itself `ho'st` foi @_ @(AR) Exist
   `har_` (horizontally `has_` vertical_deep `has` vertical_up `har_` way) `bt'har` x where
 
   vertical_up :: forall i . Unit `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_up _ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok____'ut` Apply `ha_` State
-   `har____` Event `har` happen `ha` First
-    `ha____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `har` mirror
+   `har____` Event `ha'nt'ha` happen `ha` First
+    `ha____` Scope `ha'nt'ha` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i) `ho__'st` Scope `ha'nt'ha` mirror
    `yok____` Check `ha_` itself @(Maybe `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok____` Apply `ha_` State
    `ha_____` Event `ha_` aloft
-   `ho___'ha` Scope `har` record @(Tree `T'I` i)
+   `ho___'ha` Scope `ha'nt'ha` record @(Tree `T'I` i)
 
   aloft :: forall i . (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I` i `AR____` Tree i `AR__` Alone i `P` Tree i
-  aloft unfolding tree = this `ha` within @Alone `ha` Apply `har` tree
+  aloft unfolding tree = this `ha` within @Alone `ha` Apply `ha'nt'ha` tree
    `hjd_'tb` unfolding `hjd'tb` tree `yi` derive `ha` Aloft @Tree @(Alone `P'T'I'TT'I` Shafted List `T'TT'I` Tree `P'T'I'TT'I` Tree)
 
   vertical_deep :: forall i . Unit `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
   vertical_deep _ = Pass `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
-    `har____` Event `har` Pull
-     `ha____` Scope `har` record @(Tree `T'I` i)
-      `ho___` Scope `har` within @Alone @Tree `ha` Apply
-        `hop_` Scope `har` sub @Tree
+    `har____` Event `ha'nt'ha` Pull
+     `ha____` Scope `ha'nt'ha` record @(Tree `T'I` i)
+      `ho___` Scope `ha'nt'ha` within @Alone @Tree `ha` Apply
+        `hop_` Scope `ha'nt'ha` sub @Tree
    `yok_____` Check `ha'yo` splash `ha` moves
    `yok_____` Apply `ha` State `ha____` Event `ha` Swap `ha` this
-    `ho___'ha` Scope `har` record @(Tree i)
+    `ho___'ha` Scope `ha'nt'ha` record @(Tree i)
    `hop____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
-    `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
-        `ho__` Scope `har` within `ha` Fresh
+    `ho___'ha` Scope `ha'nt'ha` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+     `ho__'st` Scope `ha'nt'ha` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+        `ho__` Scope `ha'nt'ha` within `ha` Fresh
    `ho______'yo` this `ha` within @Alone `ha` Apply `ha` this
 
   moves :: forall i . Alone i `P` List (Tree i) `AR___` Maybe (Alone i `P` Nonempty List (Tree i))
   moves x = x `yiokl` Apply `ha` Check `ha` supertype @(AR)
 
   splash :: forall i . Alone i `P` Nonempty List (Tree i) `AR____` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i
-  splash (These (Alone root) descendants) = supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `har` descendants
-   `hjd__'tb` (Alone `har` root `hjd_'tb` subtype @(AR) `ha` (T'TT'I `ha` T'I'I `ha` These (Null `ho'vt` Unit `ryo` Enter @List)) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `har` descendants)
+  splash (These (Alone root) descendants) = supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `ha'nt'ha` descendants
+   `hjd__'tb` (Alone `ha'nt'ha` root `hjd_'tb` subtype @(AR) `ha` (T'TT'I `ha` T'I'I `ha` These (Null `ho'vt` Unit `ryo` Enter @List)) `ha` subtype @(AR) @(List _) `ha` this `ha` sub `ha'nt'ha` descendants)
 
   horizontally :: forall i . Shifter List `AR___` (Halts `J'T'TT'I` State `T` Scrolling Tree i) `T'I_` Alone i
   horizontally way = Only `ryo` Enter @(Halts `J'T'TT'I` State `T` Scrolling Tree i)
    `yok_____'ut` Apply `ha_` State
    -- `har_____` Event `har` pop
-   `har_____` Event `har` happen @Maybe @List `ha` First
-    `ha_____` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-    `ho___'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+   `har_____` Event `ha'nt'ha` happen @Maybe @List `ha` First
+    `ha_____` Scope `ha'nt'ha` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+    `ho___'st` Scope `ha'nt'ha` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
    `yok_____` Check
    `yok_____` Apply `ha_` State
-     `ha____` Event `ha_` (\unfolding tree -> scroll `har` way `har` unfolding `har` tree `hjd` tree)
-    `ho___'ha` Scope `har` record @(Tree i)
+     `ha____` Event `ha_` (\unfolding tree -> scroll `ha'nt'ha` way `ha'nt'ha` unfolding `ha'nt'ha` tree `hjd` tree)
+    `ho___'ha` Scope `ha'nt'ha` record @(Tree i)
    `yok_____` Apply `ha_` State `ha____` Event `ha` Swap `ha` this
-    `ho___'ha` Scope `har` record @(Tree i)
+    `ho___'ha` Scope `ha'nt'ha` record @(Tree i)
    `hop____'dcpp` Apply `ha_` State `ha____` Event `ha` Push `ha` that
-    `ho___'ha` Scope `har` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
-     `ho__'st` Scope `har` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
-        `ho__` Scope `har` within `ha` Fresh
+    `ho___'ha` Scope `ha'nt'ha` record @(List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) `T'I_` i)
+     `ho__'st` Scope `ha'nt'ha` mirror @(List `T'I_` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree) i)
+        `ho__` Scope `ha'nt'ha` within `ha` Fresh
    `ho______'yo` this `ha__` within @Alone @Tree `ha` Apply `ha__` this
 
   -- TODO: the problem here itself that we ignore information about successfulness of horizontal shifting!
@@ -742,10 +742,10 @@ instance Shiftable Alone (Construction List) where
    `AR____` Tree i
    `AR___` Tree i `P` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `T'I___` i)
   scroll way unfolding tree =
-   let siblings = this `ha` record @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` itself `har` unfolding in
-   Alone `har` tree `hjd'tb` siblings
-   `yi_` shift `har` way `ha_` itself @(Scrolling List `T'I` Tree i)
-   `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `har` x `hjd__'tb` this `ha` record @(Alone i) `har` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `har` x) `ha` that
+   let siblings = this `ha` record @(Twice `T'TT'I` List `T'TT'I` Tree `T'I_` i) `ho'st` itself `ha'nt'ha` unfolding in
+   Alone `ha'nt'ha` tree `hjd'tb` siblings
+   `yi_` shift `ha'nt'ha` way `ha_` itself @(Scrolling List `T'I` Tree i)
+   `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `ha'nt'ha` x `hjd__'tb` this `ha` record @(Alone i) `ha'nt'ha` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `ha'nt'ha` x) `ha` that
 
 pattern Steal :: t i `AR____` t `L` T'I'II (S) e `T` (Void `P` Void `P` Void) `T` i
 pattern Steal i = Label i
@@ -756,7 +756,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(T'I'II f) x ->
   T'I'II `ha` This
    `bt'has_` (\(T'II'I (These x' ii)) -> (T'I'II `ha` This `ha` T'II'I `ha` These ii)
-     `bt'has` (T'I'II `ha` That `ha` T'II'I `ha` (\i' -> These i' ii) `ha` source) `har` x')
+     `bt'has` (T'I'II `ha` That `ha` T'II'I `ha` (\i' -> These i' ii) `ha` source) `ha'nt'ha` x')
    `har_` f x
 
 -- TODO: specify `t` label
@@ -776,7 +776,7 @@ instance {-# OVERLAPS #-}
  , Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) ii) List
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` ii)) (Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source (T'I'II f) ->
-  (source `ha` f `ha` This `ryo` Enter @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+  (source `ha` f `ha` This `ryo` Enter @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'har___` Null `ho'vt` Unit `ryo` Enter @List) `yior` Unit
    `hjd____'tb` source `ha` f `ha` That `ryo` Enter @List
 
@@ -788,7 +788,7 @@ instance {-# OVERLAPS #-}
  mapping = rewrap `identity` \source (T'I'II f) ->
   source `ha` f `ha` This `ha` That `ryo` Enter @Alone
    `hjd____'tb` (source `ha` f `ha` This `ha` This `ryo` Enter @List
-       `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh
+       `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
     `bt'har___` Null `ho'vt` Unit `ryo` Enter @List)
         `yior` Unit
    `hjd___'tb` source `ha` f `ha` That `ryo` Enter @List
@@ -805,12 +805,12 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   Recursive (T'TT'I (T'I'II (This x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (This (Label (T'II'I (These (source x) (Null `ho'vt` Unit `ryo` Enter @List))))))))
   Recursive (T'TT'I (T'I'II (That x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (That (
-   supertype @(AR) @(t `T'TT'I` tt `L` tt `T` Void `T'I_` _) `ha` map @T'I'II @T'I'II @(AR) @(AR) @t @(t `T'TT'I` tt `L` tt `T` Void) identity `har` x
+   supertype @(AR) @(t `T'TT'I` tt `L` tt `T` Void `T'I_` _) `ha` map @T'I'II @T'I'II @(AR) @(AR) @t @(t `T'TT'I` tt `L` tt `T` Void) identity `ha'nt'ha` x
     `yo` (\(Label xx) -> supertype
        (wrapped
         (map @T'I'II @T'I'II @(AR) @(AR) @(F'T'I'TT (T'I'II S) t) @(F'T'I'TT (T'I'II S) t `T'TT'I` Along (List `T'I` tt Unit) `L` Along (List `T'I` tt Unit) `T` Void) source)
         (xx `yor` Unit)
-        `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `har` fu Unit xx `ha__` Scope `har` within `ha` Fresh)) xxx)))
+        `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `ha'nt'ha` fu Unit xx `ha__` Scope `ha'nt'ha` within `ha` Fresh)) xxx)))
     )
    ))))))
 
@@ -820,7 +820,7 @@ pattern Sieve x = Label x
 instance Component (AR) ((List `P'T'I'TT'I` Match) `L` List `T` Void) List where
  component = \(Label (T'TT'I'TTT'I (These x xx))) ->
   let separator xx' x' = False `ho'ut` (x' `hjd` Empty Unit) `bt'has` True `ho'ut` (x' `hjd` Exist xx') `har_` xx `st'har` xx' in
-  that (x `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` separator `ho__'ha` Scope `har` within `ha` Fresh
+  that (x `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` separator `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'har___` Null `ho'vt` Unit `ryo` Enter @List)
 
 pattern Found :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
@@ -843,13 +843,13 @@ pattern Plane i = Label i
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source x -> let start = (supertype (supertype (supertype (supertype (supertype x))))) in
-  this `har` start
+  this `ha'nt'ha` start
   `yokl` Aback `ha` Apply
   `ha__'yokl` Aback `ha` Apply
-   `ha_'yokl` (Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `har` within `ha` Fresh)
+   `ha_'yokl` (Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ha` source `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh)
    `ha_` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _)
   `ha__` subtype @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
-  `bt'har__` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `har` start `yo` source
+  `bt'har__` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `ha'nt'ha` start `yo` source
   `yi__` that
 
 pattern Stack :: forall t i . i -> I `L` t `T` (Void `P` Void) `T` i
@@ -876,16 +876,16 @@ instance
     @(T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void))
     @(Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) source
     `identity` (Label `compose` T'I'II `identity` (f `compose` This))) `yo` supertype @(AR)
-   `hjd_'tb` source `har'st` f `ha` That
+   `hjd_'tb` source `ha'nt'ha'st` f `ha` That
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source (Label (T'I'II f)) -> Empty `har` Unit `hjd_'tb` source `har'st` f
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> Empty `ha'nt'ha` Unit `hjd_'tb` source `ha'nt'ha'st` f
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source (Label (T'I'II f)) -> T'TT'I `ha` T'I'II `ha` That `har` (Empty `har` Unit `hjd_'tb` source `har'st` f)
+ mapping = rewrap `identity` \source (Label (T'I'II f)) -> T'TT'I `ha` T'I'II `ha` That `ha'nt'ha` (Empty `ha'nt'ha` Unit `hjd_'tb` source `ha'nt'ha'st` f)
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \_ _ -> T'TT'I `ha` T'I'II `ha` This `har` Unit
+ mapping = rewrap `identity` \_ _ -> T'TT'I `ha` T'I'II `ha` This `ha'nt'ha` Unit
 
 pattern Plain :: forall t i . i -> I `L` t `T` (Void) `T` i
 pattern Plain i = Label (Identity i)
@@ -905,10 +905,10 @@ instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
  mapping = rewrap `identity` \source (Label (T'I'II f)) ->
-  that (source `ha` f `ha` This `ho'nt'yo` Stack @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack )
+  that (source `ha` f `ha` This `ho'nt'yo` Stack @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack )
 
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (F'T'I'TT (T'II'I P) Maybe) where
  mapping = rewrap `identity` \source (Label (T'I'II f)) ->
-  that (source `ha` f `ha` This `ho'nt'yo` Stack @(Nonempty List) `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `har` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack)
+  that (source `ha` f `ha` This `ho'nt'yo` Stack @(Nonempty List) `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `bt'har___` source `ha` f `ha` That `ho'nt'yo` Stack)
