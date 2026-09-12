@@ -41,9 +41,9 @@ index :: forall t r e .
 index index origin =
  let idx = map @T'I'II @T'I'II @Arrow @Arrow @t @(T'I'II (AR) (Representation t)) identity in
  let tbt = map @T'I'II @T'I'II @Arrow @Arrow @(T'I'II (AR) (Representation t)) @t identity in
- idx origin `bt'har` index `hjd`
-  (\x -> tbt `ha` T'I'II `har`
-   (\index' -> itself `ho'ut` (idx origin `bt'har` index') `has` itself `ho'ut` x `har__` index' `hjd'eq` index)
+ idx origin `bt'ha'nt'ha` index `hjd`
+  (\x -> tbt `ha` T'I'II `ha'nt'ha`
+   (\index' -> itself `ho'ut` (idx origin `bt'ha'nt'ha` index') `has` itself `ho'ut` x `ha'nt__'ha` index' `hjd'eq` index)
   )
 
 derive :: forall tt t ll i .
@@ -55,10 +55,22 @@ within :: forall tt t ll i .
  Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (AT) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` tt `T` i `AR` Unlabeled (t `L` tt `T` ll) `T` i
-within = supertype @(AR) `har` multicomponent @(AT) @t @tt @ll `yio'yio'yio` unlabel @(AR)
+within = supertype @(AR) `ha'nt'ha` multicomponent @(AT) @t @tt @ll `yio'yio'yio` unlabel @(AR)
 
 happen :: forall tt t ll i .
  Unlabelable (AR) (t `L` tt `T` ll) =>
  Multicomponent (TR) t tt ll =>
  t `L` tt `T` ll `T` i `AR____` tt `T` i `P__` Unlabeled (t `L` tt `T` ll) `T` i
-happen = supertype @(AR) `har` multicomponent @(TR) @t @tt @ll `yio'yio` unlabel @(AR)
+happen = supertype @(AR) `ha'nt'ha` multicomponent @(TR) @t @tt @ll `yio'yio` unlabel @(AR)
+
+{-
+equals :: forall target a i .
+ Category target =>
+ Setoid (AR) a =>
+ (forall e . Contravariant Endo Semi Functor (AR) (T'II'I target e)) =>
+ a `AR___` target a (a `P` a `S` a)
+equals = yai'hjd'eq (fui Unit `compose` fiu Unit)
+-}
+-- Error `ho'ut'st` False `has` Same `ho'ut'st` True
+
+-- x `ryokl` 
