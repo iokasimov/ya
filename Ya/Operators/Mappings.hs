@@ -161,6 +161,16 @@ foikl :: forall source target t tt l ll a o i .
  source a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o) -> target (t a i) (tt (t o i))
 foikl source = fo @target @target supertype `compose` fokl source `compose` subtype @_ @(T'II'I t i _)
 
+fiokl :: forall source target t tt l ll a o i .
+ Covariant Semi Functor source target (T'I'II t i) =>
+ Covariant Endo Semi Functor target tt =>
+ Component target (T'I'II t i `T'TT'I` tt `L` tt `T` ll `L` T'I'II t i `T` l) (T'I'II t i `TT'T'I` tt) =>
+ (forall e . Wrapper target (T'I'II t i `T'TT'I` tt `L` tt `T` ll `L` T'I'II t i `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'II t i `TT'T'I` tt `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ source a (tt `L` tt `T` ll `L` T'I'II t i `T` l `T` o) -> target (t i a) (tt (t i o))
+fiokl source = fo @target @target supertype `compose` fokl source `compose` subtype @_ @(T'I'II t i _)
+
 fukl :: forall target t tt l ll a o .
  Constant Functor (AR) target t =>
  Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
