@@ -87,6 +87,34 @@ fok :: forall source target t tt l a o .
 fok source = component @target @(t `T'TT'I` tt `L` tt `T` l) @t
  `compose` subtype `compose` fo source
 
+fiok :: forall source target t tt l i a o .
+ Component target (T'I'II t i `T'TT'I` tt `L` tt `T` l) (T'I'II t i) =>
+ Covariant Functor source target (T'I'II t i) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ (forall e . Wrapper target (T'I'II t i `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ source a (tt `L` tt `T` l `T` o) -> target (t i a) (t i o)
+fiok source = supertype `compose` component @target @(T'I'II t i `T'TT'I` tt `L` tt `T` l) @(T'I'II t i)
+ `compose` subtype `compose` fo source `compose` subtype
+
+foik :: forall source target t tt l i a o .
+ Component target (T'II'I t i `T'TT'I` tt `L` tt `T` l) (T'II'I t i) =>
+ Covariant Functor source target (T'II'I t i) =>
+ (forall e . Wrapper target (T'II'I t i e)) =>
+ (forall e . Wrapper target (T'II'I t i `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ source a (tt `L` tt `T` l `T` o) -> target (t a i) (t o i)
+foik source = supertype `compose` component @target @(T'II'I t i `T'TT'I` tt `L` tt `T` l) @(T'II'I t i)
+ `compose` subtype `compose` fo source `compose` subtype
+
+{-
+fak :: forall source target t tt l a o .
+ Component target (t `T'TT'I` tt `L` tt `T` l) t =>
+ Contravariant Functor source target t =>
+ (forall e . Wrapper target (t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ source o (tt `L` tt `T` l `T` a) -> target (t a) (t o)
+fak source = component @target @(t `T'TT'I` tt `L` tt `T` l) @t
+ `compose` subtype `compose` fa source
+-}
+
 fuk :: forall target t tt l a o .
  Constant Functor (AR) target t =>
  Component target (t `T'TT'I` tt `L` tt `T` l) t =>
