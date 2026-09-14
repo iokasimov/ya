@@ -142,7 +142,31 @@ kfo :: forall source target t tt ll a o .
 kfo source = fo (supertype `compose` supertype `compose` source `compose` supertype)
  `compose` supertype `compose` component @target @t @(t `T'TT'I` tt `L` tt `T` ll)
 
-kfok :: forall source target t tt ttt l ll lll a o .
+kfio :: forall source target t tt ll i a o .
+ Component target (T'I'II t i) (T'I'II t i `T'TT'I` tt `L` tt `T` ll) =>
+ Covariant Functor source target (T'I'II t i) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper target (T'I'II t i `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'II t i `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ source (tt a) (I `L` tt `T` ll `T` o) -> target (t i a) (t i o)
+kfio source = supertype `compose` fo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` component @target @(T'I'II t i) @(T'I'II t i `T'TT'I` tt `L` tt `T` ll) `compose` subtype
+
+kfoi :: forall source target t tt ll i a o .
+ Component target (T'II'I t i) (T'II'I t i `T'TT'I` tt `L` tt `T` ll) =>
+ Covariant Functor source target (T'II'I t i) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper target (T'II'I t i `T'I_` e)) =>
+ (forall e . Wrapper target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ source (tt a) (I `L` tt `T` ll `T` o) -> target (t a i) (t o i)
+kfoi source = supertype `compose` fo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` component @target @(T'II'I t i) @(T'II'I t i `T'TT'I` tt `L` tt `T` ll) `compose` subtype
+
+kfok :: forall source target t tt ttt ll lll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
  Component target (t `T'TT'I` ttt `L` ttt `T` lll) t =>
  Covariant Functor source target t =>
