@@ -238,6 +238,24 @@ fo'fo :: forall source target t tt a o .
  source a o -> target (t (tt a)) (t (tt o))
 fo'fo source = fo @target @target (fo @source @target source)
 
+fo'fa :: forall source target t tt a o .
+ Contravariant Semi Functor source target tt =>
+ Covariant Endo Semi Functor target t =>
+ source o a -> target (t (tt a)) (t (tt o))
+fo'fa source = fo @target @target (fa @source @target source)
+
+fa'fa :: forall source target t tt a o .
+ Contravariant Semi Functor source target tt =>
+ Contravariant Endo Semi Functor target t =>
+ source a o -> target (t (tt a)) (t (tt o))
+fa'fa source = fa @target @target (fa @source @target source)
+
+fa'fo :: forall source target t tt a o .
+ Covariant Semi Functor source target tt =>
+ Contravariant Endo Semi Functor target t =>
+ source o a -> target (t (tt a)) (t (tt o))
+fa'fo source = fa @target @target (fo @source @target source)
+
 fo'fo'fo :: forall source target t tt h a o .
  Covariant Semi Functor source target h =>
  Covariant Endo Semi Functor target tt =>
