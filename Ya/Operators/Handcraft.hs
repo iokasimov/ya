@@ -2209,22 +2209,6 @@ yair :: forall source target t object i a .
  target (t a i) (source a object)
 yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _)
 
-har, har_, har__, har___, har____, har_____, har______, har_______ :: forall source target t i a .
- Category source =>
- Precategory target =>
- Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- target (t a i) (source a i)
-har = yair @source @target @t @i
-har_ = yair @source @target @t @i
-har__ = yair @source @target @t @i
-har___ = yair @source @target @t @i
-har____ = yair @source @target @t @i
-har_____ = yair @source @target @t @i
-har______ = yair @source @target @t @i
-har_______ = yair @source @target @t @i
-
 yair'st :: forall source target t object i a .
  Category source =>
  Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source object) =>
@@ -2234,23 +2218,6 @@ yair'st :: forall source target t object i a .
  Wrapper source a =>
  target (t (Supertype a) i) (source a object)
 yair'st = fai @source supertype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _)
-
-har'st, har_'st, har__'st, har___'st, har____'st, har_____'st, har______'st, har_______'st :: forall source target t i a .
- Category source =>
- Contravariant Transformation Functor source target (T'II'I t i) (T'II'I source i) =>
- (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- Wrapper source a =>
- target (t (Supertype a) i) (source a i)
-har'st = yair'st @source @target @t @i
-har_'st = yair'st @source @target @t @i
-har__'st = yair'st @source @target @t @i
-har___'st = yair'st @source @target @t @i
-har____'st = yair'st @source @target @t @i
-har_____'st = yair'st @source @target @t @i
-har______'st = yair'st @source @target @t @i
-har_______'st = yair'st @source @target @t @i
 
 st'yair :: forall source target t object r i a .
  Category source =>
