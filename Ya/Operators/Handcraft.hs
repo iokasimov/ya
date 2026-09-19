@@ -389,11 +389,9 @@ infixl 3 `____ryo`
 infixl 2 `_____ryo`
 infixl 1 `______ryo`
 
-infixl 7 `yar`, `yar'st`
 infixl 7 `rya`
 
 infixl 6 `_rya`
-infixl 6 `yar_`
 
 infixl 6 `yiar`, `yiar'st`
 infixl 6 `yair`, `yair'st`, `st'yair`, `bt'yair`, `bt'yair'st`
@@ -2048,24 +2046,6 @@ ha'yioi :: forall source u t o i ii iii a .
  (forall e . Wrapper source (W_III_I_II t iii ii e)) =>
  u (t ii a iii) i -> source o a -> u (t ii o iii) i
 ha'yioi x = fai (fioi @source) (ha @source x)
-
-yar, yar_ :: forall source target t object a .
- Contravariant Transformation Functor source target t (T'II'I source object) =>
- (forall e . Wrapper target (T'II'I source object e)) =>
- target (t a) (source a object)
-yar = supertype `compose` map @T'II'I @T'I'II @source @target @t @(T'II'I source object) identity
-
-yar_ = yar
-
-yar'st, yar_'st :: forall source target t object a .
- Contravariant Transformation Functor source target t (T'II'I source object) =>
- (forall e . Covariant Semi Functor source target (T'I'II source e)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- Wrapper source a =>
- target (t a) (source (Supertype a) object)
-yar'st = fai @source subtype `compose` supertype `compose` map @T'II'I @T'I'II @source @target @t @(T'II'I source object) identity
-
-yar_'st = yar'st @source @target @t @object
 
 yair :: forall source target t object i a .
  Category source =>
