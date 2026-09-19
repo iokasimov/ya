@@ -387,7 +387,6 @@ infixl 2 `eq______`
 infixl 1 `eq_______`
 infixl 0 `eq________`
 
-infixl 7 `yor`, `yor'st`
 infixl 7 `ryo`
 
 infixl 6 `ryok`
@@ -400,7 +399,6 @@ infixl 4 `ryokl_`
 infixl 3 `ryokl__`
 infixl 2 `ryokl___`
 
-infixl 6 `yor_`
 infixl 6 `_ryo`
 
 infixl 5 `__ryo`

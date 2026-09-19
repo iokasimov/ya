@@ -37,6 +37,7 @@ instance
      (day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `compose` fio @(AR) subtype)
       (These e (subtype ee))
 
+{- Replace `yor` operator
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) t (T'I'II (AR) e)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) e)
@@ -44,6 +45,7 @@ instance
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   This xx -> \r -> source (xx `yor` r)
   That xx -> \r -> source (xx `yor` r)
+-}
 
 instance
  ( forall e ee . Covariant Transformation Functor (AR) (AR) (Covariant Day (AR) (P) (P) t (t `L` t `T` Void) e ee) t
@@ -809,6 +811,7 @@ instance {-# OVERLAPS #-} Covariant Endo Semi Functor (AR) t =>
  mapping = rewrap `identity` \source -> rewrap `identity` \x -> T'I'II (\i -> x `yo` (\x' -> x' `bt'ha'nt'ha` i) `ho` source)
 -}
 
+{- Replace `yor` operator
 instance Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` S'I'II e `L` S'I'II e `T` Recursive)
  (T'I'II (T'I'TT'II'I (AR) (P)) i) where
@@ -816,6 +819,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
   x `yok_` Label @_ @_ @Void
     `ha__` constant @(AR) (map @T'I'II @T'I'II source (T'TT'I x))
       `bt'has` (\x' -> Only `ho'ut` x' `ryo` Enter @(T'I'II (T'I'TT'II'I (AR) (P)) i)) `ha` source
+-}
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (T'I'II (T'I'TT'II'I (AR) (P)) i `T'TT'I` I `L` I `T` Recursive)

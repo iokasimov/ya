@@ -796,6 +796,7 @@ instance {-# OVERLAPS #-}
 pattern Trace :: forall t i . i `AR__` I `L` Along (List (t Unit)) `T` Void `T` i
 pattern Trace x = Label (Alone x)
 
+{-
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) t t
  , Mapping T'I'II T'I'II (AR) (AR) tt tt
@@ -813,6 +814,7 @@ instance
         `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `ha'nt'ha` fu Unit xx `ha__` Scope `ha'nt'ha` within `ha` Fresh)) xxx)))
     )
    ))))))
+-}
 
 pattern Sieve :: forall t i . (t `P'T'I'TT'I` T'II'I (AR) Boolean) i `AR__` (t `P'T'I'TT'I` T'II'I (AR) Boolean) `L` t `T` (Void) `T` i
 pattern Sieve x = Label x
