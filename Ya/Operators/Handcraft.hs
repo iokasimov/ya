@@ -393,10 +393,6 @@ infixl 7 `rya`
 
 infixl 6 `_rya`
 
-infixl 6 `yiar`, `yiar'st`
-infixl 6 `yair`, `yair'st`, `st'yair`, `bt'yair`, `bt'yair'st`
-infixl 6 `yaar`, `yaar'st`
-
 infixl 6 `ryio`
 infixl 6 `ryoi`
 infixl 6 `ryoo`
@@ -2076,24 +2072,6 @@ st'yair :: forall source target t object r i a .
  (Supertype r ~ t a i) =>
  target r (source a object)
 st'yair = supertype `compose` map @T'II'I @T'I'II @source @target @(T'II'I t _) @(T'II'I source object) identity `compose` subtype @target @(T'II'I t _ _) `compose` supertype
-
-st'har, st'har_, st'har__, st'har___, st'har____, st'har_____, st'har______, st'har_______ :: forall source target t r i a .
- Category source =>
- Precategory target =>
- Contravariant Mapping T'I'II source target (T'II'I t i) (T'II'I source i) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'II'I t e ee)) =>
- Covariant Elicitable target r =>
- (Supertype r ~ t a i) =>
- target r (source a i)
-st'har = st'yair @source @target @t @i
-st'har_ = st'yair @source @target @t @i
-st'har__ = st'yair @source @target @t @i
-st'har___ = st'yair @source @target @t @i
-st'har____ = st'yair @source @target @t @i
-st'har_____ = st'yair @source @target @t @i
-st'har______ = st'yair @source @target @t @i
-st'har_______ = st'yair @source @target @t @i
 
 bt'yair :: forall source target t object r i a .
  Category source =>
