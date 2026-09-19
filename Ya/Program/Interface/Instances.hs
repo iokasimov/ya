@@ -23,6 +23,13 @@ instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Mayb
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
    `hjd_'tb` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
 
+{-
+instance Mapping T'I'II T'I'II (AR) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
+   `hjd_` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
+-}
+
 instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
@@ -771,6 +778,7 @@ pattern Align i = Label i
 pattern Cross :: t i -> t `L` t `T` (Void `P` Void) `T` i
 pattern Cross i = Label i
 
+{-
 instance {-# OVERLAPS #-}
  ( Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) i) List
  , Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) ii) List
@@ -779,8 +787,9 @@ instance {-# OVERLAPS #-}
   (source `ha` f `ha` This `ryo` Enter @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'ha'nt___'ha` Null `ho'vt` Unit `ryo` Enter @List) `yior` Unit
    `hjd____'tb` source `ha` f `ha` That `ryo` Enter @List
+-}
 
-
+{-
 instance {-# OVERLAPS #-}
  ( Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) i) List
  , Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) ii) List
@@ -792,6 +801,7 @@ instance {-# OVERLAPS #-}
     `bt'ha'nt___'ha` Null `ho'vt` Unit `ryo` Enter @List)
         `yior` Unit
    `hjd___'tb` source `ha` f `ha` That `ryo` Enter @List
+-}
 
 pattern Trace :: forall t i . i `AR__` I `L` Along (List (t Unit)) `T` Void `T` i
 pattern Trace x = Label (Alone x)
