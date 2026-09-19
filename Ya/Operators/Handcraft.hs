@@ -389,7 +389,6 @@ infixl 3 `____ryo`
 infixl 2 `_____ryo`
 infixl 1 `______ryo`
 
-infixl 6 `yior`, `yior'st`
 infixl 6 `yoir`, `yoir'st`
 infixl 6 `yoor`, `yoor'st`
 
@@ -2052,26 +2051,6 @@ ha'yioi :: forall source u t o i ii iii a .
  (forall e . Wrapper source (W_III_I_II t iii ii e)) =>
  u (t ii a iii) i -> source o a -> u (t ii o iii) i
 ha'yioi x = fai (fioi @source) (ha @source x)
-
-yior :: forall source target t object i o .
- Category source =>
- Precategory target =>
- Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source object) =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'I'II t e ee)) =>
- target (t i o) (source object o)
-yior = supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source object) identity `compose` subtype @target @(T'I'II t _ _)
-
-yior'st :: forall source target t object i o .
- Category source =>
- Covariant Mapping T'I'II source target (T'I'II t i) (T'I'II source (Supertype object)) =>
- (forall e . Contravariant Semi Functor source target (T'II'I source e)) =>
- (forall e ee . Wrapper target (T'I'II source e ee)) =>
- (forall e ee . Wrapper target (T'II'I source e ee)) =>
- (forall e ee . Wrapper target (T'I'II t e ee)) =>
- Wrapper source object =>
- target (t i o) (source object o)
-yior'st = fai @source supertype `compose` supertype `compose` map @T'I'II @T'I'II @source @target @(T'I'II t _) @(T'I'II source (Supertype object)) identity `compose` subtype @target @(T'I'II t _ _)
 
 yoir :: forall source target t object i o .
  Covariant Transformation Functor source target (T'II'I t i) (T'I'II source object) =>
