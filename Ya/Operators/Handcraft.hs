@@ -377,38 +377,6 @@ infixl 2 `eq______`
 infixl 1 `eq_______`
 infixl 0 `eq________`
 
-infixl 7 `ryo`
-
-infixl 6 `ryok`
-infixl 5 `ryok_`
-infixl 4 `ryok__`
-infixl 3 `ryok___`
-
-infixl 5 `ryokl`
-infixl 4 `ryokl_`
-infixl 3 `ryokl__`
-infixl 2 `ryokl___`
-
-infixl 6 `_ryo`
-
-infixl 5 `__ryo`
-infixl 4 `___ryo`
-infixl 3 `____ryo`
-infixl 2 `_____ryo`
-infixl 1 `______ryo`
-
-infixl 7 `rya`
-
-infixl 6 `_rya`
-
-infixl 6 `ryio`
-infixl 6 `ryoi`
-infixl 6 `ryoo`
-
-infixl 5 `_ryio`
-infixl 5 `_ryoi`
-infixl 5 `_ryoo`
-
 yi, yi_, yi__, yi___, yi____, yi_____, yi______, yi_______
  :: forall source target t a o .
  Covariant Yoneda Functor source target I =>
