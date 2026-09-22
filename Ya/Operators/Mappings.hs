@@ -344,3 +344,23 @@ dc'yi = fio @(AR) @(AR)
 
  -- target (u (t i) (tt `L` tt `T` l `T` ii)) (t (uu i ii))
  -- `compose` suptype @target @(Day v source u uu t (tt `L` tt `T` l) i ii a) `compose` ()
+
+fo'dc'fo'nt'fo :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
+ Covariant Limit target target =>
+ (forall e . Covariant Functor source target ttt) =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II target e)) =>
+ (forall e ee . Component target (Covariant Day source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) ttt) =>
+ (forall e . Covariant Functor target target (T'I'II Product e)) =>
+ (forall e . Covariant Functor target target (T'II'I Product e)) =>
+ (forall e ee . Wrapper target (T'I'II Product e ee)) =>
+ (forall e ee . Wrapper target (T'II'I Product e ee)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee eee)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `T` eee)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` eee)) =>
+ (forall e . Wrapper target (I e)) =>
+ source (ttttt a aa) o `AR____` target (tttt (t a) (tt aa)) (ttt o)
+fo'dc'fo'nt'fo source = map @T'I'II @T'I'II @source @target source
+ `compose` component @target @(Day T'I'II source tttt ttttt t tt a aa `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
+ `compose` subtype `compose` subtype `compose` subtype `compose` (identity `hop` identity `ho'ut` subtype identity)
+
