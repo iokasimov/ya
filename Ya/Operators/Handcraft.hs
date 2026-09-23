@@ -3919,3 +3919,49 @@ bt'ha'nt___'ha'st = bt'ha'nt'ha'st
 bt'ha'nt____'ha'st = bt'ha'nt'ha'st
 bt'ha'nt_____'ha'st = bt'ha'nt'ha'st
 bt'ha'nt______'ha'st = bt'ha'nt'ha'st
+
+infixl 6 `fo'dc'fo'nt'fo`, `fa'dc'fa'nt'fa`
+
+fo'dc'fo'nt'fo :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
+ Covariant Limit target target =>
+ (forall e . Covariant Semi Functor source target ttt) =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II target e)) =>
+ (forall e ee . Component target (Covariant Day source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) ttt) =>
+ (forall e . Covariant Functor target target (T'I'II Product e)) =>
+ (forall e . Covariant Functor target target (T'II'I Product e)) =>
+ (forall e ee . Wrapper target (T'I'II Product e ee)) =>
+ (forall e ee . Wrapper target (T'II'I Product e ee)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee eee)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `T` eee)) =>
+ (forall e ee eee . Wrapper target (Day T'I'II source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` eee)) =>
+ (forall e . Wrapper target (I e)) => -- TODO: should be removed after replacing `hop` with `ho'dc'ho'nt'ho`
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `T` e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` e)) =>
+ source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o) `AR____` target (tttt (t a) (tt aa)) (ttt o)
+fo'dc'fo'nt'fo source = component @target @(Day T'I'II source tttt ttttt t tt a aa `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
+ `compose` subtype `compose` subtype `compose` subtype
+ `compose` (identity `hop` (identity `ho'ut` subtype (fio (supertype `compose` supertype `compose` supertype @source) source)))
+
+fa'dc'fa'nt'fa :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
+ Covariant Limit target target =>
+ (forall e . Contravariant Semi Functor source target ttt) =>
+ (forall e . Covariant Endo Semi Functor (AR) (T'I'II target e)) =>
+ (forall e ee . Component target (Contravariant Day source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) ttt) =>
+ (forall e . Covariant Functor target target (T'I'II Product e)) =>
+ (forall e . Covariant Functor target target (T'II'I Product e)) =>
+ (forall e ee . Wrapper target (T'I'II Product e ee)) =>
+ (forall e ee . Wrapper target (T'II'I Product e ee)) =>
+ (forall e . Wrapper target (T'I'I Product e)) =>
+ (forall e ee eee . Wrapper target (Contravariant Day source tttt ttttt t tt e ee eee)) =>
+ (forall e ee eee . Wrapper target (Contravariant Day source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `T` eee)) =>
+ (forall e ee eee . Wrapper target (Contravariant Day source tttt ttttt t tt e ee `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` eee)) =>
+ (forall e . Wrapper target (I e)) => -- TODO: should be removed after replacing `hop` with `ho'dc'ho'nt'ho`?
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `T` e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` e)) =>
+ source (o) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` ttttt a aa) `AR____` target (tttt (t a) (tt aa)) (ttt o)
+fa'dc'fa'nt'fa source = component @target @(Day T'II'I source tttt ttttt t tt a aa `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
+ `compose` subtype `compose` subtype `compose` subtype
+ `compose` (identity `hop` (identity `ho'ut` subtype (fio (supertype `compose` supertype `compose` supertype @source) source)))
