@@ -3777,6 +3777,27 @@ yo'nt__'ho = yo'nt'ho
 yo'nt___'ho = yo'nt'ho
 yo'nt____'ho = yo'nt'ho
 
+yo'nt'ho'st, yo'nt_'ho'st, yo'nt__'ho'st, yo'nt___'ho'st, yo'nt____'ho'st
+ :: forall target t tt ii a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor target target t =>
+ Covariant Endo Semi Functor target (T'I'II tt ii) =>
+ Component target (t `L` T'I'II tt ii `T` (Void)) (T'I'II tt ii) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II tt e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (I `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ (forall e . Wrapper target (t `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ Contravariant Elicitable target o =>
+ target (t (Supertype o)) (tt ii o)
+yo'nt'ho'st = fio @target @target subtype `compose` supertype `compose` component @target @(t `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii) `compose` subtype @target
+
+yo'nt_'ho'st = yo'nt'ho'st
+yo'nt__'ho'st = yo'nt'ho'st
+yo'nt___'ho'st = yo'nt'ho'st
+yo'nt____'ho'st = yo'nt'ho'st
+
 ya'nt'ha, ya'nt_'ha, ya'nt__'ha, ya'nt___'ha, ya'nt____'ha
  :: forall target t tt ii a o .
  Hom Functor target =>
@@ -3795,6 +3816,27 @@ ya'nt_'ha = ya'nt'ha
 ya'nt__'ha = ya'nt'ha
 ya'nt___'ha = ya'nt'ha
 ya'nt____'ha = ya'nt'ha
+
+ya'nt'ha'st, ya'nt_'ha'st, ya'nt__'ha'st, ya'nt___'ha'st, ya'nt____'ha'st
+ :: forall target t tt ii a o .
+ Hom Functor target =>
+ Contravariant Yoneda Functor target target t =>
+ Contravariant Endo Semi Functor target (T'II'I tt ii) =>
+ Component target (t `L` T'II'I tt ii `T` (Void)) (T'II'I tt ii) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I tt e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (I `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ (forall e . Wrapper target (t `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ Covariant Elicitable target a =>
+ target (t (Supertype a)) (tt a ii)
+ya'nt'ha'st = fai @target @target supertype `compose` supertype `compose` component @target @(t `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii) `compose` subtype @target
+
+ya'nt_'ha'st = ya'nt'ha'st
+ya'nt__'ha'st = ya'nt'ha'st
+ya'nt___'ha'st = ya'nt'ha'st
+ya'nt____'ha'st = ya'nt'ha'st
 
 infixl 8 `ho'nt'ho`, `ho'nt'ho'st`
 infixl 7 `ho'nt_'ho`, `ho'nt_'ho'st`
