@@ -3752,6 +3752,50 @@ ha'nt___'ya = yai'nt'ya
 ha'nt____'ya = yai'nt'ya
 ha'nt_____'ya = yai'nt'ya
 
+infixl 7 `yo'nt'ho`, `ya'nt'ha`
+infixl 6 `yo'nt_'ho`, `ya'nt_'ha`
+infixl 5 `yo'nt__'ho`, `ya'nt__'ha`
+infixl 4 `yo'nt___'ho`, `ya'nt___'ha`
+infixl 3 `yo'nt____'ho`, `ya'nt____'ha`
+
+yo'nt'ho, yo'nt_'ho, yo'nt__'ho, yo'nt___'ho, yo'nt____'ho
+ :: forall target t tt ii a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor target target t =>
+ Component target (t `L` T'I'II tt ii `T` (Void)) (T'I'II tt ii) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II tt e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (I `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ (forall e . Wrapper target (t `L` T'I'II tt ii `T` (Void) `T` e)) =>
+ target (t o) (tt ii o)
+yo'nt'ho = supertype `compose` component @target @(t `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii) `compose` subtype @target
+
+yo'nt_'ho = yo'nt'ho
+yo'nt__'ho = yo'nt'ho
+yo'nt___'ho = yo'nt'ho
+yo'nt____'ho = yo'nt'ho
+
+ya'nt'ha, ya'nt_'ha, ya'nt__'ha, ya'nt___'ha, ya'nt____'ha
+ :: forall target t tt ii a o .
+ Hom Functor target =>
+ Contravariant Yoneda Functor target target t =>
+ Component target (t `L` T'II'I tt ii `T` (Void)) (T'II'I tt ii) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I tt e ee)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper target (I `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ (forall e . Wrapper target (t `L` T'II'I tt ii `T` (Void) `T` e)) =>
+ target (t a) (tt a ii)
+ya'nt'ha = supertype `compose` component @target @(t `L` T'II'I tt ii `T` (Void)) @(T'II'I tt ii) `compose` subtype @target
+
+ya'nt_'ha = ya'nt'ha
+ya'nt__'ha = ya'nt'ha
+ya'nt___'ha = ya'nt'ha
+ya'nt____'ha = ya'nt'ha
+
 infixl 8 `ho'nt'ho`, `ho'nt'ho'st`
 infixl 7 `ho'nt_'ho`, `ho'nt_'ho'st`
 infixl 6 `ho'nt__'ho`, `ho'nt__'ho'st`
