@@ -3829,9 +3829,9 @@ ho'nt'ho'st, ho'nt_'ho'st, ho'nt__'ho'st, ho'nt___'ho'st, ho'nt____'ho'st, ho'nt
  (forall e ee . Wrapper target (T'I'II t e ee)) =>
  (forall e ee . Wrapper target (T'I'II tt e ee)) =>
  (forall e ee . Wrapper target (T'I'II t ee `L` T'I'II tt ii `T` (Void) `T` e)) =>
- Covariant Elicitable target o =>
- target (t i o) (tt ii (Supertype o))
-ho'nt'ho'st = fio @target @target supertype `compose` (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
+ Contravariant Elicitable target o =>
+ target (t i (Supertype o)) (tt ii o)
+ho'nt'ho'st = fio @target @target subtype `compose` (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` (Void)) @(T'I'II tt ii))) `compose` subtype
 
 ho'nt_'ho'st = ho'nt'ho'st
 ho'nt__'ho'st = ho'nt'ho'st
