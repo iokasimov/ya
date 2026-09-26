@@ -370,7 +370,7 @@ instance Terminal (AR) where
 instance Terminal (AT) where
  terminal = T'I'TT'II'T'II'I (\x -> These Unit (\_ -> x))
 
-type Day = U_V_UU_UUU_UUUU_T'TT'I_II_III P
+type Day = TTTTT'V'M'T'TT'TTT'TTTT'I'II'III P
 
 class
  ( Covariant x target source t
