@@ -4008,6 +4008,30 @@ bt'ha'nt______'ha'st = bt'ha'nt'ha'st
 
 infixl 6 `fo'dc'fo'nt'fo`, `fa'dc'fa'nt'fa`
 
+fo'dc'fo'nt'fo :: forall source target a aa o t tt ttt tttt ttttt lll lllll .
+ Hom Functor source =>
+ Hom Functor target =>
+ (forall e . Component (AR) (I `L` (T'I'II target e `T'TT'I` T'II'I (P) e) `T` (Void)) (T'I'II target e `T'TT'I` T'II'I (P) e)) =>
+ (forall e ee . Component target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) ttt) =>
+ (forall e ee . Wrapper target (T'I' (tttt (t e) (tt ee)) o)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `T` e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` e)) =>
+ (forall e ee eee . Wrapper target (T'II'I (P) (T'I' (tttt (t e) (tt ee)) o) (T'I'II source (ttttt e ee) o))) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) eee)) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `T` eee)) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` eee)) =>
+ source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o) `AR____` target (tttt (t a) (tt aa)) (ttt o)
+fo'dc'fo'nt'fo source = component @target @((T'I'II source (ttttt a aa) `P'T'I'TT'I` T'I' (tttt (t a) (tt aa))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
+ `compose` subtype `compose` subtype
+ `compose` subtype @target @((T'I'II source (ttttt a aa) `P'T'I'TT'I` T'I' (tttt (t a) (tt aa))) _)
+ `compose` supertype `compose` (wrapped `compose` wrapped)
+  (component @(AR) @(I `L` (T'I'II target ((T'I' (tttt (t a) (tt aa)) o)) `T'TT'I` T'II'I (P) ((T'I' (tttt (t a) (tt aa)) o))) `T` (Void))
+   @(T'I'II target (T'I' (tttt (t a) (tt aa)) o) `T'TT'I` T'II'I (P) (T'I' (tttt (t a) (tt aa)) o)))
+  (T'I'II (supertype @source `compose` supertype `compose` supertype `fio` source))
+ `compose` subtype @target @(T'I' (tttt (t a) (tt aa)) o)
+
+{-
 fo'dc'fo'nt'fo :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
  Covariant Limit target target =>
  (forall e . Covariant Semi Functor source target ttt) =>
@@ -4029,6 +4053,7 @@ fo'dc'fo'nt'fo :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
 fo'dc'fo'nt'fo source = component @target @(Day T'I'II source tttt ttttt t tt a aa `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
  `compose` subtype `compose` subtype `compose` subtype
  `compose` (identity `hop` (identity `ho'ut` subtype (fio (supertype `compose` supertype `compose` supertype @source) source)))
+-}
 
 fa'dc'fa'nt'fa :: forall source target a aa o t tt ttt tttt ttttt l lll lllll .
  Covariant Limit target target =>
