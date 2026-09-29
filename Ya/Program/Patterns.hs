@@ -235,7 +235,7 @@ pattern Swap :: forall ii i . ii `AR_` i `AR` i `P` ii
 pattern Swap xx x = These x xx
 
 pattern Push :: forall ii i . ii `AR_` Maybe i `AR` Maybe i `P` Maybe ii
-pattern Push xx x = These x (Exist xx)
+pattern Push xx x = These x (T'I'II (That xx))
 
 -- pattern Skip :: forall ii i . ii `AR_` Maybe i `AR` Maybe i `P` Maybe ii
 -- pattern Skip xx x = These x (Empty Unit)
