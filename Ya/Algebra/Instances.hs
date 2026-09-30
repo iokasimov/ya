@@ -6,10 +6,6 @@ module Ya.Algebra.Instances where
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
 
-instance Mapping T'I'II T'I'II AR target t tt
- => Mapping T''II T'I'II AR target t tt where
-  mapping = rewrap `identity`(map @T'I'II @T'I'II @AR @target `compose` constant)
-
 instance
  ( Covariant Semi Functor source target t
  , forall e . Wrapper target (t `L` tt `T` ll `T` e)
