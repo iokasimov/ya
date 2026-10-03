@@ -502,6 +502,14 @@ type Whether = U_T'I'II_UT'I'II Sum Product
 
 type W = Whether
 
+instance Elicitable T'I'II (AR) x
+ => Elicitable T'I'II (T'I'TT'II'I (AR) (P)) x where
+ elicit = T'I'II (T'I'TT'II'I (\x -> These (supertype x) x))
+
+instance Elicitable T'II'I (AR) x
+ => Elicitable T'II'I (T'I'TT'II'I (AR) (P)) x where
+ elicit = T'II'I (T'I'TT'II'I (\x -> These (subtype x) x))
+
 instance Wrapper (AR) x
  => Elicitable T'I'II (T'I'TT'II'T'II'I (AR) (P)) x where
  elicit = T'I'II (T'I'TT'II'T'II'I (\x -> These (supertype x) subtype))
