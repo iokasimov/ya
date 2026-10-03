@@ -400,30 +400,6 @@ class x v T'II'I xx source target u uu l t
 deriving instance Monoidal v T'II'I Functor source target u uu l t
  => Oplax v Monoidal Functor source target u uu l t
 
-day :: forall v source l t tt u uu a o i ii .
- (forall e ee . Mapping v T'I'II source (AR) (Day v source u uu t (tt `L` tt `T` l) e ee) t) =>
- Wrapper (AR) (v source a o) =>
- Wrapper (AR) (v source (uu i ii) a) =>
- Supertype (v source a o)
-  -> Supertype (v source (uu i ii) a)
-  -> u (t i) (tt `L` tt `T` l `T'I` ii) -> t o
-day source t x = map @v @T'I'II @source @(AR)
- @(Day v source u uu t (tt `L` tt `T` l) i ii) @t source
- (subtype (These x (subtype @_ @(v source (uu i ii) a) t)))
-
-day' :: forall v source target l t tt u uu a o i ii .
- (Mapping v T'I'II source target (Day v source u uu t (tt `L` tt `T` l) i ii) t) =>
- Wrapper (AR) (v source a o) =>
- Wrapper (AR) (v source (uu i ii) a) =>
- Supertype (v source a o) `AR___` target (Day v source u uu t (tt `L` tt `T` l) i ii a) (t o)
-day' source = map @v @T'I'II @source @target @(Day v source u uu t (tt `L` tt `T` l) i ii) @t @a @o source
-
-instance Mapping T'I'II T'I'II (AR) (AR)
- (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
- (Day T'I'II (AR) u uu t (tt `L` tt `T` l) e ee)
-
--- TODO: coday -- Oplax Monoidal Functor
-
 -- TODO: replace with `st'ts`?
 rewrap :: forall target a o .
  Precategory target =>
