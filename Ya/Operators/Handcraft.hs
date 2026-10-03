@@ -233,13 +233,13 @@ infixl 5 `hdj___`
 infixl 4 `hdj____`
 -}
 
-infixl 8 `hop`, `hop'tb`, `hop'dcpp`, `hop'dcps`, `hop'eq` --, `hop'dcps'has`, `hop'dcpp'yo'eq`, `hop'hjd`, `hjd'dcps'has`
-infixl 7 `hop_`, `hop_'tb`, `hop_'dcpp`, `hop_'dcps`, `hop_'eq` --, `hop_'dcps'has`, `hop_'dcpp'yo'eq`, `hjd_'dcps'has`
-infixl 6 `hop__`, `hop__'tb`, `hop__'dcpp`, `hop__'dcps`, `hop__'eq` --, `hop__'dcps'has`, `hop__'dcpp'yo'eq`, `hjd__'dcps'has`
-infixl 5 `hop___`, `hop___'tb`, `hop___'dcpp`, `hop___'dcps`, `hop___'eq` --, `hop___'dcps'has`, `hop___'dcpp'yo'eq`, `hjd____'dcps'has`
-infixl 4 `hop____`, `hop____'tb`, `hop____'dcpp`, `hop____'dcps`, `hop____'eq` --, `hop____'dcps'has`, `hop____'dcpp'yo'eq`, `hjd_____'dcps'has`
-infixl 3 `hop_____`, `hop_____'tb`, `hop_____'dcpp`, `hop_____'dcps`, `hop_____'eq` --, `hop_____'dcps'has`, `hop_____'dcpp'yo'eq`, `hjd______'dcps'has`
-infixl 2 `hop______`, `hop______'tb`, `hop______'dcpp`, `hop______'dcps`, `hop______'eq` --, `hop______'dcps'has`, `hop______'dcpp'yo'eq`,  `hjd_______'dcps'has`
+infixl 8 `hop`, `hop'tb`, `hop'eq` --, `hop'dcpp`, `hop'dcps`, `hop'dcps'has`, `hop'dcpp'yo'eq`, `hop'hjd`, `hjd'dcps'has`
+infixl 7 `hop_`, `hop_'tb`, `hop_'eq` --, `hop_'dcpp`, `hop_'dcps`, `hop_'dcps'has`, `hop_'dcpp'yo'eq`, `hjd_'dcps'has`
+infixl 6 `hop__`, `hop__'tb`, `hop__'eq` --, `hop__'dcpp`, `hop__'dcps`, `hop__'dcps'has`, `hop__'dcpp'yo'eq`, `hjd__'dcps'has`
+infixl 5 `hop___`, `hop___'tb`, `hop___'eq` --, `hop___'dcpp`, `hop___'dcps`, `hop___'dcps'has`, `hop___'dcpp'yo'eq`, `hjd____'dcps'has`
+infixl 4 `hop____`, `hop____'tb`, `hop____'eq` --, `hop____'dcpp`, `hop____'dcps`, `hop____'dcps'has`, `hop____'dcpp'yo'eq`, `hjd_____'dcps'has`
+infixl 3 `hop_____`, `hop_____'tb`, `hop_____'eq` --, `hop_____'dcpp`, `hop_____'dcps`, `hop_____'dcps'has`, `hop_____'dcpp'yo'eq`, `hjd______'dcps'has`
+infixl 2 `hop______`, `hop______'tb`, `hop______'eq` --, `hop______'dcpp`, `hop______'dcps`, `hop______'dcps'has`, `hop______'dcpp'yo'eq`,  `hjd_______'dcps'has`
 
 -- infixl 5 `hop__`, `hop__'tb`, `hop__'dcpp`, `hop__'dcpp'yo'eq`, `hop__'dcps`, `hop__'dcps'has`, `hop__'eq`, `hjd___'dcps'has`
 
@@ -2216,28 +2216,6 @@ hop'hjd :: forall target a aa o oo .
 hop'hjd l r = hop
  (l `compose` (wrapped (left @T'I'II @target identity)))
  (r `compose` (wrapped (right @T'I'II @target identity)))
-
-hop'dcpp, hop_'dcpp, hop__'dcpp, hop___'dcpp, hop____'dcpp, hop_____'dcpp, hop______'dcpp
- :: forall target t tt l a o oo .
- Covariant Limit target target =>
- (forall e . Covariant Endo Semi Functor (AR) (T'I'II target e)) =>
- (forall e . Covariant Functor target target (T'I'II Product e)) =>
- (forall e . Covariant Functor target target (T'II'I Product e)) =>
- (forall e ee . Covariant Endo Transformation Functor target (Covariant Day target (P) (P) t (tt `L` tt `T` l) e ee) t) =>
- (forall e ee . Wrapper target (T'I'II Product e ee)) =>
- (forall e ee . Wrapper target (T'II'I Product e ee)) =>
- (forall e . Wrapper target (T'I'I Product e)) =>
- (forall e ee eee . Wrapper target (Day T'I'II target (P) (P) t (tt `L` tt `T` l) e ee eee)) =>
- (forall e . Wrapper target (I e)) =>
- target a (t o) -> target a ((tt `L` tt `T` l) oo) -> target a (t (Product o oo))
-hop'dcpp l r = dcpp `compose` hop @target @(t o `P` (tt `L` tt `T` l) oo) l r
-
-hop_'dcpp = hop'dcpp
-hop__'dcpp = hop'dcpp
-hop___'dcpp = hop'dcpp
-hop____'dcpp = hop'dcpp
-hop_____'dcpp = hop'dcpp
-hop______'dcpp = hop'dcpp
 
 {-
 hop'dcpp'yo'eq, hop_'dcpp'yo'eq, hop__'dcpp'yo'eq, hop___'dcpp'yo'eq, hop____'dcpp'yo'eq, hop_____'dcpp'yo'eq, hop______'dcpp'yo'eq
