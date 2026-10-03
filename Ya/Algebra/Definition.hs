@@ -160,9 +160,6 @@ type C'TR_____ t tt = C'TR t tt
 type C'TR______ t tt = C'TR t tt
 type C'TR_______ t tt = C'TR t tt
 
-instance {-# OVERLAPPABLE #-} (Category target, Mapping T'I'II T'I'II target target t tt) => Component target t tt where
- component = map @T'I'II @T'I'II @target @target identity
-
 {- [LAW] Associativity: compose f (compose g) ≡ compose (compose f g) -}
 class
  ( forall e . Mapping T'I'II T'I'II source Arrow (T'I'II source e) (T'I'II source e)
@@ -498,7 +495,7 @@ constant = supertype @_ @(T'I'II source a _) `compose` component @target `compos
 itself :: Category AR_ => e `AR_` e
 itself = identity
 
-type Whether = U_T'I'II_UT'I'II Sum Product
+type Whether = T'T'I'II'TT'I'II Sum Product
 
 type W = Whether
 
