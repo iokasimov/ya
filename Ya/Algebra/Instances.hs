@@ -12,6 +12,16 @@ instance
  ) => Mapping T'I'II T'I'II source target (t `L` tt `T` ll) (t `L` tt `T` ll) where
  mapping = rewrap `identity` (rewrap `compose` map @T'I'II @T'I'II @source @target @t @t)
 
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) (T'I'II (AR) i) where
+ mapping (T'I'II g) = T'I'II `identity` \(T'I'II f) -> T'I'II (\x -> g (f x))
+
+instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AR) i) (T'II'I (AR) i) where
+ mapping (T'II'I g) = T'I'II `identity` \(T'II'I f) -> T'II'I (\x -> f (g x))
+
+instance Category (AR) where
+ identity = \x -> x
+
+{-
 instance
  ( Covariant Semi Functor source target t
  , forall e . Wrapper target (t `L` t `T` l `T` e)
@@ -424,15 +434,6 @@ instance
   `compose` map @T'I'II @T'I'II @source @target @(T'II'I u _ `T'TT'I` t) @(T'II'I u _ `T'TT'I` t)
    (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT (T'II'I u) t) @(F'T'I'TT (T'II'I u) t) source))
   )
-
-instance {-# OVERLAPPABLE #-} Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) a) (T'I'II (AR) a) where
- mapping (T'I'II source) = T'I'II `identity` \(T'I'II between) -> T'I'II (\x -> source (between x))
-
-instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AR) o) (T'II'I (AR) o) where
- mapping (T'II'I source) = T'I'II `identity` \(T'II'I between) -> T'II'I (\x -> between (source x))
-
-instance Category (AR) where
- identity = \x -> x
 
 instance Mapping T'I'II T'I'II (AR) target t tt
  => Mapping U_1_I T'I'II (AR) target t tt where
