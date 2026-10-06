@@ -25,6 +25,12 @@ instance (Precategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II T'I'II target target I I where
  mapping = rewrap rewrap
 
+instance Component (AR) (T'I'II (AR) Unit `L` I `T` (Void)) I where
+ component = rewrap (\(T'I'II f) -> f Unit)
+
+instance Component (AR) (I `L` T'I'II (AR) Unit `T` (Void)) (T'I'II (AR) Unit) where
+ component = rewrap (\(Identity x) -> (\_ -> x))
+
 instance
  ( Precategory target
  , forall e . Wrapper target (I e)
