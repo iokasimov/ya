@@ -33,12 +33,21 @@ instance Component (AR) (I `L` T'I'II (AR) Unit `T` (Void)) (T'I'II (AR) Unit) w
 
 instance
  ( Precategory target
- , forall e . Wrapper target (I e)
- , forall e . Wrapper target (I `L` I `T` Void `T` e)
- , forall e . Wrapper target (I `T'TT'I` I `L` I `T` Void `T'I_` e)
- ) => Mapping T'I'II T'I'II target target I (T'TT'I I (T (L I I) Void)) where
- mapping = rewrap `identity` \source -> rewrap (subtype @target @(I _) `compose` subtype @target @(I `L` I `T` Void `T` _) `compose` subtype @target @(I _) `compose` source)
+ , forall e . Wrapper target (I `T` e)
+ , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
+ , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
+ ) => Component target (I `T'TT'I` I `L` I `T` (Void)) I where
+ component = rewrap (supertype `compose` supertype `compose` supertype)
 
+instance
+ ( Precategory target
+ , forall e . Wrapper target (I `T` e)
+ , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
+ , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
+ ) => Component target I (I `T'TT'I` I `L` I `T` (Void)) where
+ component = rewrap (subtype `compose` subtype `compose` subtype)
+
+-- TODO: `Match` doesn't fit here
 instance
  ( forall e . Wrapper target (I e)
  , forall e . Wrapper target (t `L` t `T` l `L` I `T` ll `T` e)
