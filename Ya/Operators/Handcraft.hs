@@ -3992,3 +3992,43 @@ ha'dc'ha'nt'ha = fio
  `compose` supertype @target @(T'II'I (P) (t aa i) (T'II'I t i a)))
  `compose` (wrapped `compose` wrapped) (component @target @(I `L` (T'I'II target (t aa i) `T'TT'I` T'II'I (P) (t aa i)) `T` (Void)) @(T'I'II target (t aa i) `T'TT'I` T'II'I (P) (t aa i)))
  `compose` subtype @target @(T'II'I t i a)
+
+infixl 4 `yo'dc'yo'nt'yo`
+
+yo'dc'yo'nt'yo :: forall source target a aa o t tt ttt tttt ttttt lll lllll .
+ Hom Functor source =>
+ Hom Functor target =>
+ (forall e . Covariant Endo Semi Functor target (T'II'I (P) e)) =>
+ (forall e . Covariant Endo Semi Functor target (T'I'II source e)) =>
+ (forall e . Component target (I
+  `L` (T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o))) `T` (Void))
+  (T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)))) =>
+ (forall e ee . Component target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) ttt) =>
+ (forall e ee . Wrapper target (T'I' (tttt (t e) (tt ee)) o)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper target (I e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `T` e)) =>
+ (forall e . Wrapper target (I `L` T'I'I ttttt `T` lllll `T` e)) =>
+ (forall e . Wrapper source (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper target (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper target (T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) e)) =>
+ (forall e . Wrapper target (T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) e)) =>
+ (Wrapper target (T'I'II (P) (T'I' (tttt (t a) (tt aa)) o) (T'I'II source (ttttt a aa) o))) =>
+ (forall e . Wrapper target (I `L` (T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o))) `T` (Void) `T` e)) =>
+ (forall e . Wrapper target ((T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o))) e)) =>
+ (forall e . Wrapper target (T'II'I (P) (T'I' (tttt (t a) (tt aa)) o) e)) =>
+ (forall e . Wrapper target (T'I'II source (ttttt a aa) e)) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) eee)) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `T` eee)) =>
+ (forall e ee eee . Wrapper target ((T'I'II source (ttttt e ee) `P'T'I'TT'I` T'I' (tttt (t e) (tt ee))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` eee)) =>
+ target (tttt (t a) (tt aa)) (target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) (ttt o))
+yo'dc'yo'nt'yo = fio @target
+  (component @target @((T'I'II source (ttttt a aa) `P'T'I'TT'I` T'I' (tttt (t a) (tt aa))) `L` T'I'I ttttt `T` lllll `L` ttt `T` lll) @ttt
+  `compose` subtype `compose` subtype `compose` subtype
+  `compose` foi @target (subtype)
+  `compose` (foi @target `compose` fio @target) (supertype `compose` supertype `compose` supertype)
+  `compose` supertype)
+ `compose` (wrapped `compose` wrapped) (component @target
+  @(I `L` (T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o))) `T` (Void))
+  @(T'I'II target (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o)) `T'TT'I` T'I'II (P) (source (ttttt a aa) (I `L` T'I'I ttttt `T` lllll `L` ttt `T` lll `T` o))))
+ `compose` subtype @target @(T'I' (tttt (t a) (tt aa)) o)
