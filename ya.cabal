@@ -23,6 +23,7 @@ library
     Ya.Algebra.Effectful
     Ya.Algebra.Instances
     Ya.Algebra.Mappings
+    Ya.Algebra.Components
     Ya.Operators.Mappings
     Ya.Operators.Handcraft
     Ya.Operators.Generated

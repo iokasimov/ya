@@ -8,6 +8,7 @@ import Ya.Algebra.Definition as Exports
 import Ya.Algebra.Effectful as Exports
 import Ya.Algebra.Instances as Exports ()
 import Ya.Algebra.Mappings as Exports ()
+import Ya.Algebra.Components as Exports ()
 
 import Ya.Operators
 
