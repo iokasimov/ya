@@ -5,60 +5,13 @@ module Ya.Algebra.Instances where
 
 import Ya.Algebra.Abstract
 import Ya.Algebra.Definition
-
-instance
- ( Covariant Semi Functor source target t
- , forall e . Wrapper target (t `L` tt `T` ll `T` e)
- ) => Mapping T'I'II T'I'II source target (t `L` tt `T` ll) (t `L` tt `T` ll) where
- mapping = rewrap `identity` (rewrap `compose` map @T'I'II @T'I'II @source @target @t @t)
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i) (T'I'II (AR) i) where
- mapping (T'I'II g) = T'I'II `identity` \(T'I'II f) -> T'I'II (\x -> g (f x))
-
-instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AR) i) (T'II'I (AR) i) where
- mapping (T'II'I g) = T'I'II `identity` \(T'II'I f) -> T'II'I (\x -> f (g x))
-
-instance Category (AR) where
- identity = \x -> x
-
-instance Mapping T'I'II T'I'II (AT) (AR) (T'I'II (AT) i) (T'I'II (AT) i) where
- mapping = rewrap `identity` \target -> rewrap `compose` rewrap `identity` \source x ->
-  let These i i_origin = source x in
-  let These ii ii_i = supertype target i in
-  These ii (i_origin `compose` ii_i)
-
-instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \target x ->
-  let These i i_origin = supertype source x in
-  let These ii ii_i = target i in
-  These ii (i_origin `compose` ii_i)
-
-instance Category (AT) where
- identity = T'I'TT'II'T'II'I `identity` \x -> These x identity
+import Ya.Algebra.Mappings
 
 instance Component (AR) (T'I'II (AT) i) (T'I'II (AR) i) where
  component = rewrap `identity` \origin -> this `compose` supertype origin
 
 instance Component (AR) (T'II'I (AT) i) (T'II'I (AR) i) where
  component = rewrap `identity` \origin -> this `compose` supertype origin
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (TR) e) (T'I'II (TR) e) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \f x ->
-  i_ (map @T'I'II @T'I'II source) (f x)
-
-instance Mapping T'I'II T'I'II (TR) (AR) (T'I'II (TR) i) (T'I'II (TR) i) where
- mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \origin i ->
-   let These a ii = origin i in
-   let These o _a = source a in
-   These o ii
-
-instance Mapping T'II'I T'I'II (TR) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
- mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \origin o ->
-   let These a oo = source o in
-   let These i _a = origin a in
-   These i oo
 
 -- TODO: Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
 
@@ -70,53 +23,11 @@ instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (AT) i) where
   These i (\_ -> ao aa)
 -}
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) i) (T'I'II (P) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These e x -> These e (source x)
-
-instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (P) i) (T'I'II (P) i) where
- mapping = rewrap `compose` rewrap `identity` \source (T'I'II (These e x)) ->
-  let s = source x in These (T'I'II (These e (this s))) (map @T'I'II @T'I'II (that s))
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) i) (T'II'I (P) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These x e -> These (source x) e
-
-instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (P) i) (T'II'I (P) i) where
- mapping = rewrap `compose` rewrap `identity` \source (T'II'I (These x e)) ->
-  let s = source x in These (T'II'I (These (this s) e)) (map @T'I'II @T'I'II (that s))
-
 instance Component (AR) (T'I'II (P) i `L` T'I'II (AR) Unit `T` (Void)) (T'I'II (AR) Unit) where
  component = rewrap `identity` \(T'I'II (These _ x)) _ -> x
 
 instance Component (AR) (T'II'I (P) i `L` T'I'II (AR) Unit `T` (Void)) (T'I'II (AR) Unit) where
  component = rewrap `identity` \(T'II'I (These x _)) _ -> x
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) i) (T'I'II (S) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  That x -> That (source x)
-  This e -> This e
-
-instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (S) i) (T'I'II (S) i) where
- mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This i) -> These (T'I'II (This i)) (\_ -> T'I'II (This i))
-   T'I'II (That x) -> These (T'I'II (That (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
-
-{- TODO:
-instance Mapping T'I'II T'I'II (TR) (TR) (T'I'II (S) i) (T'I'II (S) i) where
--}
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) i) (T'II'I (S) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  This x -> This (source x)
-  That e -> That e
-
-instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (S) i) (T'II'I (S) i) where
- mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `identity` \case
-   T'II'I (That i) -> These (T'II'I (That i)) (\_ -> T'II'I (That i))
-   T'II'I (This x) -> These (T'II'I (This (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
 
 instance Component (AR) (T'I'II (AR) Unit `L` T'I'II (S) i `T` (Void)) (T'I'II (S) i) where
  component = rewrap `identity` \(T'I'II f) -> That (f Unit)
@@ -154,6 +65,7 @@ instance
  , Mapping T'I'II T'I'II source target (t `T'TT'I` ttt `L` ttt `T` lll) t
  ) => Mapping T'I'II T'I'II source target (t `L` t `T` l `T'TT'I` ttt `L` ttt `T` lll) (t `L` t `T` l) where
  mapping = rewrap `identity`((`compose` supertype) `compose` rewrap `compose` (`compose` subtype) `compose` (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t))
+-}
 
 instance (Precategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II T'I'II target target I I where
@@ -196,9 +108,18 @@ instance
    `compose` supertype @target @(t `L` t `T` l `L` I `T` ll `T` _)
    `compose` supertype @target @(I _))
 
-instance (Precategory target, forall i ii . Wrapper target (T'I' i ii))
- => Mapping T'I'II T'I'II target (AR) (T'I' i) (T'I' i) where
- mapping = rewrap `identity` \_ (T'I' x) -> (T'I' x)
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (I i `P` I ii)) `L` T'I'I (P) `T` (Void) `L` I `T` (Void)) I where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'I' (These (Identity i) (Identity ii)))) = Identity (f (These i ii))
+
+{-
+instance
+ ( Precategory target
+ , forall e . Contravariant Elicitable target (T'I' i e)
+ , forall e . Wrapper target (T'I' i (t `L` t `T` (Void) `T` e))
+ ) => Component target (T'I' i `T'TT'I` t `L` t `T` (Void)) (T'I' i) where
+ component = rewrap @target @((T'I' i `T'TT'I` t `L` t `T` (Void)) _) @(T'I' i _) (supertype @target @(T'I' i _))
+-}
 
 -- TODO: generalise up to any categories
 instance
@@ -322,13 +243,6 @@ instance
     -- (wrapped (map @T'I'II @T'I'II @source @target @(tt `T'TT'I` ttt) @(tt `TT'T'I` ttt) source))) `compose`
    -- supertype @target @(T'TT'I'TTT'I u t tt _)
 
-{-
--- add a label
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i) (T'I'II (AR) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
-  source `compose` this `compose` supertype origin
--}
-
 -- TODO: add a label
 instance Mapping T'I'II T'I'II (AR) (AR) (P'I'II e `T'TT'I` T'I'II (AR) e) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'II (These e (T'I'II f))) -> source (f e)
@@ -354,32 +268,8 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e `T'TT'I` T'I'II (AR) e) I
 instance Mapping T'I'II T'I'II (AR) (AR) ((T'II'I (P) e `T'TT'I` T'I'II (AR) e) `L` I `T` (Void)) I where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'TT'I (T'II'I (These (T'I'II f) e))) -> source (f e)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (P) i) (T'I'II (P) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These e x -> These e (source x)
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) i) (T'II'I (P) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  These x e -> These (source x) e
-
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (T'II'I (P) e) (T'II'I (P) e `T'TT'I` T'II'I (P) e `L` T'II'I (P) e `T` Void) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(These xx x) -> T'II'I (These (Label (T'II'I (These (source xx) x))) x)
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (S) i) (T'I'II (S) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  That x -> That (source x)
-  This e -> This e
-
-instance Mapping T'I'II T'I'II (AT) (AT) (T'I'II (S) i) (T'I'II (S) i) where
- mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
-  T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This i) -> These (T'I'II (This i)) (\_ -> T'I'II (This i))
-   T'I'II (That x) -> These (T'I'II (That (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (S) o) (T'II'I (S) o) where
- mapping = rewrap `identity` \source -> rewrap `identity` \case
-  This x -> This (source x)
-  That e -> That e
 
 instance
  ( forall e . Mapping T'I'II T'I'II (AR) (AR) (T'I'II t e) (T'I'II t e)
@@ -390,6 +280,7 @@ instance
   `compose` map @T'I'II @T'I'II @AR @AR @(T'I'II t _) @(T'I'II t _) source `compose` subtype `compose` supertype
   `compose` map @T'I'II @T'I'II @AR @AR @(T'II'I t _) @(T'II'I t _) source `compose` subtype `compose` supertype
 
+{-
 instance
  ( Covariant Endo Semi Functor (AR) tt
  , Covariant Endo Semi Functor (AR) (T'I'I t)
@@ -405,6 +296,7 @@ instance
   `compose` _i (map @T'I'II @T'I'II (supertype @(AR) @(tt `L` tt `T` l `L` T'I'I t `T` Void `T` _)))
   `compose` supertype @(AR) @(T'I'I t _)
   )
+-}
 
 -- instance
  -- ( Covariant Semi Functor (AR) (AR) t
@@ -426,39 +318,16 @@ instance
 --  mapping = rewrap `identity` \source -> rewrap `identity` \(T'II'I (These x e)) ->
 --   yoneda @T'I'II x (T'II'I `compose` (\x_ -> These (source x_) e))
 
--- TODO: to fix
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (TR) e) (T'I'II (TR) e) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \f x ->
-  i_ (map @T'I'II @T'I'II source) (f x)
-
-instance Mapping T'I'II T'I'II (TR) (AR) (T'I'II (TR) i) (T'I'II (TR) i) where
- mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \origin i ->
-   let These a ii = origin i in
-   let These o _a = source a in
-   These o ii
-
-instance Mapping T'II'I T'I'II (TR) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
- mapping = rewrap `identity` \(T'I'TT'II'I source)
-  -> rewrap `compose` rewrap `identity` \origin o ->
-   let These a oo = source o in
-   let These i _a = origin a in
-   These i oo
-
-instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (AT) i) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \origin x ->
-  let These a ao = supertype source x in
-  let These i aa = origin a in
-  These i (\_ -> ao aa)
-
 -- instance
  -- Covariant Endo Semi Functor (AR) t =>
  -- Mapping T'I'II T'I'II (TR) (TR) t t where
  -- mapping = rewrap `identity` \(T'I'TT'II'I source) ->
   -- T'I'TT'II'I `identity` \x -> x `yo` this `ha` source `lu_` x `yo` that `ha` source
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AS) i) (T'I'II (AS) i) where
  mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(These between x) -> (These (source `compose` between) x)
+-}
 
 -- instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AS) i) (T'II'I (AS) i) where
  -- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \(These between x) ->
@@ -489,12 +358,14 @@ instance
   Embedding `identity` \e -> map @T'I'II @T'I'II @source
    (wrapped (map @T'I'II @T'I'II @target @(AR) @(T'I'II source _) @(T'I'II source _) (supertype e)) source) x
 
+{-
 instance
  ( Covariant Endo Semi Functor (AR) t
  , forall e . Covariant Endo Semi Functor (AR) (T'I'II (AR) e)
  ) => Mapping U_1_I T'I'II (AR) (AR) t (Embedding U_1_I (AR) (AR) t r) where
  mapping = rewrap `identity` \_ x ->
   Embedding (\(U_1_I e) -> map @T'I'II @T'I'II (\_ -> e Unit) x)
+-}
 
 instance
  ( Contravariant Semi Functor source (AR) t
@@ -559,13 +430,16 @@ instance
    (wrapped (map @T'I'II @T'I'II @source @_ @(F'T'I'TT (T'II'I u) t) @(F'T'I'TT (T'II'I u) t) source))
   )
 
+{-
 instance Mapping T'I'II T'I'II (AR) target t tt
  => Mapping U_1_I T'I'II (AR) target t tt where
   mapping (U_1_I f) = mapping (T'I'II (f `compose` terminal))
+-}
 
 -- instance Mapping T'I'II T'I'II (AR) (AR) (U_1_I (AR) e) (U_1_I (AR) e) where
 --  mapping = rewrap `identity` \source (U_1_I x) -> U_1_I `identity`source x
 
+-- TODO: remove everything related to constant
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'I'II (AR) e) where
  mapping = rewrap `identity` \source (Identity x) -> T'I'II `identity` \_ -> source x
 
@@ -584,34 +458,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) I where
   T'I'I (This x) -> Identity (source x)
   T'I'I (That x) -> Identity (source x)
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) I (S'I'II e) where
  mapping (T'I'II source) = T'I'II `identity` \(Identity x) -> T'I'II (That (source x))
 
 instance Mapping T'I'II T'I'II (AR) (AR) I (T'II'I (S) e) where
  mapping (T'I'II source) = T'I'II `identity` \(Identity x) -> T'II'I (This (source x))
-
-instance Mapping T'I'II T'I'II (AT) (AR) (T'I'II (AT) i) (T'I'II (AT) i) where
- mapping = rewrap `identity` \target -> rewrap `compose` rewrap `identity` \source x ->
-  let These i i_origin = source x in
-  let These ii ii_i = supertype target i in
-  These ii (i_origin `compose` ii_i)
-
-instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (AT) i) (T'II'I (AT) i) where
- mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \target x ->
-  let These i i_origin = supertype source x in
-  let These ii ii_i = target i in
-  These ii (i_origin `compose` ii_i)
-
-instance Category (AT) where
- identity = T'I'TT'II'T'II'I `identity` \x -> These x identity
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AT) i) (T'I'II (AR) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
-  source `compose` this `compose` supertype origin
-
-instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AT) i) (T'II'I (AR) i) where
- mapping = rewrap `identity` \source -> rewrap `identity` \origin ->
-  this `compose` supertype origin `compose` source
+-}
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
@@ -640,40 +493,106 @@ instance Mapping T'II'I T'I'II (AR) (AR) (T'II'I (AT) i) (T'II'I (AR) i) where
  -- mapping = rewrap `identity` \(W_I_II_II (U_I_UU_III_T'II'I source)) ->
   -- map @T'II'I @T'I'II `identity`(\(These x _) -> x) `compose` source
 
+-- T'I' (t (ttt i) (tttt ii)) `P'T'I'TT'I` T'I'II (AR) (tt i ii)
+
 instance Covariant Endo Semi Functor (AR) t =>
- Component (AR) (Covariant Day (AR) (S) (S) t t ee eee `L` T'I'I (S) `T` (Void) `L` t `T` (Void)) t where
- component (Label (Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These x (T'I'II f))))) = case x of
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'I' (t i `S` t ii)) `L` T'I'I (S) `T` (Void) `L` t `T` (Void)) t where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
   This xx -> map @T'I'II @T'I'II @AR @AR @t (f `compose` This) `identity` xx
   That xx -> map @T'I'II @T'I'II @AR @AR @t (f `compose` That) `identity` xx
 
-instance Component (AR) (Covariant Day (AR) (P) (P) (I) (I) e ee `L` T'I'I (P) `T` (Void) `L` t `T` (Void)) I where
- component = rewrap `identity` \case
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (Identity e) (Identity ee)) (T'I'II f))) -> f (These e ee)
+{-
+instance
+ Component (AR) ((T'II'I (AR) (i `P` ii) `P'T'I'TT'I` T'I'II (AR) e) `L` T'I'I (P) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'I' (T'I'II (AR) e i `P` T'I'II (AR) e ii)) where
+ -- Component (AR) ((T'II'I (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (AR) e i `P` T'I'II (AR) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (AR) e `T` (Void)) (T'I'II (AR) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II g) (T'I'II h) -> T'I'II (\e -> f (These (g e) (h e)))
 
-instance Component (AR) (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III T'I'II (AR) (P) (P) (T'I'II (S) e) (T'I'II (S) e) ee eee `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
- component = rewrap `identity` \case
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (That ee)) (T'I'II (That eee))) (T'I'II f))) -> That (f (These ee eee))
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (This e)) _) _)) -> This e
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These _ (T'I'II (This e))) _)) -> This e
+-- o `AR` i `P` ii
 
-instance Component (AR) (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III T'I'II (AR) (P) (W) (T'I'II (S) e) (T'I'II (S) e) ee eee `L` T'I'I (W) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
- component = rewrap `identity` \case
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (That ee)) (T'I'II (That eee))) (T'I'II f))) -> That (f (U_T'I'II_UT'I'II (That (These ee eee))))
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (That ee)) (T'I'II (This e))) (T'I'II f))) -> That (f (U_T'I'II_UT'I'II (This (This ee))))
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (This e)) (T'I'II (That eee))) (T'I'II f))) -> That (f (U_T'I'II_UT'I'II (This (That eee))))
-  Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (This e)) (T'I'II (This _))) (T'I'II f))) -> This e
+-- e `AR` o
 
+-- (e `AR` i) `P` (e `AR` ii)
+-}
+
+instance
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'II'I (AR) e) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'II'I g)) = T'I' (These (T'II'I (\i -> g (f (This i)))) (T'II'I (\ii -> g (f (That ii)))))
+
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (AR) e i `P` T'I'II (AR) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (AR) e `T` (Void)) (T'I'II (AR) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II g) (T'I'II h) -> T'I'II (\e -> f (These (g e) (h e)))
+
+instance
+ Component (AR) ((T'II'I (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'II'I (AR) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'II'I f) x) = case supertype x of
+  These (T'II'I g) (T'II'I h) -> T'II'I ((\case { This i -> g i; That ii -> h ii; }) `compose` f)
+
+{-
+instance
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'II'I (AR) e) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'II'I g)) = T'I' (These (T'II'I (\i -> g (f (This i)))) (T'II'I (\ii -> g (f (That ii)))))
+-}
+
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (That ii)) (T'I'II (That iii)) -> T'I'II (That (f (These ii iii)))
+  These (T'I'II (This i)) _ -> T'I'II (This i)
+  These _ (T'I'II (This i)) -> T'I'II (This i)
+
+instance
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (S) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (This i)) (T'I'II (This ii)) -> T'I'II (This i)
+  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (That ii)))
+  These (T'I'II (That i)) _ -> T'I'II (That (f (This i)))
+
+instance
+ Component (AR) ((T'I'II (AR) (i `W` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (W) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (That ee)) (T'I'II (That eee)) -> T'I'II (That (f (T'T'I'II'TT'I'II (That (These ee eee)))))
+  These (T'I'II (That ee)) (T'I'II (This e)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (This ee)))))
+  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (That ii)))))
+  These (T'I'II (This i)) (T'I'II (This _)) -> T'I'II (This i)
+
+instance
+ Component (AR) ((T'II'I (AR) (i `P` ii) `P'T'I'TT'I` T'I'II (S) e) `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'II'I f) x) = T'I' (These (map @T'I'II @T'I'II (this `compose` f) x) (map @T'I'II @T'I'II (that `compose` f) x))
+
+{-
 instance Component (AR) (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III T'I'II (AR) (P) (S) (T'I'II (S) e) (T'I'II (S) e) ee eee `L` T'I'I (S) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
  component = rewrap `identity` \case
   Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (That ee)) _) (T'I'II f))) -> That (f (This ee))
   Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These (T'I'II (This e)) _) _)) -> This e
   Label (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III (These (These _ (T'I'II (That eee))) (T'I'II f))) -> That (f (That eee))
+-}
 
-instance Component (AR) (T'I'II (AR) Unit `L` T'I'II (S) i `T` (Void)) (T'I'II (S) i) where
- component = rewrap `identity` \(T'I'II f) -> That (f Unit)
+{-
+instance Component (AR) (T'I'II (S) e `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (TTTTT'V'M'T'TT'TTT'TTTT'I'II'III T'II'I (AR) (P) (P) (T'I'II (S) e) (T'I'II (S) e) ee eee) where
+ component = rewrap `identity` \case
+  Label x -> These (These (T'I'II (That ee)) _) (T'I'II f)
+-}
 
-instance Component (AR) (T'I'II (AR) Void `L` T'I'II (S) Unit `T` (Void)) (T'I'II (S) Unit) where
- component = rewrap `identity` \_ -> This Unit
+-- TODO: make one `Plain` and another one `Stack`?
+
+instance
+ Component (AR) (T'I'II (AR) Unit `L` (T'I'II (AR) i `T'TT'I` T'II'I (P) i) `T` (Void)) (T'I'II (AR) i `T'TT'I` T'II'I (P) i) where
+ component = rewrap `compose` rewrap `identity` \f x -> T'II'I (These (f Unit) x)
+
+instance
+ Component (AR) (T'I'II (AR) Unit `L` (T'I'II (AR) i `T'TT'I` T'I'II (P) i) `T` (Void)) (T'I'II (AR) i `T'TT'I` T'I'II (P) i) where
+ component = rewrap `compose` rewrap `identity` \f x -> T'I'II (These x (f Unit))
+
+instance
+ Component (AR) ((T'I'II (AR) i `TT'T'I` T'II'I (P) i) `L` I `T` (Void)) I where
+ component = rewrap `identity` \(TT'T'I (T'II'I (These f x))) -> supertype f x
+
+instance
+ Component (AR) (T'I'II (AR) Unit `L` t `T` l) t =>
+ Component (AR) (I `L` t `T` l) t where
+ component (Label (Identity x)) = component @(AR) @(T'I'II (AR) Unit `L` t `T` l) @t (Label (T'I'II (\_ -> x)))
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
@@ -705,11 +624,13 @@ instance Component (AR) (T'I'II (AR) Void `L` T'I'II (S) Unit `T` (Void)) (T'I'I
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
   -- (map @T'I'II @T'I'II @(AR) @(AR) @t @t initial empty)
 
+{-
 instance (forall e ee . Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) t (t `L` t `T` Void) e ee) t)
  => Mapping T'I'II T'I'II (AR) (AR) (Day T'I'II (AR) (P) (P) (T'I'II (AR) e `T'TT'I` t) ((T'I'II (AR) e `T'TT'I` t) `L` (T'I'II (AR) e `T'TT'I` t) `T` Void) ee eee) (T'I'II (AR) e `T'TT'I` t) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   These (These (T'TT'I x) (Label (T'TT'I xx))) (T'I'II f) -> (T'I'II (\e ->
    day @T'I'II @(AR) @Void @t @t @(P) @(P) identity (source `compose` f) `identity` These (supertype x e) (subtype (supertype xx e))))
+-}
 
 -- 0: (S'I'II e `TT'T'I` t `T'TT'I_` Void `L`  (S'I'II e `TT'T'I` t)) _
 -- 1: (S'I'II e `TT'T'I` t) (Void `L` ((S'I'II e `TT'T'I` t) _))
@@ -740,12 +661,6 @@ instance {-# OVERLAPS #-}
 
 instance Adjoint Functor (AR) (AR) (T'II'I (P) i) (T'I'II (AR) i)
 instance Adjoint Functor (AR) (AR) (T'I'II (P) i) (T'I'II (AR) i)
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II P i) (T'I'II (AR) Unit) where
- mapping = rewrap `identity` \source -> rewrap `identity` \(These _ x) _ -> source x
-
-instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I P i) (T'I'II (AR) Unit) where
- mapping = rewrap `identity` \source -> rewrap `identity` \(These x _) _ -> source x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (Unit `S` Unit)) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` \f -> These
