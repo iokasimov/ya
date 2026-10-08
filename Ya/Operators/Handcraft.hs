@@ -3957,7 +3957,15 @@ ho'dc'ho'nt'ho = fio
  `compose` (wrapped `compose` wrapped) (component @target @(I `L` (T'I'II target (t i aa) `T'TT'I` T'II'I (P) (t i aa)) `T` (Void)) @(T'I'II target (t i aa) `T'TT'I` T'II'I (P) (t i aa)))
  `compose` subtype @target @(T'I'II t i a)
 
-ha'dc'ha'nt'ha :: forall target a aa i t ttt tttt ttttt .
+infixl 7 `ha'dc'ha'nt'ha`
+infixl 6 `ha'dc'ha'nt_'ha`
+infixl 5 `ha'dc'ha'nt__'ha`
+infixl 4 `ha'dc'ha'nt___'ha`
+infixl 3 `ha'dc'ha'nt____'ha`
+infixl 2 `ha'dc'ha'nt_____'ha`
+infixl 1 `ha'dc'ha'nt______'ha`
+
+ha'dc'ha'nt'ha, ha'dc'ha'nt_'ha , ha'dc'ha'nt__'ha, ha'dc'ha'nt___'ha, ha'dc'ha'nt____'ha, ha'dc'ha'nt_____'ha, ha'dc'ha'nt______'ha :: forall target a aa i t ttt tttt ttttt .
  Category target =>
  Hom Functor target =>
  (forall e . Covariant Endo Semi Functor target (T'I'II (P) e)) =>
@@ -3992,6 +4000,13 @@ ha'dc'ha'nt'ha = fio
  `compose` supertype @target @(T'II'I (P) (t aa i) (T'II'I t i a)))
  `compose` (wrapped `compose` wrapped) (component @target @(I `L` (T'I'II target (t aa i) `T'TT'I` T'II'I (P) (t aa i)) `T` (Void)) @(T'I'II target (t aa i) `T'TT'I` T'II'I (P) (t aa i)))
  `compose` subtype @target @(T'II'I t i a)
+
+ha'dc'ha'nt_'ha = ha'dc'ha'nt'ha
+ha'dc'ha'nt__'ha = ha'dc'ha'nt'ha
+ha'dc'ha'nt___'ha = ha'dc'ha'nt'ha
+ha'dc'ha'nt____'ha = ha'dc'ha'nt'ha
+ha'dc'ha'nt_____'ha = ha'dc'ha'nt'ha
+ha'dc'ha'nt______'ha = ha'dc'ha'nt'ha
 
 infixl 4 `yo'dc'yo'nt'yo`
 
