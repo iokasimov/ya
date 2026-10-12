@@ -37,51 +37,6 @@ instance
  mapping = rewrap `identity`((`compose` supertype) `compose` rewrap `compose` (`compose` subtype) `compose` (map @T'I'II @T'I'II @source @target @(t `T'TT'I` ttt `L` ttt `T` lll) @t))
 -}
 
-instance (Precategory target, forall e . Wrapper target (I e))
- => Mapping T'I'II T'I'II target target I I where
- mapping = rewrap rewrap
-
-instance Component (AR) (T'I'II (AR) Unit `L` I `T` (Void)) I where
- component = rewrap (\(T'I'II f) -> f Unit)
-
-instance Component (AR) (I `L` T'I'II (AR) Unit `T` (Void)) (T'I'II (AR) Unit) where
- component = rewrap (\(Identity x) -> (\_ -> x))
-
-instance
- ( Precategory target
- , forall e . Wrapper target (I `T` e)
- , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
- , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
- ) => Component target (I `T'TT'I` I `L` I `T` (Void)) I where
- component = rewrap (supertype `compose` supertype `compose` supertype)
-
-instance
- ( Precategory target
- , forall e . Wrapper target (I `T` e)
- , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
- , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
- ) => Component target I (I `T'TT'I` I `L` I `T` (Void)) where
- component = rewrap (subtype `compose` subtype `compose` subtype)
-
--- TODO: `Match` doesn't fit here
-instance
- ( forall e . Wrapper target (I e)
- , forall e . Wrapper target (t `L` t `T` l `L` I `T` ll `T` e)
- , forall e . Wrapper target (t `L` t `T` l `T` e)
- , forall e . Wrapper target (I `TT'T'I` t `T'I_` e)
- , forall e . Wrapper target (I `T'TT'I` t `L` t `T` l `L` I `T` ll `T'I_` e)
- , Covariant Endo Semi Functor target t
- ) => Mapping T'I'II T'I'II target target (I `T'TT'I` t `L` t `T` l `L` I `T` ll) (I `TT'T'I` t) where
- mapping = rewrap `identity` \source -> rewrap (
-  map @T'I'II @T'I'II @target @target (subtype @target @(I _) `compose` source)
-   `compose` supertype @target @(t `L` t `T` l `T` _)
-   `compose` supertype @target @(t `L` t `T` l `L` I `T` ll `T` _)
-   `compose` supertype @target @(I _))
-
-instance
- Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (I i `P` I ii)) `L` T'I'I (P) `T` (Void) `L` I `T` (Void)) I where
- component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'I' (These (Identity i) (Identity ii)))) = Identity (f (These i ii))
-
 {-
 instance
  ( Precategory target
@@ -90,97 +45,6 @@ instance
  ) => Component target (T'I' i `T'TT'I` t `L` t `T` (Void)) (T'I' i) where
  component = rewrap @target @((T'I' i `T'TT'I` t `L` t `T` (Void)) _) @(T'I' i _) (supertype @target @(T'I' i _))
 -}
-
--- TODO: generalise up to any categories
-instance
- ( Covariant Endo Semi Functor (AR) t
- , Covariant Endo Semi Functor (AR) tt
- , Covariant Endo Semi Functor (AR) ttt
- , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) (t `TT'T'I` ttt)
- , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt)
- ) => Mapping T'I'II T'I'II (AR) (AR) ((t `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll) ((t `T'TT'I` tt) `TT'T'I` ttt) where
- mapping = rewrap `identity` \source -> rewrap (
-  map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (subtype @(AR) @(t `T'TT'I` tt `T'I_` _))
-  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) @(t `TT'T'I` ttt) identity)
-  `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
-   (subtype @(AR) @(ttt `L` ttt `T` lll `L` t `T` ll `T` _)
-   `compose` subtype @(AR) @(ttt `L` ttt `T` lll `T` _)
-   `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) @(tt `TT'T'I` ttt) source)
-   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt
-    (rewrap @(AR) @(ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll `T` _) @(ttt `L` ttt `T` lll `L` tt `T` ll `T` _) identity)
-   )
-  `compose` supertype)
-
-instance
- ( Covariant Semi Functor source target tt
- , Covariant Endo Semi Functor target t
- , forall e . Wrapper target (t `T'TT'I` tt `T'I_` e)
- ) => Mapping T'I'II T'I'II source target (t `T'TT'I` tt) (t `T'TT'I` tt) where
- mapping = rewrap `identity` \source -> subtype @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` supertype @target
-
-instance
- ( Covariant Semi Functor source target t
- , Covariant Endo Semi Functor target tt
- , forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)
- ) => Mapping T'I'II T'I'II source target (t `TT'T'I` tt) (t `TT'T'I` tt) where
- mapping = rewrap `identity` \source -> subtype @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` supertype @target
-
-instance
- ( Covariant Semi Functor source target t
- , forall ee . Covariant Endo Semi Functor target (T'I'II u ee)
- , forall ee . Wrapper target (T'I'II (T'I'TT'II u t) e ee)
- , forall ee . Wrapper target (T'I'TT'II u t e ee)
- , forall ee . Wrapper target (T'I'II u e (t ee))
- ) => Mapping T'I'II T'I'II source target (T'I'II (T'I'TT'II u t) e) (T'I'II (T'I'TT'II u t) e) where
- mapping = rewrap `identity` \source ->
-  subtype @target @(T'I'II _ _ _)
-  `compose` subtype @target @(T'I'TT'II _ _ _ _)
-  `compose` supertype @target @(T'I'II _ _ _)
-  `compose` map @T'I'II @T'I'II @target @target (map @T'I'II @T'I'II @source @target source)
-  `compose` subtype @target @(T'I'II _ _ _)
-  `compose` supertype @target @(T'I'TT'II _ _ _ _)
-  `compose` supertype @target @(T'I'II _ _ _)
-
-instance
- ( forall ee . Covariant Semi Functor source target (T'II'I u ee)
- , forall ee . Wrapper target (T'II'I (T'I'TT'II u t) e ee)
- , forall ee . Wrapper target (T'I'TT'II u t ee e)
- , forall ee . Wrapper target (T'II'I u (t e) ee)
- ) => Mapping T'I'II T'I'II source target (T'II'I (T'I'TT'II u t) e) (T'II'I (T'I'TT'II u t) e) where
- mapping = rewrap `identity` \source ->
-  subtype @target @(T'II'I _ _ _)
-  `compose` subtype @target @(T'I'TT'II _ _ _ _)
-  `compose` supertype @target @(T'II'I _ _ _)
-  `compose` map @T'I'II @T'I'II @source @target source
-  `compose` subtype @target @(T'II'I _ _ _)
-  `compose` supertype @target @(T'I'TT'II _ _ _ _)
-  `compose` supertype @target @(T'II'I _ _ _)
-
-instance
- ( Covariant Semi Functor source target h
- , Covariant Endo Semi Functor target tt
- , Covariant Endo Semi Functor target t
- , forall e . Wrapper target (T'TTT'TT'I t h tt e)
- ) => Mapping T'I'II T'I'II source target (T'TTT'TT'I t h tt) (T'TTT'TT'I t h tt) where
- mapping = rewrap `identity` \source -> subtype @target
-  `compose` (map @T'I'II @T'I'II @target @target
-   `compose` map @T'I'II @T'I'II @target @target
-   `compose` map @T'I'II @T'I'II @source @target
-   ) source
-  `compose` supertype @target
-
-instance
- ( forall e . Covariant Endo Semi Functor target (T'I'II u (t e))
- , forall e . Covariant Endo Semi Functor target (T'II'I u (tt e))
- , Covariant Semi Functor source target tt
- , Covariant Semi Functor source target t
- , forall e . Wrapper target (T'TT'I'TTT'I u t tt e)
- , forall e ee . Wrapper target (T'I'II u (t e) (tt ee))
- , forall e ee . Wrapper target (T'II'I u (tt e) (t ee))
- ) => Mapping T'I'II T'I'II source target (T'TT'I'TTT'I u t tt) (T'TT'I'TTT'I u t tt) where
- mapping = rewrap `identity` \source -> rewrap (
-  i_ (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target @t @t `identity`source) `compose`
-  _i (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target @tt @tt `identity`source))
 
 -- instance
  -- ( forall e . Covariant Endo Semi Functor (AR) (T'I'II u e)
@@ -444,43 +308,11 @@ instance
  Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'II'I (AR) e) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) where
  component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'II'I g)) = T'I' (These (T'II'I (\i -> g (f (This i)))) (T'II'I (\ii -> g (f (That ii)))))
 
-instance
- Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (AR) e i `P` T'I'II (AR) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (AR) e `T` (Void)) (T'I'II (AR) e) where
- component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
-  These (T'I'II g) (T'I'II h) -> T'I'II (\e -> f (These (g e) (h e)))
-
-instance
- Component (AR) ((T'II'I (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'II'I (AR) e) where
- component (supertype `compose` supertype `compose` supertype -> These (T'II'I f) x) = case supertype x of
-  These (T'II'I g) (T'II'I h) -> T'II'I ((\case { This i -> g i; That ii -> h ii; }) `compose` f)
-
 {-
 instance
  Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'II'I (AR) e) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) where
  component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'II'I g)) = T'I' (These (T'II'I (\i -> g (f (This i)))) (T'II'I (\ii -> g (f (That ii)))))
 -}
-
-instance
- Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
- component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
-  These (T'I'II (That ii)) (T'I'II (That iii)) -> T'I'II (That (f (These ii iii)))
-  These (T'I'II (This i)) _ -> T'I'II (This i)
-  These _ (T'I'II (This i)) -> T'I'II (This i)
-
-instance
- Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (S) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
- component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
-  These (T'I'II (This i)) (T'I'II (This ii)) -> T'I'II (This i)
-  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (That ii)))
-  These (T'I'II (That i)) _ -> T'I'II (That (f (This i)))
-
-instance
- Component (AR) ((T'I'II (AR) (i `W` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (W) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
- component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
-  These (T'I'II (That ee)) (T'I'II (That eee)) -> T'I'II (That (f (T'T'I'II'TT'I'II (That (These ee eee)))))
-  These (T'I'II (That ee)) (T'I'II (This e)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (This ee)))))
-  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (That ii)))))
-  These (T'I'II (This i)) (T'I'II (This _)) -> T'I'II (This i)
 
 instance
  Component (AR) ((T'II'I (AR) (i `P` ii) `P'T'I'TT'I` T'I'II (S) e) `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) where
@@ -509,15 +341,6 @@ instance
 instance
  Component (AR) (T'I'II (AR) Unit `L` (T'I'II (AR) i `T'TT'I` T'I'II (P) i) `T` (Void)) (T'I'II (AR) i `T'TT'I` T'I'II (P) i) where
  component = rewrap `compose` rewrap `identity` \f x -> T'I'II (These x (f Unit))
-
-instance
- Component (AR) ((T'I'II (AR) i `TT'T'I` T'II'I (P) i) `L` I `T` (Void)) I where
- component = rewrap `identity` \(TT'T'I (T'II'I (These f x))) -> supertype f x
-
-instance
- Component (AR) (T'I'II (AR) Unit `L` t `T` l) t =>
- Component (AR) (I `L` t `T` l) t where
- component (Label (Identity x)) = component @(AR) @(T'I'II (AR) Unit `L` t `T` l) @t (Label (T'I'II (\_ -> x)))
 
 -- instance Mapping T'I'II T'I'II
  -- (W_I_II_II (U_I_UU_III_T'II'I (AR) (P)))
