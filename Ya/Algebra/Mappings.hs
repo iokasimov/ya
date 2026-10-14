@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Mappings where
 
 import Ya.Algebra.Abstract
@@ -94,6 +95,118 @@ instance Mapping T'I'II T'I'II (AT) (AT) (T'II'I (S) i) (T'II'I (S) i) where
   T'I'TT'II'T'II'I `identity` \case
    T'II'I (That i) -> These (T'II'I (That i)) (\_ -> T'II'I (That i))
    T'II'I (This x) -> These (T'II'I (This (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S)) (T'I'I (S)) where
+ mapping = rewrap `identity` \source -> rewrap `identity` \case
+  This x -> This (source x)
+  That x -> That (source x)
+
+instance Mapping T'I'II T'I'II (AT) (AT) (T'I'I (S)) (T'I'I (S)) where
+ mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
+  T'I'TT'II'T'II'I `identity` \case
+   T'I'I (This x) -> These (T'I'I (This (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
+   T'I'I (That x) -> These (T'I'I (That (this (source x)))) (map @T'I'II @T'I'II (that (source x)))
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'II'I (W) i) (T'II'I (W) i) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \case
+  This (This x) -> This (This (source x))
+  That (These x i) -> That (These (source x) i)
+
+instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (W) i) (T'I'II (W) i) where
+ mapping = rewrap `identity` \source -> rewrap `compose` rewrap `identity` \case
+  This (That x) -> This (That (source x))
+  That (These i x) -> That (These i (source x))
+
+instance
+ ( Covariant Semi Functor source target tt
+ , Covariant Endo Semi Functor target t
+ , forall e . Wrapper target (t `T'TT'I` tt `T'I_` e)
+ ) => Mapping T'I'II T'I'II source target (t `T'TT'I` tt) (t `T'TT'I` tt) where
+ mapping = rewrap `identity` \source -> subtype @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` supertype @target
+
+instance
+ ( Covariant Semi Functor source target t
+ , Covariant Endo Semi Functor target tt
+ , forall e . Wrapper target (t `TT'T'I` tt `T'I_` e)
+ ) => Mapping T'I'II T'I'II source target (t `TT'T'I` tt) (t `TT'T'I` tt) where
+ mapping = rewrap `identity` \source -> subtype @target `compose` (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target) source `compose` supertype @target
+
+-- TODO: generalise up to any categories
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , Covariant Transformation Functor (AR) (AR) (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) (t `TT'T'I` ttt)
+ , Covariant Transformation Functor (AR) (AR) (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt)
+ ) => Mapping T'I'II T'I'II (AR) (AR) ((t `T'TT'I` tt) `T'TT'I` ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll) ((t `T'TT'I` tt) `TT'T'I` ttt) where
+ mapping = rewrap `identity` \source -> rewrap (
+  map @T'I'II @T'I'II @(AR) @(AR) @ttt @ttt (subtype @(AR) @(t `T'TT'I` tt `T'I_` _))
+  `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` ll) @(t `TT'T'I` ttt) identity)
+  `compose` map @T'I'II @T'I'II @(AR) @(AR) @t @t
+   (subtype @(AR) @(ttt `L` ttt `T` lll `L` t `T` ll `T` _)
+   `compose` subtype @(AR) @(ttt `L` ttt `T` lll `T` _)
+   `compose` wrapped (map @T'I'II @T'I'II @(AR) @(AR) @(tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) @(tt `TT'T'I` ttt) source)
+   `compose` map @T'I'II @T'I'II @(AR) @(AR) @tt @tt
+    (rewrap @(AR) @(ttt `L` ttt `T` lll `L` (t `T'TT'I` tt) `T` ll `T` _) @(ttt `L` ttt `T` lll `L` tt `T` ll `T` _) identity)
+   )
+  `compose` supertype)
+
+instance
+ ( Covariant Semi Functor source target t
+ , forall ee . Covariant Endo Semi Functor target (T'I'II u ee)
+ , forall ee . Wrapper target (T'I'II (T'I'TT'II u t) e ee)
+ , forall ee . Wrapper target (T'I'TT'II u t e ee)
+ , forall ee . Wrapper target (T'I'II u e (t ee))
+ ) => Mapping T'I'II T'I'II source target (T'I'II (T'I'TT'II u t) e) (T'I'II (T'I'TT'II u t) e) where
+ mapping = rewrap `identity` \source ->
+  subtype @target @(T'I'II _ _ _)
+  `compose` subtype @target @(T'I'TT'II _ _ _ _)
+  `compose` supertype @target @(T'I'II _ _ _)
+  `compose` map @T'I'II @T'I'II @target @target (map @T'I'II @T'I'II @source @target source)
+  `compose` subtype @target @(T'I'II _ _ _)
+  `compose` supertype @target @(T'I'TT'II _ _ _ _)
+  `compose` supertype @target @(T'I'II _ _ _)
+
+instance
+ ( forall ee . Covariant Semi Functor source target (T'II'I u ee)
+ , forall ee . Wrapper target (T'II'I (T'I'TT'II u t) e ee)
+ , forall ee . Wrapper target (T'I'TT'II u t ee e)
+ , forall ee . Wrapper target (T'II'I u (t e) ee)
+ ) => Mapping T'I'II T'I'II source target (T'II'I (T'I'TT'II u t) e) (T'II'I (T'I'TT'II u t) e) where
+ mapping = rewrap `identity` \source ->
+  subtype @target @(T'II'I _ _ _)
+  `compose` subtype @target @(T'I'TT'II _ _ _ _)
+  `compose` supertype @target @(T'II'I _ _ _)
+  `compose` map @T'I'II @T'I'II @source @target source
+  `compose` subtype @target @(T'II'I _ _ _)
+  `compose` supertype @target @(T'I'TT'II _ _ _ _)
+  `compose` supertype @target @(T'II'I _ _ _)
+
+instance
+ ( Covariant Semi Functor source target h
+ , Covariant Endo Semi Functor target tt
+ , Covariant Endo Semi Functor target t
+ , forall e . Wrapper target (T'TTT'TT'I t h tt e)
+ ) => Mapping T'I'II T'I'II source target (T'TTT'TT'I t h tt) (T'TTT'TT'I t h tt) where
+ mapping = rewrap `identity` \source -> subtype @target
+  `compose` (map @T'I'II @T'I'II @target @target
+   `compose` map @T'I'II @T'I'II @target @target
+   `compose` map @T'I'II @T'I'II @source @target
+   ) source
+  `compose` supertype @target
+
+instance
+ ( forall e . Covariant Endo Semi Functor target (T'I'II u (t e))
+ , forall e . Covariant Endo Semi Functor target (T'II'I u (tt e))
+ , Covariant Semi Functor source target tt
+ , Covariant Semi Functor source target t
+ , forall e . Wrapper target (T'TT'I'TTT'I u t tt e)
+ , forall e ee . Wrapper target (T'I'II u (t e) (tt ee))
+ , forall e ee . Wrapper target (T'II'I u (tt e) (t ee))
+ ) => Mapping T'I'II T'I'II source target (T'TT'I'TTT'I u t tt) (T'TT'I'TTT'I u t tt) where
+ mapping = rewrap `identity` \source -> rewrap (
+  i_ (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target @t @t `identity`source) `compose`
+  _i (map @T'I'II @T'I'II @target @target `compose` map @T'I'II @T'I'II @source @target @tt @tt `identity`source))
 
 instance
  ( forall i . Covariant Semi Functor source target (T'I'II u i `T'TT'I` t)
