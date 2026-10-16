@@ -51,6 +51,18 @@ instance Component (AR) (T'II'I (S) i `T'TT'I` T'II'I (S) i `L` T'II'I (S) i `T`
   T'II'I (This (Label (T'II'I (That x)))) -> That x
   T'II'I (This (Label (T'II'I (This x)))) -> This x
 
+instance Component (AR) (T'II'I (S) i `T'TT'I` T'I'II (S) i `L` T'I'II (S) i `T` (Void)) (T'II'I (S) i) where
+ component = rewrap `identity` \case
+  T'II'I (That x) -> That x
+  T'II'I (This (Label (T'I'II (This x)))) -> That x
+  T'II'I (This (Label (T'I'II (That x)))) -> This x
+
+instance Component (AR) (T'II'I (P) i) (T'II'I (P) i `T'TT'I` T'II'I (P) i `L` T'II'I (P) i `T` (Void)) where
+ component = rewrap `identity` \(These i ii) -> T'II'I (These (Label (T'II'I (These i ii))) ii)
+
+instance Component (AR) (T'I'II (P) i) (T'I'II (P) i `T'TT'I` T'II'I (P) i `L` T'II'I (P) i `T` (Void)) where
+ component = rewrap `identity` \(These i ii) -> T'I'II (These i (Label (T'II'I (These ii i))))
+
 -- TODO: `Match` doesn't fit here
 instance
  ( forall e . Wrapper target (I e)
