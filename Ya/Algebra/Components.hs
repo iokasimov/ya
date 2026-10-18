@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE UndecidableInstances #-}
 module Ya.Algebra.Components where
 
 import Ya.Algebra.Abstract
@@ -101,3 +102,74 @@ instance
  component = rewrap `identity` \case
   -- T'II'I (This x) -> T'II'I `compose` This `fo` supertype (supertype x)
   T'II'I (That x) -> component @(AR) @(T'I'II (AR) Unit `L` tt `T` (Void)) (Label (T'I'II (\_ -> T'II'I (That x))))
+
+instance Component (AR) (T'I'II (AR) Unit `L` t `T` l) t => Component (AR) (I `L` t `T` l) t where
+ component (Label (Identity x)) = component @(AR) @(T'I'II (AR) Unit `L` t `T` l) @t (Label (T'I'II (\_ -> x)))
+
+{-
+instance Component (AR) (t `L` T'I'II (AR) Unit `T` l) (T'I'II (AR) Unit) => Component (AR) (t `L` I `T` l) I where
+
+ component (Label (T'I'II x)) = component @(AR) @(t `L` T'I'II (AR) Unit `T` l) @t 
+
+ (Label (T'I'II (\_ -> x)))
+-}
+
+instance
+ ( Precategory target
+ , forall e . Wrapper target (I `T` e)
+ , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
+ , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
+ ) => Component target (I `T'TT'I` I `L` I `T` (Void)) I where
+ component = rewrap (supertype `compose` supertype `compose` supertype)
+
+instance
+ ( Precategory target
+ , forall e . Wrapper target (I `T` e)
+ , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
+ , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
+ ) => Component target I (I `T'TT'I` I `L` I `T` (Void)) where
+ component = rewrap (subtype `compose` subtype `compose` subtype)
+
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (I i `P` I ii)) `L` T'I'I (P) `T` (Void) `L` I `T` (Void)) I where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) (T'I' (These (Identity i) (Identity ii)))) = Identity (f (These i ii))
+
+instance Covariant Endo Semi Functor (AR) t =>
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'I' (t i `S` t ii)) `L` T'I'I (S) `T` (Void) `L` t `T` (Void)) t where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  This xx -> map @T'I'II @T'I'II @AR @AR @t (f `compose` This) `identity` xx
+  That xx -> map @T'I'II @T'I'II @AR @AR @t (f `compose` That) `identity` xx
+
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (AR) e i `P` T'I'II (AR) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (AR) e `T` (Void)) (T'I'II (AR) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II g) (T'I'II h) -> T'I'II (\e -> f (These (g e) (h e)))
+
+instance
+ Component (AR) ((T'II'I (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'II'I (AR) e i `P` T'II'I (AR) e ii)) `L` T'I'I (S) `T` (Void) `L` T'II'I (AR) e `T` (Void)) (T'II'I (AR) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'II'I f) x) = case supertype x of
+  These (T'II'I g) (T'II'I h) -> T'II'I ((\case { This i -> g i; That ii -> h ii; }) `compose` f)
+
+--
+
+instance
+ Component (AR) ((T'I'II (AR) (i `P` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (P) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (That ii)) (T'I'II (That iii)) -> T'I'II (That (f (These ii iii)))
+  These (T'I'II (This i)) _ -> T'I'II (This i)
+  These _ (T'I'II (This i)) -> T'I'II (This i)
+
+instance
+ Component (AR) ((T'I'II (AR) (i `S` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (S) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (This i)) (T'I'II (This ii)) -> T'I'II (This i)
+  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (That ii)))
+  These (T'I'II (That i)) _ -> T'I'II (That (f (This i)))
+
+instance
+ Component (AR) ((T'I'II (AR) (i `W` ii) `P'T'I'TT'I` T'I' (T'I'II (S) e i `P` T'I'II (S) e ii)) `L` T'I'I (W) `T` (Void) `L` T'I'II (S) e `T` (Void)) (T'I'II (S) e) where
+ component (supertype `compose` supertype `compose` supertype -> These (T'I'II f) x) = case supertype x of
+  These (T'I'II (That ee)) (T'I'II (That eee)) -> T'I'II (That (f (T'T'I'II'TT'I'II (That (These ee eee)))))
+  These (T'I'II (That ee)) (T'I'II (This e)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (This ee)))))
+  These (T'I'II (This i)) (T'I'II (That ii)) -> T'I'II (That (f (T'T'I'II'TT'I'II (This (That ii)))))
+  These (T'I'II (This i)) (T'I'II (This _)) -> T'I'II (This i)
