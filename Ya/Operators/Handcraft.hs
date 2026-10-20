@@ -3940,6 +3940,46 @@ yo'yo'nt'yo
  target (t (tt a)) (target (source a (I `L` ttt `T` lll `T` o)) (t (ttt o)))
 yo'yo'nt'yo = fai (fo'nt'fo) `compose` yo @source @target
 
+infixl 7 `yio'yo'nt'yo`
+infixl 9 `ho'yo'nt'yo`
+infixl 8 `ho_'yo'nt'yo`
+infixl 7 `ho__'yo'nt'yo`
+infixl 6 `ho___'yo'nt'yo`
+infixl 5 `ho____'yo'nt'yo`
+infixl 4 `ho_____'yo'nt'yo`
+infixl 3 `ho______'yo'nt'yo`
+infixl 2 `ho_______'yo'nt'yo`
+
+yio'yo'nt'yo, ho'yo'nt'yo, ho_'yo'nt'yo, ho__'yo'nt'yo, ho___'yo'nt'yo, ho____'yo'nt'yo, ho_____'yo'nt'yo, ho______'yo'nt'yo, ho_______'yo'nt'yo
+ :: forall source target t tt ttt lll i a o .
+ Hom Functor source =>
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ Covariant Yoneda Functor source source tt =>
+ Covariant Yoneda Functor source source ttt =>
+ Component source (tt `L` ttt `T` lll) ttt =>
+ (forall e . Contravariant Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Functor (AR) target (T'II'I target e)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (tt `L` ttt `T` lll `T` e)) =>
+ target (t i (tt a)) (target (source a (I `L` ttt `T` lll `T` o)) (t i (ttt o)))
+yio'yo'nt'yo = fai (fo'nt'fo) `compose` yio @source @target
+
+ho'yo'nt'yo = yio'yo'nt'yo
+ho_'yo'nt'yo = yio'yo'nt'yo
+ho__'yo'nt'yo = yio'yo'nt'yo
+ho___'yo'nt'yo = yio'yo'nt'yo
+ho____'yo'nt'yo = yio'yo'nt'yo
+ho_____'yo'nt'yo = yio'yo'nt'yo
+ho______'yo'nt'yo = yio'yo'nt'yo
+ho_______'yo'nt'yo = yio'yo'nt'yo
+
 infixl 7 `ho'dc'ho'nt'ho`
 
 ho'dc'ho'nt'ho :: forall target a aa i t ttt tttt ttttt .
