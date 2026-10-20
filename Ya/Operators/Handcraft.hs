@@ -3918,7 +3918,29 @@ bt'ha'nt____'ha'st = bt'ha'nt'ha'st
 bt'ha'nt_____'ha'st = bt'ha'nt'ha'st
 bt'ha'nt______'ha'st = bt'ha'nt'ha'st
 
-infixl 7 `ho'dc'ho'nt'ho`, `ha'dc'ha'nt'ha`
+infixl 8 `yo'yo'nt'yo`
+
+yo'yo'nt'yo
+ :: forall source target t tt ttt lll a o .
+ Hom Functor source =>
+ Hom Functor target =>
+ Covariant Yoneda Functor source target t =>
+ Covariant Yoneda Functor source source tt =>
+ Covariant Yoneda Functor source source ttt =>
+ Component source (tt `L` ttt `T` lll) ttt =>
+ (forall e . Contravariant Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Functor (AR) target (T'II'I target e)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (tt `L` ttt `T` lll `T` e)) =>
+ target (t (tt a)) (target (source a (I `L` ttt `T` lll `T` o)) (t (ttt o)))
+yo'yo'nt'yo = fai (fo'nt'fo) `compose` yo @source @target
+
+infixl 7 `ho'dc'ho'nt'ho`
 
 ho'dc'ho'nt'ho :: forall target a aa i t ttt tttt ttttt .
  Category target =>
