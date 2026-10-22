@@ -3980,6 +3980,28 @@ ho_____'yo'nt'yo = yio'yo'nt'yo
 ho______'yo'nt'yo = yio'yo'nt'yo
 ho_______'yo'nt'yo = yio'yo'nt'yo
 
+infixl 8 `ya'yo'nt'yo`
+
+ya'yo'nt'yo
+ :: forall source target t tt ttt lll a o .
+ Hom Functor source =>
+ Hom Functor target =>
+ Contravariant Yoneda Functor source target t =>
+ Covariant Yoneda Functor source source tt =>
+ Covariant Yoneda Functor source source ttt =>
+ Component source (tt `L` ttt `T` lll) ttt =>
+ (forall e . Contravariant Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Functor (AR) target (T'II'I target e)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (tt `L` ttt `T` lll `T` e)) =>
+ target (t (ttt a)) (target (source o (I `L` ttt `T` lll `T` a)) (t (tt o)))
+ya'yo'nt'yo = fai (fo'nt'fo) `compose` ya @source @target
+
 infixl 7 `ho'dc'ho'nt'ho`
 
 ho'dc'ho'nt'ho :: forall target a aa i t ttt tttt ttttt .
