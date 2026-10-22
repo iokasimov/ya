@@ -3980,6 +3980,56 @@ ho_____'yo'nt'yo = yio'yo'nt'yo
 ho______'yo'nt'yo = yio'yo'nt'yo
 ho_______'yo'nt'yo = yio'yo'nt'yo
 
+infixl 7 `yio'yio'nt'yo`
+infixl 9 `ho'yio'nt'yo`, `ho'ho'nt'yo`
+infixl 8 `ho_'yio'nt'yo`, `ho_'ho'nt'yo`
+infixl 7 `ho__'yio'nt'yo`, `ho__'ho'nt'yo`
+infixl 6 `ho___'yio'nt'yo`, `ho___'ho'nt'yo`
+infixl 5 `ho____'yio'nt'yo`, `ho____'ho'nt'yo`
+infixl 4 `ho_____'yio'nt'yo`, `ho_____'ho'nt'yo`
+infixl 3 `ho______'yio'nt'yo`, `ho______'ho'nt'yo`
+infixl 2 `ho_______'yio'nt'yo`, `ho_______'ho'nt'yo`
+
+yio'yio'nt'yo, ho'yio'nt'yo, ho_'yio'nt'yo, ho__'yio'nt'yo, ho___'yio'nt'yo, ho____'yio'nt'yo, ho_____'yio'nt'yo, ho______'yio'nt'yo, ho_______'yio'nt'yo, ho'ho'nt'yo, ho_'ho'nt'yo, ho__'ho'nt'yo, ho___'ho'nt'yo, ho____'ho'nt'yo, ho_____'ho'nt'yo, ho______'ho'nt'yo, ho_______'ho'nt'yo
+ :: forall source target t tt ttt lll i ii a o .
+ Hom Functor source =>
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ (forall e . Covariant Yoneda Functor source source (T'I'II tt e)) =>
+ Covariant Yoneda Functor source source ttt =>
+ Component source (T'I'II tt ii `L` ttt `T` lll) ttt =>
+ (forall e . Contravariant Functor source target (T'II'I target e)) =>
+ (forall e . Contravariant Functor (AR) target (T'II'I target e)) =>
+ (forall e ee . Wrapper source (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper target (T'I'II t i e)) =>
+ (forall e . Wrapper source (T'I'II tt ii e)) =>
+ (forall e . Wrapper source (I `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (T'I'II tt ii `L` ttt `T` lll `T` e)) =>
+ target (t i (tt ii a)) (target (source a (I `L` ttt `T` lll `T` o)) (t i (ttt o)))
+yio'yio'nt'yo = fai (fio'nt'fo) `compose` yio @source @target
+
+ho'yio'nt'yo = yio'yio'nt'yo
+ho_'yio'nt'yo = yio'yio'nt'yo
+ho__'yio'nt'yo = yio'yio'nt'yo
+ho___'yio'nt'yo = yio'yio'nt'yo
+ho____'yio'nt'yo = yio'yio'nt'yo
+ho_____'yio'nt'yo = yio'yio'nt'yo
+ho______'yio'nt'yo = yio'yio'nt'yo
+ho_______'yio'nt'yo = yio'yio'nt'yo
+
+ho'ho'nt'yo = yio'yio'nt'yo
+ho_'ho'nt'yo = yio'yio'nt'yo
+ho__'ho'nt'yo = yio'yio'nt'yo
+ho___'ho'nt'yo = yio'yio'nt'yo
+ho____'ho'nt'yo = yio'yio'nt'yo
+ho_____'ho'nt'yo = yio'yio'nt'yo
+ho______'ho'nt'yo = yio'yio'nt'yo
+ho_______'ho'nt'yo = yio'yio'nt'yo
+
 infixl 8 `ya'yo'nt'yo`
 
 ya'yo'nt'yo
