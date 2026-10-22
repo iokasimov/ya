@@ -1,7 +1,6 @@
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE AllowAmbiguousTypes #-}
 module Ya.Program.Interface.Instances where
-
 import Ya.Algebra
 import Ya.Operators
 import Ya.Program.Patterns
@@ -12,16 +11,20 @@ import Ya.Program.Interface.Fieldable
 import Ya.Program.Interface.Matchable
 import Ya.Program.Interface.Shiftable
 
+{-
 instance Mapping T'I'II T'I'II (AT) (AT) Maybe Maybe where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \case
-   T'I'II (This _) -> T'I'II `ha'nt'ha'st` This @Unit `hjd_` itself `ho'ut'st` Empty
-   T'I'II (That x) -> T'I'II `ha` That `ha` this `ha'nt'ha` source x `hjd__` Empty `ho'ut'st` Empty `bt'has_` Exist `ha` that (source x)
+   T'I'II (This _) -> (T'I'II `ha'nt'ha'st` This @Unit) `These` (itself `ho'ut'st` Empty)
+   T'I'II (That x) -> (T'I'II `ha` That `ha` this `ha'nt'ha` source x) `These` (Empty `ho'ut'st` Empty `bt'has_` T'I'II `ha` That `ha` that (source x))
+-}
 
+{-
 instance Mapping T'I'II T'I'II (AT) (AT) (Construction Maybe) (Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
    `hjd_'tb` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
+-}
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
@@ -30,10 +33,12 @@ instance Mapping T'I'II T'I'II (AR) (AT) (Maybe `T'TT'I` Construction Maybe) (Ma
    `hjd_` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
 -}
 
+{-
 instance Mapping T'I'II T'I'II (AT) (AT) (Maybe `T'TT'I` Construction Maybe) (Maybe `T'TT'I` Construction Maybe) where
  mapping = rewrap `identity` \(T'I'TT'II'T'II'I source) ->
   T'I'TT'II'T'II'I `identity` \x -> x `yo` this `ha` source
    `hjd_` (\xx -> x `yo` that `ha` source `hjd_'dcpp` Align `ha'nt'ha` xx `yo_` hdj @(AR))
+-}
 
 pattern Root :: forall t i .
  t i `AR__` t `L` Alone `T` (Void) `T` i
@@ -44,24 +49,28 @@ pattern Root x = Label x
 instance (e ~ Unit) => Component (AR) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty
-  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> Exist `ha'nt'ha` x
+  Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These _ x)))))))) -> T'I'II `ha` That `ha'nt'ha` x
 
+{-
 -- TODO: refactor, pattern matching itself redundant here
 instance {-# OVERLAPS #-} (e ~ Unit) => Component (AT) (List `L` T'I'II S e `T` (Void)) (T'I'II S e) where
  component = T'I'TT'II'T'II'I `identity` \case
   Label (T'TT'I (T'I'II (This _))) -> supertype Empty `hjd` Label `ha` (\_ -> Null `ho'vt` Unit `ryo` Enter)
   Label (T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))))) ->
    Exist `ha'nt'ha` x `hjd` Label `ha` (Empty `ho'ut` T'TT'I (xxx `yo` F'T'I'TT) `bt'has` (\x' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x')))))))))
+-}
 
 pattern Until :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void) `T` i
 pattern Until x = Label @_ @_ @(Void) x
 
+{-
 instance {-# OVERLAPS #-}
  ( Covariant Endo Semi Functor (AR) t
- , Covariant Endo Transformation Functor (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
+ , Component (AR) (t `T'TT'I` T'I'II (S) Unit `L` T'I'II (S) Unit `T` (Void) `L` t `T` (Void)) (t `TT'T'I` T'I'II (S) Unit)
  ) => Component (AR) ((t `T'TT'I` Match) `L` Match `T` (Void)) Match where
  component (Label (T'TT'I x)) = T'II'I `identity` \i -> True `bt'has` Ok `ho'ut'st` False
   `ha'nt___'ha` x `yokl` Apply `ha` Check `ha` (\(T'II'I xx) -> True `bt'has` False `ha'nt'ha` xx i)
+-}
 
 {-
 pattern Total :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
@@ -90,26 +99,28 @@ pattern Sever x = x
 
 instance {-# OVERLAPS #-} Component (TR) (List `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \case
-  Label (T'TT'I (T'I'II (This _))) -> Empty Unit `hjd` Label (T'TT'I (Empty Unit))
-  Label (T'TT'I (Exist (Build (Recursive (T'TT'I (T'II'I (These xs x))))))) -> Exist x `hjd__` Label `ha` T'TT'I `ha'nt_'ha` xs `yo` F'T'I'TT
+  Label (T'TT'I (T'I'II (This _))) -> Empty Unit `These` Label (T'TT'I (Empty Unit))
+  Label (T'TT'I (T'I'II (That (Build (Recursive (T'TT'I (T'II'I (These xs x)))))))) -> (T'I'II `ha` That `ha'nt'ha` x) `These` (Label `ha` T'TT'I `ha'nt_'ha` xs `yo` F'T'I'TT)
 
 pattern Adapt :: forall t tt i . t `T` i `AR__` t `L` tt `T` Void `T` i
 pattern Adapt x = Label @t @tt @Void x
 
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `L` List `T` (Void)) List where
- mapping = rewrap `identity` \source -> rewrap `ha'nt_'ha` supertype `ho` subtype @AR `ho'yo` source `ho` Exist
+ mapping = rewrap `identity` \source -> rewrap `ha'nt_'ha` supertype `ho` subtype @AR `ho'yo` source `ho` (T'I'II `ha` That)
 
 instance Mapping T'I'II T'I'II (AR) (AR)
  (Construction Maybe `L` (I `P'T'I'TT'I` Twice `T'TT'I` List) `T` (Void))
  (I `P'T'I'TT'I` Twice `T'TT'I` List) where
  mapping = rewrap `identity` \source (Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x)))))) ->
-  Alone `ha'nt'ha` source x `hjd___'tb` T'TT'I (Empty Unit) `hjd_'tb` T'TT'I (xs `yo` F'T'I'TT) `yo` source
+  boundtype ((Alone `ha'nt'ha` source x) `These` boundtype (T'TT'I (Empty Unit) `These` (T'TT'I (xs `yo` F'T'I'TT) `yo` source)))
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `L` Construction Maybe `T` Void) (Construction Maybe) where
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r)))))) ->
   l `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within @Maybe @(Nonempty List) `ha` Fresh
    `bt'ha'nt___'ha` derive `ha` Merge `ha` Clasp `ha'nt_'ha` x `hjd` r
    `yi___` that `ho'yo` source
+-}
 
 -- TODO: replace it with `Merge`
 -- instance Mapping T'I'II T'I'II (AR) (AR) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
@@ -123,6 +134,7 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `
 -- instance Mapping T'I'II T'I'II (AR) (AR) (Construction Maybe) (Alone `P'T'I'TT'I` Maybe `T'TT'I` Construction Maybe) where
  -- mapping = rewrap `identity` \source -> Alone `ha` this `ha` top `hop` subtype @(AR) `ha` this `ha` sub `ho_'yo` source
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction List `L` (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) `T` Void) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding Alone Tree) where
  mapping = rewrap `identity` \source x -> supertype x `yo` source `hjd'tb` subtype (Null `ho'vt` Unit `ryo` Enter)
 
@@ -136,12 +148,13 @@ instance Mapping T'I'II T'I'II (AR) (AR) ((Construction List `P'T'I'TT'I` List `
      `ha'nt__'ha` Alone `ha'nt'ha` tree `hjd'tb` supertype siblings
        `yi` derive `ha` Adapt @(Nonempty List)
        `ha` derive `ha` Adapt @(Scrolling List)
+-}
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `ha'nt'ha` Unit
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` List `T` Void) List where
- mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> Exist `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `ha'nt'ha` Unit
+ mapping = rewrap `identity` \source -> rewrap `identity` \(T'I'I (These x xx)) -> T'I'II `ha` That `ha` Nonempty @List `ha` Item (source x) `ha` Next `ha` Item (source xx) `ha` Last `ha'nt'ha` Unit
 
 -- pattern Ended
 -- pattern Begin
@@ -161,16 +174,20 @@ instance {-# OVERLAPS #-}
  Component (AR) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component _ = supertype Empty
 
+{-
 instance {-# OVERLAPS #-}
  ( forall e . Covariant Mapping T'I'II (AR) (AR) (T'I'II (AR) Unit) t
  ) => Component (AT) (Construction t `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
   supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'II'I `ha` (Pass `ho'ut'st` x `ryo` Enter @t `hjd_`)))
+-}
 
+{-
 instance {-# OVERLAPS #-}
  Component (AT) ((Maybe `T'TT'I` Construction Maybe) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'T'II'I `identity` \(Label x) ->
-  supertype Empty `hjd` Label `ha` (Empty `ho'ut` x `bt'has` (\xx' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These (supertype x `yo` supertype @(AR)) xx')))))))))
+  supertype Empty `These` (Label `ha` (Empty `ho'ut` x `bt'has` (\xx' -> T'TT'I (T'I'II (That (F'T'I'TT (Recursive (T'TT'I (T'II'I (These (supertype x `yo` supertype @(AR)) xx'))))))))))
+-}
 
 {-
 instance Mapping T'I'II T'I'II (AR) (AR) (List `L` (Twice `T'TT'I` List) `T` (Void `P` Void)) (Twice `T'TT'I` List) where
@@ -189,7 +206,7 @@ instance {-# OVERLAPS #-} Component (AR) (Construction t `L` Alone `T` Void) Alo
 
 instance {-# OVERLAPS #-} Component (AT) (Construction t `L` Alone `T` Void) Alone where
  component = T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xxx x)))))) ->
-   Alone `ha'nt'ha` x `hjd` (\xx -> xxx `hjd_'tb` supertype xx)
+   (Alone `ha'nt'ha` x) `These` (\xx -> boundtype (xxx `These` supertype xx))
 
 instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
@@ -198,10 +215,10 @@ instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alon
  component (Label (T'TT'I'TTT'I (These x xxx))) = x
 
 instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` Alone `T` Void) Alone where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd'tb` xxx)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `These` (boundtype `ha` (`These` xxx))
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `L` Tree `T` Void) Tree where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `hjd` (`hjd'tb` xxx)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xxx))) -> x `These` (boundtype `ha` (`These` xxx))
 
 pattern Stock :: forall tt t i .
  t i `AR__` t `L` (tt `T'TT'I` Construction tt) `T` (Void `P` Void) `T` i
@@ -217,10 +234,11 @@ instance {-# OVERLAPS #-}
  Covariant Endo Semi Functor (AR) t =>
  Component (AT) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t) where
  component = T'I'TT'II'T'II'I `identity` \(Label (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xx x)))))) ->
-  T'TT'I `ha'nt_'ha` xx `yo` F'T'I'TT `hjd__'tb` (\xx' -> supertype xx' `yo` supertype @(AR) `hjd_'tb` x)
+  boundtype ((T'TT'I `ha'nt_'ha` xx `yo` F'T'I'TT) `These` (\xx' -> boundtype ((supertype xx' `yo` supertype @(AR)) `These` x)))
 
 instance {-# OVERLAPS #-}
- ( Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` (Void)) t
+ ( Covariant Endo Semi Functor (AR) t
+ , Component (AR) (t `T'TT'I` t `L` t `T` (Void)) t
  , Component (AR) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t)
  ) => Component (AR) ((t `T'TT'I` Construction t) `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t) where
  component = \(Label (T'TT'I x)) ->
@@ -228,13 +246,14 @@ instance {-# OVERLAPS #-}
   T'TT'I (x `yok` Apply `ha` supertype @(AR) `ha` internal)
 
 instance {-# OVERLAPS #-}
- ( Covariant Transformation Functor (AR) (AR) (t `T'TT'I` t `L` t `T` (Void)) t
+ ( Covariant Endo Semi Functor (AR) t
+ , Component (AR) (t `T'TT'I` t `L` t `T` (Void)) t
  , Component (AT) (Construction t `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t)
  ) => Component (AT) ((t `T'TT'I` Construction t) `L` (t `T'TT'I` Construction t) `T` (Void `P` Void)) (t `T'TT'I` Construction t) where
  component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I x)) ->
   let internal = within @(t `T'TT'I` Construction t) @(Construction t) `ha` Stock in
   T'TT'I (x `yok` Apply `ha` supertype @(AR) `ha` this `ha` internal)
-   `hjd` (\x' -> Label (T'TT'I (x `yo_` (\xx -> that `ha` internal `ha'nt'ha` xx `ha'nt'ha` x'))))
+   `These` (\x' -> Label (T'TT'I (x `yo_` (\xx -> that `ha` internal `ha'nt'ha` xx `ha'nt'ha` x'))))
 
 pattern Shaft :: forall t i . t i `AR____` t `L` (Twice `T'TT'I` List) `T` (Void) `T` i
 pattern Shaft x = Label x
@@ -243,30 +262,34 @@ instance {-# OVERLAPS #-} Component (AR) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` Li
  component = \(Label (T'TT'I'TTT'I (These x xx))) -> xx
 
 instance {-# OVERLAPS #-} Component (AT) ((Alone `P'T'I'TT'I` (Twice `T'TT'I` List)) `L` (Twice `T'TT'I` List) `T` Void) (Twice `T'TT'I` List) where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> xx `hjd'tb` (x `hjd'tb`)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> boundtype (xx `These` (boundtype `ha` (x `These`)))
 
 instance {-# OVERLAPS #-} Component (AR) ((Tree `P'T'I'TT'I` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree))) `L` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `T` Void) (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
  component = \(Label (T'TT'I'TTT'I (These x xx))) -> xx
 
 instance {-# OVERLAPS #-} Component (AT) ((Tree `P'T'I'TT'I` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree))) `L` (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) `T` Void) (List `T'TT'I` (Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree)) where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> xx `hjd'tb` (x `hjd'tb`)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xx))) -> boundtype (xx `These` (boundtype `ha` (x `These`)))
 
 pattern Stump :: forall i e .
  Component (AR) (S'I'II i `L` S'I'II Unit `T` Void) (S'I'II Unit) =>
  S'I'II i e `AR__` S'I'II i `L` S'I'II Unit `T` Void `T` e
 pattern Stump x = Label x
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (S'I'II e `L` S'I'II Unit `T` Void) (S'I'II Unit) where
  mapping = rewrap `identity` \source ->
   rewrap `ha'nt'ha` (This `compose` constant Unit `has` That `compose` source) `compose` supertype
+-}
 
 pattern Spare :: forall i ii .
  Component (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) =>
  P'II'I i (S'I'II Unit ii) `AR___` (P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void `T` ii
 pattern Spare x = Label (T'TT'I x)
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) ((P'II'I i `T'TT'I` S'I'II Unit) `L` (P'II'I i `T'TT'I` S'I'II Unit) `T` Void) (S'I'II i) where
  mapping = rewrap `identity` \source (Label (T'TT'I (T'II'I (These x i)))) -> Empty `ho'ut` Error i `bt'has` Valid `ha` source `ha'nt'ha` x
+-}
 
 -- pattern Chary :: forall i ii .
  -- Component (AR) ((P'II'I ii `T'TT'I` S'I'II Unit) `L` (P'II'I ii `T'TT'I` S'I'II Unit) `T` Void) (S'I'II ii) =>
@@ -279,6 +302,7 @@ pattern Merge :: forall t tt ttt i .
  ) => t `P'T'I'TT'I` tt `T'I___` i `AR_______` (t `P'T'I'TT'I` tt) `L` ttt `T` (Void) `T` i
 pattern Merge x = Label x
 
+{-
 instance
  ( Covariant Endo Semi Functor (AR) t
  , forall e . Covariant Transformation Functor (AR) (AR)
@@ -290,7 +314,9 @@ instance
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'ha'nt___'ha` xx `yi____` that `ho'yo` source
+-}
 
+{-
 instance
  ( Covariant Endo Semi Functor (AR) t
  , forall e . Covariant Transformation Functor (AR) (AR)
@@ -302,7 +328,9 @@ instance
  mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These x xx))) ->
   x `yokl_` Aback `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'ha'nt___'ha` xx `yi____` that `ho'yo` source
+-}
 
+{-
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` T'I'II S Unit `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II S Unit)) `L` (F'T'I'TT (T'II'I P) (T'I'II S Unit)) `T` (Void))
  (F'T'I'TT (T'II'I P) (T'I'II S Unit)) where
@@ -311,6 +339,7 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
    `has___` supertype (Event `ha` Swap `ha` Exist `ha'nt'ha'st` x `ha__` Scope `ha'nt'ha` within `ha` Fresh) `ho` that
    `ha'nt___'ha` basetype xx
    `yo____` source
+-}
 
 -- TODO: `Aback` behaviour itself needed here
 {-
@@ -345,6 +374,7 @@ pattern Aloft x = Label x
 --     `yi` (\x' -> supertype scrolling_list `hjd` supertype (this @(Alone _) x'))
 --     `yo` source
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR)
  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List `T'TT'I` Tree `P'T'I'TT'I` Tree) `L` Tree `T` (Void `P` Void)) Tree where
   mapping = rewrap `identity` \source (Label (T'TT'I'TTT'I (These (T'TT'I'TTT'I (These root siblings)) tree))) ->
@@ -353,6 +383,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
     `ha'nt__'ha` Adapt @(Scrolling List) `ho` derive `ho` Adapt @(Nonempty List) `ho` derive
      `ha'nt_'ha` Alone tree `hjd'tb` supertype siblings
     `yo___` source
+-}
 
 -- TODO: We haven't finished yet!
 -- TODO: I need to heavily test it...
@@ -391,14 +422,16 @@ instance Mapping T'I'II T'I'II (AR) (AR)
 pattern Stage :: forall t i . i `AR__` I `L` t `T` Void `T` i
 pattern Stage x = Label (Alone x)
 
-pattern Focus :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
+pattern Focus :: forall i . i `AR__` I `L` Added (Unit `S` Unit) `T` Void `T` i
 pattern Focus x = Label (Alone x)
 
+{-
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  (I `P'T'I'TT'I` Twice `T'TT'I` List)
- ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+ ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` Void) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   T'TT'I (T'TT'I'TTT'I (These (x `yo` (`hjd'tb` This Unit) `ha` source) (xs `yo` (`hjd'tb` That Unit) `ha` source)))
+-}
 
 -- pattern Reach  :: forall ttt t tt i .
  -- Component (AT) ((t `P'T'I'TT'I` tt) `L` ttt `T` (Void)) ttt =>
@@ -423,42 +456,48 @@ instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
  -- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I'TTT'I (These x xs))) -> xs `hjd'tb` (x `hjd'tb`)
 
 -- instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AT) (AT) (I `P'T'I'TT'I` Twice `T'TT'I` List)
---  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+--  ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` Void) where
   
  -- component = T'I'TT'II'T'II'I `identity` \(Label (Label x)) ->
   -- supertype Empty `hjd` Label `ha` Label `ha` (Empty `hu` x `has` (\xx -> that (push xx x)))
 
+{-
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
- ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+ ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` Void) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->
-  xx `yo` wrapped @(AR) @(F'T'I'TT Along _ _) (`yo` source `ho` (`hjd'tb` That Unit)) `hjd_'tb` source x `hjd'tb` This Unit `hjd_'tb` xxx `yo` source `ho` (`hjd'tb` That Unit)
+  xx `yo` wrapped @(AR) @(F'T'I'TT Added _ _) (`yo` source `ho` (`hjd'tb` That Unit)) `hjd_'tb` source x `hjd'tb` This Unit `hjd_'tb` xxx `yo` source `ho` (`hjd'tb` That Unit)
+-}
 
-pattern Frame :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` (Void `P` Void) `T` i
+pattern Frame :: forall i . i `AR__` I `L` Added (Unit `S` Unit) `T` (Void `P` Void) `T` i
 pattern Frame x = Label (Alone x)
 
+{-
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR)
- (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
+ (I `P'T'I'TT'I` Twice `T'TT'I` List) ((I `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These x xs)) ->
   x `yo` (`hjd'tb` That Unit) `ha` source `hjd_'tb` xs `yo` (`hjd'tb` This Unit) `ha` source
 
 instance {-# OVERLAPS #-} Mapping T'I'II T'I'II (AR) (AR) (Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List)
- ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
+ ((Construction List `P'T'I'TT'I` List `T'TT'I` Unfolding I `T'I` Construction List) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source (T'TT'I'TTT'I (These (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xx x))))) xxx)) ->
-  xx `yo` wrapped @(AR) @(F'T'I'TT Along _ _) (`yo` source `ho` (`hjd'tb` This Unit)) `hjd_'tb` source x `hjd'tb` That Unit `hjd_'tb` xxx `yo` source `ho` (`hjd'tb` This Unit)
+  xx `yo` wrapped @(AR) @(F'T'I'TT Added _ _) (`yo` source `ho` (`hjd'tb` This Unit)) `hjd_'tb` source x `hjd'tb` That Unit `hjd_'tb` xxx `yo` source `ho` (`hjd'tb` This Unit)
+-}
 
 pattern Level :: forall t i . i `AR__` Alone `L` t `T` Void `T` i
 pattern Level x = Label (Alone x)
 
+{-
 instance
  ( Covariant Endo Semi Functor (->) t
  ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Construction t `L` Construction t `T` Void) where
- mapping = rewrap `identity` \source -> rewrap `ha` rewrap `ha` rewrap `ha` rewrap `identity` \(These xx x) ->
-  (xx `yo` supertype @AR `ha` supertype @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT)
-  `hjd'tb` Label (xx `hjd'tb` x `yo` source)
+ mapping = rewrap `identity` \source -> rewrap `ha` rewrap `ha` rewrap `ha` rewrap `identity` \(These xx x) -> boundtype
+  ((xx `yo` supertype @AR `ha` supertype @AR `ha` (map @T'I'II @T'I'II @(AR) @(AR) @(Construction t) @(Construction t `T'TT'I` Construction t `L` Construction t `T` Void) source) `ha` F'T'I'TT)
+  `These` Label (boundtype (xx `These` (x `yo` source))))
+-}
 
 -- instance Mapping T'I'II T'I'II (AR) (AR)
 --  ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree)
---  (((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` Void) where
+--  (((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `T'TT'I` Tree `P'T'I'TT'I` Unfoldings Alone Tree) `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` Void) where
 --  mapping = rewrap `identity` \source -> rewrap `identity`
 --   \(These (T'TT'I (T'TT'I'TTT'I (These (Identity (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xx x)))))) xxx))) xxxx) ->
 --    xx `yo` wrapped @(AR) @(Tree _) (fo ((`hjd` That Unit) `ha` source))
@@ -466,38 +505,43 @@ instance
 --     `hjd_` xxx `yo'yo` (`hjd` That Unit) `ha` source
 --     `hjd_` xxxx `yo` (`hjd` That Unit) `ha` source
 
-pattern Start :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` Void `T` i
+pattern Start :: forall i . i `AR__` I `L` Added (Unit `S` Unit) `T` Void `T` i
 pattern Start x = Label (Alone x)
 
+{-
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void)) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` (Void)) where
  mapping = rewrap `identity` \source (F'T'I'TT (Recursive (T'TT'I (T'II'I (These xs x))))) ->
-  xs `yo` wrapped @(AR) @(F'T'I'TT Along t _) (`yo` source `ho` (`hjd'tb` That Unit)) `hjd_'tb` source x `hjd'tb` This Unit
+  xs `yo` wrapped @(AR) @(F'T'I'TT Added t _) (`yo` source `ho` (`hjd'tb` That Unit)) `hjd_'tb` source x `hjd'tb` This Unit
+-}
 
-pattern Final :: forall i . i `AR__` I `L` Along (Unit `S` Unit) `T` (Void `P` Void) `T` i
+pattern Final :: forall i . i `AR__` I `L` Added (Unit `S` Unit) `T` (Void `P` Void) `T` i
 pattern Final x = Label (Alone x)
 
+{-
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Lax Monoidal Functor (AR) (AR) (P) S Void t
  , Covariant Lax Monoidal Functor (AR) (AR) (P) P Void t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Unit `S` Unit) `L` Along (Unit `S` Unit) `T` (Void `P` Void)) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Added (Unit `S` Unit) `L` Added (Unit `S` Unit) `T` (Void `P` Void)) where
  mapping = rewrap `identity` \source x -> T'TT'I `ha'nt__'ha` x
-  `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Along
+  `kyo` Level @(Construction t) `ha` (\xx -> Label `ha` Added
    `ha` (itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `ha'nt'ha` xx `hjd` That Unit) `bt'has` itself `ho'ut` (source `ha` supertype @(AR) `ha` this `ha` within @Alone `ha` Apply `ha'nt'ha` xx `hjd` This Unit))
    `ha` (\xxx -> this `ha` sub `ha'nt'ha` xxx `hjd'dcps` (Pass `ryo` Apply @t) `yokl` Apply `ha` Check `ha__` Error `ho'ut` Error Unit `bt'has` Valid)
    `ha'nt'ha` xx)
+-}
 
-pattern Depth :: forall i . i `AR__` I `L` Along (List Unit) `T` Void `T` i
+pattern Depth :: forall i . i `AR__` I `L` Added (List Unit) `T` Void `T` i
 pattern Depth x = Label (Alone x)
 
+{-
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Endo Semi Functor (AR) t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Added (List Unit) `L` Added (List Unit) `T` Void) where
  mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `ha'nt'ha` source `ha'nt_'ha` (T'TT'I `ha'nt'ha'st` Empty)) where
 
   worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `ha'nt'ha`
@@ -505,17 +549,18 @@ instance
     `yoi` fo @AR @AR (worker source (that (Event `ha'nt'ha` Push Unit `ha__` Scope `ha'nt'ha` within `ha` Fresh `bt'ha'nt_'ha` depth)))
     `yio` (\xxx -> source xxx `hjd'tb` depth)
    )
+-}
 
 -- TODO: try to define `Depth` for `Instruction`!
 
 {-
-pattern Index :: forall i . i `AR__` I `L` Along (Nonempty List Unit) `T` Void `T` i
+pattern Index :: forall i . i `AR__` I `L` Added (Nonempty List Unit) `T` Void `T` i
 pattern Index x = Label (Alone x)
 
 instance
  ( Covariant Endo Transformation Functor (AR) (t `T'TT'I` Maybe `L` Maybe `T` Void `L` t `T` Void) (t `TT'T'I` Maybe)
  , Covariant Endo Semi Functor (AR) t
- ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Along (Construction Maybe Unit) `L` Along (Construction Maybe Unit) `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (Construction t) (Construction t `T'TT'I` Added (Construction Maybe Unit) `L` Added (Construction Maybe Unit) `T` Void) where
  mapping = rewrap `identity` \source -> T'TT'I `compose` rewrap @AR (worker `ha'nt'ha` source `ha'nt'ha_` (T'TT'I `ha'nt'ha'st` Empty)) where
 
   worker source depth = (rewrap @AR `ha` rewrap @AR `ha` rewrap @AR) `ha'nt'ha`
@@ -526,7 +571,7 @@ instance
 -}
 -- instance Mapping T'I'II T'I'II (AR) (AR)
  -- (Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree)
- -- ((Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) `T'TT'I` Along (List Unit) `L` Along (List Unit) `T` Void) where
+ -- ((Shifting t List `T'TT'I` Tree `P'T'I'TT'I` Unfoldings t Tree) `T'TT'I` Added (List Unit) `L` Added (List Unit) `T` Void) where
 
 --  mapping = rewrap `identity` \source -> rewrap `identity`
 --   \(T'TT'I'TTT'I (These x (T'TT'I (T'I'I (These l r))))) ->
@@ -536,11 +581,13 @@ pattern Alter :: forall t i .
  T'I'I t i `AR__` T'I'I t `L` T'I'I t `T` Void `T` i
 pattern Alter x = Label x
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (P) `L` T'I'I (P) `T` Void) (T'I'I (P)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ha` that `hop` source `ha` this `ha__` supertype @(AR))
 
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'I (S) `L` T'I'I (S) `T` Void) (T'I'I (S)) where
  mapping = rewrap `identity` \source -> rewrap `identity` (source `ho` That `has` source `ho` This `ha__` supertype @(AR))
+-}
 
 {-
 pattern Aback x = This x :: Shifter List
@@ -557,8 +604,9 @@ instance {-# OVERLAPS #-} Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
  component = \(Label (T'TT'I (T'I'I (These x xx)))) -> xx
 
 instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` List) `L` List `T` (Void)) List where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> xx `hjd'tb` (x `hjd'tb`)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> boundtype (xx `These` (boundtype `ha` (x `These`)))
 
+{-
 instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'ha'nt___'ha` worker `bt'ha'nt'ha'st` x where
@@ -568,6 +616,7 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
    `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `ha'nt'ha` within `ha` Front @Alone
    `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `ha` Forth @List `ha` Shaft
    `yok____'ut` Apply `ha` State `ha'nt__'ha` Event `ha'nt'ha` Pull `ha__` Scope `ha'nt'ha` within `ha` Front @Alone
+-}
 
 {- TODO: to implement this effectively we need a Finger Tree
 instance {-# OVERLAPS #-} Component (TR) ((List `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void `P` Void)) Maybe where
@@ -588,8 +637,9 @@ instance {-# OVERLAPS #-} Component (AR) ((Twice `T'TT'I` List) `L` List `T` (Vo
  component = \(Label (T'TT'I (T'I'I (These x xx)))) -> x
 
 instance {-# OVERLAPS #-} Component (AT) ((Twice `T'TT'I` List) `L` List `T` (Void `P` Void)) List where
- component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> x `hjd'tb` (`hjd'tb` xx)
+ component = T'I'TT'II'T'II'I `identity` \(Label (T'TT'I (T'I'I (These x xx)))) -> boundtype (x `These` (boundtype `ha` (`These` xx)))
 
+{-
 instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` List) `L` Maybe `T` (Void)) Maybe where
  component = T'I'TT'II'I `identity` \x ->
   Empty `ho__'ut` Empty Unit `hjd` x `bt'has__` Same `ho'st` foi @(AR) @(AR) (Same @(Alone _) `ho'st` Exist) `ho` fio @(AR) @(AR) Label `bt'ha'nt___'ha` worker `bt'ha'nt'ha'st` x where
@@ -599,6 +649,7 @@ instance {-# OVERLAPS #-} Component (TR) ((Alone `P'T'I'TT'I` Twice `T'TT'I` Lis
      `yok____` Apply `ha` State `ha___` Event `ha` Park `ho__'ha` Scope `ha'nt'ha` within `ha` Front @Alone
      `yok____` Apply `ha` State `ha___` Event `ha'st` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `ha` Aback @List `ha` Shaft
    `yok____'ut` Apply `ha` State `ha'nt__'ha` Event `ha'nt'ha` Pull `ha__` Scope `ha'nt'ha` within `ha` Front @Alone
+-}
 
 pattern Shift :: forall tt t i ll . Scrolling t `L` tt `T` ll `T` i `AR____` Scrolling t `L` tt `T` ll `T` i
 pattern Shift x = x
@@ -606,6 +657,7 @@ pattern Shift x = x
 pattern Slide :: forall tt t i ll . Sliding t `L` tt `T` ll `T` i `AR____` Sliding t `L` tt `T` ll `T` i
 pattern Slide x = x
 
+{-
 instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
  shift :: forall i . Shifter List `AR___` Supertype (Event `T'I` Shifting Alone List i `T'I` Maybe (Alone i))
  shift way x = itself `ha'nt'ha` Empty `ho'ut` (Empty Unit `hjd` x) `bt'has_` itself `ho'st` foi @_ @(AR) Exist `ha'nt_'ha` _shift_ `bt'ha'nt'ha` x where
@@ -640,6 +692,7 @@ instance Shiftable Alone (Maybe `T'TT'I` Construction Maybe) where
    `yok____` Check `ha__` Valid `bt'has` Break `ha__` found
    `yok____'ut` Apply `ha` State `ha'nt___'ha` Event `ha` shift `ha'nt'ha` way
    `yok____` Retry `ha__` Break `ho'ut'st` Ok @Unit `bt'has` Again `ho'ut'st` Break @Unit
+-}
 
 {-
 instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
@@ -681,6 +734,7 @@ instance Shiftable List (Maybe `T'TT'I` Construction Maybe) where
 pattern Aside e = This e :: Shifter Tree
 pattern Pitch e = That e :: Shifter Tree
 
+{-
 instance Shiftable Alone (Construction List) where
  shift way x = itself
   `ha'nt'ha` itself `ho'ut` (Empty Unit `hjd` x)
@@ -753,10 +807,12 @@ instance Shiftable Alone (Construction List) where
    Alone `ha'nt'ha` tree `hjd'tb` siblings
    `yi_` shift `ha'nt'ha` way `ha_` itself @(Scrolling List `T'I` Tree i)
    `yi_` (\x -> supertype @(AR) `ha` this `ha` record @(Alone `T'I` Tree i) `ha'nt'ha` x `hjd__'tb` this `ha` record @(Alone i) `ha'nt'ha` unfolding `hjd_'tb` subtype @(AR) @(T'TT'I _ _ _) `ha` this `ha` record @(Twice `T'TT'I` List `T'I_` Tree i) `ha'nt'ha` x) `ha` that
+-}
 
 pattern Steal :: t i `AR____` t `L` T'I'II (S) e `T` (Void `P` Void `P` Void) `T` i
 pattern Steal i = Label i
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR)
   (T'TTT'TT'I (T'I'II (AR) ii) (T'II'I (P) ii) (T'I'II (S) (T'II'I (P) i ii)) `T'TT'I` T'I'II (S) i `L` T'I'II (S) i `T` (Void `P` Void `P` Void))
   (T'TTT'TT'I (T'I'II (AR) ii) (T'II'I (P) ii) (T'I'II (S) (T'II'I (P) i ii))) where
@@ -765,6 +821,7 @@ instance Mapping T'I'II T'I'II (AR) (AR)
    `bt'has_` (\(T'II'I (These x' ii)) -> (T'I'II `ha` This `ha` T'II'I `ha` These ii)
      `bt'has` (T'I'II `ha` That `ha` T'II'I `ha` (\i' -> These i' ii) `ha` source) `ha'nt'ha` x')
    `ha'nt_'ha` f x
+-}
 
 -- TODO: specify `t` label
 pattern Whirl :: t i -> t `L` t `T` (Void `P` Void) `T` i
@@ -803,7 +860,7 @@ instance {-# OVERLAPS #-}
    `hjd___'tb` source `ha` f `ha` That `ryo` Enter @List
 -}
 
-pattern Trace :: forall t i . i `AR__` I `L` Along (List (t Unit)) `T` Void `T` i
+pattern Trace :: forall t i . i `AR__` I `L` Added (List (t Unit)) `T` Void `T` i
 pattern Trace x = Label (Alone x)
 
 {-
@@ -812,16 +869,16 @@ instance
  , Mapping T'I'II T'I'II (AR) (AR) tt tt
  , Mapping T'I'II T'I'II (AR) (AR) t (t `T'TT'I` tt `L` tt `T` Void)
  , Mapping T'I'II T'I'II (AR) (AR) tt (T'I'II (AR) Unit)
- ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t) (F'T'I'TT (T'I'II S) t `T'TT'I` Along (List `T'I` tt Unit) `L` Along (List `T'I` tt Unit) `T` Void) where
+ ) => Mapping T'I'II T'I'II (AR) (AR) (F'T'I'TT (T'I'II S) t) (F'T'I'TT (T'I'II S) t `T'TT'I` Added (List `T'I` tt Unit) `L` Added (List `T'I` tt Unit) `T` Void) where
  mapping = rewrap `identity` \source -> rewrap `identity` \case
   Recursive (T'TT'I (T'I'II (This x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (This (Label (T'II'I (These (source x) (Null `ho'vt` Unit `ryo` Enter @List))))))))
   Recursive (T'TT'I (T'I'II (That x))) -> F'T'I'TT (Recursive (T'TT'I (T'I'II (That (
    supertype @(AR) @(t `T'TT'I` tt `L` tt `T` Void `T'I_` _) `ha` map @T'I'II @T'I'II @(AR) @(AR) @t @(t `T'TT'I` tt `L` tt `T` Void) identity `ha'nt'ha` x
     `yo` (\(Label xx) -> supertype
        (wrapped
-        (map @T'I'II @T'I'II @(AR) @(AR) @(F'T'I'TT (T'I'II S) t) @(F'T'I'TT (T'I'II S) t `T'TT'I` Along (List `T'I` tt Unit) `L` Along (List `T'I` tt Unit) `T` Void) source)
+        (map @T'I'II @T'I'II @(AR) @(AR) @(F'T'I'TT (T'I'II S) t) @(F'T'I'TT (T'I'II S) t `T'TT'I` Added (List `T'I` tt Unit) `L` Added (List `T'I` tt Unit) `T` Void) source)
         (xx `yor` Unit)
-        `yo` (\(Label (Along xxx)) -> Label (Along (fio (that `ha` supertype (Event `ha` Push `ha'nt'ha` fu Unit xx `ha__` Scope `ha'nt'ha` within `ha` Fresh)) xxx)))
+        `yo` (\(Label (Added xxx)) -> Label (Added (fio (that `ha` supertype (Event `ha` Push `ha'nt'ha` fu Unit xx `ha__` Scope `ha'nt'ha` within `ha` Fresh)) xxx)))
     )
    ))))))
 -}
@@ -829,15 +886,18 @@ instance
 pattern Sieve :: forall t i . (t `P'T'I'TT'I` T'II'I (AR) Boolean) i `AR__` (t `P'T'I'TT'I` T'II'I (AR) Boolean) `L` t `T` (Void) `T` i
 pattern Sieve x = Label x
 
+{-
 instance Component (AR) ((List `P'T'I'TT'I` Match) `L` List `T` Void) List where
  component = \(Label (T'TT'I'TTT'I (These x xx))) ->
   let separator xx' x' = False `ho'ut` (x' `hjd` Empty Unit) `bt'has` True `ho'ut` (x' `hjd` Exist xx') `ha'nt_'ha` xx `st'ha'nt'ha` xx' in
   that (x `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` separator `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh
    `bt'ha'nt___'ha` Null `ho'vt` Unit `ryo` Enter @List)
+-}
 
 pattern Found :: forall t i . t i `AR__` t `L` T'II'I (AR) Boolean `T` (Void `P` Void) `T` i
 pattern Found x = Label @_ @_ @(Void `P` Void) x
 
+{-
 -- TODO: this implementation is inefficient - we should iterate over list, not predicates
 -- TODO: generalise label for `List`, probably generalise `List` as well
 instance
@@ -848,11 +908,13 @@ instance
   Break `ho'ut'st` False `st'has` Ok `ho'ut'st` True
    `ha'nt___'ha` x `yokl` Label @_ @_ @l `ha` Check `ha__` Ok `st'has` Break `ha__`
    (\i -> xx `yokl` Label @_ @_ @l `ha` Check `ha` (\ii -> Ok `st'has` Break `ha'nt_'ha` i `bt'ha'nt'ha` ii))
+-}
 
 -- TODO: specify `t` label
 pattern Plane :: t i -> t `L` t `T` Void `T` i
 pattern Plane i = Label i
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Construction Optional `L` Construction Optional `T` Void) (Construction Optional) where
  mapping = rewrap `identity` \source x -> let start = (supertype (supertype (supertype (supertype (supertype x))))) in
   this `ha'nt'ha` start
@@ -863,47 +925,47 @@ instance Mapping T'I'II T'I'II (AR) (AR) (Construction Optional `T'TT'I` Constru
   `ha__` subtype @(AR) @(Nonempty List (Nonempty List `L` Nonempty List `T` Void `T` _))
   `bt'ha'nt__'ha` supertype @(AR) @(Nonempty List `L` Nonempty List `T` Void `T` _) `ha` that `ha'nt'ha` start `yo` source
   `yi__` that
+-}
 
 pattern Stack :: forall t i . i -> I `L` t `T` (Void `P` Void) `T` i
 pattern Stack i = Label (Identity i)
 
 instance
- ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe)
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source ->
-  T'TT'I `compose` T'I'II `compose` That
-   `compose` map @T'I'II @T'I'II @(AR) @(AR)
-    @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void))
-    @(F'T'I'TT (T'II'I P) Maybe) source
+ Component (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) (T'I'II (S) Unit) `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) (T'I'II (S) Unit))
+ => Component (AR) (T'I'II (AR) (i `S` Unit) `L` ((T'I'II (S) Unit) `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II (S) Unit)) `T` (Void `P` Void)) ((T'I'II (S) Unit) `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II (S) Unit)) where
+ component = T'TT'I `compose` T'I'II `compose` That
+   `compose` component @(AR) @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) (T'I'II (S) Unit) `T` (Void `P` Void)) @(F'T'I'TT (T'II'I P) (T'I'II (S) Unit))
    `compose` rewrap @(AR)
-     @(T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void) `T` _)
-     @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void) `T` _)
+     @(T'I'II (AR) (i `S` Unit) `L` ((T'I'II (S) Unit) `T'TT'I` F'T'I'TT (T'II'I P) (T'I'II (S) Unit)) `T` (Void `P` Void) `T` _)
+     @(T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) (T'I'II (S) Unit) `T` (Void `P` Void) `T` _)
      identity
 
 instance
- ( Covariant Transformation Functor (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source (Label (T'I'II f)) ->
-  supertype (map @T'I'II @T'I'II @(AR) @(AR)
+ Component (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
+ => Component (AR) (T'I'II (AR) (i `S` Unit) `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
+ component (Label (T'I'II f)) = boundtype
+  ((supertype (component @(AR)
     @(T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void))
-    @(Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) source
-    `identity` (Label `compose` T'I'II `identity` (f `compose` This))) `yo` supertype @(AR)
-   `hjd_'tb` source `ha'nt'ha'st` f `ha` That
+    @(Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
+    `identity` (Label `compose` T'I'II `identity` (f `compose` This))) `yo` supertype @(AR))
+   `These` supertype (f `ha` That))
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'II'I P) Maybe `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source (Label (T'I'II f)) -> Empty `ha'nt'ha` Unit `hjd_'tb` source `ha'nt'ha'st` f
+instance Component (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'II'I (P)) (T'I'II (S) Unit) `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) (T'I'II (S) Unit)) where
+ component = rewrap `identity` \(T'I'II f) -> boundtype ((Empty `ha'nt'ha` Unit) `These` supertype f)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \source (Label (T'I'II f)) -> T'TT'I `ha` T'I'II `ha` That `ha'nt'ha` (Empty `ha'nt'ha` Unit `hjd_'tb` source `ha'nt'ha'st` f)
+instance Component (AR) (T'I'II (AR) Unit `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ component (Label (T'I'II f)) = T'TT'I `ha` T'I'II `ha` That `ha'nt'ha` boundtype ((Empty `ha'nt'ha` Unit) `These` supertype f)
 
-instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
- mapping = rewrap `identity` \_ _ -> T'TT'I `ha` T'I'II `ha` This `ha'nt'ha` Unit
+-- instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Void `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
+ -- mapping = rewrap `identity` \_ _ -> T'TT'I `ha` T'I'II `ha` This `ha'nt'ha` Unit
 
 pattern Plain :: forall t i . i -> I `L` t `T` (Void) `T` i
 pattern Plain i = Label (Identity i)
 
+{-
 instance Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) Unit `L` I `T` (Void)) I where
  mapping = rewrap `identity` \source (Label (T'I'II f)) -> Identity (source (f Unit))
+-}
 
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` t `T` (Void)) t
@@ -913,12 +975,15 @@ instance
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) i `L` t `T` (Void)) @t source `compose` Label `identity` T'I'II (supertype f `compose` This))
   (map @T'I'II @T'I'II @AR @AR @(T'I'II (AR) ii `L` tt `T` (Void)) @tt source `compose` Label `identity` T'I'II (supertype f `compose` That))
 
+{-
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
  mapping = rewrap `identity` \source (Label (T'I'II f)) ->
   that (source `ha` f `ha` This `ho'nt'yo` Stack @List `yokl_` Forth `ha` Apply `ha` State `ha___` Event `ha` Push `ho__'ha` Scope `ha'nt'ha` within `ha` Fresh `bt'ha'nt___'ha` source `ha` f `ha` That `ho'nt'yo` Stack )
+-}
 
+{-
 instance
  ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (F'T'I'TT (T'II'I P) Maybe)
  ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (F'T'I'TT (T'II'I P) Maybe) where

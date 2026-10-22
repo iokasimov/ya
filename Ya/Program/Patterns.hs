@@ -36,27 +36,21 @@ pattern Taken x = T'II'I x
 
 type Supplied = T'II'I P
 
-type Along = T'II'I P
+type Added = T'II'I P
 
-pattern Along :: forall e ee . e `P` ee -> Along ee e
-pattern Along x = T'II'I x
+pattern Added :: forall e ee . e `P` ee -> Added ee e
+pattern Added x = T'II'I x
 
 type Optional = S'I'II Unit
 
 pattern Empty :: Unit -> Maybe i
 pattern Empty x = T'I'II (This x)
 
-pattern Exist :: i -> Maybe i
-pattern Exist x = T'I'II (That x)
-
 pattern Optionally x = T'I'II x
 
 type Halts = S'I'II Unit
 
 type Maybe = S'I'II Unit
-
-pattern Maybe :: Unit `S` e `AR_` Maybe e
-pattern Maybe x = T'I'II @(S) @Unit x
 
 type Stops = T'I'II (S)
 
@@ -137,13 +131,13 @@ type Origination = F'T'I'TT
 pattern Origination :: forall t tt i . Supertype (Origination t tt i) `AR____` Origination t tt i
 pattern Origination x = F'T'I'TT x
 
-type Construction = Origination Along
+type Construction = Origination Added
 
 pattern Build :: forall t i . Supertype (Construction t i) `AR____` Construction t i
 pattern Build xs = Origination xs
 
 pattern Affix :: forall t i . t (Supertype (Construction t i)) `P` i `AR__` Supertype (Construction t i)
-pattern Affix x = Recursive (T'TT'I (Along x))
+pattern Affix x = Recursive (T'TT'I (Added x))
 
 pattern Node x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
@@ -169,7 +163,7 @@ pattern List x = T'TT'I x
 
 type Quest = List
 
-pattern Item :: i -> t (Recursive (Along i `T'TT'I` t)) -> Recursive (Along i `T'TT'I` t)
+pattern Item :: i -> t (Recursive (Added i `T'TT'I` t)) -> Recursive (Added i `T'TT'I` t)
 pattern Item x xs = Recursive (T'TT'I (T'II'I (These xs x)))
 
 pattern Next :: forall ee e . ee `AR_` Stops e ee
@@ -187,7 +181,7 @@ type family Nonempty datastructure where
 
 type Stream = Construction Maybe
 
-pattern Nonempty :: forall t i . Recursive (Along i `T'TT'I` Brancher t) -> Construction (Brancher t) i
+pattern Nonempty :: forall t i . Recursive (Added i `T'TT'I` Brancher t) -> Construction (Brancher t) i
 pattern Nonempty xs = Origination xs
 
 type family Infinite datastructure where
@@ -196,7 +190,7 @@ type family Infinite datastructure where
 type Tree = Construction List
 
 -- TODO: fix it, it shouldn't be too complicated
-pattern Tree x xs = Origination (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Build xs))) x))))
+-- pattern Tree x xs = Origination (Recursive (T'TT'I (T'II'I (These (T'TT'I (Exist (Build xs))) x))))
 
 type family Binary t where
  Binary Tree = Construction (T'I'I (P) `T'TT'I` Optional)
@@ -207,13 +201,13 @@ type family Forest tree where
  Forest (Construction List) = List `T'TT'I` Construction List
 
 type family Prefix t k where
- Prefix Tree k = List `T'TT'I` Construction List `T'TT'I` Along k
- Prefix List k = List `T'TT'I` Along k
- Prefix (Construction Maybe) k = Construction Maybe `T'TT'I` Along k
+ Prefix Tree k = List `T'TT'I` Construction List `T'TT'I` Added k
+ Prefix List k = List `T'TT'I` Added k
+ Prefix (Construction Maybe) k = Construction Maybe `T'TT'I` Added k
 
-type Mealy = F'T'I'TT'II Along Given
+type Mealy = F'T'I'TT'II Added Given
 
-type Moore = F'T'I'TT'II Given Along
+type Moore = F'T'I'TT'II Given Added
 
 type Way = Unit `S` Unit
 
