@@ -582,9 +582,6 @@ pattern Flout x = T'I' x
 
 type Twice = T'I'I (P)
 
-pattern Twice :: i `P` i `AR___` T'I'I P i
-pattern Twice x = T'I'I x
-
 type Opted = T'I'I (S)
 
 pattern Opted :: i `S` i `AR___` T'I'I S i
