@@ -2478,7 +2478,15 @@ ho'nt_____'yo = yio'nt'yo
 
 infixl 4 `yio'nt'yio`
 
-yio'nt'yio
+infixl 7 `ho'nt'yio`
+infixl 6 `ho'nt_'yio`
+infixl 5 `ho'nt__'yio`
+infixl 4 `ho'nt___'yio`
+infixl 3 `ho'nt____'yio`
+infixl 2 `ho'nt_____'yio`
+infixl 1 `ho'nt______'yio`
+
+yio'nt'yio, ho'nt'yio, ho'nt_'yio, ho'nt__'yio, ho'nt___'yio, ho'nt____'yio, ho'nt_____'yio, ho'nt______'yio
  :: forall source target t tt ll a o i ii .
  Hom Functor source =>
  Hom Functor target =>
@@ -2499,6 +2507,14 @@ yio'nt'yio = fio (wrapped (component @target @(T'I'II t i `L` T'I'II tt ii `T` l
  `compose` (fai @source `compose` fio @source) (supertype `compose` supertype)
  `compose` yo
  `compose` subtype
+
+ho'nt'yio = yio'nt'yio
+ho'nt_'yio = yio'nt'yio
+ho'nt__'yio = yio'nt'yio
+ho'nt___'yio = yio'nt'yio
+ho'nt____'yio = yio'nt'yio
+ho'nt_____'yio = yio'nt'yio
+ho'nt______'yio = yio'nt'yio
 
 infixl 4 `yio'nt'yoo`
 
