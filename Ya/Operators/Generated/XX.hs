@@ -1,11 +1,7 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 module Ya.Operators.Generated.XX where
 
-import Ya.Algebra.Abstract
-import Ya.Algebra.Definition
-import Ya.Algebra.Instances ()
-
-import Ya.Operators.Mappings
+import Ya.Semantics
 import Ya.Operators.Handcraft
 
 infixl 2 `ha_______'yo`, `ha_______'ya`, `ha_______'yoi`, `ha_______'ha`, `ha_______'ho`, `ha_______'yia`, `ho_______'yo`, `ho_______'ya`, `ho_______'yoi`, `ho_______'ha`, `ho_______'ho`, `ho_______'yia`

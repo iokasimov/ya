@@ -14,30 +14,23 @@ cabal-version:       >= 1.10
 library
   exposed-modules:
     Ya
-    Ya.Algebra
-    Ya.Operators
-    Ya.Program
   other-modules:
-    Ya.Algebra.Abstract
-    Ya.Algebra.Definition
-    Ya.Algebra.Effectful
-    Ya.Algebra.Instances
-    Ya.Algebra.Mappings
-    Ya.Algebra.Components
-    Ya.Operators.Mappings
+    Ya.Semantics
+    Ya.Semantics.Structures
+    Ya.Semantics.Denotation
+    Ya.Semantics.Categories
+    Ya.Semantics.Categories.Mappings
+    Ya.Semantics.Categories.Components
+    Ya.Operators
     Ya.Operators.Handcraft
     Ya.Operators.Generated
     Ya.Operators.Generated.XX
     Ya.Operators.Generated.XXX
-    -- Ya.Operators.Generated.XXXX
-    Ya.Program.Interface
-    Ya.Program.Interface.Fieldable
-    Ya.Program.Interface.Matchable
-    Ya.Program.Interface.Shiftable
-    Ya.Program.Interface.Instances
-    Ya.Program.Patterns
-    Ya.Program.Primitive
-    Ya.Program.Labels
+    Ya.Interface
+    Ya.Interface.Instances
+    Ya.Interface.Behaviour
+    Ya.Interface.Modifiers
+    Ya.Interface.Primitives
   default-extensions:
     DataKinds
     DeriveAnyClass

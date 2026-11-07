@@ -1,11 +1,7 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 module Ya.Operators.Generated.XXX where
 
-import Ya.Algebra.Abstract
-import Ya.Algebra.Definition
-import Ya.Algebra.Instances ()
-
-import Ya.Operators.Mappings
+import Ya.Semantics
 import Ya.Operators.Handcraft
 
 infixl 2 `ha_______'yo'st`, `ha_______'ya'st`, `ha_______'yoi'st`, `ha_______'ha'st`, `ha_______'ho'st`, `ha_______'yia'st`, `ho_______'yo'st`, `ho_______'ya'st`, `ho_______'yoi'st`, `ho_______'ha'st`, `ho_______'ho'st`, `ho_______'yia'st`, `ha_______'yo'yo`, `ha_______'yo'ya`, `ha_______'yo'yoi`, `ha_______'yo'ha`, `ha_______'yo'ho`, `ha_______'yo'yia`, `ha_______'ya'yo`, `ha_______'ya'ya`, `ha_______'ya'yoi`, `ha_______'ya'ha`, `ha_______'ya'ho`, `ha_______'ya'yia`, `ha_______'yoi'yo`, `ha_______'yoi'ya`, `ha_______'yoi'yoi`, `ha_______'yoi'ha`, `ha_______'yoi'ho`, `ha_______'yoi'yia`, `ha_______'ha'yo`, `ha_______'ha'ya`, `ha_______'ha'yoi`, `ha_______'ha'ha`, `ha_______'ha'ho`, `ha_______'ha'yia`, `ha_______'ho'yo`, `ha_______'ho'ya`, `ha_______'ho'yoi`, `ha_______'ho'ha`, `ha_______'ho'ho`, `ha_______'ho'yia`, `ha_______'yia'yo`, `ha_______'yia'ya`, `ha_______'yia'yoi`, `ha_______'yia'ha`, `ha_______'yia'ho`, `ha_______'yia'yia`, `ho_______'yo'yo`, `ho_______'yo'ya`, `ho_______'yo'yoi`, `ho_______'yo'ha`, `ho_______'yo'ho`, `ho_______'yo'yia`, `ho_______'ya'yo`, `ho_______'ya'ya`, `ho_______'ya'yoi`, `ho_______'ya'ha`, `ho_______'ya'ho`, `ho_______'ya'yia`, `ho_______'yoi'yo`, `ho_______'yoi'ya`, `ho_______'yoi'yoi`, `ho_______'yoi'ha`, `ho_______'yoi'ho`, `ho_______'yoi'yia`, `ho_______'ha'yo`, `ho_______'ha'ya`, `ho_______'ha'yoi`, `ho_______'ha'ha`, `ho_______'ha'ho`, `ho_______'ha'yia`, `ho_______'ho'yo`, `ho_______'ho'ya`, `ho_______'ho'yoi`, `ho_______'ho'ha`, `ho_______'ho'ho`, `ho_______'ho'yia`, `ho_______'yia'yo`, `ho_______'yia'ya`, `ho_______'yia'yoi`, `ho_______'yia'ha`, `ho_______'yia'ho`, `ho_______'yia'yia`
