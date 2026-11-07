@@ -1108,6 +1108,60 @@ yokl___ = yokl
 yokl____ = yokl
 yokl_____ = yokl
 
+infixl 5 `yoikl`
+
+yoikl ::
+ forall source target t tt i l ll a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'II'I t i) =>
+ Covariant Endo Semi Functor target tt =>
+ Component target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l) (T'II'I t i `TT'T'I` tt) =>
+ (forall e ee . Wrapper target (T'II'I t e `T'TT'I` tt `L` tt `T` ll `L` T'II'I t e `T` l `T'I_` ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e `TT'T'I` tt `T'I_` ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t a i) (target (source a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o)) (tt (t o i)))
+yoikl = fio (fo @target supertype `compose` wrapped @target (component @target @(T'II'I t i `T'TT'I` tt `L` tt `T` ll `L` T'II'I t i `T` l) @(T'II'I t i `TT'T'I` tt)))
+ `compose` yo `compose` subtype
+
+infixl 5 `yiokl`
+
+yiokl ::
+ forall source target t tt i l ll a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ Covariant Endo Semi Functor target tt =>
+ Component target (T'I'II t i `T'TT'I` tt `L` tt `T` ll `L` T'I'II t i `T` l) (T'I'II t i `TT'T'I` tt) =>
+ (forall e ee . Wrapper target (T'I'II t e `T'TT'I` tt `L` tt `T` ll `L` T'I'II t e `T` l `T'I_` ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e `TT'T'I` tt `T'I_` ee)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t i a) (target (source a (tt `L` tt `T` ll `L` T'I'II t i `T` l `T` o)) (tt (t i o)))
+yiokl = fio (fo @target supertype `compose` wrapped @target (component @target @(T'I'II t i `T'TT'I` tt `L` tt `T` ll `L` T'I'II t i `T` l) @(T'I'II t i `TT'T'I` tt)))
+ `compose` yo `compose` subtype
+
+infixl 5 `yookl`
+
+yookl ::
+ forall source target t tt l ll a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'I t) =>
+ Covariant Endo Semi Functor target tt =>
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l) (T'I'I t `TT'T'I` tt) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'I t `TT'T'I` tt `T'I_` e)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ target (t a a) (target (source a (tt `L` tt `T` ll `L` T'I'I t `T` l `T` o)) (tt (t o o)))
+yookl = fio (fo @target supertype `compose` wrapped @target (component @target @(T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l) @(T'I'I t `TT'T'I` tt)))
+ `compose` yo `compose` subtype
+
 infixl 6 `yakl`
 infixl 5 `yakl_`
 infixl 4 `yakl__`
