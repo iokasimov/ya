@@ -228,6 +228,17 @@ foikl :: forall source target t tt l ll i a o .
  source a (tt `L` tt `T` ll `L` T'II'I t i `T` l `T` o) -> target (t a i) (tt (t o i))
 foikl = fio @target (fo @target supertype) `compose` fai @target subtype `compose` fokl @source @target @(T'II'I t i)
 
+fookl :: forall source target t tt l ll a o .
+ Covariant Endo Semi Functor target tt =>
+ Covariant Semi Functor source target (T'I'I t) =>
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l) (T'I'I t `TT'T'I` tt) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'I t `TT'T'I` tt `T'I_` e)) =>
+ (forall e . Wrapper source (T'I'I t e)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ source a (tt `L` tt `T` ll `L` T'I'I t `T` l `T` o) -> target (t a a) (tt (t o o))
+fookl = fio @target (fo @target supertype) `compose` fai @target subtype `compose` fokl @source @target @(T'I'I t)
+
 fakl :: forall source target t tt l ll a o .
  Contravariant Semi Functor source target t =>
  Component target (t `T'TT'I` tt `L` tt `T` ll `L` t `T` l) (t `TT'T'I` tt) =>
@@ -271,6 +282,21 @@ faikl :: forall source target t tt l ll i a o .
  (forall e . Wrapper target (T'II'I t i e)) =>
  source (tt o) (I `L` tt `T` ll `L` T'II'I t i `T` l `T` a) -> target (t a i) (tt (t o i))
 faikl = fio @target (fa @target subtype) `compose` fai @target subtype `compose` fakl @source @target @(T'II'I t i)
+
+faakl :: forall source target t tt l ll a o .
+ Contravariant Endo Semi Functor target tt =>
+ Contravariant Semi Functor source target (T'I'I t) =>
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l) (T'I'I t `TT'T'I` tt) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `L` T'I'I t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'I t `TT'T'I` tt `T'I_` e)) =>
+ (forall e . Supertyping source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Supertyping source (tt `L` tt `T` ll `L` T'I'I t `T` l `T` e)) =>
+ (forall e . Supertyping source (I `L` tt `T` ll `L` T'I'I t `T` l `T` e)) =>
+ (forall e . Supertyping source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Supertyping source (I `T` e)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ source (tt o) (I `L` tt `T` ll `L` T'I'I t `T` l `T` a) -> target (t a a) (tt (t o o))
+faakl = fio @target (fa @target subtype) `compose` fai @target subtype `compose` fakl @source @target @(T'I'I t)
 
 fo'nt'fo :: forall source target t tt ll a o .
  Covariant Semi Functor source target t =>
