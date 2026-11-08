@@ -5,7 +5,7 @@ import Ya.Semantics
 
 infixl 8 `fo`
 infixl 7 `fio`, `foi`, `foo`, `fok`, `fia`, `fai`, `faa`, `fak`, `kfo`, `kfa`
-infixl 6 `fiok`, `foik`, `fiak`, `faik`, `kfio`, `kfoi`, `kfia`, `kfai`, `fokl`, `fakl`, `fo'nt'fo`, `fa'nt'fa`
+infixl 6 `fiok`, `foik`, `fook`, `fiak`, `faik`, `faak`, `kfio`, `kfoi`, `kfia`, `kfai`, `fokl`, `fakl`, `fo'nt'fo`, `fa'nt'fa`
 infixl 5 `fiokl`, `foikl`, `fiakl`, `faikl`, `fio'nt'fo`, `foi'nt'fo`, `fia'nt'fa`, `fai'nt'fa`
 infixl 4 `fio'nt'fio`, `foo'nt'fio`, `fo'dc'fo'nt'fo`, `fa'dc'fa'nt'fa`, `fo'nt'fo'dc'fo`
 
@@ -78,6 +78,14 @@ foik :: forall source target t tt l i a o .
  source a (tt `L` tt `T` l `T` o) -> target (t a i) (t o i)
 foik = wrapped `compose` fok @source @target @(T'II'I t _)
 
+fook :: forall source target t tt l a o .
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` l) (T'I'I t) =>
+ Covariant Functor source target (T'I'I t) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ source a (tt `L` tt `T` l `T` o) -> target (t a a) (t o o)
+fook = wrapped `compose` fok @source @target @(T'I'I t)
+
 fak :: forall source target t tt l a o .
  Component target (t `T'TT'I` tt `L` tt `T` l) t =>
  Contravariant Functor source target t =>
@@ -110,6 +118,17 @@ faik :: forall source target t tt l i a o .
  (forall e . Wrapper target (T'II'I t i `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
  source (tt o) (I `L` tt `T` l `T` a) -> target (t a i) (t o i)
 faik = wrapped `compose` fak @source @target @(T'II'I t _)
+
+faak :: forall source target t tt l a o .
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` l) (T'I'I t) =>
+ Contravariant Functor source target (T'I'I t) =>
+ Supertyping source (tt `L` tt `T` l `T` o) =>
+ Supertyping source (I `L` tt `T` l `T` a) =>
+ Supertyping source (I `T` a) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` l `T'I_` e)) =>
+ source (tt o) (I `L` tt `T` l `T` a) -> target (t a a) (t o o)
+faak = wrapped `compose` fak @source @target @(T'I'I t)
 
 kfo :: forall source target t tt ll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
