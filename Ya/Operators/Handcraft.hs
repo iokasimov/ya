@@ -1066,6 +1066,51 @@ yok____ = yok
 yok_____ = yok
 yok______ = yok
 
+infixl 6 `yoik`
+
+yoik
+ :: forall source target t tt ll i a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'II'I t i) =>
+ Component target (T'II'I t i `T'TT'I` tt `L` tt `T` ll) (T'II'I t i) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e . Wrapper target (T'II'I t i `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I t e ee)) =>
+ target (t a i) (target (source a (tt `L` tt `T` ll `T` o)) (t o i))
+yoik = fio (supertype `compose` component @target @(T'II'I t i `T'TT'I` (tt `L` tt `T` ll)) @(T'II'I t i) `compose` subtype @target @(T'II'I t i `T'TT'I` tt `L` tt `T` ll `T'I_` _)) `compose` yo `compose` subtype
+
+infixl 6 `yiok`
+
+yiok
+ :: forall source target t tt ll i a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'II t i) =>
+ Component target (T'I'II t i `T'TT'I` tt `L` tt `T` ll) (T'I'II t i) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e . Wrapper target (T'I'II t i `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II t e ee)) =>
+ target (t i a) (target (source a (tt `L` tt `T` ll `T` o)) (t i o))
+yiok = fio (supertype `compose` component @target @(T'I'II t i `T'TT'I` (tt `L` tt `T` ll)) @(T'I'II t i) `compose` subtype @target @(T'I'II t i `T'TT'I` tt `L` tt `T` ll `T'I_` _)) `compose` yo `compose` subtype
+
+infixl 6 `yook`
+
+yook
+ :: forall source target t tt ll a o .
+ Hom Functor target =>
+ Covariant Yoneda Functor source target (T'I'I t) =>
+ Component target (T'I'I t `T'TT'I` tt `L` tt `T` ll) (T'I'I t) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ target (t a a) (target (source a (tt `L` tt `T` ll `T` o)) (t o o))
+yook = fio (supertype `compose` component @target @(T'I'I t `T'TT'I` (tt `L` tt `T` ll)) @(T'I'I t) `compose` subtype @target @(T'I'I t `T'TT'I` tt `L` tt `T` ll `T'I_` _)) `compose` yo `compose` subtype
+
 infixl 7 `yak`
 infixl 6 `yak_`
 infixl 5 `yak__`
