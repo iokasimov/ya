@@ -5,8 +5,8 @@ import Ya.Semantics
 
 infixl 8 `fo`
 infixl 7 `fio`, `foi`, `foo`, `fok`, `fia`, `fai`, `faa`, `fak`, `kfo`, `kfa`
-infixl 6 `fiok`, `foik`, `fook`, `fiak`, `faik`, `faak`, `kfio`, `kfoi`, `kfia`, `kfai`, `fokl`, `fakl`, `fo'nt'fo`, `fa'nt'fa`
-infixl 5 `fiokl`, `foikl`, `fiakl`, `faikl`, `fio'nt'fo`, `foi'nt'fo`, `fia'nt'fa`, `fai'nt'fa`
+infixl 6 `fiok`, `foik`, `fook`, `fiak`, `faik`, `faak`, `kfio`, `kfoi`, `kfoo`, `kfia`, `kfai`, `kfaa`, `fokl`, `fakl`, `fo'nt'fo`, `fa'nt'fa`
+infixl 5 `fiokl`, `foikl`, `fookl`, `fiakl`, `faikl`, `faakl`, `fio'nt'fo`, `foi'nt'fo`, `fia'nt'fa`, `fai'nt'fa`
 infixl 4 `fio'nt'fio`, `foo'nt'fio`, `fo'dc'fo'nt'fo`, `fa'dc'fa'nt'fa`, `fo'nt'fo'dc'fo`
 
 fo :: forall source target t a o .
@@ -151,7 +151,7 @@ kfio :: forall source target t tt ll i a o .
  (forall e . Wrapper target (T'I'II t i `T'I_` e)) =>
  source (tt a) (I `L` tt `T` ll `T` o) -> target (t i a) (t i o)
 kfio source = fio (supertype `compose` supertype `compose` source `compose` supertype)
- `compose` supertype `compose` supertype `compose` component @target @(T'I'II t i) @(T'I'II t i `T'TT'I` tt `L` tt `T` ll) `compose` subtype
+ `compose` supertype `compose` wrapped (component @target @(T'I'II t i) @(T'I'II t i `T'TT'I` tt `L` tt `T` ll))
 
 kfoi :: forall source target t tt ll i a o .
  Component target (T'II'I t i) (T'II'I t i `T'TT'I` tt `L` tt `T` ll) =>
@@ -163,7 +163,19 @@ kfoi :: forall source target t tt ll i a o .
  (forall e . Wrapper target (T'II'I t i `T'I_` e)) =>
  source (tt a) (I `L` tt `T` ll `T` o) -> target (t a i) (t o i)
 kfoi source = foi (supertype `compose` supertype `compose` source `compose` supertype)
- `compose` supertype `compose` supertype `compose` component @target @(T'II'I t i) @(T'II'I t i `T'TT'I` tt `L` tt `T` ll) `compose` subtype
+ `compose` supertype `compose` wrapped (component @target @(T'II'I t i) @(T'II'I t i `T'TT'I` tt `L` tt `T` ll))
+
+kfoo :: forall source target t tt ll a o .
+ Component target (T'I'I t) (T'I'I t `T'TT'I` tt `L` tt `T` ll) =>
+ Covariant Functor source target (T'I'I t) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'I t `T'I_` e)) =>
+ source (tt a) (I `L` tt `T` ll `T` o) -> target (t a a) (t o o)
+kfoo source = foo (supertype `compose` supertype `compose` source `compose` supertype)
+ `compose` supertype `compose` wrapped (component @target @(T'I'I t) @(T'I'I t `T'TT'I` tt `L` tt `T` ll))
 
 kfa :: forall source target t tt ll a o .
  Component target t (t `T'TT'I` tt `L` tt `T` ll) =>
@@ -197,6 +209,17 @@ kfia :: forall source target t tt ll i a o .
  (forall e . Wrapper target (T'I'II t i e)) =>
  source o (tt `L` tt `T` ll `T` a) -> target (t i a) (t i o)
 kfia = wrapped `compose` kfa @source @target @(T'I'II t _)
+
+kfaa :: forall source target t tt ll a o .
+ Component target (T'I'I t) (T'I'I t `T'TT'I` tt `L` tt `T` ll) =>
+ Contravariant Functor source target (T'I'I t ) =>
+ (forall e . Wrapper source (I e)) =>
+ (forall e . Wrapper source (I `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper target (T'I'I t `T'TT'I` tt `L` tt `T` ll `T'I_` e)) =>
+ (forall e . Wrapper target (T'I'I t e)) =>
+ source o (tt `L` tt `T` ll `T` a) -> target (t a a) (t o o)
+kfaa = wrapped `compose` kfa @source @target @(T'I'I t)
 
 fokl :: forall source target t tt l ll a o .
  Covariant Semi Functor source target t =>
