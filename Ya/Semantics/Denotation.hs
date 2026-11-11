@@ -27,18 +27,18 @@ type Endo v x c target = x v c target target
 class
  ( forall e . Covariant Mapping source (AR) (T'I'II source e)
  , forall e . Contravariant Mapping source (AR) (T'II'I source e)
- ) => Precategory source where
+ ) => Semicategory source where
  compose :: source a o -> source e a -> source e o
  compose post pre = let T'I'II y = map @T'I'II post (T'I'II pre) in y
 
 deriving instance
  ( forall e . Covariant Mapping source (AR) (T'I'II source e)
  , forall e . Contravariant Mapping source (AR) (T'II'I source e)
- ) => Precategory source
+ ) => Semicategory source
 
 {- [LAW] Left identity: identity . f ≡ f -}
 {- [LAW] Right identity: f . identity ≡ f -}
-class Precategory source => Category source
+class Semicategory source => Category source
  where identity :: source a a
 
 {- [LAW] Identity preserving: mapping identity ≡ identity -}
@@ -52,13 +52,13 @@ instance Undetermined x
 {- [LAW] Composition preserving: mapping (f . g) ≡ mapping f . mapping g -}
 
 class
- ( Precategory source, Precategory target
+ ( Semicategory source, Semicategory target
  , Mapping v source target t
  , Undetermined (x v source target t)
  ) => Semi v x source target t
 
 deriving instance
- ( Precategory source, Precategory target
+ ( Semicategory source, Semicategory target
  , Mapping v source target t
  , Undetermined (Functor v source target t)
  ) => Semi v Functor source target t
@@ -76,14 +76,14 @@ class Component target t tt where
  component :: target (t i) (tt i)
 
 rewrap :: forall target a o .
- Precategory target =>
+ Semicategory target =>
  Supertyping target a =>
  Subtyping target o =>
  target (Supertype a) (Supertype o) -> target a o
 rewrap f = subtype `compose` f `compose` supertype
 
 wrapped :: forall target a o .
- Precategory target =>
+ Semicategory target =>
  Supertyping target o =>
  Subtyping target a =>
  target a o -> target (Supertype a) (Supertype o)
@@ -113,7 +113,7 @@ class
  ) => Yoneda v x source target t where
  yoneda :: forall a o .
   Category source =>
-  Precategory target =>
+  Semicategory target =>
   (Supertype (v source a a) ~ source a a) =>
   Subtyping (AR) (v source a a) =>
   target (t a) (target (v source a o) (t o))

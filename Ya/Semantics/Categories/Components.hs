@@ -136,7 +136,7 @@ instance Component (AR) (t `L` T'I'II (AR) Unit `T` l) (T'I'II (AR) Unit) => Com
 -}
 
 instance
- ( Precategory target
+ ( Semicategory target
  , forall e . Wrapper target (I `T` e)
  , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
  , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)
@@ -144,7 +144,7 @@ instance
  component = rewrap (supertype `compose` supertype `compose` supertype)
 
 instance
- ( Precategory target
+ ( Semicategory target
  , forall e . Wrapper target (I `T` e)
  , forall e . Wrapper target (I `L` I `T` (Void) `T` e)
  , forall e . Wrapper target (I `T'TT'I` I `L` I `T` (Void) `T'I_` e)

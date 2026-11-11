@@ -45,7 +45,7 @@ instance Mapping T'II'I T'I'II (AT) (AR) (T'II'I (TR) i) (T'II'I (TR) i) where
   These i (ao aa)
 -}
 
-instance (Precategory target, forall e . Wrapper target (I e))
+instance (Semicategory target, forall e . Wrapper target (I e))
  => Mapping T'I'II target target I where
  mapping ~(T'I'II source) = rewrap source
 
