@@ -28,6 +28,7 @@ library
     Ya.Operators.Generated.XXX
     Ya.Interface
     Ya.Interface.Instances
+    Ya.Interface.Fieldable
     Ya.Interface.Behaviour
     Ya.Interface.Modifiers
     Ya.Interface.Primitives
