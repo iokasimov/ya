@@ -4,7 +4,6 @@ synopsis:            ...
 description:         Extremely composable programming language
 homepage:            muratkasimov.art/Ya
 license-file:        LICENSE
-extra-source-files:  CHANGELOG.md, README.md
 author:              Murat Kasimov <iokasimov.m@gmail.com>
 maintainer:          Murat Kasimov <iokasimov.m@gmail.com>
 copyright:           Copyright (c) 2024 Murat Kasimov
