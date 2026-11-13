@@ -19,6 +19,23 @@ type Taken = T'II'I (AR)
 pattern Taken :: ee `AR` e `AR_` Taken e ee
 pattern Taken x = T'II'I x
 
+type Attribute = T'I'TT'II'T'II'I (AR) P
+
+type Scope = T'I'TT'II'T'II'I (AR) P
+
+pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
+pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
+
+type Reach = T'I'II Scope
+
+pattern Reach :: forall i o . Scope i o -> Reach i o
+pattern Reach x = T'I'II @Scope x
+
+type Budge = T'II'I Scope
+
+pattern Budge :: forall i a . Scope a i -> Budge i a
+pattern Budge x = T'II'I @Scope x
+
 type Boolean = T'I'II (S) Unit Unit
 
 pattern Boolean :: Unit `S` Unit `AR` Boolean
