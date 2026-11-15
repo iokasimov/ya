@@ -1508,6 +1508,50 @@ yaakl = fio (fo @target supertype `compose` wrapped @target (component @target @
  `compose` fai @source (fai @source (supertype `compose` supertype) `compose` fio @source (supertype `compose` supertype `compose` supertype))
  `compose` ya `compose` subtype
 
+infixl 6 `yokl'yokl`
+infixl 5 `yokl_'yokl`
+infixl 4 `yokl__'yokl`
+infixl 3 `yokl___'yokl`
+infixl 2 `yokl____'yokl`
+infixl 1 `yokl_____'yokl`
+
+yokl'yokl, yokl_'yokl, yokl__'yokl, yokl___'yokl, yokl____'yokl, yokl_____'yokl :: forall source target t tt ttt l ll lll a o .
+ Covariant Yoneda Functor source target t =>
+ Covariant Semi Functor source target t =>
+ Covariant Endo Semi Functor source tt =>
+ Covariant Endo Semi Functor source ttt =>
+ Covariant Semi Functor source target ttt =>
+ Component target (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l) (t `TT'T'I` ttt) =>
+ Component source (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll) (tt `TT'T'I` ttt) =>
+ (forall e . Contravariant Semi Functor (AR) target (T'II'I target e)) =>
+ Hom Functor target =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper source (tt `TT'T'I` ttt `L` ttt `T` lll `T'I_` e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper source (ttt `L` ttt `T` lll `L` tt `T` ll `T` e)) =>
+ (forall e . Wrapper source (tt `T'TT'I` ttt `L` ttt `T` lll `L` tt `T` ll `T'I_` e)) =>
+ (forall e . Wrapper target (ttt `L` ttt `T` lll `T` e)) =>
+ (forall e . Wrapper target (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper target (ttt `L` ttt `T` lll `L` t `T` l `T` e)) =>
+ (forall e . Wrapper target (t `T'TT'I` ttt `L` ttt `T` lll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (t `TT'T'I` ttt `L` ttt `T` lll `L` t `T` l `T'I_` e)) =>
+ (forall e . Wrapper target (t `T'TT'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper target (t `TT'T'I` ttt `T'I_` e)) =>
+ (forall e . Wrapper source (tt `TT'T'I` ttt `T'I_` e)) =>
+ (forall e ee . Wrapper target (T'I'II source e ee)) =>
+ (forall e ee . Wrapper target (T'II'I target e ee)) =>
+ (forall e ee . Wrapper target (T'I'II target e ee)) =>
+ target (t (tt a)) (target (source a (ttt `L` ttt `T` lll `L` tt `T` ll `L` t `T` l `T` o)) (ttt (t (tt o))))
+yokl'yokl = fai (fio @source (subtype `compose` subtype) `compose` fokl @source @source @tt @ttt @ll @lll `compose` fio @source supertype)
+ `compose` yokl @source @target @t @ttt @l @lll -- @(tt a) @(tt o)
+
+yokl_'yokl = yokl'yokl
+yokl__'yokl = yokl'yokl
+yokl___'yokl = yokl'yokl
+yokl____'yokl = yokl'yokl
+yokl_____'yokl = yokl'yokl
+
 infixl 6 `yo'nt'yo`
 infixl 5 `yo'nt_'yo`
 infixl 4 `yo'nt__'yo`
