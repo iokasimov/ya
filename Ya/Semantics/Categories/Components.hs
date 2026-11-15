@@ -107,8 +107,9 @@ instance Covariant Endo Semi Functor (AR) tt =>
  Component (AR) (T'I'II (P) i `T'TT'I` tt `L` tt `T` (Void) `L` T'I'II (P) i `T` (Void)) (T'I'II (P) i `TT'T'I` tt) where
  component = rewrap `identity` \(T'I'II (These i x)) -> map @T'I'II @(AR) @(AR) (T'I'II `compose` (i `These`)) (supertype (supertype x))
 
-instance Covariant Endo Semi Functor (AR) tt =>
- Component (AR) (T'II'I (P) i `T'TT'I` tt `L` tt `T` (Void) `L` T'II'I (P) i `T` (Void)) (T'II'I (P) i `TT'T'I` tt) where
+instance
+ ( Covariant Endo Semi Functor (AR) tt
+ ) => Component (AR) (T'II'I (P) i `T'TT'I` tt `L` tt `T` (Void) `L` T'II'I (P) i `T` (Void)) (T'II'I (P) i `TT'T'I` tt) where
  component = rewrap `identity` \(T'II'I (These x i)) -> map @T'I'II @(AR) @(AR) (T'II'I `compose` (`These` i)) (supertype (supertype x))
 
 instance
@@ -126,6 +127,19 @@ instance
  component = rewrap `identity` \case
   T'II'I (This x) -> map @T'I'II @(AR) @(AR) (T'II'I `compose` This) (supertype (supertype x))
   T'II'I (That x) -> component @(AR) @(T'I'II (AR) Unit `L` tt `T` (Void)) (Label (T'I'II (\_ -> T'II'I (That x))))
+
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II tt e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I tt e)
+ , forall e ee . Component (AR) ((T'I'II (AR) (tt e ee) `P'T'I'TT'I` T'I' (tt (t e) (t ee))) `L` T'I'I tt `T` (Void) `L` t `T` (Void)) t
+ ) => Component (AR) (T'I'I tt `T'TT'I` t `L` t `T` (Void) `L` T'I'I tt `T` (Void)) (T'I'I tt `TT'T'I` t) where
+ component = rewrap `identity` \(T'I'I x) ->
+  let f = supertype `compose` supertype in
+  let g = wrapped `compose` map @T'I'II @(AR) @(AR) @(T'II'I tt _) in
+  let h = wrapped `compose` map @T'I'II @(AR) @(AR) @(T'I'II tt _) in
+  component @(AR) @((T'I'II (AR) (tt _ _) `P'T'I'TT'I` T'I' (tt (t _) (t _))) `L` T'I'I tt `T` (Void) `L` t `T` (Void)) @t
+   (Label (Label (T'TT'I'TTT'I (These (T'I'II T'I'I) (T'I' (g f `compose` h f `identity` x))))))
 
 {-
 instance Component (AR) (t `L` T'I'II (AR) Unit `T` l) (T'I'II (AR) Unit) => Component (AR) (t `L` I `T` l) I where
