@@ -292,3 +292,25 @@ instance
  Component (AR) (T'I'II (AR) Void `L` t `T` (Void)) t =>
  Component (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'II'I P) t `T` (Void)) (F'T'I'TT (T'II'I P) t) where
  component = rewrap `compose` rewrap `identity` \f -> T'TT'I `compose` T'II'I `identity` (component @(AR) @(T'I'II (AR) Void `L` t `T` (Void)) @t (Label (T'I'II initial)) `These` f Unit)
+
+instance Component (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'I'II (S)) t `T` (Void)) (F'T'I'TT (T'I'II (S)) t) where
+ component = rewrap `identity` \(T'I'II f) -> boundtype (This (supertype f))
+
+instance
+ ( forall e . Wrapper (AR) (tttt `L` tttt `T` l `T` e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'I'II t e)
+ , forall e . Covariant Endo Semi Functor (AR) (T'II'I t e)
+ , Component (AR) (tt `T'TT'I` tttt `L` tttt `T` l `L` tt `T` (Void)) (tt `TT'T'I` tttt)
+ , Component (AR) (ttt `T'TT'I` tttt `L` tttt `T` l `L` ttt `T` (Void)) (ttt `TT'T'I` tttt)
+ , Covariant Endo Semi Functor (AR) tt
+ , Covariant Endo Semi Functor (AR) ttt
+ , forall e ee . Component (AR) ((T'I'II (AR) (t e ee) `P'T'I'TT'I` T'I' (t (tttt e) (tttt ee))) `L` T'I'I t `T` (Void) `L` tttt `T` (Void)) tttt
+ ) => Component (AR) (T'TT'I'TTT'I t tt ttt `T'TT'I` tttt `L` tttt `T` l `L` T'TT'I'TTT'I t tt ttt `T` (Void)) (T'TT'I'TTT'I t tt ttt `TT'T'I` tttt) where
+ component = rewrap (
+  component @(AR) @((T'I'II (AR) (t _ _) `P'T'I'TT'I` T'I' (t (tttt _) (tttt _))) `L` T'I'I t `T` (Void) `L` tttt `T` (Void)) @tttt
+  `compose` boundtype `compose` These (T'I'II T'TT'I'TTT'I) `compose` T'I'
+  `compose` wrapped (map @T'I'II @(AR) @(AR) @(T'II'I t _) (wrapped (component @(AR) @(tt `T'TT'I` tttt `L` tttt `T` l `L` tt `T` (Void)) @(tt `TT'T'I` tttt))
+   `compose` map @T'I'II @(AR) @(AR) @tt (rewrap @(AR) @(tttt `L` tttt `T` l `L` T'TT'I'TTT'I t tt ttt `T` (Void) `T` _) @(tttt `L` tttt `T` l `L` tt `T` (Void) `T` _) identity)))
+  `compose` wrapped (map @T'I'II @(AR) @(AR) @(T'I'II t _) (wrapped (component @(AR) @(ttt `T'TT'I` tttt `L` tttt `T` l `L` ttt `T` (Void)) @(ttt `TT'T'I` tttt))
+   `compose` map @T'I'II @(AR) @(AR) @ttt (rewrap @(AR) @(tttt `L` tttt `T` l `L` T'TT'I'TTT'I t tt ttt `T` (Void) `T` _) @(tttt `L` tttt `T` l `L` ttt `T` (Void) `T` _) identity)))
+  `compose` supertype)
