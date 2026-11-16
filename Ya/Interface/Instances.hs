@@ -39,6 +39,19 @@ instance
   ) `yo'yo` supertype @(AR) @(F'T'I'TT _ _ _))
   `yo'dc'yo'nt'yo` boundtype @(AR) @(I `L` T'I'I (P) `T` ll `L` tt `T` (Void) `T` _) `compose` (\(These i ii) -> These ii i)
 
+instance
+ ( Covariant Endo Semi Functor (AR) t
+ , Covariant Endo Semi Functor (AR) tt
+ , Component (AR) (t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) (t `TT'T'I` tt)
+ ) => Component (AR) (F'T'I'TT (T'I'II S) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT (T'I'II S) t `T` Void) (F'T'I'TT (T'I'II S) t `TT'T'I` tt) where
+ component = rewrap `identity` \(F'T'I'TT (Recursive (T'TT'I (T'I'II x)))) -> case x of
+  This xx -> supertype (supertype xx) `yo` F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` This
+  That xx -> wrapped (component @(AR) @(t `T'TT'I` tt `L` tt `T` ll `L` t `T` Void) @(t `TT'T'I` tt))
+   (xx `yo` F'T'I'TT `ho` wrapped (component @(AR) @(F'T'I'TT (T'I'II S) t `T'TT'I` tt `L` tt `T` ll `L` F'T'I'TT (T'I'II S) t `T` Void) @(F'T'I'TT (T'I'II S) t `TT'T'I` tt))
+    `ho` subtype @(AR) @(tt `L` tt `T` ll `T` _)
+    `ho` subtype @(AR) @(tt `L` tt `T` ll `L` t `T` Void `T` _)
+   ) `yo` F'T'I'TT `ha` Recursive `ha` T'TT'I `ha` T'I'II `ha` That `ha` map @T'I'II @(AR) @(AR) supertype
+
 -- instance
  -- ( Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) i `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void `P` Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe)
  -- ) => Mapping T'I'II T'I'II (AR) (AR) (T'I'II (AR) (i `S` Unit) `L` (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) `T` (Void)) (Maybe `T'TT'I` F'T'I'TT (T'II'I P) Maybe) where
