@@ -152,23 +152,37 @@ instance
   )
 
 instance
- ( forall i . Covariant Semi Functor source target (T'II'I u i `T'TT'I` t)
- , forall i . Covariant Endo Semi Functor source (T'II'I u i `T'TT'I` t)
- , forall i . Covariant Endo Semi Functor source (T'I'II u (t i))
- , forall i . Covariant Semi Functor source target (T'I'II u (t i))
- , forall e . Wrapper source (F'T'I'TT (T'II'I u) t e)
- , forall e . Wrapper target (F'T'I'TT (T'II'I u) t e)
- , forall i . Wrapper source (Recursive (T'II'I u i `T'TT'I` t))
- , forall i . Wrapper target (Recursive (T'II'I u i `T'TT'I` t))
- , forall i ii . Wrapper source (T'II'I u i ii)
- , forall i ii . Wrapper target (T'II'I u i ii)
- , forall i ii . Wrapper source (T'I'II u i ii)
- , forall i ii . Wrapper target (T'I'II u i ii)
- , forall i ii . Wrapper source ((T'II'I u i `T'TT'I` t) ii)
- , forall i ii . Wrapper target ((T'II'I u i `T'TT'I` t) ii)
- ) => Mapping T'I'II source target (F'T'I'TT (T'II'I u) t) where
+ ( forall i . Covariant Semi Functor source target (T'II'I t i `T'TT'I` tt)
+ , forall i . Covariant Endo Semi Functor source (T'II'I t i `T'TT'I` tt)
+ , forall i . Covariant Endo Semi Functor source (T'I'II t (tt i))
+ , forall i . Covariant Semi Functor source target (T'I'II t (tt i))
+ , forall e . Wrapper source (F'T'I'TT (T'II'I t) tt e)
+ , forall e . Wrapper target (F'T'I'TT (T'II'I t) tt e)
+ , forall i . Wrapper source (Recursive (T'II'I t i `T'TT'I` tt))
+ , forall i . Wrapper target (Recursive (T'II'I t i `T'TT'I` tt))
+ , forall i ii . Wrapper source (T'II'I t i ii)
+ , forall i ii . Wrapper target (T'II'I t i ii)
+ , forall i ii . Wrapper source (T'I'II t i ii)
+ , forall i ii . Wrapper target (T'I'II t i ii)
+ , forall i ii . Wrapper source ((T'II'I t i `T'TT'I` tt) ii)
+ , forall i ii . Wrapper target ((T'II'I t i `T'TT'I` tt) ii)
+ ) => Mapping T'I'II source target (F'T'I'TT (T'II'I t) tt) where
  mapping ~(T'I'II source) = rewrap `compose` rewrap `identity`
-  ((rewrap `compose` rewrap) (wrapped (map @T'I'II @_ @_ @(T'I'II u (t _)) source))
-  `compose` map @T'I'II @source @target @(T'II'I u _ `T'TT'I` t)
-   (wrapped (map @T'I'II @source @_ @(F'T'I'TT (T'II'I u) t) source))
+  ((rewrap `compose` rewrap) (wrapped (map @T'I'II @_ @_ @(T'I'II t (tt _)) source))
+  `compose` map @T'I'II @source @target @(T'II'I t _ `T'TT'I` tt)
+   (wrapped (map @T'I'II @source @_ @(F'T'I'TT (T'II'I t) tt) source))
   )
+
+instance
+ ( forall e . Covariant Endo Semi Functor target (T'I'II t e)
+ , forall e . Covariant Endo Semi Functor target (T'II'I t e)
+ , Covariant Semi Functor source target ttt
+ , Covariant Semi Functor source target tt
+ , forall e . Wrapper target (T'TT'I'TTT'I t tt ttt e)
+ , forall e ee . Wrapper target (T'I'II t e ee)
+ , forall e ee . Wrapper target (T'II'I t e ee)
+ ) => Mapping T'I'II source target (T'TT'I'TTT'I t tt ttt) where
+ mapping ~(T'I'II source) =
+  let f = wrapped `compose` map @T'I'II @target @target @(T'II'I t _) `compose` map @T'I'II @source @target @tt in
+  let g = wrapped `compose` map @T'I'II @target @target @(T'I'II t _) `compose` map @T'I'II @source @target @ttt in
+  rewrap (f source `compose` g source)
