@@ -1,6 +1,6 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
 {-# LANGUAGE UndecidableInstances #-}
-module Ya.Interface.Fieldable where
+module Ya.Interface.Morphisms where
 
 import Ya.Semantics
 import Ya.Operators
