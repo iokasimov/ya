@@ -93,6 +93,7 @@ happen :: forall tt t ll i .
 happen = supertype @(AR) `ha'nt'ha` multicomponent @(TR) @t @tt @ll `yio'yio` unlabel @(AR)
 
 class Fieldable i r where
+ -- TODO: generalise over categories?
  record :: Supertype (r `AT` i)
 
 instance {-# OVERLAPPABLE #-}
@@ -113,3 +114,9 @@ instance Fieldable e (ee `P` e) where
 
 instance {-# OVERLAPS #-} Fieldable e ee => Fieldable e (ee `P` eee) where
  record (These x xs) = (this `ha` record @e @ee `ha'nt'ha` x) `These` (that `ha` record @e @ee `ha'nt'ha` x `ho_` (`These` xs))
+
+itself :: Category AR_ => e `AR_` e
+itself = identity
+
+mirror :: Supertype (i `AT` i)
+mirror x = These x identity
