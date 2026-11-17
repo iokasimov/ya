@@ -7,7 +7,9 @@ type Alone = I
 pattern Alone :: forall i . i -> Alone i
 pattern Alone x = Identity x
 
-type Flout = T'I'
+type Other = T'I'
+
+type Arrow = (AR)
 
 type Given = T'I'II (AR)
 
@@ -80,3 +82,7 @@ type family Nonempty t where
  Nonempty (List `T'TT'I` Construction t) = Construction Maybe `T'TT'I` Construction t
 
 type List = Maybe `T'TT'I` Construction Maybe
+
+type Tree = Construction List
+
+type Match = T'II'I Arrow Boolean
