@@ -294,7 +294,11 @@ instance
  component = rewrap `compose` rewrap `identity` \f -> T'TT'I `compose` T'II'I `identity` (component @(AR) @(T'I'II (AR) Void `L` t `T` (Void)) @t (Label (T'I'II initial)) `These` f Unit)
 
 instance Component (AR) (T'I'II (AR) Unit `L` F'T'I'TT (T'I'II (S)) t `T` (Void)) (F'T'I'TT (T'I'II (S)) t) where
- component = rewrap `identity` \(T'I'II f) -> boundtype (This (supertype f))
+ component = rewrap `compose` rewrap `identity` (boundtype `compose` This `compose` supertype)
+
+instance Covariant Endo Semi Functor (AR) t
+ => Component (AR) (t `L` F'T'I'TT (T'I'II (S)) t `T` (Void `P` Void)) (F'T'I'TT (T'I'II (S)) t) where
+ component = rewrap `identity` (boundtype `compose` That `compose` map @T'I'II @(AR) @(AR) (boundtype `compose` This))
 
 instance
  ( forall e . Wrapper (AR) (tttt `L` tttt `T` l `T` e)

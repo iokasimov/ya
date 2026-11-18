@@ -30,8 +30,14 @@ pattern Stack i = Label (Identity i)
 pattern Every :: forall i . i `AR__` I `L` T'I'I P `T` (Void) `T` i
 pattern Every x = Label @_ @(T'I'I P) @Void (Identity x)
 
-pattern Twice :: forall e i . i `AR__` I `L` T'I'I (P) `T` Void `T'I` i
+pattern Twice :: forall e i . i `AR__` I `L` T'I'I (P) `T` (Void) `T'I` i
 pattern Twice x = Label (Identity x)
 
-pattern Exist :: forall e t i . t i `AR__` t `L` T'I'II (S) Unit `T` Void `T'I` i
+pattern Exist :: forall e t i . t i `AR__` t `L` T'I'II (S) Unit `T` (Void) `T'I` i
 pattern Exist x = Label x
+
+pattern Value :: forall t i . i `AR__` I `L` Instruction t `T` (Void) `T'I` i
+pattern Value x = Label (Identity x)
+
+pattern Mount :: forall t i . i `AR__` I `L` Instruction t `T` (Void `P` Void) `T'I` i
+pattern Mount x = Label (Identity x)
