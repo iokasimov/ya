@@ -16,9 +16,6 @@ type Attribute = T'I'TT'II'T'II'I (AR) P
 
 type Scope = T'I'TT'II'T'II'I (AR) P
 
-pattern Scope :: forall ee e . (e `AR_` (P) ee (ee -> e)) -> Scope e ee
-pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
-
 type Reach = T'I'II Scope
 
 type Budge = T'II'I Scope
