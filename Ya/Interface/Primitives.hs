@@ -4,22 +4,13 @@ import Ya.Semantics.Structures
 
 type Alone = I
 
-pattern Alone :: forall i . i -> Alone i
-pattern Alone x = Identity x
-
 type Other = T'I'
 
 type Arrow = (AR)
 
 type Given = T'I'II (AR)
 
-pattern Given :: e `AR` ee `AR_` Given e ee
-pattern Given x = T'I'II x
-
 type Taken = T'II'I (AR)
-
-pattern Taken :: ee `AR` e `AR_` Taken e ee
-pattern Taken x = T'II'I x
 
 type Attribute = T'I'TT'II'T'II'I (AR) P
 
@@ -30,42 +21,17 @@ pattern Scope x = T'I'TT'II'T'II'I @(AR) @(P) x
 
 type Reach = T'I'II Scope
 
-pattern Reach :: forall i o . Scope i o -> Reach i o
-pattern Reach x = T'I'II @Scope x
-
 type Budge = T'II'I Scope
-
-pattern Budge :: forall i a . Scope a i -> Budge i a
-pattern Budge x = T'II'I @Scope x
 
 type Boolean = T'I'II (S) Unit Unit
 
-pattern Boolean :: Unit `S` Unit `AR` Boolean
-pattern Boolean e = T'I'II e
-
-pattern False x = T'I'II (This x) :: Boolean
-pattern True x = T'I'II (That x) :: Boolean
-
 type Added = T'II'I P
-
-pattern Added :: forall e ee . e `P` ee `AR` Added ee e
-pattern Added x = T'II'I x
 
 type Halts = T'I'II (S) Unit
 
 type Maybe = T'I'II (S) Unit
 
 type Stops = T'I'II (S)
-
-{-
-pattern Stops x = T'I'II @(S) x
-
-pattern Error :: i -> Stops i ii
-pattern Error x = T'I'II (This x)
-
-pattern Break :: i -> Stops i ii
-pattern Break x = T'I'II (This x)
--}
 
 type Twice = T'I'I (P)
 
